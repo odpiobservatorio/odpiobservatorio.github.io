@@ -9,26 +9,43 @@ async function load(path) {
     }
 }
 
+let CapaBloquePetrolero;
+let LayerPlano;
+let capaDepartamentos;
+let FondoLayer;
+let cpaPdet;
+let PozosPretoleros;
+let reservasCap;
+let resguardos;
+let TitulosMineros;
+let densidadCoca;
+let capaFluvialIlegal;
+let capaRutaArmas;
+let capaContrabando;
+let capaPuntosNarcotrafico;
+let capaRutaMigrantes;
+
+
 //Cargar las variables de cada base de datos (Luego se puede cambiar a algo mas eficiente)
 (async () => { 
     //Layers
-    let CapaBloquePetrolero = await load('./layers/BloquePetrolero.json');
-    let LayerPlano = await load('./layers/Croquis.json');
-    let capaDepartamentos = await load('./layers/Departamentos.json');
-    let FondoLayer = await load('./layers/Fondo.json');
-    let cpaPdet = await load('./layers/MunicipiosPDET.json');
-    let PozosPretoleros = await load('./layers/PozosPet.json');
-    let reservasCap = await load('./layers/ReservasCap.json');
-    let resguardos = await load('./layers/Resguardos.json');
-    let TitulosMineros = await load('./layers/TitulosMin.json');   
+    CapaBloquePetrolero = await load('./layers/BloquePetrolero.json');
+    LayerPlano = await load('./layers/Croquis.json');
+    capaDepartamentos = await load('./layers/Departamentos.json');
+    FondoLayer = await load('./layers/Fondo.json');
+    cpaPdet = await load('./layers/MunicipiosPDET.json');
+    PozosPretoleros = await load('./layers/PozosPet.json');
+    reservasCap = await load('./layers/ReservasCap.json');
+    resguardos = await load('./layers/Resguardos.json');
+    TitulosMineros = await load('./layers/TitulosMin.json');   
     
     //ECOIlegal
-    let densidadCoca = await load("./layers/ECOIlegal/desidadCoca.json");
-    let capaFluvialIlegal= await load("./layers/ECOIlegal/FluvilesIlegal.json");
-    let capaRutaArmas = await load("./layers/ECOIlegal/IngArmas.json");
-    let capaContrabando = await load("./layers/ECOIlegal/PuntosContrabando.json");
-    let capaPuntosNarcotrafico = await load("./layers/ECOIlegal/PuntosNarcotrafico.json");
-    let capaRutaMigrantes = await load("./layers/ECOIlegal/RutaMigrantes.json");
+    densidadCoca = await load("./layers/ECOIlegal/desidadCoca.json");
+    capaFluvialIlegal = await load("./layers/ECOIlegal/FluvilesIlegal.json");
+    capaRutaArmas = await load("./layers/ECOIlegal/IngArmas.json");
+    capaContrabando = await load("./layers/ECOIlegal/PuntosContrabando.json");
+    capaPuntosNarcotrafico = await load("./layers/ECOIlegal/PuntosNarcotrafico.json");
+    capaRutaMigrantes = await load("./layers/ECOIlegal/RutaMigrantes.json");
 })();
 
 //Los archivos en los que se dividio la informacion ambiental inicializan 3 variables q tienen informacion en formato de string
