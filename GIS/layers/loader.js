@@ -1,6 +1,9 @@
 //Loader
 console.log("........Loading.........")
 
-const text = require("./test.json")
-console.log(text)
+fetch('./test.json')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.log(error));
+
 
