@@ -1,4 +1,4 @@
-let DataPrincipal=[
+let DataPrincipal = [
   {
    "Macro": "Occidente",
    "Departamento": "Antioquia",
