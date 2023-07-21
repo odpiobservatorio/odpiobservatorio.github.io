@@ -55,7 +55,7 @@ function mostrarResguardos() {
         }
       }
     ).bindPopup(function (layer) {
-      return layer.feature.properties.NOMBRE_RESGUARDO_INDIGENA + " ETNIA:" + layer.feature.properties.PUEBLO
+      return `${layer.feature.properties.NOMBRE_RESGUARDO_INDIGENA} ETNIA: ${layer.feature.properties.PUEBLO}`
     }).addTo(map);
 
 
@@ -136,8 +136,7 @@ function MostrarNarcotrafico() {
         return L.marker(latlng, { icon: pNegroN });
       }
     }).bindPopup(function (layer) {
-      return "Nombre: " + layer.feature.properties.Nombre + ", Lugar:"
-        + layer.feature.properties.NMunicipio;
+      return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
     }).addTo(map);
 
 
@@ -153,10 +152,8 @@ function MostrarContrabando() {
         return L.marker(latlng, { icon: pAzulC });
       }
     }).bindPopup(function (layer) {
-      return "Tipo: " + layer.feature.properties.CONTRABAND + ", Lugar:"
-        + layer.feature.properties.NOM_CPOB;
+      return `Tipo: ${layer.feature.properties.CONTRABAND}, Lugar: ${layer.feature.properties.NOM_CPOB}`;
     }).addTo(map);
-
 
   } else {
     map.removeLayer(Contrabando)
@@ -176,7 +173,7 @@ function mostrarDensidadCoca() {
         fillOpacity: 0.5
       }
     }).bindPopup(function (layer) {
-      return "Área " + layer.feature.properties.areacoca;
+      return `Área ${layer.feature.properties.areacoca}`;
     }).addTo(map);
 
   } else {
@@ -196,9 +193,7 @@ function mostrarRutaFluvialIlegal() {
       }
 
     }).bindPopup(function (layer) {
-      return "Nombre: " + layer.feature.properties.NOM_RIO + ", Tipo:"
-        + layer.feature.properties.TIPO_RUTA +
-        ", Descripción:" + layer.feature.properties.DESCRIP;
+      return `Nombre: ${layer.feature.properties.NOM_RIO}, Tipo: ${layer.feature.properties.TIPO_RUTA}, Descripción: ${layer.feature.properties.DESCRIP}`;
     }).addTo(map);
 
   } else {
@@ -219,9 +214,7 @@ function mostrarRutaArmas() {
       }
 
     }).bindPopup(function (layer) {
-      return "Nombre: " + layer.feature.properties.NOMBRE + ", Tipo:"
-        + layer.feature.properties.TIPO +
-        ", Ruta:" + layer.feature.properties.RUTA;
+      return `Nombre: ${layer.feature.properties.NOMBRE}, Tipo: ${layer.feature.properties.TIPO}, Ruta: ${layer.feature.properties.RUTA}`;
     }).addTo(map);
 
   } else {
@@ -262,7 +255,8 @@ function mostrarAmbiental() {
         fillOpacity: 0.5
       }
     }).bindPopup(function (layer) {
-      return layer.feature.properties.nombre + ", Categoría:" + layer.feature.properties.organizaci + "Org:" + layer.feature.properties.categoria
+      
+      return `${layer.feature.properties.nombre}, Categoría: ${layer.feature.properties.organizaci}, Org: ${layer.feature.properties.categoria}`
     }).addTo(map);
 
 
@@ -284,10 +278,8 @@ function mostrarTitulos() {
         fillOpacity: 1
       }
     }).bindPopup(function (layer) {
-      return "Estado:" + layer.feature.properties.TITULO_EST
-        + ", Minerales: " + layer.feature.properties.MINERALES
-        + ", Etapa:" + layer.feature.properties.ETAPA
-        + ", Contrato" + layer.feature.properties.MODALIDAD;
+      
+      return `Estado: ${layer.feature.properties.TITULO_EST}, Minerales: ${layer.feature.properties.MINERALES}, Etapa: ${layer.feature.properties.ETAPA}, Contrato: ${layer.feature.properties.MODALIDAD}`;
     }).addTo(map);
 
 
@@ -312,9 +304,7 @@ function mostrarBloquePetrolero() {
       }
 
     }).bindPopup(function (layer) {
-      return "Tipo:" + layer.feature.properties.TIPO_CONTR
-        + ", Operador:" + layer.feature.properties.TIPO_CONTR
-        + ", Estado" + layer.feature.properties.ESTAD_AREA;
+      return `Tipo: ${layer.feature.properties.TIPO_CONTR}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
     }).addTo(map);
 
   } else {
@@ -535,5 +525,3 @@ var pSenalador = L.icon({
   iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
   popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
 });
-
-
