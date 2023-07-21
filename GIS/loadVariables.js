@@ -27,9 +27,11 @@ let capaRutaArmas;
 let capaContrabando;
 let capaPuntosNarcotrafico;
 let capaRutaMigrantes;
+let DataPrincipal;
 
 
 //Cargar las variables de cada base de datos (Luego se puede cambiar a algo mas eficiente)
+console.log("...Iniciando carga...")
 //Layers
 load('./layers/BloquePetrolero.json').then(data => { CapaBloquePetrolero = data });
 load('./layers/Croquis.json').then(data => { LayerPlano = data });
@@ -48,3 +50,7 @@ load("./layers/ECOIlegal/IngArmas.json").then(data => { capaRutaArmas = data });
 load("./layers/ECOIlegal/PuntosContrabando.json").then(data => { capaContrabando = data });
 load("./layers/ECOIlegal/PuntosNarcotrafico.json").then(data => { capaPuntosNarcotrafico = data });
 load("./layers/ECOIlegal/RutaMigrantes.json").then(data => { capaRutaMigrantes = data });
+
+//Data principal
+load("../data/DataPrincipal.json").then(data => { DataPrincipal = data });
+console.log("...Waiting...")
