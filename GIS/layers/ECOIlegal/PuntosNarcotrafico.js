@@ -1,0 +1,20 @@
+let capaPuntosNarcotrafico={
+    "type": "FeatureCollection",
+    "name": "Narco",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+    "features": [
+    { "type": "Feature", "properties": { "Id": 1, "CMunicipio": "13001", "NMunicipio": "CARTAGENA DE INDIAS", "CPNombre": "CARTAGENA DE INDIAS, DISTRITO TURÍSTICO Y CULTURAL", "Nombre": "Área de zarpe de narcotráfico-Terminal Maritimo" }, "geometry": { "type": "Point", "coordinates": [ -75.509256256953037, 10.503717818644137 ] } },
+    { "type": "Feature", "properties": { "Id": 2, "CMunicipio": "05490", "NMunicipio": "NECOCLÍ", "CPNombre": "NECOCLÍ", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -76.795287590524296, 8.451740734957198 ] } },
+    { "type": "Feature", "properties": { "Id": 3, "CMunicipio": "91001", "NMunicipio": "LETICIA", "CPNombre": "LETICIA", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -69.962571688241582, -4.319648320747608 ] } },
+    { "type": "Feature", "properties": { "Id": 4, "CMunicipio": "52835", "NMunicipio": "TUMACO", "CPNombre": "SAN ANDRÉS DE TUMACO, DISTRITO ESPECIAL, INDUSTRIAL, PORTUARIO, BIODIVERSO Y ECOTURÍSTICO", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -78.725522592072849, 1.923094954754133 ] } },
+    { "type": "Feature", "properties": { "Id": 5, "CMunicipio": "19318", "NMunicipio": "GUAPI", "CPNombre": "GUAPI", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -77.989847166175167, 2.651725377731969 ] } },
+    { "type": "Feature", "properties": { "Id": 6, "CMunicipio": "19809", "NMunicipio": "TIMBIQUÍ", "CPNombre": "TIMBIQUÍ", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -77.767594132805982, 2.845294823312744 ] } },
+    { "type": "Feature", "properties": { "Id": 7, "CMunicipio": "19418", "NMunicipio": "LÓPEZ", "CPNombre": "LÓPEZ", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -77.350669558797748, 2.890011057461629 ] } },
+    { "type": "Feature", "properties": { "Id": 8, "CMunicipio": "76109", "NMunicipio": "BUENAVENTURA", "CPNombre": "BUENAVENTURA, DISTRITO ESPECIAL, INDUSTRIAL, PORTUARIO, BIODIVERSO Y ECOTURÍSTICO", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -77.155741059822773, 3.867573522338414 ] } },
+    { "type": "Feature", "properties": { "Id": 9, "CMunicipio": "05837", "NMunicipio": "TURBO", "CPNombre": "TURBO, DISTRITO PORTUARIO, LOGÍSTICO, INDUSTRIAL, TURÍSTICO Y COMERCIAL", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -76.740810019253104, 8.066969383235195 ] } },
+    { "type": "Feature", "properties": { "Id": 10, "CMunicipio": "70221", "NMunicipio": "COVEÑAS", "CPNombre": "COVEÑAS", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -75.651889030372914, 9.387936459614192 ] } },
+    { "type": "Feature", "properties": { "Id": 11, "CMunicipio": "70820", "NMunicipio": "TOLÚ", "CPNombre": "SANTIAGO DE TOLÚ", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -75.541911619787911, 9.53481291961265 ] } },
+    { "type": "Feature", "properties": { "Id": 12, "CMunicipio": "08001", "NMunicipio": "BARRANQUILLA", "CPNombre": "BARRANQUILLA, DISTRITO ESPECIAL, INDUSTRIAL Y PORTUARIO", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -74.795610470951729, 11.114697850449632 ] } },
+    { "type": "Feature", "properties": { "Id": 13, "CMunicipio": "47001", "NMunicipio": "SANTA MARTA", "CPNombre": "SANTA MARTA, DISTRITO TURÍSTICO, CULTURAL E HISTÓRICO", "Nombre": "Área de zarpe de narcotráfico" }, "geometry": { "type": "Point", "coordinates": [ -74.219424302083226, 11.252136509837104 ] } }
+    ]
+    }

@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+
+    <!-- estas son las librerias de bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <script src="https://kit.fontawesome.com/3d0f9c201e.js" crossorigin="anonymous"></script>
+
+    <!-- otros iconos para la aplicación -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+
+</head>
+<script>
+
+</script>
+<header class="sticky-top">
+    <!-- barra de menu de mapas -->
+    <div class="row row-cols-auto p-2" style="background-color: #0B5345;">
+        <div class="col">
+            <button class="btn btn-outline-success text-white ms-3" type="button" onclick="CargarlstMap()"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasBuscar" aria-controls="offcanvasBuscar">
+                <i class="bi bi-binoculars" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Panel de búsquedas"></i>
+            </button>
+            <button class="btn btn-outline-success text-white" type="button" onclick="RemoverMarkers()">
+                <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Limpiar marcas"></i>
+            </button>
+        </div>
+
+        <div class="col">
+            <div class="Visor de capas">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-stack" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-custom-class="tooltip" data-bs-title="Ver capas"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <!--Menú unidades territoriales-->
+                    <li class="dropdown-item ms-4">Unidades territoriales &rsaquo;
+                        <ul class="dropdown-menu submenu">
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarDepartamentos() ">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerDepartamentos">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Departamentos
+                                    </label>
+                                </div>
+                            </li>
+
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarResguardos() ">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerResguardos">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Resguardos
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarReservas() ">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerReservas">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Reservas campesinas
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarMunPdet() ">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerPdet">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Municipios PDET 2017
+                                    </label>
+                                </div>
+                            </li>
+                            
+                            
+                        </ul>
+
+                    </li>
+                    <!--Menu de economias ilegales-->
+                    <li class="dropdown-item ms-4">Economias ilegales &rsaquo;
+                        <ul class="dropdown-menu submenu">
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarRutaMigrantes()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerRutaMigrantes">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Rutas migrantes
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarRutaArmas()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerRutaArmas">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Ruta ingreso armas
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarRutaFluvialIlegal()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerFluvialIlegal">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Ruta fluvial ilegal
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="MostrarNarcotrafico()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerNarcotrafico">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Puntos Narcotrafico
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="MostrarContrabando()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerContrabando">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Puntos Contrabando
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check m-1" onchange="mostrarDensidadCoca()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerDensidadCoca">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Densidad Coca 2021
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li class="dropdown-item ms-4">Mineria &rsaquo;
+                        <ul class="dropdown-menu submenu">
+                            <li class="dropdown-item">
+                                <div class="form-check ms-1" onchange="mostrarTitulos()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerTitulos">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Titulos mineros
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <div class="form-check ms-1" onchange="mostrarBloquePetrolero()">
+                                    <input class="form-check-input" type="checkbox" value="" id="LayerBloquePretrolero">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Bloques petroleros
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-item">
+                        <div class="form-check m-1" onchange="mostrarAmbiental()">
+                            <input class="form-check-input" type="checkbox" value="" id="LayerAmbiental">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Información ambiental
+                            </label>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown-item">
+                        <div class="form-check m-1" onchange="mostrarCroquis()">
+                            <input class="form-check-input" type="checkbox" value="" id="LayerPlano">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Ver mapa plano
+                            </label>
+                        </div>
+                    </li>
+                    <li class="dropdown-item">
+                        <div class="form-check m-1" onchange="mostrarFondo()">
+                            <input class="form-check-input" type="checkbox" value="" id="LayerFondo">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Ver fondo plano
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados"
+            aria-controls="offcanvasResultados">
+            <button class="btn btn-outline-success text-white" type="button">
+                <i class="bi bi-eye-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Ver resultados"></i>
+            </button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasFormato" aria-controls="offcanvasFormato">
+                <i class="bi bi-bookmark-check" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Panel de etiquetas"></i>
+            </button>
+            <button class="btn btn-outline-success text-white" type="button" onclick="RemoverLabels()">
+                <i class="bi bi-eraser-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Limpiar etiquetas"></i>
+            </button>
+            <a href="../Chart/chart.html" class="btn btn-outline-success text-white" role="button">
+                <i class="bi bi-pie-chart-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="tooltip" data-bs-title="Mostrar Gráficos"></i>
+            </a>
+        </div>
+
+    </div>
+</header>
+
+
+<body onload="LoadData()">
+    <!-- Panel de busqueda-->
+    <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header text-white" style="background-color: #16A085;">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Opciones de búsqueda</h5>
+            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+
+                <div class="list-group" id="lstBusqueda">
+                    <form class="row align-items-center">
+                        <div class="col-md-9">
+                            <div class="h6">Criterios de búsqueda básico</div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-outline-success" type="button" onclick="BuscarFaseI()"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados"
+                                aria-controls="offcanvasResultados">
+                                <i class="bi bi-binoculars"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <!--Lista de campos o culumnas por donde buscar-->
+                    <form class="row g-2 align-items-center mb-2">
+                        <div class="col-md-9">
+                            <div class="form-floating">
+                                <select id="lstCampos" class="form-select" onchange="listasAutomaticas('lstCampos')">
+                                    <option value="Macro">Macro</option>
+                                    <option value="Departamento">Departamento</option>
+                                    <option value="Municipio">Lugar</option>
+                                    <option value="Territorio">Resguardo o cabildo</option>
+                                    <option value="Pueblo">Pueblo, Etnia</option>
+                                    <option value="Tipo">Tipo de afectación</option>
+                                    <option value="Year">Año</option>
+                                    <option value="Edad">Edad</option>
+                                    <option value="Sexo">Género</option>
+                                    <option value="Antecedentes">Detalle de caso, antecedente</option>
+                                    <option value="Ocupación">Ocupación</option>
+                                    <option value="Perpetrador">Perpetuador, afectador</option>
+                                    <option value="Fuente">Fuente de información</option>
+                                    <option value="Tipo desplazamiento">Tipo de desplazamiento</option>
+                                </select>
+                                <label for="floatingSelect">Buscar por</label>
+                            </div>
+                        </div>
+                    </form>
+                    <!--Lista de operadores de comparación-->
+                    <form class="row g-2 align-items-center mb-3">
+                        <div class="col-md-9">
+                            <div class="form-floating">
+                                <select id="lstOperador" class="form-select" onchange="">
+                                    <option value="==">IGUAL (=)</option>
+                                    <option value=">">MAYOR (>)</option>
+                                    <option value="&lt;">MENOR (&lt;)</option>
+                                    <option value="1">SIMILAR</option>
+                                </select>
+                                <label for="floatingSelect">Operador</label>
+                            </div>
+                        </div>
+                    </form>
+                    <!--Lista automatica-->
+                    <form class="row g-2 align-items-center mb-3">
+                        <div class="col-md-9">
+                            <div class="form-floating">
+                                <select id="lstAutomatica" class="form-select" onchange="addTextHelp()">
+                                </select>
+                                <label for="floatingSelect">Información de apoyo</label>
+                            </div>
+                        </div>
+                    </form>
+                    <!--Lista valor a buscar-->
+                    <form class="row g-2 align-items-center mb-2">
+                        <div class="col-md-9">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="txValorBusquedaA">
+                                <label for="floatingSelect">Valor</label>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <form class="row align-items-center mb-3">
+                    <div class="col-md-8">
+                        <div class="h6 mt-2">Criterio de búsqueda avanzado</div>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="#" class="h3 text-success" onclick="VerFindExtend()" style="text-decoration: none;"
+                            id="plusOption">+</a>
+                    </div>
+                </form>
+                <form class="row align-items-center" id="PlusFind" hidden="true">
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-primary" type="button" onclick="AgregarCriterioFind()">
+                            <i class="bi bi-file-earmark-plus" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Agregar criterio"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-primary" type="button" onclick="AddOperadorCriteriosY()"
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                            data-bs-title="Críterio Y de búsqueda">{Y}</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-primary" type="button" onclick="AddOperadorCriteriosO()"
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                            data-bs-title="Críterio O de búsqueda">{O}</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-primary" type="button" onclick="LimpiarCriterios()">
+                            <i class="bi bi-eraser-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Limpiar criterios"></i>
+                        </button>
+                    </div>
+
+                    <div class="col-md-1">
+                        <button class="btn btn-outline-primary" type="button" onclick="BuscarFaseII()"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados"
+                            aria-controls="offcanvasResultados">
+                            <i class="bi bi-binoculars" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Buscar resultados"></i>
+                        </button>
+                    </div>
+                </form>
+                <form class="row g-2 align-items-center mt-2">
+                    <div class="col-md-12">
+                        <ul class="list-group" id="lstCriterios">
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Panel de resultados -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasResultados" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header bg-success text-white">
+            <div class="row">
+                <h5 class="offcanvas-title" id="tlResultados">Resultados</h5>
+            </div>
+            <form class="row align-items-center">
+                <div class="col-1" data-bs-toggle="modal" data-bs-target="#TableAModal" onclick="TablaReport()">
+                    <i class="bi bi-table text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-custom-class="tooltip" data-bs-title="Ver tabla"></i>
+                </div>
+                <div class="col-1" data-bs-toggle="modal" data-bs-target="#TableAModal" onclick="DocumentReport()">
+                    <i class="bi-file-bar-graph text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-custom-class="tooltip" data-bs-title="Ver reporte" onclick=""></i>
+                </div>
+            </form>
+            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <div class="list-group" id="lstResGis">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel de etiquetas-->
+    <div class="offcanvas offcanvas-end shadow rounded" tabindex="-1" id="offcanvasFormato"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header text-white" style="background-color: #16A085;">
+            <h6 class="offcanvas-title" id="offcanvasExampleLabel">Panel etiquetas</h6>
+            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <div class="list-group" id="">
+                    <form class="row align-items-center mb-2">
+                        <div class="mb-3">
+                            <label class="form-label">Contenido etiquetas</label>
+                            <textarea onchange="ActualizarEtiquetas()" class="form-control" rows="4"
+                                id="txValorEtiqueta"></textarea>
+                        </div>
+                    </form>
+                    <div class="form-check m-1" onchange="ActivarEtiquetas() ">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerEtiquetas">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Activar etiquetas
+                        </label>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de caso -->
+    <div class="modal shadow rounded" tabindex="-1" id="ModalCaseOnMap" data-bs-backdrop="static" style="z-index: 1900">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tlTipoCaso">Caso Número</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" spellcheck="true">
+                    <div class="h3" id="txTipo"></div>
+                    <div class="h4 text-primary" id="txAño"></div>
+                    <div class="h5 text-primary" id="txLugar"></div>
+                    <div class="h5 text-success" id="txEtnia"></div>
+                    <div class="h6 text-danger" id="txPerpetuador"></div>
+                    <p id="txCaso">Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="layers/Croquis.js"></script>
+    <script src="layers/Resguardos.js"></script>
+    <script src="layers/MunicipiosPDET.js"></script>
+    <script src="layers/Departamentos.js"></script>
+
+    <script src="layers/TitulosMin.js"></script>
+    <script src="layers/BloquePetrolero.js"></script>
+
+    <script src="layers/ReservasCap.js"></script>
+    <script src="layers/PozosPet.js"></script>
+    <script src="layers/infoambiente.js"></script>
+
+
+    <script src="layers/ECOIlegal/RutaMigrantes.js"></script>
+    <script src="layers/ECOIlegal/IngArmas.js"></script>
+    <script src="layers/ECOIlegal/FluvilesIlegal.js"></script>
+    <script src="layers/ECOIlegal/PuntosNarcotrafico.js"></script>
+    <script src="layers/ECOIlegal/PuntosContrabando.js"></script>
+    <script src="layers/ECOIlegal/desidadCoca.js"></script>
+
+
+    <script src="layers/Fondo.js"></script>
+    <script src="mapGraphics.js"></script>
+    <script src="mapData.js"></script>
+
+    <script src="../data/DataPrincipal.js"></script>
+
+    <div id="map"></div>
+
+</body>
+<!-- Modal tabla -->
+
+<!-- Modal -->
+<div class="modal fade modal-dialog-scrollable" id="TableAModal" tabindex="-1" aria-labelledby="TableAModalLabel"
+    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Reporte de resultados</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="divTableModal"></div>
+                <div id="divDocModal" class="divCols" id="divTableModal" spellcheck="true"></div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- llama a los eventos .js para esta página -->
+
+<script>
+    let map;
+    map = L.map("map", {
+        zoomDelta: 0.25,
+        zoomSnap: 0
+    }).setView([5.1, -75.55], 5);
+
+    tileMLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        //y un mapa con un límite de zoom.
+        {
+            maxZoom: 19,
+            attribution:
+                'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+        }).addTo(map);
+
+    map.on('click', putLabel);
+</script>
+
+
+</html>

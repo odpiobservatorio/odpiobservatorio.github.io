@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+
+
+    <!-- estas son las librerias de bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+<header class="sticky-top">
+    <div class="row row-cols-auto p-2" style="background-color: #0B5345;">
+        <div class="col">
+            <a href="../GIS/map.html" class="btn btn-outline-success text-white" role="button"
+            data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="tooltip" data-bs-title="Volver al mapa">
+                <i class="bi bi-globe-americas"></i>
+            </a>
+
+        </div>
+        <div class="col">
+            <div class="Visor de capas">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Consolidados
+                </a>
+                <ul class="dropdown-menu shadow rounded ms-3">
+                    <li>
+                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoDepartamento()">
+                            Consolidado por departamentos
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoPueblo()">
+                            Consolidado por pueblo
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoYear()">
+                            Consolidado por año
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoPerpe()">
+                            Consolidado por actor
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoTipo()">
+                            Consolidado por tipo de vulneración
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoGenero()">
+                            Consolidado por género
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- barra de menu de mapas -->
+
+</header>
+
+
+<body>
+    <script src="../data/DataPrincipal.js"></script>
+
+    <div id="chartttt">
+        <div class="row">
+            <div class="h3 text-center" id="tlGrafico"></div>
+        </div>
+        <div class="row m-1">
+
+
+        </div>
+
+    </div>
+
+    <div id="DivGraficos">
+        <canvas id="grafica"></canvas>
+    </div>
+</body>
+
+<script>
+    var simbolos, color;
+    simbolos = "0123456789ABCDEF";
+    color = "#";
+
+    let ChartPrincipal
+    function VerGraficoDepartamento() {
+
+
+        document.getElementById("tlGrafico").textContent = "Consolidado por Departamentos"
+
+        let elemento = document.getElementById("grafica")
+        elemento.remove();
+
+        let newCanvas = document.createElement("canvas");
+        newCanvas.id = "grafica"
+
+        document.getElementById("DivGraficos").appendChild(newCanvas);
+
+
+        let DepExis = [];
+        const colors = [];
+
+        //Buscar en la variable departamentos, y dejar sin repeticiones
+
+        for (var i = 0; i < DataPrincipal.length; i++) {
+            if (DepExis.includes(DataPrincipal[i].Departamento) == false) {
+                DepExis.push(DataPrincipal[i].Departamento);
+                //Agregamos colores aleatorios a nuestro gráfico
+                for (var i = 0; i < 6; i++) {
+                    color = color + simbolos[Math.floor(Math.random() * 16)];
+                }
+                colors.push(color)
+                color = "#";
+            }
+        }
+        //Ordeno los años de menor a mayor
+        let DepSort = DepExis.sort();
+
+        //Creo variables para guardar los datos entonctrados
+        let DepFind = [];
+        let Conteos = [];
+        let Contador = 0
+        //Inicio la busqueda por departamento y cuento totales por año
+        for (var i = 0; i < DepSort.length; i++) {
+
+            if (DepFind.includes(DepSort[i]) == false) {
+                DepFind.push(DepSort[i])
+                //Si ya conté un año, inicio la neuva serie con otro año
+                for (var reg = 0; reg < DataPrincipal.length; reg++) {
+                    if (DepSort[i] == DataPrincipal[reg].Departamento) {
+                        Contador = Contador + 1
+                    }
+                }
+                Conteos.push(Contador);
+                Contador = 0
+
+            } else {
+
+                Contador = 0
+            }
+        }
+        //Configurar etiquetas y lugar donde
+        const labels = DepSort
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Departamentos',
+                backgroundColor: colors,
+                borderColor: 'rgb(255, 99, 132)',
+                data: Conteos,
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'x',
+            }
+        };
+        ChartPrincipal = new Chart(
+            document.getElementById('grafica'),
+            config
+        );
+
+    }
+
+
+    function VerGraficoPueblo() {
+        document.getElementById("tlGrafico").textContent = "Consolidado por Pueblos"
+        let elemento = document.getElementById("grafica")
+        elemento.remove();
+
+        let newCanvas = document.createElement("canvas");
+        newCanvas.id = "grafica"
+
+        document.getElementById("DivGraficos").appendChild(newCanvas);
+        let EtniaExis = [];
+        //Buscar en la variable departamentos, y dejar sin repeticiones
+
+        const colors = [];
+
+
+        for (var i = 1; i < DataPrincipal.length; i++) {
+            if (EtniaExis.includes(DataPrincipal[i].Pueblo) == false) {
+                EtniaExis.push(DataPrincipal[i].Pueblo);
+                for (var i = 0; i < 6; i++) {
+                    color = color + simbolos[Math.floor(Math.random() * 16)];
+                }
+                colors.push(color)
+                color = "#";
+            }
+        }
+        //Ordeno los años de menor a mayor
+        let EtniaSort = EtniaExis.sort();
+
+        //Creo variables para guardar los datos entonctrados
+        let EtniaFind = [];
+        let Conteos = [];
+        let Contador = 0
+        //Inicio la busqueda por departamento y cuento totales por año
+
+
+
+
+
+
+
+
+        for (var i = 0; i < EtniaSort.length; i++) {
+
+            if (EtniaFind.includes(EtniaSort[i]) == false) {
+                EtniaFind.push(EtniaSort[i])
+                //Si ya conté un año, inicio la neuva serie con otro año
+                for (var reg = 0; reg < DataPrincipal.length; reg++) {
+                    if (EtniaSort[i] == DataPrincipal[reg].Pueblo) {
+                        Contador = Contador + 1
+
+                    }
+                }
+
+                Conteos.push(Contador);
+                Contador = 0
+
+            } else {
+
+                Contador = 0
+            }
+        }
+        //Configurar etiquetas y lugar donde
+        const labels = EtniaSort
+
+
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Pueblos',
+                backgroundColor: colors,
+                borderColor: 'rgb(255, 99, 132)',
+                data: Conteos,
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'x',
+            }
+        };
+        ChartPrincipal = new Chart(
+            document.getElementById('grafica'),
+            config
+        );
+
+
+
+    }
+
+    function VerGraficoYear() {
+        document.getElementById("tlGrafico").textContent = "Consolidado por Año"
+        let elemento = document.getElementById("grafica")
+        elemento.remove();
+
+        let newCanvas = document.createElement("canvas");
+        newCanvas.id = "grafica"
+
+        document.getElementById("DivGraficos").appendChild(newCanvas);
+        YearExist = []
+        //Buscar en la variable años, y dejar sin repeticiones
+
+        const colors = [];
+
+        for (var i = 1; i < DataPrincipal.length; i++) {
+            if (YearExist.includes(DataPrincipal[i].Year) == false) {
+                YearExist.push(DataPrincipal[i].Year);
+                for (var i = 0; i < 6; i++) {
+                    color = color + simbolos[Math.floor(Math.random() * 16)];
+                }
+                colors.push(color)
+                color = "#";
+            }
+        }
+        //Ordeno los años de menor a mayor
+        let YearSort = YearExist.sort();
+        //Creo variables para guardar los datos entonctrados
+        let YearFind = [];
+        let Conteos = [];
+        let Contador = 0
+        //Inicio la busqueda por año y cuento totales por año
+        for (var i = 0; i < YearSort.length; i++) {
+
+            if (YearFind.includes(YearSort[i]) == false) {
+                YearFind.push(YearSort[i])
+                //Si ya conté un año, inicio la neuva serie con otro año
+                for (var reg = 0; reg < DataPrincipal.length; reg++) {
+                    if (YearSort[i] == DataPrincipal[reg].Year) {
+                        Contador = Contador + 1
+                    }
+                }
+                Conteos.push(Contador);
+                Contador = 0
+
+            } else {
+
+                Contador = 0
+            }
+        }
+
+        //Configurar etiquetas y lugar donde
+        const labels = YearSort
+
+
+
+        const graph = document.querySelector("#grafica");
+
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: "Consolidado",
+                data: Conteos,
+                backgroundColor: colors
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+        };
+        ChartPrincipal = new Chart(graph, config);
+        //Seleccionar 
+
+        document.getElementById("tlGrafico").textContent = "Consolidado casos por año"
+    }
+
+    function VerGraficoPerpe() {
+        document.getElementById("tlGrafico").textContent = "Consolidado por Actor"
+        let elemento = document.getElementById("grafica")
+        elemento.remove();
+
+        let newCanvas = document.createElement("canvas");
+        newCanvas.id = "grafica"
+
+        document.getElementById("DivGraficos").appendChild(newCanvas);
+        Perpexist = []
+        //Buscar en la variable años, y dejar sin repeticiones
+
+        const colors = [];
+
+        for (var i = 1; i < DataPrincipal.length; i++) {
+            if (Perpexist.includes(DataPrincipal[i].Perpetrador) == false) {
+                Perpexist.push(DataPrincipal[i].Perpetrador);
+
+                for (var i = 0; i < 6; i++) {
+                    color = color + simbolos[Math.floor(Math.random() * 16)];
+                }
+                colors.push(color)
+                color = "#";
+            }
+        }
+        //Ordeno los años de menor a mayor
+        let PerpeSort = Perpexist.sort();
+        //Creo variables para guardar los datos entonctrados
+        let PerpeFind = [];
+        let Conteos = [];
+        let Contador = 0
+        //Inicio la busqueda por año y cuento totales por año
+        for (var i = 0; i < PerpeSort.length; i++) {
+
+            if (PerpeFind.includes(PerpeSort[i]) == false) {
+                PerpeFind.push(PerpeSort[i])
+                //Si ya conté un año, inicio la neuva serie con otro año
+                for (var reg = 0; reg < DataPrincipal.length; reg++) {
+                    if (PerpeSort[i] == DataPrincipal[reg].Perpetrador) {
+                        Contador = Contador + 1
+                    }
+                }
+                Conteos.push(Contador);
+                Contador = 0
+
+            } else {
+
+                Contador = 0
+            }
+        }
+
+        //Configurar etiquetas y lugar donde
+
+
+
+        const labels = PerpeSort
+
+
+
+        const graph = document.querySelector("#grafica");
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: "Consolidado",
+                data: Conteos,
+                backgroundColor: colors
+            }
+        ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'y',
+
+            }
+        };
+        ChartPrincipal = new Chart(graph, config);
+        //Seleccionar 
+    }
+
+    function VerGraficoTipo() {
+        document.getElementById("tlGrafico").textContent = "Consolidado por Tipo de Vulneración"
+        let elemento = document.getElementById("grafica")
+        elemento.remove();
+
+        let newCanvas = document.createElement("canvas");
+        newCanvas.id = "grafica"
+
+        document.getElementById("DivGraficos").appendChild(newCanvas);
+        TipopExist = []
+        //Buscar en la variable años, y dejar sin repeticiones
+
+        const colors = [];
+
+        for (var i = 1; i < DataPrincipal.length; i++) {
+            if (TipopExist.includes(DataPrincipal[i].Tipo) == false) {
+                TipopExist.push(DataPrincipal[i].Tipo);
+                for (var i = 0; i < 6; i++) {
+                    color = color + simbolos[Math.floor(Math.random() * 16)];
+                }
+                colors.push(color)
+                color = "#";
+            }
+        }
+        //Ordeno los años de menor a mayor
+        let TipoSort = TipopExist.sort();
+        //Creo variables para guardar los datos entonctrados
+        let TipoFind = [];
+        let Conteos = [];
+        let Contador = 0
+        //Inicio la busqueda por año y cuento totales por año
+        for (var i = 0; i < TipoSort.length; i++) {
+
+            if (TipoFind.includes(TipoSort[i]) == false) {
+                TipoFind.push(TipoSort[i])
+                //Si ya conté un año, inicio la neuva serie con otro año
+                for (var reg = 0; reg < DataPrincipal.length; reg++) {
+                    if (TipoSort[i] == DataPrincipal[reg].Tipo) {
+                        Contador = Contador + 1
+                    }
+                }
+                Conteos.push(Contador);
+                Contador = 0
+
+            } else {
+
+                Contador = 0
+            }
+        }
+
+        //Configurar etiquetas y lugar donde
+        const labels = TipoSort
+
+
+
+        const graph = document.querySelector("#grafica");
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: "Consolidado",
+                data: Conteos,
+                backgroundColor: colors
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'x',
+            }
+        };
+        ChartPrincipal = new Chart(graph, config);
+        //Seleccionar 
+    }
+
+    function VerGraficoGenero() {
+        document.getElementById("tlGrafico").textContent = "Consolidado por Tipo de Vulneración"
+        let elemento = document.getElementById("grafica")
+        elemento.remove();
+
+        let newCanvas = document.createElement("canvas");
+        newCanvas.id = "grafica"
+
+        document.getElementById("DivGraficos").appendChild(newCanvas);
+        DataExist = []
+        //Buscar en la variable años, y dejar sin repeticiones
+
+        const colors = [];
+
+        for (var i = 1; i < DataPrincipal.length; i++) {
+            if (DataExist.includes(DataPrincipal[i].Sexo) == false) {
+                DataExist.push(DataPrincipal[i].Sexo);
+                for (var i = 0; i < 6; i++) {
+                    color = color + simbolos[Math.floor(Math.random() * 16)];
+                }
+                colors.push(color)
+                color = "#";
+            }
+        }
+        //Ordeno los años de menor a mayor
+        let DataSort = DataExist.sort();
+        //Creo variables para guardar los datos entonctrados
+        let DataFind = [];
+        let Conteos = [];
+        let Contador = 0
+        //Inicio la busqueda por año y cuento totales por año
+        for (var i = 0; i < DataSort.length; i++) {
+
+            if (DataFind.includes(DataSort[i]) == false) {
+                DataFind.push(DataSort[i])
+                //Si ya conté un año, inicio la neuva serie con otro año
+                for (var reg = 0; reg < DataPrincipal.length; reg++) {
+                    if (DataSort[i] == DataPrincipal[reg].Sexo) {
+                        Contador = Contador + 1
+                    }
+                }
+                Conteos.push(Contador);
+                Contador = 0
+
+            } else {
+
+                Contador = 0
+            }
+        }
+
+        //Configurar etiquetas y lugar donde
+        const labels = DataSort
+
+
+
+        const graph = document.querySelector("#grafica");
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: "Consolidado",
+                data: Conteos,
+                backgroundColor: colors
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                indexAxis: 'y',
+            }
+        };
+        ChartPrincipal = new Chart(graph, config);
+        //Seleccionar 
+    }
+
+
+    function chartTipoPolar() {
+        ChartPrincipal.config.type = "polarArea";
+        ChartPrincipal.update();
+
+
+
+    }
+
+    function chartTipoAnillo() {
+        ChartPrincipal.config.type = "doughnut";
+        ChartPrincipal.update();
+
+    }
+    function chartTipoLine() {
+        ChartPrincipal.config.type = "line";
+        ChartPrincipal.update();
+
+    }
+    function chartTipoPie() {
+        ChartPrincipal.config.type = "pie";
+        ChartPrincipal.update();
+
+    }
+    function chartTipoBar() {
+        ChartPrincipal.config.type = "bar";
+        ChartPrincipal.update();
+
+
+
+    }
+
+</script>
+
+
+
+</html>
