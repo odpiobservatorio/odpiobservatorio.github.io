@@ -29,7 +29,6 @@ let capaPuntosNarcotrafico;
 let capaRutaMigrantes;
 let DataPrincipal;
 
-
 //Cargar las variables de cada base de datos (Luego se puede cambiar a algo mas eficiente)
 console.log("...Iniciando carga...")
 //Layers
