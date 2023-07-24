@@ -128,7 +128,7 @@ function BuscarFaseII() {
 
         let a = document.createElement("a")
         a.href = ("#")
-        a.onclick = () => verCaso(((elemento.ind) - 1));
+        a.onclick = () => verCaso(elemento); //mandar elemento directamente.
 
         a.classList.add('list-group-item', 'list-group-item-action');
 
@@ -138,7 +138,7 @@ function BuscarFaseII() {
 
         let h5 = document.createElement("h6");
         
-        h5.textContent = `${(elemento.ind - 1)}. ${elemento.Tipo}`;
+        h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`; //Cambio ind
         h5.classList.add('mb-1');
         d.appendChild(h5);
 
@@ -331,6 +331,7 @@ function addTextHelp() {
 function TablaReport() {
     // Obtener la referencia del elemento dode se inserta la tabla
     var ContenedorTabla = document.getElementById("divTableModal");
+    document.getElementById("divTableModal").innerHTML = ""
 
 
     // Agrega la imagen al documento 
