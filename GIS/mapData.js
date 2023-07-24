@@ -160,7 +160,6 @@ function BuscarFaseII() {
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
             .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${elemento.ind} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
-
         );
         nCasos++
     });
@@ -206,7 +205,7 @@ function BuscarFaseI() {
 
         let a = document.createElement("a")
         a.href = ("#")
-        a.onclick = () => verCaso(elemento); //mandar elemento directamente.
+        a.onclick = () => verCaso(((elemento.ind) - 1));
 
         a.classList.add('list-group-item', 'list-group-item-action');
 
@@ -216,7 +215,7 @@ function BuscarFaseI() {
 
         let h5 = document.createElement("h6");
         
-        h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`; //Cambio ind
+        h5.textContent = `${(elemento.ind - 1)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
         d.appendChild(h5);
 
@@ -239,7 +238,7 @@ function BuscarFaseI() {
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind - 1)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento)})'>Ver</button></br>`)
+            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind - 1)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
         );
         nCasos++
     });
@@ -251,7 +250,22 @@ function BuscarFaseI() {
 //*****************************************************
 //Funciones para mostrar ventana caso
 //*****************************************************
-function verCaso(registro) {
+function verCaso(num) {
+
+    const registro = DataPrincipal.find(registro => registro.ind === (num));
+
+    //Filtrar el registro q tenga num
+    /*
+    console.log(DataPrincipal[num])
+    document.getElementById('tlTipoCaso').textContent = `CASO ${DataPrincipal[num - 1].ind}`;
+    document.getElementById('txTipo').textContent = (DataPrincipal[num]).Tipo;
+    document.getElementById('txAño').textContent = (DataPrincipal[num]).Year;
+    document.getElementById('txLugar').textContent = (DataPrincipal[num]).Municipio;
+    document.getElementById('txEtnia').textContent = `Etnía (${(DataPrincipal[num]).Pueblo})`;
+    document.getElementById('txPerpetuador').textContent = `Perpetuador(${(DataPrincipal[num]).Perpetrador})`;
+    document.getElementById('txCaso').textContent = (DataPrincipal[num]).Antecedentes;
+    */
+
     document.getElementById('tlTipoCaso').textContent = `CASO ${registro.ind}`;
     document.getElementById('txTipo').textContent = (registro).Tipo;
     document.getElementById('txAño').textContent = (registro).Year;
