@@ -1,5 +1,6 @@
 //Definir funcion de carga
 function load(path) {
+    //Llama el archivo y lo regresa como objeto json
     return fetch(path)
         .then(response => response.json())
         .then(data => {
@@ -27,10 +28,9 @@ let capaRutaArmas;
 let capaContrabando;
 let capaPuntosNarcotrafico;
 let capaRutaMigrantes;
-let DataPrincipal;
+
 
 //Cargar las variables de cada base de datos (Luego se puede cambiar a algo mas eficiente)
-console.log("...Iniciando carga...")
 //Layers
 load('./layers/BloquePetrolero.json').then(data => { CapaBloquePetrolero = data });
 load('./layers/Croquis.json').then(data => { LayerPlano = data });
@@ -51,13 +51,14 @@ load("./layers/ECOIlegal/PuntosNarcotrafico.json").then(data => { capaPuntosNarc
 load("./layers/ECOIlegal/RutaMigrantes.json").then(data => { capaRutaMigrantes = data });
 
 //Data principal
+let DataPrincipal;
 load("../data/DataPrincipal.json").then(data => { DataPrincipal = data });
 console.log("...Waiting...")
 
 
-
 //Bases de datos Online
 loadDataBase("17IENXIqKKPsIOgGCSeMKpC1IgtzeCSX2FIfyVVQFUO8", "Test").then(objeto => { console.log(JSON.stringify(objeto)) })
+
 /*
 let test;
 loadDataBase(id, hoja).then(objeto => { test = objeto })

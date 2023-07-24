@@ -1,7 +1,11 @@
-//let id = "17IENXIqKKPsIOgGCSeMKpC1IgtzeCSX2FIfyVVQFUO8"
-//let hoja = "Test"
+/*
+query = "Select *"
+&tq=${encodeURIComponent(query)}
+*/
 
 function loadDataBase(id, hoja) {
+    
+    //Convierte base de datos de Google Sheets a Objeto trabajable
     return fetch(`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?&sheet=${hoja}`)
         .then(response => response.text())
         .then(text => {
