@@ -1,8 +1,3 @@
-/*
-query = "Select *"
-&tq=${encodeURIComponent(query)}
-*/
-
 function loadDataBase(id, hoja) {
     //Convierte base de datos de Google Sheets a Objeto trabajable
     let query = "Select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W, AK, AN" //
@@ -22,7 +17,7 @@ function loadDataBase(id, hoja) {
             let Objeto = [];
             for (const row of rows) {
                 let raw = (row.c)            
-                let rowinfo = raw.map(dic => dic.v);
+                let rowinfo = raw.map(dic => (dic && dic.v) ? dic.v : "No registra");
                 const caso = Object.fromEntries(Keys.map((key, i) => [key, rowinfo[i]]));
                 Objeto.push(caso)
             }
