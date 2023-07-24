@@ -88,7 +88,7 @@ function AgregarCriterioFind() {
     CriteFindPlus.push(CriterioFull);
 
     let itCriterioTx = document.createElement("li");
-
+    
     itCriterioTx.textContent = `${ColumnaTx} ${OperadorTx} ${vCampoTx}`
     itCriterioTx.classList.add("list-group-item")
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
@@ -202,9 +202,10 @@ function BuscarFaseI() {
 
     nCasos = 0;
     checkBusqueda.forEach(elemento => {
+
         let a = document.createElement("a")
         a.href = ("#")
-        a.onclick = () => verCaso(elemento.ind - 1);
+        a.onclick = () => verCaso(((elemento.ind) - 1));
 
         a.classList.add('list-group-item', 'list-group-item-action');
 
@@ -233,6 +234,7 @@ function BuscarFaseI() {
         document.getElementById("lstResGis").appendChild(a);
 
 
+
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
@@ -249,13 +251,28 @@ function BuscarFaseI() {
 //Funciones para mostrar ventana caso
 //*****************************************************
 function verCaso(num) {
+
+    const registro = DataPrincipal.find(registro => registro.ind === (num));
+
+    //Filtrar el registro q tenga num
+    /*
+    console.log(DataPrincipal[num])
     document.getElementById('tlTipoCaso').textContent = `CASO ${DataPrincipal[num - 1].ind}`;
-    document.getElementById('txTipo').textContent = DataPrincipal[num].Tipo;
-    document.getElementById('txAño').textContent = DataPrincipal[num].Year;
-    document.getElementById('txLugar').textContent = DataPrincipal[num].Municipio;
-    document.getElementById('txEtnia').textContent = `Etnía (${DataPrincipal[num].Pueblo})`;
-    document.getElementById('txPerpetuador').textContent = `Perpetuador(${DataPrincipal[num].Perpetrador})`;
-    document.getElementById('txCaso').textContent = DataPrincipal[num].Antecedentes;
+    document.getElementById('txTipo').textContent = (DataPrincipal[num]).Tipo;
+    document.getElementById('txAño').textContent = (DataPrincipal[num]).Year;
+    document.getElementById('txLugar').textContent = (DataPrincipal[num]).Municipio;
+    document.getElementById('txEtnia').textContent = `Etnía (${(DataPrincipal[num]).Pueblo})`;
+    document.getElementById('txPerpetuador').textContent = `Perpetuador(${(DataPrincipal[num]).Perpetrador})`;
+    document.getElementById('txCaso').textContent = (DataPrincipal[num]).Antecedentes;
+    */
+
+    document.getElementById('tlTipoCaso').textContent = `CASO ${registro.ind}`;
+    document.getElementById('txTipo').textContent = (registro).Tipo;
+    document.getElementById('txAño').textContent = (registro).Year;
+    document.getElementById('txLugar').textContent = (registro).Municipio;
+    document.getElementById('txEtnia').textContent = `Etnía (${(registro).Pueblo})`;
+    document.getElementById('txPerpetuador').textContent = `Perpetuador(${(registro).Perpetrador})`;
+    document.getElementById('txCaso').textContent = (registro).Antecedentes;
     bootstrap.Modal.getOrCreateInstance(document.getElementById('ModalCaseOnMap')).show();
 }
 ///Modifca vicualmente el boton de buscar
@@ -286,7 +303,6 @@ function listasAutomaticas(cotrolList) {
 
     ///Ordena mi información alfabeticamente por criterio
     let CriterioSort;
-
     if (criterio == "Year") {
         CriterioSort = `a.${criterio} - b.${criterio}`;
     }
@@ -299,7 +315,6 @@ function listasAutomaticas(cotrolList) {
 
 
     let DataPrincipalSort = DataPrincipal.sort((a, b) => eval(CriterioSort))
-
 
 
     document.getElementById("lstAutomatica").innerHTML = ""

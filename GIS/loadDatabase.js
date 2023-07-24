@@ -4,9 +4,9 @@ query = "Select *"
 */
 
 function loadDataBase(id, hoja) {
-    
     //Convierte base de datos de Google Sheets a Objeto trabajable
-    return fetch(`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?&sheet=${hoja}`)
+    let query = "Select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W, AK, AN" //
+    return fetch(`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?&sheet=${hoja}&tq=${encodeURIComponent(query)}`)
         .then(response => response.text())
         .then(text => {
             //Cargar Datos

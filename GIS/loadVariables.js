@@ -50,15 +50,12 @@ load("./layers/ECOIlegal/PuntosContrabando.json").then(data => { capaContrabando
 load("./layers/ECOIlegal/PuntosNarcotrafico.json").then(data => { capaPuntosNarcotrafico = data });
 load("./layers/ECOIlegal/RutaMigrantes.json").then(data => { capaRutaMigrantes = data });
 
-//Data principal
+/*Data principal
 let DataPrincipal;
 load("../data/DataPrincipal.json").then(data => { DataPrincipal = data });
-console.log("...Waiting...")
-
-
-/*
-//Bases de datos Online
-loadDataBase("17IENXIqKKPsIOgGCSeMKpC1IgtzeCSX2FIfyVVQFUO8", "Test").then(objeto => { console.log(JSON.stringify(objeto)) })
-let test;
-loadDataBase(id, hoja).then(objeto => { test = objeto })
 */
+
+let DataPrincipal;
+loadDataBase("1zqI2xhjm3ZxEIr31zkDaDg8_wfCVSBlKgHE2Em6zd0Y", "EVENTOS").then(objeto => {
+    DataPrincipal = objeto;
+})
