@@ -166,7 +166,7 @@ function BuscarFaseII() {
         nCasos++
     });
     document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
-    nCasos = 0;
+    nCasos = 0; 
 
 }
 
