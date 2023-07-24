@@ -77,11 +77,11 @@ function AgregarCriterioFind() {
 
     let CriterioFull
     if (OperadorVal == 1) {
-        CriterioFull = "caso['" + ColumnaVal + "']" + ".includes('" + vCampoTx + "')";
+        CriterioFull = `caso['${ColumnaVal}'].includes('${vCampoTx}')`;
     }
 
     else {
-        CriterioFull = "caso['" + ColumnaVal + "']" + OperadorVal + "'" + vCampoTx + "'"
+        CriterioFull = `caso['${ColumnaVal}']${OperadorVal}'${vCampoTx}'`;
     }
 
 
@@ -89,10 +89,8 @@ function AgregarCriterioFind() {
 
     let itCriterioTx = document.createElement("li");
 
-    itCriterioTx.textContent = ColumnaTx + " " + OperadorTx + " " + vCampoTx
+    itCriterioTx.textContent = `${ColumnaTx} ${OperadorTx} ${vCampoTx}`
     itCriterioTx.classList.add("list-group-item")
-
-
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
 
 }
@@ -138,7 +136,8 @@ function BuscarFaseII() {
 
 
         let h5 = document.createElement("h6");
-        h5.textContent = (elemento.ind - 1) + ". " + elemento.Tipo;
+        
+        h5.textContent = `${(elemento.ind - 1)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
         d.appendChild(h5);
 
@@ -149,32 +148,33 @@ function BuscarFaseII() {
 
         a.appendChild(d);
 
-        let TextoCaso = elemento.Municipio + ", " + elemento.Pueblo;
+        let TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
         p = document.createElement("p");
         p.textContent = TextoCaso
         a.appendChild(p);
 
         document.getElementById("lstResGis").appendChild(a);
-
-
+        ``
+        
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup("<b>" + elemento.Departamento + "-" + elemento.Year + "</b><br>" + elemento.Municipio + " C:" + elemento.ind + "<br><button type='button' class='btn btn-secondary' onclick ='verCaso(" + (elemento.ind - 1) + ")'>Ver</button></br>")
+            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${elemento.ind} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
         );
         nCasos++
     });
-    document.getElementById("tlResultados").textContent = nCasos + " Resultados"
+    document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
     nCasos = 0;
 
 }
 
 function BuscarFaseI() {
     //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.
-    let iCampo = "dato['" + document.getElementById("lstCampos").value + "']";
+    
+    let iCampo = `dato['${document.getElementById("lstCampos").value}']`;
     let iOperador = document.getElementById("lstOperador").value
-
-    let vCampo = "'" + document.getElementById("txValorBusquedaA").value + "'";
+    
+    let vCampo = `'${document.getElementById("txValorBusquedaA").value}'`;
 
     ///Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = ""
@@ -213,7 +213,8 @@ function BuscarFaseI() {
 
 
         let h5 = document.createElement("h6");
-        h5.textContent = (elemento.ind - 1) + ". " + elemento.Tipo;
+        
+        h5.textContent = `${(elemento.ind - 1)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
         d.appendChild(h5);
 
@@ -224,7 +225,7 @@ function BuscarFaseI() {
 
         a.appendChild(d);
 
-        let TextoCaso = elemento.Municipio + ", " + elemento.Pueblo;
+        let TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
         p = document.createElement("p");
         p.textContent = TextoCaso
         a.appendChild(p);
@@ -235,7 +236,7 @@ function BuscarFaseI() {
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup("<b>" + elemento.Departamento + "-" + elemento.Year + "</b><br>" + elemento.Municipio + " C:" + (elemento.ind - 1) + "<br><button type='button' class='btn btn-secondary' onclick ='verCaso(" + (elemento.ind - 1) + ")'>Ver</button></br>")
+            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind - 1)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
         );
         nCasos++
     });
@@ -248,12 +249,12 @@ function BuscarFaseI() {
 //Funciones para mostrar ventana caso
 //*****************************************************
 function verCaso(num) {
-    document.getElementById('tlTipoCaso').textContent = "CASO " + DataPrincipal[num - 1].ind;
+    document.getElementById('tlTipoCaso').textContent = `CASO ${DataPrincipal[num - 1].ind}`;
     document.getElementById('txTipo').textContent = DataPrincipal[num].Tipo;
     document.getElementById('txAño').textContent = DataPrincipal[num].Year;
     document.getElementById('txLugar').textContent = DataPrincipal[num].Municipio;
-    document.getElementById('txEtnia').textContent = "Etnía (" + DataPrincipal[num].Pueblo + ")";
-    document.getElementById('txPerpetuador').textContent = "Perpetuador(" + DataPrincipal[num].Perpetrador + ")";
+    document.getElementById('txEtnia').textContent = `Etnía (${DataPrincipal[num].Pueblo})`;
+    document.getElementById('txPerpetuador').textContent = `Perpetuador(${DataPrincipal[num].Perpetrador})`;
     document.getElementById('txCaso').textContent = DataPrincipal[num].Antecedentes;
     bootstrap.Modal.getOrCreateInstance(document.getElementById('ModalCaseOnMap')).show();
 }
@@ -287,13 +288,13 @@ function listasAutomaticas(cotrolList) {
     let CriterioSort;
 
     if (criterio == "Year") {
-        CriterioSort = "a." + criterio + " - " + "b." + criterio
+        CriterioSort = `a.${criterio} - b.${criterio}`;
     }
     else if (criterio == "Edad") {
-        CriterioSort = "a." + criterio + " - " + "b." + criterio
+        CriterioSort = `a.${criterio} - b.${criterio}`;
     }
     else {
-        CriterioSort = "a." + criterio + ".localeCompare(b." + criterio + ")"
+        CriterioSort = `a.${criterio}.localeCompare(b.${criterio})`;
     }
 
 
@@ -303,11 +304,11 @@ function listasAutomaticas(cotrolList) {
 
     document.getElementById("lstAutomatica").innerHTML = ""
     if (criterio !== "Antecedentes") {
-        const Listas = [...new Map(DataPrincipalSort.map((filtro) => [eval("filtro." + criterio), filtro])).values()];
+        const Listas = [...new Map(DataPrincipalSort.map((filtro) => [eval(`filtro.${criterio}`), filtro])).values()];
         Listas.forEach(elemento => {
             let itemLs = document.createElement("option")
-            itemLs.value = eval("elemento." + criterio);
-            itemLs.text = eval("elemento." + criterio);
+            itemLs.value = eval(`elemento.${criterio}`);
+            itemLs.text = eval(`elemento.${criterio}`);
             document.getElementById("lstAutomatica").appendChild(itemLs);
 
         })
@@ -485,7 +486,7 @@ function DocumentReport() {
         ContenedorDocumento.appendChild(tagElement);
 
         tagElement = document.createElement("div")
-        tagElement.textContent = registro.Departamento + " (" + registro.Municipio + ")";
+        tagElement.textContent = `${registro.Departamento} (${registro.Municipio})`;
         tagElement.classList.add("h6", "text-info-emphasis","ms-3")
         ContenedorDocumento.appendChild(tagElement);
 
@@ -503,9 +504,6 @@ function DocumentReport() {
         tagElement.textContent = registro.Antecedentes;
         tagElement.classList.add("fs-5", "text-dark", "mb-5","ms-5")
         ContenedorDocumento.appendChild(tagElement);
-
-       
-
 
     })
 

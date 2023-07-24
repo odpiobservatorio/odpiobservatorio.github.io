@@ -16,7 +16,6 @@
 
 
     <!-- estas son las librerias de bootstrap -->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -29,14 +28,12 @@
     <script src="https://kit.fontawesome.com/3d0f9c201e.js" crossorigin="anonymous"></script>
 
     <!-- otros iconos para la aplicación -->
-
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
 
 </head>
-<script>
 
-</script>
+
 <header class="sticky-top">
     <!-- barra de menu de mapas -->
     <div class="row row-cols-auto p-2" style="background-color: #0B5345;">
@@ -96,8 +93,8 @@
                                     </label>
                                 </div>
                             </li>
-                            
-                            
+
+
                         </ul>
 
                     </li>
@@ -223,12 +220,13 @@
             </button>
             <a href="../Chart/chart.html" class="btn btn-outline-success text-white" role="button">
                 <i class="bi bi-pie-chart-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                data-bs-custom-class="tooltip" data-bs-title="Mostrar Gráficos"></i>
+                    data-bs-custom-class="tooltip" data-bs-title="Mostrar Gráficos"></i>
             </a>
         </div>
 
     </div>
 </header>
+
 
 
 <body onload="LoadData()">
@@ -446,25 +444,28 @@
             </div>
         </div>
     </div>
-    <!-- Se dividio la informacion en infoambiente en estos 3 scripts, mas informacion en infoambiente.js -->
-    <!-- ... -->
-    <script src="loadVariables.js"></script>
-    <!-- ... -->
 
+    <!-- Carga de variables -->
+    <script src="loadDatabase.js"></script>
+    <script src="loadVariables.js"></script>
+    <!-- Carga de variables -->
+
+    <!-- Se dividio la informacion en infoambiente en estos 3 scripts, mas informacion en infoambiente.js -->
     <script src="layers/datapart1.js"></script>
     <script src="layers/datapart2.js"></script>
     <script src="layers/datapart3.js"></script>
     <script src="layers/infoambiente.js"></script>
+    <!-- Informacion ambiental -->
 
     <script src="mapGraphics.js"></script>
     <script src="mapData.js"></script>
 
-    <script src="../data/DataPrincipal.js"></script>
-
     <div id="map"></div>
+    <!-- ... -->
 
 </body>
 <!-- Modal tabla -->
+
 
 <!-- Modal -->
 <div class="modal fade modal-dialog-scrollable" id="TableAModal" tabindex="-1" aria-labelledby="TableAModalLabel"
@@ -479,14 +480,14 @@
             <div class="modal-body">
                 <div id="divTableModal"></div>
                 <div id="divDocModal" class="divCols" id="divTableModal" spellcheck="true"></div>
-                
+
             </div>
         </div>
     </div>
 </div>
 
-<!-- llama a los eventos .js para esta página -->
 
+<!-- llama a los eventos .js para esta página -->
 <script>
     let map;
     map = L.map("map", {
