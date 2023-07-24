@@ -125,10 +125,9 @@ function BuscarFaseII() {
 
     nCasos = 0;
     checkBusqueda.forEach(elemento => {
-
         let a = document.createElement("a")
         a.href = ("#")
-        a.onclick = () => verCaso(((elemento.ind) - 1));
+        a.onclick = () => verCaso(elemento.ind - 1);
 
         a.classList.add('list-group-item', 'list-group-item-action');
 
@@ -155,13 +154,12 @@ function BuscarFaseII() {
         a.appendChild(p);
 
         document.getElementById("lstResGis").appendChild(a);
-
-
-
+        ``
+        
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind - 1)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
+            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${elemento.ind} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
         );
         nCasos++
     });
