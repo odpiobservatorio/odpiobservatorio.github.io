@@ -205,7 +205,7 @@ function BuscarFaseI() {
 
         let a = document.createElement("a")
         a.href = ("#")
-        a.onclick = () => verCaso(((elemento.ind) - 1));
+        a.onclick = () => verCaso(elemento.ind);
 
         a.classList.add('list-group-item', 'list-group-item-action');
 
@@ -215,7 +215,7 @@ function BuscarFaseI() {
 
         let h5 = document.createElement("h6");
         
-        h5.textContent = `${(elemento.ind - 1)}. ${elemento.Tipo}`;
+        h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
         d.appendChild(h5);
 
@@ -251,21 +251,7 @@ function BuscarFaseI() {
 //Funciones para mostrar ventana caso
 //*****************************************************
 function verCaso(num) {
-
     const registro = DataPrincipal.find(registro => registro.ind === (num));
-
-    //Filtrar el registro q tenga num
-    /*
-    console.log(DataPrincipal[num])
-    document.getElementById('tlTipoCaso').textContent = `CASO ${DataPrincipal[num - 1].ind}`;
-    document.getElementById('txTipo').textContent = (DataPrincipal[num]).Tipo;
-    document.getElementById('txAño').textContent = (DataPrincipal[num]).Year;
-    document.getElementById('txLugar').textContent = (DataPrincipal[num]).Municipio;
-    document.getElementById('txEtnia').textContent = `Etnía (${(DataPrincipal[num]).Pueblo})`;
-    document.getElementById('txPerpetuador').textContent = `Perpetuador(${(DataPrincipal[num]).Perpetrador})`;
-    document.getElementById('txCaso').textContent = (DataPrincipal[num]).Antecedentes;
-    */
-
     document.getElementById('tlTipoCaso').textContent = `CASO ${registro.ind}`;
     document.getElementById('txTipo').textContent = (registro).Tipo;
     document.getElementById('txAño').textContent = (registro).Year;
