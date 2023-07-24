@@ -161,12 +161,12 @@ function BuscarFaseII() {
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind - 1)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
+            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
         );
         nCasos++
     });
     document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
-    nCasos = 0; 
+    nCasos = 0;
 
 }
 
@@ -240,7 +240,7 @@ function BuscarFaseI() {
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind - 1)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind - 1)})'>Ver</button></br>`)
+            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind - 1)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento)})'>Ver</button></br>`)
         );
         nCasos++
     });
