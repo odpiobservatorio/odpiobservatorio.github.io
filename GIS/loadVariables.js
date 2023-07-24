@@ -56,10 +56,9 @@ load("../data/DataPrincipal.json").then(data => { DataPrincipal = data });
 console.log("...Waiting...")
 
 
+/*
 //Bases de datos Online
 loadDataBase("17IENXIqKKPsIOgGCSeMKpC1IgtzeCSX2FIfyVVQFUO8", "Test").then(objeto => { console.log(JSON.stringify(objeto)) })
-
-/*
 let test;
 loadDataBase(id, hoja).then(objeto => { test = objeto })
 */
