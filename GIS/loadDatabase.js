@@ -16,7 +16,7 @@ function loadDataBase(id, hoja) {
             //Regresar Objeto (Diccionario Json)
             let Objeto = [];
             for (const row of rows) {
-                let raw = (row.c)            
+                let raw = (row.c)
                 let rowinfo = raw.map(dic => (dic && dic.v) ? dic.v : "No registra");
                 const caso = Object.fromEntries(Keys.map((key, i) => [key, rowinfo[i]]));
                 Objeto.push(caso)

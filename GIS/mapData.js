@@ -20,7 +20,7 @@ function CargarlstMap() {
     listasAutomaticas("lstCampos")
     document.getElementById("lstAutomatica").selectedIndex = "0"
 
-   addTextHelp()
+    addTextHelp()
 
 }
 
@@ -88,7 +88,7 @@ function AgregarCriterioFind() {
     CriteFindPlus.push(CriterioFull);
 
     let itCriterioTx = document.createElement("li");
-    
+
     itCriterioTx.textContent = `${ColumnaTx} ${OperadorTx} ${vCampoTx}`
     itCriterioTx.classList.add("list-group-item")
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
@@ -136,8 +136,8 @@ function BuscarFaseII() {
 
 
         let h5 = document.createElement("h6");
-        
-        h5.textContent = `${(elemento.ind )}. ${elemento.Tipo}`;
+
+        h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
         d.appendChild(h5);
 
@@ -154,8 +154,7 @@ function BuscarFaseII() {
         a.appendChild(p);
 
         document.getElementById("lstResGis").appendChild(a);
-        ``
-        
+
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
@@ -170,10 +169,10 @@ function BuscarFaseII() {
 
 function BuscarFaseI() {
     //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.
-    
+
     let iCampo = `dato['${document.getElementById("lstCampos").value}']`;
     let iOperador = document.getElementById("lstOperador").value
-    
+
     let vCampo = `'${document.getElementById("txValorBusquedaA").value}'`;
 
     ///Limpiamos la lista de resultados
@@ -201,8 +200,9 @@ function BuscarFaseI() {
     }
 
     nCasos = 0;
-    checkBusqueda.forEach(elemento => {
 
+    for (const elemento of checkBusqueda) {
+        console.log(elemento); //print
         let a = document.createElement("a")
         a.href = ("#")
         a.onclick = () => verCaso(elemento);
@@ -214,7 +214,7 @@ function BuscarFaseI() {
 
 
         let h5 = document.createElement("h6");
-        
+
         h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
         d.appendChild(h5);
@@ -233,15 +233,14 @@ function BuscarFaseI() {
 
         document.getElementById("lstResGis").appendChild(a);
 
-
-
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${(elemento.ind)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
+            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio}, C: ${(elemento.ind)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
         );
         nCasos++
-    });
+    }
+
     document.getElementById("tlResultados").textContent = nCasos + " Resultados"
     nCasos = 0;
 }
@@ -276,9 +275,10 @@ function VerFindExtend() {
 
 function RemoverMarkers() {
     //Limpiamos cualquier marca en el mapa
-    for (let i = 0; i < MrkAntecedente.length; i++) {
-        //Limpia información de mi mapa principal
-        map.removeLayer(MrkAntecedente[i]);
+    
+
+    for (const antecedente of MrkAntecedente) {
+        map.removeLayer(antecedente);
     }
 }
 
@@ -297,21 +297,21 @@ function listasAutomaticas(cotrolList) {
     else {
         CriterioSort = `a.${criterio}.localeCompare(b.${criterio})`;
     }
-
-
     let DataPrincipalSort = DataPrincipal.sort((a, b) => eval(CriterioSort))
 
-
+    
     document.getElementById("lstAutomatica").innerHTML = ""
     if (criterio !== "Antecedentes") {
         const Listas = [...new Map(DataPrincipalSort.map((filtro) => [eval(`filtro.${criterio}`), filtro])).values()];
-        Listas.forEach(elemento => {
-            let itemLs = document.createElement("option")
-            itemLs.value = eval(`elemento.${criterio}`);
-            itemLs.text = eval(`elemento.${criterio}`);
-            document.getElementById("lstAutomatica").appendChild(itemLs);
 
-        })
+        for (const elemento of Listas) {
+            let itemLs = document.createElement("option")
+            itemLs.value = elemento[criterio];
+            itemLs.text = elemento[criterio];;
+            //itemLs.value = eval(`elemento.${criterio}`);
+            //itemLs.text = eval(`elemento.${criterio}`);
+            document.getElementById("lstAutomatica").appendChild(itemLs);
+        }
     }
     else {
         let itemLs = document.createElement("option")
@@ -321,8 +321,7 @@ function listasAutomaticas(cotrolList) {
 }
 //Función que traslada la información de apoyo a la caja valor de búsqueda
 function addTextHelp() {
-    document.getElementById("txValorBusquedaA").value =
-        document.getElementById("lstAutomatica").value;
+    document.getElementById("txValorBusquedaA").value = (document.getElementById("lstAutomatica").value);
 }
 
 //Funciones de tabla reporte de busqueda
@@ -334,8 +333,6 @@ function TablaReport() {
     // Agrega la imagen al documento 
     let tablabase = document.getElementById('tbResultados');
     if (tablabase) tablabase.remove();
-
-
 
 
     let tabla = document.createElement('table');
@@ -387,13 +384,9 @@ function TablaReport() {
     Encabezados.appendChild(hdFuente);
 
 
-
-
     //Agregamos los encabezados
     tablaHeader.appendChild(Encabezados);
     tabla.appendChild(tablaHeader);
-
-
 
 
     //Agregar una columna de botones
@@ -403,7 +396,8 @@ function TablaReport() {
 
     let DatoCelta;
     let i = 1
-    DataToReport.forEach(registro => {
+
+    for (const registro of DataToReport) {
         //Agrego una fila por cada registro de mi DBr
         let fila = document.createElement('tr');
 
@@ -448,8 +442,7 @@ function TablaReport() {
         //Agrego filas y columnas al cuerpo de la tabla
         tablaBody.appendChild(fila)
         i++
-
-    })
+    }
 
     tabla.appendChild(tablaBody);
     ContenedorTabla.appendChild(tabla);
@@ -464,10 +457,10 @@ function DocumentReport() {
     divDocModal
 
 
-    let contador=1;
+    let contador = 1;
     let tagElement;
-    DataToReport.forEach(registro => {
 
+    for (const registro of DataToReport) {
         tagElement = document.createElement("div")
         tagElement.textContent = registro.Tipo;
         tagElement.classList.add("h4", "text-success")
@@ -482,31 +475,28 @@ function DocumentReport() {
 
         tagElement = document.createElement("div")
         tagElement.textContent = registro.Year;
-        tagElement.classList.add("h5", "text-secondary","ms-2")
+        tagElement.classList.add("h5", "text-secondary", "ms-2")
         ContenedorDocumento.appendChild(tagElement);
 
         tagElement = document.createElement("div")
         tagElement.textContent = `${registro.Departamento} (${registro.Municipio})`;
-        tagElement.classList.add("h6", "text-info-emphasis","ms-3")
+        tagElement.classList.add("h6", "text-info-emphasis", "ms-3")
         ContenedorDocumento.appendChild(tagElement);
 
         tagElement = document.createElement("div")
         tagElement.textContent = registro.Pueblo;
-        tagElement.classList.add("h6", "text-primary" ,"ms-3")
+        tagElement.classList.add("h6", "text-primary", "ms-3")
         ContenedorDocumento.appendChild(tagElement);
-        
+
         tagElement = document.createElement("div")
         tagElement.textContent = registro.Perpetrador;
-        tagElement.classList.add("h7", "text-primary" ,"ms-4")
+        tagElement.classList.add("h7", "text-primary", "ms-4")
         ContenedorDocumento.appendChild(tagElement);
 
         tagElement = document.createElement("p")
         tagElement.textContent = registro.Antecedentes;
-        tagElement.classList.add("fs-5", "text-dark", "mb-5","ms-5")
+        tagElement.classList.add("fs-5", "text-dark", "mb-5", "ms-5")
         ContenedorDocumento.appendChild(tagElement);
-
-    })
-
-
+    }
 
 }
