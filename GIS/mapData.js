@@ -329,6 +329,8 @@ function addTextHelp() {
 function TablaReport() {
     // Obtener la referencia del elemento dode se inserta la tabla
     var ContenedorTabla = document.getElementById("divTableModal");
+    //Limpia el contenido dentro del formulario modal
+    document.getElementById("divTableModal").innerHTML = ""
 
 
     // Agrega la imagen al documento 
