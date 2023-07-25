@@ -24,3 +24,8 @@ function loadDataBase(id, hoja) {
             return Objeto
         })
 }
+
+let DataPrincipal;
+loadDataBase("1zqI2xhjm3ZxEIr31zkDaDg8_wfCVSBlKgHE2Em6zd0Y", "EVENTOS").then(objeto => {
+    DataPrincipal = objeto;
+})
