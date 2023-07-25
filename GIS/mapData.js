@@ -100,34 +100,31 @@ function BuscarFaseII() {
     document.getElementById("lstResGis").innerHTML = ""
 
     //Inicializamos la variable de criterios
-    let Cadena = "caso=> ";
+    let Cadena = "caso => ";
 
     //Búsco en la variable global los elementos que hayan sido agregados
     //y construimos la cadena general.
     CriteFindPlus.forEach(elemento => {
-        Cadena = Cadena + elemento + " "
+        Cadena = `${Cadena} ${elemento} `
     })
 
-
     ///Ordena mi información por fecha
-    const checkBusquedaSort = [...DataPrincipal].sort(function (a, b) {
-        return a.Year - b.Year
-    });
+    const checkBusquedaSort = [...DataPrincipal].sort((a, b) => a.Year - b.Year);
+    
     const checkBusqueda = checkBusquedaSort.filter(eval(Cadena));
     //Agrego los valores de este filtro y los guardo en el reporte
     DataToReport = checkBusqueda
 
     //Limpiamos cualquier marca en el mapa
-    for (let i = 0; i < MrkAntecedente.length; i++) {
-        //Limpia información de mi mapa principal
-        map.removeLayer(MrkAntecedente[i]);
+    for (const antecedente of MrkAntecedente) {
+        map.removeLayer(antecedente)
     }
 
     nCasos = 0;
     checkBusqueda.forEach(elemento => {
         let a = document.createElement("a")
         a.href = ("#")
-        a.onclick = () => verCaso(elemento.ind);
+        a.onclick = () => verCaso(elemento);
 
         a.classList.add('list-group-item', 'list-group-item-action');
 
@@ -158,7 +155,7 @@ function BuscarFaseII() {
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${elemento.ind} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${(elemento.ind)})'>Ver</button></br>`)
+            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${elemento.ind} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
         );
         nCasos++
     });
