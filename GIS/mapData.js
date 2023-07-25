@@ -168,41 +168,47 @@ function BuscarFaseII() {
 }
 
 function BuscarFaseI() {
-    //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.
-
-    let iCampo = `dato['${document.getElementById("lstCampos").value}']`;
+    //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.    
     let iOperador = document.getElementById("lstOperador").value
-
-    let vCampo = `'${document.getElementById("txValorBusquedaA").value}'`;
-
+    let iCampo = `${document.getElementById("lstCampos").value}`;
+    let vCampo = `${document.getElementById("txValorBusquedaA").value}`;
+    
     ///Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = ""
 
     ///Ordena mi información por fecha
-    const checkBusquedaSort = [...DataPrincipal].sort(function (a, b) {
-        return a.Year - b.Year
-    });
+    const checkBusquedaSort = [...DataPrincipal].sort((a, b) => a.Year - b.Year);
+    
+    let checkBusqueda;
+    switch (iOperador) {
+        case "1":
+            checkBusqueda = checkBusquedaSort.filter(dato => dato[iCampo].includes(vCampo));
+            break;
 
-    let filtro
-    if (iOperador == 1) {
-        filtro = iCampo + ".includes(" + vCampo + ")";
+        case ">":
+            checkBusqueda = checkBusquedaSort.filter(dato => dato[iCampo] > vCampo);
+            break;
+
+        case "<":
+            checkBusqueda = checkBusquedaSort.filter(dato => dato[iCampo] < vCampo);
+            break;
+
+        default:
+            checkBusqueda = checkBusquedaSort.filter(dato => dato[iCampo] == vCampo);
+            break;
     }
-    else {
-        filtro = iCampo + iOperador + vCampo;
-    }
-    let checkBusqueda = checkBusquedaSort.filter(dato => eval(filtro));
+
     //Agrego los valores de este filtro y los guardo en el reporte
     DataToReport = checkBusqueda
-    //Limpiamos cualquier marca en el mapa
-    for (let i = 0; i < MrkAntecedente.length; i++) {
-        //Limpia información de mi mapa principal
-        map.removeLayer(MrkAntecedente[i]);
+
+    for (const antecedente of MrkAntecedente) {
+        //Limpiamos cualquier marca en el mapa
+        map.removeLayer(antecedente)
     }
 
     nCasos = 0;
 
     for (const elemento of checkBusqueda) {
-        console.log(elemento); //print
         let a = document.createElement("a")
         a.href = ("#")
         a.onclick = () => verCaso(elemento);
@@ -275,8 +281,6 @@ function VerFindExtend() {
 
 function RemoverMarkers() {
     //Limpiamos cualquier marca en el mapa
-    
-
     for (const antecedente of MrkAntecedente) {
         map.removeLayer(antecedente);
     }
@@ -286,30 +290,30 @@ function listasAutomaticas(cotrolList) {
 
     let criterio = document.getElementById(cotrolList).value;
 
-    ///Ordena mi información alfabeticamente por criterio
-    let CriterioSort;
+    let DataPrincipalSort;
     if (criterio == "Year") {
-        CriterioSort = `a.${criterio} - b.${criterio}`;
+        DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
     }
     else if (criterio == "Edad") {
-        CriterioSort = `a.${criterio} - b.${criterio}`;
+        DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
     }
     else {
-        CriterioSort = `a.${criterio}.localeCompare(b.${criterio})`;
+        
+        DataPrincipalSort = DataPrincipal.sort((a, b) => {
+            a = a[criterio]
+            b = b[criterio]
+            return (a.localeCompare(b));
+        });
     }
-    let DataPrincipalSort = DataPrincipal.sort((a, b) => eval(CriterioSort))
 
-    
     document.getElementById("lstAutomatica").innerHTML = ""
     if (criterio !== "Antecedentes") {
-        const Listas = [...new Map(DataPrincipalSort.map((filtro) => [eval(`filtro.${criterio}`), filtro])).values()];
+        const Listas = [...new Map(DataPrincipalSort.map((filtro) => [filtro[criterio], filtro])).values()];
 
         for (const elemento of Listas) {
             let itemLs = document.createElement("option")
             itemLs.value = elemento[criterio];
             itemLs.text = elemento[criterio];;
-            //itemLs.value = eval(`elemento.${criterio}`);
-            //itemLs.text = eval(`elemento.${criterio}`);
             document.getElementById("lstAutomatica").appendChild(itemLs);
         }
     }
@@ -454,8 +458,6 @@ function TablaReport() {
 function DocumentReport() {
     var ContenedorDocumento = document.getElementById("divDocModal");
     document.getElementById("divTableModal").innerHTML = ""
-    divDocModal
-
 
     let contador = 1;
     let tagElement;
