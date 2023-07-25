@@ -55,11 +55,6 @@ let DataPrincipal;
 load("../data/DataPrincipal.json").then(data => { DataPrincipal = data });
 */
 
-let DataPrincipal;
-loadDataBase("1zqI2xhjm3ZxEIr31zkDaDg8_wfCVSBlKgHE2Em6zd0Y", "EVENTOS").then(objeto => {
-    DataPrincipal = objeto;
-})
-
 
 /*
 //Futuras Bases de datos online
