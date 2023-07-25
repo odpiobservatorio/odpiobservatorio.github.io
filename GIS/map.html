@@ -47,167 +47,18 @@
                 <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
                     data-bs-title="Limpiar marcas"></i>
             </button>
-        </div>
-
-        <div class="col">
-            <div class="Visor de capas">
-                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="bi bi-stack" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-custom-class="tooltip" data-bs-title="Ver capas"></i>
-                </a>
-                <ul class="dropdown-menu">
-                    <!--Menú unidades territoriales-->
-                    <li class="dropdown-item ms-4">Unidades territoriales &rsaquo;
-                        <ul class="dropdown-menu submenu">
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarDepartamentos() ">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerDepartamentos">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Departamentos
-                                    </label>
-                                </div>
-                            </li>
-
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarResguardos() ">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerResguardos">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Resguardos
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarReservas() ">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerReservas">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Reservas campesinas
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarMunPdet() ">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerPdet">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Municipios PDET 2017
-                                    </label>
-                                </div>
-                            </li>
-
-
-                        </ul>
-
-                    </li>
-                    <!--Menu de economias ilegales-->
-                    <li class="dropdown-item ms-4">Economias ilegales &rsaquo;
-                        <ul class="dropdown-menu submenu">
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarRutaMigrantes()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerRutaMigrantes">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Rutas migrantes
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarRutaArmas()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerRutaArmas">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Ruta ingreso armas
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarRutaFluvialIlegal()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerFluvialIlegal">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Ruta fluvial ilegal
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="MostrarNarcotrafico()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerNarcotrafico">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Puntos Narcotrafico
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="MostrarContrabando()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerContrabando">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Puntos Contrabando
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check m-1" onchange="mostrarDensidadCoca()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerDensidadCoca">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Densidad Coca 2021
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </li>
-                    <li class="dropdown-item ms-4">Mineria &rsaquo;
-                        <ul class="dropdown-menu submenu">
-                            <li class="dropdown-item">
-                                <div class="form-check ms-1" onchange="mostrarTitulos()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerTitulos">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Titulos mineros
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="dropdown-item">
-                                <div class="form-check ms-1" onchange="mostrarBloquePetrolero()">
-                                    <input class="form-check-input" type="checkbox" value="" id="LayerBloquePretrolero">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Bloques petroleros
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown-item">
-                        <div class="form-check m-1" onchange="mostrarAmbiental()">
-                            <input class="form-check-input" type="checkbox" value="" id="LayerAmbiental">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Información ambiental
-                            </label>
-                        </div>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="dropdown-item">
-                        <div class="form-check m-1" onchange="mostrarCroquis()">
-                            <input class="form-check-input" type="checkbox" value="" id="LayerPlano">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Ver mapa plano
-                            </label>
-                        </div>
-                    </li>
-                    <li class="dropdown-item">
-                        <div class="form-check m-1" onchange="mostrarFondo()">
-                            <input class="form-check-input" type="checkbox" value="" id="LayerFondo">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Ver fondo plano
-                            </label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados"
-            aria-controls="offcanvasResultados">
-            <button class="btn btn-outline-success text-white" type="button">
+            <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasCapas" aria-controls="offcanvasCapas">
+                <i class="bi bi-stack" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Panel de capas"></i>
+            </button> 
+            <button class="btn btn-outline-success text-white" type="button" onclick=""
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados" aria-controls="offcanvasResultados">
                 <i class="bi bi-eye-fill" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="tooltip" data-bs-title="Ver resultados"></i>
             </button>
         </div>
+
         <div class="col">
             <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasFormato" aria-controls="offcanvasFormato">
@@ -419,6 +270,120 @@
                     </div>
                 </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel de capas-->
+    <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasCapas"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header text-white" style="background-color: #16A085;">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Selección de capas</h5>
+            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <div class="label text-success">Unidades territoriales</div>
+                <div class="list-group" id="lstResGis">
+                    <div class="form-check m-2" onchange="mostrarDepartamentos() ">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerDepartamentos">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Departamentos
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="mostrarResguardos() ">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerResguardos">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Resguardos
+                        </label>
+                    </div>
+
+                    <div class="form-check m-2" onchange="mostrarReservas() ">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerReservas">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Reservas campesinas
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="mostrarMunPdet() ">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerPdet">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Municipios PDET 2017
+                        </label>
+                    </div>
+                    <!--Menu de economias ilegales-->
+                    <div class="label text-success">Economias ilegales</div>
+
+                    <div class="form-check m-2" onchange="mostrarRutaMigrantes()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerRutaMigrantes">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Rutas migrantes
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="mostrarRutaArmas()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerRutaArmas">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Ruta ingreso armas
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="mostrarRutaFluvialIlegal()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerFluvialIlegal">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Ruta fluvial ilegal
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="MostrarNarcotrafico()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerNarcotrafico">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Puntos Narcotrafico
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="MostrarContrabando()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerContrabando">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Puntos Contrabando
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="mostrarDensidadCoca()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerDensidadCoca">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Densidad Coca 2021
+                        </label>
+                    </div>
+                    <!--Menu información ambiental-->
+                    <div class="label text-success">Informacion ambiental</div>
+                    <div class="form-check ms-2" onchange="mostrarTitulos()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerTitulos">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Titulos mineros
+                        </label>
+                    </div>
+                    <div class="form-check ms-2" onchange="mostrarBloquePetrolero()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerBloquePretrolero">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Bloques petroleros
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="mostrarAmbiental()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerAmbiental">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Información ambiental
+                        </label>
+                    </div>
+                    <!--Menu configuración gráfica-->
+                    <div class="label text-success">Configuracion del mapa</div>
+                    <div class="form-check m-2" onchange="mostrarCroquis()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerPlano">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Ver mapa plano
+                        </label>
+                    </div>
+                    <div class="form-check m-2" onchange="mostrarFondo()">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerFondo">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Ver fondo plano
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
