@@ -43,7 +43,9 @@ function addElements(tipo) {
     document.getElementById("DivGraficos").appendChild(newCanvas);
 }
 
-function AddGraph(Key, label, axis = 'x') {    
+function AddGraph(Key, label, axis) {   
+    
+    addElements(label);
     //Etiquetas Unicas ordenadas
     const [tagsOrdenadas, colors] = elementosUnicos(Key);
 
@@ -74,62 +76,21 @@ function AddGraph(Key, label, axis = 'x') {
     );
 }
 
-
-function VerGraficoDepartamento() {
-    const label = 'Departamentos'
-    const Key = "Departamento"
-
-    addElements(label)
-    AddGraph(Key, label)
-}
-
-function VerGraficoPueblo() {
-    const label = 'Pueblos'
-    const Key = 'Pueblo'
-
-    addElements(label)
-    AddGraph(Key, label)
+function añadirGrafico(element) {
+    AddGraph(
+        element.getAttribute("id"),
+        element.getAttribute("label"),
+        element.getAttribute("axis")
+    );
 }
 
 
-function VerGraficoYear() {
-    const label = 'Año'
-    const Key = 'Year'
-
-    addElements(label)
-    AddGraph(Key, label)
+function chartTipo(tipo) {
+    ChartPrincipal.config.type = tipo;
+    ChartPrincipal.update();
 }
 
-function VerGraficoPerpe() {
-    const label = 'Actor' 
-    const Key = 'Perpetrador'
-
-    addElements(label) 
-    AddGraph(Key, label, 'y') //Consolidado    
-}
-
-function VerGraficoTipo() {
-    //"Consolidado por"
-    const label = 'Tipo de Vulneración' 
-    const Key = 'Tipo'
-
-    addElements(label) 
-    AddGraph(Key, label) //Consolidado
-}
-
-
-function VerGraficoGenero() {
-    //"Consolidado por"
-    const label = 'Genero' 
-    const Key = 'Sexo'
-
-    addElements(label) 
-    AddGraph(Key, label, 'y') //Consolidado
-}
-
-
-
-
+/*
 function chartTipoPolar() {
     ChartPrincipal.config.type = "polarArea";
     ChartPrincipal.update();
@@ -153,3 +114,4 @@ function chartTipoBar() {
     ChartPrincipal.config.type = "bar";
     ChartPrincipal.update();
 }
+*/

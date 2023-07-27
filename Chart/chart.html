@@ -41,36 +41,44 @@
                     Consolidados
                 </a>
                 <ul class="dropdown-menu shadow rounded ms-3">
+
                     <li>
-                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoDepartamento()">
+                        <a class="dropdown-item ms-3" id="Departamento" label="Departamentos" axis="x" href="#"
+                            onclick="añadirGrafico(this)">
                             Consolidado por departamentos
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoPueblo()">
+                        <a class="dropdown-item ms-3" id="Pueblo" label="Pueblos" axis="x" href="#"
+                            onclick="añadirGrafico(this)">
                             Consolidado por pueblo
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoYear()">
+                        <a class="dropdown-item ms-3" id="Year" label="Año" axis="x" href="#"
+                            onclick="añadirGrafico(this)">
                             Consolidado por año
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoPerpe()">
+                        <a class="dropdown-item ms-3" id="Perpetrador" label="Actor" axis="y" href="#"
+                            onclick="añadirGrafico(this)">
                             Consolidado por actor
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoTipo()">
+                        <a class="dropdown-item ms-3" id="Tipo" label="Tipo de Vulneración" axis="x" href="#"
+                            onclick="añadirGrafico(this)">
                             Consolidado por tipo de vulneración
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item ms-3" href="#" onclick="VerGraficoGenero()">
+                        <a class="dropdown-item ms-3" id="Sexo" label="Genero" axis="y" href="#"
+                            onclick="añadirGrafico(this)">
                             Consolidado por género
                         </a>
                     </li>
+
                 </ul>
             </div>
         </div>

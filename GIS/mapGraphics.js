@@ -6,6 +6,19 @@ let Datafilter = 0;
 //Funciones que muestran capas separadas
 //*****************************************************
 
+
+function clearLayers() {
+  let lista = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
+  lista = lista.querySelectorAll(".form-check-input");
+  for (const input of lista) {
+    if (input.checked) {
+      input.checked = false;
+      (input.parentElement).onchange();
+    }
+  }
+}
+
+
 function mostrarCroquis() {
   let Valor = document.getElementById("LayerPlano").checked;
 
@@ -25,10 +38,12 @@ function mostrarCroquis() {
 
   } else {
     map.removeLayer(capaPlana)
-
   }
 
 }
+
+
+
 
 function mostrarResguardos() {
   let Valor = document.getElementById("LayerResguardos").checked;
@@ -68,6 +83,7 @@ function mostrarResguardos() {
 
 
 }
+
 function mostrarDepartamentos() {
   let Valor = document.getElementById("LayerDepartamentos").checked;
 
@@ -101,10 +117,6 @@ function mostrarDepartamentos() {
     map.removeLayer(Departamentos)
 
   }
-
-
-
-
 }
 
 function mostrarRutaMigrantes() {
@@ -312,6 +324,7 @@ function mostrarBloquePetrolero() {
   }
 
 }
+
 function mostrarReservas() {
   let Valor = document.getElementById("LayerReservas").checked;
   if (Valor == true) {

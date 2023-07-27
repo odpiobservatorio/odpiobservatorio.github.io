@@ -2,6 +2,7 @@
 let MrkAntecedente = [];
 let CriteFindPlus = [];
 
+
 //Almacena en esta varible la información de los resultados de búsqueda
 let DataToReport = [];
 
@@ -23,6 +24,7 @@ function CargarlstMap() {
     addTextHelp()
 
 }
+
 
 
 //*****************************************************
