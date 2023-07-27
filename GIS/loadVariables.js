@@ -1,4 +1,10 @@
-//Definir funcion de carga
+
+function createLayer(layerName, layerPath) {
+    return load(layerPath).then(data => {
+        window[layerName] = data;
+    });
+}
+
 function load(path) {
     //Llama el archivo y lo regresa como objeto json
     return fetch(path)
@@ -12,43 +18,37 @@ function load(path) {
         });
 }
 
-//Declarar variables
-let CapaBloquePetrolero;
-let LayerPlano;
-let capaDepartamentos;
-let FondoLayer;
-let cpaPdet;
-let PozosPretoleros;
-let reservasCap;
-let resguardos;
-let TitulosMineros;
-let densidadCoca;
-let capaFluvialIlegal;
-let capaRutaArmas;
-let capaContrabando;
-let capaPuntosNarcotrafico;
-let capaRutaMigrantes;
 
+// Declarar un objeto que contenga los nombres de las variables y sus rutas de archivo
+const layersToLoad = {
+    CapaBloquePetrolero: './layers/BloquePetrolero.json',
+    LayerPlano: './layers/Croquis.json',
+    capaDepartamentos: './layers/Departamentos.json',
+    FondoLayer: './layers/Fondo.json',
+    cpaPdet: './layers/MunicipiosPDET.json',
+    PozosPretoleros: './layers/PozosPet.json',
+    reservasCap: './layers/ReservasCap.json',
+    resguardos: './layers/Resguardos.json',
+    TitulosMineros: './layers/TitulosMin.json',
 
-//Cargar las variables de cada base de datos (Luego se puede cambiar a algo mas eficiente)
-//Layers
-load('./layers/BloquePetrolero.json').then(data => { CapaBloquePetrolero = data });
-load('./layers/Croquis.json').then(data => { LayerPlano = data });
-load('./layers/Departamentos.json').then(data => { capaDepartamentos = data });
-load('./layers/Fondo.json').then(data => { FondoLayer = data });
-load('./layers/MunicipiosPDET.json').then(data => { cpaPdet = data });
-load('./layers/PozosPet.json').then(data => { PozosPretoleros = data });
-load('./layers/ReservasCap.json').then(data => { reservasCap = data });
-load('./layers/Resguardos.json').then(data => { resguardos = data });
-load('./layers/TitulosMin.json').then(data => { TitulosMineros = data });
+    densidadCoca: './layers/ECOIlegal/desidadCoca.json',
+    capaFluvialIlegal: './layers/ECOIlegal/FluvilesIlegal.json',
+    capaRutaArmas: './layers/ECOIlegal/IngArmas.json',
+    capaContrabando: './layers/ECOIlegal/PuntosContrabando.json',
+    capaPuntosNarcotrafico: './layers/ECOIlegal/PuntosNarcotrafico.json',
+    capaRutaMigrantes: './layers/ECOIlegal/RutaMigrantes.json',
+};
 
-//ECOIlegal
-load("./layers/ECOIlegal/desidadCoca.json").then(data => { densidadCoca = data });
-load("./layers/ECOIlegal/FluvilesIlegal.json").then(data => { capaFluvialIlegal = data });
-load("./layers/ECOIlegal/IngArmas.json").then(data => { capaRutaArmas = data });
-load("./layers/ECOIlegal/PuntosContrabando.json").then(data => { capaContrabando = data });
-load("./layers/ECOIlegal/PuntosNarcotrafico.json").then(data => { capaPuntosNarcotrafico = data });
-load("./layers/ECOIlegal/RutaMigrantes.json").then(data => { capaRutaMigrantes = data });
+const layerPromises = [];
+for (const layerName in layersToLoad) {
+    layerPromises.push(createLayer(layerName, layersToLoad[layerName]));
+}
+Promise.all(layerPromises)
+    .then(() => {})
+    .catch(error => {
+        console.error('Error al cargar las capas:', error);
+    });
+
 
 /*
 let DataPrincipal;

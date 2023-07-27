@@ -2,9 +2,10 @@
 ///filtra por departamento
 let Datafilter = 0;
 let Layers = {}
-//*****************************************************
+
+//.............................................
 //Funciones que muestran capas separadas
-//*****************************************************
+//.............................................
 
 function clearLayers() {
   let lista = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
