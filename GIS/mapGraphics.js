@@ -40,7 +40,7 @@ let allLayers = {
         fillOpacity: 5,
         icon: greenIcon
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return layer.feature.properties.categoria
     }).addTo(map);
   },
@@ -64,7 +64,7 @@ let allLayers = {
           };
         }
       }
-    ).bindPopup(function (layer) {
+    ).bindPopup((layer) => {
       return `${layer.feature.properties.NOMBRE_RESGUARDO_INDIGENA} ETNIA: ${layer.feature.properties.PUEBLO}`
     }).addTo(map);
   },
@@ -88,7 +88,7 @@ let allLayers = {
           };
         }
       }
-    ).bindPopup(function (layer) {
+    ).bindPopup((layer) => {
       return "Nombre: " + layer.feature.properties.NOMBRE_DPT
     }).addTo(map);
   },
@@ -102,7 +102,7 @@ let allLayers = {
         fillOpacity: 0.5
       }
 
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return layer.feature.properties.TIPO;
     }).addTo(map);
   },
@@ -112,7 +112,7 @@ let allLayers = {
       pointToLayer: function (feature, latlng) {
         return L.marker(latlng, { icon: pNegroN });
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
     }).addTo(map);
   },
@@ -122,7 +122,7 @@ let allLayers = {
       pointToLayer: function (feature, latlng) {
         return L.marker(latlng, { icon: pAzulC });
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return `Tipo: ${layer.feature.properties.CONTRABAND}, Lugar: ${layer.feature.properties.NOM_CPOB}`;
     }).addTo(map);
   },
@@ -136,7 +136,7 @@ let allLayers = {
         fillColor: "#B7950B",
         fillOpacity: 0.5
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return `Área ${layer.feature.properties.areacoca}`;
     }).addTo(map);
   },
@@ -150,7 +150,7 @@ let allLayers = {
         fillOpacity: 0.5
       }
 
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return `Nombre: ${layer.feature.properties.NOM_RIO}, Tipo: ${layer.feature.properties.TIPO_RUTA}, Descripción: ${layer.feature.properties.DESCRIP}`;
     }).addTo(map);
   },
@@ -163,7 +163,7 @@ let allLayers = {
         fillColor: "#873600",
         fillOpacity: 0.5
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return `Nombre: ${layer.feature.properties.NOMBRE}, Tipo: ${layer.feature.properties.TIPO}, Ruta: ${layer.feature.properties.RUTA}`;
     }).addTo(map);
   },
@@ -177,7 +177,7 @@ let allLayers = {
         fillColor: "#873600",
         fillOpacity: 0.5
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return layer.feature.properties.MpNombre;
     }).addTo(map);
   },
@@ -190,7 +190,7 @@ let allLayers = {
         fillColor: "red",
         fillOpacity: 0.5
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
 
       return `${layer.feature.properties.nombre}, Categoría: ${layer.feature.properties.organizaci}, Org: ${layer.feature.properties.categoria}`
     }).addTo(map);
@@ -204,7 +204,7 @@ let allLayers = {
         fillColor: "#212F3D",
         fillOpacity: 1
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
 
       return `Estado: ${layer.feature.properties.TITULO_EST}, Minerales: ${layer.feature.properties.MINERALES}, Etapa: ${layer.feature.properties.ETAPA}, Contrato: ${layer.feature.properties.MODALIDAD}`;
     }).addTo(map);
@@ -219,7 +219,7 @@ let allLayers = {
         fillColor: "pink",
         fillOpacity: 0.5
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return `Tipo: ${layer.feature.properties.TIPO_CONTR}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
     }).addTo(map);
   },
@@ -231,7 +231,7 @@ let allLayers = {
         fillColor: "orange",
         fillOpacity: 3
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return layer.feature.properties.NOMBRE_ZONA_RESERVA_CAMPESINA
     }).addTo(map);
   },
@@ -243,7 +243,7 @@ let allLayers = {
         fillColor: "#5DADE2",
         fillOpacity: 3
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
       return layer.feature.properties.Name;
     }).addTo(map);
   },
@@ -255,7 +255,7 @@ let allLayers = {
         fillColor: "white",
         fillOpacity: 1.2
       }
-    }).bindPopup(function (layer) {
+    }).bindPopup((layer) => {
     }).addTo(map);
   },
 }
