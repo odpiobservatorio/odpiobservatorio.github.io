@@ -25,15 +25,11 @@ function CargarlstMap() {
 
 }
 
-
-
 //*****************************************************
 //Funciones para buscar datos y mostrar marcas
 //*****************************************************
 
 function LoadData() {
-
-
 }
 
 
@@ -42,27 +38,20 @@ function LoadData() {
 function LimpiarCriterios() {
     document.getElementById("lstCriterios").innerHTML = ""
     CriteFindPlus = [];
-
 }
 
-function AddOperadorCriteriosY() {
-    let itCriterioTx = document.createElement("li");
+function addOperadorCriterio(elemento) {
+    const operador = elemento.getAttribute("id")
+
+    const itCriterioTx = document.createElement("li");
     itCriterioTx.classList.add("list-group-item")
-
-    itCriterioTx.textContent = "(Y)"
+    itCriterioTx.textContent = `(${operador})`
+    
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
-    CriteFindPlus.push("&&");
-
-
+    CriteFindPlus.push(operador === "Y" ? "&&" : "||");
 }
-function AddOperadorCriteriosO() {
-    let itCriterioTx = document.createElement("li");
-    itCriterioTx.classList.add("list-group-item")
 
-    itCriterioTx.textContent = "(O)"
-    document.getElementById("lstCriterios").appendChild(itCriterioTx);
-    CriteFindPlus.push("||");
-}
+
 
 function AgregarCriterioFind() {
     let ColumnaSr = document.getElementById("lstCampos");
