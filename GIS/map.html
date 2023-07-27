@@ -287,30 +287,29 @@
             <div>
                 <div class="label text-success">Unidades territoriales</div>
 
-                
 
                 <div class="list-group" id="lstResGis">
-                    <div class="form-check m-2" onchange="mostrarDepartamentos() ">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerDepartamentos">
                         <label class="form-check-label" for="flexCheckDefault">
                             Departamentos
                         </label>
                     </div>
 
-                    <div class="form-check m-2" onchange="mostrarResguardos() ">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerResguardos">
                         <label class="form-check-label" for="flexCheckDefault">
                             Resguardos
                         </label>
                     </div>
 
-                    <div class="form-check m-2" onchange="mostrarReservas() ">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerReservas">
                         <label class="form-check-label" for="flexCheckDefault">
                             Reservas campesinas
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="mostrarMunPdet() ">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerPdet">
                         <label class="form-check-label" for="flexCheckDefault">
                             Municipios PDET 2017
@@ -319,37 +318,37 @@
                     <!--Menu de economias ilegales-->
                     <div class="label text-success">Economias ilegales</div>
 
-                    <div class="form-check m-2" onchange="mostrarRutaMigrantes()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerRutaMigrantes">
                         <label class="form-check-label" for="flexCheckDefault">
                             Rutas migrantes
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="mostrarRutaArmas()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerRutaArmas">
                         <label class="form-check-label" for="flexCheckDefault">
                             Ruta ingreso armas
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="mostrarRutaFluvialIlegal()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerFluvialIlegal">
                         <label class="form-check-label" for="flexCheckDefault">
                             Ruta fluvial ilegal
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="MostrarNarcotrafico()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerNarcotrafico">
                         <label class="form-check-label" for="flexCheckDefault">
                             Puntos Narcotrafico
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="MostrarContrabando()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerContrabando">
                         <label class="form-check-label" for="flexCheckDefault">
                             Puntos Contrabando
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="mostrarDensidadCoca()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerDensidadCoca">
                         <label class="form-check-label" for="flexCheckDefault">
                             Densidad Coca 2021
@@ -358,19 +357,19 @@
                     <!--Menu información ambiental-->
                     <div class="label text-success">Informacion ambiental</div>
 
-                    <div class="form-check m-2" onchange="mostrarTitulos()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerTitulos">
                         <label class="form-check-label" for="flexCheckDefault">
                             Titulos mineros
                         </label>
                     </div>
-                    <div class="form-check ms-2" onchange="mostrarBloquePetrolero()">
+                    <div class="form-check ms-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerBloquePretrolero">
                         <label class="form-check-label" for="flexCheckDefault">
                             Bloques petroleros
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="mostrarAmbiental()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerAmbiental">
                         <label class="form-check-label" for="flexCheckDefault">
                             Información ambiental
@@ -378,13 +377,13 @@
                     </div>
                     <!--Menu configuración gráfica-->
                     <div class="label text-success">Configuracion del mapa</div>
-                    <div class="form-check m-2" onchange="mostrarCroquis()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerPlano">
                         <label class="form-check-label" for="flexCheckDefault">
                             Ver mapa plano
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="mostrarFondo()">
+                    <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerFondo">
                         <label class="form-check-label" for="flexCheckDefault">
                             Ver fondo plano

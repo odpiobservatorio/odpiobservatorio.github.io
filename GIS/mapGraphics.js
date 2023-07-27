@@ -1,29 +1,38 @@
 //Variable que filtra las capas GeoJson si está activa
 ///filtra por departamento
 let Datafilter = 0;
-
+let Layers = {}
 //*****************************************************
 //Funciones que muestran capas separadas
 //*****************************************************
 
-
 function clearLayers() {
   let lista = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
   lista = lista.querySelectorAll(".form-check-input");
+
   for (const input of lista) {
     if (input.checked) {
       input.checked = false;
-      (input.parentElement).onchange();
+      map.removeLayer(Layers[input.getAttribute("id")]);
     }
   }
 }
 
+function showLayer(parent) {
+  const input = parent.querySelector(".form-check-input");
+  const key = input.getAttribute("id");
 
-function mostrarCroquis() {
-  let Valor = document.getElementById("LayerPlano").checked;
+  if (input.checked) {
+    allLayers[key]();
+  } else {
+    map.removeLayer(Layers[key]);
+  }
+}
 
-  if (Valor == true) {
-    capaPlana = new L.geoJSON(LayerPlano, {
+
+let allLayers = {
+  "LayerPlano": () => {
+    Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
       style: {
         color: "#76D7C4",
         weight: 0,
@@ -34,24 +43,10 @@ function mostrarCroquis() {
     }).bindPopup(function (layer) {
       return layer.feature.properties.categoria
     }).addTo(map);
+  },
 
-
-  } else {
-    map.removeLayer(capaPlana)
-  }
-
-}
-
-
-
-
-function mostrarResguardos() {
-  let Valor = document.getElementById("LayerResguardos").checked;
-
-
-
-  if (Valor == true) {
-    capaResguardo = new L.geoJSON(resguardos,
+  "LayerResguardos": () => {
+    Layers["LayerResguardos"] = new L.geoJSON(resguardos,
       {
         style: {
           color: "#76D7C4",
@@ -72,25 +67,10 @@ function mostrarResguardos() {
     ).bindPopup(function (layer) {
       return `${layer.feature.properties.NOMBRE_RESGUARDO_INDIGENA} ETNIA: ${layer.feature.properties.PUEBLO}`
     }).addTo(map);
+  },
 
-
-  } else {
-    map.removeLayer(capaResguardo)
-
-  }
-
-
-
-
-}
-
-function mostrarDepartamentos() {
-  let Valor = document.getElementById("LayerDepartamentos").checked;
-
-
-
-  if (Valor == true) {
-    Departamentos = new L.geoJSON(capaDepartamentos,
+  "LayerDepartamentos": () => {
+    Layers["LayerDepartamentos"] = new L.geoJSON(capaDepartamentos,
       {
         style: {
           color: "white",
@@ -101,7 +81,7 @@ function mostrarDepartamentos() {
         },
         filter: function (feature, layer) {
           if (Datafilter == 1) {
-            return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ" ;
+            return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
           }
           else {
             return feature.properties;
@@ -111,18 +91,10 @@ function mostrarDepartamentos() {
     ).bindPopup(function (layer) {
       return "Nombre: " + layer.feature.properties.NOMBRE_DPT
     }).addTo(map);
+  },
 
-
-  } else {
-    map.removeLayer(Departamentos)
-
-  }
-}
-
-function mostrarRutaMigrantes() {
-  let Valor = document.getElementById("LayerRutaMigrantes").checked;
-  if (Valor == true) {
-    Migrantes = new L.geoJSON(capaRutaMigrantes, {
+  "LayerRutaMigrantes": () => {
+    Layers["LayerRutaMigrantes"] = new L.geoJSON(capaRutaMigrantes, {
       style: {
         color: "red",
         weight: 5,
@@ -133,50 +105,30 @@ function mostrarRutaMigrantes() {
     }).bindPopup(function (layer) {
       return layer.feature.properties.TIPO;
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(Migrantes)
-  }
-
-}
-
-function MostrarNarcotrafico() {
-  let Valor = document.getElementById("LayerNarcotrafico").checked;
-  if (Valor == true) {
-    Narcotrafico = new L.geoJSON(capaPuntosNarcotrafico, {
+  "LayerNarcotrafico": () => {
+    Layers["LayerNarcotrafico"] = new L.geoJSON(capaPuntosNarcotrafico, {
       pointToLayer: function (feature, latlng) {
         return L.marker(latlng, { icon: pNegroN });
       }
     }).bindPopup(function (layer) {
       return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
     }).addTo(map);
+  },
 
-
-  } else {
-    map.removeLayer(Narcotrafico)
-  }
-}
-function MostrarContrabando() {
-  let Valor = document.getElementById("LayerContrabando").checked;
-  if (Valor == true) {
-    Contrabando = new L.geoJSON(capaContrabando, {
+  "LayerContrabando": () => {
+    Layers["LayerContrabando"] = new L.geoJSON(capaContrabando, {
       pointToLayer: function (feature, latlng) {
         return L.marker(latlng, { icon: pAzulC });
       }
     }).bindPopup(function (layer) {
       return `Tipo: ${layer.feature.properties.CONTRABAND}, Lugar: ${layer.feature.properties.NOM_CPOB}`;
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(Contrabando)
-  }
-}
-
-function mostrarDensidadCoca() {
-
-  let Valor = document.getElementById("LayerDensidadCoca").checked;
-  if (Valor == true) {
-    capaCoca = new L.geoJSON(densidadCoca, {
+  "LayerDensidadCoca": () => {
+    Layers["LayerDensidadCoca"] = new L.geoJSON(densidadCoca, {
       style: {
         color: "#B7950B",
         pointToLayer: { icon: greenIcon },
@@ -187,16 +139,10 @@ function mostrarDensidadCoca() {
     }).bindPopup(function (layer) {
       return `Área ${layer.feature.properties.areacoca}`;
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(capaCoca)
-  }
-}
-
-function mostrarRutaFluvialIlegal() {
-  let Valor = document.getElementById("LayerFluvialIlegal").checked;
-  if (Valor == true) {
-    FluvialIlegal = new L.geoJSON(capaFluvialIlegal, {
+  "LayerFluvialIlegal": () => {
+    Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
       style: {
         color: "black",
         weight: 4,
@@ -207,39 +153,23 @@ function mostrarRutaFluvialIlegal() {
     }).bindPopup(function (layer) {
       return `Nombre: ${layer.feature.properties.NOM_RIO}, Tipo: ${layer.feature.properties.TIPO_RUTA}, Descripción: ${layer.feature.properties.DESCRIP}`;
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(FluvialIlegal)
-  }
-
-}
-
-function mostrarRutaArmas() {
-  let Valor = document.getElementById("LayerRutaArmas").checked;
-  if (Valor == true) {
-    Armas = new L.geoJSON(capaRutaArmas, {
+  "LayerRutaArmas": () => {
+    Layers["LayerRutaArmas"] = new L.geoJSON(capaRutaArmas, {
       style: {
         color: "purple",
         weight: 4,
         fillColor: "#873600",
         fillOpacity: 0.5
       }
-
     }).bindPopup(function (layer) {
       return `Nombre: ${layer.feature.properties.NOMBRE}, Tipo: ${layer.feature.properties.TIPO}, Ruta: ${layer.feature.properties.RUTA}`;
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(Armas)
-  }
-
-}
-
-function mostrarMunPdet() {
-
-  let Valor = document.getElementById("LayerPdet").checked;
-  if (Valor == true) {
-    capaPdet = new L.geoJSON(cpaPdet, {
+  "LayerPdet": () => {
+    Layers["LayerPdet"] = new L.geoJSON(cpaPdet, {
       style: {
         color: "white",
         pointToLayer: { icon: greenIcon },
@@ -250,16 +180,10 @@ function mostrarMunPdet() {
     }).bindPopup(function (layer) {
       return layer.feature.properties.MpNombre;
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(capaPdet)
-  }
-}
-
-function mostrarAmbiental() {
-  let Valor = document.getElementById("LayerAmbiental").checked;
-  if (Valor == true) {
-    capaAmbiental = new L.geoJSON(ambiental, {
+  "LayerAmbiental": () => {
+    Layers["LayerAmbiental"] = new L.geoJSON(ambiental, {
       style: {
         color: "white",
         weight: 1,
@@ -267,22 +191,13 @@ function mostrarAmbiental() {
         fillOpacity: 0.5
       }
     }).bindPopup(function (layer) {
-      
+
       return `${layer.feature.properties.nombre}, Categoría: ${layer.feature.properties.organizaci}, Org: ${layer.feature.properties.categoria}`
     }).addTo(map);
-
-
-  } else {
-    map.removeLayer(capaAmbiental)
-
-  }
-}
-//Variable que guarda el layer MAP
-function mostrarTitulos() {
-
-  let Valor = document.getElementById("LayerTitulos").checked;
-  if (Valor == true) {
-    capaTitulos = new L.geoJSON(TitulosMineros, {
+  },
+  //Variable que guarda el layer MAP
+  "LayerTitulos": () => {
+    Layers["LayerTitulos"] = new L.geoJSON(TitulosMineros, {
       style: {
         color: "white",
         weight: 0,
@@ -290,66 +205,39 @@ function mostrarTitulos() {
         fillOpacity: 1
       }
     }).bindPopup(function (layer) {
-      
+
       return `Estado: ${layer.feature.properties.TITULO_EST}, Minerales: ${layer.feature.properties.MINERALES}, Etapa: ${layer.feature.properties.ETAPA}, Contrato: ${layer.feature.properties.MODALIDAD}`;
     }).addTo(map);
+    Layers["LayerTitulos"].eachLayer
+  },
 
-
-  } else {
-    map.removeLayer(capaTitulos)
-  }
-  capaTitulos.eachLayer
-
-
-
-
-}
-function mostrarBloquePetrolero() {
-  let Valor = document.getElementById("LayerBloquePretrolero").checked;
-  if (Valor == true) {
-    bPetrolero = new L.geoJSON(CapaBloquePetrolero, {
+  "LayerBloquePretrolero": () => {
+    Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero, {
       style: {
         color: "white",
         weight: 1,
         fillColor: "pink",
         fillOpacity: 0.5
       }
-
     }).bindPopup(function (layer) {
       return `Tipo: ${layer.feature.properties.TIPO_CONTR}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(bPetrolero)
-  }
-
-}
-
-function mostrarReservas() {
-  let Valor = document.getElementById("LayerReservas").checked;
-  if (Valor == true) {
-    capaReserva = new L.geoJSON(reservasCap, {
+  "LayerReservas": () => {
+    Layers["LayerReservas"] = new L.geoJSON(reservasCap, {
       style: {
-
         color: "orange",
         fillColor: "orange",
         fillOpacity: 3
-
       }
     }).bindPopup(function (layer) {
       return layer.feature.properties.NOMBRE_ZONA_RESERVA_CAMPESINA
     }).addTo(map);
+  },
 
-  } else {
-    map.removeLayer(capaReserva)
-  }
-}
-
-function mostrarPozos() {
-
-  let Valor = document.getElementById("LayerPozos").checked;
-  if (Valor == true) {
-    capaPozos = new L.geoJSON(PozosPretoleros, {
+  "LayerPozos": () => {
+    Layers["LayerPozos"] = new L.geoJSON(PozosPretoleros, {
       style: {
         color: "#5DADE2",
         fillColor: "#5DADE2",
@@ -358,17 +246,9 @@ function mostrarPozos() {
     }).bindPopup(function (layer) {
       return layer.feature.properties.Name;
     }).addTo(map);
-
-
-  } else {
-    map.removeLayer(capaPozos)
-  }
-}
-function mostrarFondo() {
-  let Valor = document.getElementById("LayerFondo").checked;
-  if (Valor == true) {
-
-    capaFondo = new L.geoJSON(FondoLayer, {
+  },
+  "LayerFondo": () => {
+    Layers["LayerFondo"] = new L.geoJSON(FondoLayer, {
       style: {
         color: "white",
         weight: 0,
@@ -377,11 +257,9 @@ function mostrarFondo() {
       }
     }).bindPopup(function (layer) {
     }).addTo(map);
-
-  } else {
-    map.removeLayer(capaFondo)
-  }
+  },
 }
+
 
 
 //*****************************************************
