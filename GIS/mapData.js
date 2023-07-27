@@ -46,11 +46,10 @@ function addOperadorCriterio(elemento) {
     const itCriterioTx = document.createElement("li");
     itCriterioTx.classList.add("list-group-item")
     itCriterioTx.textContent = `(${operador})`
-    
+
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
     CriteFindPlus.push(operador === "Y" ? "&&" : "||");
 }
-
 
 
 function AgregarCriterioFind() {
@@ -58,23 +57,18 @@ function AgregarCriterioFind() {
     let ColumnaTx = ColumnaSr.options[ColumnaSr.selectedIndex].text;
     let ColumnaVal = document.getElementById("lstCampos").value;
 
-
     let OperadorSr = document.getElementById("lstOperador");
     let OperadorTx = OperadorSr.options[OperadorSr.selectedIndex].text;
     let OperadorVal = document.getElementById("lstOperador").value;
 
     let vCampoTx = document.getElementById("txValorBusquedaA").value;
 
-
     let CriterioFull
     if (OperadorVal == 1) {
         CriterioFull = `caso['${ColumnaVal}'].includes('${vCampoTx}')`;
+    } else {
+        CriterioFull = `caso['${ColumnaVal}'] ${OperadorVal} '${vCampoTx}'`;
     }
-
-    else {
-        CriterioFull = `caso['${ColumnaVal}']${OperadorVal}'${vCampoTx}'`;
-    }
-
 
     CriteFindPlus.push(CriterioFull);
 
@@ -85,60 +79,35 @@ function AgregarCriterioFind() {
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
 
 }
-///Función para busqueda compleja de varios parametros básicos
-function BuscarFaseII() {
-    //Limpiamos la lista de resultados
-    document.getElementById("lstResGis").innerHTML = ""
 
-    //Inicializamos la variable de criterios
-    let Cadena = "caso => ";
+function showBusqueda(checkBusqueda) {
+    let nCasos = 0;
 
-    //Búsco en la variable global los elementos que hayan sido agregados
-    //y construimos la cadena general.
-    CriteFindPlus.forEach(elemento => {
-        Cadena = `${Cadena} ${elemento} `
-    })
+    for (const elemento of checkBusqueda) {
+        const TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
+        let p = document.createElement("p");
+        p.textContent = TextoCaso
 
-    ///Ordena mi información por fecha
-    const checkBusquedaSort = [...DataPrincipal].sort((a, b) => a.Year - b.Year);
-    
-    const checkBusqueda = checkBusquedaSort.filter(eval(Cadena));
-    //Agrego los valores de este filtro y los guardo en el reporte
-    DataToReport = checkBusqueda
-
-    //Limpiamos cualquier marca en el mapa
-    for (const antecedente of MrkAntecedente) {
-        map.removeLayer(antecedente)
-    }
-
-    nCasos = 0;
-    checkBusqueda.forEach(elemento => {
         let a = document.createElement("a")
         a.href = ("#")
         a.onclick = () => verCaso(elemento);
-
         a.classList.add('list-group-item', 'list-group-item-action');
 
-        let d = document.createElement("div");
-        d.classList.add('d-flex', 'w-100', 'justify-content-between');
-
-
         let h5 = document.createElement("h6");
-
         h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
-        d.appendChild(h5);
 
         let sm = document.createElement("small");
         sm.classList.add('text-muted');
         sm.textContent = elemento.Year;
-        d.appendChild(sm);
+        
+        let d = document.createElement("div");
+        d.classList.add('d-flex', 'w-100', 'justify-content-between');
 
+        d.appendChild(h5);
+        d.appendChild(sm);
         a.appendChild(d);
 
-        let TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
-        p = document.createElement("p");
-        p.textContent = TextoCaso
         a.appendChild(p);
 
         document.getElementById("lstResGis").appendChild(a);
@@ -146,14 +115,37 @@ function BuscarFaseII() {
         ///Colocamos las marcas en el mapa
         MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
             .addTo(map)
-            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio} C: ${elemento.ind} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
+            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year}</b><br>${elemento.Municipio}, C: ${elemento.ind}<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
         );
-        nCasos++
-    });
+        nCasos++   
+    }
+    
     document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
-    nCasos = 0;
-
 }
+
+
+///Función para busqueda compleja de varios parametros básicos
+function BuscarFaseII() {
+    //Limpiamos la lista de resultados
+    document.getElementById("lstResGis").innerHTML = ""
+
+    //Creamos la funcion q va a filtrar con los criterios
+    const filtroCreado = new Function("caso", `return ${CriteFindPlus.join(' ')};`);
+
+    ///Ordena mi información por fecha
+    const checkBusquedaSort = [...DataPrincipal].sort((a, b) => a.Year - b.Year);
+    const checkBusqueda = checkBusquedaSort.filter(caso => filtroCreado(caso));
+
+    //Limpiamos las marcas del mapa
+    clearMarkers();
+
+    //mostramos la busqueda finalmente
+    showBusqueda(checkBusqueda);
+
+    //Agrego los valores de este filtro y los guardo en el reporte
+    DataToReport = checkBusqueda
+}
+
 
 function BuscarFaseI() {
     //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.    
@@ -186,63 +178,21 @@ function BuscarFaseI() {
             break;
     }
 
+    //Limpiamos las marcas del mapa
+    clearMarkers();
+
+    //mostramos la busqueda finalmente
+    showBusqueda(checkBusqueda);
+
     //Agrego los valores de este filtro y los guardo en el reporte
     DataToReport = checkBusqueda
-
-    for (const antecedente of MrkAntecedente) {
-        //Limpiamos cualquier marca en el mapa
-        map.removeLayer(antecedente)
-    }
-
-    nCasos = 0;
-
-    for (const elemento of checkBusqueda) {
-        let a = document.createElement("a")
-        a.href = ("#")
-        a.onclick = () => verCaso(elemento);
-
-        a.classList.add('list-group-item', 'list-group-item-action');
-
-        let d = document.createElement("div");
-        d.classList.add('d-flex', 'w-100', 'justify-content-between');
-
-
-        let h5 = document.createElement("h6");
-
-        h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
-        h5.classList.add('mb-1');
-        d.appendChild(h5);
-
-        let sm = document.createElement("small");
-        sm.classList.add('text-muted');
-        sm.textContent = elemento.Year;
-        d.appendChild(sm);
-
-        a.appendChild(d);
-
-        let TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
-        p = document.createElement("p");
-        p.textContent = TextoCaso
-        a.appendChild(p);
-
-        document.getElementById("lstResGis").appendChild(a);
-
-        ///Colocamos las marcas en el mapa
-        MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
-            .addTo(map)
-            .bindPopup(`<b> ${elemento.Departamento} - ${elemento.Year} </b><br> ${elemento.Municipio}, C: ${(elemento.ind)} <br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
-        );
-        nCasos++
-    }
-
-    document.getElementById("tlResultados").textContent = nCasos + " Resultados"
-    nCasos = 0;
 }
 
 
-//*****************************************************
+//..........................................
 //Funciones para mostrar ventana caso
-//*****************************************************
+//..........................................
+
 function verCaso(registro) {
     document.getElementById('tlTipoCaso').textContent = `CASO ${registro.ind}`;
     document.getElementById('txTipo').textContent = (registro).Tipo;
@@ -253,10 +203,12 @@ function verCaso(registro) {
     document.getElementById('txCaso').textContent = (registro).Antecedentes;
     bootstrap.Modal.getOrCreateInstance(document.getElementById('ModalCaseOnMap')).show();
 }
+
 ///Modifca vicualmente el boton de buscar
 function VerFindExtend() {
     let control = document.getElementById("PlusFind");
-    if (control.hidden == true) {
+    
+    if (control.hidden) {
         control.hidden = false
         document.getElementById("plusOption").textContent = "-"
     }
@@ -267,7 +219,7 @@ function VerFindExtend() {
 }
 
 
-function RemoverMarkers() {
+function clearMarkers() {
     //Limpiamos cualquier marca en el mapa
     for (const antecedente of MrkAntecedente) {
         map.removeLayer(antecedente);
@@ -286,7 +238,6 @@ function listasAutomaticas(cotrolList) {
         DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
     }
     else {
-        
         DataPrincipalSort = DataPrincipal.sort((a, b) => {
             a = a[criterio]
             b = b[criterio]
@@ -322,126 +273,51 @@ function TablaReport() {
     var ContenedorTabla = document.getElementById("divTableModal");
     //Limpia el contenido dentro del formulario modal
     document.getElementById("divTableModal").innerHTML = ""
-
-
     // Agrega la imagen al documento 
     let tablabase = document.getElementById('tbResultados');
     if (tablabase) tablabase.remove();
-
-
     let tabla = document.createElement('table');
     let tablaHeader = document.createElement('thead');
     tabla.id = 'tbResultados';
-
     //Creamos el cuerpo de la tabla
     let tablaBody = document.createElement('tbody');
-
     //Creamos los encabezados
     let Encabezados = document.createElement('tr');
 
-
-    let hdId = document.createElement('td');
-    hdId.textContent = "ID";
-    Encabezados.appendChild(hdId);
-
-    let hdAño = document.createElement('td');
-    hdAño.textContent = "Año";
-    Encabezados.appendChild(hdAño);
-
-    let hdDep = document.createElement('td');
-    hdDep.textContent = "Departamento";
-    Encabezados.appendChild(hdDep);
-
-    let hdLugar = document.createElement('td');
-    hdLugar.textContent = "Lugar";
-    Encabezados.appendChild(hdLugar);
-
-    let hdPueblo = document.createElement('td');
-    hdPueblo.textContent = "Pueblo";
-    Encabezados.appendChild(hdPueblo);
-
-    let hdTipo = document.createElement('td');
-    hdTipo.textContent = "Tipo";
-    Encabezados.appendChild(hdTipo);
-
-    let hdActor = document.createElement('td');
-    hdActor.textContent = "Actor";
-    Encabezados.appendChild(hdActor);
-
-    let TextoHd
-    TextoHd = document.createElement('td');
-    TextoHd.textContent = "Territorio";
-    Encabezados.appendChild(TextoHd);
-
-    let hdFuente = document.createElement('td');
-    hdFuente.textContent = "Fuente";
-    Encabezados.appendChild(hdFuente);
-
-
+    let titulos = ["ID", "Año", "Departamento", "Lugar", "Pueblo", "Tipo", "Actor", "Territorio", "Fuente"]
+    for (const titulo of titulos) {
+        let elemento = document.createElement('td');
+        elemento.textContent = titulo;
+        Encabezados.appendChild(elemento);
+    }
     //Agregamos los encabezados
     tablaHeader.appendChild(Encabezados);
     tabla.appendChild(tablaHeader);
-
 
     //Agregar una columna de botones
     //let celOpciones = document.createElement('td');
     //celOpciones.textContent = '';
 
-
-    let DatoCelta;
+    const Keys = ["Year", "Departamento", "Municipio", "Pueblo", "Tipo", "Perpetrador", "Territorio", "Fuente"]
     let i = 1
-
     for (const registro of DataToReport) {
-        //Agrego una fila por cada registro de mi DBr
         let fila = document.createElement('tr');
-
-        DatoCelta = document.createElement('td');
+        let DatoCelta = document.createElement('td');
         DatoCelta.textContent = i;
         fila.appendChild(DatoCelta);
-
         //Agrego las columnas para cada fila
-        DatoCelta = document.createElement('td');
-        DatoCelta.textContent = registro.Year;
-        fila.appendChild(DatoCelta);
-
-        DatoCelta = document.createElement('td');
-        DatoCelta.textContent = registro.Departamento;
-        fila.appendChild(DatoCelta);
-
-        DatoCelta = document.createElement('td');
-        DatoCelta.textContent = registro.Municipio;
-        fila.appendChild(DatoCelta);
-
-        DatoCelta = document.createElement('td');
-        DatoCelta.textContent = registro.Pueblo;
-        fila.appendChild(DatoCelta);
-
-        DatoCelta = document.createElement('td');
-        DatoCelta.textContent = registro.Tipo;
-        fila.appendChild(DatoCelta);
-
-        DatoCelta = document.createElement('td');
-        DatoCelta.textContent = registro.Perpetrador;
-        fila.appendChild(DatoCelta);
-
-        DatoCelta = document.createElement('td');
-        DatoCelta.textContent = registro.Territorio;
-        fila.appendChild(DatoCelta);
-
-        DatoCelta = document.createElement('td');
-        //DatoCelta.style.maxWidth= "50px"
-        DatoCelta.textContent = registro.Fuente;
-        fila.appendChild(DatoCelta);
-
+        for (const key of Keys) {
+            DatoCelta = document.createElement('td');
+            DatoCelta.textContent = registro[key];
+            fila.appendChild(DatoCelta);
+        }
         //Agrego filas y columnas al cuerpo de la tabla
-        tablaBody.appendChild(fila)
+        tablaBody.appendChild(fila);
         i++
     }
-
     tabla.appendChild(tablaBody);
     ContenedorTabla.appendChild(tabla);
     tabla.classList.add('table', 'table-striped', 'table-hover');
-
     tablaHeader.classList.add('table-dark', 'fw-bold');
 }
 
@@ -463,7 +339,6 @@ function DocumentReport() {
         sm.textContent = contador;
         ContenedorDocumento.appendChild(sm);
         contador++
-
 
         tagElement = document.createElement("div")
         tagElement.textContent = registro.Year;
@@ -488,6 +363,9 @@ function DocumentReport() {
         tagElement = document.createElement("p")
         tagElement.textContent = registro.Antecedentes;
         tagElement.classList.add("fs-5", "text-dark", "mb-5", "ms-5")
+        ContenedorDocumento.appendChild(tagElement);
+
+        tagElement = document.createElement("hr")
         ContenedorDocumento.appendChild(tagElement);
     }
 
