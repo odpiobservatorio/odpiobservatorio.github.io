@@ -43,15 +43,12 @@ function addElements(tipo) {
     document.getElementById("DivGraficos").appendChild(newCanvas);
 }
 
-function AddGraph(Key, label, axis) {   
-    
+function AddGraph(Key, label, axis) {       
     addElements(label);
     //Etiquetas Unicas ordenadas
     const [tagsOrdenadas, colors] = elementosUnicos(Key);
-
     //Inicio la busqueda por Clave y cuento totales por año
     const Conteos = countTipo(Key, tagsOrdenadas);
-
     //Configurar etiquetas y datos
     const data = {
         labels: tagsOrdenadas,
