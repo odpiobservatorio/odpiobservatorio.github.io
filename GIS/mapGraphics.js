@@ -213,17 +213,24 @@ let allLayers = {
   },
 
   "LayerBloquePretrolero": () => {
-    Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero, {
+    Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero, 
+    {
       style: {
         color: "white",
         weight: 1,
         fillColor: "pink",
-        fillOpacity: 0.5
-      }
-    }).bindPopup((layer) => {
+        fillOpacity: 0.8
+      },
+        filter: function (feature, layer) {
+          return feature.properties.TIPO_CONTR !== "NO APLICA" && feature.properties.ESTAD_AREA !== "SIN ASIGNAR";
+        }
+    }
+    ).bindPopup((layer) => {
       return `Tipo: ${layer.feature.properties.TIPO_CONTR}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
     }).addTo(map);
   },
+
+  
 
   "LayerReservas": () => {
     Layers["LayerReservas"] = new L.geoJSON(reservasCap, {
