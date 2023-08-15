@@ -284,7 +284,7 @@ function TablaReport() {
     //Creamos los encabezados
     let Encabezados = document.createElement('tr');
 
-    let titulos = ["ID", "Año", "Departamento", "Lugar", "Pueblo", "Tipo", "Actor", "Territorio", "Fuente"]
+    let titulos = ["ID", "Año", "Departamento", "Lugar", "Pueblo", "Tipo", "Actor", "Territorio", "Género"]
     for (const titulo of titulos) {
         let elemento = document.createElement('td');
         elemento.textContent = titulo;
@@ -298,7 +298,7 @@ function TablaReport() {
     //let celOpciones = document.createElement('td');
     //celOpciones.textContent = '';
 
-    const Keys = ["Year", "Departamento", "Municipio", "Pueblo", "Tipo", "Perpetrador", "Territorio", "Fuente"]
+    const Keys = ["Year", "Departamento", "Municipio", "Pueblo", "Tipo", "Perpetrador", "Territorio", "Sexo"]
     let i = 1
     for (const registro of DataToReport) {
         let fila = document.createElement('tr');
