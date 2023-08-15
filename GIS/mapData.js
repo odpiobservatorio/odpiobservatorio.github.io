@@ -188,6 +188,47 @@ function BuscarFaseI() {
     DataToReport = checkBusqueda
 }
 
+function CargarTodoMarcas(){
+    let nCasos = 0;
+    for (const elemento of DataPrincipal) {
+        const TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
+        let p = document.createElement("p");
+        p.textContent = TextoCaso
+
+        let a = document.createElement("a")
+        a.href = ("#")
+        a.onclick = () => verCaso(elemento);
+        a.classList.add('list-group-item', 'list-group-item-action');
+
+        let h5 = document.createElement("h6");
+        h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
+        h5.classList.add('mb-1');
+
+        let sm = document.createElement("small");
+        sm.classList.add('text-muted');
+        sm.textContent = elemento.Year;
+        
+        let d = document.createElement("div");
+        d.classList.add('d-flex', 'w-100', 'justify-content-between');
+
+        d.appendChild(h5);
+        d.appendChild(sm);
+        a.appendChild(d);
+
+        a.appendChild(p);
+
+        document.getElementById("lstResGis").appendChild(a);
+
+        ///Colocamos las marcas en el mapa
+        MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
+            .addTo(map)
+            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year}</b><br>${elemento.Municipio}, C: ${elemento.ind}<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
+        );
+        nCasos++   
+    }   
+    document.getElementById("tlResultados").textContent = `${nCasos} Resultados`; 
+}
+
 
 //..........................................
 //Funciones para mostrar ventana caso

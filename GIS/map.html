@@ -43,6 +43,11 @@
                 <i class="bi bi-binoculars" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="tooltip" data-bs-title="Panel de búsquedas"></i>
             </button>
+            <button class="btn btn-outline-success text-white ms-3" type="button" onclick="CargarTodoMarcas()"
+                >
+                <i class="bi bi-geo-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas"></i>
+            </button>
             <button class="btn btn-outline-success text-white" type="button" onclick="clearMarkers()">
                 <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
                     data-bs-title="Limpiar marcas"></i>
@@ -52,10 +57,10 @@
                 data-bs-target="#offcanvasCapas" aria-controls="offcanvasCapas">
                 <i class="bi bi-stack" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
                     data-bs-title="Panel de capas"></i>
-            </button> 
+            </button>
 
-            <button class="btn btn-outline-success text-white" type="button" onclick=""
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados" aria-controls="offcanvasResultados">
+            <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasResultados" aria-controls="offcanvasResultados">
                 <i class="bi bi-eye-fill" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="tooltip" data-bs-title="Ver resultados"></i>
             </button>
@@ -393,7 +398,9 @@
                 <hr>
                 <div>
                     <button class="btn btn-outline-success text-black" type="button" onclick="clearLayers()">
-                        <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Borrar Capas" data-bs-original-title="" title=""></i>
+                        <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-custom-class="tooltip" data-bs-title="Borrar Capas" data-bs-original-title=""
+                            title=""></i>
                     </button>
                 </div>
 
