@@ -18,7 +18,7 @@ function countTipo(Key, tagsOrdenadas) {
 }
 
 function elementosUnicos(Key) {
-    let colors = [];
+    const colors = [];
     const elementosUnicosSet = new Set();
     //Hace una lista sin repeticiones del tipo q se pida
     //por ejem lista de los Departamentos
@@ -34,10 +34,10 @@ function elementosUnicos(Key) {
 function addElements(tipo) {
     document.getElementById("tlGrafico").textContent = `Consolidado por ${tipo}`;
 
-    let elemento = document.getElementById("grafica")
+    const elemento = document.getElementById("grafica")
     elemento.remove();
 
-    let newCanvas = document.createElement("canvas");
+    const newCanvas = document.createElement("canvas");
     newCanvas.id = "grafica"
 
     document.getElementById("DivGraficos").appendChild(newCanvas);

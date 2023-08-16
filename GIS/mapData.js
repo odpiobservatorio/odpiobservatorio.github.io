@@ -53,15 +53,15 @@ function addOperadorCriterio(elemento) {
 
 
 function AgregarCriterioFind() {
-    let ColumnaSr = document.getElementById("lstCampos");
-    let ColumnaTx = ColumnaSr.options[ColumnaSr.selectedIndex].text;
-    let ColumnaVal = document.getElementById("lstCampos").value;
+    const ColumnaSr = document.getElementById("lstCampos");
+    const ColumnaTx = ColumnaSr.options[ColumnaSr.selectedIndex].text;
+    const ColumnaVal = document.getElementById("lstCampos").value;
 
-    let OperadorSr = document.getElementById("lstOperador");
-    let OperadorTx = OperadorSr.options[OperadorSr.selectedIndex].text;
-    let OperadorVal = document.getElementById("lstOperador").value;
+    const OperadorSr = document.getElementById("lstOperador");
+    const OperadorTx = OperadorSr.options[OperadorSr.selectedIndex].text;
+    const OperadorVal = document.getElementById("lstOperador").value;
 
-    let vCampoTx = document.getElementById("txValorBusquedaA").value;
+    const vCampoTx = document.getElementById("txValorBusquedaA").value;
 
     let CriterioFull
     if (OperadorVal == 1) {
@@ -72,7 +72,7 @@ function AgregarCriterioFind() {
 
     CriteFindPlus.push(CriterioFull);
 
-    let itCriterioTx = document.createElement("li");
+    const itCriterioTx = document.createElement("li");
 
     itCriterioTx.textContent = `${ColumnaTx} ${OperadorTx} ${vCampoTx}`
     itCriterioTx.classList.add("list-group-item")
@@ -85,23 +85,23 @@ function showBusqueda(checkBusqueda) {
 
     for (const elemento of checkBusqueda) {
         const TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
-        let p = document.createElement("p");
+        const p = document.createElement("p");
         p.textContent = TextoCaso
 
-        let a = document.createElement("a")
+        const a = document.createElement("a")
         a.href = ("#")
         a.onclick = () => verCaso(elemento);
         a.classList.add('list-group-item', 'list-group-item-action');
 
-        let h5 = document.createElement("h6");
+        const h5 = document.createElement("h6");
         h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
 
-        let sm = document.createElement("small");
+        const sm = document.createElement("small");
         sm.classList.add('text-muted');
         sm.textContent = elemento.Year;
         
-        let d = document.createElement("div");
+        const d = document.createElement("div");
         d.classList.add('d-flex', 'w-100', 'justify-content-between');
 
         d.appendChild(h5);
@@ -149,9 +149,9 @@ function BuscarFaseII() {
 
 function BuscarFaseI() {
     //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.    
-    let iOperador = document.getElementById("lstOperador").value
-    let iCampo = `${document.getElementById("lstCampos").value}`;
-    let vCampo = `${document.getElementById("txValorBusquedaA").value}`;
+    const iOperador = document.getElementById("lstOperador").value
+    const iCampo = `${document.getElementById("lstCampos").value}`;
+    const vCampo = `${document.getElementById("txValorBusquedaA").value}`;
     
     ///Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = ""
@@ -192,23 +192,23 @@ function CargarTodoMarcas(){
     let nCasos = 0;
     for (const elemento of DataPrincipal) {
         const TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
-        let p = document.createElement("p");
+        const p = document.createElement("p");
         p.textContent = TextoCaso
 
-        let a = document.createElement("a")
+        const a = document.createElement("a")
         a.href = ("#")
         a.onclick = () => verCaso(elemento);
         a.classList.add('list-group-item', 'list-group-item-action');
 
-        let h5 = document.createElement("h6");
+        const h5 = document.createElement("h6");
         h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
         h5.classList.add('mb-1');
 
-        let sm = document.createElement("small");
+        const sm = document.createElement("small");
         sm.classList.add('text-muted');
         sm.textContent = elemento.Year;
         
-        let d = document.createElement("div");
+        const d = document.createElement("div");
         d.classList.add('d-flex', 'w-100', 'justify-content-between');
 
         d.appendChild(h5);
@@ -269,7 +269,7 @@ function clearMarkers() {
 
 function listasAutomaticas(cotrolList) {
 
-    let criterio = document.getElementById(cotrolList).value;
+    const criterio = document.getElementById(cotrolList).value;
 
     let DataPrincipalSort;
     if (criterio == "Year") {
@@ -291,14 +291,14 @@ function listasAutomaticas(cotrolList) {
         const Listas = [...new Map(DataPrincipalSort.map((filtro) => [filtro[criterio], filtro])).values()];
 
         for (const elemento of Listas) {
-            let itemLs = document.createElement("option")
+            const itemLs = document.createElement("option")
             itemLs.value = elemento[criterio];
             itemLs.text = elemento[criterio];;
             document.getElementById("lstAutomatica").appendChild(itemLs);
         }
     }
     else {
-        let itemLs = document.createElement("option")
+        const itemLs = document.createElement("option")
         itemLs.text = "Sin criterio";
         document.getElementById("lstAutomatica").appendChild(itemLs);
     }
@@ -315,19 +315,19 @@ function TablaReport() {
     //Limpia el contenido dentro del formulario modal
     document.getElementById("divTableModal").innerHTML = ""
     // Agrega la imagen al documento 
-    let tablabase = document.getElementById('tbResultados');
+    const tablabase = document.getElementById('tbResultados');
     if (tablabase) tablabase.remove();
-    let tabla = document.createElement('table');
-    let tablaHeader = document.createElement('thead');
+    const tabla = document.createElement('table');
+    const tablaHeader = document.createElement('thead');
     tabla.id = 'tbResultados';
     //Creamos el cuerpo de la tabla
-    let tablaBody = document.createElement('tbody');
+    const tablaBody = document.createElement('tbody');
     //Creamos los encabezados
-    let Encabezados = document.createElement('tr');
+    const Encabezados = document.createElement('tr');
 
-    let titulos = ["ID", "Año", "Departamento", "Lugar", "Pueblo", "Tipo", "Actor", "Territorio", "Género"]
+    const titulos = ["ID", "Año", "Departamento", "Lugar", "Pueblo", "Tipo", "Actor", "Territorio", "Género"]
     for (const titulo of titulos) {
-        let elemento = document.createElement('td');
+        const elemento = document.createElement('td');
         elemento.textContent = titulo;
         Encabezados.appendChild(elemento);
     }
@@ -363,7 +363,7 @@ function TablaReport() {
 }
 
 function DocumentReport() {
-    var ContenedorDocumento = document.getElementById("divDocModal");
+    const ContenedorDocumento = document.getElementById("divDocModal");
     document.getElementById("divTableModal").innerHTML = ""
 
     let contador = 1;
@@ -375,7 +375,7 @@ function DocumentReport() {
         tagElement.classList.add("h4", "text-success")
         ContenedorDocumento.appendChild(tagElement);
 
-        let sm = document.createElement("small");
+        const sm = document.createElement("small");
         sm.classList.add('text-muted');
         sm.textContent = contador;
         ContenedorDocumento.appendChild(sm);

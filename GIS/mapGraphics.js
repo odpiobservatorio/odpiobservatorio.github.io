@@ -31,7 +31,7 @@ function showLayer(parent) {
 }
 
 
-let allLayers = {
+const allLayers = {
   "LayerPlano": () => {
     Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
       style: {
@@ -328,7 +328,7 @@ var orangeIcon = L.icon({
 
 
 let LabelsMap = []
-let TextoLabel = ""
+let TextoLabel = "";
 let ActiveLabels;
 
 
@@ -356,8 +356,9 @@ function putLabel(e) {
 function ActualizarEtiquetas() {
   TextoLabel = document.getElementById("txValorEtiqueta").value;
 }
+
 function ActivarEtiquetas() {
-  let Valor = document.getElementById("LayerEtiquetas").checked;
+  const Valor = document.getElementById("LayerEtiquetas").checked;
   if (Valor == "0") {
     ActiveLabels = "0"
 
@@ -367,7 +368,7 @@ function ActivarEtiquetas() {
 
 }
 function InserTAg(num) {
-  let textarea = document.getElementById("txValorEtiqueta")
+  const textarea = document.getElementById("txValorEtiqueta")
   switch (num) {
     case 'N':
       textarea.value += "<b>Texto</b>"
@@ -378,7 +379,6 @@ function InserTAg(num) {
     case 'T2':
       textarea.ape += "<h5>Texto</h5>"
   }
-
 }
 
 function RemoverLabels() {
