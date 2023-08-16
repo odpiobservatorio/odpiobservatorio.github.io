@@ -7,7 +7,7 @@ let Layers = {}
 const formatoPlano = {
   "color": "orange",
   "opacidad": "0.5",
-  "markType": "purple",
+  "markType": "green",
 }
 
 //.............................................
@@ -15,8 +15,6 @@ const formatoPlano = {
 //.............................................
 
 function changeMark(elemento) {
-  console.log("...");
-  console.log(elemento.id);
   formatoPlano["markType"] = elemento.id
 }
 
@@ -46,9 +44,6 @@ function showLayer(parent) {
 
 const allLayers = {
   "LayerPlano": () => {
-    console.log("Tipo llmado")
-    console.log(icons[formatoPlano["markType"]])
-
     Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
       style: {
         color: formatoPlano["color"],
@@ -303,7 +298,6 @@ const icons = {
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
   
-
   
   "black": L.icon({
     iconUrl: '../img/pNegroV.png',
@@ -315,15 +309,6 @@ const icons = {
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
   
-  "blueC": L.icon({
-    iconUrl: '../img/pAzulC.png',
-    shadowUrl: '',
-  
-    iconSize: [20, 20], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
-    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  }),
 
   "red": L.icon({
     iconUrl: '../img/pRojoV.png',
@@ -370,7 +355,7 @@ let ActiveLabels;
 function putLabel(e) {
 
   if (ActiveLabels == "1") {
-    LabelMap = new L.marker(e.latlng, { draggable: 'true', icon: pSenalador },
+    LabelMap = new L.marker(e.latlng, { draggable: 'true', icon: otherIcons["senalador"] },
     );
     LabelMap.bindTooltip(
       TextoLabel.replace(/(?:\r\n|\r|\n)/g, '<p>'),
@@ -425,35 +410,47 @@ function RemoverLabels() {
 function AplicarColorMapa(){
   formatoPlano["color"] = document.getElementById("colorMapaColor").value;
   formatoPlano["opacidad"] = document.getElementById("colorMapOpacity").value;  
-  //ColorPlano
-  //ColorPlanoOpacity
+}
+
+
+
+const otherIcons = {
+  "senalador": L.icon({
+    iconUrl: '../img/otherIcons["senalador"].png',
+    shadowUrl: '',
+  
+    iconSize: [14, 14], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
+
+  "negroN": L.icon({
+    iconUrl: '../img/pNegroN.png',
+    shadowUrl: '',
+  
+    iconSize: [20, 20], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
+  
+  "azulC": L.icon({
+    iconUrl: '../img/pAzulC.png',
+    shadowUrl: '',
+  
+    iconSize: [20, 20], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
+
 }
 
 
 
 
-const pSenalador = L.icon({
-  iconUrl: '../img/pSenalador.png',
-  shadowUrl: '',
-
-  iconSize: [14, 14], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
 
 
-/* 
-"yellow": L.icon({
-    iconUrl: 'http://drive.google.com/uc?export=view&id=1XLFL39Jm0NZ8D5PBg9b6VEqMzNw1EQ5y',
-    shadowUrl: '',
-  
-    iconSize: [14, 14], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
-    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  }),
 
 
-  
-*/
