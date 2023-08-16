@@ -109,24 +109,34 @@ function showBusqueda(checkBusqueda) {
 
     document.getElementById("lstResGis").appendChild(a);
 
-    ///Colocamos las marcas en el mapa
-    MrkAntecedente.push(
-      new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
-        .addTo(map)
-        .bindPopup(
-          `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${
-            elemento.Municipio
-          }, C: ${
-            elemento.ind
-          }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
-            elemento
-          )})'>Ver</button></br>`
-        )
-    );
+    console.log(`Ok #${nCasos} / ${checkBusqueda.length}`)
+    console.log(elemento.ind)
+    
+
+    try {
+        MrkAntecedente.push(
+            new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
+              .addTo(map)
+              .bindPopup(
+                `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${
+                  elemento.Municipio
+                }, C: ${
+                  elemento.ind
+                }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
+                  elemento
+                )})'>Ver</button></br>`
+              )
+          );
+        
+    } catch (error) {
+        continue;
+    }
+    
     nCasos++;
   }
 
   document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
+  
 }
 
 ///Función para busqueda compleja de varios parametros básicos
@@ -196,26 +206,29 @@ function BuscarFaseI() {
   showBusqueda(checkBusqueda);
 
   //Agrego los valores de este filtro y los guardo en el reporte
-  console.log(DataToReport);
   DataToReport = checkBusqueda;
-  console.log(DataToReport);
 }
 
 function CargarTodoMarcas() {
-  document.getElementById("lstCampos").selectedIndex = "0";
 
-  listasAutomaticas("lstCampos");
-  document.getElementById("lstAutomatica").selectedIndex = "0";
+    document.getElementById("lstCampos").selectedIndex = "0";
 
-  addTextHelp();
-
+    listasAutomaticas("lstCampos");
+    document.getElementById("lstAutomatica").selectedIndex = "0";
+  
+    
+  
   //Limpiamos la lista de resultados
   document.getElementById("lstResGis").innerHTML = "";
 
   clearMarkers();
 
   //mostramos la busqueda finalmente
+  
   showBusqueda(DataPrincipal);
+
+  DataToReport = [...DataPrincipal];
+  
 
   //Agrego los valores de este filtro y los guardo en el reporte
 
@@ -395,7 +408,7 @@ function TablaReport() {
   ];
   let i = 1;
 
-  console.log(DataToReport);
+  
   for (const registro of DataToReport) {
     let fila = document.createElement("tr");
     let DatoCelta = document.createElement("td");
