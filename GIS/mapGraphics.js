@@ -35,10 +35,10 @@ const allLayers = {
   "LayerPlano": () => {
     Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
       style: {
-        color: "#76D7C4",
+        color: "orange",
         weight: 0,
-        fillColor: "#76D7C4",
-        fillOpacity: 5,
+        fillColor: "orange",
+        fillOpacity: 0.6,
         icon: greenIcon
       }
     }).bindPopup((layer) => {
