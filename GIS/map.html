@@ -30,6 +30,9 @@
     <!-- otros iconos para la aplicación -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
+    <!-- pick color -->
+    <script src="jscolor.js"></script>
+
 
 </head>
 
@@ -45,13 +48,18 @@
             </button>
 
             <!-- Nuevo -->
-            <button class="btn btn-outline-success text-white ms-3" type="button" onclick="CargarTodoMarcas()">
+            <button class="btn btn-outline-success text-white" type="button" onclick="CargarTodoMarcas()">
                 <i class="bi bi-geo-fill" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas"></i>
             </button>
             <button class="btn btn-outline-success text-white" type="button" onclick="clearMarkers()">
                 <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
                     data-bs-title="Limpiar marcas"></i>
+            </button>
+            <button class="btn btn-outline-success text-white" type="button" onclick="CargarlstMap()"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">
+                <i class="bi bi-gear-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Panel formato"></i>
             </button>
 
             <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
@@ -410,7 +418,50 @@
         </div>
     </div>
 
+    <!-- Panel de formato-->
+    <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasGrafico"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header text-white" style="background-color: #16A085;">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Formato</h5>
+            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <div class="list-group" id="lstResGis">
+                    <div class="label text-success">Color fondo</div>
+                    <form class="row align-items-center">
+                        <div class="col-md-2">
+                            <input id="colorMapaColor" type="color" value="#ff0000" />
+                        </div>
+                        <div class="col-md-5">
+                            <input id="colorMapOpacity" type="range" min="0.1" max="1" step="0.1" value="0.5" />
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-outline-success" type="button" onclick="AplicarColorMapa()">
+                                <i class="bi bi-check-circle"></i>
+                            </button>
+                        </div>
 
+                    </form>
+                    <div class="label text-success">Formato marcadores</div>
+                    <form class="row align-items-center">
+                        <div class="col-md-6">
+                            
+                            <div class="form-floating">
+                                <div class="list-group" id="lstResGis">
+                                    <a onclick="AddVerde()"><img src="../img/pVerdeV.png" width="20" height="20"/>Verde</a>
+                                    <a onclick="AddNegro()"><img src="../img/pNegroV.png" width="20" height="20"/>Verde</a>
+                                    <a><img src="../img/pRojoV.png" width="20" height="20"/>Verde</a>
+                                    <a><img src="../img/pMoradoV.png" width="20" height="20"/>Verde</a>
+                                    <a><img src="../img/pAzulV.png" width="20" height="20"/>Verde</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Carga de variables -->
     <script src="loadDatabase.js"></script>

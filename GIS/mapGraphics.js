@@ -2,7 +2,9 @@
 ///filtra por departamento
 let Datafilter = 0;
 let Layers = {}
-
+let ColorPlano="orange";
+let ColorPlanoOpacity="0.5";
+let IconMark;
 //.............................................
 //Funciones que muestran capas separadas
 //.............................................
@@ -30,15 +32,14 @@ function showLayer(parent) {
   }
 }
 
-
 const allLayers = {
   "LayerPlano": () => {
     Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
       style: {
-        color: "orange",
+        color: ColorPlano,
         weight: 0,
-        fillColor: "orange",
-        fillOpacity: 0.6,
+        fillColor: ColorPlano,
+        fillOpacity: ColorPlanoOpacity,
         icon: greenIcon
       }
     }).bindPopup((layer) => {
@@ -306,7 +307,7 @@ var yellowIcon = L.icon({
 
 var greenIcon = L.icon({
   //iconUrl: 'http://drive.google.com/uc?export=view&id=1TcHI2ecG3JtHqZ9H6IdsYOFC1HH42fOu',
-  iconUrl: '../img/pVerdeV.png',
+  iconUrl: "../img/pVerdeV.png",
   shadowUrl: '',
 
   iconSize: [18, 18], // size of the icon
@@ -324,7 +325,6 @@ var orangeIcon = L.icon({
   iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
   popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
 });
-
 
 
 let LabelsMap = []
@@ -385,6 +385,16 @@ function RemoverLabels() {
   LabelsMap.forEach(elemento => {
     map.removeLayer(elemento)
   })
+}
+
+function AplicarColorMapa(){
+  
+  let valueColor= document.getElementById("colorMapaColor").value;
+  let valueOpacity= document.getElementById("colorMapOpacity").value;
+  ColorPlano=valueColor
+  ColorPlanoOpacity=valueOpacity
+
+  
 }
 
 var purpleIcon = L.icon({
