@@ -107,11 +107,7 @@ function showBusqueda(checkBusqueda) {
 
     a.appendChild(p);
 
-    document.getElementById("lstResGis").appendChild(a);
-
-    console.log(`Ok #${nCasos} / ${checkBusqueda.length}`)
-    console.log(elemento.ind)
-    
+    document.getElementById("lstResGis").appendChild(a);    
 
     try {
         MrkAntecedente.push(
