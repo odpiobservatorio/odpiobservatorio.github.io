@@ -107,32 +107,30 @@ function showBusqueda(checkBusqueda) {
 
     a.appendChild(p);
 
-    document.getElementById("lstResGis").appendChild(a);    
+    document.getElementById("lstResGis").appendChild(a);
 
     try {
-        MrkAntecedente.push(
-            new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
-              .addTo(map)
-              .bindPopup(
-                `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${
-                  elemento.Municipio
-                }, C: ${
-                  elemento.ind
-                }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
-                  elemento
-                )})'>Ver</button></br>`
-              )
-          );
-        
+      MrkAntecedente.push(
+        new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
+          .addTo(map)
+          .bindPopup(
+            `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${
+              elemento.Municipio
+            }, C: ${
+              elemento.ind
+            }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
+              elemento
+            )})'>Ver</button></br>`
+          )
+      );
     } catch (error) {
-        continue;
+      continue;
     }
-    
+
     nCasos++;
   }
 
   document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
-  
 }
 
 ///Función para busqueda compleja de varios parametros básicos
@@ -206,68 +204,21 @@ function BuscarFaseI() {
 }
 
 function CargarTodoMarcas() {
+  document.getElementById("lstCampos").selectedIndex = "0";
 
-    document.getElementById("lstCampos").selectedIndex = "0";
+  listasAutomaticas("lstCampos");
+  document.getElementById("lstAutomatica").selectedIndex = "0";
 
-    listasAutomaticas("lstCampos");
-    document.getElementById("lstAutomatica").selectedIndex = "0";
-  
-    
-  
   //Limpiamos la lista de resultados
   document.getElementById("lstResGis").innerHTML = "";
 
   clearMarkers();
 
   //mostramos la busqueda finalmente
-  
+
   showBusqueda(DataPrincipal);
 
-  DataToReport = [...DataPrincipal];
-  
-
-  //Agrego los valores de este filtro y los guardo en el reporte
-
-  /*
-    let nCasos = 0;
-    for (const elemento of DataPrincipal) {
-        const TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
-        const p = document.createElement("p");
-        p.textContent = TextoCaso
-
-        const a = document.createElement("a")
-        a.href = ("#")
-        a.onclick = () => verCaso(elemento);
-        a.classList.add('list-group-item', 'list-group-item-action');
-
-        const h5 = document.createElement("h6");
-        h5.textContent = `${(elemento.ind)}. ${elemento.Tipo}`;
-        h5.classList.add('mb-1');
-
-        const sm = document.createElement("small");
-        sm.classList.add('text-muted');
-        sm.textContent = elemento.Year;
-        
-        const d = document.createElement("div");
-        d.classList.add('d-flex', 'w-100', 'justify-content-between');
-
-        d.appendChild(h5);
-        d.appendChild(sm);
-        a.appendChild(d);
-
-        a.appendChild(p);
-
-        document.getElementById("lstResGis").appendChild(a);
-
-        ///Colocamos las marcas en el mapa
-        MrkAntecedente.push(new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
-            .addTo(map)
-            .bindPopup(`<b>${elemento.Departamento} - ${elemento.Year}</b><br>${elemento.Municipio}, C: ${elemento.ind}<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(elemento)})'>Ver</button></br>`)
-        );
-        nCasos++   
-    }   
-    document.getElementById("tlResultados").textContent = `${nCasos} Resultados`; 
-    */
+  DataToReport = DataPrincipal;
 }
 
 //..........................................
@@ -404,7 +355,6 @@ function TablaReport() {
   ];
   let i = 1;
 
-  
   for (const registro of DataToReport) {
     let fila = document.createElement("tr");
     let DatoCelta = document.createElement("td");

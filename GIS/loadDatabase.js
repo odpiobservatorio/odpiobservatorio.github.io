@@ -31,7 +31,6 @@ let DataPrincipal;
 
 loadDataBase("1ZhaiG1Fz3NUrlQpQtNhH8lgNUpQ97ETqnhaKFNmrTrg", "EVENTOS").then(objeto => {
     DataPrincipal = objeto;
-    console.log(objeto.length)
 })
 
 
