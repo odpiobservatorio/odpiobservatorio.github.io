@@ -2,16 +2,28 @@
 ///filtra por departamento
 let Datafilter = 0;
 let Layers = {}
-let ColorPlano="orange";
-let ColorPlanoOpacity="0.5";
-let IconMark;
+
+
+const formatoPlano = {
+  "color": "orange",
+  "opacidad": "0.5",
+  "markType": "purple",
+}
+
 //.............................................
 //Funciones que muestran capas separadas
 //.............................................
 
+function changeMark(elemento) {
+  console.log("...");
+  console.log(elemento.id);
+  formatoPlano["markType"] = elemento.id
+}
+
+
 function clearLayers() {
-  let lista = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
-  lista = lista.querySelectorAll(".form-check-input");
+  const elemento = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
+  const lista = elemento.querySelectorAll(".form-check-input");
 
   for (const input of lista) {
     if (input.checked) {
@@ -34,13 +46,16 @@ function showLayer(parent) {
 
 const allLayers = {
   "LayerPlano": () => {
+    console.log("Tipo llmado")
+    console.log(icons[formatoPlano["markType"]])
+
     Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
       style: {
-        color: ColorPlano,
+        color: formatoPlano["color"],
         weight: 0,
-        fillColor: ColorPlano,
-        fillOpacity: ColorPlanoOpacity,
-        icon: greenIcon
+        fillColor: formatoPlano["color"],
+        fillOpacity: formatoPlano["opacidad"],
+        icon: icons[formatoPlano["markType"]]
       }
     }).bindPopup((layer) => {
       return layer.feature.properties.categoria
@@ -55,7 +70,7 @@ const allLayers = {
           weight: 0,
           fillColor: "red",
           fillOpacity: 5,
-          icon: greenIcon
+          icon: icons[formatoPlano["markType"]]
         },
         filter: function (feature, layer) {
           if (Datafilter == 1) {
@@ -79,7 +94,7 @@ const allLayers = {
           weight: 1,
           fillColor: "darkgray",
           fillOpacity: 5,
-          icon: greenIcon
+          icon: icons[formatoPlano["markType"]]
         },
         filter: function (feature, layer) {
           if (Datafilter == 1) {
@@ -133,7 +148,7 @@ const allLayers = {
     Layers["LayerDensidadCoca"] = new L.geoJSON(densidadCoca, {
       style: {
         color: "#B7950B",
-        pointToLayer: { icon: greenIcon },
+        pointToLayer: { icon: icons[formatoPlano["markType"]] },
         weight: 1,
         fillColor: "#B7950B",
         fillOpacity: 0.5
@@ -174,7 +189,7 @@ const allLayers = {
     Layers["LayerPdet"] = new L.geoJSON(cpaPdet, {
       style: {
         color: "white",
-        pointToLayer: { icon: greenIcon },
+        pointToLayer: { icon: icons[formatoPlano["markType"]] },
         weight: 1,
         fillColor: "#873600",
         fillOpacity: 0.5
@@ -275,56 +290,76 @@ const allLayers = {
 //Variables para iconos personalizados
 //*****************************************************
 
-var redIcon = L.icon({
-  iconUrl: 'http://drive.google.com/uc?export=view&id=1twxk4zLh6wwXNn2Z2ttNzp3bDZeJ_ICk',
-  shadowUrl: '',
 
-  iconSize: [14, 14], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
+const icons = {
+  "green": L.icon({
+    //iconUrl: 'http://drive.google.com/uc?export=view&id=1TcHI2ecG3JtHqZ9H6IdsYOFC1HH42fOu',
+    iconUrl: "../img/pVerdeV.png",
+    shadowUrl: '',
+  
+    iconSize: [18, 18], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
+  
 
-var blueIcon = L.icon({
-  iconUrl: 'http://drive.google.com/uc?export=view&id=1EkOvfc494j92gqYei3YMBLeNAgmSHH8y',
-  shadowUrl: '',
+  
+  "black": L.icon({
+    iconUrl: '../img/pNegroV.png',
+    shadowUrl: '',
+  
+    iconSize: [18, 18], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
+  
+  "blueC": L.icon({
+    iconUrl: '../img/pAzulC.png',
+    shadowUrl: '',
+  
+    iconSize: [20, 20], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
 
-  iconSize: [14, 14], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
+  "red": L.icon({
+    iconUrl: '../img/pRojoV.png',
+    shadowUrl: '',
+  
+    iconSize: [18, 18], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
+  
+  "blue": L.icon({
+    iconUrl: '../img/pAzulV.png',
+    shadowUrl: '',
+  
+    iconSize: [18, 18], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
 
-var yellowIcon = L.icon({
-  iconUrl: 'http://drive.google.com/uc?export=view&id=1XLFL39Jm0NZ8D5PBg9b6VEqMzNw1EQ5y',
-  shadowUrl: '',
+  "purple": L.icon({
+    iconUrl: '../img/pMoradoV.png',
+    shadowUrl: '',
+  
+    iconSize: [18, 18], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
 
-  iconSize: [14, 14], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
+}
 
-var greenIcon = L.icon({
-  //iconUrl: 'http://drive.google.com/uc?export=view&id=1TcHI2ecG3JtHqZ9H6IdsYOFC1HH42fOu',
-  iconUrl: "../img/pVerdeV.png",
-  shadowUrl: '',
 
-  iconSize: [18, 18], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
 
-var orangeIcon = L.icon({
-  iconUrl: 'http://drive.google.com/uc?export=view&id=1D6a_M8N64g-K7CDkaENE1wlVlJ6v-CsW',
-  shadowUrl: '',
 
-  iconSize: [14, 14], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
 
 
 let LabelsMap = []
@@ -342,7 +377,7 @@ function putLabel(e) {
       { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
       LabelMap = event.target;
-      var position = LabelMap.getLatLng();
+      const position = LabelMap.getLatLng();
       LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
     });
     map.addLayer(LabelMap);
@@ -388,44 +423,16 @@ function RemoverLabels() {
 }
 
 function AplicarColorMapa(){
-  
-  let valueColor= document.getElementById("colorMapaColor").value;
-  let valueOpacity= document.getElementById("colorMapOpacity").value;
-  ColorPlano=valueColor
-  ColorPlanoOpacity=valueOpacity
-
-  
+  formatoPlano["color"] = document.getElementById("colorMapaColor").value;
+  formatoPlano["opacidad"] = document.getElementById("colorMapOpacity").value;  
+  //ColorPlano
+  //ColorPlanoOpacity
 }
 
-var purpleIcon = L.icon({
-  iconUrl: 'http://drive.google.com/uc?export=view&id=1DOYa14gjF2qafc5JANuZbMlubKJtsTuT',
-  shadowUrl: '',
 
-  iconSize: [14, 14], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
-var pNegroN = L.icon({
-  iconUrl: '../img/pNegroN.png',
-  shadowUrl: '',
 
-  iconSize: [20, 20], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
-var pAzulC = L.icon({
-  iconUrl: '../img/pAzulC.png',
-  shadowUrl: '',
 
-  iconSize: [20, 20], // size of the icon
-  shadowSize: [50, 64], // size of the shadow
-  iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
-  popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-});
-
-var pSenalador = L.icon({
+const pSenalador = L.icon({
   iconUrl: '../img/pSenalador.png',
   shadowUrl: '',
 
@@ -434,3 +441,19 @@ var pSenalador = L.icon({
   iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
   popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
 });
+
+
+/* 
+"yellow": L.icon({
+    iconUrl: 'http://drive.google.com/uc?export=view&id=1XLFL39Jm0NZ8D5PBg9b6VEqMzNw1EQ5y',
+    shadowUrl: '',
+  
+    iconSize: [14, 14], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [7, 14], // point of the icon which will correspond to marker's location
+    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+  }),
+
+
+  
+*/

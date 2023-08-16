@@ -111,7 +111,7 @@ function showBusqueda(checkBusqueda) {
 
     try {
       MrkAntecedente.push(
-        new L.marker([elemento.Lat, elemento.Lng], { icon: greenIcon })
+        new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]] })
           .addTo(map)
           .bindPopup(
             `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${
