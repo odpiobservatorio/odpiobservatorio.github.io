@@ -222,7 +222,7 @@ const allLayers = {
         fillOpacity: 0.8
       },
         filter: function (feature, layer) {
-          return feature.properties.TIPO_CONTR !== "NO APLICA" && feature.properties.ESTAD_AREA !== "SIN ASIGNAR";
+          return (feature.properties.TIPO_CONTR !== "NO APLICA") && (feature.properties.ESTAD_AREA !== "SIN ASIGNAR");
         }
     }
     ).bindPopup((layer) => {

@@ -1,5 +1,6 @@
 function loadDataBase(id, hoja, query = "Select *") {
     //Convierte base de datos de Google Sheets a Objeto trabajable
+    
     //let query = "Select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W, AK, AN" //
     return fetch(`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?&sheet=${hoja}&tq=${encodeURIComponent(query)}`)
         .then(response => response.text())
@@ -26,6 +27,11 @@ function loadDataBase(id, hoja, query = "Select *") {
 }
 
 let DataPrincipal;
-loadDataBase("1zqI2xhjm3ZxEIr31zkDaDg8_wfCVSBlKgHE2Em6zd0Y", "EVENTOS").then(objeto => {
+//1zqI2xhjm3ZxEIr31zkDaDg8_wfCVSBlKgHE2Em6zd0Y
+
+loadDataBase("1ZhaiG1Fz3NUrlQpQtNhH8lgNUpQ97ETqnhaKFNmrTrg", "EVENTOS").then(objeto => {
     DataPrincipal = objeto;
+    console.log(objeto.length)
 })
+
+
