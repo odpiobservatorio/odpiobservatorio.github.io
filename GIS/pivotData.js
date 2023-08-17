@@ -1,6 +1,6 @@
 let LabelPivot = [];
 let Conteos = [];
-const Colores=[];
+const Colores = [];
 
 
 function getColor2() {
@@ -101,6 +101,38 @@ function PivotElementos(key) {
     contenedorTabla.appendChild(tabla);
     tabla.classList.add("table", "table-striped", "table-hover", "m-3");
     tablaHeader.classList.add("table-dark", "fw-bold");
+    CreaGrafica()
+
+}
+function CreaGrafica() {
+    const elemento = document.getElementById("grafica")
+    elemento.remove();
+    const newCanvas = document.createElement("canvas");
+    newCanvas.id = "grafica"
+    document.getElementById("DivGraficos").appendChild(newCanvas);
+
+    const data = {
+        labels: LabelPivot,
+        datasets: [{
+            label: document.getElementById("lstPivot").value,
+            backgroundColor: Colores,
+            borderColor: 'rgb(255, 99, 132)',
+            data: Conteos,
+        }]
+    };
+
+    const config = {
+        type: document.getElementById("lstGrafico").value,
+        data: data,
+        options: {
+            indexAxis: "x",
+        }
+    };
+    ChartPrincipal = new Chart(
+        document.getElementById('grafica'),
+        config
+    );
+
 
 }
 

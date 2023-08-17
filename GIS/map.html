@@ -30,8 +30,7 @@
     <!-- otros iconos para la aplicación -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
-    <!-- pick color -->
-    <script src="jscolor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
@@ -516,10 +515,13 @@
                 </div>
                 <div class="col-3">
                     <div class="form-floating m-3">
-                        <select id="lstGrafico" class="form-select">
+                        <select id="lstGrafico" class="form-select" onchange="CreaGrafica()">
                             <option value="bar">Barra</option>
                             <option value="line">Lineas</option>
                             <option value="pie">Torta</option>
+                            <option value="doughnut">Anillo</option>
+
+                            
                         </select>
                         <label for="floatingSelect">Tipo gráfico</label>
                     </div>
@@ -531,8 +533,10 @@
 
                     </div>
                 </div>
-                <div class="col-2">
-
+                <div class="col-5">
+                    <div id="DivGraficos">
+                        <canvas id="grafica"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
