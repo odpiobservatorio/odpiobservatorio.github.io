@@ -35,7 +35,7 @@ function PivotElementos(key) {
     const Encabezados = document.createElement("tr");
 
     const titulos = [
-        "Categoria",
+        ValuePivot,
         "Cantidad",
     ];
     for (const titulo of titulos) {
@@ -96,72 +96,3 @@ function PivotElementos(key) {
 
 }
 
-function TablaReportII() {
-    // Obtener la referencia del elemento dode se inserta la tabla
-    var ContenedorTabla = document.getElementById("divTbReport");
-    //Limpia el contenido dentro del formulario modal
-    document.getElementById("divTbReport").innerHTML = "";
-
-    // Agrega la imagen al documento
-    const tablabase = document.getElementById("tbResultados");
-    if (tablabase) tablabase.remove();
-    const tabla = document.createElement("table");
-    const tablaHeader = document.createElement("thead");
-    tabla.id = "tbResultados";
-    //Creamos el cuerpo de la tabla
-    const tablaBody = document.createElement("tbody");
-    //Creamos los encabezados
-    const Encabezados = document.createElement("tr");
-
-    const titulos = [
-        "ID",
-        "Año",
-        "Departamento",
-        "Lugar",
-        "Pueblo",
-        "Tipo",
-        "Actor",
-        "Territorio",
-        "Género",
-    ];
-    for (const titulo of titulos) {
-        const elemento = document.createElement("td");
-        elemento.textContent = titulo;
-        Encabezados.appendChild(elemento);
-    }
-    //Agregamos los encabezados
-    tablaHeader.appendChild(Encabezados);
-    tabla.appendChild(tablaHeader);
-
-    const Keys = [
-        "Year",
-        "Departamento",
-        "Municipio",
-        "Pueblo",
-        "Tipo",
-        "Perpetrador",
-        "Territorio",
-        "Sexo",
-    ];
-    let i = 1;
-
-    for (const registro of DataToReport) {
-        let fila = document.createElement("tr");
-        let DatoCelta = document.createElement("td");
-        DatoCelta.textContent = i;
-        fila.appendChild(DatoCelta);
-        //Agrego las columnas para cada fila
-        for (const key of Keys) {
-            DatoCelta = document.createElement("td");
-            DatoCelta.textContent = registro[key];
-            fila.appendChild(DatoCelta);
-        }
-        //Agrego filas y columnas al cuerpo de la tabla
-        tablaBody.appendChild(fila);
-        i++;
-    }
-    tabla.appendChild(tablaBody);
-    ContenedorTabla.appendChild(tabla);
-    tabla.classList.add("table", "table-striped", "table-hover");
-    tablaHeader.classList.add("table-dark", "fw-bold");
-}
