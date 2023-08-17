@@ -1,5 +1,15 @@
 let LabelPivot = [];
 let Conteos = [];
+const Colores=[];
+
+
+function getColor2() {
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
+    }
+    return color
+}
 
 function showPivotArea() {
     let Activar = document.getElementById("map").hidden;
@@ -7,9 +17,6 @@ function showPivotArea() {
         document.getElementById("map").hidden = true;
         document.getElementById("headerMap").hidden = true;
         document.getElementById("pivot").hidden = false;
-
-
-
     }
     else {
         document.getElementById("map").hidden = false;
@@ -55,27 +62,28 @@ function PivotElementos(key) {
     LabelPivot = [];
     Conteos = [];
     let counter = 0;
+
     for (const registro of DataToReport) {
         if (!elementosUnicosSet.has(registro[ValuePivot])) {
             elementosUnicosSet.add(registro[ValuePivot]);
-            LabelPivot.push(registro[ValuePivot])           
+            LabelPivot.push(registro[ValuePivot])
+            Colores.push(getColor2());
             for (const elemento of DataToReport) {
                 if (elemento[ValuePivot] == registro[ValuePivot]) {
                     counter++;
                 }
             };
             Conteos.push(counter)
-            counter=0
+            counter = 0
         }
     };
     //Agrega los datos a la tabla
-    let num=0
+    let num = 0
     for (const Elemento of LabelPivot) {
         let fila = document.createElement("tr");
         DatoCelta = document.createElement("td");
         DatoCelta.textContent = Elemento;
         fila.appendChild(DatoCelta);
-
         DatoCelta = document.createElement("td");
         DatoCelta.textContent = Conteos[num];
         num++
