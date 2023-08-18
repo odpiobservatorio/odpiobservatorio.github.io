@@ -30,14 +30,13 @@
     <!-- otros iconos para la aplicación -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
-    <!-- pick color -->
-    <script src="jscolor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
 
 
-<header class="sticky-top">
+<header id="headerMap" class="sticky-top">
     <!-- barra de menu de mapas -->
     <div class="row row-cols-auto p-2" style="background-color: #0B5345;">
         <div class="col">
@@ -73,6 +72,10 @@
                 data-bs-target="#offcanvasResultados" aria-controls="offcanvasResultados">
                 <i class="bi bi-eye-fill" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="tooltip" data-bs-title="Ver resultados"></i>
+            </button>
+            <button class="btn btn-outline-success text-white" type="button" onclick="showPivotArea()">
+                <i class="bi-file-earmark-spreadsheet-fill text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Abrir consolidados"></i>
             </button>
         </div>
 
@@ -427,7 +430,7 @@
         </div>
         <div class="offcanvas-body">
             <div>
-                <div class="list-group" id="lstResGis">
+                <div class="list-group">
                     <div class="label text-success">Color fondo</div>
                     <form class="row align-items-center">
                         <div class="col-md-2">
@@ -446,18 +449,19 @@
                     <div class="label text-success">Formato marcadores</div>
                     <form class="row align-items-center">
                         <div class="col-md-6">
-                            
+
                             <div class="form-floating">
                                 <div class="list-group" id="lstResGis">
-
-
-
-
-                                    <a onclick="changeMark(this)" id="green"><img src="../img/pVerdeV.png" width="20" height="20"/>Verde</a>
-                                    <a onclick="changeMark(this)" id="black"><img src="../img/pNegroV.png" width="20" height="20"/>Negro</a>
-                                    <a onclick="changeMark(this)" id="red"><img src="../img/pRojoV.png" width="20" height="20"/>Rojo</a>
-                                    <a onclick="changeMark(this)" id="purple"><img src="../img/pMoradoV.png" width="20" height="20"/>Morado</a>
-                                    <a onclick="changeMark(this)" id="blue"><img src="../img/pAzulV.png" width="20" height="20"/>Azul</a>
+                                    <a onclick="changeMark(this)" id="green"><img src="../img/pVerdeV.png" width="20"
+                                            height="20" />Verde</a>
+                                    <a onclick="changeMark(this)" id="black"><img src="../img/pNegroV.png" width="20"
+                                            height="20" />Negro</a>
+                                    <a onclick="changeMark(this)" id="red"><img src="../img/pRojoV.png" width="20"
+                                            height="20" />Rojo</a>
+                                    <a onclick="changeMark(this)" id="purple"><img src="../img/pMoradoV.png" width="20"
+                                            height="20" />Morado</a>
+                                    <a onclick="changeMark(this)" id="blue"><img src="../img/pAzulV.png" width="20"
+                                            height="20" />Azul</a>
                                 </div>
                             </div>
                         </div>
@@ -478,13 +482,65 @@
     <script src="layers/datapart3.js"></script>
     <script src="layers/infoambiente.js"></script>
     <!-- Informacion ambiental -->
-
     <script src="mapGraphics.js"></script>
+    <script src="pivotData.js"></script>
     <script src="mapData.js"></script>
 
     <div id="map"></div>
-    <!-- ... -->
+    <div id="pivot" hidden="true">
+        <div class="sticky-top bg-success mb-4">
+            <button class="btn btn-outline-success text-white" type="button" onclick="showPivotArea()">
+                <i class="bi bi-globe-americas" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas"></i>
+            </button>
+        </div>
+        <div id="divTbReport">
 
+        </div>
+        <div class="">
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-floating m-3">
+                        <select id="lstPivot" class="form-select" onchange="PivotElementos()">
+                            <option value="Year">Año</option>
+                            <option value="Departamento">Departamento</option>
+                            <option value="Pueblo">Pueblo</option>
+                            <option value="Tipo">Tipo de violencia</option>
+                            <option value="Perpetrador">Actor - Perpetuador</option>
+                            <option value="Sexo">Género</option>
+
+                        </select>
+                        <label for="floatingSelect">Datos por</label>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-floating m-3">
+                        <select id="lstGrafico" class="form-select" onchange="CreaGrafica()">
+                            <option value="bar">Barra</option>
+                            <option value="line">Lineas</option>
+                            <option value="pie">Torta</option>
+                            <option value="doughnut">Anillo</option>
+
+                            
+                        </select>
+                        <label for="floatingSelect">Tipo gráfico</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">                   
+                    <div id="divTablaPivot">
+
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div id="DivGraficos">
+                        <canvas id="grafica"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <!-- Modal de caso -->
 <div class="modal shadow rounded" tabindex="-1" id="ModalCaseOnMap" data-bs-backdrop="static" style="z-index: 1900">
@@ -510,7 +566,7 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Modal tabla-->
 <div class="modal fade modal-dialog-scrollable" id="TableAModal" tabindex="-1" aria-labelledby="TableAModalLabel"
     aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel"
     aria-hidden="true">
@@ -523,7 +579,6 @@
             <div class="modal-body">
                 <div id="divTableModal"></div>
                 <div id="divDocModal" class="divCols" id="divTableModal" spellcheck="true"></div>
-
             </div>
         </div>
     </div>

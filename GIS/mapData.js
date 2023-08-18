@@ -308,6 +308,7 @@ function TablaReport() {
   var ContenedorTabla = document.getElementById("divTableModal");
   //Limpia el contenido dentro del formulario modal
   document.getElementById("divTableModal").innerHTML = "";
+  document.getElementById("divDocModal").innerHTML = "";
   // Agrega la imagen al documento
   const tablabase = document.getElementById("tbResultados");
   if (tablabase) tablabase.remove();
@@ -338,10 +339,6 @@ function TablaReport() {
   //Agregamos los encabezados
   tablaHeader.appendChild(Encabezados);
   tabla.appendChild(tablaHeader);
-
-  //Agregar una columna de botones
-  //let celOpciones = document.createElement('td');
-  //celOpciones.textContent = '';
 
   const Keys = [
     "Year",
@@ -379,7 +376,9 @@ function TablaReport() {
 function DocumentReport() {
   const ContenedorDocumento = document.getElementById("divDocModal");
   document.getElementById("divTableModal").innerHTML = "";
+  document.getElementById("divDocModal").innerHTML = "";
 
+  
   let contador = 1;
   let tagElement;
 

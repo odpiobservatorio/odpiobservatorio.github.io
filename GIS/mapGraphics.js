@@ -343,10 +343,6 @@ const icons = {
 }
 
 
-
-
-
-
 let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
