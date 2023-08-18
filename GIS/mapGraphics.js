@@ -122,7 +122,7 @@ const allLayers = {
   "LayerNarcotrafico": () => {
     Layers["LayerNarcotrafico"] = new L.geoJSON(capaPuntosNarcotrafico, {
       pointToLayer: function (feature, latlng) {
-        return L.marker(latlng, { icon: pNegroN });
+        return L.marker(latlng, { icon: otherIcons["negroN"] });
       }
     }).bindPopup((layer) => {
       return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
@@ -132,7 +132,7 @@ const allLayers = {
   "LayerContrabando": () => {
     Layers["LayerContrabando"] = new L.geoJSON(capaContrabando, {
       pointToLayer: function (feature, latlng) {
-        return L.marker(latlng, { icon: pAzulC });
+        return L.marker(latlng, { icon: otherIcons["azulC"] });
       }
     }).bindPopup((layer) => {
       return `Tipo: ${layer.feature.properties.CONTRABAND}, Lugar: ${layer.feature.properties.NOM_CPOB}`;
