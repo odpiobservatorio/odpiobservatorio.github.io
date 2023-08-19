@@ -1,19 +1,27 @@
-let LabelPivot = [];
-let Conteos = [];
-const Colores = [];
-
-
-function getColor2() {
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
+function getColor(color = false) {
+    if (color) {
+        const colors = []
+        for (let i = 0; i < color; i++) {
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
+            }
+            colors.push(color)
+        }
+        return colors
+    } else {
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
+        }
+        return color
     }
-    return color
 }
 
 function showPivotArea() {
-    let Activar = document.getElementById("map").hidden;
-    if (Activar == false) {
+    const activar = document.getElementById("map").hidden;
+
+    if (activar == false) {
         document.getElementById("map").hidden = true;
         document.getElementById("headerMap").hidden = true;
         document.getElementById("pivot").hidden = false;
@@ -26,113 +34,90 @@ function showPivotArea() {
     //TablaReportII()
     PivotElementos()
 }
-function PivotElementos(key) {
-    let contenedorTabla = document.getElementById("divTablaPivot")
-    let ValuePivot = document.getElementById("lstPivot").value;
-    contenedorTabla.innerHTML = ""
-    //Iniciamos la tabla y encabezados
-    const tablabase = document.getElementById("tbResultadosPivot");
-    if (tablabase) tablabase.remove();
-    const tabla = document.createElement("table");
-    const tablaHeader = document.createElement("thead");
-    tabla.id = "tbResultadosPivot";
-    //Creamos el cuerpo de la tabla
-    const tablaBody = document.createElement("tbody");
-    //Creamos los encabezados
-    const Encabezados = document.createElement("tr");
 
-    const titulos = [
-        ValuePivot,
-        "Cantidad",
-    ];
-    for (const titulo of titulos) {
-        const elemento = document.createElement("td");
-        elemento.textContent = titulo;
-        Encabezados.appendChild(elemento);
+
+function crearEncabezados(valueKey) {
+    const encabezados = document.createElement("tr");
+
+    for (const titulo of [valueKey, "Cantidad"]) {
+        const encabezado = document.createElement("td");
+        encabezado.textContent = titulo;
+        encabezados.appendChild(encabezado);
     }
+
+    return encabezados;
+}
+
+
+function PivotElementos() {
+    const valueKey = document.getElementById("lstPivot").value;
+    
+    const tablaHeader = document.getElementById("tablaHeader");
+    tablaHeader.innerHTML = "";
     //Agregamos los encabezados
-    tablaHeader.appendChild(Encabezados);
-    tabla.appendChild(tablaHeader);
+    tablaHeader.appendChild(crearEncabezados(valueKey));
+    //tabla.appendChild(tablaHeader);
 
-    const elementosUnicosSet = new Set();
-    //Hace una lista sin repeticiones del tipo q se pida
-    //por ejem lista de los Departamentos
+    const tablaBody = document.getElementById("tablaBody");
+    tablaBody.innerHTML = "";
 
-    //Agregamos las etiquetas o categorias
-    LabelPivot = [];
-    Conteos = [];
-    let counter = 0;
+    const conteos = {};
+    etiquetas = []; //Global
+    valores = []; //Global
 
     for (const registro of DataToReport) {
-        if (!elementosUnicosSet.has(registro[ValuePivot])) {
-            elementosUnicosSet.add(registro[ValuePivot]);
-            LabelPivot.push(registro[ValuePivot])
-            Colores.push(getColor2());
-            for (const elemento of DataToReport) {
-                if (elemento[ValuePivot] == registro[ValuePivot]) {
-                    counter++;
-                }
-            };
-            Conteos.push(counter)
-            counter = 0
-        }
-    };
-    //Agrega los datos a la tabla
-    let num = 0
-    for (const Elemento of LabelPivot) {
-        let fila = document.createElement("tr");
-        DatoCelta = document.createElement("td");
-        DatoCelta.textContent = Elemento;
-        fila.appendChild(DatoCelta);
-        DatoCelta = document.createElement("td");
-        DatoCelta.textContent = Conteos[num];
-        num++
-        fila.appendChild(DatoCelta);
-        tablaBody.appendChild(fila);
-
+        conteos[registro[valueKey]] = (conteos[registro[valueKey]] || 0) + 1;
     }
 
+    for (const [etiqueta, contador] of Object.entries(conteos)) {
+        etiquetas.push(etiqueta);
+        valores.push(contador);
 
-    //let Tx = document.createElement("h6")
-    //Tx.textContent = registro[ValuePivot]
+        const fila = document.createElement("tr");
 
+        const nombre = document.createElement("td");
+        nombre.textContent = etiqueta;
 
-    tabla.appendChild(tablaBody);
-    contenedorTabla.appendChild(tabla);
-    tabla.classList.add("table", "table-striped", "table-hover", "m-3");
-    tablaHeader.classList.add("table-dark", "fw-bold");
-    CreaGrafica()
+        const valor = document.createElement("td");
+        valor.textContent = contador;
 
+        fila.appendChild(nombre);
+        fila.appendChild(valor);
+        tablaBody.appendChild(fila);
+    }
+
+    //tabla.appendChild(tablaBody);
+    CreaGrafica(etiquetas, valores);
 }
+
+
 function CreaGrafica() {
-    const elemento = document.getElementById("grafica")
-    elemento.remove();
+    document.getElementById("grafica").remove();
+    
     const newCanvas = document.createElement("canvas");
     newCanvas.id = "grafica"
     document.getElementById("DivGraficos").appendChild(newCanvas);
 
     const data = {
-        labels: LabelPivot,
+        labels: etiquetas,
         datasets: [{
             label: document.getElementById("lstPivot").value,
-            backgroundColor: Colores,
+            backgroundColor: getColor(etiquetas.length),
             borderColor: 'rgb(255, 99, 132)',
-            data: Conteos,
+            data: valores,
         }]
     };
 
     const config = {
-        type: document.getElementById("lstGrafico").value,
+        type: document.getElementById("lstGrafico").value, //Tipo de grafica
         data: data,
         options: {
             indexAxis: "x",
         }
     };
+
     ChartPrincipal = new Chart(
         document.getElementById('grafica'),
         config
     );
-
-
 }
-

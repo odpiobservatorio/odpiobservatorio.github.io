@@ -1,11 +1,23 @@
 let ChartPrincipal
 
-function getColor() {
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
+function getColor(color = false) {
+    if (color) {
+        const colors = []
+        for (let i = 0; i < color; i++) {
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
+            }
+            colors.push(color)
+        }
+        return colors
+    } else {
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
+        }
+        return color
     }
-    return color
 }
 
 function countTipo(Key, tagsOrdenadas) {
@@ -28,8 +40,9 @@ function elementosUnicos(Key) {
             colors.push(getColor());
         }
     }
-    return [(Array.from(elementosUnicosSet)).sort(), colors];
+    return [(Array.from(elementosUnicosSet)).sort((a,b) => a - b), colors];
 }
+
 
 function addElements(tipo) {
     document.getElementById("tlGrafico").textContent = `Consolidado por ${tipo}`;
