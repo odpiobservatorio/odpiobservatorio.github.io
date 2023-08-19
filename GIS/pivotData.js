@@ -1,4 +1,5 @@
 function getColor(color = false) {
+    //Retorna -- un solo color si no se da argumentos -- o un array de colores del tamaño q le especifiquemos 
     if (color) {
         const colors = []
         for (let i = 0; i < color; i++) {
@@ -50,26 +51,28 @@ function crearEncabezados(valueKey) {
 
 
 function PivotElementos() {
-    const valueKey = document.getElementById("lstPivot").value;
+    //Para no crear los elementos cada vez q se ejecuta los agregue a el html
+
+    const valueKey = document.getElementById("lstPivot").value; //El tipo/clave por el cual se va a generar todo
     
     const tablaHeader = document.getElementById("tablaHeader");
-    tablaHeader.innerHTML = "";
+    tablaHeader.innerHTML = ""; //Elimina elementos si ya habia antes
     //Agregamos los encabezados
-    tablaHeader.appendChild(crearEncabezados(valueKey));
+    tablaHeader.appendChild(crearEncabezados(valueKey)); //genera los encabezados y los agrega
     //tabla.appendChild(tablaHeader);
 
     const tablaBody = document.getElementById("tablaBody");
     tablaBody.innerHTML = "";
 
-    const conteos = {};
-    etiquetas = []; //Global
-    valores = []; //Global
+    const conteos = {}; //Diccionario con etiqutas y sus respectivos contadores
+    etiquetas = []; //Variable Global, una lista de las etiquetas, ejem: [2018, 2019, 2020]
+    valores = []; //Variable Global, lista con los conteos, ejem: [10, 23, 15]
 
     for (const registro of DataToReport) {
-        conteos[registro[valueKey]] = (conteos[registro[valueKey]] || 0) + 1;
+        conteos[registro[valueKey]] = (conteos[registro[valueKey]] || 0) + 1; //Revisa en todos los datos y cuenta cuantas veces aparece una "etiqueta"
     }
 
-    for (const [etiqueta, contador] of Object.entries(conteos)) {
+    for (const [etiqueta, contador] of Object.entries(conteos)) { //Agrega los datos a la tabla y ademas guarda los valores de las etiquetas y sus conteos (Ademas las etiquetas estan ordenadas)
         etiquetas.push(etiqueta);
         valores.push(contador);
 
@@ -87,7 +90,7 @@ function PivotElementos() {
     }
 
     //tabla.appendChild(tablaBody);
-    CreaGrafica(etiquetas, valores);
+    CreaGrafica();
 }
 
 
@@ -99,12 +102,12 @@ function CreaGrafica() {
     document.getElementById("DivGraficos").appendChild(newCanvas);
 
     const data = {
-        labels: etiquetas,
+        labels: etiquetas, //Toma la variable global
         datasets: [{
             label: document.getElementById("lstPivot").value,
-            backgroundColor: getColor(etiquetas.length),
+            backgroundColor: getColor(etiquetas.length), //Toma un array de colores del tamaño q le especifiquemos
             borderColor: 'rgb(255, 99, 132)',
-            data: valores,
+            data: valores, //Toma la variable global
         }]
     };
 
