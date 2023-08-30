@@ -1,25 +1,28 @@
-//Variable que filtra las capas GeoJson si está activa
-///filtra por departamento
+
 let Datafilter = 0;
 let Layers = {}
+let LabelsMap = []
+let TextoLabel = "";
+let ActiveLabels;
 
 
+//Diccionario con la "Configuracion" del plano, se modifica segun los cambios del usuario
 const formatoPlano = {
   "color": "orange",
   "opacidad": "0.5",
-  "markType": "green",
+  "markType": "green", //Tipo de marcas q se muestran
 }
 
-//.............................................
-//Funciones que muestran capas separadas
-//.............................................
 
+
+//Cambia el tipo de la marca q se muestra
 function changeMark(elemento) {
-  formatoPlano["markType"] = elemento.id
+  formatoPlano["markType"] = elemento.id //Va a la configuracion del plano y le asigna el tipo de marca q selecciono el usuario
 }
 
 
 function clearLayers() {
+  //Limpia todas las capas q se estan mostrando
   const elemento = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
   const lista = elemento.querySelectorAll(".form-check-input");
 
@@ -32,6 +35,7 @@ function clearLayers() {
 }
 
 function showLayer(parent) {
+  //Si el usuario selecciona una capa, la muestra, si ya esta seleccionada la elimina
   const input = parent.querySelector(".form-check-input");
   const key = input.getAttribute("id");
 
@@ -42,6 +46,12 @@ function showLayer(parent) {
   }
 }
 
+
+//.............................................
+//Funciones que muestran capas separadas
+//.............................................
+
+//Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
   "LayerPlano": () => {
     Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
@@ -286,9 +296,11 @@ const allLayers = {
 //*****************************************************
 
 
+
+//Se llama tambien en mapData.js
+//Diccionario q contiene todos los iconos relacionados a un nombre, se cambia la marca segun la seleccion del usuario
 const icons = {
   "green": L.icon({
-    //iconUrl: 'http://drive.google.com/uc?export=view&id=1TcHI2ecG3JtHqZ9H6IdsYOFC1HH42fOu',
     iconUrl: "../img/pVerdeV.png",
     shadowUrl: '',
   
@@ -343,19 +355,10 @@ const icons = {
 }
 
 
-let LabelsMap = []
-let TextoLabel = "";
-let ActiveLabels;
-
-
 function putLabel(e) {
-
   if (ActiveLabels == "1") {
-    LabelMap = new L.marker(e.latlng, { draggable: 'true', icon: otherIcons["senalador"] },
-    );
-    LabelMap.bindTooltip(
-      TextoLabel.replace(/(?:\r\n|\r|\n)/g, '<p>'),
-      { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap = new L.marker(e.latlng, { draggable: 'true', icon: otherIcons["senalador"] },);
+    LabelMap.bindTooltip(TextoLabel.replace(/(?:\r\n|\r|\n)/g, '<p>'),{draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
       LabelMap = event.target;
       const position = LabelMap.getLatLng();
@@ -365,8 +368,6 @@ function putLabel(e) {
 
     LabelsMap.push(LabelMap)
   }
-
-
 };
 
 function ActualizarEtiquetas() {
@@ -377,12 +378,11 @@ function ActivarEtiquetas() {
   const Valor = document.getElementById("LayerEtiquetas").checked;
   if (Valor == "0") {
     ActiveLabels = "0"
-
   } else {
     ActiveLabels = "1"
   }
-
 }
+
 function InserTAg(num) {
   const textarea = document.getElementById("txValorEtiqueta")
   switch (num) {
@@ -403,13 +403,20 @@ function RemoverLabels() {
   })
 }
 
+//Cambia el color del mapa, cambiando las especificaciones de la configuracion
 function AplicarColorMapa(){
   formatoPlano["color"] = document.getElementById("colorMapaColor").value;
-  formatoPlano["opacidad"] = document.getElementById("colorMapOpacity").value;  
+  formatoPlano["opacidad"] = document.getElementById("colorMapOpacity").value;
+  try {
+    map.removeLayer(Layers["LayerPlano"]);
+    allLayers["LayerPlano"]();
+  } catch (error) {
+    console.log("No hay capa activa, cambiando configuracion")
+  }
 }
 
 
-
+//Otros iconos (No usados aun)
 const otherIcons = {
   "senalador": L.icon({
     iconUrl: '../img/otherIcons["senalador"].png',

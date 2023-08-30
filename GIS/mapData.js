@@ -111,7 +111,7 @@ function showBusqueda(checkBusqueda) {
 
     try {
       MrkAntecedente.push(
-        new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]] })
+        new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]] }) //Se llama el diccionario icons
           .addTo(map)
           .bindPopup(
             `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${
@@ -173,9 +173,7 @@ function BuscarFaseI() {
   let checkBusqueda;
   switch (iOperador) {
     case "1":
-      checkBusqueda = checkBusquedaSort.filter((dato) =>
-        dato[iCampo].includes(vCampo)
-      );
+      checkBusqueda = checkBusquedaSort.filter((dato) => dato[iCampo].includes(vCampo));
       break;
 
     case ">":

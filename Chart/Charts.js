@@ -1,7 +1,9 @@
-let ChartPrincipal
+let ChartPrincipal;
 
+//Retorna -- un solo color si no se da argumentos -- o un array de colores del tamaño q le especifiquemos 
 function getColor(color = false) {
     if (color) {
+        //Si se le dice cuantos colores, regresa una lista de colores
         const colors = []
         for (let i = 0; i < color; i++) {
             let color = "#";
@@ -12,6 +14,7 @@ function getColor(color = false) {
         }
         return colors
     } else {
+        //Si no se le da ningun parametro a la funcion, regresa un solo color
         let color = "#";
         for (let i = 0; i < 6; i++) {
             color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
@@ -20,7 +23,9 @@ function getColor(color = false) {
     }
 }
 
+
 function countTipo(Key, tagsOrdenadas) {
+    
     const conteos = {};
     for (const registro of DataPrincipal) {
         const elemento = registro[Key];

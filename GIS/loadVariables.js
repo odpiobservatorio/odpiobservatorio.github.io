@@ -43,17 +43,14 @@ const layerPromises = [];
 for (const layerName in layersToLoad) {
     layerPromises.push(createLayer(layerName, layersToLoad[layerName]));
 }
+
+//Carga todos los archivos
 Promise.all(layerPromises)
     .then(() => {})
     .catch(error => {
         console.error('Error al cargar las capas:', error);
     });
 
-
-    /*
-let DataPrincipal;
-load("../data/DataPrincipal.json").then(data => { DataPrincipal = data });
-*/
 
 
 /*
