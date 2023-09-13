@@ -4,6 +4,7 @@ let Layers = {}
 let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
+let SizeIcon = document.getElementById("sizeIconV").value
 
 
 //Diccionario con la "Configuracion" del plano, se modifica segun los cambios del usuario
@@ -304,9 +305,9 @@ const icons = {
     iconUrl: "../img/pVerdeV.png",
     shadowUrl: '',
   
-    iconSize: [18, 18], // size of the icon
+    iconSize: [SizeIcon, SizeIcon], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
   
