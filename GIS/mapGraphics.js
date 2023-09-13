@@ -316,9 +316,9 @@ const icons = {
     iconUrl: '../img/pNegroV.png',
     shadowUrl: '',
   
-    iconSize: [18, 18], // size of the icon
+    iconSize: [SizeIcon, SizeIcon], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
   
@@ -327,9 +327,9 @@ const icons = {
     iconUrl: '../img/pRojoV.png',
     shadowUrl: '',
   
-    iconSize: [18, 18], // size of the icon
+    iconSize: [SizeIcon, SizeIcon], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
   
@@ -337,9 +337,9 @@ const icons = {
     iconUrl: '../img/pAzulV.png',
     shadowUrl: '',
   
-    iconSize: [18, 18], // size of the icon
+    iconSize: [SizeIcon, SizeIcon], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
 
@@ -347,9 +347,9 @@ const icons = {
     iconUrl: '../img/pMoradoV.png',
     shadowUrl: '',
   
-    iconSize: [18, 18], // size of the icon
+    iconSize: [SizeIcon, SizeIcon], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9, 18], // point of the icon which will correspond to marker's location
+    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
 
