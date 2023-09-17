@@ -19,11 +19,11 @@ function updateSize(value) {
 function resetIconSize() {
   document.getElementById("sizeIconV").value = 1;
   formatoPlano.size = 1;
-  resizeIcons()
+  reloadIcons()
 }
 
 
-function resizeIcons() {
+function reloadIcons() {
   //Limpiamos las marcas del mapa
   clearMarkers();
   //mostramos la busqueda finalmente
