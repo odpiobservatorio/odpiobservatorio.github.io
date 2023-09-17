@@ -1,10 +1,9 @@
-
 let Datafilter = 0;
 let Layers = {}
 let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
-let SizeIcon = document.getElementById("sizeIconV").value
+let SizeIcon = document.getElementById("sizeIconV").value;
 
 
 //Diccionario con la "Configuracion" del plano, se modifica segun los cambios del usuario
@@ -12,9 +11,13 @@ const formatoPlano = {
   "color": "orange",
   "opacidad": "0.5",
   "markType": "green", //Tipo de marcas q se muestran
+  "size": document.getElementById("sizeIconV").value,
 }
 
-
+function updateSize(value) {
+  formatoPlano.size = value;
+  console.log("Updated");
+}
 
 //Cambia el tipo de la marca q se muestra
 function changeMark(elemento) {
@@ -305,9 +308,9 @@ const icons = {
     iconUrl: "../img/pVerdeV.png",
     shadowUrl: '',
   
-    iconSize: [SizeIcon, SizeIcon], // size of the icon
+    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
+    iconAnchor: [9 , 18], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
   
