@@ -26,7 +26,7 @@ function resetIconSize() {
 function reloadIcons() {
   //Limpiamos las marcas del mapa
   clearMarkers();
-  //mostramos la busqueda finalmente
+  //mostramos la busqueda finalmente.
   showBusqueda(DataToReport);
 }
 
