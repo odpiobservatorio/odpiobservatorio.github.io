@@ -111,7 +111,7 @@ function showBusqueda(checkBusqueda) {
 
     try {
       MrkAntecedente.push(
-        new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]] }) //Se llama el diccionario icons
+        new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]]() }) //Se llama el diccionario icons
           .addTo(map)
           .bindPopup(
             `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${

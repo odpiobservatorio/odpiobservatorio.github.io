@@ -11,7 +11,7 @@ const formatoPlano = {
   "color": "orange",
   "opacidad": "0.5",
   "markType": "green", //Tipo de marcas q se muestran
-  "size": document.getElementById("sizeIconV").value,
+  "size": 1,
 }
 
 function updateSize(value) {
@@ -305,15 +305,17 @@ const allLayers = {
 //Se llama tambien en mapData.js
 //Diccionario q contiene todos los iconos relacionados a un nombre, se cambia la marca segun la seleccion del usuario
 const icons = {
-  "green": L.icon({
-    iconUrl: "../img/pVerdeV.png",
-    shadowUrl: '',
-  
-    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9  * formatoPlano.size, 18  * formatoPlano.size], // point of the icon which will correspond to marker's location
-    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  }),
+  "green": () => {
+    return L.icon({
+      iconUrl: "../img/pVerdeV.png",
+      shadowUrl: '',
+    
+      iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [9  * formatoPlano.size, 18  * formatoPlano.size], // point of the icon which will correspond to marker's location
+      popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    });
+  },
   
   
   "black": L.icon({
