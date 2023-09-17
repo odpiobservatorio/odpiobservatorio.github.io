@@ -447,37 +447,54 @@
 
                     </form>
                     <div class="label text-success">Formato marcadores</div>
-                    
+
                     <hr>
-                    <input id="sizeIconV" type="range" min="0.1" max="2" step="0.1" value="1" onchange="updateSize(this.value)"/>
                     <div>
-                        <button class="btn btn-outline-success text-black" type="button" onclick="resetIconSize()">
-                            <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="tooltip" data-bs-title="Borrar Capas" data-bs-original-title=""
-                                title=""></i>
-                        </button>
+                        <input id="sizeIconV" type="range" min="0.1" max="2" step="0.1" value="1"
+                            onchange="updateSize(this.value)" />
+                        <div>
+                            <button class="btn btn-outline-success text-black" type="button" onclick="resetIconSize()">
+                                <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-custom-class="tooltip" data-bs-title="Borrar Capas"
+                                    data-bs-original-title="" title=""></i>
+                            </button>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-success" type="button" onclick="resizeIcon()">
+                                <i class="bi bi-check-circle"></i>
+                            </button>
+                        </div>
                     </div>
+
                     <hr>
-                    
+
                     <form class="row align-items-center">
                         <div class="col-md-6">
 
                             <div class="form-floating">
                                 <div class="list-group" id="lstResGis">
-                                    <a onclick="changeMark(this)" id="green"><img src="../img/pVerdeV.png" width="20"
+                                    <a onclick="changeMark(this.id)" id="green"><img src="../img/pVerdeV.png" width="20"
                                             height="20" />Verde</a>
-                                    <a onclick="changeMark(this)" id="black"><img src="../img/pNegroV.png" width="20"
+                                    <a onclick="changeMark(this.id)" id="black"><img src="../img/pNegroV.png" width="20"
                                             height="20" />Negro</a>
-                                    <a onclick="changeMark(this)" id="red"><img src="../img/pRojoV.png" width="20"
+                                    <a onclick="changeMark(this.id)" id="red"><img src="../img/pRojoV.png" width="20"
                                             height="20" />Rojo</a>
-                                    <a onclick="changeMark(this)" id="purple"><img src="../img/pMoradoV.png" width="20"
+                                    <a onclick="changeMark(this.id)" id="purple"><img src="../img/pMoradoV.png" width="20"
                                             height="20" />Morado</a>
-                                    <a onclick="changeMark(this)" id="blue"><img src="../img/pAzulV.png" width="20"
+                                    <a onclick="changeMark(this.id)" id="blue"><img src="../img/pAzulV.png" width="20"
                                             height="20" />Azul</a>
                                 </div>
                             </div>
                         </div>
                     </form>
+
+                    <div>
+                        <button class="btn btn-outline-success" type="button" onclick="resizeIcon()">
+                            <i class="bi bi-check-circle"></i>
+                        </button>
+                    </div>
+
+                    <hr>
                 </div>
             </div>
         </div>
@@ -533,7 +550,7 @@
                             <option value="pie">Torta</option>
                             <option value="doughnut">Anillo</option>
 
-                            
+
                         </select>
                         <label for="floatingSelect">Tipo gráfico</label>
                     </div>
@@ -542,10 +559,10 @@
             <div class="row">
                 <div class="col-3">
                     <div id="divTablaPivot">
-                            <table id="tbResultadosPivot" class="table table-striped table-hover m-3">
-                                <thead id="tablaHeader" class="table-dark fw-bold"></thead>
-                                <tbody id="tablaBody"></tbody>
-                            </table>
+                        <table id="tbResultadosPivot" class="table table-striped table-hover m-3">
+                            <thead id="tablaHeader" class="table-dark fw-bold"></thead>
+                            <tbody id="tablaBody"></tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-5">
@@ -557,7 +574,7 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 <!-- Modal de caso -->
 <div class="modal shadow rounded" tabindex="-1" id="ModalCaseOnMap" data-bs-backdrop="static" style="z-index: 1900">

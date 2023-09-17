@@ -14,33 +14,25 @@ const formatoPlano = {
 
 function updateSize(value) {
   formatoPlano.size = parseFloat(value);
-  //Limpiamos las marcas del mapa
-  clearMarkers();
-  //mostramos la busqueda finalmente
-  showBusqueda(DataToReport);
 }
 
 function resetIconSize() {
   document.getElementById("sizeIconV").value = 1;
   formatoPlano.size = 1;
+  resizeIcons()
+}
 
+
+function resizeIcons() {
   //Limpiamos las marcas del mapa
   clearMarkers();
   //mostramos la busqueda finalmente
   showBusqueda(DataToReport);
 }
 
-/*
-<button class="btn btn-outline-success" type="button" onclick="resizeIcon()">
-  <i class="bi bi-check-circle"></i>
-</button>
-function resizeIcon() {
-}
-*/
-
 //Cambia el tipo de la marca q se muestra
-function changeMark(elemento) {
-  formatoPlano["markType"] = elemento.id //Va a la configuracion del plano y le asigna el tipo de marca q selecciono el usuario
+function changeMark(value) {
+  formatoPlano["markType"] = value //Va a la configuracion del plano y le asigna el tipo de marca q selecciono el usuario
 }
 
 
