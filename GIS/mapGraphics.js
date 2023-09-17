@@ -3,8 +3,6 @@ let Layers = {}
 let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
-let SizeIcon = document.getElementById("sizeIconV").value;
-
 
 //Diccionario con la "Configuracion" del plano, se modifica segun los cambios del usuario
 const formatoPlano = {
@@ -16,9 +14,29 @@ const formatoPlano = {
 
 function updateSize(value) {
   formatoPlano.size = parseFloat(value);
-  console.log("Updated");
-  console.log(formatoPlano.size)
+  //Limpiamos las marcas del mapa
+  clearMarkers();
+  //mostramos la busqueda finalmente
+  showBusqueda(DataToReport);
 }
+
+function resetIconSize() {
+  document.getElementById("sizeIconV").value = 1;
+  formatoPlano.size = 1;
+
+  //Limpiamos las marcas del mapa
+  clearMarkers();
+  //mostramos la busqueda finalmente
+  showBusqueda(DataToReport);
+}
+
+/*
+<button class="btn btn-outline-success" type="button" onclick="resizeIcon()">
+  <i class="bi bi-check-circle"></i>
+</button>
+function resizeIcon() {
+}
+*/
 
 //Cambia el tipo de la marca q se muestra
 function changeMark(elemento) {
@@ -318,46 +336,50 @@ const icons = {
   },
   
   
-  "black": L.icon({
+  "black": () => {
+    return L.icon({
     iconUrl: '../img/pNegroV.png',
     shadowUrl: '',
   
-    iconSize: [SizeIcon, SizeIcon], // size of the icon
+    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
+    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  }),
+  })},
   
 
-  "red": L.icon({
+  "red": () => {
+    return L.icon({
     iconUrl: '../img/pRojoV.png',
     shadowUrl: '',
   
-    iconSize: [SizeIcon, SizeIcon], // size of the icon
+    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
+    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  }),
+  })},
   
-  "blue": L.icon({
+  "blue": () => {
+    return L.icon({
     iconUrl: '../img/pAzulV.png',
     shadowUrl: '',
   
-    iconSize: [SizeIcon, SizeIcon], // size of the icon
+    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
+    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  }),
+  })},
 
-  "purple": L.icon({
+  "purple": () => {
+    return L.icon({
     iconUrl: '../img/pMoradoV.png',
     shadowUrl: '',
   
-    iconSize: [SizeIcon, SizeIcon], // size of the icon
+    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [SizeIcon / 2, SizeIcon], // point of the icon which will correspond to marker's location
+    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  }),
+  })},
 
 }
 
