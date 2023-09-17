@@ -15,8 +15,9 @@ const formatoPlano = {
 }
 
 function updateSize(value) {
-  formatoPlano.size = value;
+  formatoPlano.size = parseFloat(value);
   console.log("Updated");
+  console.log(formatoPlano.size)
 }
 
 //Cambia el tipo de la marca q se muestra
@@ -310,7 +311,7 @@ const icons = {
   
     iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
     shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9 , 18], // point of the icon which will correspond to marker's location
+    iconAnchor: [9  * formatoPlano.size, 18  * formatoPlano.size], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
   
