@@ -25,7 +25,7 @@ function getColor(color = false) {
 
 
 function countTipo(Key, tagsOrdenadas) {
-    
+
     const conteos = {};
     for (const registro of DataPrincipal) {
         const elemento = registro[Key];
