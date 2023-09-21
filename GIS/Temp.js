@@ -16,9 +16,9 @@ function getDeps() {
         const valor = conteos[dep]
     
         if (valor) {
-            feature.properties["Casos"] = valor     
+            feature.properties["Casos"] = valor;
         } else {
-            feature.properties["Casos"] = 1
+            feature.properties["Casos"] = 1;
         }
     }
     return depsCopy
@@ -37,19 +37,27 @@ function colorMap(v) {
                       '#FFEDA0';
 }
 
-function style(feature) {
-    console.log(feature.properties.Casos)
+function styless(feature) {
     return {
-        fillColor: getColor(feature.properties.Casos),
+        fillColor: colorMap(feature.properties.Casos),
         weight: 2,
         opacity: 1,
         color: 'white',
-        dashArray: '3',
-        fillOpacity: 0.7
+        //dashArray: '3',
+        fillOpacity: 0.75
     };
 }
 
 
 function final() {
-    L.geoJson(getDeps(), {style: style}).addTo(map);    
+    const x = new L.geoJson(getDeps(), {style: (feature) => {
+        return {
+            fillColor: colorMap(feature.properties.Casos),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            //dashArray: '3',
+            fillOpacity: 0.75
+        }
+    } }).addTo(map);    
 }
