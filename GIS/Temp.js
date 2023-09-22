@@ -37,17 +37,6 @@ function colorMap(v) {
                       '#FFEDA0';
 }
 
-function styless(feature) {
-    return {
-        fillColor: colorMap(feature.properties.Casos),
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        //dashArray: '3',
-        fillOpacity: 0.75
-    };
-}
-
 
 function final() {
     const x = new L.geoJson(getDeps(), {style: (feature) => {
