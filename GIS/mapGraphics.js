@@ -133,7 +133,9 @@ const allLayers = {
           //dashArray: '3',
           fillOpacity: 0.75
       }
-  } }).addTo(map);    
+  } }).bindPopup((layer) => {
+    return `Nombre Departamento: ${layer.feature.properties.NOMBRE_DPT}, Cantidad de Casos: ${layer.feature.properties.Casos}`;
+  }).addTo(map);    
 
     
   },
