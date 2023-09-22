@@ -526,11 +526,3 @@ const otherIcons = {
   }),
 
 }
-
-
-
-
-
-
-
-
