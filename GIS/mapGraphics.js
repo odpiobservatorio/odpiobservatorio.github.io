@@ -134,8 +134,8 @@ const allLayers = {
           fillOpacity: 0.75
       }
   } }).bindPopup((layer) => {
-    
-    return `Nombre Departamento: ${layer.feature.properties.NOMBRE_DPT}\nCantidad de Casos: ${layer.feature.properties.Casos}`;
+
+    return `Nombre Departamento: ${layer.feature.properties.NOMBRE_DPT}, Cantidad de Casos: ${layer.feature.properties.Casos}`;
   }).addTo(map);    
 
     
