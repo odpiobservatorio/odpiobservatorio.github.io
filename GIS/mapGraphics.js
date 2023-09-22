@@ -135,7 +135,7 @@ const allLayers = {
       }
   } }).bindPopup((layer) => {
 
-    return `Nombre Departamento: ${layer.feature.properties.NOMBRE_DPT}, Cantidad de Casos: ${layer.feature.properties.Casos}`;
+    return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
   }).addTo(map);    
 
     
