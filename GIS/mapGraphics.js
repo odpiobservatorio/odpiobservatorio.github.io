@@ -115,7 +115,7 @@ const allLayers = {
         weight: 2,
         opacity: 1,
         color: '#FC4E2A',
-        fillOpacity: 0.75
+        fillOpacity: 0
       }
     }).bindPopup((layer) => {
       return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
