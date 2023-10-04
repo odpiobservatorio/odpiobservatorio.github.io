@@ -102,12 +102,13 @@ const allLayers = {
 
   "test": () => {
 
-  const depsCopy = Object.assign({}, capaDepartamentos)
+  const depsCopy = Object.assign({}, capaDepartamentos);
 
   for (const feature of depsCopy.features) {
     
     if (feature.properties.NOMBRE_DPT = "ANTIOQUIA") {
-      deps.features = [feature]; 
+      depsCopy.features = [feature]; 
+      break;
     }
   }
     //Crear capa
