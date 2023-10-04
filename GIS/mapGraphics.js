@@ -71,15 +71,15 @@ function showLayer(parent) {
 
 //Test-----
 function colorMap(v) {
-  const d = (1000/771) * v;
+  const d = (1000 / 771) * v;
   return d > 1000 ? '#800026' :
-         d > 500  ? '#BD0026' :
-         d > 200  ? '#E31A1C' :
-         d > 100  ? '#FC4E2A' :
-         d > 50   ? '#FD8D3C' :
-         d > 20   ? '#FEB24C' :
-         d > 10   ? '#FED976' :
-                    '#FFEDA0';
+    d > 500 ? '#BD0026' :
+      d > 200 ? '#E31A1C' :
+        d > 100 ? '#FC4E2A' :
+          d > 50 ? '#FD8D3C' :
+            d > 20 ? '#FEB24C' :
+              d > 10 ? '#FED976' :
+                '#FFEDA0';
 }
 //------------
 
@@ -102,25 +102,24 @@ const allLayers = {
 
   "test": () => {
 
-  const depsCopy = Object.assign({}, capaDepartamentos);
-
-  for (const feature of depsCopy.features) {
-    
-    if (feature.properties.NOMBRE_DPT = "ANTIOQUIA") {
-      depsCopy.features = [feature]; 
-      break;
+    const depsCopy = Object.assign({}, capaDepartamentos);
+    for (const feature of depsCopy.features) {
+      if (feature.properties.NOMBRE_DPT = "ANTIOQUIA") {
+        depsCopy.features = [feature];
+        break;
+      }
     }
-  }
     //Crear capa
-    Layers["test"] = new L.geoJson(depsCopy, {style: {
-          weight: 2,
-          opacity: 1,
-          color: 'white',
-          //dashArray: '3',
-          fillOpacity: 0.75
-  }}).bindPopup((layer) => {
-    return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
-  }).addTo(map);
+    Layers["test"] = new L.geoJson(depsCopy, {
+      style: {
+        weight: 2,
+        opacity: 1,
+        color: '#FC4E2A',
+        fillOpacity: 0.75
+      }
+    }).bindPopup((layer) => {
+      return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
+    }).addTo(map);
   },
 
 
@@ -128,41 +127,43 @@ const allLayers = {
 
     //Get deps
     const conteos = {};
-  for (const registro of DataPrincipal) {
+    for (const registro of DataPrincipal) {
       const elemento = (((registro.Departamento).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
       conteos[elemento] = (conteos[elemento] || 0) + 1;
-  }
+    }
 
-  const depsCopy = Object.assign({}, capaDepartamentos)
+    const depsCopy = Object.assign({}, capaDepartamentos)
 
-  for (const feature of depsCopy.features) {
+    for (const feature of depsCopy.features) {
       const dep = (feature.properties.NOMBRE_DPT)
       const valor = conteos[dep]
-  
+
       if (valor) {
-          feature.properties["Casos"] = valor;
+        feature.properties["Casos"] = valor;
       } else {
-          feature.properties["Casos"] = 1;
+        feature.properties["Casos"] = 1;
       }
-  }
-  
+    }
+
 
     //Crear capa
-    Layers["LayerColorMap"] = new L.geoJson(depsCopy, {style: (feature) => {
-      return {
+    Layers["LayerColorMap"] = new L.geoJson(depsCopy, {
+      style: (feature) => {
+        return {
           fillColor: colorMap(feature.properties.Casos),
           weight: 2,
           opacity: 1,
           color: 'white',
           //dashArray: '3',
           fillOpacity: 0.75
+        }
       }
-  } }).bindPopup((layer) => {
+    }).bindPopup((layer) => {
 
-    return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
-  }).addTo(map);    
+      return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
+    }).addTo(map);
 
-    
+
   },
 
   "LayerResguardos": () => {
@@ -332,24 +333,24 @@ const allLayers = {
   },
 
   "LayerBloquePretrolero": () => {
-    Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero, 
-    {
-      style: {
-        color: "white",
-        weight: 1,
-        fillColor: "pink",
-        fillOpacity: 0.8
-      },
+    Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero,
+      {
+        style: {
+          color: "white",
+          weight: 1,
+          fillColor: "pink",
+          fillOpacity: 0.8
+        },
         filter: function (feature, layer) {
           return (feature.properties.TIPO_CONTR !== "NO APLICA") && (feature.properties.ESTAD_AREA !== "SIN ASIGNAR");
         }
-    }
+      }
     ).bindPopup((layer) => {
       return `Tipo: ${layer.feature.properties.TIPO_CONTR}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
     }).addTo(map);
   },
 
-  
+
 
   "LayerReservas": () => {
     Layers["LayerReservas"] = new L.geoJSON(reservasCap, {
@@ -402,59 +403,63 @@ const icons = {
     return L.icon({
       iconUrl: "../img/pVerdeV.png",
       shadowUrl: '',
-    
+
       iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
       shadowSize: [50, 64], // size of the shadow
-      iconAnchor: [9  * formatoPlano.size, 18  * formatoPlano.size], // point of the icon which will correspond to marker's location
+      iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
       popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
     });
   },
-  
-  
+
+
   "black": () => {
     return L.icon({
-    iconUrl: '../img/pNegroV.png',
-    shadowUrl: '',
-  
-    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  })},
-  
+      iconUrl: '../img/pNegroV.png',
+      shadowUrl: '',
+
+      iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+      popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    })
+  },
+
 
   "red": () => {
     return L.icon({
-    iconUrl: '../img/pRojoV.png',
-    shadowUrl: '',
-  
-    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  })},
-  
+      iconUrl: '../img/pRojoV.png',
+      shadowUrl: '',
+
+      iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+      popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    })
+  },
+
   "blue": () => {
     return L.icon({
-    iconUrl: '../img/pAzulV.png',
-    shadowUrl: '',
-  
-    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  })},
+      iconUrl: '../img/pAzulV.png',
+      shadowUrl: '',
+
+      iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+      popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    })
+  },
 
   "purple": () => {
     return L.icon({
-    iconUrl: '../img/pMoradoV.png',
-    shadowUrl: '',
-  
-    iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-    popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-  })},
+      iconUrl: '../img/pMoradoV.png',
+      shadowUrl: '',
+
+      iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+      popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    })
+  },
 
 }
 
@@ -462,7 +467,7 @@ const icons = {
 function putLabel(e) {
   if (ActiveLabels == "1") {
     LabelMap = new L.marker(e.latlng, { draggable: 'true', icon: otherIcons["senalador"] },);
-    LabelMap.bindTooltip(TextoLabel.replace(/(?:\r\n|\r|\n)/g, '<p>'),{draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.bindTooltip(TextoLabel.replace(/(?:\r\n|\r|\n)/g, '<p>'), { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
       LabelMap = event.target;
       const position = LabelMap.getLatLng();
@@ -508,7 +513,7 @@ function RemoverLabels() {
 }
 
 //Cambia el color del mapa, cambiando las especificaciones de la configuracion
-function AplicarColorMapa(){
+function AplicarColorMapa() {
   formatoPlano["color"] = document.getElementById("colorMapaColor").value;
   formatoPlano["opacidad"] = document.getElementById("colorMapOpacity").value;
   //Si el mapa tiene la capa activa, la elimina y genera nuevamente con los colores actualizados
@@ -525,7 +530,7 @@ const otherIcons = {
   "senalador": L.icon({
     iconUrl: '../img/otherIcons["senalador"].png',
     shadowUrl: '',
-  
+
     iconSize: [14, 14], // size of the icon
     shadowSize: [50, 64], // size of the shadow
     iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
@@ -535,17 +540,17 @@ const otherIcons = {
   "negroN": L.icon({
     iconUrl: '../img/pNegroN.png',
     shadowUrl: '',
-  
+
     iconSize: [20, 20], // size of the icon
     shadowSize: [50, 64], // size of the shadow
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
     popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
   }),
-  
+
   "azulC": L.icon({
     iconUrl: '../img/pAzulC.png',
     shadowUrl: '',
-  
+
     iconSize: [20, 20], // size of the icon
     shadowSize: [50, 64], // size of the shadow
     iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
