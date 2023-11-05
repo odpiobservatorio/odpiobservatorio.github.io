@@ -50,11 +50,16 @@ function clearLayers() {
   }
 }
 
+function clearDep() {
+  if (Layers.hasOwnProperty("currentDep")) {
+    map.removeLayer(Layers["currentDep"]);
+  }
+}
+
 function showDep() {
   
   if (Layers.hasOwnProperty("currentDep")) {
     map.removeLayer(Layers["currentDep"]);
-
   }
 
   const departamento = document.getElementById("lstDeps").value;
