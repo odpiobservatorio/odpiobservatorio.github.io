@@ -52,11 +52,9 @@ function clearLayers() {
 
 function showDep() {
   
-  console.log(".....")
-  
   if (Layers.hasOwnProperty("currentDep")) {
     map.removeLayer(Layers["currentDep"]);
-    console.log("Deleting")
+
   }
 
   const departamento = document.getElementById("lstDeps").value;
@@ -64,11 +62,6 @@ function showDep() {
   
   for (const feature of depsCopy.features) {
     if (feature.properties.NOMBRE_DPT == departamento) {
-      
-      console.log("Feature match:")
-      console.log(feature.properties.NOMBRE_DPT)
-      console.log(feature)
-      
       depsCopy.features = [feature];
       break;
     }
