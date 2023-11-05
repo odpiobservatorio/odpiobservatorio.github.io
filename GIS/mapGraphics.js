@@ -5,7 +5,6 @@ let TextoLabel = "";
 let ActiveLabels;
 
 
-
 //Diccionario con la "Configuracion" del plano, se modifica segun los cambios del usuario
 const formatoPlano = {
   "color": "orange",
@@ -49,6 +48,44 @@ function clearLayers() {
       map.removeLayer(Layers[input.getAttribute("id")]);
     }
   }
+}
+
+function showDep() {
+  
+  console.log(".....")
+  
+  if (Layers.hasOwnProperty("currentDep")) {
+    map.removeLayer(Layers["currentDep"]);
+    console.log("Deleting")
+  }
+
+  const departamento = document.getElementById("lstDeps").value;
+  const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+  
+  for (const feature of depsCopy.features) {
+    if (feature.properties.NOMBRE_DPT == departamento) {
+      
+      console.log("Feature match:")
+      console.log(feature.properties.NOMBRE_DPT)
+      console.log(feature)
+      
+      depsCopy.features = [feature];
+      break;
+    }
+  }
+  
+  //Crear capa
+  Layers["currentDep"] = new L.geoJson(depsCopy, {
+    style: {
+      weight: 2,
+      opacity: 1,
+      color: '#FC4E2A',
+      fillOpacity: 0
+    }
+  }).bindPopup((layer) => {
+    return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
+  }).addTo(map);
+
 }
 
 function showLayer(parent) {
@@ -100,28 +137,6 @@ const allLayers = {
     }).addTo(map);
   },
 
-  "test": () => {
-
-    const depsCopy = Object.assign({}, capaDepartamentos);
-    for (const feature of depsCopy.features) {
-      if (feature.properties.NOMBRE_DPT = "ANTIOQUIA") {
-        depsCopy.features = [feature];
-        break;
-      }
-    }
-    //Crear capa
-    Layers["test"] = new L.geoJson(depsCopy, {
-      style: {
-        weight: 2,
-        opacity: 1,
-        color: '#FC4E2A',
-        fillOpacity: 0
-      }
-    }).bindPopup((layer) => {
-      return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
-    }).addTo(map);
-  },
-
 
   "LayerColorMap": () => {
 
@@ -132,7 +147,7 @@ const allLayers = {
       conteos[elemento] = (conteos[elemento] || 0) + 1;
     }
 
-    const depsCopy = Object.assign({}, capaDepartamentos)
+    const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos))
 
     for (const feature of depsCopy.features) {
       const dep = (feature.properties.NOMBRE_DPT)

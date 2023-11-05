@@ -161,8 +161,8 @@ function BuscarFaseII() {
 function BuscarFaseI() {
   //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.
   const iOperador = document.getElementById("lstOperador").value;
-  const iCampo = `${document.getElementById("lstCampos").value}`;
-  const vCampo = `${document.getElementById("txValorBusquedaA").value}`;
+  const iCampo = document.getElementById("lstCampos").value;
+  const vCampo = document.getElementById("txValorBusquedaA").value;
 
   ///Limpiamos la lista de resultados
   document.getElementById("lstResGis").innerHTML = "";
