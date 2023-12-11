@@ -30,7 +30,7 @@ function CargarlstMap() {
 //Funciones para buscar datos y mostrar marcas
 //*****************************************************
 
-function LoadData() {}
+function LoadData() { }
 
 //Limpia control lista de criterios avanzados
 //y de la matris de criterios avanzado.
@@ -114,10 +114,8 @@ function showBusqueda(checkBusqueda) {
         new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]]() }) //Se llama el diccionario icons
           .addTo(map)
           .bindPopup(
-            `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${
-              elemento.Municipio
-            }, C: ${
-              elemento.ind
+            `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${elemento.Municipio
+            }, C: ${elemento.ind
             }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
               elemento
             )})'>Ver</button></br>`
@@ -376,7 +374,7 @@ function DocumentReport() {
   document.getElementById("divTableModal").innerHTML = "";
   document.getElementById("divDocModal").innerHTML = "";
 
-  
+
   let contador = 1;
   let tagElement;
 
