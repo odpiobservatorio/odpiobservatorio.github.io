@@ -54,7 +54,7 @@ function PivotElementos() {
     //Para no crear los elementos cada vez q se ejecuta los agregue a el html
 
     const valueKey = document.getElementById("lstPivot").value; //El tipo/clave por el cual se va a generar todo
-    
+
     const tablaHeader = document.getElementById("tablaHeader");
     tablaHeader.innerHTML = ""; //Elimina elementos si ya habia antes
     //Agregamos los encabezados
@@ -96,7 +96,7 @@ function PivotElementos() {
 
 function CreaGrafica() {
     document.getElementById("grafica").remove();
-    
+
     const newCanvas = document.createElement("canvas");
     newCanvas.id = "grafica"
     document.getElementById("DivGraficos").appendChild(newCanvas);
