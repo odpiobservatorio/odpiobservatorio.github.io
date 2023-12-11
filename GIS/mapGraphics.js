@@ -538,6 +538,10 @@ function AplicarColorMapa() {
         map.removeLayer(Layers["LayerPlano"]);
         allLayers["LayerPlano"]();
     }
+
+    if (Layers.hasOwnProperty("currentDep")) {
+        showDep();
+    }
 }
 
 
