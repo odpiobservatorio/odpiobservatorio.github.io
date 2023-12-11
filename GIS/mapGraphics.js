@@ -532,9 +532,10 @@ function RemoverLabels() {
 function AplicarColorMapa() {
     formatoPlano["color"] = document.getElementById("colorMapaColor").value;
     formatoPlano["opacidad"] = document.getElementById("colorMapOpacity").value;
+
     //Si el mapa tiene la capa activa, la elimina y genera nuevamente con los colores actualizados
     //Asi el cambio de la configuracion es instantaneo
-    if (map.hasLayer(Layers["LayerPlano"])) {
+    if (Layers.hasOwnProperty("LayerPlano") && map.hasLayer(Layers["LayerPlano"])) {
         map.removeLayer(Layers["LayerPlano"]);
         allLayers["LayerPlano"]();
     }
