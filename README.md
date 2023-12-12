@@ -16,3 +16,5 @@ Módulo de información geográfica para la visibilización del estado de los de
 <a href="https://skillicons.dev">
   <img src="https://skillicons.dev/icons?i=js,html,css,git,github,vscode&theme=dark" />
 </a>
+
+<li><a class="dropdown-item" href="./GIS/map.html">Sistema de información geográfica</a></li>
