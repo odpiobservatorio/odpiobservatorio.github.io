@@ -256,10 +256,11 @@ function clearMarkers() {
     }
 }
 
-function listasAutomaticas(cotrolList) {
-    const criterio = document.getElementById(cotrolList).value;
+function listasAutomaticas(controlList) {
+    const criterio = document.getElementById(controlList).value;
 
     let DataPrincipalSort;
+    
     if (criterio == "Year") {
         DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
     } else if (criterio == "Edad") {
