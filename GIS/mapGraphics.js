@@ -45,7 +45,7 @@ function clearLayers() {
     for (const input of lista) {
         if (input.checked) {
             input.checked = false;
-            map.removeLayer(Layers[input.getAttribute("id")]);
+            map.removeLayer(Layers[input.id]);
         }
     }
 }
@@ -74,14 +74,13 @@ function showDep() {
 
     //Crear capa
     Layers["currentDep"] = new L.geoJson(depsCopy, {
-
         style: {
             //color: formatoPlano["color"],
             weight: 2,
             opacity: 1,
             color: '#FC4E2A',
-            fillColor: formatoPlano["color"],
-            fillOpacity: formatoPlano["opacidad"],
+            fillColor: formatoPlano.color,
+            fillOpacity: formatoPlano.opacidad,
         }
     }).bindPopup((layer) => {
         return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
