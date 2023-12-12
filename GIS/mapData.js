@@ -1,6 +1,7 @@
 let MrkAntecedente = [];
 let CriteFindPlus = [];
 
+
 //Almacena en esta varible la información de los resultados de búsqueda
 let DataToReport = [];
 
@@ -80,10 +81,9 @@ function AgregarCriterioFind() {
 function showBusqueda(checkBusqueda) {
     let nCasos = 0;
 
-    for (const elemento of checkBusqueda) {
-        const TextoCaso = `${elemento.Municipio}, ${elemento.Pueblo}`;
+    checkBusqueda.forEach(elemento => {
         const p = document.createElement("p");
-        p.textContent = TextoCaso;
+        p.textContent = `${elemento.Municipio}, ${elemento.Pueblo}`;
 
         const a = document.createElement("a");
         a.href = "#";
@@ -98,12 +98,12 @@ function showBusqueda(checkBusqueda) {
         sm.classList.add("text-muted");
         sm.textContent = elemento.Year;
 
-        const d = document.createElement("div");
-        d.classList.add("d-flex", "w-100", "justify-content-between");
+        const div = document.createElement("div");
+        div.classList.add("d-flex", "w-100", "justify-content-between");
 
-        d.appendChild(h5);
-        d.appendChild(sm);
-        a.appendChild(d);
+        div.appendChild(h5);
+        div.appendChild(sm);
+        a.appendChild(div);
 
         a.appendChild(p);
 
@@ -123,11 +123,11 @@ function showBusqueda(checkBusqueda) {
             );
         } catch (error) {
             console.log(error);
-            continue;
         }
 
         nCasos++;
-    }
+    });
+
 
     document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
 }
@@ -228,13 +228,9 @@ function verCaso(registro) {
     document.getElementById("txAño").textContent = registro.Year;
     document.getElementById("txLugar").textContent = registro.Municipio;
     document.getElementById("txEtnia").textContent = `Etnía (${registro.Pueblo})`;
-    document.getElementById(
-        "txPerpetuador"
-    ).textContent = `Perpetuador (${registro.Perpetrador})`;
+    document.getElementById("txPerpetuador").textContent = `Perpetuador (${registro.Perpetrador})`;
     document.getElementById("txCaso").textContent = registro.Antecedentes;
-    bootstrap.Modal.getOrCreateInstance(
-        document.getElementById("ModalCaseOnMap")
-    ).show();
+    bootstrap.Modal.getOrCreateInstance(document.getElementById("ModalCaseOnMap")).show();
 }
 
 ///Modifca vicualmente el boton de buscar
@@ -252,9 +248,8 @@ function VerFindExtend() {
 
 function clearMarkers() {
     //Limpiamos cualquier marca en el mapa
-    for (const antecedente of MrkAntecedente) {
-        map.removeLayer(antecedente);
-    }
+
+    MrkAntecedente.forEach(antecedente => map.removeLayer(antecedente));
 }
 
 function listasAutomaticas(controlList) {
@@ -329,11 +324,14 @@ function TablaReport() {
         "Territorio",
         "Género",
     ];
-    for (const titulo of titulos) {
+
+    titulos.forEach(titulo => {
+        
         const elemento = document.createElement("td");
         elemento.textContent = titulo;
         Encabezados.appendChild(elemento);
-    }
+    });
+
     //Agregamos los encabezados
     tablaHeader.appendChild(Encabezados);
     tabla.appendChild(tablaHeader);
@@ -350,7 +348,7 @@ function TablaReport() {
     ];
     let i = 1;
 
-    for (const registro of DataToReport) {
+    DataToReport.forEach(registro => {
         let fila = document.createElement("tr");
         let DatoCelta = document.createElement("td");
         DatoCelta.textContent = i;
@@ -364,7 +362,8 @@ function TablaReport() {
         //Agrego filas y columnas al cuerpo de la tabla
         tablaBody.appendChild(fila);
         i++;
-    }
+    });
+
     tabla.appendChild(tablaBody);
     ContenedorTabla.appendChild(tabla);
     tabla.classList.add("table", "table-striped", "table-hover");
@@ -376,11 +375,10 @@ function DocumentReport() {
     document.getElementById("divTableModal").innerHTML = "";
     document.getElementById("divDocModal").innerHTML = "";
 
-
     let contador = 1;
     let tagElement;
 
-    for (const registro of DataToReport) {
+    DataToReport.forEach(registro => {
         tagElement = document.createElement("div");
         tagElement.textContent = registro.Tipo;
         tagElement.classList.add("h4", "text-success");
@@ -418,6 +416,6 @@ function DocumentReport() {
         ContenedorDocumento.appendChild(tagElement);
 
         tagElement = document.createElement("hr");
-        ContenedorDocumento.appendChild(tagElement);
-    }
+        ContenedorDocumento.appendChild(tagElement); 
+    });
 }
