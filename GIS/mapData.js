@@ -122,6 +122,7 @@ function showBusqueda(checkBusqueda) {
                     )
             );
         } catch (error) {
+            console.log(error);
             continue;
         }
 
@@ -261,7 +262,7 @@ function listasAutomaticas(controlList) {
 
     let DataPrincipalSort;
     
-    if (criterio == "Year") {
+    if (criterio == "Year" || criterio == "Mes") {
         DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
     } else if (criterio == "Edad") {
         DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
@@ -269,7 +270,7 @@ function listasAutomaticas(controlList) {
         DataPrincipalSort = DataPrincipal.sort((a, b) => {
             a = a[criterio];
             b = b[criterio];
-            return a.localeCompare(b);
+            return (a.toString()).localeCompare(b.toString());
         });
     }
 
