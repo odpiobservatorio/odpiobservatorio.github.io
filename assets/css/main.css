@@ -4318,3 +4318,19 @@
 			}
 
 		}
+
+.my-a-pill {
+	background-color: #8a4680!important;
+    color: white!important;
+	margin-top: 0.5rem!important;
+
+	display: block;
+    width: 100%;
+
+	padding: 0.5rem;
+    border-radius: 0.3rem;
+
+	text-align: center;
+	user-select: none;
+	text-decoration: none;
+}
