@@ -33,4 +33,16 @@ for (const layerName in layersToLoad) {
     fetchLayer(layerName, layersToLoad[layerName]);
 }
 
-// 
+// Cargar infoambiente
+function fetchAmbiente() {
+    const names = ["datapart1", "datapart2", "datapart3"]
+    return names.map(nombre => {
+        return fetch(
+            `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS/layers/${nombre}`
+        ).then(response => response.text())
+    });
+}
+
+Promise.all(fetchAmbiente()).then(res => {
+    window["ambiental"] = (`{ ${(res[0] + res[1] + res[2])} }`);
+})
