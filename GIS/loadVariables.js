@@ -44,5 +44,5 @@ function fetchAmbiente() {
 }
 
 Promise.all(fetchAmbiente()).then(res => {
-    window["ambiental"] = (`{ ${(res[0] + res[1] + res[2])} }`);
+    window["ambiental"] = JSON.parse(`{ ${(res[0] + res[1] + res[2])} }`);
 })
