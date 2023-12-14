@@ -1,7 +1,7 @@
 
 function createLayer(layerName, layerPath) {
     const link = `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS${layerPath}`;
-    return load(link).then(res => res.json()).then(data => {
+    return load(link).then(data => {
         window[layerName] = data;
     });
 }
