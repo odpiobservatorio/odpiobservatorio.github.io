@@ -1,25 +1,14 @@
-
-function createLayer(layerName, layerPath) {
+function fetchLayer(layerName, layerPath) {
     const link = `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS${layerPath}`;
-    return load(link).then(data => {
-        window[layerName] = data;
-    });
-}
 
-function load(link) {
-    //Llama el archivo y lo regresa como objeto json
-    return fetch(link)
-        .then(response => response.json())
+    fetch(link).then(response => response.json())
         .then(data => {
-            return data;
+            window[layerName] = data;
         }).catch(error => {
             console.log(error);
-            throw error;
         });
 }
 
-
-// Declarar un objeto que contenga los nombres de las variables y sus rutas de archivo
 const layersToLoad = {
     CapaBloquePetrolero: '/layers/BloquePetrolero.json',
     LayerPlano: '/layers/Croquis.json',
@@ -39,14 +28,7 @@ const layersToLoad = {
     capaRutaMigrantes: '/layers/ECOIlegal/RutaMigrantes.json',
 };
 
-const layerPromises = [];
-for (const layerName in layersToLoad) {
-    layerPromises.push(createLayer(layerName, layersToLoad[layerName]));
-}
 
-//Carga todos los archivos
-Promise.all(layerPromises)
-    .then(() => console.log("Capas cargadas con exito!"))
-    .catch(error => {
-        console.error('Error al cargar las capas:', error);
-    });
+for (const layerName in layersToLoad) {
+    fetchLayer(layerName, layersToLoad[layerName]);
+}
