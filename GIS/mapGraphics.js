@@ -209,10 +209,10 @@ const allLayers = {
         Layers["LayerDepartamentos"] = new L.geoJSON(capaDepartamentos,
             {
                 style: {
-                    color: "white",
+                    color: formatoPlano.color,
                     weight: 1,
-                    fillColor: "darkgray",
-                    fillOpacity: 5,
+                    // Fill color 
+                    fillOpacity: 0,
                     icon: icons[formatoPlano["markType"]]
                 },
                 filter: function (feature, layer) {
