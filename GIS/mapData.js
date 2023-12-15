@@ -148,7 +148,7 @@ function BuscarFaseII() {
     const checkBusqueda = checkBusquedaSort.filter((caso) => filtroCreado(caso));
 
     //Limpiamos las marcas del mapa
-    clearMarkers();
+    //clearMarkers();
 
     //mostramos la busqueda finalmente
     showBusqueda(checkBusqueda);
