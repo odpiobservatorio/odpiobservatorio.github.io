@@ -191,7 +191,7 @@ function BuscarFaseI() {
     }
 
     //Limpiamos las marcas del mapa
-    clearMarkers();
+    //clearMarkers();
 
     //mostramos la busqueda finalmente
     showBusqueda(checkBusqueda);
