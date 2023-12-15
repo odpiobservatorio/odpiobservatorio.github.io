@@ -4,7 +4,7 @@ Módulo de información geográfica para la visibilización del estado de los de
 
 ### Uso
 
-> https://odpiobservatorio.github.io
+> [odpiobservatorio](https://odpiobservatorio.vercel.app/)
 
 ### Features
 - ...
@@ -17,4 +17,4 @@ Módulo de información geográfica para la visibilización del estado de los de
   <img src="https://skillicons.dev/icons?i=js,html,css,git,github,vscode&theme=dark" />
 </a>
 
-<li><a class="dropdown-item" href="./GIS/map.html">Sistema de información geográfica</a></li>
+<li><a class="dropdown-item" href="https://odpiobservatorio.vercel.app">Sistema de información geográfica</a></li>
