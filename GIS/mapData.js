@@ -71,11 +71,25 @@ function AgregarCriterioFind() {
 
     CriteFindPlus.push(CriterioFull);
 
-    const itCriterioTx = document.createElement("li");
+    const contenedor = document.createElement("div");
+    contenedor.classList.add("d-flex");
 
+    const itCriterioTx = document.createElement("li");
     itCriterioTx.textContent = `${ColumnaTx} ${OperadorTx} ${vCampoTx}`;
     itCriterioTx.classList.add("list-group-item");
-    document.getElementById("lstCriterios").appendChild(itCriterioTx);
+    
+    // Boton eliminar contenedor
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "-";
+    btnEliminar.classList.add("btn", "btn-danger");
+    btnEliminar.onclick = () => {
+        contenedor.remove();
+        CriteFindPlus.pop();
+    };
+
+    contenedor.appendChild(itCriterioTx);
+    contenedor.appendChild(btnEliminar);
+    document.getElementById("lstCriterios").appendChild(contenedor);
 }
 
 function showBusqueda(checkBusqueda) {
@@ -288,6 +302,8 @@ function listasAutomaticas(controlList) {
         itemLs.text = "Sin criterio";
         document.getElementById("lstAutomatica").appendChild(itemLs);
     }
+    
+    addTextHelp();
 }
 //Función que traslada la información de apoyo a la caja valor de búsqueda
 function addTextHelp() {
