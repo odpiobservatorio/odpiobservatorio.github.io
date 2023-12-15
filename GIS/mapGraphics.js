@@ -211,7 +211,7 @@ const allLayers = {
                 style: {
                     color: formatoPlano.color,
                     weight: 1,
-                    // Fill color 
+                    // fillColor: "darkgray",
                     fillOpacity: 0,
                     icon: icons[formatoPlano["markType"]]
                 },
