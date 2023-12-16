@@ -68,9 +68,9 @@ function PivotElementos() {
     etiquetas = []; //Variable Global, una lista de las etiquetas, ejem: [2018, 2019, 2020]
     valores = []; //Variable Global, lista con los conteos, ejem: [10, 23, 15]
 
-    for (const registro of DataToReport) {
+    (bigData.DataToReport).forEach(registro => {
         conteos[registro[valueKey]] = (conteos[registro[valueKey]] || 0) + 1; //Revisa en todos los datos y cuenta cuantas veces aparece una "etiqueta"
-    }
+    });
 
     for (const [etiqueta, contador] of Object.entries(conteos)) { //Agrega los datos a la tabla y ademas guarda los valores de las etiquetas y sus conteos (Ademas las etiquetas estan ordenadas)
         etiquetas.push(etiqueta);

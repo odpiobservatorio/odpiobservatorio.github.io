@@ -28,7 +28,7 @@ function reloadIcons() {
     //Limpiamos las marcas del mapa
     clearMarkers();
     //mostramos la busqueda finalmente.
-    showBusqueda(DataToReport);
+    showBusqueda(bigData.DataToReport);
 }
 
 //Cambia el tipo de la marca q se muestra

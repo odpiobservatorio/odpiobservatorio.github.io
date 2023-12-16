@@ -1,14 +1,11 @@
-let MrkAntecedente = [];
-let CriteFindPlus = [];
-
-
-//Almacena en esta varible la información de los resultados de búsqueda
-let DataToReport = [];
+const bigData = {
+    DataToReport: [], // Resultados de la busqueda
+    MrkAntecedente: [],
+    CriteFindPlus: [],
+}
 
 //Variable para los tooltip
-const tooltipTriggerList = document.querySelectorAll(
-    '[data-bs-toggle="tooltip"]'
-);
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 const tooltipList = [...tooltipTriggerList].map(
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
 );
@@ -37,7 +34,7 @@ function LoadData() { }
 //y de la matris de criterios avanzado.
 function LimpiarCriterios() {
     document.getElementById("lstCriterios").innerHTML = "";
-    CriteFindPlus = [];
+    bigData.CriteFindPlus = [];
 }
 
 function addOperadorCriterio(elemento) {
@@ -48,7 +45,7 @@ function addOperadorCriterio(elemento) {
     itCriterioTx.textContent = `(${operador})`;
 
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
-    CriteFindPlus.push(operador === "Y" ? "&&" : "||");
+    (bigData.CriteFindPlus).push(operador === "Y" ? "&&" : "||");
 }
 
 function AgregarCriterioFind() {
@@ -69,7 +66,7 @@ function AgregarCriterioFind() {
         CriterioFull = `caso['${ColumnaVal}'] ${OperadorVal} '${vCampoTx}'`;
     }
 
-    CriteFindPlus.push(CriterioFull);
+    (bigData.CriteFindPlus).push(CriterioFull);
 
     const contenedor = document.createElement("div");
     contenedor.classList.add("d-flex");
@@ -84,7 +81,7 @@ function AgregarCriterioFind() {
     btnEliminar.classList.add("btn", "btn-danger");
     btnEliminar.onclick = () => {
         contenedor.remove();
-        CriteFindPlus.pop();
+        (bigData.CriteFindPlus).pop();
     };
 
     contenedor.appendChild(itCriterioTx);
@@ -124,7 +121,7 @@ function showBusqueda(checkBusqueda) {
         document.getElementById("lstResGis").appendChild(a);
 
         try {
-            MrkAntecedente.push(
+            (bigData.MrkAntecedente).push(
                 new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]]() }) //Se llama el diccionario icons
                     .addTo(map)
                     .bindPopup(
@@ -154,21 +151,20 @@ function BuscarFaseII() {
     //Creamos la funcion q va a filtrar con los criterios
     const filtroCreado = new Function(
         "caso",
-        `return ${CriteFindPlus.join(" ")};`
+        `return ${(bigData.CriteFindPlus).join(" ")};`
     );
 
     ///Ordena mi información por fecha
-    const checkBusquedaSort = [...DataPrincipal].sort((a, b) => a.Year - b.Year);
-    const checkBusqueda = checkBusquedaSort.filter((caso) => filtroCreado(caso));
+    const datos = DataPrincipal.filter((caso) => filtroCreado(caso));
 
     //Limpiamos las marcas del mapa
     //clearMarkers();
 
     //mostramos la busqueda finalmente
-    showBusqueda(checkBusqueda);
+    showBusqueda(datos);
 
     //Agrego los valores de este filtro y los guardo en el reporte
-    DataToReport = checkBusqueda;
+    bigData.DataToReport = datos;
 }
 
 function BuscarFaseI() {
@@ -180,38 +176,24 @@ function BuscarFaseI() {
     ///Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = "";
 
-    ///Ordena mi información por fecha
-    const checkBusquedaSort = [...DataPrincipal].sort((a, b) => a.Year - b.Year);
-
-    let checkBusqueda;
-    switch (iOperador) {
-        case "1":
-            checkBusqueda = checkBusquedaSort.filter((dato) => dato[iCampo].includes(vCampo));
-            break;
-
-        case ">":
-            checkBusqueda = checkBusquedaSort.filter((dato) => dato[iCampo] > vCampo);
-            break;
-
-        case "<":
-            checkBusqueda = checkBusquedaSort.filter((dato) => dato[iCampo] < vCampo);
-            break;
-
-        default:
-            checkBusqueda = checkBusquedaSort.filter(
-                (dato) => dato[iCampo] == vCampo
-            );
-            break;
+    const filtros = {
+        "1": (registro) => registro[iCampo].toUpperCase().includes(vCampo.toUpperCase()),
+        ">": (registro) => registro[iCampo] > vCampo,
+        "<": (registro) => registro[iCampo] < vCampo,
+        "==": (registro) => registro[iCampo] == vCampo,
     }
-
+    
     //Limpiamos las marcas del mapa
     //clearMarkers();
 
-    //mostramos la busqueda finalmente
-    showBusqueda(checkBusqueda);
+    const funcionFiltro = filtros[iOperador];
+    const datos = DataPrincipal.filter(funcionFiltro)
+
+    //mostramos la busqueda
+    showBusqueda(datos);
 
     //Agrego los valores de este filtro y los guardo en el reporte
-    DataToReport = checkBusqueda;
+    bigData.DataToReport = datos;
 }
 
 function CargarTodoMarcas() {
@@ -225,11 +207,9 @@ function CargarTodoMarcas() {
 
     clearMarkers();
 
-    //mostramos la busqueda finalmente
-
+    //mostramos la busqueda
     showBusqueda(DataPrincipal);
-
-    DataToReport = DataPrincipal;
+    bigData.DataToReport = DataPrincipal;
 }
 
 //..........................................
@@ -237,76 +217,82 @@ function CargarTodoMarcas() {
 //..........................................
 
 function verCaso(registro) {
-    document.getElementById("tlTipoCaso").textContent = `CASO ${registro.ind}`;
-    document.getElementById("txTipo").textContent = registro.Tipo;
-    document.getElementById("txAño").textContent = registro.Year;
-    document.getElementById("txLugar").textContent = registro.Municipio;
-    document.getElementById("txEtnia").textContent = `Etnía (${registro.Pueblo})`;
-    document.getElementById("txPerpetuador").textContent = `Perpetuador (${registro.Perpetrador})`;
-    document.getElementById("txCaso").textContent = registro.Antecedentes;
+    const data = {
+        tlTipoCaso : `CASO ${registro.ind}`,
+        txTipo : registro.Tipo,
+        txAño : registro.Year,
+        txLugar : registro.Municipio,
+        txEtnia : `Etnía (${registro.Pueblo})`,
+        txPerpetuador : `Perpetuador (${registro.Perpetrador})`,
+        txCaso : registro.Antecedentes,
+    }
+
+    for (const id in data) {
+        document.getElementById(id).textContent = data[id];
+    }
+
     bootstrap.Modal.getOrCreateInstance(document.getElementById("ModalCaseOnMap")).show();
 }
 
 ///Modifca vicualmente el boton de buscar
 function VerFindExtend() {
-    let control = document.getElementById("PlusFind");
+    const control = document.getElementById("PlusFind");
 
-    if (control.hidden) {
-        control.hidden = false;
-        document.getElementById("plusOption").textContent = "-";
-    } else {
-        control.hidden = true;
-        document.getElementById("plusOption").textContent = "+";
-    }
+    control.hidden = !control.hidden;
+    document.getElementById("plusOption").textContent = control.hidden ? "+" : "-";
 }
 
 function clearMarkers() {
     //Limpiamos cualquier marca en el mapa
-
-    MrkAntecedente.forEach(antecedente => map.removeLayer(antecedente));
+    (bigData.MrkAntecedente).forEach(antecedente => map.removeLayer(antecedente));
 }
 
 function listasAutomaticas(controlList) {
     const criterio = document.getElementById(controlList).value;
 
-    let DataPrincipalSort;
-    
-    if (criterio == "Year" || criterio == "Mes") {
-        DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
-    } else if (criterio == "Edad") {
-        DataPrincipalSort = DataPrincipal.sort((a, b) => a[criterio] - b[criterio]);
-    } else {
-        DataPrincipalSort = DataPrincipal.sort((a, b) => {
+    const funciones = {
+        "numero": (a, b) => a[criterio] - b[criterio],
+        "texto": (a, b) => {
             a = a[criterio];
             b = b[criterio];
             return (a.toString()).localeCompare(b.toString());
+        },
+    }
+
+    const lstAutomatica = document.getElementById("lstAutomatica")
+    lstAutomatica.innerHTML = "";
+
+    if (criterio == "Antecedentes") {
+        const itemLs = document.createElement("option");
+        itemLs.text = "Sin criterio";
+        document.getElementById("lstAutomatica").appendChild(itemLs);   
+    } else {
+        const tipoOrdenamiento = ["Year", "Mes", "Edad"].includes(criterio) ? "numero" : "texto";
+        const funcionOrdenar = funciones[tipoOrdenamiento];
+        const DataPrincipalSort = DataPrincipal.sort(funcionOrdenar);
+
+        // Hace una lista sin repeticiones del tipo q se pida
+        const valoresUnicos = [
+            ...new Set(
+                DataPrincipalSort.map(registro => registro[criterio])
+            )
+        ];
+        
+        // Agrega los valores unicos a la lista de seleccion
+        valoresUnicos.forEach(valor => {
+            const itemLs = document.createElement("option");
+            itemLs.value = valor;
+            itemLs.text = valor;
+            lstAutomatica.appendChild(itemLs);
         });
     }
 
-    document.getElementById("lstAutomatica").innerHTML = "";
-    if (criterio !== "Antecedentes") {
-        const Listas = [
-            ...new Map(
-                DataPrincipalSort.map((filtro) => [filtro[criterio], filtro])
-            ).values(),
-        ];
-
-        for (const elemento of Listas) {
-            const itemLs = document.createElement("option");
-            itemLs.value = elemento[criterio];
-            itemLs.text = elemento[criterio];
-            document.getElementById("lstAutomatica").appendChild(itemLs);
-        }
-    } else {
-        const itemLs = document.createElement("option");
-        itemLs.text = "Sin criterio";
-        document.getElementById("lstAutomatica").appendChild(itemLs);
-    }
-    
     addTextHelp();
 }
-//Función que traslada la información de apoyo a la caja valor de búsqueda
+
+
 function addTextHelp() {
+    //Función que traslada la información de apoyo a la caja valor de búsqueda
     document.getElementById("txValorBusquedaA").value =
         document.getElementById("lstAutomatica").value;
 }
@@ -321,6 +307,7 @@ function TablaReport() {
     // Agrega la imagen al documento
     const tablabase = document.getElementById("tbResultados");
     if (tablabase) tablabase.remove();
+
     const tabla = document.createElement("table");
     const tablaHeader = document.createElement("thead");
     tabla.id = "tbResultados";
@@ -342,7 +329,6 @@ function TablaReport() {
     ];
 
     titulos.forEach(titulo => {
-        
         const elemento = document.createElement("td");
         elemento.textContent = titulo;
         Encabezados.appendChild(elemento);
@@ -364,9 +350,9 @@ function TablaReport() {
     ];
     let i = 1;
 
-    DataToReport.forEach(registro => {
-        let fila = document.createElement("tr");
-        let DatoCelta = document.createElement("td");
+    (bigData.DataToReport).forEach(registro => {
+        const fila = document.createElement("tr");
+        const DatoCelta = document.createElement("td");
         DatoCelta.textContent = i;
         fila.appendChild(DatoCelta);
         //Agrego las columnas para cada fila
@@ -394,7 +380,7 @@ function DocumentReport() {
     let contador = 1;
     let tagElement;
 
-    DataToReport.forEach(registro => {
+    (bigData.DataToReport).forEach(registro => {
         tagElement = document.createElement("div");
         tagElement.textContent = registro.Tipo;
         tagElement.classList.add("h4", "text-success");
