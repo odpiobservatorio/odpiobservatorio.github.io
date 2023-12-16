@@ -1,4976 +1,4976 @@
 [
     {
         "ID_RESGUARDO": 10471,
-        "RESGUARDO": "Achagua Y Piapoco (El Turpial La Victoria (Umapo))",
-        "PUEBLO": "Achagua Piapoco",
+        "resguardo": "Achagua Y Piapoco (El Turpial La Victoria (Umapo))",
+        "pueblo": "Achagua Piapoco",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 11211,
-        "RESGUARDO": "La Mayera",
-        "PUEBLO": "Amorua",
+        "resguardo": "La Mayera",
+        "pueblo": "Amorua",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10108,
-        "RESGUARDO": "Resguardo Indigena Andoke de AdIndigena Andoke Del Paraje De Aducheuche",
-        "PUEBLO": "Andoque",
+        "resguardo": "Resguardo Indigena Andoke de AdIndigena Andoke Del Paraje De Aducheuche",
+        "pueblo": "Andoque",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10232,
-        "RESGUARDO": "Businchama",
-        "PUEBLO": "Arhuaco",
+        "resguardo": "Businchama",
+        "pueblo": "Arhuaco",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10600,
-        "RESGUARDO": "San Andres - Las Vegas - Villa Union",
-        "PUEBLO": "Awa",
+        "resguardo": "San Andres - Las Vegas - Villa Union",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10489,
-        "RESGUARDO": "Chinguirito Mira",
-        "PUEBLO": "Awa",
+        "resguardo": "Chinguirito Mira",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10555,
-        "RESGUARDO": "Awa De Cañaveral",
-        "PUEBLO": "Awa",
+        "resguardo": "Awa De Cañaveral",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10499,
-        "RESGUARDO": "El Gran Sabalo",
-        "PUEBLO": "Awa",
+        "resguardo": "El Gran Sabalo",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10582,
-        "RESGUARDO": "Inkal Awa",
-        "PUEBLO": "Awa",
+        "resguardo": "Inkal Awa",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10549,
-        "RESGUARDO": "Agua Blanca",
-        "PUEBLO": "Awa",
+        "resguardo": "Agua Blanca",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10496,
-        "RESGUARDO": "Cuayquer Del Alto Albi",
-        "PUEBLO": "Awa",
+        "resguardo": "Cuayquer Del Alto Albi",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10497,
-        "RESGUARDO": "Cuchilla Palmar",
-        "PUEBLO": "Awa",
+        "resguardo": "Cuchilla Palmar",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10507,
-        "RESGUARDO": "Inda Guacaray",
-        "PUEBLO": "Awa",
+        "resguardo": "Inda Guacaray",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10495,
-        "RESGUARDO": "Cuasbi Paldubi",
-        "PUEBLO": "Awa",
+        "resguardo": "Cuasbi Paldubi",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10540,
-        "RESGUARDO": "Santa Rosita",
-        "PUEBLO": "Awa",
+        "resguardo": "Santa Rosita",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10562,
-        "RESGUARDO": "Awa De Caicedonia",
-        "PUEBLO": "Awa",
+        "resguardo": "Awa De Caicedonia",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10503,
-        "RESGUARDO": "Guadual, Cumbas, Magui, Invina, Arrayan",
-        "PUEBLO": "Awa",
+        "resguardo": "Guadual, Cumbas, Magui, Invina, Arrayan",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10506,
-        "RESGUARDO": "Honda Rio Guiza",
-        "PUEBLO": "Awa",
+        "resguardo": "Honda Rio Guiza",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10493,
-        "RESGUARDO": "Cuambi Yaslambi",
-        "PUEBLO": "Awa",
+        "resguardo": "Cuambi Yaslambi",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10519,
-        "RESGUARDO": "Nulpe Medio Alto Rio San Juan",
-        "PUEBLO": "Awa",
+        "resguardo": "Nulpe Medio Alto Rio San Juan",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10492,
-        "RESGUARDO": "Cualquer Integrado La Milagrosa",
-        "PUEBLO": "Awa",
+        "resguardo": "Cualquer Integrado La Milagrosa",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10502,
-        "RESGUARDO": "Gran Rosario",
-        "PUEBLO": "Awa",
+        "resguardo": "Gran Rosario",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10524,
-        "RESGUARDO": "Pialapi - Pueblo Viejo - San Miguel - Yare",
-        "PUEBLO": "Awa",
+        "resguardo": "Pialapi - Pueblo Viejo - San Miguel - Yare",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10508,
-        "RESGUARDO": "Inda Zabaleta",
-        "PUEBLO": "Awa",
+        "resguardo": "Inda Zabaleta",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10527,
-        "RESGUARDO": "Pingullo Sardinero",
-        "PUEBLO": "Awa",
+        "resguardo": "Pingullo Sardinero",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10494,
-        "RESGUARDO": "Cuasbi La Faldada",
-        "PUEBLO": "Awa",
+        "resguardo": "Cuasbi La Faldada",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10541,
-        "RESGUARDO": "Saunde Guiguay",
-        "PUEBLO": "Awa",
+        "resguardo": "Saunde Guiguay",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10606,
-        "RESGUARDO": "Selva Verde",
-        "PUEBLO": "Awa",
+        "resguardo": "Selva Verde",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10523,
-        "RESGUARDO": "Peña La Alegria",
-        "PUEBLO": "Awa",
+        "resguardo": "Peña La Alegria",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10571,
-        "RESGUARDO": "Damasco Vides",
-        "PUEBLO": "Awa",
+        "resguardo": "Damasco Vides",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10573,
-        "RESGUARDO": "El Espingo",
-        "PUEBLO": "Awa",
+        "resguardo": "El Espingo",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10525,
-        "RESGUARDO": "Piedra Sellada Quebrada Tronqueria",
-        "PUEBLO": "Awa",
+        "resguardo": "Piedra Sellada Quebrada Tronqueria",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10498,
-        "RESGUARDO": "El Cedro, La Brava, Las Peñas, Pilvi Y La Pintada",
-        "PUEBLO": "Awa",
+        "resguardo": "El Cedro, La Brava, Las Peñas, Pilvi Y La Pintada",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10511,
-        "RESGUARDO": "Ishu Awa",
-        "PUEBLO": "Awa",
+        "resguardo": "Ishu Awa",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10530,
-        "RESGUARDO": "Pulgande Campo Alegre",
-        "PUEBLO": "Awa",
+        "resguardo": "Pulgande Campo Alegre",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10556,
-        "RESGUARDO": "Awa De Los Guaduales",
-        "PUEBLO": "Awa",
+        "resguardo": "Awa De Los Guaduales",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10514,
-        "RESGUARDO": "La Turbia",
-        "PUEBLO": "Awa",
+        "resguardo": "La Turbia",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10558,
-        "RESGUARDO": "Bellavista",
-        "PUEBLO": "Awa",
+        "resguardo": "Bellavista",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10526,
-        "RESGUARDO": "Piguambi Palangala",
-        "PUEBLO": "Awa",
+        "resguardo": "Piguambi Palangala",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10505,
-        "RESGUARDO": "Guelmambi - Caraño",
-        "PUEBLO": "Awa",
+        "resguardo": "Guelmambi - Caraño",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10598,
-        "RESGUARDO": "Playa Larga",
-        "PUEBLO": "Awa",
+        "resguardo": "Playa Larga",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10512,
-        "RESGUARDO": "Kejuambi Feliciana",
-        "PUEBLO": "Awa",
+        "resguardo": "Kejuambi Feliciana",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10488,
-        "RESGUARDO": "Chagui, Chimbuza, Vegas, San Antonio, Candiyas,Quelbi,Nalbu,Balsal, Bajo Nembi Y Chapilal Cimarron",
-        "PUEBLO": "Awa",
+        "resguardo": "Chagui, Chimbuza, Vegas, San Antonio, Candiyas,Quelbi,Nalbu,Balsal, Bajo Nembi Y Chapilal Cimarron",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10490,
-        "RESGUARDO": "Chimbagal",
-        "PUEBLO": "Awa",
+        "resguardo": "Chimbagal",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10614,
-        "RESGUARDO": "Awa Mayasquer",
-        "PUEBLO": "Awa",
+        "resguardo": "Awa Mayasquer",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 11065,
-        "RESGUARDO": "Inkal Watzal Awa",
-        "PUEBLO": "Awa",
+        "resguardo": "Inkal Watzal Awa",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10504,
-        "RESGUARDO": "Gualcala",
-        "PUEBLO": "Awa",
+        "resguardo": "Gualcala",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10485,
-        "RESGUARDO": "Alto Cartagena",
-        "PUEBLO": "Awa",
+        "resguardo": "Alto Cartagena",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10542,
-        "RESGUARDO": "Tortugaña,Telembi, Punde, Pitadero, Bravo, Tronqueria, Zabaleta",
-        "PUEBLO": "Awa",
+        "resguardo": "Tortugaña,Telembi, Punde, Pitadero, Bravo, Tronqueria, Zabaleta",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10486,
-        "RESGUARDO": "Awa Ñambi Piedra Verde",
-        "PUEBLO": "Awa",
+        "resguardo": "Awa Ñambi Piedra Verde",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "GENRAL"
     },
     {
         "ID_RESGUARDO": 10500,
-        "RESGUARDO": "Comunidad Indigena El Sande",
-        "PUEBLO": "Awa",
+        "resguardo": "Comunidad Indigena El Sande",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10543,
-        "RESGUARDO": "Tronqueria, Pulgande Y Palicito",
-        "PUEBLO": "Awa",
+        "resguardo": "Tronqueria, Pulgande Y Palicito",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10532,
-        "RESGUARDO": "Ramos, Mongon, Manchuria",
-        "PUEBLO": "Awa",
+        "resguardo": "Ramos, Mongon, Manchuria",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10521,
-        "RESGUARDO": "Palmar Imbi",
-        "PUEBLO": "Awa",
+        "resguardo": "Palmar Imbi",
+        "pueblo": "Awa",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10520,
-        "RESGUARDO": "Nunalbi Alto Ulbi",
-        "PUEBLO": "AWÁ",
+        "resguardo": "Nunalbi Alto Ulbi",
+        "pueblo": "AWÁ",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10528,
-        "RESGUARDO": "Pipalta, Palbi, Yaguapi",
-        "PUEBLO": "AWÁ",
+        "resguardo": "Pipalta, Palbi, Yaguapi",
+        "pueblo": "AWÁ",
         "DEPARTAMENTO": 52
     },
     {
         "ID_RESGUARDO": 10565,
-        "RESGUARDO": "Camentza Biya",
-        "PUEBLO": "Camentza",
+        "resguardo": "Camentza Biya",
+        "pueblo": "Camentza",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10463,
-        "RESGUARDO": "Chimilas O Cacahueros (Issa Oristuna)",
-        "PUEBLO": "Chimilas",
+        "resguardo": "Chimilas O Cacahueros (Issa Oristuna)",
+        "pueblo": "Chimilas",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10017,
-        "RESGUARDO": "San Jose Del Rio",
-        "PUEBLO": "Cocama",
+        "resguardo": "San Jose Del Rio",
+        "pueblo": "Cocama",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10005,
-        "RESGUARDO": "Isla De Ronda",
-        "PUEBLO": "Cocama",
+        "resguardo": "Isla De Ronda",
+        "pueblo": "Cocama",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10560,
-        "RESGUARDO": "Bocana De Luzon",
-        "PUEBLO": "Cofan - Kofan",
+        "resguardo": "Bocana De Luzon",
+        "pueblo": "Cofan - Kofan",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10121,
-        "RESGUARDO": "El Triunfo",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "El Triunfo",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10126,
-        "RESGUARDO": "La Esperanza ( De Milan)",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "La Esperanza ( De Milan)",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10570,
-        "RESGUARDO": "Consara Mecaya",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Consara Mecaya",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10122,
-        "RESGUARDO": "Getucha",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Getucha",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10130,
-        "RESGUARDO": "La Teofila",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "La Teofila",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10119,
-        "RESGUARDO": "El Porvenir Kananguchal",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "El Porvenir Kananguchal",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10123,
-        "RESGUARDO": "Gorgonia",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Gorgonia",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10109,
-        "RESGUARDO": "Agua Negra (De Milan)",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Agua Negra (De Milan)",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10142,
-        "RESGUARDO": "Jacome",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Jacome",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10133,
-        "RESGUARDO": "Maticurú",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Maticurú",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10143,
-        "RESGUARDO": "San Miguel (De Solano)",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "San Miguel (De Solano)",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10140,
-        "RESGUARDO": "San Luis",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "San Luis",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10138,
-        "RESGUARDO": "Indigenas Coreguaje Asentada En La Regiones De Puerto Naranjo, Peñas Rojas, Cuerazo, El Diamante",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Indigenas Coreguaje Asentada En La Regiones De Puerto Naranjo, Peñas Rojas, Cuerazo, El Diamante",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10124,
-        "RESGUARDO": "Jerico Consaya",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Jerico Consaya",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10118,
-        "RESGUARDO": "Hericha",
-        "PUEBLO": "Coreguaje",
+        "resguardo": "Hericha",
+        "pueblo": "Coreguaje",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10743,
-        "RESGUARDO": "Vaupes",
-        "PUEBLO": "Cubeo Y 18 Grupos Mas",
+        "resguardo": "Vaupes",
+        "pueblo": "Cubeo Y 18 Grupos Mas",
         "DEPARTAMENTO": "VAUPES"
     },
     {
         "ID_RESGUARDO": 10418,
-        "RESGUARDO": "Puerto Viejo Y Puerto Esperanza",
-        "PUEBLO": "Cubeo Y Otros",
+        "resguardo": "Puerto Viejo Y Puerto Esperanza",
+        "pueblo": "Cubeo Y Otros",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10404,
-        "RESGUARDO": "Cubeo Yavilla Ii",
-        "PUEBLO": "Cubeo Y Otros",
+        "resguardo": "Cubeo Yavilla Ii",
+        "pueblo": "Cubeo Y Otros",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10402,
-        "RESGUARDO": "Centro Miraflores",
-        "PUEBLO": "Cubeo, Tukano, Wananos Y Piratapuyos",
+        "resguardo": "Centro Miraflores",
+        "pueblo": "Cubeo, Tukano, Wananos Y Piratapuyos",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10092,
-        "RESGUARDO": "Los Iguanitos",
-        "PUEBLO": "Cuiva",
+        "resguardo": "Los Iguanitos",
+        "pueblo": "Cuiva",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10154,
-        "RESGUARDO": "Cuiva, Masiguari, Tsiripu, Salivas Y Guahiba (Caño Mochuelo)",
-        "PUEBLO": "Cuiva Y Otros",
+        "resguardo": "Cuiva, Masiguari, Tsiripu, Salivas Y Guahiba (Caño Mochuelo)",
+        "pueblo": "Cuiva Y Otros",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10025,
-        "RESGUARDO": "Caiman Nuevo",
-        "PUEBLO": "Cuna",
+        "resguardo": "Caiman Nuevo",
+        "pueblo": "Cuna",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10249,
-        "RESGUARDO": "Arquia",
-        "PUEBLO": "Cuna",
+        "resguardo": "Arquia",
+        "pueblo": "Cuna",
         "DEPARTAMENTO": "Meta"
     },
     {
         "ID_RESGUARDO": 10262,
-        "RESGUARDO": "Cuna (Cuti)",
-        "PUEBLO": "Cuna",
+        "resguardo": "Cuna (Cuti)",
+        "pueblo": "Cuna",
         "DEPARTAMENTO": "Cauca"
     },
     {
         "ID_RESGUARDO": 10372,
-        "RESGUARDO": "Bajo Rio Guainia Y Rio Negro",
-        "PUEBLO": "Curripaco",
+        "resguardo": "Bajo Rio Guainia Y Rio Negro",
+        "pueblo": "Curripaco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10387,
-        "RESGUARDO": "Parte Alta Del Rio Guainia",
-        "PUEBLO": "Curripaco",
+        "resguardo": "Parte Alta Del Rio Guainia",
+        "pueblo": "Curripaco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10391,
-        "RESGUARDO": "Rio Cuiari E Isana",
-        "PUEBLO": "Curripaco",
+        "resguardo": "Rio Cuiari E Isana",
+        "pueblo": "Curripaco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10394,
-        "RESGUARDO": "Tonina, Sejal, San Jose Y Otras",
-        "PUEBLO": "Curripaco",
+        "resguardo": "Tonina, Sejal, San Jose Y Otras",
+        "pueblo": "Curripaco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10393,
-        "RESGUARDO": "Tierra Alta",
-        "PUEBLO": "Curripaco Y Otras",
+        "resguardo": "Tierra Alta",
+        "pueblo": "Curripaco Y Otras",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10403,
-        "RESGUARDO": "Corocoro",
-        "PUEBLO": "Curripaco Y Otros",
+        "resguardo": "Corocoro",
+        "pueblo": "Curripaco Y Otros",
         "DEPARTAMENTO": "GUAVIARE \/ GUANIA"
     },
     {
         "ID_RESGUARDO": 10390,
-        "RESGUARDO": "Rio Atabapo E Inirida",
-        "PUEBLO": "Curripaco Y Puinave",
+        "resguardo": "Rio Atabapo E Inirida",
+        "pueblo": "Curripaco Y Puinave",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10419,
-        "RESGUARDO": "Tucan De Caño Giriza Y Puerto La Palma",
-        "PUEBLO": "Desanocubeotucanosiiriano Piriatapuyocarijona Y Maku",
+        "resguardo": "Tucan De Caño Giriza Y Puerto La Palma",
+        "pueblo": "Desanocubeotucanosiiriano Piriatapuyocarijona Y Maku",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10301,
-        "RESGUARDO": "Pared Y Parecito",
-        "PUEBLO": "Embera",
+        "resguardo": "Pared Y Parecito",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10277,
-        "RESGUARDO": "Guadualito(Chocó)",
-        "PUEBLO": "Embera",
+        "resguardo": "Guadualito(Chocó)",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10271,
-        "RESGUARDO": "El Piñal",
-        "PUEBLO": "Embera",
+        "resguardo": "El Piñal",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10257,
-        "RESGUARDO": "Caimanero De Jampapa",
-        "PUEBLO": "Embera",
+        "resguardo": "Caimanero De Jampapa",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10362,
-        "RESGUARDO": "Paso Rio Salado",
-        "PUEBLO": "Embera",
+        "resguardo": "Paso Rio Salado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10247,
-        "RESGUARDO": "Alto Rio Tagachi",
-        "PUEBLO": "Embera",
+        "resguardo": "Alto Rio Tagachi",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10360,
-        "RESGUARDO": "Yarumal Y El Barranco",
-        "PUEBLO": "Embera",
+        "resguardo": "Yarumal Y El Barranco",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10298,
-        "RESGUARDO": "Opogado Doguado",
-        "PUEBLO": "Embera",
+        "resguardo": "Opogado Doguado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10281,
-        "RESGUARDO": "Jagual Rio Chintado",
-        "PUEBLO": "Embera",
+        "resguardo": "Jagual Rio Chintado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10323,
-        "RESGUARDO": "Rio Negua",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Negua",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10291,
-        "RESGUARDO": "Mondo Mondocito",
-        "PUEBLO": "Embera",
+        "resguardo": "Mondo Mondocito",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10036,
-        "RESGUARDO": "Guaguando",
-        "PUEBLO": "Embera",
+        "resguardo": "Guaguando",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10246,
-        "RESGUARDO": "Alto Rio Cuia",
-        "PUEBLO": "Embera",
+        "resguardo": "Alto Rio Cuia",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10329,
-        "RESGUARDO": "Rio Purricha",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Purricha",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10244,
-        "RESGUARDO": "Alto Rio Bojaya",
-        "PUEBLO": "Embera",
+        "resguardo": "Alto Rio Bojaya",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10351,
-        "RESGUARDO": "Embera De Lanas",
-        "PUEBLO": "Embera",
+        "resguardo": "Embera De Lanas",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10737,
-        "RESGUARDO": "Wasiruma",
-        "PUEBLO": "Embera",
+        "resguardo": "Wasiruma",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10312,
-        "RESGUARDO": "Puerto Libia Tripicay",
-        "PUEBLO": "Embera",
+        "resguardo": "Puerto Libia Tripicay",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10316,
-        "RESGUARDO": "Rio Ame",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Ame",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10267,
-        "RESGUARDO": "Dominico Londoño Apartado",
-        "PUEBLO": "Embera",
+        "resguardo": "Dominico Londoño Apartado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10054,
-        "RESGUARDO": "Pavarando Y Amparrado Medio",
-        "PUEBLO": "Embera",
+        "resguardo": "Pavarando Y Amparrado Medio",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10052,
-        "RESGUARDO": "Nusido Comunidad Llano Rio Verde",
-        "PUEBLO": "Embera",
+        "resguardo": "Nusido Comunidad Llano Rio Verde",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10279,
-        "RESGUARDO": "Guayabal De Partado",
-        "PUEBLO": "Embera",
+        "resguardo": "Guayabal De Partado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10056,
-        "RESGUARDO": "Rio Chajerado",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Chajerado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10314,
-        "RESGUARDO": "Quebrada Chicue Rio Tangui",
-        "PUEBLO": "Embera",
+        "resguardo": "Quebrada Chicue Rio Tangui",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10031,
-        "RESGUARDO": "Chuscal Y Tuguridocito",
-        "PUEBLO": "Embera",
+        "resguardo": "Chuscal Y Tuguridocito",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10293,
-        "RESGUARDO": "Mungarado",
-        "PUEBLO": "Embera",
+        "resguardo": "Mungarado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10254,
-        "RESGUARDO": "Buchado Amparrado",
-        "PUEBLO": "Embera",
+        "resguardo": "Buchado Amparrado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10317,
-        "RESGUARDO": "Rio Bebara",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Bebara",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10263,
-        "RESGUARDO": "Dearade Biakirude",
-        "PUEBLO": "Embera",
+        "resguardo": "Dearade Biakirude",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10290,
-        "RESGUARDO": "Miasa De Partado",
-        "PUEBLO": "Embera",
+        "resguardo": "Miasa De Partado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10326,
-        "RESGUARDO": "Rio Pangui",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Pangui",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10315,
-        "RESGUARDO": "Quebrada Quera",
-        "PUEBLO": "Embera",
+        "resguardo": "Quebrada Quera",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10337,
-        "RESGUARDO": "Rios Valle Y Boro Boro",
-        "PUEBLO": "Embera",
+        "resguardo": "Rios Valle Y Boro Boro",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10280,
-        "RESGUARDO": "Hurtado Y Tegavera",
-        "PUEBLO": "Embera",
+        "resguardo": "Hurtado Y Tegavera",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10358,
-        "RESGUARDO": "Villa Nueva Juna",
-        "PUEBLO": "Embera",
+        "resguardo": "Villa Nueva Juna",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10274,
-        "RESGUARDO": "Puerto Antioquia",
-        "PUEBLO": "Embera",
+        "resguardo": "Puerto Antioquia",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10320,
-        "RESGUARDO": "Rio Icho Y Quebrada Baratuo",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Icho Y Quebrada Baratuo",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10250,
-        "RESGUARDO": "Bajo Grande",
-        "PUEBLO": "Embera",
+        "resguardo": "Bajo Grande",
+        "pueblo": "Embera",
         "DEPARTAMENTO": 27
     },
     {
         "ID_RESGUARDO": 10333,
-        "RESGUARDO": "Rios Jurubida, Chori Y Alto Baudo",
-        "PUEBLO": "Embera",
+        "resguardo": "Rios Jurubida, Chori Y Alto Baudo",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10324,
-        "RESGUARDO": "Rio Nuqui",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Nuqui",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10334,
-        "RESGUARDO": "Rios Pato Y Jengado",
-        "PUEBLO": "Embera",
+        "resguardo": "Rios Pato Y Jengado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10042,
-        "RESGUARDO": "Jengado Apartado",
-        "PUEBLO": "Embera",
+        "resguardo": "Jengado Apartado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10253,
-        "RESGUARDO": "Bochoroma Bochoromacito",
-        "PUEBLO": "Embera",
+        "resguardo": "Bochoroma Bochoromacito",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10300,
-        "RESGUARDO": "Paina",
-        "PUEBLO": "Embera",
+        "resguardo": "Paina",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10294,
-        "RESGUARDO": "Munguido",
-        "PUEBLO": "Embera",
+        "resguardo": "Munguido",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10289,
-        "RESGUARDO": "Mamey De Dipurdu",
-        "PUEBLO": "Embera",
+        "resguardo": "Mamey De Dipurdu",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10252,
-        "RESGUARDO": "Bete, Auro Bete Auro Buey",
-        "PUEBLO": "Embera",
+        "resguardo": "Bete, Auro Bete Auro Buey",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10344,
-        "RESGUARDO": "Santa Cecilia Quebrada Oro Choco",
-        "PUEBLO": "Embera",
+        "resguardo": "Santa Cecilia Quebrada Oro Choco",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10336,
-        "RESGUARDO": "Comunidad Embera Rios Uva Pogue, Quebrada Taparal",
-        "PUEBLO": "Embera",
+        "resguardo": "Comunidad Embera Rios Uva Pogue, Quebrada Taparal",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10319,
-        "RESGUARDO": "Rio Domingodo",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Domingodo",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10313,
-        "RESGUARDO": "Puerto Libre Del Rio Pepe",
-        "PUEBLO": "Embera",
+        "resguardo": "Puerto Libre Del Rio Pepe",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10177,
-        "RESGUARDO": "Comunidad Indigena Embera Asentada En La Zona Infi",
-        "PUEBLO": "Embera",
+        "resguardo": "Comunidad Indigena Embera Asentada En La Zona Infi",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10219,
-        "RESGUARDO": "Embera - Cholo Del Rio Guangui",
-        "PUEBLO": "Embera",
+        "resguardo": "Embera - Cholo Del Rio Guangui",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10299,
-        "RESGUARDO": "Ordo Siviru Aguaclara",
-        "PUEBLO": "Embera",
+        "resguardo": "Ordo Siviru Aguaclara",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10229,
-        "RESGUARDO": "Calle Santa Rosa",
-        "PUEBLO": "Embera",
+        "resguardo": "Calle Santa Rosa",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10623,
-        "RESGUARDO": "Unificado Chami",
-        "PUEBLO": "Embera",
+        "resguardo": "Unificado Chami",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "RISARALDA"
     },
     {
         "ID_RESGUARDO": 10332,
-        "RESGUARDO": "Rios Catru, Dubasa, Ankoso",
-        "PUEBLO": "Embera",
+        "resguardo": "Rios Catru, Dubasa, Ankoso",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10308,
-        "RESGUARDO": "Pichicora, Chicue, Punto Alegre.",
-        "PUEBLO": "Embera",
+        "resguardo": "Pichicora, Chicue, Punto Alegre.",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10072,
-        "RESGUARDO": "Chimurro Y Nendo",
-        "PUEBLO": "Embera",
+        "resguardo": "Chimurro Y Nendo",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10348,
-        "RESGUARDO": "Sirena Berrecuy",
-        "PUEBLO": "Embera",
+        "resguardo": "Sirena Berrecuy",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10285,
-        "RESGUARDO": "La Lomita",
-        "PUEBLO": "Embera",
+        "resguardo": "La Lomita",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10261,
-        "RESGUARDO": "Chigorodo Memba",
-        "PUEBLO": "Embera",
+        "resguardo": "Chigorodo Memba",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10292,
-        "RESGUARDO": "Motordo",
-        "PUEBLO": "Embera",
+        "resguardo": "Motordo",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10264,
-        "RESGUARDO": "Do Imamma Tuma Y Bella Luz",
-        "PUEBLO": "Embera",
+        "resguardo": "Do Imamma Tuma Y Bella Luz",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 11284,
-        "RESGUARDO": "Dachi Agore Drua",
-        "PUEBLO": "Embera",
+        "resguardo": "Dachi Agore Drua",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "QUINDIO"
     },
     {
         "ID_RESGUARDO": 10318,
-        "RESGUARDO": "Rio Bebarama",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Bebarama",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10242,
-        "RESGUARDO": "Aguaclara Y Bella Luz Del Rio Amparo",
-        "PUEBLO": "Embera",
+        "resguardo": "Aguaclara Y Bella Luz Del Rio Amparo",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10243,
-        "RESGUARDO": "Alto Bonito Vira Vira",
-        "PUEBLO": "Embera",
+        "resguardo": "Alto Bonito Vira Vira",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10350,
-        "RESGUARDO": "Tarena",
-        "PUEBLO": "Embera",
+        "resguardo": "Tarena",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10729,
-        "RESGUARDO": "Los Niasa",
-        "PUEBLO": "Embera",
+        "resguardo": "Los Niasa",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10304,
-        "RESGUARDO": "Peñas Del Olvido",
-        "PUEBLO": "Embera",
+        "resguardo": "Peñas Del Olvido",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10355,
-        "RESGUARDO": "Trapiche Del Rio Pepe",
-        "PUEBLO": "Embera",
+        "resguardo": "Trapiche Del Rio Pepe",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10057,
-        "RESGUARDO": "Rio Jarapeto",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Jarapeto",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10327,
-        "RESGUARDO": "Rio Pavasa Y Quebrada Jella",
-        "PUEBLO": "Embera",
+        "resguardo": "Rio Pavasa Y Quebrada Jella",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10275,
-        "RESGUARDO": "El Veintiuno",
-        "PUEBLO": "Embera",
+        "resguardo": "El Veintiuno",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10356,
-        "RESGUARDO": "Tungina Y Apartado",
-        "PUEBLO": "Embera",
+        "resguardo": "Tungina Y Apartado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10245,
-        "RESGUARDO": "Alto Rio Buey",
-        "PUEBLO": "Embera",
+        "resguardo": "Alto Rio Buey",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10357,
-        "RESGUARDO": "Urada Jiguamiando",
-        "PUEBLO": "Embera",
+        "resguardo": "Urada Jiguamiando",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10034,
-        "RESGUARDO": "El Salado",
-        "PUEBLO": "Embera",
+        "resguardo": "El Salado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10359,
-        "RESGUARDO": "Wanchirado",
-        "PUEBLO": "Embera",
+        "resguardo": "Wanchirado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10258,
-        "RESGUARDO": "Gegenado",
-        "PUEBLO": "Embera",
+        "resguardo": "Gegenado",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10342,
-        "RESGUARDO": "San Jose Amia De Pato",
-        "PUEBLO": "Embera",
+        "resguardo": "San Jose Amia De Pato",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10310,
-        "RESGUARDO": "Puerto Alegre Y La Divisa",
-        "PUEBLO": "Embera",
+        "resguardo": "Puerto Alegre Y La Divisa",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10799,
-        "RESGUARDO": "Karamandu",
-        "PUEBLO": "Embera",
+        "resguardo": "Karamandu",
+        "pueblo": "Embera",
         "DEPARTAMENTO": 5
     },
     {
         "ID_RESGUARDO": 10048,
-        "RESGUARDO": "Dokerazavi",
-        "PUEBLO": "Embera",
+        "resguardo": "Dokerazavi",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "Caldas -Risaralda"
     },
     {
         "ID_RESGUARDO": 10718,
-        "RESGUARDO": "Chonara Huena",
-        "PUEBLO": "Embera",
+        "resguardo": "Chonara Huena",
+        "pueblo": "Embera",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10163,
-        "RESGUARDO": "Almorzadero,San Isidro Y La Nueva Union",
-        "PUEBLO": "Embera - Eperara Siapidara",
+        "resguardo": "Almorzadero,San Isidro Y La Nueva Union",
+        "pueblo": "Embera - Eperara Siapidara",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10721,
-        "RESGUARDO": "Doxura",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Doxura",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10129,
-        "RESGUARDO": "La Libertad 2",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "La Libertad 2",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10104,
-        "RESGUARDO": "La Albania",
-        "PUEBLO": "EMBERA CHAMI",
+        "resguardo": "La Albania",
+        "pueblo": "EMBERA CHAMI",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10607,
-        "RESGUARDO": "Simorna O La Venada",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Simorna O La Venada",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10618,
-        "RESGUARDO": "Altomira",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Altomira",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "RISARALDA"
     },
     {
         "ID_RESGUARDO": 10619,
-        "RESGUARDO": "Gitò Dokabù",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Gitò Dokabù",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "RISARALDA"
     },
     {
         "ID_RESGUARDO": 10024,
-        "RESGUARDO": "Bernardino Panchi",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Bernardino Panchi",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10591,
-        "RESGUARDO": "La Italia",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "La Italia",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10797,
-        "RESGUARDO": "Resguardo Indígena La Chinita",
-        "PUEBLO": "EMBERA CHAMI",
+        "resguardo": "Resguardo Indígena La Chinita",
+        "pueblo": "EMBERA CHAMI",
         "DEPARTAMENTO": 5
     },
     {
         "ID_RESGUARDO": 10719,
-        "RESGUARDO": "Dachi Drua Chami",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Dachi Drua Chami",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10714,
-        "RESGUARDO": "Bajo Caceres",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Bajo Caceres",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10043,
-        "RESGUARDO": "Marcelino Tascon (La Maria)",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Marcelino Tascon (La Maria)",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10588,
-        "RESGUARDO": "La Argelia",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "La Argelia",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10725,
-        "RESGUARDO": "Karabidrua",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Karabidrua",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10554,
-        "RESGUARDO": "Alto Orito",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Alto Orito",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10722,
-        "RESGUARDO": "La Comunidad Indigena Embera-Chami Drua Do",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "La Comunidad Indigena Embera-Chami Drua Do",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10621,
-        "RESGUARDO": "Loma De Citabara, Palestina, Atarralla Y La Albania",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Loma De Citabara, Palestina, Atarralla Y La Albania",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "RISARALDA"
     },
     {
         "ID_RESGUARDO": 10044,
-        "RESGUARDO": "La Mirla",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "La Mirla",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10728,
-        "RESGUARDO": "La Delfina",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "La Delfina",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10620,
-        "RESGUARDO": "Flor Del Monte",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Flor Del Monte",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "RISARALDA"
     },
     {
         "ID_RESGUARDO": 10283,
-        "RESGUARDO": "La Cristalina (Chocó)",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "La Cristalina (Chocó)",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10736,
-        "RESGUARDO": "Vania Chami De Argelia",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Vania Chami De Argelia",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10720,
-        "RESGUARDO": "Dachi Drua Mundi",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Dachi Drua Mundi",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10617,
-        "RESGUARDO": "Karabijua",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Karabijua",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "QUINDIO"
     },
     {
         "ID_RESGUARDO": 10037,
-        "RESGUARDO": "Hermeregildo Chakiama (La Sucia)",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Hermeregildo Chakiama (La Sucia)",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10740,
-        "RESGUARDO": "Ancore Drua",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Ancore Drua",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10065,
-        "RESGUARDO": "Carupia (Embera Chami)",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Carupia (Embera Chami)",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10741,
-        "RESGUARDO": "Dai Umadamia",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Dai Umadamia",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10739,
-        "RESGUARDO": "Bidukar Mecenia",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Bidukar Mecenia",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10732,
-        "RESGUARDO": "Navera Drua",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Navera Drua",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 11184,
-        "RESGUARDO": "Embera Chami Cacique Queragama",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Embera Chami Cacique Queragama",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10798,
-        "RESGUARDO": "Korodo-Ite",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Korodo-Ite",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10622,
-        "RESGUARDO": "Suratena",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Suratena",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10106,
-        "RESGUARDO": "Totumal",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Totumal",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": 81
     },
     {
         "ID_RESGUARDO": 11111,
-        "RESGUARDO": "Embera Chami Tata Drua (Kipara el Laurel)",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Embera Chami Tata Drua (Kipara el Laurel)",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": 20
     },
     {
         "ID_RESGUARDO": 10976,
-        "RESGUARDO": "Embera Chami Doquera",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Embera Chami Doquera",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": 27
     },
     {
         "ID_RESGUARDO": 11105,
-        "RESGUARDO": "Puerto Samaria \/ Daidrua",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Puerto Samaria \/ Daidrua",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 11659,
-        "RESGUARDO": "Resguardo Indigena Kurmadó-Marsella",
-        "PUEBLO": "Embera Chami",
+        "resguardo": "Resguardo Indigena Kurmadó-Marsella",
+        "pueblo": "Embera Chami",
         "DEPARTAMENTO": 91
     },
     {
         "ID_RESGUARDO": 10103,
-        "RESGUARDO": "Escopetera - Pirza",
-        "PUEBLO": "EMBERA CHAMI",
+        "resguardo": "Escopetera - Pirza",
+        "pueblo": "EMBERA CHAMI",
         "DEPARTAMENTO": "Chocó"
     },
     {
         "ID_RESGUARDO": 10045,
-        "RESGUARDO": "Comunidad Indigena Embera Chami Y Zenu De La Palma",
-        "PUEBLO": "Embera Chami \/ Zenu",
+        "resguardo": "Comunidad Indigena Embera Chami Y Zenu De La Palma",
+        "pueblo": "Embera Chami \/ Zenu",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10716,
-        "RESGUARDO": "Cañon Del San Quinini",
-        "PUEBLO": "Embera Chami Katio",
+        "resguardo": "Cañon Del San Quinini",
+        "pueblo": "Embera Chami Katio",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10265,
-        "RESGUARDO": "Dobida Dogibi De Eyakera",
-        "PUEBLO": "Embera Dobida",
+        "resguardo": "Dobida Dogibi De Eyakera",
+        "pueblo": "Embera Dobida",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10284,
-        "RESGUARDO": "La Jagua Guachal Pitalito",
-        "PUEBLO": "Embera Eperara",
+        "resguardo": "La Jagua Guachal Pitalito",
+        "pueblo": "Embera Eperara",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10039,
-        "RESGUARDO": "Jaidezabi",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Jaidezabi",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10307,
-        "RESGUARDO": "Pescadito",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Pescadito",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10035,
-        "RESGUARDO": "Embera Drua",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Embera Drua",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10023,
-        "RESGUARDO": "Andabu",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Andabu",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10272,
-        "RESGUARDO": "El Silencio",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "El Silencio",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10074,
-        "RESGUARDO": "Valle De Perdidas",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Valle De Perdidas",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10050,
-        "RESGUARDO": "Murindo (Rio Murindo)",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Murindo (Rio Murindo)",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10049,
-        "RESGUARDO": "Majore Ambura",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Majore Ambura",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10030,
-        "RESGUARDO": "Choromandó Alto y Medio",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Choromandó Alto y Medio",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "GENRAL"
     },
     {
         "ID_RESGUARDO": 10033,
-        "RESGUARDO": "Cristiania",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Cristiania",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10472,
-        "RESGUARDO": "La Julia",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "La Julia",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10038,
-        "RESGUARDO": "Jai Dukama",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Jai Dukama",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10286,
-        "RESGUARDO": "La Puria",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "La Puria",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10040,
-        "RESGUARDO": "Jaikerazavi (Abibe Mutata)",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Jaikerazavi (Abibe Mutata)",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10276,
-        "RESGUARDO": "Gegora, Quipara, Murando, Tiravenado Y Jiguado",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Gegora, Quipara, Murando, Tiravenado Y Jiguado",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10241,
-        "RESGUARDO": "Abejero",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Abejero",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10278,
-        "RESGUARDO": "Guarando Carrisal",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Guarando Carrisal",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10046,
-        "RESGUARDO": "Narikizavi",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Narikizavi",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10303,
-        "RESGUARDO": "Peña Blanca Rio Truando",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Peña Blanca Rio Truando",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10302,
-        "RESGUARDO": "Patio Bonito",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Patio Bonito",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10341,
-        "RESGUARDO": "Salaqui Pavarando",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Salaqui Pavarando",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10338,
-        "RESGUARDO": "Sabaleta",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Sabaleta",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10058,
-        "RESGUARDO": "Santa Maria El Charcon",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Santa Maria El Charcon",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10067,
-        "RESGUARDO": "Yaberarado (Abibe Chigorodo)",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Yaberarado (Abibe Chigorodo)",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10029,
-        "RESGUARDO": "Chontadural Cañero",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Chontadural Cañero",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10268,
-        "RESGUARDO": "El Dieciocho",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "El Dieciocho",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10068,
-        "RESGUARDO": "Tagual La Po",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Tagual La Po",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10306,
-        "RESGUARDO": "Perancho",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Perancho",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10105,
-        "RESGUARDO": "San Lorenzo",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "San Lorenzo",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": 17
     },
     {
         "ID_RESGUARDO": 10073,
-        "RESGUARDO": "Las Playas",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Las Playas",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10364,
-        "RESGUARDO": "Alto Sinu, Esmeralda Cruz Grande E Iwagado (Unificacion)",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Alto Sinu, Esmeralda Cruz Grande E Iwagado (Unificacion)",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CORDOBA"
     },
     {
         "ID_RESGUARDO": 10115,
-        "RESGUARDO": "El Cedrito",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "El Cedrito",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10340,
-        "RESGUARDO": "Sabaletera San Onofre El Tigre",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Sabaletera San Onofre El Tigre",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10269,
-        "RESGUARDO": "El Doce Quebrada Borbollon",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "El Doce Quebrada Borbollon",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10343,
-        "RESGUARDO": "Sanandocito",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Sanandocito",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10248,
-        "RESGUARDO": "Andagueda",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Andagueda",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10069,
-        "RESGUARDO": "Amparrado Alto Medio",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Amparrado Alto Medio",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10321,
-        "RESGUARDO": "Rio La Playa",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Rio La Playa",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10322,
-        "RESGUARDO": "Rio Mumbu",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Rio Mumbu",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10028,
-        "RESGUARDO": "Chaquenoda",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Chaquenoda",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10270,
-        "RESGUARDO": "El Fiera",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "El Fiera",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10589,
-        "RESGUARDO": "La Cristalina",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "La Cristalina",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10273,
-        "RESGUARDO": "Playalta, El Veinte Y El Noventa",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Playalta, El Veinte Y El Noventa",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10335,
-        "RESGUARDO": "Rios Torreido Y Chimani",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Rios Torreido Y Chimani",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10051,
-        "RESGUARDO": "Murripantanos",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Murripantanos",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10059,
-        "RESGUARDO": "Sever",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Sever",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10339,
-        "RESGUARDO": "Cope Del Rio Ingara",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Cope Del Rio Ingara",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10287,
-        "RESGUARDO": "La Raya",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "La Raya",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10125,
-        "RESGUARDO": "La Cerinda",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "La Cerinda",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10260,
-        "RESGUARDO": "Chidima Tolo",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Chidima Tolo",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10041,
-        "RESGUARDO": "Jenaturado",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Jenaturado",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10305,
-        "RESGUARDO": "Peranchito",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Peranchito",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10027,
-        "RESGUARDO": "Cañaverales Antado",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Cañaverales Antado",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10365,
-        "RESGUARDO": "Quebrada Cañaveral",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Quebrada Cañaveral",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CORDOBA"
     },
     {
         "ID_RESGUARDO": 10107,
-        "RESGUARDO": "Honduras",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Honduras",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10032,
-        "RESGUARDO": "Coribi Bedado",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Coribi Bedado",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10064,
-        "RESGUARDO": "Sohaibado",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Sohaibado",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10055,
-        "RESGUARDO": "Polines",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Polines",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10070,
-        "RESGUARDO": "Monzhomando",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Monzhomando",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10899,
-        "RESGUARDO": "Resguardo Dochama - Alto uré",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "Resguardo Dochama - Alto uré",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": 27
     },
     {
         "ID_RESGUARDO": 10892,
-        "RESGUARDO": "RI Muchido La Guama",
-        "PUEBLO": "Embera Katio",
+        "resguardo": "RI Muchido La Guama",
+        "pueblo": "Embera Katio",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10190,
-        "RESGUARDO": "La Iguana",
-        "PUEBLO": "EMBERA KATÍO",
+        "resguardo": "La Iguana",
+        "pueblo": "EMBERA KATÍO",
         "DEPARTAMENTO": 19
     },
     {
         "ID_RESGUARDO": 10295,
-        "RESGUARDO": "Napipi",
-        "PUEBLO": "EMBERA KATÍO",
+        "resguardo": "Napipi",
+        "pueblo": "EMBERA KATÍO",
         "DEPARTAMENTO": 27
     },
     {
         "ID_RESGUARDO": 10723,
-        "RESGUARDO": "Chami (Eriom Garrapatas)",
-        "PUEBLO": "EMBERA KATÍO",
+        "resguardo": "Chami (Eriom Garrapatas)",
+        "pueblo": "EMBERA KATÍO",
         "DEPARTAMENTO": 76
     },
     {
         "ID_RESGUARDO": 10330,
-        "RESGUARDO": "Rio Quiparado",
-        "PUEBLO": "Embera Katio Wuanana",
+        "resguardo": "Rio Quiparado",
+        "pueblo": "Embera Katio Wuanana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10296,
-        "RESGUARDO": "Nuevo Pitalito",
-        "PUEBLO": "Embera Waunana",
+        "resguardo": "Nuevo Pitalito",
+        "pueblo": "Embera Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10251,
-        "RESGUARDO": "Bellavista Union Pitalito",
-        "PUEBLO": "Embera Waunana",
+        "resguardo": "Bellavista Union Pitalito",
+        "pueblo": "Embera Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10297,
-        "RESGUARDO": "Nussi Purru",
-        "PUEBLO": "Embera Waunana",
+        "resguardo": "Nussi Purru",
+        "pueblo": "Embera Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10311,
-        "RESGUARDO": "Puerto De Chichiliano",
-        "PUEBLO": "Embera Waunana",
+        "resguardo": "Puerto De Chichiliano",
+        "pueblo": "Embera Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10536,
-        "RESGUARDO": "San Agustin La Floresta (De Nariño)",
-        "PUEBLO": "Eparara",
+        "resguardo": "San Agustin La Floresta (De Nariño)",
+        "pueblo": "Eparara",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10538,
-        "RESGUARDO": "Sanquianguita",
-        "PUEBLO": "Eparara Siapidara",
+        "resguardo": "Sanquianguita",
+        "pueblo": "Eparara Siapidara",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10510,
-        "RESGUARDO": "Integrado Del Charco",
-        "PUEBLO": "Eparara Siapidara",
+        "resguardo": "Integrado Del Charco",
+        "pueblo": "Eparara Siapidara",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10537,
-        "RESGUARDO": "San Juan Pampon",
-        "PUEBLO": "Eparara Siapidara Trua",
+        "resguardo": "San Juan Pampon",
+        "pueblo": "Eparara Siapidara Trua",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10211,
-        "RESGUARDO": "Playita San Francisco",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Playita San Francisco",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10178,
-        "RESGUARDO": "Isla Del Mono",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Isla Del Mono",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10531,
-        "RESGUARDO": "Quebrada Grande",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Quebrada Grande",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10734,
-        "RESGUARDO": "Rio Naya Comunidad Joaquincito",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Rio Naya Comunidad Joaquincito",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10210,
-        "RESGUARDO": "Playa Bendita",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Playa Bendita",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10516,
-        "RESGUARDO": "Morrito",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Morrito",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10515,
-        "RESGUARDO": "Maiz Blanco",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Maiz Blanco",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10203,
-        "RESGUARDO": "Nueva Bellavista Y Partidero",
-        "PUEBLO": "Eperara Siapidara",
+        "resguardo": "Nueva Bellavista Y Partidero",
+        "pueblo": "Eperara Siapidara",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10513,
-        "RESGUARDO": "La Floresta Sta Rosa San Francisco",
-        "PUEBLO": "Eperarasiapidaratrua",
+        "resguardo": "La Floresta Sta Rosa San Francisco",
+        "pueblo": "Eperarasiapidaratrua",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10534,
-        "RESGUARDO": "Rio Satinga",
-        "PUEBLO": "Eperarasiapidiratrua",
+        "resguardo": "Rio Satinga",
+        "pueblo": "Eperarasiapidiratrua",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 11505,
-        "RESGUARDO": "Ittitake Etteennaka, Chimila",
-        "PUEBLO": "Ette Ennaka - Chimila",
+        "resguardo": "Ittitake Etteennaka, Chimila",
+        "pueblo": "Ette Ennaka - Chimila",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10098,
-        "RESGUARDO": "Roqueros El Dorado",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Roqueros El Dorado",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10465,
-        "RESGUARDO": "Comunidad Indigenas Guahibo Del Paraje De Caño Jabon",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Comunidad Indigenas Guahibo Del Paraje De Caño Jabon",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10774,
-        "RESGUARDO": "Saracure Y Rio Cada",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Saracure Y Rio Cada",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10077,
-        "RESGUARDO": "Bayoneros",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Bayoneros",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10771,
-        "RESGUARDO": "Guahibo De Los Rios Tomo Y Los Caños Urimica Y Samarro",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Guahibo De Los Rios Tomo Y Los Caños Urimica Y Samarro",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10088,
-        "RESGUARDO": "La Esperanza",
-        "PUEBLO": "Guahibo",
+        "resguardo": "La Esperanza",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10093,
-        "RESGUARDO": "Macarieros San Jose",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Macarieros San Jose",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10078,
-        "RESGUARDO": "Cajaros",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Cajaros",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10482,
-        "RESGUARDO": "Waliani",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Waliani",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10746,
-        "RESGUARDO": "Caño Bachaco",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Caño Bachaco",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10769,
-        "RESGUARDO": "Guahibo Del Rio Siare",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Guahibo Del Rio Siare",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10755,
-        "RESGUARDO": "Guacamayas Mamiyare",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Guacamayas Mamiyare",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10087,
-        "RESGUARDO": "Julieros Y Velasqueros",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Julieros Y Velasqueros",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10752,
-        "RESGUARDO": "Egua Guariacana",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Egua Guariacana",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10086,
-        "RESGUARDO": "Genareros ( La Esperanza, La Fortaleza Y El Totumo)",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Genareros ( La Esperanza, La Fortaleza Y El Totumo)",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10094,
-        "RESGUARDO": "Matecandela",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Matecandela",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10082,
-        "RESGUARDO": "Cuiloto Ii",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Cuiloto Ii",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10468,
-        "RESGUARDO": "Comunidad Indigena Guahibo De Waco\/O De Los Caserios De Corocito,Yopalito,Wacoyo",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Comunidad Indigena Guahibo De Waco\/O De Los Caserios De Corocito,Yopalito,Wacoyo",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10095,
-        "RESGUARDO": "Parreros",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Parreros",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10747,
-        "RESGUARDO": "Caño Guaripa",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Caño Guaripa",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10097,
-        "RESGUARDO": "Puyeros",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Puyeros",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10745,
-        "RESGUARDO": "Campo Alegre Y Ripialito",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Campo Alegre Y Ripialito",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10751,
-        "RESGUARDO": "Chololobo Matatu",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Chololobo Matatu",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10089,
-        "RESGUARDO": "La Isla",
-        "PUEBLO": "Guahibo",
+        "resguardo": "La Isla",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10776,
-        "RESGUARDO": "Valdivia",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Valdivia",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10770,
-        "RESGUARDO": "Rios Muco Y Guarrojo",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Rios Muco Y Guarrojo",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10760,
-        "RESGUARDO": "Rios Tomo Y Weberi",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Rios Tomo Y Weberi",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10080,
-        "RESGUARDO": "Caño Claro",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Caño Claro",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10761,
-        "RESGUARDO": "La Esmeralda",
-        "PUEBLO": "Guahibo",
+        "resguardo": "La Esmeralda",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10084,
-        "RESGUARDO": "El Vigia",
-        "PUEBLO": "Guahibo",
+        "resguardo": "El Vigia",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10754,
-        "RESGUARDO": "Guacamayas Maipore",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Guacamayas Maipore",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10748,
-        "RESGUARDO": "Caño La Hormiga",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Caño La Hormiga",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10466,
-        "RESGUARDO": "Caño Ovejas(Betania Corocito)",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Caño Ovejas(Betania Corocito)",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10374,
-        "RESGUARDO": "Carpintero Palomas",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Carpintero Palomas",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10470,
-        "RESGUARDO": "El Tigre",
-        "PUEBLO": "GUAHIBO",
+        "resguardo": "El Tigre",
+        "pueblo": "GUAHIBO",
         "DEPARTAMENTO": "Guaviare"
     },
     {
         "ID_RESGUARDO": 10764,
-        "RESGUARDO": "Merey La Veraita",
-        "PUEBLO": "Guahibo",
+        "resguardo": "Merey La Veraita",
+        "pueblo": "Guahibo",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10749,
-        "RESGUARDO": "Caño Mesetas Dagua Y Murcielago",
-        "PUEBLO": "Guahibo Amorrua",
+        "resguardo": "Caño Mesetas Dagua Y Murcielago",
+        "pueblo": "Guahibo Amorrua",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10773,
-        "RESGUARDO": "Guahibo Y Cuiva (Santa Teresita Del Tuparro)",
-        "PUEBLO": "Guahibo Cuiva",
+        "resguardo": "Guahibo Y Cuiva (Santa Teresita Del Tuparro)",
+        "pueblo": "Guahibo Cuiva",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10480,
-        "RESGUARDO": "Sikuani De Vencedor, Piriri, Guamito, Matanegra, Siniquiba, Sisiba, Lindatan, Chaparral Y Remanso",
-        "PUEBLO": "Guahibo Piapoco",
+        "resguardo": "Sikuani De Vencedor, Piriri, Guamito, Matanegra, Siniquiba, Sisiba, Lindatan, Chaparral Y Remanso",
+        "pueblo": "Guahibo Piapoco",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10779,
-        "RESGUARDO": "Alto Unuma",
-        "PUEBLO": "Guahibo Y Piapoco",
+        "resguardo": "Alto Unuma",
+        "pueblo": "Guahibo Y Piapoco",
         "DEPARTAMENTO": 99
     },
     {
         "ID_RESGUARDO": 10763,
-        "RESGUARDO": "La Pascua",
-        "PUEBLO": "Guahibo, Cuiva, Piapoco",
+        "resguardo": "La Pascua",
+        "pueblo": "Guahibo, Cuiva, Piapoco",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10762,
-        "RESGUARDO": "Guahibo O Sicuani Asentada En El Paraje La Llanura (Poblados La Llanura, La Florida, La Campaña, Piñalito Y Miralindo)",
-        "PUEBLO": "Guahibosicuani",
+        "resguardo": "Guahibo O Sicuani Asentada En El Paraje La Llanura (Poblados La Llanura, La Florida, La Campaña, Piñalito Y Miralindo)",
+        "pueblo": "Guahibosicuani",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10375,
-        "RESGUARDO": "Carrizal",
-        "PUEBLO": "Guahivo",
+        "resguardo": "Carrizal",
+        "pueblo": "Guahivo",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10370,
-        "RESGUARDO": "Arrecifal",
-        "PUEBLO": "Guahivo",
+        "resguardo": "Arrecifal",
+        "pueblo": "Guahivo",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10401,
-        "RESGUARDO": "Caño Negro",
-        "PUEBLO": "Guahivo",
+        "resguardo": "Caño Negro",
+        "pueblo": "Guahivo",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10383,
-        "RESGUARDO": "Laguna Curvina - Sapuara",
-        "PUEBLO": "Guahivopuinave",
+        "resguardo": "Laguna Curvina - Sapuara",
+        "pueblo": "Guahivopuinave",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10166,
-        "RESGUARDO": "La Bonanza",
-        "PUEBLO": "Guambiano",
+        "resguardo": "La Bonanza",
+        "pueblo": "Guambiano",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10428,
-        "RESGUARDO": "Nam Misak",
-        "PUEBLO": "Guambiano",
+        "resguardo": "Nam Misak",
+        "pueblo": "Guambiano",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10174,
-        "RESGUARDO": "Guambia",
-        "PUEBLO": "Guambiano",
+        "resguardo": "Guambia",
+        "pueblo": "Guambiano",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10193,
-        "RESGUARDO": "La Maria",
-        "PUEBLO": "Guambiano",
+        "resguardo": "La Maria",
+        "pueblo": "Guambiano",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10429,
-        "RESGUARDO": "Nuevo Amanecer La Meseta",
-        "PUEBLO": "Guambiano",
+        "resguardo": "Nuevo Amanecer La Meseta",
+        "pueblo": "Guambiano",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10467,
-        "RESGUARDO": "Charco Caiman",
-        "PUEBLO": "Guanano",
+        "resguardo": "Charco Caiman",
+        "pueblo": "Guanano",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10398,
-        "RESGUARDO": "Barranco Colorado",
-        "PUEBLO": "Guayabero",
+        "resguardo": "Barranco Colorado",
+        "pueblo": "Guayabero",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10415,
-        "RESGUARDO": "Venezuela O Panure",
-        "PUEBLO": "Guayabero",
+        "resguardo": "Venezuela O Panure",
+        "pueblo": "Guayabero",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10397,
-        "RESGUARDO": "Barranco Ceiba Y Laguna Araguato",
-        "PUEBLO": "Guayabero",
+        "resguardo": "Barranco Ceiba Y Laguna Araguato",
+        "pueblo": "Guayabero",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10410,
-        "RESGUARDO": "Guayabero La Fuga Y Piratapuya Asentado En La Fuga",
-        "PUEBLO": "Guayabero",
+        "resguardo": "Guayabero La Fuga Y Piratapuya Asentado En La Fuga",
+        "pueblo": "Guayabero",
         "DEPARTAMENTO": 95
     },
     {
         "ID_RESGUARDO": 10405,
-        "RESGUARDO": "Barrancon",
-        "PUEBLO": "GUAYABERO",
+        "resguardo": "Barrancon",
+        "pueblo": "GUAYABERO",
         "DEPARTAMENTO": 95
     },
     {
         "ID_RESGUARDO": 10408,
-        "RESGUARDO": "Guayabero De La Maria",
-        "PUEBLO": "Guayabero",
+        "resguardo": "Guayabero De La Maria",
+        "pueblo": "Guayabero",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10473,
-        "RESGUARDO": "La Sal",
-        "PUEBLO": "Guayabero",
+        "resguardo": "La Sal",
+        "pueblo": "Guayabero",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10807,
-        "RESGUARDO": "Tierra Nueva",
-        "PUEBLO": "Hitnü – Makaguan",
+        "resguardo": "Tierra Nueva",
+        "pueblo": "Hitnü – Makaguan",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10090,
-        "RESGUARDO": "La Voragine - La Ilusion",
-        "PUEBLO": "Hitnu Cuiba",
+        "resguardo": "La Voragine - La Ilusion",
+        "pueblo": "Hitnu Cuiba",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10151,
-        "RESGUARDO": "Indigenas Witoto De Los Parajes De Puerto Zabalo Y Los Monos",
-        "PUEBLO": "Huitoto",
+        "resguardo": "Indigenas Witoto De Los Parajes De Puerto Zabalo Y Los Monos",
+        "pueblo": "Huitoto",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10146,
-        "RESGUARDO": "Witora O Huitora",
-        "PUEBLO": "Huitoto",
+        "resguardo": "Witora O Huitora",
+        "pueblo": "Huitoto",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10113,
-        "RESGUARDO": "Comunidad Huitoto De Coropoya",
-        "PUEBLO": "Huitoto",
+        "resguardo": "Comunidad Huitoto De Coropoya",
+        "pueblo": "Huitoto",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10120,
-        "RESGUARDO": "Huitoto (El Quince)",
-        "PUEBLO": "Huitoto",
+        "resguardo": "Huitoto (El Quince)",
+        "pueblo": "Huitoto",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10152,
-        "RESGUARDO": "Mesai",
-        "PUEBLO": "Huitoto",
+        "resguardo": "Mesai",
+        "pueblo": "Huitoto",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10134,
-        "RESGUARDO": "Monochoa",
-        "PUEBLO": "Huitoto",
+        "resguardo": "Monochoa",
+        "pueblo": "Huitoto",
         "DEPARTAMENTO": "Chocó"
     },
     {
         "ID_RESGUARDO": 10462,
-        "RESGUARDO": "Arhuaca O Ijke (Arhuaco De La Sierra)",
-        "PUEBLO": "Ijka",
+        "resguardo": "Arhuaca O Ijke (Arhuaco De La Sierra)",
+        "pueblo": "Ijka",
         "DEPARTAMENTO": "MAGDALENA"
     },
     {
         "ID_RESGUARDO": 10856,
-        "RESGUARDO": "Resguardo Indígena Rumiñawi",
-        "PUEBLO": "Inga",
+        "resguardo": "Resguardo Indígena Rumiñawi",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10612,
-        "RESGUARDO": "Wasipungo",
-        "PUEBLO": "Inga",
+        "resguardo": "Wasipungo",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10188,
-        "RESGUARDO": "La Floresta La Española",
-        "PUEBLO": "Inga",
+        "resguardo": "La Floresta La Española",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10615,
-        "RESGUARDO": "Yunguillo",
-        "PUEBLO": "Inga",
+        "resguardo": "Yunguillo",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10141,
-        "RESGUARDO": "Inga De San Miguel",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga De San Miguel",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10136,
-        "RESGUARDO": "Comunidad Inga De Niñeras",
-        "PUEBLO": "Inga",
+        "resguardo": "Comunidad Inga De Niñeras",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10601,
-        "RESGUARDO": "San Miguel De La Castellana",
-        "PUEBLO": "Inga",
+        "resguardo": "San Miguel De La Castellana",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10226,
-        "RESGUARDO": "San Joaquin",
-        "PUEBLO": "Inga",
+        "resguardo": "San Joaquin",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA \/ PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10114,
-        "RESGUARDO": "Cusumbe - Agua Blanca",
-        "PUEBLO": "Inga",
+        "resguardo": "Cusumbe - Agua Blanca",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10592,
-        "RESGUARDO": "La Paya",
-        "PUEBLO": "Inga",
+        "resguardo": "La Paya",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10509,
-        "RESGUARDO": "Inga De Aponte",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga De Aponte",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10568,
-        "RESGUARDO": "Cecilia Cocha",
-        "PUEBLO": "Inga",
+        "resguardo": "Cecilia Cocha",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10616,
-        "RESGUARDO": "Inga De Colon",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga De Colon",
+        "pueblo": "Inga",
         "DEPARTAMENTO": 86
     },
     {
         "ID_RESGUARDO": 10551,
-        "RESGUARDO": "Albania",
-        "PUEBLO": "Inga",
+        "resguardo": "Albania",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10610,
-        "RESGUARDO": "Villa Catalina De Puerto Rosario",
-        "PUEBLO": "INGA",
+        "resguardo": "Villa Catalina De Puerto Rosario",
+        "pueblo": "INGA",
         "DEPARTAMENTO": 86
     },
     {
         "ID_RESGUARDO": 10563,
-        "RESGUARDO": "Calarca",
-        "PUEBLO": "Inga",
+        "resguardo": "Calarca",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10552,
-        "RESGUARDO": "Alpamanga",
-        "PUEBLO": "Inga",
+        "resguardo": "Alpamanga",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10147,
-        "RESGUARDO": "Yurayaco",
-        "PUEBLO": "Inga",
+        "resguardo": "Yurayaco",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10559,
-        "RESGUARDO": "Blasiaku",
-        "PUEBLO": "Inga",
+        "resguardo": "Blasiaku",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10564,
-        "RESGUARDO": "Calenturas",
-        "PUEBLO": "Inga",
+        "resguardo": "Calenturas",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10221,
-        "RESGUARDO": "San Rafael",
-        "PUEBLO": "Inga",
+        "resguardo": "San Rafael",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10227,
-        "RESGUARDO": "San Jose (Descanse)",
-        "PUEBLO": "Inga",
+        "resguardo": "San Jose (Descanse)",
+        "pueblo": "Inga",
         "DEPARTAMENTO": 19
     },
     {
         "ID_RESGUARDO": 10228,
-        "RESGUARDO": "Inga De Wasipanga",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga De Wasipanga",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10569,
-        "RESGUARDO": "Chaluayaco",
-        "PUEBLO": "Inga",
+        "resguardo": "Chaluayaco",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10139,
-        "RESGUARDO": "San Antonio Del Fragua",
-        "PUEBLO": "Inga",
+        "resguardo": "San Antonio Del Fragua",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10594,
-        "RESGUARDO": "Lagarto Cocha",
-        "PUEBLO": "Inga",
+        "resguardo": "Lagarto Cocha",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10579,
-        "RESGUARDO": "Inga De Mocoa",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga De Mocoa",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10192,
-        "RESGUARDO": "La Leona",
-        "PUEBLO": "Inga",
+        "resguardo": "La Leona",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10224,
-        "RESGUARDO": "Guayuyaco",
-        "PUEBLO": "Inga",
+        "resguardo": "Guayuyaco",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 11643,
-        "RESGUARDO": "Inga de San pedro",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga de San pedro",
+        "pueblo": "Inga",
         "DEPARTAMENTO": 86
     },
     {
         "ID_RESGUARDO": 10131,
-        "RESGUARDO": "Las Brisas",
-        "PUEBLO": "Inga",
+        "resguardo": "Las Brisas",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 11465,
-        "RESGUARDO": "Nukanchipa Alpa Amukunapa Wasi",
-        "PUEBLO": "Inga",
+        "resguardo": "Nukanchipa Alpa Amukunapa Wasi",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 11067,
-        "RESGUARDO": "Inga de Santiago",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga de Santiago",
+        "pueblo": "Inga",
         "DEPARTAMENTO": 44
     },
     {
         "ID_RESGUARDO": 11181,
-        "RESGUARDO": "Kwe´sx yu kiwe",
-        "PUEBLO": "Inga",
+        "resguardo": "Kwe´sx yu kiwe",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CORDOBA"
     },
     {
         "ID_RESGUARDO": 11670,
-        "RESGUARDO": "Musu Runakuna",
-        "PUEBLO": "Inga",
+        "resguardo": "Musu Runakuna",
+        "pueblo": "Inga",
         "DEPARTAMENTO": 66
     },
     {
         "ID_RESGUARDO": 10196,
-        "RESGUARDO": "Mandiyaco",
-        "PUEBLO": "INGA",
+        "resguardo": "Mandiyaco",
+        "pueblo": "INGA",
         "DEPARTAMENTO": "Amazonas"
     },
     {
         "ID_RESGUARDO": 10599,
-        "RESGUARDO": "Puerto Limon",
-        "PUEBLO": "Inga",
+        "resguardo": "Puerto Limon",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10578,
-        "RESGUARDO": "Inga De Condagua",
-        "PUEBLO": "Inga",
+        "resguardo": "Inga De Condagua",
+        "pueblo": "Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10580,
-        "RESGUARDO": "Inga De San Andres",
-        "PUEBLO": "Inga De San Andres",
+        "resguardo": "Inga De San Andres",
+        "pueblo": "Inga De San Andres",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10581,
-        "RESGUARDO": "Inga Kamsa De Mocoa",
-        "PUEBLO": "Inga Kamsa",
+        "resguardo": "Inga Kamsa De Mocoa",
+        "pueblo": "Inga Kamsa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10593,
-        "RESGUARDO": "La Perecera",
-        "PUEBLO": "Inga Kichwa",
+        "resguardo": "La Perecera",
+        "pueblo": "Inga Kichwa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10483,
-        "RESGUARDO": "Naexil Put",
-        "PUEBLO": "Jiw",
+        "resguardo": "Naexil Put",
+        "pueblo": "Jiw",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10484,
-        "RESGUARDO": "Resguardo Indigena Naexal Lajt",
-        "PUEBLO": "Jiw",
+        "resguardo": "Resguardo Indigena Naexal Lajt",
+        "pueblo": "Jiw",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10586,
-        "RESGUARDO": "Kamentsa Inga San Francisco",
-        "PUEBLO": "Kamentsa Inga",
+        "resguardo": "Kamentsa Inga San Francisco",
+        "pueblo": "Kamentsa Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10585,
-        "RESGUARDO": "Kamëntsa Biya De Sibundoy",
-        "PUEBLO": "Kamsa",
+        "resguardo": "Kamëntsa Biya De Sibundoy",
+        "pueblo": "Kamsa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10237,
-        "RESGUARDO": "Kankuamo",
-        "PUEBLO": "Kankuamo",
+        "resguardo": "Kankuamo",
+        "pueblo": "Kankuamo",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10406,
-        "RESGUARDO": "El Itilla",
-        "PUEBLO": "Karapanadesanacubeotucano",
+        "resguardo": "El Itilla",
+        "pueblo": "Karapanadesanacubeotucano",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10349,
-        "RESGUARDO": "Catio (Rio Tanela)",
-        "PUEBLO": "Katio",
+        "resguardo": "Catio (Rio Tanela)",
+        "pueblo": "Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10282,
-        "RESGUARDO": "Katio",
-        "PUEBLO": "Katio",
+        "resguardo": "Katio",
+        "pueblo": "Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10354,
-        "RESGUARDO": "Tokolloro",
-        "PUEBLO": "Katio",
+        "resguardo": "Tokolloro",
+        "pueblo": "Katio",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10786,
-        "RESGUARDO": "Resguardo Indígena La Victoria",
-        "PUEBLO": "Kawiyarí, Barasano, Tatuyo, Taiwano\/Eduria, Tuyuca, Tucano, Cubeo, Desano, Siriano, Yurutí, Carapana, Piratapuyo, Wanano y Bara",
+        "resguardo": "Resguardo Indígena La Victoria",
+        "pueblo": "Kawiyarí, Barasano, Tatuyo, Taiwano\/Eduria, Tuyuca, Tucano, Cubeo, Desano, Siriano, Yurutí, Carapana, Piratapuyo, Wanano y Bara",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10864,
-        "RESGUARDO": "Nuevo Horizonte (de Morales)",
-        "PUEBLO": "Kizgo",
+        "resguardo": "Nuevo Horizonte (de Morales)",
+        "pueblo": "Kizgo",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10539,
-        "RESGUARDO": "Santa Rosa Sucumbios Y El Diviso",
-        "PUEBLO": "Kofan",
+        "resguardo": "Santa Rosa Sucumbios Y El Diviso",
+        "pueblo": "Kofan",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10613,
-        "RESGUARDO": "Yarinal - San Marcelino, Amaron",
-        "PUEBLO": "Kofan",
+        "resguardo": "Yarinal - San Marcelino, Amaron",
+        "pueblo": "Kofan",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10567,
-        "RESGUARDO": "Comunidad Indigena Campoalegre Afilador",
-        "PUEBLO": "Kofan",
+        "resguardo": "Comunidad Indigena Campoalegre Afilador",
+        "pueblo": "Kofan",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10544,
-        "RESGUARDO": "Ukumari Kankhe",
-        "PUEBLO": "Kofan",
+        "resguardo": "Ukumari Kankhe",
+        "pueblo": "Kofan",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10604,
-        "RESGUARDO": "Santa Rosa Del Guamuez",
-        "PUEBLO": "Kofan Inga",
+        "resguardo": "Santa Rosa Del Guamuez",
+        "pueblo": "Kofan Inga",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10464,
-        "RESGUARDO": "Kogui - Malayo Arhuaco",
-        "PUEBLO": "Kogui-Malayo-Arhuaco",
+        "resguardo": "Kogui - Malayo Arhuaco",
+        "pueblo": "Kogui-Malayo-Arhuaco",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10206,
-        "RESGUARDO": "Paletara",
-        "PUEBLO": "Kokonuco Yanacona",
+        "resguardo": "Paletara",
+        "pueblo": "Kokonuco Yanacona",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10216,
-        "RESGUARDO": "Purace",
-        "PUEBLO": "Kokonuko",
+        "resguardo": "Purace",
+        "pueblo": "Kokonuko",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10175,
-        "RESGUARDO": "Guarapamba",
-        "PUEBLO": "Kokonuko",
+        "resguardo": "Guarapamba",
+        "pueblo": "Kokonuko",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10214,
-        "RESGUARDO": "Pueblo Kokonuko",
-        "PUEBLO": "Kokonuko",
+        "resguardo": "Pueblo Kokonuko",
+        "pueblo": "Kokonuko",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10083,
-        "RESGUARDO": "Macahuan (Cusay O La Colorada)",
-        "PUEBLO": "Macahuan",
+        "resguardo": "Macahuan (Cusay O La Colorada)",
+        "pueblo": "Macahuan",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10100,
-        "RESGUARDO": "San Jose De Lipa O Caño Colorado",
-        "PUEBLO": "MACAHUAN ITNU CUIBA DE LA CONQUISTA",
+        "resguardo": "San Jose De Lipa O Caño Colorado",
+        "pueblo": "MACAHUAN ITNU CUIBA DE LA CONQUISTA",
         "DEPARTAMENTO": 81
     },
     {
         "ID_RESGUARDO": 10778,
-        "RESGUARDO": "Nacuanedorro Tuparro",
-        "PUEBLO": "Mapayerri",
+        "resguardo": "Nacuanedorro Tuparro",
+        "pueblo": "Mapayerri",
         "DEPARTAMENTO": "Amazonas - Putumayo"
     },
     {
         "ID_RESGUARDO": 10197,
-        "RESGUARDO": "Misak Piscitau",
-        "PUEBLO": "Misak",
+        "resguardo": "Misak Piscitau",
+        "pueblo": "Misak",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10842,
-        "RESGUARDO": "Cabildo El Aguila",
-        "PUEBLO": "Misak",
+        "resguardo": "Cabildo El Aguila",
+        "pueblo": "Misak",
         "DEPARTAMENTO": 19
     },
     {
         "ID_RESGUARDO": 10161,
-        "RESGUARDO": "San Antonio ( De Cauca)",
-        "PUEBLO": "Misak",
+        "resguardo": "San Antonio ( De Cauca)",
+        "pueblo": "Misak",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10548,
-        "RESGUARDO": "Motilon Bari",
-        "PUEBLO": "Motilon Bari",
+        "resguardo": "Motilon Bari",
+        "pueblo": "Motilon Bari",
         "DEPARTAMENTO": "NORTE DE SANTANDER"
     },
     {
         "ID_RESGUARDO": 10546,
-        "RESGUARDO": "Catalaura \/ Motilon Bari",
-        "PUEBLO": "Motilon Bari",
+        "resguardo": "Catalaura \/ Motilon Bari",
+        "pueblo": "Motilon Bari",
         "DEPARTAMENTO": "NORTE DE SANTANDER"
     },
     {
         "ID_RESGUARDO": 10010,
-        "RESGUARDO": "Nonuya De Villazul",
-        "PUEBLO": "Muinane Y Otros",
+        "resguardo": "Nonuya De Villazul",
+        "pueblo": "Muinane Y Otros",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10367,
-        "RESGUARDO": "Muisca De Fonqueta Y Cerca De Piedra",
-        "PUEBLO": "Muisca",
+        "resguardo": "Muisca De Fonqueta Y Cerca De Piedra",
+        "pueblo": "Muisca",
         "DEPARTAMENTO": "CUNDINAMARCA"
     },
     {
         "ID_RESGUARDO": 10368,
-        "RESGUARDO": "Muisca De Cota",
-        "PUEBLO": "Muisca",
+        "resguardo": "Muisca De Cota",
+        "pueblo": "Muisca",
         "DEPARTAMENTO": "CUNDINAMARCA"
     },
     {
         "ID_RESGUARDO": 11032,
-        "RESGUARDO": "La Primavera Etnia Huitoto",
-        "PUEBLO": "Murui",
+        "resguardo": "La Primavera Etnia Huitoto",
+        "pueblo": "Murui",
         "DEPARTAMENTO": 44
     },
     {
         "ID_RESGUARDO": 11052,
-        "RESGUARDO": "Monilla Amena",
-        "PUEBLO": "Murui Muinane",
+        "resguardo": "Monilla Amena",
+        "pueblo": "Murui Muinane",
         "DEPARTAMENTO": "QUINDIO"
     },
     {
         "ID_RESGUARDO": 10110,
-        "RESGUARDO": "Aguas Negras",
-        "PUEBLO": "Murui Wito",
+        "resguardo": "Aguas Negras",
+        "pueblo": "Murui Wito",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10603,
-        "RESGUARDO": "Santa Rita",
-        "PUEBLO": "Muruimuinane",
+        "resguardo": "Santa Rita",
+        "pueblo": "Muruimuinane",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10576,
-        "RESGUARDO": "El Progreso",
-        "PUEBLO": "Muruy",
+        "resguardo": "El Progreso",
+        "pueblo": "Muruy",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10149,
-        "RESGUARDO": "Nasa We' Sx Kiwe La Gaitana",
-        "PUEBLO": "Nasa",
+        "resguardo": "Nasa We' Sx Kiwe La Gaitana",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10199,
-        "RESGUARDO": "Nasa De Cxhab Wala Luucx",
-        "PUEBLO": "Nasa",
+        "resguardo": "Nasa De Cxhab Wala Luucx",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10179,
-        "RESGUARDO": "Chimborazo",
-        "PUEBLO": "Nasa",
+        "resguardo": "Chimborazo",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10145,
-        "RESGUARDO": "Witack Kiwe",
-        "PUEBLO": "Nasa",
+        "resguardo": "Witack Kiwe",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10518,
-        "RESGUARDO": "Nasa Hu",
-        "PUEBLO": "Nasa",
+        "resguardo": "Nasa Hu",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": 52
     },
     {
         "ID_RESGUARDO": 10424,
-        "RESGUARDO": "La Nueva Esperanza",
-        "PUEBLO": "Nasa",
+        "resguardo": "La Nueva Esperanza",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10112,
-        "RESGUARDO": "Banderas del Recaibo",
-        "PUEBLO": "Nasa",
+        "resguardo": "Banderas del Recaibo",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10183,
-        "RESGUARDO": "Kitek Kiwe",
-        "PUEBLO": "Nasa",
+        "resguardo": "Kitek Kiwe",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10225,
-        "RESGUARDO": "Cerro Tijeras",
-        "PUEBLO": "Nasa",
+        "resguardo": "Cerro Tijeras",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10172,
-        "RESGUARDO": "El Peñon",
-        "PUEBLO": "Nasa",
+        "resguardo": "El Peñon",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10215,
-        "RESGUARDO": "Pueblo Nuevo Ceral",
-        "PUEBLO": "Nasa",
+        "resguardo": "Pueblo Nuevo Ceral",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10201,
-        "RESGUARDO": "Nasa Kiwe Tekh Ksxaw",
-        "PUEBLO": "Nasa",
+        "resguardo": "Nasa Kiwe Tekh Ksxaw",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10910,
-        "RESGUARDO": "Comunidad Fiw Paez (Nueva Irlanda)",
-        "PUEBLO": "Nasa",
+        "resguardo": "Comunidad Fiw Paez (Nueva Irlanda)",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": "CALDAS"
     },
     {
         "ID_RESGUARDO": 10912,
-        "RESGUARDO": "Cabildo San Miguel",
-        "PUEBLO": "Nasa",
+        "resguardo": "Cabildo San Miguel",
+        "pueblo": "Nasa",
         "DEPARTAMENTO": 73
     },
     {
         "ID_RESGUARDO": 10738,
-        "RESGUARDO": "Yu Yik Kwe",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Yu Yik Kwe",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10198,
-        "RESGUARDO": "Comunidad Indigena Nasa Paez De Musse Ukwe",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Comunidad Indigena Nasa Paez De Musse Ukwe",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10431,
-        "RESGUARDO": "Potrerito (Huila)",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Potrerito (Huila)",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10427,
-        "RESGUARDO": "Llano Buco - Bukj Ukue",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Llano Buco - Bukj Ukue",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10182,
-        "RESGUARDO": "Juan Tama",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Juan Tama",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10583,
-        "RESGUARDO": "Jerusalen San Luis Alto Picudito",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Jerusalen San Luis Alto Picudito",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10204,
-        "RESGUARDO": "Paez De Las Mercedes",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Paez De Las Mercedes",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10858,
-        "RESGUARDO": "Raices de Oriente",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Raices de Oriente",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10907,
-        "RESGUARDO": "Fiil vist La Gran Perdiz",
-        "PUEBLO": "Nasa Paez",
+        "resguardo": "Fiil vist La Gran Perdiz",
+        "pueblo": "Nasa Paez",
         "DEPARTAMENTO": 76
     },
     {
         "ID_RESGUARDO": 10414,
-        "RESGUARDO": "Nukak - Maku",
-        "PUEBLO": "Nukak",
+        "resguardo": "Nukak - Maku",
+        "pueblo": "Nukak",
         "DEPARTAMENTO": 95
     },
     {
         "ID_RESGUARDO": 10572,
-        "RESGUARDO": "El Descanso",
-        "PUEBLO": "Paez",
+        "resguardo": "El Descanso",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10181,
-        "RESGUARDO": "Jebala",
-        "PUEBLO": "Paez",
+        "resguardo": "Jebala",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10595,
-        "RESGUARDO": "Nasa Chamb",
-        "PUEBLO": "Paez",
+        "resguardo": "Nasa Chamb",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10587,
-        "RESGUARDO": "La Aguadita",
-        "PUEBLO": "Paez",
+        "resguardo": "La Aguadita",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10202,
-        "RESGUARDO": "Novirao",
-        "PUEBLO": "Paez",
+        "resguardo": "Novirao",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10191,
-        "RESGUARDO": "La Laguna Siberia",
-        "PUEBLO": "Paez",
+        "resguardo": "La Laguna Siberia",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10726,
-        "RESGUARDO": "Kwes Kiwe Nasa",
-        "PUEBLO": "Paez",
+        "resguardo": "Kwes Kiwe Nasa",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10217,
-        "RESGUARDO": "Quichaya",
-        "PUEBLO": "Paez",
+        "resguardo": "Quichaya",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10605,
-        "RESGUARDO": "Santa Rosa Juanambu Campo Alegre, Alpes Orientales, La Floresta Alto Coqueto.",
-        "PUEBLO": "Paez",
+        "resguardo": "Santa Rosa Juanambu Campo Alegre, Alpes Orientales, La Floresta Alto Coqueto.",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10194,
-        "RESGUARDO": "La Paila Naya",
-        "PUEBLO": "Paez",
+        "resguardo": "La Paila Naya",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10189,
-        "RESGUARDO": "La Gaitana",
-        "PUEBLO": "Paez",
+        "resguardo": "La Gaitana",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10474,
-        "RESGUARDO": "Los Planes",
-        "PUEBLO": "Paez",
+        "resguardo": "Los Planes",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10117,
-        "RESGUARDO": "El Portal",
-        "PUEBLO": "Paez",
+        "resguardo": "El Portal",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10575,
-        "RESGUARDO": "El Porvenir La Barrialosa",
-        "PUEBLO": "Paez",
+        "resguardo": "El Porvenir La Barrialosa",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10430,
-        "RESGUARDO": "Pickwe Ikh",
-        "PUEBLO": "Paez",
+        "resguardo": "Pickwe Ikh",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10200,
-        "RESGUARDO": "Paez Corinto Lopez Adentro",
-        "PUEBLO": "Paez",
+        "resguardo": "Paez Corinto Lopez Adentro",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10476,
-        "RESGUARDO": "Ondas Del Cafre",
-        "PUEBLO": "Paez",
+        "resguardo": "Ondas Del Cafre",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10590,
-        "RESGUARDO": "La Florida",
-        "PUEBLO": "Paez",
+        "resguardo": "La Florida",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10223,
-        "RESGUARDO": "Tumburao",
-        "PUEBLO": "Paez",
+        "resguardo": "Tumburao",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10213,
-        "RESGUARDO": "Polindara",
-        "PUEBLO": "Paez",
+        "resguardo": "Polindara",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10148,
-        "RESGUARDO": "Zit-Set Del Quecal",
-        "PUEBLO": "Paez",
+        "resguardo": "Zit-Set Del Quecal",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10222,
-        "RESGUARDO": "Tumbichucue",
-        "PUEBLO": "Paez",
+        "resguardo": "Tumbichucue",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10168,
-        "RESGUARDO": "Canoas",
-        "PUEBLO": "Paez",
+        "resguardo": "Canoas",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10735,
-        "RESGUARDO": "Triunfo Cristal",
-        "PUEBLO": "Paez",
+        "resguardo": "Triunfo Cristal",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10127,
-        "RESGUARDO": "La Esperanza ( De Belen De Andaquies )",
-        "PUEBLO": "Paez",
+        "resguardo": "La Esperanza ( De Belen De Andaquies )",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10137,
-        "RESGUARDO": "Paez De El Libano",
-        "PUEBLO": "Paez",
+        "resguardo": "Paez De El Libano",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10212,
-        "RESGUARDO": "Poblazon",
-        "PUEBLO": "Paez",
+        "resguardo": "Poblazon",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10657,
-        "RESGUARDO": "Paez Las Mercedes",
-        "PUEBLO": "Paez",
+        "resguardo": "Paez Las Mercedes",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10421,
-        "RESGUARDO": "Bache",
-        "PUEBLO": "Paez",
+        "resguardo": "Bache",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10180,
-        "RESGUARDO": "Jambalo",
-        "PUEBLO": "Paez",
+        "resguardo": "Jambalo",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10176,
-        "RESGUARDO": "Huellas",
-        "PUEBLO": "Paez",
+        "resguardo": "Huellas",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10169,
-        "RESGUARDO": "Cxayu'Ce Fxiw",
-        "PUEBLO": "Paez",
+        "resguardo": "Cxayu'Ce Fxiw",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10423,
-        "RESGUARDO": "La Gaitana(Huila)",
-        "PUEBLO": "Paez",
+        "resguardo": "La Gaitana(Huila)",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10128,
-        "RESGUARDO": "La Siberia",
-        "PUEBLO": "Paez",
+        "resguardo": "La Siberia",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10162,
-        "RESGUARDO": "Resguardo Agua Negra (De Morales)",
-        "PUEBLO": "Paez",
+        "resguardo": "Resguardo Agua Negra (De Morales)",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10218,
-        "RESGUARDO": "Quintana Paez",
-        "PUEBLO": "Paez",
+        "resguardo": "Quintana Paez",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10481,
-        "RESGUARDO": "Villa Lucia",
-        "PUEBLO": "Paez",
+        "resguardo": "Villa Lucia",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10116,
-        "RESGUARDO": "El Guayabal",
-        "PUEBLO": "Paez",
+        "resguardo": "El Guayabal",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10111,
-        "RESGUARDO": "Altamira",
-        "PUEBLO": "Paez",
+        "resguardo": "Altamira",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10727,
-        "RESGUARDO": "Kwet Wala( Piedra Grande)",
-        "PUEBLO": "Paez",
+        "resguardo": "Kwet Wala( Piedra Grande)",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10135,
-        "RESGUARDO": "Nasa Kiwe",
-        "PUEBLO": "Paez",
+        "resguardo": "Nasa Kiwe",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10167,
-        "RESGUARDO": "Calderas",
-        "PUEBLO": "Paez",
+        "resguardo": "Calderas",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10185,
-        "RESGUARDO": "Resguardo Indigena Colonial Koconuco",
-        "PUEBLO": "Paez",
+        "resguardo": "Resguardo Indigena Colonial Koconuco",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10670,
-        "RESGUARDO": "Paez De La Gaitana",
-        "PUEBLO": "Paez",
+        "resguardo": "Paez De La Gaitana",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10422,
-        "RESGUARDO": "Estación Talaga",
-        "PUEBLO": "Paez",
+        "resguardo": "Estación Talaga",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10186,
-        "RESGUARDO": "La Cilia O La Calera",
-        "PUEBLO": "Paez",
+        "resguardo": "La Cilia O La Calera",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10438,
-        "RESGUARDO": "Huila",
-        "PUEBLO": "Paez",
+        "resguardo": "Huila",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "HUILA \/ CAUCA"
     },
     {
         "ID_RESGUARDO": 10184,
-        "RESGUARDO": "Kizgo",
-        "PUEBLO": "Paez",
+        "resguardo": "Kizgo",
+        "pueblo": "Paez",
         "DEPARTAMENTO": 19
     },
     {
         "ID_RESGUARDO": 10195,
-        "RESGUARDO": "Las Delicias (De Buenos Aires)",
-        "PUEBLO": "Paez",
+        "resguardo": "Las Delicias (De Buenos Aires)",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10164,
-        "RESGUARDO": "La Concepcion",
-        "PUEBLO": "Paez",
+        "resguardo": "La Concepcion",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10205,
-        "RESGUARDO": "Paez De Toez",
-        "PUEBLO": "Paez",
+        "resguardo": "Paez De Toez",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "RISARALDA"
     },
     {
         "ID_RESGUARDO": 10220,
-        "RESGUARDO": "Guadualito",
-        "PUEBLO": "Paez",
+        "resguardo": "Guadualito",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10553,
-        "RESGUARDO": "Alto Lorenzo",
-        "PUEBLO": "Paez",
+        "resguardo": "Alto Lorenzo",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10209,
-        "RESGUARDO": "Pickwetha Fiw",
-        "PUEBLO": "Paez",
+        "resguardo": "Pickwetha Fiw",
+        "pueblo": "Paez",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10165,
-        "RESGUARDO": "Ambalo",
-        "PUEBLO": "Paez Guambia",
+        "resguardo": "Ambalo",
+        "pueblo": "Paez Guambia",
         "DEPARTAMENTO": "GENERAL"
     },
     {
         "ID_RESGUARDO": 10231,
-        "RESGUARDO": "Totoro",
-        "PUEBLO": "Paez Totoro",
+        "resguardo": "Totoro",
+        "pueblo": "Paez Totoro",
         "DEPARTAMENTO": 19
     },
     {
         "ID_RESGUARDO": 10425,
-        "RESGUARDO": "Resguardo Indigena La Reforma",
-        "PUEBLO": "Paez Y Guambiano",
+        "resguardo": "Resguardo Indigena La Reforma",
+        "pueblo": "Paez Y Guambiano",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10730,
-        "RESGUARDO": "Nasa Kwe´S Kiwe (Las Brisas)",
-        "PUEBLO": "Paez.",
+        "resguardo": "Nasa Kwe´S Kiwe (Las Brisas)",
+        "pueblo": "Paez.",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10731,
-        "RESGUARDO": "Nasatha",
-        "PUEBLO": "Paez.",
+        "resguardo": "Nasatha",
+        "pueblo": "Paez.",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10487,
-        "RESGUARDO": "Carlosama",
-        "PUEBLO": "Pastos",
+        "resguardo": "Carlosama",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10535,
-        "RESGUARDO": "Rumiyaco",
-        "PUEBLO": "Pastos",
+        "resguardo": "Rumiyaco",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": 52
     },
     {
         "ID_RESGUARDO": 10596,
-        "RESGUARDO": "Nuevo Horizonte",
-        "PUEBLO": "PASTOS",
+        "resguardo": "Nuevo Horizonte",
+        "pueblo": "PASTOS",
         "DEPARTAMENTO": 86
     },
     {
         "ID_RESGUARDO": 10597,
-        "RESGUARDO": "Piedra Sagrada",
-        "PUEBLO": "Pastos",
+        "resguardo": "Piedra Sagrada",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10517,
-        "RESGUARDO": "Comunidad Indigena De Muellamuez",
-        "PUEBLO": "Pastos",
+        "resguardo": "Comunidad Indigena De Muellamuez",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10522,
-        "RESGUARDO": "Pasto De Iles",
-        "PUEBLO": "Pastos",
+        "resguardo": "Pasto De Iles",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10491,
-        "RESGUARDO": "Comunidad Indigena De Cumbal",
-        "PUEBLO": "Pastos",
+        "resguardo": "Comunidad Indigena De Cumbal",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10988,
-        "RESGUARDO": "Gran Tescual",
-        "PUEBLO": "Pastos",
+        "resguardo": "Gran Tescual",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": 19
     },
     {
         "ID_RESGUARDO": 10501,
-        "RESGUARDO": "Funes",
-        "PUEBLO": "Pastos",
+        "resguardo": "Funes",
+        "pueblo": "Pastos",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10079,
-        "RESGUARDO": "Cananama",
-        "PUEBLO": "Piapoco",
+        "resguardo": "Cananama",
+        "pueblo": "Piapoco",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10744,
-        "RESGUARDO": "Cali Barranquilla",
-        "PUEBLO": "Piapoco",
+        "resguardo": "Cali Barranquilla",
+        "pueblo": "Piapoco",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10753,
-        "RESGUARDO": "Flores Sombrero",
-        "PUEBLO": "Piapoco",
+        "resguardo": "Flores Sombrero",
+        "pueblo": "Piapoco",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10386,
-        "RESGUARDO": "Murcielago Altomira",
-        "PUEBLO": "Piapoco",
+        "resguardo": "Murcielago Altomira",
+        "pueblo": "Piapoco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10757,
-        "RESGUARDO": "Pueblo Nuevo Laguna Colorada",
-        "PUEBLO": "Piapoco",
+        "resguardo": "Pueblo Nuevo Laguna Colorada",
+        "pueblo": "Piapoco",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10756,
-        "RESGUARDO": "Kawaneruba",
-        "PUEBLO": "Piapoco",
+        "resguardo": "Kawaneruba",
+        "pueblo": "Piapoco",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10750,
-        "RESGUARDO": "Chocon",
-        "PUEBLO": "Piapoco",
+        "resguardo": "Chocon",
+        "pueblo": "Piapoco",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10385,
-        "RESGUARDO": "Minitas Miralindo",
-        "PUEBLO": "Piapoco Guahivo",
+        "resguardo": "Minitas Miralindo",
+        "pueblo": "Piapoco Guahivo",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10469,
-        "RESGUARDO": "Salivas Y Piapocos (Corozal Y Tapaojo)",
-        "PUEBLO": "Piapoco Saliva",
+        "resguardo": "Salivas Y Piapocos (Corozal Y Tapaojo)",
+        "pueblo": "Piapoco Saliva",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10376,
-        "RESGUARDO": "Chiguiro",
-        "PUEBLO": "Piapoco, Sikuani, Guahibo",
+        "resguardo": "Chiguiro",
+        "pueblo": "Piapoco, Sikuani, Guahibo",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10378,
-        "RESGUARDO": "Concordia",
-        "PUEBLO": "Piapoko",
+        "resguardo": "Concordia",
+        "pueblo": "Piapoko",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10767,
-        "RESGUARDO": "Piaroa De Cachicamo",
-        "PUEBLO": "Piaroa",
+        "resguardo": "Piaroa De Cachicamo",
+        "pueblo": "Piaroa",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10674,
-        "RESGUARDO": "Pocara",
-        "PUEBLO": "Pijao",
+        "resguardo": "Pocara",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10664,
-        "RESGUARDO": "Mesa De Ortega",
-        "PUEBLO": "Pijao",
+        "resguardo": "Mesa De Ortega",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10645,
-        "RESGUARDO": "El Vergel",
-        "PUEBLO": "Pijao",
+        "resguardo": "El Vergel",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10635,
-        "RESGUARDO": "Chenche Balsillas",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Balsillas",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10631,
-        "RESGUARDO": "Bocas De Tetuan",
-        "PUEBLO": "Pijao",
+        "resguardo": "Bocas De Tetuan",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10707,
-        "RESGUARDO": "Yaco Molana",
-        "PUEBLO": "Pijao",
+        "resguardo": "Yaco Molana",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10684,
-        "RESGUARDO": "Resguardo Indigena Gualeras",
-        "PUEBLO": "Pijao",
+        "resguardo": "Resguardo Indigena Gualeras",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10642,
-        "RESGUARDO": "Cocana",
-        "PUEBLO": "Pijao",
+        "resguardo": "Cocana",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10658,
-        "RESGUARDO": "Las Palmas",
-        "PUEBLO": "Pijao",
+        "resguardo": "Las Palmas",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10697,
-        "RESGUARDO": "Tamirco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Tamirco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10704,
-        "RESGUARDO": "Tres Esquinas",
-        "PUEBLO": "Pijao",
+        "resguardo": "Tres Esquinas",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10688,
-        "RESGUARDO": "Rincon De Anchique",
-        "PUEBLO": "Pijao",
+        "resguardo": "Rincon De Anchique",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10710,
-        "RESGUARDO": "Zaragoza Tamarindo",
-        "PUEBLO": "Pijao",
+        "resguardo": "Zaragoza Tamarindo",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10701,
-        "RESGUARDO": "Totarco Niple",
-        "PUEBLO": "Pijao",
+        "resguardo": "Totarco Niple",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10640,
-        "RESGUARDO": "Chenche Socorro Los Guayabos",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Socorro Los Guayabos",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10660,
-        "RESGUARDO": "Lomas De Hilarco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Lomas De Hilarco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10627,
-        "RESGUARDO": "Balsillas Limon",
-        "PUEBLO": "Pijao",
+        "resguardo": "Balsillas Limon",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10663,
-        "RESGUARDO": "Mercadillo",
-        "PUEBLO": "Pijao",
+        "resguardo": "Mercadillo",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10679,
-        "RESGUARDO": "Quebraditas",
-        "PUEBLO": "Pijao",
+        "resguardo": "Quebraditas",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10624,
-        "RESGUARDO": "Aico",
-        "PUEBLO": "Pijao",
+        "resguardo": "Aico",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10696,
-        "RESGUARDO": "Santa Marta Palmar",
-        "PUEBLO": "Pijao",
+        "resguardo": "Santa Marta Palmar",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10677,
-        "RESGUARDO": "Potrerito Doyare",
-        "PUEBLO": "Pijao",
+        "resguardo": "Potrerito Doyare",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10681,
-        "RESGUARDO": "Resguardo Indigena Aco Viejo Patio Bonito",
-        "PUEBLO": "Pijao",
+        "resguardo": "Resguardo Indigena Aco Viejo Patio Bonito",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10705,
-        "RESGUARDO": "Velu Centro",
-        "PUEBLO": "Pijao",
+        "resguardo": "Velu Centro",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10654,
-        "RESGUARDO": "La Flecha Altozano",
-        "PUEBLO": "Pijao",
+        "resguardo": "La Flecha Altozano",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10692,
-        "RESGUARDO": "San Miguel (De Coyaima)",
-        "PUEBLO": "Pijao",
+        "resguardo": "San Miguel (De Coyaima)",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 11568,
-        "RESGUARDO": "Resguardo Indígena Puerto Samaria",
-        "PUEBLO": "PIJAO",
+        "resguardo": "Resguardo Indígena Puerto Samaria",
+        "pueblo": "PIJAO",
         "DEPARTAMENTO": 73
     },
     {
         "ID_RESGUARDO": 10665,
-        "RESGUARDO": "Natacoy Pijao",
-        "PUEBLO": "Pijao",
+        "resguardo": "Natacoy Pijao",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10671,
-        "RESGUARDO": "Palermo",
-        "PUEBLO": "Pijao",
+        "resguardo": "Palermo",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10680,
-        "RESGUARDO": "Recinto Palmarosa",
-        "PUEBLO": "Pijao",
+        "resguardo": "Recinto Palmarosa",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10689,
-        "RESGUARDO": "Rincon Velu",
-        "PUEBLO": "Pijao",
+        "resguardo": "Rincon Velu",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10656,
-        "RESGUARDO": "La Tutira Bonanza",
-        "PUEBLO": "Pijao",
+        "resguardo": "La Tutira Bonanza",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10629,
-        "RESGUARDO": "Bateas",
-        "PUEBLO": "Pijao",
+        "resguardo": "Bateas",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10636,
-        "RESGUARDO": "Chenche Buenavista",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Buenavista",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10675,
-        "RESGUARDO": "Pocharco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Pocharco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10633,
-        "RESGUARDO": "Chaquira",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chaquira",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10639,
-        "RESGUARDO": "Chenche Media Luna",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Media Luna",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10690,
-        "RESGUARDO": "San Antonio De Calarma",
-        "PUEBLO": "Pijao",
+        "resguardo": "San Antonio De Calarma",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10661,
-        "RESGUARDO": "Los Angeles",
-        "PUEBLO": "Pijao",
+        "resguardo": "Los Angeles",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10691,
-        "RESGUARDO": "San Diego",
-        "PUEBLO": "Pijao",
+        "resguardo": "San Diego",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10706,
-        "RESGUARDO": "Vuelta Del Rio",
-        "PUEBLO": "Pijao",
+        "resguardo": "Vuelta Del Rio",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10634,
-        "RESGUARDO": "Chenche Amayarco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Amayarco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10669,
-        "RESGUARDO": "Pacande",
-        "PUEBLO": "Pijao",
+        "resguardo": "Pacande",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10625,
-        "RESGUARDO": "Anacarco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Anacarco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": 73
     },
     {
         "ID_RESGUARDO": 10678,
-        "RESGUARDO": "Pueblo Nuevo",
-        "PUEBLO": "Pijao",
+        "resguardo": "Pueblo Nuevo",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10683,
-        "RESGUARDO": "Resguardo Indigena Campoalegre",
-        "PUEBLO": "Pijao",
+        "resguardo": "Resguardo Indigena Campoalegre",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10643,
-        "RESGUARDO": "Diamante",
-        "PUEBLO": "Pijao",
+        "resguardo": "Diamante",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10653,
-        "RESGUARDO": "Imba",
-        "PUEBLO": "Pijao",
+        "resguardo": "Imba",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10632,
-        "RESGUARDO": "Castilla Angostura",
-        "PUEBLO": "Pijao",
+        "resguardo": "Castilla Angostura",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10699,
-        "RESGUARDO": "Totarco Dinde Independiente",
-        "PUEBLO": "Pijao",
+        "resguardo": "Totarco Dinde Independiente",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10649,
-        "RESGUARDO": "Guaipa Uno",
-        "PUEBLO": "Pijao",
+        "resguardo": "Guaipa Uno",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10686,
-        "RESGUARDO": "Resguardo Indigena Nataroco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Resguardo Indigena Nataroco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10638,
-        "RESGUARDO": "Chenche Buenos Aires Tradicional",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Buenos Aires Tradicional",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10676,
-        "RESGUARDO": "Potrerito (Coyaima)",
-        "PUEBLO": "Pijao",
+        "resguardo": "Potrerito (Coyaima)",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10693,
-        "RESGUARDO": "San Miguel (De Natagaima)",
-        "PUEBLO": "Pijao",
+        "resguardo": "San Miguel (De Natagaima)",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10685,
-        "RESGUARDO": "Resguardo Indigena Mesas De San Juan",
-        "PUEBLO": "Pijao",
+        "resguardo": "Resguardo Indigena Mesas De San Juan",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10662,
-        "RESGUARDO": "Meche San Cayetano",
-        "PUEBLO": "Pijao",
+        "resguardo": "Meche San Cayetano",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10655,
-        "RESGUARDO": "La Sortija",
-        "PUEBLO": "Pijao",
+        "resguardo": "La Sortija",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10644,
-        "RESGUARDO": "El Tambo",
-        "PUEBLO": "Pijao",
+        "resguardo": "El Tambo",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10703,
-        "RESGUARDO": "Totarco Tamarindo",
-        "PUEBLO": "Pijao",
+        "resguardo": "Totarco Tamarindo",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10709,
-        "RESGUARDO": "Zanja Honda",
-        "PUEBLO": "Pijao",
+        "resguardo": "Zanja Honda",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10672,
-        "RESGUARDO": "Palma Alta",
-        "PUEBLO": "Pijao",
+        "resguardo": "Palma Alta",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10630,
-        "RESGUARDO": "Beltran",
-        "PUEBLO": "Pijao",
+        "resguardo": "Beltran",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10647,
-        "RESGUARDO": "Guadualito(Tolima)",
-        "PUEBLO": "Pijao",
+        "resguardo": "Guadualito(Tolima)",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10646,
-        "RESGUARDO": "Floral Tradicional",
-        "PUEBLO": "Pijao",
+        "resguardo": "Floral Tradicional",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10648,
-        "RESGUARDO": "Guaipa Centro",
-        "PUEBLO": "Pijao",
+        "resguardo": "Guaipa Centro",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10694,
-        "RESGUARDO": "Santa Marta Diamante",
-        "PUEBLO": "Pijao",
+        "resguardo": "Santa Marta Diamante",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10652,
-        "RESGUARDO": "Hilarquito",
-        "PUEBLO": "Pijao",
+        "resguardo": "Hilarquito",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10132,
-        "RESGUARDO": "Los Pijaos",
-        "PUEBLO": "Pijao",
+        "resguardo": "Los Pijaos",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10650,
-        "RESGUARDO": "Guasimal",
-        "PUEBLO": "Pijao",
+        "resguardo": "Guasimal",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10651,
-        "RESGUARDO": "Guatavita Tua",
-        "PUEBLO": "Pijao",
+        "resguardo": "Guatavita Tua",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10426,
-        "RESGUARDO": "La Tatacoa",
-        "PUEBLO": "Pijao",
+        "resguardo": "La Tatacoa",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10666,
-        "RESGUARDO": "Nicolas Ramirez",
-        "PUEBLO": "Pijao",
+        "resguardo": "Nicolas Ramirez",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10668,
-        "RESGUARDO": "Olirco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Olirco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10667,
-        "RESGUARDO": "Nueva Esperanza",
-        "PUEBLO": "Pijao",
+        "resguardo": "Nueva Esperanza",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10637,
-        "RESGUARDO": "Chenche Buenos Aires",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Buenos Aires",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10682,
-        "RESGUARDO": "Resguardo Indigena Anaba",
-        "PUEBLO": "Pijao",
+        "resguardo": "Resguardo Indigena Anaba",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10702,
-        "RESGUARDO": "Totarco Piedras",
-        "PUEBLO": "Pijao",
+        "resguardo": "Totarco Piedras",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10626,
-        "RESGUARDO": "Pijao De Balsillas",
-        "PUEBLO": "Pijao",
+        "resguardo": "Pijao De Balsillas",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10700,
-        "RESGUARDO": "Totarco Dinde Tradicional",
-        "PUEBLO": "Pijao",
+        "resguardo": "Totarco Dinde Tradicional",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10711,
-        "RESGUARDO": "Nanurco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Nanurco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10659,
-        "RESGUARDO": "Lomas De Guaguarco",
-        "PUEBLO": "Pijao",
+        "resguardo": "Lomas De Guaguarco",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10713,
-        "RESGUARDO": "Chenche Zaragoza",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Zaragoza",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10712,
-        "RESGUARDO": "Chenche Angostura",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Angostura",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10641,
-        "RESGUARDO": "Chicuambe Las Brisas",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chicuambe Las Brisas",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10708,
-        "RESGUARDO": "Yaporogos Taira",
-        "PUEBLO": "Pijao",
+        "resguardo": "Yaporogos Taira",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 11127,
-        "RESGUARDO": "Calara San Martin",
-        "PUEBLO": "Pijao",
+        "resguardo": "Calara San Martin",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": 86
     },
     {
         "ID_RESGUARDO": 11716,
-        "RESGUARDO": "Cabildo Indigena Casica Ibanasca",
-        "PUEBLO": "Pijao",
+        "resguardo": "Cabildo Indigena Casica Ibanasca",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10628,
-        "RESGUARDO": "Barzaloza",
-        "PUEBLO": "Pijao",
+        "resguardo": "Barzaloza",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 11128,
-        "RESGUARDO": "Quintin Lame",
-        "PUEBLO": "Pijao",
+        "resguardo": "Quintin Lame",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 11156,
-        "RESGUARDO": "Chenche Agua Fria",
-        "PUEBLO": "Pijao",
+        "resguardo": "Chenche Agua Fria",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 11159,
-        "RESGUARDO": "Cabildo Indigena Pueblo Viejo Santa Rita La Mina",
-        "PUEBLO": "Pijao",
+        "resguardo": "Cabildo Indigena Pueblo Viejo Santa Rita La Mina",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10150,
-        "RESGUARDO": "Llanos del Yarí- Yaguara II",
-        "PUEBLO": "Pijao",
+        "resguardo": "Llanos del Yarí- Yaguara II",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "Cauca"
     },
     {
         "ID_RESGUARDO": 10687,
-        "RESGUARDO": "Rincon Bodega",
-        "PUEBLO": "Pijao",
+        "resguardo": "Rincon Bodega",
+        "pueblo": "Pijao",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10698,
-        "RESGUARDO": "Tinajas",
-        "PUEBLO": "Pijao Coyaima.",
+        "resguardo": "Tinajas",
+        "pueblo": "Pijao Coyaima.",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10673,
-        "RESGUARDO": "Paso Ancho",
-        "PUEBLO": "Pijao Coyaima.",
+        "resguardo": "Paso Ancho",
+        "pueblo": "Pijao Coyaima.",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10371,
-        "RESGUARDO": "Bachaco Buena Vista",
-        "PUEBLO": "Puinave",
+        "resguardo": "Bachaco Buena Vista",
+        "pueblo": "Puinave",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10413,
-        "RESGUARDO": "Morichal Viejo - Santa Rosa, Cerro Cucuy Y Otros",
-        "PUEBLO": "Puinave Curripaco \/ Embera Katio",
+        "resguardo": "Morichal Viejo - Santa Rosa, Cerro Cucuy Y Otros",
+        "pueblo": "Puinave Curripaco \/ Embera Katio",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10382,
-        "RESGUARDO": "Guaco Bajo Y Guaco Alto",
-        "PUEBLO": "Puinave Piapoco",
+        "resguardo": "Guaco Bajo Y Guaco Alto",
+        "pueblo": "Puinave Piapoco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10369,
-        "RESGUARDO": "Almidon La Ceiba (Puinave-Tucano-Curripaco-Cubeo)",
-        "PUEBLO": "Puinave Tucanocurripaco Y Cubeo",
+        "resguardo": "Almidon La Ceiba (Puinave-Tucano-Curripaco-Cubeo)",
+        "pueblo": "Puinave Tucanocurripaco Y Cubeo",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10389,
-        "RESGUARDO": "Remanso - Chorro Bocon",
-        "PUEBLO": "Puinave Y Curripaco",
+        "resguardo": "Remanso - Chorro Bocon",
+        "pueblo": "Puinave Y Curripaco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10373,
-        "RESGUARDO": "Caranacoa Yuri Laguna Morocoto",
-        "PUEBLO": "Puinave Y Curripaco",
+        "resguardo": "Caranacoa Yuri Laguna Morocoto",
+        "pueblo": "Puinave Y Curripaco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10388,
-        "RESGUARDO": "Paujil",
-        "PUEBLO": "Puinave Y Piapoco",
+        "resguardo": "Paujil",
+        "pueblo": "Puinave Y Piapoco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10380,
-        "RESGUARDO": "Puinave De Cumaral-Guamuco",
-        "PUEBLO": "Puinave Y Sikuani",
+        "resguardo": "Puinave De Cumaral-Guamuco",
+        "pueblo": "Puinave Y Sikuani",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10384,
-        "RESGUARDO": "Laguna Niñal, Cocuy, Loma Baja Y Loma Alta Del Caño Guariben",
-        "PUEBLO": "Puinave Y Sikuani",
+        "resguardo": "Laguna Niñal, Cocuy, Loma Baja Y Loma Alta Del Caño Guariben",
+        "pueblo": "Puinave Y Sikuani",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10379,
-        "RESGUARDO": "Cuenca Media Y Alta Del Rio Inirida",
-        "PUEBLO": "Puinave, Curripaco, Nukak Maku",
+        "resguardo": "Cuenca Media Y Alta Del Rio Inirida",
+        "pueblo": "Puinave, Curripaco, Nukak Maku",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10377,
-        "RESGUARDO": "Coayare El Coco",
-        "PUEBLO": "Puinave, Piapoco Y Curripaco",
+        "resguardo": "Coayare El Coco",
+        "pueblo": "Puinave, Piapoco Y Curripaco",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10533,
-        "RESGUARDO": "Refugio Del Sol",
-        "PUEBLO": "Quillacinga",
+        "resguardo": "Refugio Del Sol",
+        "pueblo": "Quillacinga",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10545,
-        "RESGUARDO": "Laguna Pejendino",
-        "PUEBLO": "Quillacinga",
+        "resguardo": "Laguna Pejendino",
+        "pueblo": "Quillacinga",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10772,
-        "RESGUARDO": "Saliva Corregimiento De Santa Rosalia",
-        "PUEBLO": "SÁLIBA",
+        "resguardo": "Saliva Corregimiento De Santa Rosalia",
+        "pueblo": "SÁLIBA",
         "DEPARTAMENTO": 99
     },
     {
         "ID_RESGUARDO": 10153,
-        "RESGUARDO": "Saliva Asentada En El Paraje El Consejo",
-        "PUEBLO": "Saliva",
+        "resguardo": "Saliva Asentada En El Paraje El Consejo",
+        "pueblo": "Saliva",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10159,
-        "RESGUARDO": "Comunidad Saliva",
-        "PUEBLO": "Saliva",
+        "resguardo": "Comunidad Saliva",
+        "pueblo": "Saliva",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10157,
-        "RESGUARDO": "El Saladillo",
-        "PUEBLO": "Saliva",
+        "resguardo": "El Saladillo",
+        "pueblo": "Saliva",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10160,
-        "RESGUARDO": "Macucuana",
-        "PUEBLO": "Saliva",
+        "resguardo": "Macucuana",
+        "pueblo": "Saliva",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10155,
-        "RESGUARDO": "Paraje De San Juanito, El Duya Y Paravare",
-        "PUEBLO": "Saliva",
+        "resguardo": "Paraje De San Juanito, El Duya Y Paravare",
+        "pueblo": "Saliva",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10156,
-        "RESGUARDO": "El Medano",
-        "PUEBLO": "Saliva",
+        "resguardo": "El Medano",
+        "pueblo": "Saliva",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10363,
-        "RESGUARDO": "Alto San Jorge",
-        "PUEBLO": "Senu",
+        "resguardo": "Alto San Jorge",
+        "pueblo": "Senu",
         "DEPARTAMENTO": "CORDOBA"
     },
     {
         "ID_RESGUARDO": 10479,
-        "RESGUARDO": "Sikuani De Iwiwi",
-        "PUEBLO": "Sikuani",
+        "resguardo": "Sikuani De Iwiwi",
+        "pueblo": "Sikuani",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10477,
-        "RESGUARDO": "Sikuani De Awaliba",
-        "PUEBLO": "Sikuani",
+        "resguardo": "Sikuani De Awaliba",
+        "pueblo": "Sikuani",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10775,
-        "RESGUARDO": "Selva De Mataven",
-        "PUEBLO": "Sikuani",
+        "resguardo": "Selva De Mataven",
+        "pueblo": "Sikuani",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10085,
-        "RESGUARDO": "El Zamuro",
-        "PUEBLO": "Sikuani",
+        "resguardo": "El Zamuro",
+        "pueblo": "Sikuani",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10777,
-        "RESGUARDO": "Awia Tuparro Sikuani (Marimba)",
-        "PUEBLO": "Sikuani",
+        "resguardo": "Awia Tuparro Sikuani (Marimba)",
+        "pueblo": "Sikuani",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10478,
-        "RESGUARDO": "Domo Planas",
-        "PUEBLO": "Sikuani",
+        "resguardo": "Domo Planas",
+        "pueblo": "Sikuani",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10400,
-        "RESGUARDO": "Cachivera Del Nare",
-        "PUEBLO": "Sikuani, Sirianoy Otros",
+        "resguardo": "Cachivera Del Nare",
+        "pueblo": "Sikuani, Sirianoy Otros",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 11213,
-        "RESGUARDO": "Comunidad indigena Kanalitojo Puerto Colombia",
-        "PUEBLO": "Silva",
+        "resguardo": "Comunidad indigena Kanalitojo Puerto Colombia",
+        "pueblo": "Silva",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10557,
-        "RESGUARDO": "Resguardo Indigena Siona De Bajo Casacunte",
-        "PUEBLO": "Siona",
+        "resguardo": "Resguardo Indigena Siona De Bajo Casacunte",
+        "pueblo": "Siona",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10609,
-        "RESGUARDO": "Vegas De Santana",
-        "PUEBLO": "Siona",
+        "resguardo": "Vegas De Santana",
+        "pueblo": "Siona",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10561,
-        "RESGUARDO": "Buenavista",
-        "PUEBLO": "Siona",
+        "resguardo": "Buenavista",
+        "pueblo": "Siona",
         "DEPARTAMENTO": "MAGDALENA"
     },
     {
         "ID_RESGUARDO": 10602,
-        "RESGUARDO": "Santa Cruz De Pinuña Blanco",
-        "PUEBLO": "Siona",
+        "resguardo": "Santa Cruz De Pinuña Blanco",
+        "pueblo": "Siona",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10574,
-        "RESGUARDO": "El Hacha",
-        "PUEBLO": "Siona Y Otros",
+        "resguardo": "El Hacha",
+        "pueblo": "Siona Y Otros",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10577,
-        "RESGUARDO": "Comunidad El Tablero",
-        "PUEBLO": "Siona\/Kofan\/Inga\/Huitoto",
+        "resguardo": "Comunidad El Tablero",
+        "pueblo": "Siona\/Kofan\/Inga\/Huitoto",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10416,
-        "RESGUARDO": "Puerto Monfort",
-        "PUEBLO": "Siriano, Guanano, Cubeo, Tucano Y Desano",
+        "resguardo": "Puerto Monfort",
+        "pueblo": "Siriano, Guanano, Cubeo, Tucano Y Desano",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10768,
-        "RESGUARDO": "Punta Bandera",
-        "PUEBLO": "Sukuani",
+        "resguardo": "Punta Bandera",
+        "pueblo": "Sukuani",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10765,
-        "RESGUARDO": "Muco Mayoragua",
-        "PUEBLO": "Sukuani",
+        "resguardo": "Muco Mayoragua",
+        "pueblo": "Sukuani",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10766,
-        "RESGUARDO": "Nueva Esperanza Del Tomo",
-        "PUEBLO": "Sukuani",
+        "resguardo": "Nueva Esperanza Del Tomo",
+        "pueblo": "Sukuani",
         "DEPARTAMENTO": "VICHADA"
     },
     {
         "ID_RESGUARDO": 10435,
-        "RESGUARDO": "Tama Del Caguan",
-        "PUEBLO": "Tamas",
+        "resguardo": "Tama Del Caguan",
+        "pueblo": "Tamas",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10434,
-        "RESGUARDO": "Tama Paez La Gabriela",
-        "PUEBLO": "Tamas Paez",
+        "resguardo": "Tama Paez La Gabriela",
+        "pueblo": "Tamas Paez",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10022,
-        "RESGUARDO": "Yaigoje Rio Apaporis",
-        "PUEBLO": "Tanimuca",
+        "resguardo": "Yaigoje Rio Apaporis",
+        "pueblo": "Tanimuca",
         "DEPARTAMENTO": "AMAZONAS \/ VAUPES"
     },
     {
         "ID_RESGUARDO": 10016,
-        "RESGUARDO": "San Antonio De Los Lagos Y San Sebastian",
-        "PUEBLO": "Ticuna",
+        "resguardo": "San Antonio De Los Lagos Y San Sebastian",
+        "pueblo": "Ticuna",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10018,
-        "RESGUARDO": "San Juan De Los Parentes",
-        "PUEBLO": "Ticuna",
+        "resguardo": "San Juan De Los Parentes",
+        "pueblo": "Ticuna",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10011,
-        "RESGUARDO": "Nazaret",
-        "PUEBLO": "Ticuna",
+        "resguardo": "Nazaret",
+        "pueblo": "Ticuna",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10009,
-        "RESGUARDO": "Mocagua, Macedonia, El Vergel Y Zaragoza",
-        "PUEBLO": "Ticuna",
+        "resguardo": "Mocagua, Macedonia, El Vergel Y Zaragoza",
+        "pueblo": "Ticuna",
         "DEPARTAMENTO": 91
     },
     {
         "ID_RESGUARDO": 10001,
-        "RESGUARDO": "Arara",
-        "PUEBLO": "Ticuna",
+        "resguardo": "Arara",
+        "pueblo": "Ticuna",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10015,
-        "RESGUARDO": "Ríos Cotuhé Y Putumayo",
-        "PUEBLO": "Ticuna",
+        "resguardo": "Ríos Cotuhé Y Putumayo",
+        "pueblo": "Ticuna",
         "DEPARTAMENTO": "Amazonas"
     },
     {
         "ID_RESGUARDO": 10007,
-        "RESGUARDO": "La Playa",
-        "PUEBLO": "Ticuna Y Cocama",
+        "resguardo": "La Playa",
+        "pueblo": "Ticuna Y Cocama",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10014,
-        "RESGUARDO": "Puerto Triunfo",
-        "PUEBLO": "Ticuna Y Cocama",
+        "resguardo": "Puerto Triunfo",
+        "pueblo": "Ticuna Y Cocama",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10019,
-        "RESGUARDO": "Santa Sofia Y El Progreso",
-        "PUEBLO": "Ticuna Yagua",
+        "resguardo": "Santa Sofia Y El Progreso",
+        "pueblo": "Ticuna Yagua",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10013,
-        "RESGUARDO": "Puerto Nariño (Tikoya)",
-        "PUEBLO": "Ticunacocamayagua",
+        "resguardo": "Puerto Nariño (Tikoya)",
+        "pueblo": "Ticunacocamayagua",
         "DEPARTAMENTO": "NARIÑO"
     },
     {
         "ID_RESGUARDO": 10411,
-        "RESGUARDO": "La Yuquera",
-        "PUEBLO": "Tucano",
+        "resguardo": "La Yuquera",
+        "pueblo": "Tucano",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10399,
-        "RESGUARDO": "Barranquillita",
-        "PUEBLO": "Tucano",
+        "resguardo": "Barranquillita",
+        "pueblo": "Tucano",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10409,
-        "RESGUARDO": "La Asuncion",
-        "PUEBLO": "Tucano Desano",
+        "resguardo": "La Asuncion",
+        "pueblo": "Tucano Desano",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10412,
-        "RESGUARDO": "Lagos Del Dorado Lagos Del Palo Y El Remanso",
-        "PUEBLO": "Tucano Y Otros",
+        "resguardo": "Lagos Del Dorado Lagos Del Palo Y El Remanso",
+        "pueblo": "Tucano Y Otros",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10742,
-        "RESGUARDO": "Arara, Bacati, Cararu, Lagos De Jamaicuru",
-        "PUEBLO": "Tucano Y Otros",
+        "resguardo": "Arara, Bacati, Cararu, Lagos De Jamaicuru",
+        "pueblo": "Tucano Y Otros",
         "DEPARTAMENTO": "VAUPES"
     },
     {
         "ID_RESGUARDO": 10417,
-        "RESGUARDO": "Puerto Nare",
-        "PUEBLO": "Tunacocubeowaneno",
+        "resguardo": "Puerto Nare",
+        "pueblo": "Tunacocubeowaneno",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10099,
-        "RESGUARDO": "Sabanas De Curipao",
-        "PUEBLO": "Tunebo",
+        "resguardo": "Sabanas De Curipao",
+        "pueblo": "Tunebo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10076,
-        "RESGUARDO": "Comunidad Tunebo De Angosturas",
-        "PUEBLO": "Tunebo",
+        "resguardo": "Comunidad Tunebo De Angosturas",
+        "pueblo": "Tunebo",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10096,
-        "RESGUARDO": "Playas De Bojaba",
-        "PUEBLO": "U´Wa",
+        "resguardo": "Playas De Bojaba",
+        "pueblo": "U´Wa",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10101,
-        "RESGUARDO": "Valles Del Sol",
-        "PUEBLO": "U´Wa",
+        "resguardo": "Valles Del Sol",
+        "pueblo": "U´Wa",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10081,
-        "RESGUARDO": "Cibariza",
-        "PUEBLO": "U´Wa",
+        "resguardo": "Cibariza",
+        "pueblo": "U´Wa",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10091,
-        "RESGUARDO": "Laguna Tranquila",
-        "PUEBLO": "U´Wa",
+        "resguardo": "Laguna Tranquila",
+        "pueblo": "U´Wa",
         "DEPARTAMENTO": "ARAUCA"
     },
     {
         "ID_RESGUARDO": 10102,
-        "RESGUARDO": "Resguardo Unido U´Wa Cubara De Tunebo",
-        "PUEBLO": "U´Wa",
+        "resguardo": "Resguardo Unido U´Wa Cubara De Tunebo",
+        "pueblo": "U´Wa",
         "DEPARTAMENTO": "BOYACA"
     },
     {
         "ID_RESGUARDO": 10547,
-        "RESGUARDO": "Kuitua",
-        "PUEBLO": "U´Wa",
+        "resguardo": "Kuitua",
+        "pueblo": "U´Wa",
         "DEPARTAMENTO": "NORTE DE SANTANDER"
     },
     {
         "ID_RESGUARDO": 10475,
-        "RESGUARDO": "Maguare",
-        "PUEBLO": "Uitoto, Tatuyo Y Bora",
+        "resguardo": "Maguare",
+        "pueblo": "Uitoto, Tatuyo Y Bora",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10020,
-        "RESGUARDO": "Uitiboc",
-        "PUEBLO": "Uitoto, Ticuna, Bora, Cocama, Ocaina, Ingano, Andoque",
+        "resguardo": "Uitiboc",
+        "pueblo": "Uitoto, Ticuna, Bora, Cocama, Ocaina, Ingano, Andoque",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10158,
-        "RESGUARDO": "Tunebo De Chaparral Y Barro Negro",
-        "PUEBLO": "Uwa (Tunebo)",
+        "resguardo": "Tunebo De Chaparral Y Barro Negro",
+        "pueblo": "Uwa (Tunebo)",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10381,
-        "RESGUARDO": "El Venado",
-        "PUEBLO": "Velasqueros",
+        "resguardo": "El Venado",
+        "pueblo": "Velasqueros",
         "DEPARTAMENTO": "GUAINIA"
     },
     {
         "ID_RESGUARDO": 10256,
-        "RESGUARDO": "Cabeceras O Puerto Pizario",
-        "PUEBLO": "Wanana",
+        "resguardo": "Cabeceras O Puerto Pizario",
+        "pueblo": "Wanana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10420,
-        "RESGUARDO": "Vuelta Del Alivio",
-        "PUEBLO": "Wananos",
+        "resguardo": "Vuelta Del Alivio",
+        "pueblo": "Wananos",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 10345,
-        "RESGUARDO": "Santa Maria De Pangala",
-        "PUEBLO": "Waunana",
+        "resguardo": "Santa Maria De Pangala",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10309,
-        "RESGUARDO": "Puado, La Lerma, Matare Y Terdo",
-        "PUEBLO": "Waunana",
+        "resguardo": "Puado, La Lerma, Matare Y Terdo",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10347,
-        "RESGUARDO": "Santa Rosa De Ijua",
-        "PUEBLO": "Waunana",
+        "resguardo": "Santa Rosa De Ijua",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10255,
-        "RESGUARDO": "Buenavista(Chocó)",
-        "PUEBLO": "Waunana",
+        "resguardo": "Buenavista(Chocó)",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10715,
-        "RESGUARDO": "Burujon",
-        "PUEBLO": "Waunana",
+        "resguardo": "Burujon",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10331,
-        "RESGUARDO": "Rio Taparal",
-        "PUEBLO": "Waunana",
+        "resguardo": "Rio Taparal",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10353,
-        "RESGUARDO": "Togorama",
-        "PUEBLO": "Waunana",
+        "resguardo": "Togorama",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10346,
-        "RESGUARDO": "Santa Marta De Curiche",
-        "PUEBLO": "Waunana",
+        "resguardo": "Santa Marta De Curiche",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10325,
-        "RESGUARDO": "Rio Orpua",
-        "PUEBLO": "Waunana",
+        "resguardo": "Rio Orpua",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10733,
-        "RESGUARDO": "Rio Dagua",
-        "PUEBLO": "Waunana",
+        "resguardo": "Rio Dagua",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10352,
-        "RESGUARDO": "Tiosilidio",
-        "PUEBLO": "Waunana",
+        "resguardo": "Tiosilidio",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10259,
-        "RESGUARDO": "Chagpien Tordo",
-        "PUEBLO": "Waunana",
+        "resguardo": "Chagpien Tordo",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": 27
     },
     {
         "ID_RESGUARDO": 10724,
-        "RESGUARDO": "Guayacan Santa Rosa",
-        "PUEBLO": "Waunana",
+        "resguardo": "Guayacan Santa Rosa",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10717,
-        "RESGUARDO": "Chachajo",
-        "PUEBLO": "Waunana",
+        "resguardo": "Chachajo",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "VALLE DEL CAUCA"
     },
     {
         "ID_RESGUARDO": 10361,
-        "RESGUARDO": "Papayo",
-        "PUEBLO": "Waunana",
+        "resguardo": "Papayo",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": 27
     },
     {
         "ID_RESGUARDO": 10266,
-        "RESGUARDO": "Docordo Balsalito ( 2 Lotes)",
-        "PUEBLO": "Waunana",
+        "resguardo": "Docordo Balsalito ( 2 Lotes)",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10288,
-        "RESGUARDO": "La Union Choco - San Cristobal",
-        "PUEBLO": "Waunana",
+        "resguardo": "La Union Choco - San Cristobal",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10328,
-        "RESGUARDO": "Rio Pichima",
-        "PUEBLO": "Waunana",
+        "resguardo": "Rio Pichima",
+        "pueblo": "Waunana",
         "DEPARTAMENTO": "CHOCÓ"
     },
     {
         "ID_RESGUARDO": 10457,
-        "RESGUARDO": "Una Apuchcon",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Una Apuchcon",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10459,
-        "RESGUARDO": "Wopomuin Junain Maikou",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Wopomuin Junain Maikou",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10445,
-        "RESGUARDO": "El Zahino Guayabito Muriaytuy",
-        "PUEBLO": "Wayuu",
+        "resguardo": "El Zahino Guayabito Muriaytuy",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10443,
-        "RESGUARDO": "Cuatro De Noviembre",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Cuatro De Noviembre",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10453,
-        "RESGUARDO": "Potrerito",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Potrerito",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10439,
-        "RESGUARDO": "Alta Y Media Guajira",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Alta Y Media Guajira",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10452,
-        "RESGUARDO": "Perratpu",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Perratpu",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10455,
-        "RESGUARDO": "San Francisco",
-        "PUEBLO": "Wayuu",
+        "resguardo": "San Francisco",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10447,
-        "RESGUARDO": "Lomamato",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Lomamato",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10458,
-        "RESGUARDO": "Wayuu Rodeito - El Pozo",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Wayuu Rodeito - El Pozo",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10451,
-        "RESGUARDO": "Okochi",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Okochi",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10454,
-        "RESGUARDO": "Provincial",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Provincial",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10442,
-        "RESGUARDO": "Cerrodeo",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Cerrodeo",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10444,
-        "RESGUARDO": "Comunidad Indigena Wayu El Soldado Parate Bien",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Comunidad Indigena Wayu El Soldado Parate Bien",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10446,
-        "RESGUARDO": "Las Delicias (La Guajira)",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Las Delicias (La Guajira)",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10450,
-        "RESGUARDO": "Monte Harmon",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Monte Harmon",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10441,
-        "RESGUARDO": "Cerro De Hatonuevo",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Cerro De Hatonuevo",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10456,
-        "RESGUARDO": "Trupiogacho Y La Meseta",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Trupiogacho Y La Meseta",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10460,
-        "RESGUARDO": "Nuevo Espinal",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Nuevo Espinal",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10461,
-        "RESGUARDO": "Alberto Pushaina",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Alberto Pushaina",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10440,
-        "RESGUARDO": "Caicemapa",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Caicemapa",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10449,
-        "RESGUARDO": "Mayabangloma",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Mayabangloma",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10448,
-        "RESGUARDO": "Mañature",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Mañature",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10921,
-        "RESGUARDO": "Tamaquito II",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Tamaquito II",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 12099,
-        "RESGUARDO": "Caña Brava",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Caña Brava",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10923,
-        "RESGUARDO": "Sumain Wayuú Uuliana",
-        "PUEBLO": "Wayuu",
+        "resguardo": "Sumain Wayuú Uuliana",
+        "pueblo": "Wayuu",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10937,
-        "RESGUARDO": "\"Numain Maleiwa (Tierra De Dios) (Integrado Por Kasiska-Ichitu-Patajatamana)",
-        "PUEBLO": "Wayúu",
+        "resguardo": "\"Numain Maleiwa (Tierra De Dios) (Integrado Por Kasiska-Ichitu-Patajatamana)",
+        "pueblo": "Wayúu",
         "DEPARTAMENTO": "LA GUAJIRA"
     },
     {
         "ID_RESGUARDO": 10939,
-        "RESGUARDO": "Nukat Maleiwua - Napajanain Maleiwa = Bendicion De Dios (Puipuren, Yawolia, Guanapaimana, Chichituy, Ujolmana, Warralalain, Jirrumana)",
-        "PUEBLO": "Wayúu",
+        "resguardo": "Nukat Maleiwua - Napajanain Maleiwa = Bendicion De Dios (Puipuren, Yawolia, Guanapaimana, Chichituy, Ujolmana, Warralalain, Jirrumana)",
+        "pueblo": "Wayúu",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10608,
-        "RESGUARDO": "Tukunare",
-        "PUEBLO": "Witoto",
+        "resguardo": "Tukunare",
+        "pueblo": "Witoto",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10584,
-        "RESGUARDO": "Huitoto De Jirijiri",
-        "PUEBLO": "Witoto",
+        "resguardo": "Huitoto De Jirijiri",
+        "pueblo": "Witoto",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10550,
-        "RESGUARDO": "Agua Negra (De Leguizamo)",
-        "PUEBLO": "WITOTO",
+        "resguardo": "Agua Negra (De Leguizamo)",
+        "pueblo": "WITOTO",
         "DEPARTAMENTO": "Cesar"
     },
     {
         "ID_RESGUARDO": 10021,
-        "RESGUARDO": "Predio Putumayo",
-        "PUEBLO": "Witoto",
+        "resguardo": "Predio Putumayo",
+        "pueblo": "Witoto",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10006,
-        "RESGUARDO": "Kilometro 6 Y 11 Carretera Leticia Tarapaca",
-        "PUEBLO": "Witototicuna",
+        "resguardo": "Kilometro 6 Y 11 Carretera Leticia Tarapaca",
+        "pueblo": "Witototicuna",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10233,
-        "RESGUARDO": "Campo Alegre",
-        "PUEBLO": "Wiwa Arzario",
+        "resguardo": "Campo Alegre",
+        "pueblo": "Wiwa Arzario",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 11658,
-        "RESGUARDO": "Cerrito Bongo",
-        "PUEBLO": "Wounaan",
+        "resguardo": "Cerrito Bongo",
+        "pueblo": "Wounaan",
         "DEPARTAMENTO": "META"
     },
     {
         "ID_RESGUARDO": 10782,
-        "RESGUARDO": "Tiitanho Nijaamu - La Libertad",
-        "PUEBLO": "Yagua",
+        "resguardo": "Tiitanho Nijaamu - La Libertad",
+        "pueblo": "Yagua",
         "DEPARTAMENTO": "CAQUETA"
     },
     {
         "ID_RESGUARDO": 10611,
-        "RESGUARDO": "Villa Maria De Anamu",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Villa Maria De Anamu",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10432,
-        "RESGUARDO": "Resguardo Rumiyaco",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Resguardo Rumiyaco",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10433,
-        "RESGUARDO": "San Agustin (Del Huila)",
-        "PUEBLO": "Yanacona",
+        "resguardo": "San Agustin (Del Huila)",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10173,
-        "RESGUARDO": "Guachicono",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Guachicono",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10170,
-        "RESGUARDO": "El Moral",
-        "PUEBLO": "Yanacona",
+        "resguardo": "El Moral",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10437,
-        "RESGUARDO": "El Rosal (Yanacona)",
-        "PUEBLO": "Yanacona",
+        "resguardo": "El Rosal (Yanacona)",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10436,
-        "RESGUARDO": "San Jose De Isnos",
-        "PUEBLO": "Yanacona",
+        "resguardo": "San Jose De Isnos",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "HUILA"
     },
     {
         "ID_RESGUARDO": 10171,
-        "RESGUARDO": "El Oso",
-        "PUEBLO": "Yanacona",
+        "resguardo": "El Oso",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10187,
-        "RESGUARDO": "San Juan",
-        "PUEBLO": "Yanacona",
+        "resguardo": "San Juan",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10207,
-        "RESGUARDO": "Papallaqta",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Papallaqta",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 11481,
-        "RESGUARDO": "Inti Yaku",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Inti Yaku",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": 41
     },
     {
         "ID_RESGUARDO": 10913,
-        "RESGUARDO": "Cabildo Intillagta \"Hijos del Sol\"",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Cabildo Intillagta \"Hijos del Sol\"",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "TOLIMA"
     },
     {
         "ID_RESGUARDO": 10875,
-        "RESGUARDO": "Frontino",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Frontino",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10874,
-        "RESGUARDO": "Puerta del Macizo",
-        "PUEBLO": "Yanacona",
+        "resguardo": "Puerta del Macizo",
+        "pueblo": "Yanacona",
         "DEPARTAMENTO": 41
     },
     {
         "ID_RESGUARDO": 10230,
-        "RESGUARDO": "Yanacona de Santa Marta",
-        "PUEBLO": "Yanakonas",
+        "resguardo": "Yanacona de Santa Marta",
+        "pueblo": "Yanakonas",
         "DEPARTAMENTO": "Antioquia"
     },
     {
         "ID_RESGUARDO": 10236,
-        "RESGUARDO": "Iroka",
-        "PUEBLO": "Yuco",
+        "resguardo": "Iroka",
+        "pueblo": "Yuco",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10240,
-        "RESGUARDO": "Socorpa",
-        "PUEBLO": "Yuco",
+        "resguardo": "Socorpa",
+        "pueblo": "Yuco",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10008,
-        "RESGUARDO": "Miriti Parana (La Pradera)",
-        "PUEBLO": "Yucuna Y Otros",
+        "resguardo": "Miriti Parana (La Pradera)",
+        "pueblo": "Yucuna Y Otros",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10003,
-        "RESGUARDO": "Comeyafu",
-        "PUEBLO": "Yucuna Y Otros",
+        "resguardo": "Comeyafu",
+        "pueblo": "Yucuna Y Otros",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10012,
-        "RESGUARDO": "Resguardo Indigena Puerto Córdoba",
-        "PUEBLO": "Yucuna Y Otros",
+        "resguardo": "Resguardo Indigena Puerto Córdoba",
+        "pueblo": "Yucuna Y Otros",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10004,
-        "RESGUARDO": "Curare Los Ingleses",
-        "PUEBLO": "Yucuna y Otros",
+        "resguardo": "Curare Los Ingleses",
+        "pueblo": "Yucuna y Otros",
         "DEPARTAMENTO": 99
     },
     {
         "ID_RESGUARDO": 10002,
-        "RESGUARDO": "Camaritagua",
-        "PUEBLO": "Yucuna, Miraña,Taminuca Y Otros",
+        "resguardo": "Camaritagua",
+        "pueblo": "Yucuna, Miraña,Taminuca Y Otros",
         "DEPARTAMENTO": "CASANARE"
     },
     {
         "ID_RESGUARDO": 10238,
-        "RESGUARDO": "Laguna - El Coso - Cinco Caminos",
-        "PUEBLO": "Yukpa",
+        "resguardo": "Laguna - El Coso - Cinco Caminos",
+        "pueblo": "Yukpa",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10234,
-        "RESGUARDO": "Caño Padilla",
-        "PUEBLO": "Yukpa",
+        "resguardo": "Caño Padilla",
+        "pueblo": "Yukpa",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10235,
-        "RESGUARDO": "El Rosario, Bellavista Y Yucatan",
-        "PUEBLO": "Yukpa",
+        "resguardo": "El Rosario, Bellavista Y Yucatan",
+        "pueblo": "Yukpa",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10239,
-        "RESGUARDO": "Menkue, Misaya La Pista",
-        "PUEBLO": "Yukpa",
+        "resguardo": "Menkue, Misaya La Pista",
+        "pueblo": "Yukpa",
         "DEPARTAMENTO": "CESAR"
     },
     {
         "ID_RESGUARDO": 10806,
-        "RESGUARDO": "Rio Alto De San Juan (Compuesto Por 3 Comunidades: Ebano Tacanal, El Polvillo Y Naranjal)",
-        "PUEBLO": "Zenú",
+        "resguardo": "Rio Alto De San Juan (Compuesto Por 3 Comunidades: Ebano Tacanal, El Polvillo Y Naranjal)",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "CORDOBA"
     },
     {
         "ID_RESGUARDO": 10061,
-        "RESGUARDO": "Zenu Del Volao",
-        "PUEBLO": "Zenú",
+        "resguardo": "Zenu Del Volao",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10366,
-        "RESGUARDO": "San Andres De Sotavento",
-        "PUEBLO": "Zenú",
+        "resguardo": "San Andres De Sotavento",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "CORDOBA"
     },
     {
         "ID_RESGUARDO": 10060,
-        "RESGUARDO": "Vegas De Segovia",
-        "PUEBLO": "Zenú",
+        "resguardo": "Vegas De Segovia",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10053,
-        "RESGUARDO": "Pablo Muera",
-        "PUEBLO": "Zenú",
+        "resguardo": "Pablo Muera",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10026,
-        "RESGUARDO": "Canime",
-        "PUEBLO": "Zenú",
+        "resguardo": "Canime",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10879,
-        "RESGUARDO": "Valle Del Sol \/ Comunidad Puerto Claver",
-        "PUEBLO": "Zenú",
+        "resguardo": "Valle Del Sol \/ Comunidad Puerto Claver",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10063,
-        "RESGUARDO": "Altos Del Tigre",
-        "PUEBLO": "Zenú",
+        "resguardo": "Altos Del Tigre",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10071,
-        "RESGUARDO": "Los Almendros",
-        "PUEBLO": "Zenú",
+        "resguardo": "Los Almendros",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10075,
-        "RESGUARDO": "Resguardo Indigena El Noventa",
-        "PUEBLO": "Zenú",
+        "resguardo": "Resguardo Indigena El Noventa",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10062,
-        "RESGUARDO": "Puerto Belgica",
-        "PUEBLO": "Zenú",
+        "resguardo": "Puerto Belgica",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10066,
-        "RESGUARDO": "La Lucha De Los Pueblos Zenu",
-        "PUEBLO": "Zenú",
+        "resguardo": "La Lucha De Los Pueblos Zenu",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10790,
-        "RESGUARDO": "San Antonio 2",
-        "PUEBLO": "Zenú",
+        "resguardo": "San Antonio 2",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "PUTUMAYO"
     },
     {
         "ID_RESGUARDO": 10792,
-        "RESGUARDO": "Omaga",
-        "PUEBLO": "Zenú",
+        "resguardo": "Omaga",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10787,
-        "RESGUARDO": "Zince La 18",
-        "PUEBLO": "Zenú",
+        "resguardo": "Zince La 18",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "CAUCA"
     },
     {
         "ID_RESGUARDO": 10805,
-        "RESGUARDO": "Leonardo Jose Campanario",
-        "PUEBLO": "Zenú",
+        "resguardo": "Leonardo Jose Campanario",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": 73
     },
     {
         "ID_RESGUARDO": 10795,
-        "RESGUARDO": "La Sardina",
-        "PUEBLO": "Zenú",
+        "resguardo": "La Sardina",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "AMAZONAS"
     },
     {
         "ID_RESGUARDO": 10896,
-        "RESGUARDO": "Zenu Muchajagua",
-        "PUEBLO": "Zenú",
+        "resguardo": "Zenu Muchajagua",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": 44
     },
     {
         "ID_RESGUARDO": 10047,
-        "RESGUARDO": "Los Almendros (El Bagre)",
-        "PUEBLO": "Zenú",
+        "resguardo": "Los Almendros (El Bagre)",
+        "pueblo": "Zenú",
         "DEPARTAMENTO": "ANTIOQUIA"
     },
     {
         "ID_RESGUARDO": 10407,
-        "RESGUARDO": "El Refugio",
-        "PUEBLO": "El Refugio",
+        "resguardo": "El Refugio",
+        "pueblo": "El Refugio",
         "DEPARTAMENTO": "GUAVIARE"
     },
     {
         "ID_RESGUARDO": 11090,
-        "RESGUARDO": "Resguardo Indígena Awá La Turbia",
-        "PUEBLO": "Resguardo Indígena Awá La Turbia",
+        "resguardo": "Resguardo Indígena Awá La Turbia",
+        "pueblo": "Resguardo Indígena Awá La Turbia",
         "DEPARTAMENTO": 86
     },
     {
         "ID_RESGUARDO": 10901,
-        "RESGUARDO": "Resguardo Indígena Mhuysqa Chuta Fa Aba \"Los Hijos Del Maiz\"",
-        "PUEBLO": "Resguardo Indígena Mhuysqa Chuta Fa Aba \"Los Hijos Del Maiz\"",
+        "resguardo": "Resguardo Indígena Mhuysqa Chuta Fa Aba \"Los Hijos Del Maiz\"",
+        "pueblo": "Resguardo Indígena Mhuysqa Chuta Fa Aba \"Los Hijos Del Maiz\"",
         "DEPARTAMENTO": 25
     },
     {
         "ID_RESGUARDO": 10144,
-        "RESGUARDO": "San Pablo El Para",
-        "PUEBLO": "San Pablo El Para",
+        "resguardo": "San Pablo El Para",
+        "pueblo": "San Pablo El Para",
         "DEPARTAMENTO": "CAQUETA"
     }
 ]
