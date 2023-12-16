@@ -1,0 +1,6002 @@
+[
+    {
+        "departamento": "Amazonas",
+        "municipio": "Leticia",
+        "latitud": "-4.1984",
+        "longitud": "-69.9415"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "El Encanto",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "La Chorrera",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "La Pedrera",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "La Victoria",
+        "latitud": "5.5237",
+        "longitud": "-74.2343"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "Puerto Arica",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "Puerto Nariño",
+        "latitud": "-3.7804",
+        "longitud": "-70.3645"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "Puerto Santander",
+        "latitud": "8.3609",
+        "longitud": "-72.4103"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "Tarapacá",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "Puerto Alegría",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Amazonas",
+        "municipio": "Miriti Paraná",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Medellín",
+        "latitud": "6.2485",
+        "longitud": "-75.5760"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Abejorral",
+        "latitud": "5.7893",
+        "longitud": "-75.4287"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Abriaquí",
+        "latitud": "6.6322",
+        "longitud": "-76.0642"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Alejandría",
+        "latitud": "6.3760",
+        "longitud": "-75.1413"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Amagá",
+        "latitud": "6.0388",
+        "longitud": "-75.7019"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Amalfi",
+        "latitud": "6.9096",
+        "longitud": "-75.0774"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Andes",
+        "latitud": "5.6567",
+        "longitud": "-75.8787"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Angelópolis",
+        "latitud": "6.1096",
+        "longitud": "-75.7113"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Angostura",
+        "latitud": "6.8851",
+        "longitud": "-75.3351"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Anorí",
+        "latitud": "7.0747",
+        "longitud": "-75.1483"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Anza",
+        "latitud": "6.3026",
+        "longitud": "-75.8544"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Apartadó",
+        "latitud": "7.8832",
+        "longitud": "-76.6258"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Arboletes",
+        "latitud": "8.8499",
+        "longitud": "-76.4266"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Argelia",
+        "latitud": "5.7314",
+        "longitud": "-75.1410"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Armenia",
+        "latitud": "6.1556",
+        "longitud": "-75.7866"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Barbosa",
+        "latitud": "6.4392",
+        "longitud": "-75.3316"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Bello",
+        "latitud": "6.3340",
+        "longitud": "-75.5546"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Betania",
+        "latitud": "5.7461",
+        "longitud": "-75.9767"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Betulia",
+        "latitud": "6.1152",
+        "longitud": "-75.9845"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Ciudad Bolívar",
+        "latitud": "5.8502",
+        "longitud": "-76.0215"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Briceño",
+        "latitud": "7.1128",
+        "longitud": "-75.5503"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Buriticá",
+        "latitud": "6.7206",
+        "longitud": "-75.9070"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Cáceres",
+        "latitud": "7.5783",
+        "longitud": "-75.3523"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Caicedo",
+        "latitud": "6.4055",
+        "longitud": "-75.9828"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Caldas",
+        "latitud": "6.0912",
+        "longitud": "-75.6336"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Campamento",
+        "latitud": "6.9797",
+        "longitud": "-75.2980"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Cañasgordas",
+        "latitud": "6.7538",
+        "longitud": "-76.0282"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Caracolí",
+        "latitud": "6.4098",
+        "longitud": "-74.7574"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Caramanta",
+        "latitud": "5.5485",
+        "longitud": "-75.6438"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Carepa",
+        "latitud": "7.7551",
+        "longitud": "-76.6532"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Carolina",
+        "latitud": "6.7259",
+        "longitud": "-75.2831"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Caucasia",
+        "latitud": "7.9773",
+        "longitud": "-75.1982"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Chigorodó",
+        "latitud": "7.6663",
+        "longitud": "-76.6812"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Cisneros",
+        "latitud": "6.5377",
+        "longitud": "-75.0872"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Cocorná",
+        "latitud": "6.0583",
+        "longitud": "-75.1854"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Concepción",
+        "latitud": "6.3943",
+        "longitud": "-75.2576"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Concordia",
+        "latitud": "6.0460",
+        "longitud": "-75.9084"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Copacabana",
+        "latitud": "6.3486",
+        "longitud": "-75.5093"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Dabeiba",
+        "latitud": "6.9981",
+        "longitud": "-76.2616"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Don Matías",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Ebéjico",
+        "latitud": "6.3260",
+        "longitud": "-75.7662"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "El Bagre",
+        "latitud": "7.5975",
+        "longitud": "-74.7990"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Entrerrios",
+        "latitud": "6.5664",
+        "longitud": "-75.5178"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Envigado",
+        "latitud": "6.1670",
+        "longitud": "-75.5830"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Fredonia",
+        "latitud": "5.9280",
+        "longitud": "-75.6750"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Giraldo",
+        "latitud": "6.6808",
+        "longitud": "-75.9521"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Girardota",
+        "latitud": "6.3796",
+        "longitud": "-75.4444"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Gómez Plata",
+        "latitud": "6.6832",
+        "longitud": "-75.2200"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Guadalupe",
+        "latitud": "6.8150",
+        "longitud": "-75.2398"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Guarne",
+        "latitud": "6.2780",
+        "longitud": "-75.4416"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Guatapé",
+        "latitud": "6.2324",
+        "longitud": "-75.1600"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Heliconia",
+        "latitud": "6.2067",
+        "longitud": "-75.7343"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Hispania",
+        "latitud": "5.7994",
+        "longitud": "-75.9065"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Itagui",
+        "latitud": "6.1749",
+        "longitud": "-75.6120"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Ituango",
+        "latitud": "7.1716",
+        "longitud": "-75.7646"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Belmira",
+        "latitud": "6.6061",
+        "longitud": "-75.6673"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Jericó",
+        "latitud": "5.7897",
+        "longitud": "-75.7855"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "La Ceja",
+        "latitud": "6.0280",
+        "longitud": "-75.4294"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "La Estrella",
+        "latitud": "6.1584",
+        "longitud": "-75.6451"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "La Pintada",
+        "latitud": "5.7438",
+        "longitud": "-75.6078"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "La Unión",
+        "latitud": "5.9738",
+        "longitud": "-75.3608"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Liborina",
+        "latitud": "6.6773",
+        "longitud": "-75.8128"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Maceo",
+        "latitud": "6.5521",
+        "longitud": "-74.7871"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Marinilla",
+        "latitud": "6.1740",
+        "longitud": "-75.3394"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Montebello",
+        "latitud": "5.9463",
+        "longitud": "-75.5235"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Murindó",
+        "latitud": "6.9776",
+        "longitud": "-76.8174"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Mutatá",
+        "latitud": "7.2428",
+        "longitud": "-76.4358"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Nariño",
+        "latitud": "5.6107",
+        "longitud": "-75.1762"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Necoclí",
+        "latitud": "8.4261",
+        "longitud": "-76.7845"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Nechí",
+        "latitud": "8.0941",
+        "longitud": "-74.7764"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Olaya",
+        "latitud": "6.6266",
+        "longitud": "-75.8118"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Peñol",
+        "latitud": "6.2194",
+        "longitud": "-75.2428"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Peque",
+        "latitud": "7.0210",
+        "longitud": "-75.9103"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Pueblorrico",
+        "latitud": "5.7916",
+        "longitud": "-75.8397"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Puerto Berrío",
+        "latitud": "6.4870",
+        "longitud": "-74.4099"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Puerto Nare",
+        "latitud": "6.1860",
+        "longitud": "-74.5830"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Puerto Triunfo",
+        "latitud": "5.8712",
+        "longitud": "-74.6412"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Remedios",
+        "latitud": "7.0293",
+        "longitud": "-74.6980"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Retiro",
+        "latitud": "6.0633",
+        "longitud": "-75.5013"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Rionegro",
+        "latitud": "6.1472",
+        "longitud": "-75.3767"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Sabanalarga",
+        "latitud": "6.8500",
+        "longitud": "-75.8166"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Sabaneta",
+        "latitud": "6.1509",
+        "longitud": "-75.6155"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Salgar",
+        "latitud": "5.9656",
+        "longitud": "-75.9820"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Francisco",
+        "latitud": "5.9636",
+        "longitud": "-75.1015"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Jerónimo",
+        "latitud": "6.4480",
+        "longitud": "-75.7270"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Luis",
+        "latitud": "6.0429",
+        "longitud": "-74.9936"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Pedro",
+        "latitud": "9.3959",
+        "longitud": "-75.0634"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Rafael",
+        "latitud": "6.2937",
+        "longitud": "-75.0279"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Roque",
+        "latitud": "6.4859",
+        "longitud": "-75.0191"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Vicente",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Santa Bárbara",
+        "latitud": "5.8755",
+        "longitud": "-75.5673"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Santo Domingo",
+        "latitud": "6.4728",
+        "longitud": "-75.1649"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "El Santuario",
+        "latitud": "6.1368",
+        "longitud": "-75.2654"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Segovia",
+        "latitud": "7.0796",
+        "longitud": "-74.7015"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Sopetrán",
+        "latitud": "6.5009",
+        "longitud": "-75.7472"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Támesis",
+        "latitud": "5.6644",
+        "longitud": "-75.7143"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Tarazá",
+        "latitud": "7.5801",
+        "longitud": "-75.4014"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Tarso",
+        "latitud": "5.8645",
+        "longitud": "-75.8229"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Titiribí",
+        "latitud": "6.0623",
+        "longitud": "-75.7918"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Toledo",
+        "latitud": "7.0101",
+        "longitud": "-75.6914"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Turbo",
+        "latitud": "8.0891",
+        "longitud": "-76.7291"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Uramita",
+        "latitud": "6.8984",
+        "longitud": "-76.1734"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Urrao",
+        "latitud": "6.3173",
+        "longitud": "-76.1339"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Valdivia",
+        "latitud": "7.1653",
+        "longitud": "-75.4391"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Valparaíso",
+        "latitud": "5.6145",
+        "longitud": "-75.6244"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Vegachí",
+        "latitud": "6.7734",
+        "longitud": "-74.7987"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Venecia",
+        "latitud": "5.9647",
+        "longitud": "-75.7355"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Yalí",
+        "latitud": "6.6765",
+        "longitud": "-74.8400"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Yarumal",
+        "latitud": "6.9638",
+        "longitud": "-75.4188"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Yolombó",
+        "latitud": "6.5945",
+        "longitud": "-75.0133"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Yondó",
+        "latitud": "7.0039",
+        "longitud": "-73.9124"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Zaragoza",
+        "latitud": "7.4885",
+        "longitud": "-74.8670"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Pedro de Uraba",
+        "latitud": "8.2768",
+        "longitud": "-76.3805"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Santafé de Antioquia",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Santa Rosa de Osos",
+        "latitud": "6.6433",
+        "longitud": "-75.4607"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Andrés de Cuerquía",
+        "latitud": "6.9168",
+        "longitud": "-75.6747"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Vigía del Fuerte",
+        "latitud": "6.5881",
+        "longitud": "-76.8961"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San José de La Montaña",
+        "latitud": "6.8500",
+        "longitud": "-75.6833"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Juan de Urabá",
+        "latitud": "8.7593",
+        "longitud": "-76.5288"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "El Carmen de Viboral",
+        "latitud": "6.0834",
+        "longitud": "-75.3342"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "San Carlos",
+        "latitud": "6.1879",
+        "longitud": "-74.9879"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Frontino",
+        "latitud": "6.7760",
+        "longitud": "-76.1307"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Granada",
+        "latitud": "6.1429",
+        "longitud": "-75.1844"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Jardín",
+        "latitud": "5.5975",
+        "longitud": "-75.8189"
+    },
+    {
+        "departamento": "Antioquia",
+        "municipio": "Sonsón",
+        "latitud": "5.7148",
+        "longitud": "-75.3093"
+    },
+    {
+        "departamento": "Arauca",
+        "municipio": "Arauquita",
+        "latitud": "7.0269",
+        "longitud": "-71.4267"
+    },
+    {
+        "departamento": "Arauca",
+        "municipio": "Cravo Norte",
+        "latitud": "6.3034",
+        "longitud": "-70.2035"
+    },
+    {
+        "departamento": "Arauca",
+        "municipio": "Fortul",
+        "latitud": "6.7970",
+        "longitud": "-71.7685"
+    },
+    {
+        "departamento": "Arauca",
+        "municipio": "Puerto Rondón",
+        "latitud": "6.2814",
+        "longitud": "-71.1033"
+    },
+    {
+        "departamento": "Arauca",
+        "municipio": "Saravena",
+        "latitud": "6.9538",
+        "longitud": "-71.8723"
+    },
+    {
+        "departamento": "Arauca",
+        "municipio": "Tame",
+        "latitud": "6.4534",
+        "longitud": "-71.7537"
+    },
+    {
+        "departamento": "Arauca",
+        "municipio": "Arauca",
+        "latitud": "7.0739",
+        "longitud": "-70.7480"
+    },
+    {
+        "departamento": "Archipiélago de San Andrés, Providencia y Santa Catalina",
+        "municipio": "Providencia",
+        "latitud": "1.2376",
+        "longitud": "-77.5965"
+    },
+    {
+        "departamento": "Archipiélago de San Andrés, Providencia y Santa Catalina",
+        "municipio": "San Andrés",
+        "latitud": "6.8115",
+        "longitud": "-72.8489"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Barranquilla",
+        "latitud": "10.9783",
+        "longitud": "-74.8132"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Baranoa",
+        "latitud": "10.7948",
+        "longitud": "-74.9161"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Candelaria",
+        "latitud": "10.4612",
+        "longitud": "-74.8799"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Galapa",
+        "latitud": "10.9191",
+        "longitud": "-74.8703"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Luruaco",
+        "latitud": "10.6111",
+        "longitud": "-75.1422"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Malambo",
+        "latitud": "10.8568",
+        "longitud": "-74.7748"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Manatí",
+        "latitud": "10.4489",
+        "longitud": "-74.9570"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Piojó",
+        "latitud": "10.7493",
+        "longitud": "-75.1074"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Polonuevo",
+        "latitud": "10.7771",
+        "longitud": "-74.8531"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Sabanagrande",
+        "latitud": "10.7910",
+        "longitud": "-74.7585"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Sabanalarga",
+        "latitud": "6.8500",
+        "longitud": "-75.8166"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Santa Lucía",
+        "latitud": "10.3243",
+        "longitud": "-74.9592"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Santo Tomás",
+        "latitud": "10.7587",
+        "longitud": "-74.7577"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Soledad",
+        "latitud": "10.9101",
+        "longitud": "-74.7848"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Suan",
+        "latitud": "10.3354",
+        "longitud": "-74.8816"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Tubará",
+        "latitud": "10.8736",
+        "longitud": "-74.9786"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Usiacurí",
+        "latitud": "10.7429",
+        "longitud": "-74.9769"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Juan de Acosta",
+        "latitud": "10.8323",
+        "longitud": "-75.0406"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Palmar de Varela",
+        "latitud": "10.7385",
+        "longitud": "-74.7547"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Campo de La Cruz",
+        "latitud": "10.3782",
+        "longitud": "-74.8808"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Repelón",
+        "latitud": "10.4933",
+        "longitud": "-75.1254"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Puerto Colombia",
+        "latitud": "11.0229",
+        "longitud": "-74.8519"
+    },
+    {
+        "departamento": "Atlántico",
+        "municipio": "Ponedera",
+        "latitud": "10.6417",
+        "longitud": "-74.7539"
+    },
+    {
+        "departamento": "Bogotá D.C.",
+        "municipio": "Bogotá D.C.",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Achí",
+        "latitud": "8.5694",
+        "longitud": "-74.5575"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Arenal",
+        "latitud": "8.4586",
+        "longitud": "-73.9411"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Arjona",
+        "latitud": "10.2566",
+        "longitud": "-75.3444"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Arroyohondo",
+        "latitud": "10.2500",
+        "longitud": "-75.0192"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Calamar",
+        "latitud": "10.2503",
+        "longitud": "-74.9161"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Cantagallo",
+        "latitud": "7.3783",
+        "longitud": "-73.9146"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Cicuco",
+        "latitud": "9.2745",
+        "longitud": "-74.6455"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Córdoba",
+        "latitud": "9.5869",
+        "longitud": "-74.8274"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Clemencia",
+        "latitud": "10.5675",
+        "longitud": "-75.3285"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "El Guamo",
+        "latitud": "10.0309",
+        "longitud": "-74.9761"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Magangué",
+        "latitud": "9.2638",
+        "longitud": "-74.7667"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Mahates",
+        "latitud": "10.2332",
+        "longitud": "-75.1913"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Margarita",
+        "latitud": "9.1555",
+        "longitud": "-74.2809"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Montecristo",
+        "latitud": "8.2972",
+        "longitud": "-74.4714"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Mompós",
+        "latitud": "9.2438",
+        "longitud": "-74.4278"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Morales",
+        "latitud": "8.2763",
+        "longitud": "-73.8681"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Norosí",
+        "latitud": "8.5259",
+        "longitud": "-74.0380"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Pinillos",
+        "latitud": "8.9154",
+        "longitud": "-74.4624"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Regidor",
+        "latitud": "8.6662",
+        "longitud": "-73.8216"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Río Viejo",
+        "latitud": "8.5876",
+        "longitud": "-73.8399"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Estanislao",
+        "latitud": "10.3984",
+        "longitud": "-75.1532"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Fernando",
+        "latitud": "9.2141",
+        "longitud": "-74.3238"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Juan Nepomuceno",
+        "latitud": "9.9534",
+        "longitud": "-75.0813"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Santa Catalina",
+        "latitud": "10.6050",
+        "longitud": "-75.2877"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Santa Rosa",
+        "latitud": "10.4443",
+        "longitud": "-75.3698"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Simití",
+        "latitud": "7.9544",
+        "longitud": "-73.9467"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Soplaviento",
+        "latitud": "10.3884",
+        "longitud": "-75.1364"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Talaigua Nuevo",
+        "latitud": "9.3040",
+        "longitud": "-74.5674"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Tiquisio",
+        "latitud": "8.5577",
+        "longitud": "-74.2635"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Turbaco",
+        "latitud": "10.3327",
+        "longitud": "-75.4244"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Turbaná",
+        "latitud": "10.2744",
+        "longitud": "-75.4425"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Villanueva",
+        "latitud": "10.4443",
+        "longitud": "-75.2751"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Barranco de Loba",
+        "latitud": "8.9477",
+        "longitud": "-74.1052"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Santa Rosa del Sur",
+        "latitud": "7.9628",
+        "longitud": "-74.0518"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Hatillo de Loba",
+        "latitud": "8.9556",
+        "longitud": "-74.0783"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "El Carmen de Bolívar",
+        "latitud": "9.7186",
+        "longitud": "-75.1212"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Martín de Loba",
+        "latitud": "8.9370",
+        "longitud": "-74.0390"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Altos del Rosario",
+        "latitud": "8.7916",
+        "longitud": "-74.1650"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Jacinto del Cauca",
+        "latitud": "8.2517",
+        "longitud": "-74.7208"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Pablo de Borbur",
+        "latitud": "5.6506",
+        "longitud": "-74.0699"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Jacinto",
+        "latitud": "9.8302",
+        "longitud": "-75.1210"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "El Peñón",
+        "latitud": "8.9882",
+        "longitud": "-73.9494"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Cartagena",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "María la Baja",
+        "latitud": "9.9826",
+        "longitud": "-75.3007"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "San Cristóbal",
+        "latitud": "10.3928",
+        "longitud": "-75.0655"
+    },
+    {
+        "departamento": "Bolívar",
+        "municipio": "Zambrano",
+        "latitud": "9.7462",
+        "longitud": "-74.8180"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tununguá",
+        "latitud": "5.7305",
+        "longitud": "-73.9331"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Motavita",
+        "latitud": "5.5777",
+        "longitud": "-73.3678"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Ciénega",
+        "latitud": "5.4087",
+        "longitud": "-73.2960"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tunja",
+        "latitud": "5.5399",
+        "longitud": "-73.3554"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Almeida",
+        "latitud": "4.9708",
+        "longitud": "-73.3789"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Aquitania",
+        "latitud": "5.5186",
+        "longitud": "-72.8839"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Arcabuco",
+        "latitud": "5.7554",
+        "longitud": "-73.4375"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Berbeo",
+        "latitud": "5.2272",
+        "longitud": "-73.1270"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Betéitiva",
+        "latitud": "5.9099",
+        "longitud": "-72.8090"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Boavita",
+        "latitud": "6.3306",
+        "longitud": "-72.5849"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Boyacá",
+        "latitud": "5.4542",
+        "longitud": "-73.3623"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Briceño",
+        "latitud": "7.1128",
+        "longitud": "-75.5503"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Buena Vista",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Busbanzá",
+        "latitud": "5.8313",
+        "longitud": "-72.8841"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Caldas",
+        "latitud": "6.0912",
+        "longitud": "-75.6336"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Campohermoso",
+        "latitud": "5.0316",
+        "longitud": "-73.1041"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Cerinza",
+        "latitud": "5.9560",
+        "longitud": "-72.9482"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chinavita",
+        "latitud": "5.1674",
+        "longitud": "-73.3684"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chiquinquirá",
+        "latitud": "5.6141",
+        "longitud": "-73.8183"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chiscas",
+        "latitud": "6.5534",
+        "longitud": "-72.5016"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chita",
+        "latitud": "6.1870",
+        "longitud": "-72.4718"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chitaraque",
+        "latitud": "6.0274",
+        "longitud": "-73.4471"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chivatá",
+        "latitud": "5.5589",
+        "longitud": "-73.2825"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Cómbita",
+        "latitud": "5.6345",
+        "longitud": "-73.3239"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Coper",
+        "latitud": "5.4749",
+        "longitud": "-74.0454"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Corrales",
+        "latitud": "5.8281",
+        "longitud": "-72.8447"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Covarachía",
+        "latitud": "6.5001",
+        "longitud": "-72.7389"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Cubará",
+        "latitud": "6.9972",
+        "longitud": "-72.1079"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Cucaita",
+        "latitud": "5.5444",
+        "longitud": "-73.4543"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Cuítiva",
+        "latitud": "5.5803",
+        "longitud": "-72.9659"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chíquiza",
+        "latitud": "5.6054",
+        "longitud": "-73.4851"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Chivor",
+        "latitud": "4.8877",
+        "longitud": "-73.3668"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Duitama",
+        "latitud": "5.8229",
+        "longitud": "-73.0306"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "El Cocuy",
+        "latitud": "6.4077",
+        "longitud": "-72.4447"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "El Espino",
+        "latitud": "6.4830",
+        "longitud": "-72.4970"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Firavitoba",
+        "latitud": "5.6689",
+        "longitud": "-72.9933"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Floresta",
+        "latitud": "5.8595",
+        "longitud": "-72.9181"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Gachantivá",
+        "latitud": "5.7518",
+        "longitud": "-73.5490"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Gameza",
+        "latitud": "5.8023",
+        "longitud": "-72.8055"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Garagoa",
+        "latitud": "5.0832",
+        "longitud": "-73.3644"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Guacamayas",
+        "latitud": "6.4596",
+        "longitud": "-72.5008"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Guateque",
+        "latitud": "5.0073",
+        "longitud": "-73.4712"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Guayatá",
+        "latitud": "4.9671",
+        "longitud": "-73.4896"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Güicán",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Iza",
+        "latitud": "5.6115",
+        "longitud": "-72.9795"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Jenesano",
+        "latitud": "5.3857",
+        "longitud": "-73.3638"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Jericó",
+        "latitud": "5.7897",
+        "longitud": "-75.7855"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Labranzagrande",
+        "latitud": "5.5626",
+        "longitud": "-72.5777"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "La Capilla",
+        "latitud": "5.0956",
+        "longitud": "-73.4443"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "La Victoria",
+        "latitud": "5.5237",
+        "longitud": "-74.2343"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Macanal",
+        "latitud": "4.9724",
+        "longitud": "-73.3196"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Maripí",
+        "latitud": "5.5500",
+        "longitud": "-74.0040"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Miraflores",
+        "latitud": "5.1965",
+        "longitud": "-73.1456"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Mongua",
+        "latitud": "5.7542",
+        "longitud": "-72.7981"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Monguí",
+        "latitud": "5.7234",
+        "longitud": "-72.8492"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Moniquirá",
+        "latitud": "5.8763",
+        "longitud": "-73.5733"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Muzo",
+        "latitud": "5.5324",
+        "longitud": "-74.1027"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Nobsa",
+        "latitud": "5.7710",
+        "longitud": "-72.9398"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Nuevo Colón",
+        "latitud": "5.3551",
+        "longitud": "-73.4571"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Oicatá",
+        "latitud": "5.5952",
+        "longitud": "-73.3084"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Otanche",
+        "latitud": "5.6575",
+        "longitud": "-74.1809"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Pachavita",
+        "latitud": "5.1400",
+        "longitud": "-73.3969"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Páez",
+        "latitud": "5.0978",
+        "longitud": "-73.0525"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Paipa",
+        "latitud": "5.7799",
+        "longitud": "-73.1179"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Pajarito",
+        "latitud": "5.2936",
+        "longitud": "-72.7032"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Panqueba",
+        "latitud": "6.4430",
+        "longitud": "-72.4592"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Pauna",
+        "latitud": "5.6563",
+        "longitud": "-73.9784"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Paya",
+        "latitud": "5.6257",
+        "longitud": "-72.4237"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Pesca",
+        "latitud": "5.5588",
+        "longitud": "-73.0508"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Pisba",
+        "latitud": "5.7216",
+        "longitud": "-72.4859"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Puerto Boyacá",
+        "latitud": "5.9766",
+        "longitud": "-74.5877"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Quípama",
+        "latitud": "5.5205",
+        "longitud": "-74.1800"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Ramiriquí",
+        "latitud": "5.4002",
+        "longitud": "-73.3348"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Ráquira",
+        "latitud": "5.5390",
+        "longitud": "-73.6325"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Rondón",
+        "latitud": "5.3574",
+        "longitud": "-73.2084"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Saboyá",
+        "latitud": "5.6977",
+        "longitud": "-73.7646"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sáchica",
+        "latitud": "5.5835",
+        "longitud": "-73.5426"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Samacá",
+        "latitud": "5.4923",
+        "longitud": "-73.4856"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "San Eduardo",
+        "latitud": "5.2240",
+        "longitud": "-73.0777"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "San Mateo",
+        "latitud": "6.4016",
+        "longitud": "-72.5552"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Santana",
+        "latitud": "6.0574",
+        "longitud": "-73.4812"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Santa María",
+        "latitud": "4.8571",
+        "longitud": "-73.2635"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Santa Sofía",
+        "latitud": "5.7132",
+        "longitud": "-73.6027"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sativanorte",
+        "latitud": "6.1311",
+        "longitud": "-72.7084"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sativasur",
+        "latitud": "6.0931",
+        "longitud": "-72.7124"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Siachoque",
+        "latitud": "5.5118",
+        "longitud": "-73.2446"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Soatá",
+        "latitud": "6.3319",
+        "longitud": "-72.6840"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Socotá",
+        "latitud": "6.0411",
+        "longitud": "-72.6366"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Socha",
+        "latitud": "5.9967",
+        "longitud": "-72.6919"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sogamoso",
+        "latitud": "5.7256",
+        "longitud": "-72.9230"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Somondoco",
+        "latitud": "4.9857",
+        "longitud": "-73.4333"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sora",
+        "latitud": "5.5668",
+        "longitud": "-73.4501"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sotaquirá",
+        "latitud": "5.7649",
+        "longitud": "-73.2465"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Soracá",
+        "latitud": "5.5009",
+        "longitud": "-73.3328"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Susacón",
+        "latitud": "6.2303",
+        "longitud": "-72.6902"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sutamarchán",
+        "latitud": "5.6197",
+        "longitud": "-73.6205"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Sutatenza",
+        "latitud": "5.0229",
+        "longitud": "-73.4523"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tasco",
+        "latitud": "5.9098",
+        "longitud": "-72.7810"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tenza",
+        "latitud": "5.0767",
+        "longitud": "-73.4211"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tibaná",
+        "latitud": "5.3172",
+        "longitud": "-73.3964"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tinjacá",
+        "latitud": "5.5797",
+        "longitud": "-73.6468"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tipacoque",
+        "latitud": "6.4185",
+        "longitud": "-72.6931"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Toca",
+        "latitud": "5.5664",
+        "longitud": "-73.1847"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tópaga",
+        "latitud": "5.7681",
+        "longitud": "-72.8322"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tota",
+        "latitud": "5.5605",
+        "longitud": "-72.9858"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Turmequé",
+        "latitud": "5.3232",
+        "longitud": "-73.4918"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tutazá",
+        "latitud": "6.0326",
+        "longitud": "-72.8560"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Umbita",
+        "latitud": "5.2211",
+        "longitud": "-73.4569"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Ventaquemada",
+        "latitud": "5.3688",
+        "longitud": "-73.5224"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Viracachá",
+        "latitud": "5.4367",
+        "longitud": "-73.2969"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Zetaquira",
+        "latitud": "5.2834",
+        "longitud": "-73.1709"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Togüí",
+        "latitud": "5.9374",
+        "longitud": "-73.5136"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Villa de Leyva",
+        "latitud": "5.6326",
+        "longitud": "-73.5246"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Paz de Río",
+        "latitud": "5.9876",
+        "longitud": "-72.7491"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Santa Rosa de Viterbo",
+        "latitud": "5.8745",
+        "longitud": "-72.9824"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "San Pablo de Borbur",
+        "latitud": "5.6506",
+        "longitud": "-74.0699"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "San Luis de Gaceno",
+        "latitud": "4.8196",
+        "longitud": "-73.1683"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "San José de Pare",
+        "latitud": "6.0189",
+        "longitud": "-73.5453"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "San Miguel de Sema",
+        "latitud": "5.5180",
+        "longitud": "-73.7220"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tuta",
+        "latitud": "5.6888",
+        "longitud": "-73.2308"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Tibasosa",
+        "latitud": "5.7472",
+        "longitud": "-72.9994"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "La Uvita",
+        "latitud": "6.3162",
+        "longitud": "-72.5599"
+    },
+    {
+        "departamento": "Boyacá",
+        "municipio": "Belén",
+        "latitud": "5.9892",
+        "longitud": "-72.9116"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Manizales",
+        "latitud": "5.0576",
+        "longitud": "-75.4910"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Aguadas",
+        "latitud": "5.6102",
+        "longitud": "-75.4548"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Anserma",
+        "latitud": "5.2364",
+        "longitud": "-75.7843"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Aranzazu",
+        "latitud": "5.2711",
+        "longitud": "-75.4912"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Belalcázar",
+        "latitud": "4.9938",
+        "longitud": "-75.8119"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Chinchiná",
+        "latitud": "4.9858",
+        "longitud": "-75.6074"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Filadelfia",
+        "latitud": "5.2970",
+        "longitud": "-75.5624"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "La Dorada",
+        "latitud": "5.4604",
+        "longitud": "-74.6684"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "La Merced",
+        "latitud": "5.3963",
+        "longitud": "-75.5465"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Manzanares",
+        "latitud": "5.2557",
+        "longitud": "-75.1528"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Marmato",
+        "latitud": "5.4740",
+        "longitud": "-75.6002"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Marulanda",
+        "latitud": "5.2843",
+        "longitud": "-75.2594"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Neira",
+        "latitud": "5.1667",
+        "longitud": "-75.5198"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Norcasia",
+        "latitud": "5.5747",
+        "longitud": "-74.8895"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Pácora",
+        "latitud": "5.5271",
+        "longitud": "-75.4596"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Palestina",
+        "latitud": "5.0178",
+        "longitud": "-75.6244"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Pensilvania",
+        "latitud": "5.3832",
+        "longitud": "-75.1603"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Riosucio",
+        "latitud": "5.4236",
+        "longitud": "-75.7020"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Risaralda",
+        "latitud": "5.1641",
+        "longitud": "-75.7672"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Salamina",
+        "latitud": "5.4030",
+        "longitud": "-75.4872"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Samaná",
+        "latitud": "5.4130",
+        "longitud": "-74.9922"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "San José",
+        "latitud": "5.0823",
+        "longitud": "-75.7920"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Supía",
+        "latitud": "5.4468",
+        "longitud": "-75.6496"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Victoria",
+        "latitud": "5.3174",
+        "longitud": "-74.9111"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Villamaría",
+        "latitud": "5.0438",
+        "longitud": "-75.5137"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Viterbo",
+        "latitud": "5.0626",
+        "longitud": "-75.8706"
+    },
+    {
+        "departamento": "Caldas",
+        "municipio": "Marquetalia",
+        "latitud": "5.2975",
+        "longitud": "-75.0530"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Florencia",
+        "latitud": "1.6179",
+        "longitud": "-75.6085"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Albania",
+        "latitud": "1.3285",
+        "longitud": "-75.8783"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Curillo",
+        "latitud": "1.0334",
+        "longitud": "-75.9192"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "El Doncello",
+        "latitud": "1.6798",
+        "longitud": "-75.2835"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "El Paujil",
+        "latitud": "1.5703",
+        "longitud": "-75.3261"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Morelia",
+        "latitud": "1.4866",
+        "longitud": "-75.7241"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Puerto Rico",
+        "latitud": "1.9089",
+        "longitud": "-75.1574"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Solano",
+        "latitud": "0.6989",
+        "longitud": "-75.2537"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Solita",
+        "latitud": "0.8766",
+        "longitud": "-75.6197"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Valparaíso",
+        "latitud": "5.6145",
+        "longitud": "-75.6244"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "San José del Fragua",
+        "latitud": "1.3300",
+        "longitud": "-75.9736"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Belén de Los Andaquies",
+        "latitud": "1.4157",
+        "longitud": "-75.8724"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Cartagena del Chairá",
+        "latitud": "1.3331",
+        "longitud": "-74.8472"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "Milán",
+        "latitud": "1.2904",
+        "longitud": "-75.5069"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "La Montañita",
+        "latitud": "1.4791",
+        "longitud": "-75.4364"
+    },
+    {
+        "departamento": "Caquetá",
+        "municipio": "San Vicente del Caguán",
+        "latitud": "2.1194",
+        "longitud": "-74.7686"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Yopal",
+        "latitud": "5.3276",
+        "longitud": "-72.3969"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Aguazul",
+        "latitud": "5.1726",
+        "longitud": "-72.5463"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Chámeza",
+        "latitud": "5.2143",
+        "longitud": "-72.8702"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Hato Corozal",
+        "latitud": "6.1561",
+        "longitud": "-71.7649"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "La Salina",
+        "latitud": "6.1276",
+        "longitud": "-72.3349"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Monterrey",
+        "latitud": "4.8768",
+        "longitud": "-72.8950"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Pore",
+        "latitud": "5.7277",
+        "longitud": "-71.9928"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Recetor",
+        "latitud": "5.2294",
+        "longitud": "-72.7611"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Sabanalarga",
+        "latitud": "6.8500",
+        "longitud": "-75.8166"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Sácama",
+        "latitud": "6.0969",
+        "longitud": "-72.2502"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Tauramena",
+        "latitud": "5.0192",
+        "longitud": "-72.7472"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Trinidad",
+        "latitud": "5.4122",
+        "longitud": "-71.6633"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Villanueva",
+        "latitud": "10.4443",
+        "longitud": "-75.2751"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "San Luis de Gaceno",
+        "latitud": "4.8196",
+        "longitud": "-73.1683"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Paz de Ariporo",
+        "latitud": "5.8800",
+        "longitud": "-71.8909"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Nunchía",
+        "latitud": "5.6366",
+        "longitud": "-72.1950"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Maní",
+        "latitud": "4.8168",
+        "longitud": "-72.2813"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Támara",
+        "latitud": "5.8298",
+        "longitud": "-72.1618"
+    },
+    {
+        "departamento": "Casanare",
+        "municipio": "Orocué",
+        "latitud": "4.7902",
+        "longitud": "-71.3385"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Popayán",
+        "latitud": "2.4599",
+        "longitud": "-76.5988"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Almaguer",
+        "latitud": "1.9133",
+        "longitud": "-76.8559"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Argelia",
+        "latitud": "5.7314",
+        "longitud": "-75.1410"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Balboa",
+        "latitud": "2.0404",
+        "longitud": "-77.2158"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Bolívar",
+        "latitud": "1.8374",
+        "longitud": "-76.9663"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Buenos Aires",
+        "latitud": "3.0154",
+        "longitud": "-76.6422"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Cajibío",
+        "latitud": "2.6233",
+        "longitud": "-76.5708"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Caldono",
+        "latitud": "2.7981",
+        "longitud": "-76.4844"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Caloto",
+        "latitud": "3.0340",
+        "longitud": "-76.4084"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Corinto",
+        "latitud": "3.1738",
+        "longitud": "-76.2613"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "El Tambo",
+        "latitud": "2.4513",
+        "longitud": "-76.8107"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Florencia",
+        "latitud": "1.6179",
+        "longitud": "-75.6085"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Guachené",
+        "latitud": "3.1341",
+        "longitud": "-76.3921"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Guapi",
+        "latitud": "2.5713",
+        "longitud": "-77.8879"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Inzá",
+        "latitud": "2.5491",
+        "longitud": "-76.0634"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Jambaló",
+        "latitud": "2.7778",
+        "longitud": "-76.3238"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "La Sierra",
+        "latitud": "2.1793",
+        "longitud": "-76.7632"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "La Vega",
+        "latitud": "2.0017",
+        "longitud": "-76.7786"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "López",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Mercaderes",
+        "latitud": "1.7924",
+        "longitud": "-77.1641"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Miranda",
+        "latitud": "3.2545",
+        "longitud": "-76.2285"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Morales",
+        "latitud": "8.2763",
+        "longitud": "-73.8681"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Padilla",
+        "latitud": "3.2208",
+        "longitud": "-76.3132"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Patía",
+        "latitud": "2.1156",
+        "longitud": "-76.9809"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Piamonte",
+        "latitud": "1.1179",
+        "longitud": "-76.3270"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Piendamó",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Puerto Tejada",
+        "latitud": "3.2332",
+        "longitud": "-76.4173"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Puracé",
+        "latitud": "2.3413",
+        "longitud": "-76.4965"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Rosas",
+        "latitud": "2.2609",
+        "longitud": "-76.7403"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Santa Rosa",
+        "latitud": "10.4443",
+        "longitud": "-75.3698"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Silvia",
+        "latitud": "2.6118",
+        "longitud": "-76.3795"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Sotara",
+        "latitud": "2.2531",
+        "longitud": "-76.6132"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Suárez",
+        "latitud": "2.9597",
+        "longitud": "-76.6934"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Sucre",
+        "latitud": "2.0382",
+        "longitud": "-76.9262"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Timbío",
+        "latitud": "2.3499",
+        "longitud": "-76.6842"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Timbiquí",
+        "latitud": "2.7774",
+        "longitud": "-77.6675"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Toribio",
+        "latitud": "2.9529",
+        "longitud": "-76.2703"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Totoró",
+        "latitud": "2.5102",
+        "longitud": "-76.4036"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Villa Rica",
+        "latitud": "3.1775",
+        "longitud": "-76.4578"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Santander de Quilichao",
+        "latitud": "3.0160",
+        "longitud": "-76.4853"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "San Sebastián",
+        "latitud": "1.8383",
+        "longitud": "-76.7693"
+    },
+    {
+        "departamento": "Cauca",
+        "municipio": "Páez",
+        "latitud": "5.0978",
+        "longitud": "-73.0525"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Valledupar",
+        "latitud": "10.4604",
+        "longitud": "-73.2593"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Aguachica",
+        "latitud": "8.3073",
+        "longitud": "-73.6129"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Agustín Codazzi",
+        "latitud": "10.0404",
+        "longitud": "-73.2383"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Astrea",
+        "latitud": "9.4981",
+        "longitud": "-73.9758"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Becerril",
+        "latitud": "9.7046",
+        "longitud": "-73.2791"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Bosconia",
+        "latitud": "9.9750",
+        "longitud": "-73.8887"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Chimichagua",
+        "latitud": "9.2582",
+        "longitud": "-73.8133"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Chiriguaná",
+        "latitud": "9.3611",
+        "longitud": "-73.6001"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Curumaní",
+        "latitud": "9.2018",
+        "longitud": "-73.5409"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "El Copey",
+        "latitud": "10.1495",
+        "longitud": "-73.9627"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "El Paso",
+        "latitud": "9.6684",
+        "longitud": "-73.7417"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Gamarra",
+        "latitud": "8.3243",
+        "longitud": "-73.7380"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "González",
+        "latitud": "8.3896",
+        "longitud": "-73.3800"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "La Gloria",
+        "latitud": "8.6192",
+        "longitud": "-73.8032"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Manaure",
+        "latitud": "11.7739",
+        "longitud": "-72.4395"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Pailitas",
+        "latitud": "8.9593",
+        "longitud": "-73.6257"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Pelaya",
+        "latitud": "8.6886",
+        "longitud": "-73.6663"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Pueblo Bello",
+        "latitud": "10.4172",
+        "longitud": "-73.5862"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "La Paz",
+        "latitud": "10.3874",
+        "longitud": "-73.1713"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "San Alberto",
+        "latitud": "7.7608",
+        "longitud": "-73.3942"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "San Diego",
+        "latitud": "10.3330",
+        "longitud": "-73.1812"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "San Martín",
+        "latitud": "7.9998",
+        "longitud": "-73.5109"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Tamalameque",
+        "latitud": "8.8617",
+        "longitud": "-73.8121"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "Río de Oro",
+        "latitud": "8.2922",
+        "longitud": "-73.3863"
+    },
+    {
+        "departamento": "Cesar",
+        "municipio": "La Jagua de Ibirico",
+        "latitud": "9.5638",
+        "longitud": "-73.3342"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Istmina",
+        "latitud": "5.1539",
+        "longitud": "-76.6851"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Quibdó",
+        "latitud": "5.6809",
+        "longitud": "-76.6383"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Acandí",
+        "latitud": "8.5114",
+        "longitud": "-77.2800"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Alto Baudo",
+        "latitud": "5.5163",
+        "longitud": "-76.9743"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Atrato",
+        "latitud": "5.5308",
+        "longitud": "-76.6365"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Bagadó",
+        "latitud": "5.4105",
+        "longitud": "-76.4152"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Bahía Solano",
+        "latitud": "6.2221",
+        "longitud": "-77.4020"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Bajo Baudó",
+        "latitud": "4.9546",
+        "longitud": "-77.3654"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Bojaya",
+        "latitud": "6.5562",
+        "longitud": "-76.8834"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Cértegui",
+        "latitud": "5.3715",
+        "longitud": "-76.6080"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Condoto",
+        "latitud": "5.0910",
+        "longitud": "-76.6506"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Juradó",
+        "latitud": "7.1036",
+        "longitud": "-77.7627"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Lloró",
+        "latitud": "5.4979",
+        "longitud": "-76.5450"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Medio Atrato",
+        "latitud": "5.9948",
+        "longitud": "-76.7824"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Medio Baudó",
+        "latitud": "5.1935",
+        "longitud": "-76.9496"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Medio San Juan",
+        "latitud": "5.1002",
+        "longitud": "-76.6933"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Nóvita",
+        "latitud": "4.9560",
+        "longitud": "-76.6094"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Nuquí",
+        "latitud": "5.7095",
+        "longitud": "-77.2658"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Río Iro",
+        "latitud": "5.1863",
+        "longitud": "-76.4729"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Río Quito",
+        "latitud": "5.4837",
+        "longitud": "-76.7410"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Riosucio",
+        "latitud": "5.4236",
+        "longitud": "-75.7020"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Sipí",
+        "latitud": "4.6512",
+        "longitud": "-76.6444"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Unguía",
+        "latitud": "8.0440",
+        "longitud": "-77.0925"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "El Litoral del San Juan",
+        "latitud": "4.2594",
+        "longitud": "-77.3633"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "El Cantón del San Pablo",
+        "latitud": "5.3353",
+        "longitud": "-76.7268"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "El Carmen de Atrato",
+        "latitud": "5.8997",
+        "longitud": "-76.1422"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "San José del Palmar",
+        "latitud": "4.8975",
+        "longitud": "-76.2328"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Belén de Bajira",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Carmen del Darien",
+        "latitud": "7.1581",
+        "longitud": "-76.9707"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Tadó",
+        "latitud": "5.2648",
+        "longitud": "-76.5584"
+    },
+    {
+        "departamento": "Chocó",
+        "municipio": "Unión Panamericana",
+        "latitud": "5.2810",
+        "longitud": "-76.6284"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "San Bernardo del Viento",
+        "latitud": "9.3522",
+        "longitud": "-75.9547"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Montería",
+        "latitud": "8.7598",
+        "longitud": "-75.8732"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Ayapel",
+        "latitud": "8.3144",
+        "longitud": "-75.1462"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Buenavista",
+        "latitud": "5.5124",
+        "longitud": "-73.9423"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Canalete",
+        "latitud": "8.7869",
+        "longitud": "-76.2413"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Cereté",
+        "latitud": "8.8885",
+        "longitud": "-75.7961"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Chimá",
+        "latitud": "9.1494",
+        "longitud": "-75.6268"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Chinú",
+        "latitud": "9.1052",
+        "longitud": "-75.3997"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Cotorra",
+        "latitud": "9.0370",
+        "longitud": "-75.7991"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Lorica",
+        "latitud": "9.2407",
+        "longitud": "-75.8160"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Los Córdobas",
+        "latitud": "8.8921",
+        "longitud": "-76.3551"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Momil",
+        "latitud": "9.2407",
+        "longitud": "-75.6779"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Moñitos",
+        "latitud": "9.2452",
+        "longitud": "-76.1293"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Planeta Rica",
+        "latitud": "8.4082",
+        "longitud": "-75.5832"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Pueblo Nuevo",
+        "latitud": "8.5040",
+        "longitud": "-75.5079"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Puerto Escondido",
+        "latitud": "9.0053",
+        "longitud": "-76.2604"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Purísima",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Sahagún",
+        "latitud": "8.9431",
+        "longitud": "-75.4459"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "San Andrés Sotavento",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "San Antero",
+        "latitud": "9.3762",
+        "longitud": "-75.7607"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "San Pelayo",
+        "latitud": "8.9580",
+        "longitud": "-75.8351"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Tierralta",
+        "latitud": "8.1703",
+        "longitud": "-76.0596"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Tuchín",
+        "latitud": "9.1865",
+        "longitud": "-75.5538"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Valencia",
+        "latitud": "8.2550",
+        "longitud": "-76.1507"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "San José de Uré",
+        "latitud": "7.7871",
+        "longitud": "-75.5331"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Ciénaga de Oro",
+        "latitud": "8.8755",
+        "longitud": "-75.6207"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "San Carlos",
+        "latitud": "6.1879",
+        "longitud": "-74.9879"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Montelíbano",
+        "latitud": "7.9737",
+        "longitud": "-75.4168"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "La Apartada",
+        "latitud": "8.0499",
+        "longitud": "-75.3357"
+    },
+    {
+        "departamento": "Córdoba",
+        "municipio": "Puerto Libertador",
+        "latitud": "7.8888",
+        "longitud": "-75.6718"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Anapoima",
+        "latitud": "4.5629",
+        "longitud": "-74.5285"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Arbeláez",
+        "latitud": "4.2724",
+        "longitud": "-74.4148"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Beltrán",
+        "latitud": "4.8028",
+        "longitud": "-74.7418"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Bituima",
+        "latitud": "4.8722",
+        "longitud": "-74.5396"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Bojacá",
+        "latitud": "4.7372",
+        "longitud": "-74.3445"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Cabrera",
+        "latitud": "3.9851",
+        "longitud": "-74.4845"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Cachipay",
+        "latitud": "4.7309",
+        "longitud": "-74.4357"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Cajicá",
+        "latitud": "4.9208",
+        "longitud": "-74.0234"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Caparrapí",
+        "latitud": "5.3479",
+        "longitud": "-74.4911"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Caqueza",
+        "latitud": "4.4040",
+        "longitud": "-73.9464"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Chaguaní",
+        "latitud": "4.9489",
+        "longitud": "-74.5934"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Chipaque",
+        "latitud": "4.4426",
+        "longitud": "-74.0448"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Choachí",
+        "latitud": "4.5270",
+        "longitud": "-73.9228"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Chocontá",
+        "latitud": "5.1452",
+        "longitud": "-73.6835"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Cogua",
+        "latitud": "5.0618",
+        "longitud": "-73.9784"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Cota",
+        "latitud": "4.8129",
+        "longitud": "-74.1027"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Cucunubá",
+        "latitud": "5.2497",
+        "longitud": "-73.7662"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "El Colegio",
+        "latitud": "4.5783",
+        "longitud": "-74.4426"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "El Rosal",
+        "latitud": "4.8505",
+        "longitud": "-74.2630"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Fomeque",
+        "latitud": "4.4854",
+        "longitud": "-73.8925"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Fosca",
+        "latitud": "4.3391",
+        "longitud": "-73.9390"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Funza",
+        "latitud": "4.7103",
+        "longitud": "-74.2014"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Fúquene",
+        "latitud": "5.4040",
+        "longitud": "-73.7958"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Gachala",
+        "latitud": "4.6935",
+        "longitud": "-73.5201"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Gachancipá",
+        "latitud": "4.9909",
+        "longitud": "-73.8734"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Gachetá",
+        "latitud": "4.8164",
+        "longitud": "-73.6363"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Girardot",
+        "latitud": "4.3130",
+        "longitud": "-74.7977"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Granada",
+        "latitud": "6.1429",
+        "longitud": "-75.1844"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Guachetá",
+        "latitud": "5.3837",
+        "longitud": "-73.6870"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Guaduas",
+        "latitud": "5.0718",
+        "longitud": "-74.6029"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Guasca",
+        "latitud": "4.8667",
+        "longitud": "-73.8771"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Guataquí",
+        "latitud": "4.5174",
+        "longitud": "-74.7899"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Guatavita",
+        "latitud": "4.9351",
+        "longitud": "-73.8329"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Guayabetal",
+        "latitud": "4.2152",
+        "longitud": "-73.8150"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Gutiérrez",
+        "latitud": "4.2546",
+        "longitud": "-74.0030"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Jerusalén",
+        "latitud": "4.5623",
+        "longitud": "-74.6954"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Junín",
+        "latitud": "4.7903",
+        "longitud": "-73.6629"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "La Calera",
+        "latitud": "4.7213",
+        "longitud": "-73.9679"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "La Mesa",
+        "latitud": "4.6310",
+        "longitud": "-74.4615"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "La Palma",
+        "latitud": "5.3588",
+        "longitud": "-74.3910"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "La Peña",
+        "latitud": "5.1989",
+        "longitud": "-74.3940"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "La Vega",
+        "latitud": "2.0017",
+        "longitud": "-76.7786"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Lenguazaque",
+        "latitud": "5.3061",
+        "longitud": "-73.7114"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Macheta",
+        "latitud": "5.0801",
+        "longitud": "-73.6083"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Madrid",
+        "latitud": "4.7327",
+        "longitud": "-74.2637"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Manta",
+        "latitud": "5.0090",
+        "longitud": "-73.5404"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Medina",
+        "latitud": "4.5066",
+        "longitud": "-73.3491"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Mosquera",
+        "latitud": "4.7070",
+        "longitud": "-74.2193"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Nariño",
+        "latitud": "5.6107",
+        "longitud": "-75.1762"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Nemocón",
+        "latitud": "5.0687",
+        "longitud": "-73.8778"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Nilo",
+        "latitud": "4.3058",
+        "longitud": "-74.6199"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Nimaima",
+        "latitud": "5.1260",
+        "longitud": "-74.3860"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Nocaima",
+        "latitud": "5.0694",
+        "longitud": "-74.3791"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Venecia",
+        "latitud": "5.9647",
+        "longitud": "-75.7355"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Pacho",
+        "latitud": "5.1369",
+        "longitud": "-74.1561"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Paime",
+        "latitud": "5.3704",
+        "longitud": "-74.1522"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Pandi",
+        "latitud": "4.1903",
+        "longitud": "-74.4866"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Paratebueno",
+        "latitud": "4.3748",
+        "longitud": "-73.2128"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Pasca",
+        "latitud": "4.3090",
+        "longitud": "-74.3024"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Puerto Salgar",
+        "latitud": "5.4654",
+        "longitud": "-74.6537"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Pulí",
+        "latitud": "4.6817",
+        "longitud": "-74.7144"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Quebradanegra",
+        "latitud": "5.1180",
+        "longitud": "-74.4801"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Quetame",
+        "latitud": "4.3298",
+        "longitud": "-73.8631"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Quipile",
+        "latitud": "4.7448",
+        "longitud": "-74.5337"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Apulo",
+        "latitud": "4.5203",
+        "longitud": "-74.5938"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Ricaurte",
+        "latitud": "4.2821",
+        "longitud": "-74.7728"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "San Bernardo",
+        "latitud": "4.1794",
+        "longitud": "-74.4229"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "San Cayetano",
+        "latitud": "5.3329",
+        "longitud": "-74.0247"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "San Francisco",
+        "latitud": "5.9636",
+        "longitud": "-75.1015"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Sesquilé",
+        "latitud": "5.0447",
+        "longitud": "-73.7961"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Sibaté",
+        "latitud": "4.4926",
+        "longitud": "-74.2578"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Silvania",
+        "latitud": "4.3819",
+        "longitud": "-74.4055"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Simijaca",
+        "latitud": "5.5054",
+        "longitud": "-73.8503"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Soacha",
+        "latitud": "4.5793",
+        "longitud": "-74.2154"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Subachoque",
+        "latitud": "4.9290",
+        "longitud": "-74.1727"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Suesca",
+        "latitud": "5.1035",
+        "longitud": "-73.7982"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Supatá",
+        "latitud": "5.0616",
+        "longitud": "-74.2354"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Susa",
+        "latitud": "5.4548",
+        "longitud": "-73.8140"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Sutatausa",
+        "latitud": "5.2474",
+        "longitud": "-73.8531"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tabio",
+        "latitud": "4.9172",
+        "longitud": "-74.0961"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tausa",
+        "latitud": "5.1965",
+        "longitud": "-73.8864"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tena",
+        "latitud": "4.6553",
+        "longitud": "-74.3895"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tenjo",
+        "latitud": "4.8719",
+        "longitud": "-74.1439"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tibacuy",
+        "latitud": "4.3485",
+        "longitud": "-74.4526"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tibirita",
+        "latitud": "5.0522",
+        "longitud": "-73.5045"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tocaima",
+        "latitud": "4.4592",
+        "longitud": "-74.6363"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Tocancipá",
+        "latitud": "4.9647",
+        "longitud": "-73.9120"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Topaipí",
+        "latitud": "5.3362",
+        "longitud": "-74.3006"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Ubalá",
+        "latitud": "4.7475",
+        "longitud": "-73.5315"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Ubaque",
+        "latitud": "4.4837",
+        "longitud": "-73.9334"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Une",
+        "latitud": "4.4024",
+        "longitud": "-74.0251"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Útica",
+        "latitud": "5.1905",
+        "longitud": "-74.4831"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Vianí",
+        "latitud": "4.8752",
+        "longitud": "-74.5613"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Villagómez",
+        "latitud": "5.2730",
+        "longitud": "-74.1951"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Villapinzón",
+        "latitud": "5.2164",
+        "longitud": "-73.5953"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Villeta",
+        "latitud": "5.0127",
+        "longitud": "-74.4697"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Viotá",
+        "latitud": "4.4393",
+        "longitud": "-74.5231"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Zipacón",
+        "latitud": "4.7599",
+        "longitud": "-74.3795"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "San Juan de Río Seco",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Villa de San Diego de Ubate",
+        "latitud": "5.3075",
+        "longitud": "-73.8143"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Guayabal de Siquima",
+        "latitud": "4.8779",
+        "longitud": "-74.4674"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "San Antonio del Tequendama",
+        "latitud": "4.6161",
+        "longitud": "-74.3514"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Agua de Dios",
+        "latitud": "4.3753",
+        "longitud": "-74.6692"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Carmen de Carupa",
+        "latitud": "5.3491",
+        "longitud": "-73.9015"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Vergara",
+        "latitud": "5.1173",
+        "longitud": "-74.3463"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Albán",
+        "latitud": "4.8780",
+        "longitud": "-74.4382"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Anolaima",
+        "latitud": "4.7616",
+        "longitud": "-74.4638"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Chía",
+        "latitud": "4.8660",
+        "longitud": "-74.0503"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "El Peñón",
+        "latitud": "8.9882",
+        "longitud": "-73.9494"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Sopó",
+        "latitud": "4.9153",
+        "longitud": "-73.9433"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Gama",
+        "latitud": "4.7633",
+        "longitud": "-73.6110"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Sasaima",
+        "latitud": "4.9621",
+        "longitud": "-74.4326"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Yacopí",
+        "latitud": "5.4592",
+        "longitud": "-74.3380"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Fusagasugá",
+        "latitud": "4.3366",
+        "longitud": "-74.3754"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Zipaquirá",
+        "latitud": "5.0254",
+        "longitud": "-73.9944"
+    },
+    {
+        "departamento": "Cundinamarca",
+        "municipio": "Facatativá",
+        "latitud": "4.8130",
+        "longitud": "-74.3502"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "Inírida",
+        "latitud": "3.8666",
+        "longitud": "-67.9186"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "Barranco Minas",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "Mapiripana",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "San Felipe",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "Puerto Colombia",
+        "latitud": "11.0229",
+        "longitud": "-74.8519"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "La Guadalupe",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "Cacahual",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "Pana Pana",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Guainía",
+        "municipio": "Morichal",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Guaviare",
+        "municipio": "Calamar",
+        "latitud": "10.2503",
+        "longitud": "-74.9161"
+    },
+    {
+        "departamento": "Guaviare",
+        "municipio": "San José del Guaviare",
+        "latitud": "2.5660",
+        "longitud": "-72.6390"
+    },
+    {
+        "departamento": "Guaviare",
+        "municipio": "Miraflores",
+        "latitud": "5.1965",
+        "longitud": "-73.1456"
+    },
+    {
+        "departamento": "Guaviare",
+        "municipio": "El Retorno",
+        "latitud": "2.3301",
+        "longitud": "-72.6271"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Neiva",
+        "latitud": "2.9355",
+        "longitud": "-75.2777"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Acevedo",
+        "latitud": "1.8052",
+        "longitud": "-75.8885"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Agrado",
+        "latitud": "2.2597",
+        "longitud": "-75.7719"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Aipe",
+        "latitud": "3.2235",
+        "longitud": "-75.2390"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Algeciras",
+        "latitud": "2.5224",
+        "longitud": "-75.3153"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Altamira",
+        "latitud": "2.0637",
+        "longitud": "-75.7883"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Baraya",
+        "latitud": "3.1525",
+        "longitud": "-75.0544"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Campoalegre",
+        "latitud": "2.6868",
+        "longitud": "-75.3257"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Colombia",
+        "latitud": "3.3769",
+        "longitud": "-74.8028"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Elías",
+        "latitud": "2.0127",
+        "longitud": "-75.9380"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Garzón",
+        "latitud": "2.1964",
+        "longitud": "-75.6270"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Gigante",
+        "latitud": "2.3840",
+        "longitud": "-75.5476"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Guadalupe",
+        "latitud": "6.8150",
+        "longitud": "-75.2398"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Hobo",
+        "latitud": "2.5808",
+        "longitud": "-75.4477"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Iquira",
+        "latitud": "2.6493",
+        "longitud": "-75.6345"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Isnos",
+        "latitud": "1.9294",
+        "longitud": "-76.2176"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "La Argentina",
+        "latitud": "2.1982",
+        "longitud": "-75.9797"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "La Plata",
+        "latitud": "2.3896",
+        "longitud": "-75.8914"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Nátaga",
+        "latitud": "2.5453",
+        "longitud": "-75.8087"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Oporapa",
+        "latitud": "2.0250",
+        "longitud": "-75.9951"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Paicol",
+        "latitud": "2.4495",
+        "longitud": "-75.7729"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Palermo",
+        "latitud": "2.8893",
+        "longitud": "-75.4348"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Palestina",
+        "latitud": "5.0178",
+        "longitud": "-75.6244"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Pital",
+        "latitud": "2.2666",
+        "longitud": "-75.8040"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Pitalito",
+        "latitud": "1.8529",
+        "longitud": "-76.0490"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Rivera",
+        "latitud": "2.7775",
+        "longitud": "-75.2585"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Saladoblanco",
+        "latitud": "1.9931",
+        "longitud": "-76.0447"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Santa María",
+        "latitud": "4.8571",
+        "longitud": "-73.2635"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Suaza",
+        "latitud": "1.9758",
+        "longitud": "-75.7950"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Tarqui",
+        "latitud": "2.1113",
+        "longitud": "-75.8235"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Tesalia",
+        "latitud": "2.4860",
+        "longitud": "-75.7298"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Tello",
+        "latitud": "3.0675",
+        "longitud": "-75.1387"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Teruel",
+        "latitud": "2.7409",
+        "longitud": "-75.5670"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Timaná",
+        "latitud": "1.9742",
+        "longitud": "-75.9320"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Villavieja",
+        "latitud": "3.2188",
+        "longitud": "-75.2171"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "Yaguará",
+        "latitud": "2.6646",
+        "longitud": "-75.5180"
+    },
+    {
+        "departamento": "Huila",
+        "municipio": "San Agustín",
+        "latitud": "1.8810",
+        "longitud": "-76.2703"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Riohacha",
+        "latitud": "11.5287",
+        "longitud": "-72.9114"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Albania",
+        "latitud": "1.3285",
+        "longitud": "-75.8783"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Barrancas",
+        "latitud": "10.9586",
+        "longitud": "-72.7935"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Dibula",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Distracción",
+        "latitud": "10.8984",
+        "longitud": "-72.8873"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "El Molino",
+        "latitud": "10.6535",
+        "longitud": "-72.9267"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Fonseca",
+        "latitud": "10.8866",
+        "longitud": "-72.8462"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Hatonuevo",
+        "latitud": "11.0687",
+        "longitud": "-72.7590"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Maicao",
+        "latitud": "11.3783",
+        "longitud": "-72.2419"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Manaure",
+        "latitud": "11.7739",
+        "longitud": "-72.4395"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Uribia",
+        "latitud": "11.7146",
+        "longitud": "-72.2647"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Urumita",
+        "latitud": "10.5601",
+        "longitud": "-73.0125"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "Villanueva",
+        "latitud": "10.4443",
+        "longitud": "-75.2751"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "La Jagua del Pilar",
+        "latitud": "10.5116",
+        "longitud": "-73.0725"
+    },
+    {
+        "departamento": "La Guajira",
+        "municipio": "San Juan del Cesar",
+        "latitud": "10.7695",
+        "longitud": "-73.0005"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Santa Marta",
+        "latitud": "11.2047",
+        "longitud": "-74.2002"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Algarrobo",
+        "latitud": "10.1880",
+        "longitud": "-74.0611"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Aracataca",
+        "latitud": "10.5897",
+        "longitud": "-74.1867"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Ariguaní",
+        "latitud": "9.8470",
+        "longitud": "-74.2364"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Cerro San Antonio",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Chivolo",
+        "latitud": "10.0268",
+        "longitud": "-74.6231"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Concordia",
+        "latitud": "6.0460",
+        "longitud": "-75.9084"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "El Banco",
+        "latitud": "9.0087",
+        "longitud": "-73.9742"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "El Piñon",
+        "latitud": "10.4030",
+        "longitud": "-74.8232"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "El Retén",
+        "latitud": "10.6106",
+        "longitud": "-74.2684"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Fundación",
+        "latitud": "10.5140",
+        "longitud": "-74.1913"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Guamal",
+        "latitud": "9.1443",
+        "longitud": "-74.2236"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Nueva Granada",
+        "latitud": "9.8015",
+        "longitud": "-74.3922"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Pedraza",
+        "latitud": "10.1882",
+        "longitud": "-74.9154"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Pivijay",
+        "latitud": "10.4606",
+        "longitud": "-74.6135"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Plato",
+        "latitud": "9.7967",
+        "longitud": "-74.7846"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Remolino",
+        "latitud": "10.7021",
+        "longitud": "-74.7161"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Salamina",
+        "latitud": "5.4030",
+        "longitud": "-75.4872"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "San Zenón",
+        "latitud": "9.2450",
+        "longitud": "-74.4989"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Santa Ana",
+        "latitud": "9.3242",
+        "longitud": "-74.5668"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Sitionuevo",
+        "latitud": "10.7754",
+        "longitud": "-74.7201"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Tenerife",
+        "latitud": "9.8977",
+        "longitud": "-74.8607"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Zapayán",
+        "latitud": "10.1683",
+        "longitud": "-74.7168"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Zona Bananera",
+        "latitud": "10.7630",
+        "longitud": "-74.1400"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "San Sebastián de Buenavista",
+        "latitud": "9.2407",
+        "longitud": "-74.3516"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Sabanas de San Angel",
+        "latitud": "10.0325",
+        "longitud": "-74.2139"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Pijiño del Carmen",
+        "latitud": "9.3319",
+        "longitud": "-74.4582"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Santa Bárbara de Pinto",
+        "latitud": "9.4322",
+        "longitud": "-74.7046"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Pueblo Viejo",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Magdalena",
+        "municipio": "Ciénaga",
+        "latitud": "11.0066",
+        "longitud": "-74.2412"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Uribe",
+        "latitud": "3.2396",
+        "longitud": "-74.3515"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Villavicencio",
+        "latitud": "4.1238",
+        "longitud": "-73.6245"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Acacias",
+        "latitud": "3.9901",
+        "longitud": "-73.7659"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Cabuyaro",
+        "latitud": "4.2859",
+        "longitud": "-72.7919"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Cubarral",
+        "latitud": "3.7936",
+        "longitud": "-73.8377"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Cumaral",
+        "latitud": "4.2695",
+        "longitud": "-73.4861"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "El Calvario",
+        "latitud": "4.3526",
+        "longitud": "-73.7133"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "El Castillo",
+        "latitud": "3.5638",
+        "longitud": "-73.7940"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "El Dorado",
+        "latitud": "3.7399",
+        "longitud": "-73.8350"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Granada",
+        "latitud": "6.1429",
+        "longitud": "-75.1844"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Guamal",
+        "latitud": "9.1443",
+        "longitud": "-74.2236"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Mapiripán",
+        "latitud": "2.8964",
+        "longitud": "-72.1356"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Mesetas",
+        "latitud": "3.3832",
+        "longitud": "-74.0443"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "La Macarena",
+        "latitud": "2.1782",
+        "longitud": "-73.7870"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Lejanías",
+        "latitud": "3.5247",
+        "longitud": "-74.0231"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Puerto Concordia",
+        "latitud": "2.6230",
+        "longitud": "-72.7600"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Puerto Gaitán",
+        "latitud": "4.3144",
+        "longitud": "-72.0830"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Puerto López",
+        "latitud": "4.0934",
+        "longitud": "-72.9574"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Puerto Lleras",
+        "latitud": "3.2721",
+        "longitud": "-73.3738"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Puerto Rico",
+        "latitud": "1.9089",
+        "longitud": "-75.1574"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Restrepo",
+        "latitud": "4.2607",
+        "longitud": "-73.5646"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "San Juanito",
+        "latitud": "4.4581",
+        "longitud": "-73.6767"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "San Martín",
+        "latitud": "7.9998",
+        "longitud": "-73.5109"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Vista Hermosa",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Barranca de Upía",
+        "latitud": "4.5672",
+        "longitud": "-72.9632"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Fuente de Oro",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "San Carlos de Guaroa",
+        "latitud": "3.7105",
+        "longitud": "-73.2414"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "San Juan de Arama",
+        "latitud": "3.3737",
+        "longitud": "-73.8758"
+    },
+    {
+        "departamento": "Meta",
+        "municipio": "Castilla la Nueva",
+        "latitud": "3.8280",
+        "longitud": "-73.6881"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Santacruz",
+        "latitud": "1.2219",
+        "longitud": "-77.6770"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Pasto",
+        "latitud": "1.2124",
+        "longitud": "-77.2787"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Albán",
+        "latitud": "4.8780",
+        "longitud": "-74.4382"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Aldana",
+        "latitud": "0.8821",
+        "longitud": "-77.7003"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Ancuyá",
+        "latitud": "1.2633",
+        "longitud": "-77.5145"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Barbacoas",
+        "latitud": "1.6714",
+        "longitud": "-78.1375"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Colón",
+        "latitud": "1.6438",
+        "longitud": "-77.0197"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Consaca",
+        "latitud": "1.2076",
+        "longitud": "-77.4657"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Contadero",
+        "latitud": "0.9104",
+        "longitud": "-77.5494"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Córdoba",
+        "latitud": "9.5869",
+        "longitud": "-74.8274"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Cuaspud",
+        "latitud": "0.8629",
+        "longitud": "-77.7289"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Cumbal",
+        "latitud": "0.9061",
+        "longitud": "-77.7922"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Cumbitara",
+        "latitud": "1.6468",
+        "longitud": "-77.5781"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "El Charco",
+        "latitud": "2.4800",
+        "longitud": "-78.1095"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "El Peñol",
+        "latitud": "1.4535",
+        "longitud": "-77.4385"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "El Rosario",
+        "latitud": "1.7452",
+        "longitud": "-77.3341"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "El Tambo",
+        "latitud": "2.4513",
+        "longitud": "-76.8107"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Funes",
+        "latitud": "1.0011",
+        "longitud": "-77.4489"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Guachucal",
+        "latitud": "0.9597",
+        "longitud": "-77.7315"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Guaitarilla",
+        "latitud": "1.1296",
+        "longitud": "-77.5496"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Gualmatán",
+        "latitud": "0.9196",
+        "longitud": "-77.5686"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Iles",
+        "latitud": "0.9692",
+        "longitud": "-77.5209"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Imués",
+        "latitud": "1.0551",
+        "longitud": "-77.4961"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Ipiales",
+        "latitud": "0.8277",
+        "longitud": "-77.6463"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "La Cruz",
+        "latitud": "1.6013",
+        "longitud": "-76.9705"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "La Florida",
+        "latitud": "1.2991",
+        "longitud": "-77.4064"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "La Llanada",
+        "latitud": "1.4726",
+        "longitud": "-77.5807"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "La Tola",
+        "latitud": "2.3982",
+        "longitud": "-78.1903"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "La Unión",
+        "latitud": "5.9738",
+        "longitud": "-75.3608"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Leiva",
+        "latitud": "1.9345",
+        "longitud": "-77.3062"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Linares",
+        "latitud": "1.3507",
+        "longitud": "-77.5237"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Los Andes",
+        "latitud": "1.4945",
+        "longitud": "-77.5213"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Magüí",
+        "latitud": "1.7653",
+        "longitud": "-78.1810"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Mallama",
+        "latitud": "1.1408",
+        "longitud": "-77.8644"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Mosquera",
+        "latitud": "4.7070",
+        "longitud": "-74.2193"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Nariño",
+        "latitud": "5.6107",
+        "longitud": "-75.1762"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Olaya Herrera",
+        "latitud": "2.3475",
+        "longitud": "-78.3256"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Ospina",
+        "latitud": "1.0584",
+        "longitud": "-77.5660"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Francisco Pizarro",
+        "latitud": "2.0408",
+        "longitud": "-78.6581"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Policarpa",
+        "latitud": "1.6273",
+        "longitud": "-77.4587"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Potosí",
+        "latitud": "0.8063",
+        "longitud": "-77.5727"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Providencia",
+        "latitud": "1.2376",
+        "longitud": "-77.5965"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Puerres",
+        "latitud": "0.8851",
+        "longitud": "-77.5042"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Pupiales",
+        "latitud": "0.8671",
+        "longitud": "-77.6335"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Ricaurte",
+        "latitud": "4.2821",
+        "longitud": "-74.7728"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Roberto Payán",
+        "latitud": "1.6977",
+        "longitud": "-78.2456"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Samaniego",
+        "latitud": "1.3353",
+        "longitud": "-77.5944"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Sandoná",
+        "latitud": "1.2831",
+        "longitud": "-77.4730"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "San Bernardo",
+        "latitud": "4.1794",
+        "longitud": "-74.4229"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "San Lorenzo",
+        "latitud": "1.5033",
+        "longitud": "-77.2152"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "San Pablo",
+        "latitud": "7.4767",
+        "longitud": "-73.9241"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Santa Bárbara",
+        "latitud": "5.8755",
+        "longitud": "-75.5673"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Sapuyes",
+        "latitud": "1.0375",
+        "longitud": "-77.6202"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Taminango",
+        "latitud": "1.5700",
+        "longitud": "-77.2802"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Tangua",
+        "latitud": "1.0948",
+        "longitud": "-77.3926"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Túquerres",
+        "latitud": "1.0851",
+        "longitud": "-77.6168"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Yacuanquer",
+        "latitud": "1.1157",
+        "longitud": "-77.4004"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "San Pedro de Cartago",
+        "latitud": "1.5514",
+        "longitud": "-77.1194"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "El Tablón de Gómez",
+        "latitud": "1.4270",
+        "longitud": "-77.0967"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Buesaco",
+        "latitud": "1.3814",
+        "longitud": "-77.1564"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "San Andrés de Tumaco",
+        "latitud": "1.8071",
+        "longitud": "-78.7638"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Belén",
+        "latitud": "5.9892",
+        "longitud": "-72.9116"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Chachagüí",
+        "latitud": "1.3603",
+        "longitud": "-77.2816"
+    },
+    {
+        "departamento": "Nariño",
+        "municipio": "Arboleda",
+        "latitud": "1.5035",
+        "longitud": "-77.1353"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Silos",
+        "latitud": "7.2047",
+        "longitud": "-72.7570"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Cácota",
+        "latitud": "7.2687",
+        "longitud": "-72.6420"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Toledo",
+        "latitud": "7.0101",
+        "longitud": "-75.6914"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Mutiscua",
+        "latitud": "7.3002",
+        "longitud": "-72.7471"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "El Zulia",
+        "latitud": "7.9381",
+        "longitud": "-72.6046"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Salazar",
+        "latitud": "7.7736",
+        "longitud": "-72.8131"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Cucutilla",
+        "latitud": "7.5389",
+        "longitud": "-72.7725"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Puerto Santander",
+        "latitud": "8.3609",
+        "longitud": "-72.4103"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Gramalote",
+        "latitud": "0.",
+        "longitud": "0."
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "El Tarra",
+        "latitud": "8.5767",
+        "longitud": "-73.0948"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Teorama",
+        "latitud": "8.4381",
+        "longitud": "-73.2870"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Arboledas",
+        "latitud": "7.6429",
+        "longitud": "-72.7988"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Lourdes",
+        "latitud": "7.9454",
+        "longitud": "-72.8323"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Bochalema",
+        "latitud": "7.6121",
+        "longitud": "-72.6470"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Convención",
+        "latitud": "8.4703",
+        "longitud": "-73.3372"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Hacarí",
+        "latitud": "8.3217",
+        "longitud": "-73.1459"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Herrán",
+        "latitud": "7.5065",
+        "longitud": "-72.4835"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Tibú",
+        "latitud": "8.6389",
+        "longitud": "-72.7342"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "San Cayetano",
+        "latitud": "5.3329",
+        "longitud": "-74.0247"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "San Calixto",
+        "latitud": "8.4024",
+        "longitud": "-73.2085"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "La Playa",
+        "latitud": "8.2126",
+        "longitud": "-73.2386"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Chinácota",
+        "latitud": "7.6029",
+        "longitud": "-72.6011"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Ragonvalia",
+        "latitud": "7.5778",
+        "longitud": "-72.4767"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "La Esperanza",
+        "latitud": "7.6399",
+        "longitud": "-73.3278"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Villa del Rosario",
+        "latitud": "7.8474",
+        "longitud": "-72.4700"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Chitagá",
+        "latitud": "7.1381",
+        "longitud": "-72.6654"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Sardinata",
+        "latitud": "8.0820",
+        "longitud": "-72.8007"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Abrego",
+        "latitud": "8.0817",
+        "longitud": "-73.2217"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Los Patios",
+        "latitud": "7.8332",
+        "longitud": "-72.5057"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Ocaña",
+        "latitud": "8.2474",
+        "longitud": "-73.3558"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Bucarasica",
+        "latitud": "8.0411",
+        "longitud": "-72.8679"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Santiago",
+        "latitud": "7.8656",
+        "longitud": "-72.7162"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Labateca",
+        "latitud": "7.2983",
+        "longitud": "-72.4958"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Cachirá",
+        "latitud": "7.7408",
+        "longitud": "-73.0487"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Villa Caro",
+        "latitud": "7.9142",
+        "longitud": "-72.9736"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Durania",
+        "latitud": "7.7147",
+        "longitud": "-72.6586"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Pamplona",
+        "latitud": "7.3728",
+        "longitud": "-72.6476"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Pamplonita",
+        "latitud": "7.4367",
+        "longitud": "-72.6392"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "Cúcuta",
+        "latitud": "7.9055",
+        "longitud": "-72.5080"
+    },
+    {
+        "departamento": "Norte de Santander",
+        "municipio": "El Carmen",
+        "latitud": "8.5105",
+        "longitud": "-73.4467"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Mocoa",
+        "latitud": "1.1525",
+        "longitud": "-76.6515"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Colón",
+        "latitud": "1.6438",
+        "longitud": "-77.0197"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Orito",
+        "latitud": "0.6638",
+        "longitud": "-76.8730"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Puerto Caicedo",
+        "latitud": "0.6877",
+        "longitud": "-76.6057"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Puerto Guzmán",
+        "latitud": "0.9629",
+        "longitud": "-76.4085"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Leguízamo",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Sibundoy",
+        "latitud": "1.2001",
+        "longitud": "-76.9174"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "San Francisco",
+        "latitud": "5.9636",
+        "longitud": "-75.1015"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "San Miguel",
+        "latitud": "6.5756",
+        "longitud": "-72.6441"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Santiago",
+        "latitud": "7.8656",
+        "longitud": "-72.7162"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Valle de Guamez",
+        "latitud": "Sin informacion",
+        "longitud": "Sin informacion"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Puerto Asís",
+        "latitud": "0.5050",
+        "longitud": "-76.4972"
+    },
+    {
+        "departamento": "Putumayo",
+        "municipio": "Villagarzón",
+        "latitud": "1.0289",
+        "longitud": "-76.6171"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Armenia",
+        "latitud": "6.1556",
+        "longitud": "-75.7866"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Buenavista",
+        "latitud": "5.5124",
+        "longitud": "-73.9423"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Circasia",
+        "latitud": "4.6177",
+        "longitud": "-75.6365"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Córdoba",
+        "latitud": "9.5869",
+        "longitud": "-74.8274"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Filandia",
+        "latitud": "4.6741",
+        "longitud": "-75.6586"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "La Tebaida",
+        "latitud": "4.4536",
+        "longitud": "-75.7864"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Montenegro",
+        "latitud": "4.5650",
+        "longitud": "-75.7498"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Pijao",
+        "latitud": "4.3350",
+        "longitud": "-75.7033"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Quimbaya",
+        "latitud": "4.6243",
+        "longitud": "-75.7650"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Salento",
+        "latitud": "4.6371",
+        "longitud": "-75.5708"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Calarcá",
+        "latitud": "4.5214",
+        "longitud": "-75.6455"
+    },
+    {
+        "departamento": "Quindío",
+        "municipio": "Génova",
+        "latitud": "4.2065",
+        "longitud": "-75.7906"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Pereira",
+        "latitud": "4.8053",
+        "longitud": "-75.7190"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Apía",
+        "latitud": "5.1065",
+        "longitud": "-75.9423"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Balboa",
+        "latitud": "2.0404",
+        "longitud": "-77.2158"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Dosquebradas",
+        "latitud": "4.8340",
+        "longitud": "-75.6761"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Guática",
+        "latitud": "5.3153",
+        "longitud": "-75.7990"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "La Celia",
+        "latitud": "5.0028",
+        "longitud": "-76.0030"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "La Virginia",
+        "latitud": "4.8965",
+        "longitud": "-75.8802"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Marsella",
+        "latitud": "4.9355",
+        "longitud": "-75.7385"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Mistrató",
+        "latitud": "5.2970",
+        "longitud": "-75.8828"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Pueblo Rico",
+        "latitud": "5.2219",
+        "longitud": "-76.0306"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Quinchía",
+        "latitud": "5.3404",
+        "longitud": "-75.7304"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Santuario",
+        "latitud": "5.0749",
+        "longitud": "-75.9645"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Santa Rosa de Cabal",
+        "latitud": "4.8764",
+        "longitud": "-75.6234"
+    },
+    {
+        "departamento": "Risaralda",
+        "municipio": "Belén de Umbría",
+        "latitud": "5.2006",
+        "longitud": "-75.8682"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Puerto Wilches",
+        "latitud": "7.3490",
+        "longitud": "-73.8993"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Puerto Parra",
+        "latitud": "6.6508",
+        "longitud": "-74.0560"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Bucaramanga",
+        "latitud": "7.1162",
+        "longitud": "-73.1325"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Aguada",
+        "latitud": "6.1622",
+        "longitud": "-73.5232"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Albania",
+        "latitud": "1.3285",
+        "longitud": "-75.8783"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Aratoca",
+        "latitud": "6.6944",
+        "longitud": "-73.0178"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Barbosa",
+        "latitud": "6.4392",
+        "longitud": "-75.3316"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Barichara",
+        "latitud": "6.6342",
+        "longitud": "-73.2230"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Barrancabermeja",
+        "latitud": "7.0649",
+        "longitud": "-73.8499"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Betulia",
+        "latitud": "6.1152",
+        "longitud": "-75.9845"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Bolívar",
+        "latitud": "1.8374",
+        "longitud": "-76.9663"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Cabrera",
+        "latitud": "3.9851",
+        "longitud": "-74.4845"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "California",
+        "latitud": "7.3478",
+        "longitud": "-72.9463"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Carcasí",
+        "latitud": "6.6287",
+        "longitud": "-72.6270"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Cepitá",
+        "latitud": "6.7535",
+        "longitud": "-72.9735"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Cerrito",
+        "latitud": "6.8402",
+        "longitud": "-72.6950"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Charalá",
+        "latitud": "6.2843",
+        "longitud": "-73.1468"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Charta",
+        "latitud": "7.2808",
+        "longitud": "-72.9687"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Chipatá",
+        "latitud": "6.0625",
+        "longitud": "-73.6371"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Cimitarra",
+        "latitud": "6.3206",
+        "longitud": "-73.9525"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Concepción",
+        "latitud": "6.3943",
+        "longitud": "-75.2576"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Confines",
+        "latitud": "6.3573",
+        "longitud": "-73.2405"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Contratación",
+        "latitud": "6.2905",
+        "longitud": "-73.4744"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Coromoro",
+        "latitud": "6.2949",
+        "longitud": "-73.0408"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Curití",
+        "latitud": "6.6051",
+        "longitud": "-73.0693"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "El Guacamayo",
+        "latitud": "6.2451",
+        "longitud": "-73.4968"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "El Playón",
+        "latitud": "7.4707",
+        "longitud": "-73.2028"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Encino",
+        "latitud": "6.1374",
+        "longitud": "-73.0987"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Enciso",
+        "latitud": "6.6680",
+        "longitud": "-72.6996"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Florián",
+        "latitud": "5.8046",
+        "longitud": "-73.9714"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Floridablanca",
+        "latitud": "7.0723",
+        "longitud": "-73.0990"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Galán",
+        "latitud": "6.6384",
+        "longitud": "-73.2877"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Gambita",
+        "latitud": "5.9459",
+        "longitud": "-73.3441"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Girón",
+        "latitud": "7.0705",
+        "longitud": "-73.1667"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Guaca",
+        "latitud": "6.8765",
+        "longitud": "-72.8563"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Guadalupe",
+        "latitud": "6.8150",
+        "longitud": "-75.2398"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Guapotá",
+        "latitud": "6.3085",
+        "longitud": "-73.3206"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Guavatá",
+        "latitud": "5.9541",
+        "longitud": "-73.7008"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Güepsa",
+        "latitud": "6.0251",
+        "longitud": "-73.5748"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Jesús María",
+        "latitud": "5.8765",
+        "longitud": "-73.7833"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Jordán",
+        "latitud": "6.7327",
+        "longitud": "-73.0960"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "La Belleza",
+        "latitud": "5.8595",
+        "longitud": "-73.9656"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Landázuri",
+        "latitud": "6.2187",
+        "longitud": "-73.8110"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "La Paz",
+        "latitud": "10.3874",
+        "longitud": "-73.1713"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Lebríja",
+        "latitud": "7.1133",
+        "longitud": "-73.2195"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Los Santos",
+        "latitud": "6.7551",
+        "longitud": "-73.1026"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Macaravita",
+        "latitud": "6.5065",
+        "longitud": "-72.5931"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Málaga",
+        "latitud": "6.7030",
+        "longitud": "-72.7323"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Matanza",
+        "latitud": "7.3231",
+        "longitud": "-73.0155"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Mogotes",
+        "latitud": "6.4752",
+        "longitud": "-72.9698"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Molagavita",
+        "latitud": "6.6743",
+        "longitud": "-72.8094"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Ocamonte",
+        "latitud": "6.3399",
+        "longitud": "-73.1225"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Oiba",
+        "latitud": "6.2651",
+        "longitud": "-73.2997"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Onzaga",
+        "latitud": "6.3440",
+        "longitud": "-72.8167"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Palmar",
+        "latitud": "6.5377",
+        "longitud": "-73.2910"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Páramo",
+        "latitud": "6.4165",
+        "longitud": "-73.1703"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Piedecuesta",
+        "latitud": "6.9973",
+        "longitud": "-73.0545"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Pinchote",
+        "latitud": "6.5320",
+        "longitud": "-73.1729"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Puente Nacional",
+        "latitud": "5.8779",
+        "longitud": "-73.6781"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Rionegro",
+        "latitud": "6.1472",
+        "longitud": "-75.3767"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "San Andrés",
+        "latitud": "6.8115",
+        "longitud": "-72.8489"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "San Gil",
+        "latitud": "6.5529",
+        "longitud": "-73.1351"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "San Joaquín",
+        "latitud": "6.4275",
+        "longitud": "-72.8676"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "San Miguel",
+        "latitud": "6.5756",
+        "longitud": "-72.6441"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Santa Bárbara",
+        "latitud": "5.8755",
+        "longitud": "-75.5673"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Simacota",
+        "latitud": "6.4434",
+        "longitud": "-73.3373"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Socorro",
+        "latitud": "6.4638",
+        "longitud": "-73.2611"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Suaita",
+        "latitud": "6.1035",
+        "longitud": "-73.4384"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Sucre",
+        "latitud": "2.0382",
+        "longitud": "-76.9262"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Suratá",
+        "latitud": "7.3665",
+        "longitud": "-72.9842"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Tona",
+        "latitud": "7.2014",
+        "longitud": "-72.9670"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Vélez",
+        "latitud": "6.0109",
+        "longitud": "-73.6662"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Vetas",
+        "latitud": "7.3098",
+        "longitud": "-72.8710"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Villanueva",
+        "latitud": "10.4443",
+        "longitud": "-75.2751"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Zapatoca",
+        "latitud": "6.8143",
+        "longitud": "-73.2679"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Palmas del Socorro",
+        "latitud": "6.4061",
+        "longitud": "-73.2877"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "San Vicente de Chucurí",
+        "latitud": "6.8803",
+        "longitud": "-73.4110"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "San José de Miranda",
+        "latitud": "6.6589",
+        "longitud": "-72.7336"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Santa Helena del Opón",
+        "latitud": "6.3396",
+        "longitud": "-73.6167"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Sabana de Torres",
+        "latitud": "7.3919",
+        "longitud": "-73.4990"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "El Carmen de Chucurí",
+        "latitud": "6.6979",
+        "longitud": "-73.5112"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Valle de San José",
+        "latitud": "6.4477",
+        "longitud": "-73.1437"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "San Benito",
+        "latitud": "6.1266",
+        "longitud": "-73.5091"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Hato",
+        "latitud": "6.5438",
+        "longitud": "-73.3082"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Chimá",
+        "latitud": "9.1494",
+        "longitud": "-75.6268"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "Capitanejo",
+        "latitud": "6.5274",
+        "longitud": "-72.6954"
+    },
+    {
+        "departamento": "Santander",
+        "municipio": "El Peñón",
+        "latitud": "8.9882",
+        "longitud": "-73.9494"
+    },
+    {
+        "departamento": "Sucre",
+        "municipio": "Sincelejo",
+        "latitud": "9.3023",
+        "longitud": "-75.3954"
+    },
+    {
+        "departamento": "Sucre",
+        "municipio": "Buenavista",
+        "latitud": "5.5124",
+        "longitud": "-73.9423"
+    }
+]
