@@ -585,7 +585,7 @@
                     <fieldset class="border p-4 rounded">
                         <legend class="float-none w-auto px-3">Reporte</legend>
 
-                        <div class="">
+                        <div class="form-floating">
                             <select id="lstPivot" class="form-select" onchange="PivotElementos()">
                                 <option value="Year">Año</option>
                                 <option value="Departamento">Departamento</option>
@@ -594,6 +594,7 @@
                                 <option value="Perpetrador">Actor - Perpetuador</option>
                                 <option value="Sexo">Género</option>
                             </select>
+                            <label for="floatingSelect">Datos por</label>
                         </div>
 
                         <hr>
@@ -610,7 +611,6 @@
 
                     </fieldset>
 
-
                 </div>
 
                 <!-- Contenedor graficas -->
@@ -620,13 +620,15 @@
                     <fieldset class="border p-4 rounded">
                         <legend class="float-none w-auto px-3">Grafico</legend>
 
-                        <div class="">
+                        <div class="form-floating">
                             <select id="lstGrafico" class="form-select" onchange="CreaGrafica()">
-                                <option value="bar">Barra</option>
+                                <option value="bar">Barras</option>
                                 <option value="line">Lineas</option>
                                 <option value="pie">Torta</option>
                                 <option value="doughnut">Anillo</option>
                             </select>
+                            <label for="floatingSelect">Tipo de gráfico</label>
+
                         </div>
 
                         <hr>
