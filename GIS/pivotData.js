@@ -20,18 +20,18 @@ function getColor(color = false) {
 }
 
 function showPivotArea() {
-    const activar = document.getElementById("map").hidden;
+    const activar = document.getElementById("map");
 
-    if (activar == false) {
+    if (activar.hidden) {
+        document.getElementById("map").hidden = false;
+        document.getElementById("headerMap").hidden = false;
+        document.getElementById("pivot").hidden = true;
+    } else {
         document.getElementById("map").hidden = true;
         document.getElementById("headerMap").hidden = true;
         document.getElementById("pivot").hidden = false;
     }
-    else {
-        document.getElementById("map").hidden = false;
-        document.getElementById("headerMap").hidden = false;
-        document.getElementById("pivot").hidden = true;
-    }
+
     //TablaReportII()
     PivotElementos()
 }

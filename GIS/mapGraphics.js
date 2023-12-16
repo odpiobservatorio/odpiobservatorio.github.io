@@ -1,5 +1,5 @@
 let Datafilter = 0;
-let Layers = {}
+const Layers = {}
 let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
