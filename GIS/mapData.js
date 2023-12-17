@@ -514,18 +514,16 @@ function procesarHecho(cadena) {
             "==": `(objeto["${hecho[0]}"]).toUpperCase() == "${hecho[2].toUpperCase()}"`,
             ">": `objeto["${hecho[0]}"] > "${hecho[2]}"`,
             "<": `objeto["${hecho[0]}"] < "${hecho[2]}"`,
-            "similar": `((objeto["${hecho[0]}"]).toUpperCase()).includes(${hecho[2].toUpperCase()})`,
+            "similar": `((objeto["${hecho[0]}"]).toUpperCase()).includes("${hecho[2].toUpperCase()}")`,
         }
         return parsed[hecho[1]];
     }
 }
 
 function convertirQuery(raw) {
-    // Reemplazar todos los and, or, por &&, ||
-    const cadena = raw.replace(/and/g, "&&").replace(/or/g, "||");
 
     // Separar por punto los predicados grandes y eliminar los parentesis
-    const predicados = cadena.split(".").map(
+    const predicados = raw.split(".").map(
         t => t.replace(/\(|\)/g, '')
         .trim()
     );
