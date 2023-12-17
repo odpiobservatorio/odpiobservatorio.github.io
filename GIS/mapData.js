@@ -46,7 +46,7 @@ function listasAutomaticas(criterio) {
     if (criterio == "Antecedentes") {
         const itemLs = document.createElement("option");
         itemLs.text = "Sin criterio";
-        document.getElementById("lstAutomatica").appendChild(itemLs);   
+        document.getElementById("lstAutomatica").appendChild(itemLs);
     } else {
         const tipoOrdenamiento = ["Year", "Mes", "Edad"].includes(criterio) ? "numero" : "texto";
         const funcionOrdenar = funciones[tipoOrdenamiento];
@@ -58,7 +58,7 @@ function listasAutomaticas(criterio) {
                 DataPrincipalSort.map(registro => registro[criterio])
             )
         ];
-        
+
         // Agrega los valores unicos a la lista de seleccion
         valoresUnicos.forEach(valor => {
             const itemLs = document.createElement("option");
@@ -143,7 +143,7 @@ function BuscarFaseI() {
     */
 
     // Criterios de busqueda (Criterio, operador, valor)
-    const iCampo = document.getElementById("lstCampos").value; 
+    const iCampo = document.getElementById("lstCampos").value;
     const iOperador = document.getElementById("lstOperador").value;
     const vCampo = document.getElementById("txValorBusquedaA").value;
 
@@ -157,7 +157,7 @@ function BuscarFaseI() {
         "<": (registro) => registro[iCampo] < vCampo,
         "==": (registro) => registro[iCampo] == vCampo,
     }
-    
+
     //Limpiamos las marcas del mapa
     //clearMarkers();
 
@@ -218,20 +218,20 @@ function AgregarCriterioFind() {
             `caso['${criterioValue}'].includes('${valorBusqueda}')` :
             `caso['${criterioValue}'] ${operadorValue} '${valorBusqueda}'`
     );
-    
+
 
     // Mostrar la busqueda en la lista avanzada
     const contenedor = document.createElement("div");
-    contenedor.classList.add("d-flex");
+    contenedor.classList = "d-flex gap-3";
 
     const labelCriterioBusqueda = document.createElement("li");
     labelCriterioBusqueda.textContent = `${criterioText} ${operadorText} ${valorBusqueda}`;
     labelCriterioBusqueda.classList.add("list-group-item");
-    
+
     // Boton eliminar contenedor
     const btnEliminar = document.createElement("button");
     btnEliminar.textContent = "-";
-    btnEliminar.classList.add("btn", "btn-danger");
+    btnEliminar.classList.add("btn", "btn-outline-danger");
     btnEliminar.onclick = () => {
         contenedor.remove();
         (bigData.CriteFindPlus).pop();
@@ -278,11 +278,12 @@ function buscarQuery() {
     //Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = "";
 
+
     //Creamos la funcion q va a filtrar con los criterios
-    const queryEntry = ""
+    const queryEntry = document.getElementById("queryBusqueda").value;
     const filtroCreado = new Function(
         "objeto",
-        `return ${convertirQuery(queryEntry)};`
+        `return (${convertirQuery(queryEntry)});`
     )
 
     ///Ordena mi información por fecha
@@ -323,13 +324,13 @@ function verCaso(registro) {
     * La funcion recibe un registro y muestra la ventana modal con la información
     */
     const data = {
-        tlTipoCaso : `CASO ${registro.ind}`,
-        txTipo : registro.Tipo,
-        txAño : registro.Year,
-        txLugar : registro.Municipio,
-        txEtnia : `Etnía (${registro.Pueblo})`,
-        txPerpetuador : `Perpetuador (${registro.Perpetrador})`,
-        txCaso : registro.Antecedentes,
+        tlTipoCaso: `CASO ${registro.ind}`,
+        txTipo: registro.Tipo,
+        txAño: registro.Year,
+        txLugar: registro.Municipio,
+        txEtnia: `Etnía (${registro.Pueblo})`,
+        txPerpetuador: `Perpetuador (${registro.Perpetrador})`,
+        txCaso: registro.Antecedentes,
     }
 
     for (const id in data) {
@@ -480,7 +481,7 @@ function DocumentReport() {
         ContenedorDocumento.appendChild(tagElement);
 
         tagElement = document.createElement("hr");
-        ContenedorDocumento.appendChild(tagElement); 
+        ContenedorDocumento.appendChild(tagElement);
     });
 }
 
@@ -498,9 +499,9 @@ Ejemplo:
 `
 
 `
-    (Year == 2023)
-    .and.
-    (Perpetrador similar FF, and, Perpetrador similar ESMAD)
+(Year == 2023)
+.&&.
+(Perpetrador similar FF, ||, Perpetrador similar ESMAD)
 `
 
 */
@@ -511,10 +512,10 @@ function procesarHecho(cadena) {
     } else {
         const hecho = cadena.split(" ");
         const parsed = {
-            "==": `(objeto["${hecho[0]}"]).toUpperCase() == "${hecho[2].toUpperCase()}"`,
+            "==": `(objeto["${hecho[0]}"]).toString().toUpperCase() == "${hecho[2].toUpperCase()}"`,
             ">": `objeto["${hecho[0]}"] > "${hecho[2]}"`,
             "<": `objeto["${hecho[0]}"] < "${hecho[2]}"`,
-            "similar": `((objeto["${hecho[0]}"]).toUpperCase()).includes("${hecho[2].toUpperCase()}")`,
+            "similar": `((objeto["${hecho[0]}"]).toString().toUpperCase()).includes("${hecho[2].toUpperCase()}")`,
         }
         return parsed[hecho[1]];
     }
@@ -525,16 +526,15 @@ function convertirQuery(raw) {
     // Separar por punto los predicados grandes y eliminar los parentesis
     const predicados = raw.split(".").map(
         t => t.replace(/\(|\)/g, '')
-        .trim()
+            .trim()
     );
-
     // Separar por coma los predicados pequeños
     return predicados.map(predicado => {
         if (predicado === "&&" || predicado === "||") {
             return predicado;
         } else {
             const hechos = predicado.split(",");
-            return `(${hechos.map(h => procesarHecho(h.trim())).join(" ")})`
+            return `(${hechos.map(h =>procesarHecho(h.trim())).join(" ")})`
         }
     }).join(" ").replace(/\n/g, ' ');
 }
