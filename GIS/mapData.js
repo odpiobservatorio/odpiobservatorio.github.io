@@ -496,6 +496,13 @@ Ejemplo:
     .and.
     (id similar 10 ,or,  departamento similar Cundinamarca)
 `
+
+`
+    (Year == 2023)
+    .and.
+    (Perpetrador similar FF, and, Perpetrador similar ESMAD)
+`
+
 */
 
 function procesarHecho(cadena) {
