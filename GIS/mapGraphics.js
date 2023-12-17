@@ -13,19 +13,26 @@ const formatoPlano = {
 }
 
 function updateSize(value) {
+    // Actualiza el tamaño de las marcas
     formatoPlano.size = parseFloat(value);
 }
 
 function resetIconSize() {
+    // Resetea el tamaño de las marcas y las muestra nuevamente
     document.getElementById("sizeIconV").value = 1;
     formatoPlano.size = 1;
     reloadIcons()
 }
 
 function reloadIcons() {
+    /*
+    * Recarga las marcas en el mapa, con la configuracion actualizada
+    */
+
     //Limpiamos las marcas del mapa
     clearMarkers();
-    //mostramos la busqueda finalmente.
+
+    // Mostrar datos en el mapa
     showBusqueda(bigData.DataToReport);
 }
 
@@ -63,7 +70,7 @@ function clearDep() {
 
 function showDep() {
     /*
-    * Muestra especifico un departamento en el mapa
+    * Muestra un departamento individual en el mapa
     */
 
     // Si hay un departamento mostrandose, lo elimina
@@ -109,22 +116,24 @@ function showLayer(parent) {
     }
 }
 
-
 //.............................................
 //Funciones que muestran capas separadas
 //.............................................
 
-
 //Test-----
-function colorMap(v) {
-    const d = (1000 / 771) * v;
-    return d > 1000 ? '#800026' :
-        d > 500 ? '#BD0026' :
-            d > 200 ? '#E31A1C' :
-                d > 100 ? '#FC4E2A' :
-                    d > 50 ? '#FD8D3C' :
-                        d > 20 ? '#FEB24C' :
-                            d > 10 ? '#FED976' :
+function colorMap(casos) {
+    /*
+    * Obtiene un gradiente de color dependiendo de cuantos casos hayan
+    * n es el valor normalizado segun el maximo de casos
+    */
+    const n = (1000 / 794) * casos;
+    return n > 1000 ? '#800026' :
+        n > 500 ? '#BD0026' :
+            n > 200 ? '#E31A1C' :
+                n > 100 ? '#FC4E2A' :
+                    n > 50 ? '#FD8D3C' :
+                        n > 20 ? '#FEB24C' :
+                            n > 10 ? '#FED976' :
                                 '#FFEDA0';
 }
 //------------

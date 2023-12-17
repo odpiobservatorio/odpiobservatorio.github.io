@@ -37,8 +37,10 @@ function countTipo(Key, tagsOrdenadas) {
 function elementosUnicos(Key) {
     const colors = [];
     const elementosUnicosSet = new Set();
-    //Hace una lista sin repeticiones del tipo q se pida
-    //por ejem lista de los Departamentos
+
+    // Hace una lista sin repeticiones del tipo q se pida
+    // por ejem lista de los Departamentos
+    
     for (const registro of DataPrincipal) {
         if (!elementosUnicosSet.has(registro[Key])) {
             elementosUnicosSet.add(registro[Key]);
@@ -52,21 +54,27 @@ function elementosUnicos(Key) {
 function addElements(tipo) {
     document.getElementById("tlGrafico").textContent = `Consolidado por ${tipo}`;
 
+    // Elimina el canvas anterior q contiene la grafica
     const elemento = document.getElementById("grafica")
     elemento.remove();
 
+    // Crea un nuevo canvas para la grafica
     const newCanvas = document.createElement("canvas");
     newCanvas.id = "grafica"
 
     document.getElementById("DivGraficos").appendChild(newCanvas);
 }
 
-function AddGraph(Key, label, axis) {       
+function AddGraph(Key, label, axis) {
+    // Elimina la grafica anterior y crea el canvas para la nueva grafica 
     addElements(label);
+
     //Etiquetas Unicas ordenadas
     const [tagsOrdenadas, colors] = elementosUnicos(Key);
+
     //Inicio la busqueda por Clave y cuento totales por año
-    const Conteos = countTipo(Key, tagsOrdenadas);
+    const valoresConteos = countTipo(Key, tagsOrdenadas);
+    
     //Configurar etiquetas y datos
     const data = {
         labels: tagsOrdenadas,
@@ -74,7 +82,7 @@ function AddGraph(Key, label, axis) {
             label: label,
             backgroundColor: colors,
             borderColor: 'rgb(255, 99, 132)',
-            data: Conteos,
+            data: valoresConteos,
         }]
     };
 

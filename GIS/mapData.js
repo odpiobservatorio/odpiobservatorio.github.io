@@ -31,7 +31,7 @@ function listasAutomaticas(criterio) {
      * en el campo de "informacion de apoyo" para buscar por ese criterio. 
      */
 
-    const funciones = {
+    const sortFunc = {
         "numero": (a, b) => a[criterio] - b[criterio],
         "texto": (a, b) => {
             a = a[criterio];
@@ -49,7 +49,7 @@ function listasAutomaticas(criterio) {
         document.getElementById("lstAutomatica").appendChild(itemLs);
     } else {
         const tipoOrdenamiento = ["Year", "Mes", "Edad"].includes(criterio) ? "numero" : "texto";
-        const funcionOrdenar = funciones[tipoOrdenamiento];
+        const funcionOrdenar = sortFunc[tipoOrdenamiento];
         const DataPrincipalSort = DataPrincipal.sort(funcionOrdenar);
 
         // Hace una lista sin repeticiones del tipo q se pida
@@ -76,29 +76,29 @@ function listasAutomaticas(criterio) {
 // Funciones busqueda simple
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
-function showBusqueda(datosParaMostrar) {
+function showBusqueda(datosParaMostrar = []) {
     /*
         * La funcion recibe los datos a mostrar y 
         * los muestra en la lista de resultados y en el mapa.
     */
 
-    datosParaMostrar.forEach(elemento => {
+    datosParaMostrar.forEach(registro => {
         // Agrega los resultados a la lista de resultados
         const p = document.createElement("p");
-        p.textContent = `${elemento.Municipio}, ${elemento.Pueblo}`;
+        p.textContent = `${registro.Municipio}, ${registro.Pueblo}`;
 
         const a = document.createElement("a");
         a.href = "#";
-        a.onclick = () => verCaso(elemento);
+        a.onclick = () => verCaso(registro);
         a.classList.add("list-group-item", "list-group-item-action");
 
         const h6 = document.createElement("h6");
-        h6.textContent = `${elemento.ind}. ${elemento.Tipo}`;
+        h6.textContent = `${registro.ind}. ${registro.Tipo}`;
         h6.classList.add("mb-1");
 
         const sm = document.createElement("small");
         sm.classList.add("text-muted");
-        sm.textContent = elemento.Year;
+        sm.textContent = registro.Year;
 
         const div = document.createElement("div");
         div.classList.add("d-flex", "w-100", "justify-content-between");
@@ -115,13 +115,14 @@ function showBusqueda(datosParaMostrar) {
         // Agrega las marcas al mapa
         try {
             (bigData.MrkAntecedente).push(
-                new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]]() }) //Se llama el diccionario icons
+                 // Se llama el icono de la configuracion de iconos en mapGraphics.js
+                new L.marker([registro.Lat, registro.Lng], { icon: icons[formatoPlano["markType"]]() })
                     .addTo(map)
                     .bindPopup(
-                        `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${elemento.Municipio
-                        }, C: ${elemento.ind
+                        `<b>${registro.Departamento} - ${registro.Year}</b><br>${registro.Municipio
+                        }, C: ${registro.ind
                         }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
-                            elemento
+                            registro
                         )})'>Ver</button></br>`
                     )
             );
@@ -143,33 +144,33 @@ function BuscarFaseI() {
     */
 
     // Criterios de busqueda (Criterio, operador, valor)
-    const iCampo = document.getElementById("lstCampos").value;
-    const iOperador = document.getElementById("lstOperador").value;
-    const vCampo = document.getElementById("txValorBusquedaA").value;
+    const campoBusqueda = document.getElementById("lstCampos").value;
+    const operador = document.getElementById("lstOperador").value;
+    const valorBusqueda = document.getElementById("txValorBusquedaA").value;
 
     ///Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = "";
 
     // Funcion de filtro que se usa segun el caso
-    const filtros = {
-        "1": (registro) => registro[iCampo].toUpperCase().includes(vCampo.toUpperCase()),
-        ">": (registro) => registro[iCampo] > vCampo,
-        "<": (registro) => registro[iCampo] < vCampo,
-        "==": (registro) => registro[iCampo] == vCampo,
+    const funcionesFiltro = {
+        "1": (registro) => registro[campoBusqueda].toUpperCase().includes(valorBusqueda.toUpperCase()),
+        ">": (registro) => registro[campoBusqueda] > valorBusqueda,
+        "<": (registro) => registro[campoBusqueda] < valorBusqueda,
+        "==": (registro) => registro[campoBusqueda] == valorBusqueda,
     }
 
     //Limpiamos las marcas del mapa
     //clearMarkers();
 
     // Filtramos los datos segun el criterio
-    const funcionFiltro = filtros[iOperador];
-    const datos = DataPrincipal.filter(funcionFiltro)
+    const funcionFiltro = funcionesFiltro[operador];
+    const DataToReport = DataPrincipal.filter(funcionFiltro)
 
     // Mostrar resultados de busqueda
-    showBusqueda(datos);
+    showBusqueda(DataToReport);
 
     //Agrego los valores de este filtro y los guardo en el reporte
-    bigData.DataToReport = datos;
+    bigData.DataToReport = DataToReport;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
@@ -177,10 +178,10 @@ function BuscarFaseI() {
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
 function LimpiarCriterios() {
-    /* Limpia control lista de criterios avanzados
+    /*
+    * Limpia control lista de criterios avanzados
     * y de la lista de criterios de busqueda
     */
-
     document.getElementById("lstCriterios").innerHTML = "";
     bigData.CriteFindPlus = [];
 }
@@ -218,7 +219,6 @@ function AgregarCriterioFind() {
             `caso['${criterioValue}'].includes('${valorBusqueda}')` :
             `caso['${criterioValue}'] ${operadorValue} '${valorBusqueda}'`
     );
-
 
     // Mostrar la busqueda en la lista avanzada
     const contenedor = document.createElement("div");
@@ -258,16 +258,16 @@ function BuscarFaseII() {
     );
 
     ///Ordena mi información por fecha
-    const datos = DataPrincipal.filter((caso) => filtroCreado(caso));
+    const DataToReport = DataPrincipal.filter((caso) => filtroCreado(caso));
 
     //Limpiamos las marcas del mapa
     //clearMarkers();
 
     //mostramos la busqueda finalmente
-    showBusqueda(datos);
+    showBusqueda(DataToReport);
 
     //Agrego los valores de este filtro y los guardo en el reporte
-    bigData.DataToReport = datos;
+    bigData.DataToReport = DataToReport;
 }
 
 function buscarQuery() {
@@ -287,16 +287,16 @@ function buscarQuery() {
     )
 
     ///Ordena mi información por fecha
-    const datos = DataPrincipal.filter((caso) => filtroCreado(caso));
+    const DataToReport = DataPrincipal.filter((caso) => filtroCreado(caso));
 
     //Limpiamos las marcas del mapa
     clearMarkers();
 
     //mostramos la busqueda finalmente
-    showBusqueda(datos);
+    showBusqueda(DataToReport);
 
     //Agrego los valores de este filtro y los guardo en el reporte
-    bigData.DataToReport = datos;
+    bigData.DataToReport = DataToReport;
 }
 
 function CargarTodoMarcas() {
@@ -364,9 +364,11 @@ function clearMarkers() {
 function TablaReport() {
     // Obtener la referencia del elemento dode se inserta la tabla
     var ContenedorTabla = document.getElementById("divTableModal");
+
     //Limpia el contenido dentro del formulario modal
     document.getElementById("divTableModal").innerHTML = "";
     document.getElementById("divDocModal").innerHTML = "";
+    
     // Agrega la imagen al documento
     const tablabase = document.getElementById("tbResultados");
     if (tablabase) tablabase.remove();
@@ -374,8 +376,10 @@ function TablaReport() {
     const tabla = document.createElement("table");
     const tablaHeader = document.createElement("thead");
     tabla.id = "tbResultados";
+    
     //Creamos el cuerpo de la tabla
     const tablaBody = document.createElement("tbody");
+    
     //Creamos los encabezados
     const Encabezados = document.createElement("tr");
 
@@ -418,12 +422,14 @@ function TablaReport() {
         const DatoCelta = document.createElement("td");
         DatoCelta.textContent = i;
         fila.appendChild(DatoCelta);
+        
         //Agrego las columnas para cada fila
-        for (const key of Keys) {
+        Keys.forEach(key => {
             DatoCelta = document.createElement("td");
             DatoCelta.textContent = registro[key];
             fila.appendChild(DatoCelta);
-        }
+        });
+
         //Agrego filas y columnas al cuerpo de la tabla
         tablaBody.appendChild(fila);
         i++;
@@ -453,7 +459,6 @@ function DocumentReport() {
         sm.classList.add("text-muted");
         sm.textContent = contador;
         ContenedorDocumento.appendChild(sm);
-        contador++;
 
         tagElement = document.createElement("div");
         tagElement.textContent = registro.Year;
@@ -482,6 +487,8 @@ function DocumentReport() {
 
         tagElement = document.createElement("hr");
         ContenedorDocumento.appendChild(tagElement);
+
+        contador++;
     });
 }
 
@@ -491,17 +498,17 @@ function DocumentReport() {
 /*
 Ejemplo:
 `
-    (id > 2, and, departamento == Antioquia)
-    .or.
-    (id == 10, and, departamento == Cundinamarca)
-    .and.
-    (id similar 10 ,or,  departamento similar Cundinamarca)
+    (id > 2 , && , departamento == Antioquia)
+    .||.
+    (id == 10 , && , departamento == Cundinamarca)
+    .&&.
+    (id similar 10 , or , departamento similar Cundinamarca)
 `
 
 `
-(Year == 2023)
-.&&.
-(Perpetrador similar FF, ||, Perpetrador similar ESMAD)
+    (Year == 2023)
+    .&&.
+    (Perpetrador similar FF, ||, Perpetrador similar ESMAD)
 `
 
 */
