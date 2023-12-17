@@ -1,3 +1,4 @@
+// Variables pasa usar globalmente
 const bigData = {
     DataToReport: [], // Resultados de la busqueda
     MrkAntecedente: [],
@@ -9,30 +10,176 @@ const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]
 const tooltipList = [...tooltipTriggerList].map(
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
 );
-//Esta variable guarda el archivo json cargado
 
-//*****************************************************
-//Funciones para llenar listas
-//*****************************************************
+// - - - - - - - - - - - - - - - - - - - - - - - -
+// Funciones para llenar listas de busqueda
+// - - - - - - - - - - - - - - - - - - - - - - - -
 function CargarlstMap() {
-    //Ubicar indices en las listas
-    document.getElementById("lstCampos").selectedIndex = "0";
-
-    listasAutomaticas("lstCampos");
+    /*
+    * La funcion carga la lista de "informacion de apoyo"
+    * segun el valor de "Buscar por" (Macro, dep, municipio, etc)
+    */
+    const lstCampos = document.getElementById("lstCampos");
+    lstCampos.selectedIndex = "0";
     document.getElementById("lstAutomatica").selectedIndex = "0";
-
-    addTextHelp();
+    listasAutomaticas(lstCampos.value);
 }
 
-//*****************************************************
-//Funciones para buscar datos y mostrar marcas
-//*****************************************************
+function listasAutomaticas(criterio) {
+    /*
+     * La funcion recibe el criterio de busqueda y crea una lista de valores unicos
+     * en el campo de "informacion de apoyo" para buscar por ese criterio. 
+     */
 
-function LoadData() { }
+    const funciones = {
+        "numero": (a, b) => a[criterio] - b[criterio],
+        "texto": (a, b) => {
+            a = a[criterio];
+            b = b[criterio];
+            return (a.toString()).localeCompare(b.toString());
+        },
+    }
 
-//Limpia control lista de criterios avanzados
-//y de la matris de criterios avanzado.
+    const lstAutomatica = document.getElementById("lstAutomatica")
+    lstAutomatica.innerHTML = "";
+
+    if (criterio == "Antecedentes") {
+        const itemLs = document.createElement("option");
+        itemLs.text = "Sin criterio";
+        document.getElementById("lstAutomatica").appendChild(itemLs);   
+    } else {
+        const tipoOrdenamiento = ["Year", "Mes", "Edad"].includes(criterio) ? "numero" : "texto";
+        const funcionOrdenar = funciones[tipoOrdenamiento];
+        const DataPrincipalSort = DataPrincipal.sort(funcionOrdenar);
+
+        // Hace una lista sin repeticiones del tipo q se pida
+        const valoresUnicos = [
+            ...new Set(
+                DataPrincipalSort.map(registro => registro[criterio])
+            )
+        ];
+        
+        // Agrega los valores unicos a la lista de seleccion
+        valoresUnicos.forEach(valor => {
+            const itemLs = document.createElement("option");
+            itemLs.value = valor;
+            itemLs.text = valor;
+            lstAutomatica.appendChild(itemLs);
+        });
+    }
+
+    // Traslada la información de apoyo a la caja valor de búsqueda
+    document.getElementById("txValorBusquedaA").value = document.getElementById("lstAutomatica").value;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - -
+// Funciones busqueda simple
+// - - - - - - - - - - - - - - - - - - - - - - - -
+
+function showBusqueda(datosParaMostrar) {
+    /*
+        * La funcion recibe los datos a mostrar y 
+        * los muestra en la lista de resultados y en el mapa.
+    */
+
+    datosParaMostrar.forEach(elemento => {
+        // Agrega los resultados a la lista de resultados
+        const p = document.createElement("p");
+        p.textContent = `${elemento.Municipio}, ${elemento.Pueblo}`;
+
+        const a = document.createElement("a");
+        a.href = "#";
+        a.onclick = () => verCaso(elemento);
+        a.classList.add("list-group-item", "list-group-item-action");
+
+        const h6 = document.createElement("h6");
+        h6.textContent = `${elemento.ind}. ${elemento.Tipo}`;
+        h6.classList.add("mb-1");
+
+        const sm = document.createElement("small");
+        sm.classList.add("text-muted");
+        sm.textContent = elemento.Year;
+
+        const div = document.createElement("div");
+        div.classList.add("d-flex", "w-100", "justify-content-between");
+
+        div.appendChild(h6);
+        div.appendChild(sm);
+        a.appendChild(div);
+
+        a.appendChild(p);
+
+        // Agregar a la lista de resultados
+        document.getElementById("lstResGis").appendChild(a);
+
+        // Agrega las marcas al mapa
+        try {
+            (bigData.MrkAntecedente).push(
+                new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]]() }) //Se llama el diccionario icons
+                    .addTo(map)
+                    .bindPopup(
+                        `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${elemento.Municipio
+                        }, C: ${elemento.ind
+                        }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
+                            elemento
+                        )})'>Ver</button></br>`
+                    )
+            );
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+    const nCasos = datosParaMostrar.length;
+    document.getElementById("tlResultados").textContent = `${nCasos} resultados`;
+}
+
+function BuscarFaseI() {
+
+    /*
+    * La funcion que realiza una busqueda simple
+    * de un solo criterio de busqueda y envia los datos
+    * a la funcion que muestra los resultados.
+    */
+
+    // Criterios de busqueda (Criterio, operador, valor)
+    const iCampo = document.getElementById("lstCampos").value; 
+    const iOperador = document.getElementById("lstOperador").value;
+    const vCampo = document.getElementById("txValorBusquedaA").value;
+
+    ///Limpiamos la lista de resultados
+    document.getElementById("lstResGis").innerHTML = "";
+
+    // Funcion de filtro que se usa segun el caso
+    const filtros = {
+        "1": (registro) => registro[iCampo].toUpperCase().includes(vCampo.toUpperCase()),
+        ">": (registro) => registro[iCampo] > vCampo,
+        "<": (registro) => registro[iCampo] < vCampo,
+        "==": (registro) => registro[iCampo] == vCampo,
+    }
+    
+    //Limpiamos las marcas del mapa
+    //clearMarkers();
+
+    // Filtramos los datos segun el criterio
+    const funcionFiltro = filtros[iOperador];
+    const datos = DataPrincipal.filter(funcionFiltro)
+
+    // Mostrar resultados de busqueda
+    showBusqueda(datos);
+
+    //Agrego los valores de este filtro y los guardo en el reporte
+    bigData.DataToReport = datos;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - -
+// Funciones busqueda avanzada
+// - - - - - - - - - - - - - - - - - - - - - - - -
+
 function LimpiarCriterios() {
+    // Limpia control lista de criterios avanzados
+    // y de la matriz de criterios avanzado.
+
     document.getElementById("lstCriterios").innerHTML = "";
     bigData.CriteFindPlus = [];
 }
@@ -89,62 +236,11 @@ function AgregarCriterioFind() {
     document.getElementById("lstCriterios").appendChild(contenedor);
 }
 
-function showBusqueda(checkBusqueda) {
-    let nCasos = 0;
-
-    checkBusqueda.forEach(elemento => {
-        const p = document.createElement("p");
-        p.textContent = `${elemento.Municipio}, ${elemento.Pueblo}`;
-
-        const a = document.createElement("a");
-        a.href = "#";
-        a.onclick = () => verCaso(elemento);
-        a.classList.add("list-group-item", "list-group-item-action");
-
-        const h5 = document.createElement("h6");
-        h5.textContent = `${elemento.ind}. ${elemento.Tipo}`;
-        h5.classList.add("mb-1");
-
-        const sm = document.createElement("small");
-        sm.classList.add("text-muted");
-        sm.textContent = elemento.Year;
-
-        const div = document.createElement("div");
-        div.classList.add("d-flex", "w-100", "justify-content-between");
-
-        div.appendChild(h5);
-        div.appendChild(sm);
-        a.appendChild(div);
-
-        a.appendChild(p);
-
-        document.getElementById("lstResGis").appendChild(a);
-
-        try {
-            (bigData.MrkAntecedente).push(
-                new L.marker([elemento.Lat, elemento.Lng], { icon: icons[formatoPlano["markType"]]() }) //Se llama el diccionario icons
-                    .addTo(map)
-                    .bindPopup(
-                        `<b>${elemento.Departamento} - ${elemento.Year}</b><br>${elemento.Municipio
-                        }, C: ${elemento.ind
-                        }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
-                            elemento
-                        )})'>Ver</button></br>`
-                    )
-            );
-        } catch (error) {
-            console.log(error);
-        }
-
-        nCasos++;
-    });
-
-
-    document.getElementById("tlResultados").textContent = `${nCasos} Resultados`;
-}
-
-///Función para busqueda compleja de varios parametros básicos
 function BuscarFaseII() {
+    /*
+    * Funcion para realizar una busqueda avanzada
+    */
+
     //Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = "";
 
@@ -167,56 +263,30 @@ function BuscarFaseII() {
     bigData.DataToReport = datos;
 }
 
-function BuscarFaseI() {
-    //Configuración de los criterios de búsqueda inicial, Columna & Operador & Valor a búscar.
-    const iOperador = document.getElementById("lstOperador").value;
-    const iCampo = document.getElementById("lstCampos").value;
-    const vCampo = document.getElementById("txValorBusquedaA").value;
-
-    ///Limpiamos la lista de resultados
-    document.getElementById("lstResGis").innerHTML = "";
-
-    const filtros = {
-        "1": (registro) => registro[iCampo].toUpperCase().includes(vCampo.toUpperCase()),
-        ">": (registro) => registro[iCampo] > vCampo,
-        "<": (registro) => registro[iCampo] < vCampo,
-        "==": (registro) => registro[iCampo] == vCampo,
-    }
-    
-    //Limpiamos las marcas del mapa
-    //clearMarkers();
-
-    const funcionFiltro = filtros[iOperador];
-    const datos = DataPrincipal.filter(funcionFiltro)
-
-    //mostramos la busqueda
-    showBusqueda(datos);
-
-    //Agrego los valores de este filtro y los guardo en el reporte
-    bigData.DataToReport = datos;
-}
-
 function CargarTodoMarcas() {
-    document.getElementById("lstCampos").selectedIndex = "0";
-
-    listasAutomaticas("lstCampos");
-    document.getElementById("lstAutomatica").selectedIndex = "0";
+    /*
+    * Funcion que carga y muestra todos los registros de la base de datos
+    */
 
     //Limpiamos la lista de resultados
     document.getElementById("lstResGis").innerHTML = "";
 
+    // Limpiamos las marcas anteriores
     clearMarkers();
 
-    //mostramos la busqueda
+    // Mostrar todos los datos
     showBusqueda(DataPrincipal);
     bigData.DataToReport = DataPrincipal;
 }
 
 //..........................................
-//Funciones para mostrar ventana caso
+// Funciones para mostrar ventana caso
 //..........................................
 
 function verCaso(registro) {
+    /*
+    * La funcion recibe un registro y muestra la ventana modal con la información
+    */
     const data = {
         tlTipoCaso : `CASO ${registro.ind}`,
         txTipo : registro.Tipo,
@@ -234,8 +304,10 @@ function verCaso(registro) {
     bootstrap.Modal.getOrCreateInstance(document.getElementById("ModalCaseOnMap")).show();
 }
 
-///Modifca vicualmente el boton de buscar
 function VerFindExtend() {
+    /*
+    * La funcion muestra u oculta la ventana de busqueda avanzada
+    */
     const control = document.getElementById("PlusFind");
 
     control.hidden = !control.hidden;
@@ -243,59 +315,14 @@ function VerFindExtend() {
 }
 
 function clearMarkers() {
-    //Limpiamos cualquier marca en el mapa
+    // Limpia todas las marcas del mapa
     (bigData.MrkAntecedente).forEach(antecedente => map.removeLayer(antecedente));
 }
 
-function listasAutomaticas(controlList) {
-    const criterio = document.getElementById(controlList).value;
+// - - - - - - - - - - - - - - - - - - - - - - - -
+// Funciones para mostrar reportes de registros (Tabla, documento)
+// - - - - - - - - - - - - - - - - - - - - - - - -
 
-    const funciones = {
-        "numero": (a, b) => a[criterio] - b[criterio],
-        "texto": (a, b) => {
-            a = a[criterio];
-            b = b[criterio];
-            return (a.toString()).localeCompare(b.toString());
-        },
-    }
-
-    const lstAutomatica = document.getElementById("lstAutomatica")
-    lstAutomatica.innerHTML = "";
-
-    if (criterio == "Antecedentes") {
-        const itemLs = document.createElement("option");
-        itemLs.text = "Sin criterio";
-        document.getElementById("lstAutomatica").appendChild(itemLs);   
-    } else {
-        const tipoOrdenamiento = ["Year", "Mes", "Edad"].includes(criterio) ? "numero" : "texto";
-        const funcionOrdenar = funciones[tipoOrdenamiento];
-        const DataPrincipalSort = DataPrincipal.sort(funcionOrdenar);
-
-        // Hace una lista sin repeticiones del tipo q se pida
-        const valoresUnicos = [
-            ...new Set(
-                DataPrincipalSort.map(registro => registro[criterio])
-            )
-        ];
-        
-        // Agrega los valores unicos a la lista de seleccion
-        valoresUnicos.forEach(valor => {
-            const itemLs = document.createElement("option");
-            itemLs.value = valor;
-            itemLs.text = valor;
-            lstAutomatica.appendChild(itemLs);
-        });
-    }
-
-    addTextHelp();
-}
-
-
-function addTextHelp() {
-    //Función que traslada la información de apoyo a la caja valor de búsqueda
-    document.getElementById("txValorBusquedaA").value =
-        document.getElementById("lstAutomatica").value;
-}
 
 //Funciones de tabla reporte de busqueda
 function TablaReport() {

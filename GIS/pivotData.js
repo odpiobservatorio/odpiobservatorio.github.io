@@ -1,5 +1,8 @@
 function getColor(color = false) {
-    //Retorna -- un solo color si no se da argumentos -- o un array de colores del tamaño q le especifiquemos 
+    /* 
+    * Retorna -- un solo color si no se da argumentos -- 
+    * o un array de colores del tamaño q le especifiquemos 
+    */
     if (color) {
         const colors = []
         for (let i = 0; i < color; i++) {

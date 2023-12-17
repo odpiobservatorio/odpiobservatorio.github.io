@@ -47,6 +47,7 @@ Promise.all(fetchAmbiente()).then(res => {
     window["ambiental"] = JSON.parse(`{ ${(res[0] + res[1] + res[2])} }`);
 })
 
+// Cargar informacion de la base de datos de registros
 function loadDataBase(id, hoja, query = "Select *") {
     //Carga base de datos de google sheets y la convierte a una lista
 

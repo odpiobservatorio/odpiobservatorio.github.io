@@ -4,13 +4,12 @@ let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
 
-
-//Diccionario con la "Configuracion" del plano, se modifica segun los cambios del usuario
+//Diccionario con la "configuracion" del plano, se modifica segun los cambios del usuario
 const formatoPlano = {
-    "color": "orange",
-    "opacidad": "0.5",
+    "color": "orange", // Configuracion de color 
+    "opacidad": "0.5", // Configuracion de Opacidad
     "markType": "green", //Tipo de marcas q se muestran
-    "size": 1,
+    "size": 1, // Tamaño de las marcas
 }
 
 function updateSize(value) {
@@ -23,7 +22,6 @@ function resetIconSize() {
     reloadIcons()
 }
 
-
 function reloadIcons() {
     //Limpiamos las marcas del mapa
     clearMarkers();
@@ -31,48 +29,56 @@ function reloadIcons() {
     showBusqueda(bigData.DataToReport);
 }
 
-//Cambia el tipo de la marca q se muestra
 function changeMark(value) {
-    formatoPlano["markType"] = value //Va a la configuracion del plano y le asigna el tipo de marca q selecciono el usuario
+    /* 
+    * Cambia el tipo de la marca q se muestra
+    */
+    formatoPlano["markType"] = value
 }
 
-
 function clearLayers() {
-    //Limpia todas las capas q se estan mostrando
-    const elemento = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
-    const lista = elemento.querySelectorAll(".form-check-input");
+    /*
+    * Limpia todas las capas q se estan mostrando
+    */
 
-    for (const input of lista) {
-        if (input.checked) {
-            input.checked = false;
-            map.removeLayer(Layers[input.id]);
+    const elemento = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
+    const listaChecks = elemento.querySelectorAll(".form-check-input");
+
+    listaChecks.forEach(checkbox => {
+        if (checkbox.checked) {
+            checkbox.checked = false;
+            map.removeLayer(Layers[checkbox.id]);
         }
-    }
+    });
 }
 
 function clearDep() {
+    /*
+    * Limpia el departamento inidividual q se esta mostrando
+    */
     if (Layers.hasOwnProperty("currentDep")) {
         map.removeLayer(Layers["currentDep"]);
     }
 }
 
 function showDep() {
+    /*
+    * Muestra especifico un departamento en el mapa
+    */
 
-    if (Layers.hasOwnProperty("currentDep")) {
-        map.removeLayer(Layers["currentDep"]);
-    }
+    // Si hay un departamento mostrandose, lo elimina
+    clearDep()
 
     const departamento = document.getElementById("lstDeps").value;
     const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+    
+    depsCopy.features = [
+        (depsCopy.features).find(
+            feature => feature.properties.NOMBRE_DPT === departamento
+        )
+    ];
 
-    for (const feature of depsCopy.features) {
-        if (feature.properties.NOMBRE_DPT == departamento) {
-            depsCopy.features = [feature];
-            break;
-        }
-    }
-
-    //Crear capa
+    // Crear capa
     Layers["currentDep"] = new L.geoJson(depsCopy, {
         style: {
             //color: formatoPlano["color"],
@@ -89,11 +95,14 @@ function showDep() {
 }
 
 function showLayer(parent) {
-    //Si el usuario selecciona una capa, la muestra, si ya esta seleccionada la elimina
-    const input = parent.querySelector(".form-check-input");
-    const key = input.getAttribute("id");
+    /* 
+    * Si el usuario selecciona una capa, la muestra, si ya esta seleccionada la elimina
+    */
 
-    if (input.checked) {
+    const checkBox = parent.querySelector(".form-check-input");
+    const key = checkBox.getAttribute("id");
+
+    if (checkBox.checked) {
         allLayers[key]();
     } else {
         map.removeLayer(Layers[key]);
@@ -137,29 +146,24 @@ const allLayers = {
         }).addTo(map);
     },
 
-
     "LayerColorMap": () => {
 
         //Get deps
         const conteos = {};
-        for (const registro of DataPrincipal) {
+        DataPrincipal.forEach(registro => {
             const elemento = (((registro.Departamento).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
             conteos[elemento] = (conteos[elemento] || 0) + 1;
-        }
-
+        });
+    
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos))
 
-        for (const feature of depsCopy.features) {
-            const dep = (feature.properties.NOMBRE_DPT)
-            const valor = conteos[dep]
+        (depsCopy.features).forEach(feature => {
+            const propiedades = feature.properties;
+            const nombreDepartamento = (propiedades.NOMBRE_DPT)
+            const valor = conteos[nombreDepartamento]
 
-            if (valor) {
-                feature.properties["Casos"] = valor;
-            } else {
-                feature.properties["Casos"] = 1;
-            }
-        }
-
+            propiedades.Casos = valor ? valor : 1;
+        });
 
         //Crear capa
         Layers["LayerColorMap"] = new L.geoJson(depsCopy, {
@@ -174,11 +178,8 @@ const allLayers = {
                 }
             }
         }).bindPopup((layer) => {
-
             return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
         }).addTo(map);
-
-
     },
 
     "LayerResguardos": () => {
@@ -403,17 +404,17 @@ const allLayers = {
     },
 }
 
-
-
 //*****************************************************
 //Variables para iconos personalizados
 //*****************************************************
 
 
-
-//Se llama tambien en mapData.js
-//Diccionario q contiene todos los iconos relacionados a un nombre, se cambia la marca segun la seleccion del usuario
 const icons = {
+    /*
+    * Al llamar una funcion se obtiene un icono personalizado con las especificaciones
+    * Se usa tambien en mapData.js
+    */
+
     "green": () => {
         return L.icon({
             iconUrl: "../img/pVerdeV.png",
@@ -477,7 +478,6 @@ const icons = {
     },
 
 }
-
 
 function putLabel(e) {
     if (ActiveLabels == "1") {
