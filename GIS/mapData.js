@@ -177,8 +177,9 @@ function BuscarFaseI() {
 // - - - - - - - - - - - - - - - - - - - - - - - -
 
 function LimpiarCriterios() {
-    // Limpia control lista de criterios avanzados
-    // y de la matriz de criterios avanzado.
+    /* Limpia control lista de criterios avanzados
+    * y de la lista de criterios de busqueda
+    */
 
     document.getElementById("lstCriterios").innerHTML = "";
     bigData.CriteFindPlus = [];
@@ -187,40 +188,45 @@ function LimpiarCriterios() {
 function addOperadorCriterio(elemento) {
     const operador = elemento.getAttribute("id");
 
+    // Mostrar el operador en la lista visual de criterios de busqueda avanzada
     const itCriterioTx = document.createElement("li");
     itCriterioTx.classList.add("list-group-item");
     itCriterioTx.textContent = `(${operador})`;
 
+    // Agregar a la lista interna
     document.getElementById("lstCriterios").appendChild(itCriterioTx);
     (bigData.CriteFindPlus).push(operador === "Y" ? "&&" : "||");
 }
 
 function AgregarCriterioFind() {
-    const ColumnaSr = document.getElementById("lstCampos");
-    const ColumnaTx = ColumnaSr.options[ColumnaSr.selectedIndex].text;
-    const ColumnaVal = document.getElementById("lstCampos").value;
+    // Criterio de busqueda
+    const criterioSelect = document.getElementById("lstCampos");
+    const criterioText = criterioSelect.options[criterioSelect.selectedIndex].text;
+    const criterioValue = criterioSelect.value;
 
-    const OperadorSr = document.getElementById("lstOperador");
-    const OperadorTx = OperadorSr.options[OperadorSr.selectedIndex].text;
-    const OperadorVal = document.getElementById("lstOperador").value;
+    // Operador de busqueda
+    const operadorSelect = document.getElementById("lstOperador");
+    const operadorText = operadorSelect.options[operadorSelect.selectedIndex].text;
+    const operadorValue = document.getElementById("lstOperador").value;
 
-    const vCampoTx = document.getElementById("txValorBusquedaA").value;
+    // Valor de busqueda
+    const valorBusqueda = document.getElementById("txValorBusquedaA").value;
 
-    let CriterioFull;
-    if (OperadorVal == 1) {
-        CriterioFull = `caso['${ColumnaVal}'].includes('${vCampoTx}')`;
-    } else {
-        CriterioFull = `caso['${ColumnaVal}'] ${OperadorVal} '${vCampoTx}'`;
-    }
+    // Agregar a la lista de criterios de busqueda
+    (bigData.CriteFindPlus).push(
+        operadorValue == 1 ? // Si es verdadero entonces opcion 1, sino, opcion 2
+            `caso['${criterioValue}'].includes('${valorBusqueda}')` :
+            `caso['${criterioValue}'] ${operadorValue} '${valorBusqueda}'`
+    );
+    
 
-    (bigData.CriteFindPlus).push(CriterioFull);
-
+    // Mostrar la busqueda en la lista avanzada
     const contenedor = document.createElement("div");
     contenedor.classList.add("d-flex");
 
-    const itCriterioTx = document.createElement("li");
-    itCriterioTx.textContent = `${ColumnaTx} ${OperadorTx} ${vCampoTx}`;
-    itCriterioTx.classList.add("list-group-item");
+    const labelCriterioBusqueda = document.createElement("li");
+    labelCriterioBusqueda.textContent = `${criterioText} ${operadorText} ${valorBusqueda}`;
+    labelCriterioBusqueda.classList.add("list-group-item");
     
     // Boton eliminar contenedor
     const btnEliminar = document.createElement("button");
@@ -231,7 +237,8 @@ function AgregarCriterioFind() {
         (bigData.CriteFindPlus).pop();
     };
 
-    contenedor.appendChild(itCriterioTx);
+    // Agregar elementos al contenedor
+    contenedor.appendChild(labelCriterioBusqueda);
     contenedor.appendChild(btnEliminar);
     document.getElementById("lstCriterios").appendChild(contenedor);
 }
@@ -255,6 +262,34 @@ function BuscarFaseII() {
 
     //Limpiamos las marcas del mapa
     //clearMarkers();
+
+    //mostramos la busqueda finalmente
+    showBusqueda(datos);
+
+    //Agrego los valores de este filtro y los guardo en el reporte
+    bigData.DataToReport = datos;
+}
+
+function buscarQuery() {
+    /*
+    * Funcion para realizar una busqueda compleja segun la entrada
+    */
+
+    //Limpiamos la lista de resultados
+    document.getElementById("lstResGis").innerHTML = "";
+
+    //Creamos la funcion q va a filtrar con los criterios
+    const queryEntry = ""
+    const filtroCreado = new Function(
+        "objeto",
+        `return ${convertirQuery(queryEntry)};`
+    )
+
+    ///Ordena mi información por fecha
+    const datos = DataPrincipal.filter((caso) => filtroCreado(caso));
+
+    //Limpiamos las marcas del mapa
+    clearMarkers();
 
     //mostramos la busqueda finalmente
     showBusqueda(datos);
@@ -447,4 +482,54 @@ function DocumentReport() {
         tagElement = document.createElement("hr");
         ContenedorDocumento.appendChild(tagElement); 
     });
+}
+
+
+/* Mi lenguaje de busqueda */
+
+/*
+Ejemplo:
+`
+    (id > 2, and, departamento == Antioquia)
+    .or.
+    (id == 10, and, departamento == Cundinamarca)
+    .and.
+    (id similar 10 ,or,  departamento similar Cundinamarca)
+`
+*/
+
+function procesarHecho(cadena) {
+    if (cadena == "&&" || cadena == "||") {
+        return cadena;
+    } else {
+        const hecho = cadena.split(" ");
+        const parsed = {
+            "==": `(objeto["${hecho[0]}"]).toUpperCase() == "${hecho[2].toUpperCase()}"`,
+            ">": `objeto["${hecho[0]}"] > "${hecho[2]}"`,
+            "<": `objeto["${hecho[0]}"] < "${hecho[2]}"`,
+            "similar": `((objeto["${hecho[0]}"]).toUpperCase()).includes(${hecho[2].toUpperCase()})`,
+        }
+        return parsed[hecho[1]];
+    }
+}
+
+function convertirQuery(raw) {
+    // Reemplazar todos los and, or, por &&, ||
+    const cadena = raw.replace(/and/g, "&&").replace(/or/g, "||");
+
+    // Separar por punto los predicados grandes y eliminar los parentesis
+    const predicados = cadena.split(".").map(
+        t => t.replace(/\(|\)/g, '')
+        .trim()
+    );
+
+    // Separar por coma los predicados pequeños
+    return predicados.map(predicado => {
+        if (predicado === "&&" || predicado === "||") {
+            return predicado;
+        } else {
+            const hechos = predicado.split(",");
+            return `(${hechos.map(h => procesarHecho(h.trim())).join(" ")})`
+        }
+    }).join(" ").replace(/\n/g, ' ');
 }
