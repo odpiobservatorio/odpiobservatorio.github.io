@@ -164,7 +164,7 @@ const allLayers = {
             conteos[elemento] = (conteos[elemento] || 0) + 1;
         });
     
-        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos))
+        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
 
         (depsCopy.features).forEach(feature => {
             const propiedades = feature.properties;
