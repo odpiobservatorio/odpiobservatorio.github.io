@@ -72,6 +72,11 @@ function listasAutomaticas(criterio) {
     document.getElementById("txValorBusquedaA").value = document.getElementById("lstAutomatica").value;
 }
 
+function addTextHelp() {
+    // Traslada la información de apoyo a la caja valor de búsqueda
+    document.getElementById("txValorBusquedaA").value = document.getElementById("lstAutomatica").value;
+}
+
 // - - - - - - - - - - - - - - - - - - - - - - - -
 // Funciones busqueda simple
 // - - - - - - - - - - - - - - - - - - - - - - - -
