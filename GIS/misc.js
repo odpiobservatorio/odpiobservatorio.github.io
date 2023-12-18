@@ -101,7 +101,7 @@ function saveMapConfig() {
     const mapConfig = formatoPlano;
 
     // Obtener capas activas
-    const contenedor = (document.getElementById("lstResGis"));
+    const contenedor = (document.getElementById("lstLayers"));
     const listaChecks = contenedor.querySelectorAll(".form-check-input");
 
     const layers = []
