@@ -17,6 +17,7 @@ function updateSize(value) {
     formatoPlano.size = parseFloat(value);
 }
 
+
 function resetIconSize() {
     // Resetea el tamaño de las marcas y las muestra nuevamente
     document.getElementById("sizeIconV").value = 1;

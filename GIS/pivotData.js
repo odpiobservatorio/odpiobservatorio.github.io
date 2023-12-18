@@ -1,27 +1,3 @@
-function getColor(color = false) {
-    /* 
-    * Retorna -- un solo color si no se da argumentos -- 
-    * o un array de colores del tamaño q le especifiquemos 
-    */
-    if (color) {
-        const colors = []
-        for (let i = 0; i < color; i++) {
-            let color = "#";
-            for (let i = 0; i < 6; i++) {
-                color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
-            }
-            colors.push(color)
-        }
-        return colors
-    } else {
-        let color = "#";
-        for (let i = 0; i < 6; i++) {
-            color = color + ("0123456789ABCDEF")[Math.floor(Math.random() * 16)];
-        }
-        return color
-    }
-}
-
 function showPivotArea() {
     const activar = document.getElementById("map");
 
