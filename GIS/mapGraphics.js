@@ -49,8 +49,8 @@ function clearLayers() {
     * Limpia todas las capas q se estan mostrando
     */
 
-    const elemento = ((document.getElementById("LayerDepartamentos")).parentElement).parentElement;
-    const listaChecks = elemento.querySelectorAll(".form-check-input");
+    const contenedor = (document.getElementById("lstResGis"));
+    const listaChecks = contenedor.querySelectorAll(".form-check-input");
 
     listaChecks.forEach(checkbox => {
         if (checkbox.checked) {

@@ -101,17 +101,20 @@ function saveMapConfig() {
     const mapConfig = formatoPlano;
 
     // Obtener capas activas
-    const layers = [];
-    for (const key in allLayers) {
-        if (document.getElementById(key).checked) {
-            layers.push(key);
+    const contenedor = (document.getElementById("lstResGis"));
+    const listaChecks = contenedor.querySelectorAll(".form-check-input");
+
+    const layers = []
+    listaChecks.forEach(checkbox => {
+        if (checkbox.checked) {
+            layers.push(checkbox.id);
         }
-    }
+    });
 
     // Crear objeto de configuracion
     const config = {
-        mapConfig,
-        layers
+        mapConfig: mapConfig,
+        layers: layers,
     }
     
     console.log(config);    
