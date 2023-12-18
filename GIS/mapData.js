@@ -503,19 +503,18 @@ function DocumentReport() {
 /*
 Ejemplo:
 `
-    (id > 2 , && , departamento == Antioquia)
+    (id > 2 && departamento == Antioquia)
     .||.
-    (id == 10 , && , departamento == Cundinamarca)
+    (id == 10 && departamento == Cundinamarca)
     .&&.
-    (id similar 10 , or , departamento similar Cundinamarca)
+    (id similar 10 || departamento similar Cundinamarca)
 `
 
 `
     (Year == 2023)
     .&&.
-    (Perpetrador similar FF, ||, Perpetrador similar ESMAD)
+    (Perpetrador similar FF || Perpetrador similar ESMAD)
 `
-
 */
 
 function procesarHecho(cadena) {
@@ -545,7 +544,7 @@ function convertirQuery(raw) {
         if (predicado === "&&" || predicado === "||") {
             return predicado;
         } else {
-            const hechos = predicado.split(",");
+            const hechos = predicado.split(/(\|\||&&)/g);
             return `(${hechos.map(h =>procesarHecho(h.trim())).join(" ")})`
         }
     }).join(" ").replace(/\n/g, ' ');
