@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Carga de datos -->
+
+    <!-- Carga de datos 
     <script src="loadData.js"></script>
+    -->
 
     <!-- leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -53,8 +54,8 @@
                 <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
                     data-bs-title="Limpiar marcas"></i>
             </button>
-            <button class="btn btn-outline-success text-white" type="button"
-                data-bs-toggle="offcanvas" data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">
+            <button class="btn btn-outline-success text-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">
                 <i class="bi bi-gear-fill" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="tooltip" data-bs-title="Panel formato"></i>
             </button>
@@ -234,7 +235,7 @@
 
                         <ul class="list-group" id="lstCriterios">
                         </ul>
-                        
+
                         <!-- Query busqueda
                         <textarea class="form-control" id="queryBusqueda" cols="30" rows="10">
                         </textarea>
@@ -509,6 +510,7 @@
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Formato</h5>
             <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+
         <div class="offcanvas-body">
             <div>
                 <div class="list-group">
@@ -576,6 +578,32 @@
                     </div>
 
                     <hr>
+                    <!-- Contenedor cargar y descargar configuracion -->
+                    <div>
+                        <!-- Informacion -->
+                        <p class="label text-success">Importar / Exportar configuracion</p>
+
+                        <div class="row">
+
+                            <!-- Importar -->
+                            <div class="col-4">
+                                <label for="configFileInput" class="btn btn-outline-success">
+                                    <i class="bi bi-upload"></i>
+                                    Importar
+                                </label>
+                                <input id="configFileInput" style="visibility:hidden;" type="file"
+                                    onchange="loadMapConfig(this)">
+                            </div>
+
+                            <!-- Exportar -->
+                            <div class="col-4">
+                                <button class="btn btn-outline-success" type="button" onclick="saveMapConfig()">
+                                    <i class="bi bi-download"></i> Exportar
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -716,7 +744,7 @@
         zoomSnap: 0
     }).setView([5.1, -75.55], 5);
 
-    tileMLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+    tileMLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         // Y un mapa con un límite de zoom.
         maxZoom: 19,
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',

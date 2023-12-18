@@ -46,7 +46,7 @@ function convertirQuery(raw) {
             return predicado;
         } else {
             const hechos = predicado.split(/(\|\||&&)/g);
-            return `(${hechos.map(h =>procesarHecho(h.trim())).join(" ")})`
+            return `(${hechos.map(h => procesarHecho(h.trim())).join(" ")})`
         }
     }).join(" ").replace(/\n/g, ' ');
 }
@@ -72,30 +72,47 @@ loadMapConfig({
     ]
 })
 */
- 
-function loadMapConfig(config) {
 
-    // Cargar configuracion de formato del mapa
-    const mapConfig = config.mapConfig;
-    for (const key in mapConfig) {
-        formatoPlano[key] = mapConfig[key];
-    }
+function loadMapConfig(input) {
+    /*
+    * Cargar configuracion de formato del mapa y capas
+    * desde un archivo JSON y aplicarlo
+    */
 
-    const layers = config.layers;
+    const file = input.files[0];
+    const reader = new FileReader();
 
-    // Agregar capas al mapa
-    clearLayers();
+    reader.onload = function (e) {
+        const config = JSON.parse(e.target.result);
 
-    layers.forEach(layer => {
-        // Agregar el check a la capa
-        document.getElementById(layer).checked = true;
+        // Cargar configuracion de formato del mapa
+        const mapConfig = config.mapConfig;
+        for (const key in mapConfig) {
+            formatoPlano[key] = mapConfig[key];
+        }
 
-        // Agregar capa al mapa
-        allLayers[layer]();
-    });
+        const layers = config.layers;
+
+        // Agregar capas al mapa
+        clearLayers();
+
+        layers.forEach(layer => {
+            // Agregar el check a la capa
+            document.getElementById(layer).checked = true;
+
+            // Agregar capa al mapa
+            allLayers[layer]();
+        });
+
+    };
+    reader.readAsText(file);
 }
 
 function saveMapConfig() {
+    /*
+    * Guardar configuracion de formato del mapa y capas
+    * en un archivo JSON
+    */
 
     // Obtener configuracion del mapa
     const mapConfig = formatoPlano;
@@ -116,8 +133,15 @@ function saveMapConfig() {
         mapConfig: mapConfig,
         layers: layers,
     }
-    
-    console.log(config);    
+
+    // Guardar y descargar archivo json
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config));
+    const downloadElement = document.createElement('a');
+    downloadElement.setAttribute("href", dataStr);
+    downloadElement.setAttribute("download", "mapConfig.json");
+    document.body.appendChild(downloadElement); // required for firefox
+    downloadElement.click();
+    downloadElement.remove();
 }
 
 
