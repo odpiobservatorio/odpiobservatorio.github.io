@@ -169,7 +169,7 @@ const allLayers = {
 
         (depsCopy.features).forEach(feature => {
             const propiedades = feature.properties;
-            const nombreDepartamento = (propiedades.NOMBRE_DPT)
+            const nombreDepartamento = (((propiedades.NOMBRE_DPT).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
             const valor = conteos[nombreDepartamento]
 
             propiedades.Casos = valor ? valor : 1;
