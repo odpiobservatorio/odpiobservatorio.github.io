@@ -26,35 +26,36 @@ function showMacro(parent) {
 
     const macros = {
         amazonia: {
-            color: "1",
+            color: "#53a31ab6",
             deps: [
                 "AMAZONAS", "CAQUETA", "GUAVIARE", "PUTUMAYO"
             ]
         },
 
         centroOriente: {
-            color: "#FC4E2A",
+            color: "#7a3aaab9",
             deps: [
                 "SANTAFE DE BOGOTA D.C", "BOYACA", "NORTE DE SANTANDER", "TOLIMA"
             ],
         },
 
         norte: {
-            color: "#FC4E2A",
+            color: "#edc65cb9",
             deps: [
                 "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE"
             ],
         },
 
         occidente: {
-            color: "#FC4E2A",
+            
+            color: "#3a85aab9",
             deps: [
                 "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "HUILA", "NARIÑO", "QUINDIO", "RISARALDA",
             ],
         },
 
         orinoquia: {
-            color: "#FC4E2A",
+            color: "#c2713eb9",
             deps: [
                 "ARAUCA", "CASANARE", "META", "VICHADA"
             ],
@@ -66,7 +67,7 @@ function showMacro(parent) {
         const macro = macros[macroKey];
         activeMacros[macroKey] = [];
 
-        (marco.deps).forEach(departamento => {
+        (macro.deps).forEach(departamento => {
             const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
             depsCopy.features = [
                 (depsCopy.features).find(
@@ -74,7 +75,7 @@ function showMacro(parent) {
                 )
             ];
             // Crear capa
-            activeMacros[macroKey].push(
+            (activeMacros[macroKey]).push(
                 new L.geoJson(depsCopy, {
                     style: {
                         weight: 2,
