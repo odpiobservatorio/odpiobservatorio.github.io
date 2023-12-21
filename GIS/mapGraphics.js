@@ -4,6 +4,8 @@ let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
 
+const activeMacros = {}
+
 //Diccionario con la "configuracion" del plano, se modifica segun los cambios del usuario
 const formatoPlano = {
     "color": "orange", // Configuracion de color 
@@ -15,6 +17,84 @@ const formatoPlano = {
 function updateSize(value) {
     // Actualiza el tamaño de las marcas
     formatoPlano.size = parseFloat(value);
+}
+
+
+function showMacro(parent) {
+    const checkBox = parent.querySelector(".form-check-input");
+    const macroKey = checkBox.getAttribute("id");
+
+    const macros = {
+        amazonia: {
+            color: "1",
+            deps: [
+                "AMAZONAS", "CAQUETA", "GUAVIARE", "PUTUMAYO"
+            ]
+        },
+
+        centroOriente: {
+            color: "#FC4E2A",
+            deps: [
+                "SANTAFE DE BOGOTA D.C", "BOYACA", "NORTE DE SANTANDER", "TOLIMA"
+            ],
+        },
+
+        norte: {
+            color: "#FC4E2A",
+            deps: [
+                "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE"
+            ],
+        },
+
+        occidente: {
+            color: "#FC4E2A",
+            deps: [
+                "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "HUILA", "NARIÑO", "QUINDIO", "RISARALDA",
+            ],
+        },
+
+        orinoquia: {
+            color: "#FC4E2A",
+            deps: [
+                "ARAUCA", "CASANARE", "META", "VICHADA"
+            ],
+        },
+    }
+
+    if (checkBox.checked) {
+
+        const macro = macros[macroKey];
+        activeMacros[macroKey] = [];
+
+        (marco.deps).forEach(departamento => {
+            const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+            depsCopy.features = [
+                (depsCopy.features).find(
+                    feature => feature.properties.NOMBRE_DPT === departamento
+                )
+            ];
+            // Crear capa
+            activeMacros[macroKey].push(
+                new L.geoJson(depsCopy, {
+                    style: {
+                        weight: 2,
+                        opacity: 1,
+                        color: '#FC4E2A',
+                        fillColor: macro.color,
+                        fillOpacity: formatoPlano.opacidad,
+                    }
+                }).bindPopup((layer) => {
+                    return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
+                }).addTo(map)
+            );
+        });
+    } else {
+        if (activeMacros.hasOwnProperty(macroKey)) {
+            const activeDeps = activeMacros[macroKey];
+            activeDeps.forEach(depLayer => map.removeLayer(depLayer))
+            delete activeMacros[macroKey];
+        }
+    }
 }
 
 
@@ -79,7 +159,7 @@ function showDep() {
 
     const departamento = document.getElementById("lstDeps").value;
     const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
-    
+
     depsCopy.features = [
         (depsCopy.features).find(
             feature => feature.properties.NOMBRE_DPT === departamento
@@ -164,7 +244,7 @@ const allLayers = {
             const elemento = (((registro.Departamento).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
             conteos[elemento] = (conteos[elemento] || 0) + 1;
         });
-    
+
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
 
         (depsCopy.features).forEach(feature => {
@@ -191,6 +271,7 @@ const allLayers = {
             return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
         }).addTo(map);
     },
+
 
     "LayerResguardos": () => {
         Layers["LayerResguardos"] = new L.geoJSON(resguardos,
