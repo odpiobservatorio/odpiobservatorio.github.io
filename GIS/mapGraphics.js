@@ -28,21 +28,21 @@ function showMacro(parent) {
         amazonia: {
             color: "#53a31ab6",
             deps: [
-                "AMAZONAS", "CAQUETA", "GUAVIARE", "PUTUMAYO"
+                "AMAZONAS", "CAQUETA", "GUAVIARE", "PUTUMAYO", "VAUPES", "GUAINIA"
             ]
         },
 
         centroOriente: {
             color: "#7a3aaab9",
             deps: [
-                "SANTAFE DE BOGOTA D.C", "BOYACA", "NORTE DE SANTANDER", "TOLIMA"
+                "SANTAFE DE BOGOTA D.C", "BOYACA", "NORTE DE SANTANDER", "TOLIMA", "HUILA", "CUNDINAMARCA", "SANTANDER"
             ],
         },
 
         norte: {
             color: "#edc65cb9",
             deps: [
-                "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE"
+                "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE", "BOLIVAR"
             ],
         },
 
@@ -50,7 +50,7 @@ function showMacro(parent) {
             
             color: "#3a85aab9",
             deps: [
-                "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "HUILA", "NARIÑO", "QUINDIO", "RISARALDA",
+                "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "NARIÑO", "QUINDIO", "RISARALDA",
             ],
         },
 
