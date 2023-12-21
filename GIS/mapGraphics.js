@@ -47,7 +47,7 @@ function showMacro(parent) {
         },
 
         occidente: {
-            
+
             color: "#c7767f",
             deps: [
                 "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "NARIÑO", "QUINDIO", "RISARALDA",
@@ -134,9 +134,21 @@ function clearLayers() {
     const listaChecks = contenedor.querySelectorAll(".form-check-input");
 
     listaChecks.forEach(checkbox => {
+        const key = checkbox.id;
+
         if (checkbox.checked) {
             checkbox.checked = false;
-            map.removeLayer(Layers[checkbox.id]);
+
+            if (Layers.hasOwnProperty(key)) {
+                map.removeLayer(Layers[key]);
+                delete Layers[key];
+            } else {
+                if (activeMacros.hasOwnProperty(key)) {
+                    const activeDeps = activeMacros[key];
+                    activeDeps.forEach(depLayer => map.removeLayer(depLayer))
+                    delete activeMacros[key];
+                }
+            }
         }
     });
 }
