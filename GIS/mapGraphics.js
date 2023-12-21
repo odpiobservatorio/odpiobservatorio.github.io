@@ -26,21 +26,21 @@ function showMacro(parent) {
 
     const macros = {
         amazonia: {
-            color: "#53a31ab6",
+            color: "#61ad28",
             deps: [
                 "AMAZONAS", "CAQUETA", "GUAVIARE", "PUTUMAYO", "VAUPES", "GUAINIA"
             ]
         },
 
         centroOriente: {
-            color: "#7a3aaab9",
+            color: "#ad68e6",
             deps: [
                 "SANTAFE DE BOGOTA D.C", "BOYACA", "NORTE DE SANTANDER", "TOLIMA", "HUILA", "CUNDINAMARCA", "SANTANDER"
             ],
         },
 
         norte: {
-            color: "#edc65cb9",
+            color: "#fe7547",
             deps: [
                 "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE", "BOLIVAR"
             ],
@@ -48,14 +48,14 @@ function showMacro(parent) {
 
         occidente: {
             
-            color: "#3a85aab9",
+            color: "#c7767f",
             deps: [
                 "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "NARIÑO", "QUINDIO", "RISARALDA",
             ],
         },
 
         orinoquia: {
-            color: "#c2713eb9",
+            color: "#fece46",
             deps: [
                 "ARAUCA", "CASANARE", "META", "VICHADA"
             ],
