@@ -79,7 +79,7 @@ function showMacro(parent) {
                 new L.geoJson(depsCopy, {
                     style: {
                         weight: 2,
-                        opacity: 1,
+                        opacity: 2,
                         color: '#ffffff',
                         fillColor: macro.color,
                         fillOpacity: formatoPlano.opacidad,
