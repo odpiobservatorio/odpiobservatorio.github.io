@@ -194,7 +194,10 @@ function showLayer(parent) {
     if (checkBox.checked) {
         allLayers[key]();
     } else {
-        map.removeLayer(Layers[key]);
+        if (Layers.hasOwnProperty(key)) {
+            map.removeLayer(Layers[key]);
+            delete Layers[key];
+        }
     }
 }
 
