@@ -504,7 +504,7 @@ const allLayers = {
                 color: "#ffffff",
                 weight: 0,
                 fillColor: "#ffffff",
-                fillOpacity: 10,
+                fillOpacity: 100,
             }
         }).bindPopup((layer) => {
         }).addTo(map);
