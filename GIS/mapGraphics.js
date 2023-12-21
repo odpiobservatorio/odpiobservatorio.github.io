@@ -80,7 +80,7 @@ function showMacro(parent) {
                     style: {
                         weight: 2,
                         opacity: 1,
-                        color: '#FC4E2A',
+                        color: '#ffffff',
                         fillColor: macro.color,
                         fillOpacity: formatoPlano.opacidad,
                     }
@@ -489,10 +489,9 @@ const allLayers = {
     "LayerFondo": () => {
         Layers["LayerFondo"] = new L.geoJSON(FondoLayer, {
             style: {
-                color: "white",
+                color: "#ffffff",
                 weight: 0,
-                fillColor: "white",
-                fillOpacity: 1.2
+                fillColor: "#ffffff",
             }
         }).bindPopup((layer) => {
         }).addTo(map);
