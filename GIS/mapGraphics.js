@@ -42,7 +42,7 @@ function showMacro(parent) {
         norte: {
             color: "#fe7547",
             deps: [
-                "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE", "BOLIVAR"
+                "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE", "BOLIVAR", "ATLANTICO"
             ],
         },
 
