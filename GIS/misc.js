@@ -111,22 +111,19 @@ function loadMapConfig(input) {
         baseLayers.forEach(layer => {
             if (layers.includes(layer)) {
                 document.getElementById(layer).checked = true;
-                console.log(layer);
                 allLayers[layer]();
             }
         })
 
         macros.forEach(macro => {
             document.getElementById(macro).checked = true;
-            console.log(macro);
             seeMacro(macro);
         })
 
-        layers.forEach(layer => {
+        mapLayers.forEach(layer => {
             // Agregar el check a la capa
             document.getElementById(layer).checked = true;
             // Agregar capa al mapa
-            console.log(layer);
             allLayers[layer]();
         });
 
