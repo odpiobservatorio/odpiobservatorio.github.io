@@ -93,13 +93,36 @@ function loadMapConfig(input) {
 
         const layers = config.layers;
 
-        // Agregar capas al mapa
+        // Limpiar capas
         clearLayers();
+
+        // Bases
+        const baseLayers = ["LayerFondo", "LayerPlano"]
+
+        // Layers
+        const mapLayers = layers.filter(layer => 
+            allLayers.hasOwnProperty(layer) && (!baseLayers.includes(layer))
+        )
+
+        // Macros
+        const macros = layers.filter(layer => !(allLayers.hasOwnProperty(layer)))
+
+        // Layers
+        baseLayers.forEach(layer => {
+            if (layers.includes(layer)) {
+                document.getElementById(layer).checked = true;
+                allLayers[layer]();
+            }
+        })
+
+        macros.forEach(macro => {
+            document.getElementById(macro).checked = true;
+            seeMacro(macro);
+        })
 
         layers.forEach(layer => {
             // Agregar el check a la capa
             document.getElementById(layer).checked = true;
-
             // Agregar capa al mapa
             allLayers[layer]();
         });

@@ -5,6 +5,43 @@ let TextoLabel = "";
 let ActiveLabels;
 
 const activeMacros = {}
+const macros = {
+    amazonia: {
+        color: "#61ad28",
+        deps: [
+            "AMAZONAS", "CAQUETA", "GUAVIARE", "PUTUMAYO", "VAUPES", "GUAINIA"
+        ]
+    },
+
+    centroOriente: {
+        color: "#ad68e6",
+        deps: [
+            "SANTAFE DE BOGOTA D.C", "BOYACA", "NORTE DE SANTANDER", "TOLIMA", "HUILA", "CUNDINAMARCA", "SANTANDER"
+        ],
+    },
+
+    norte: {
+        color: "#fe7547",
+        deps: [
+            "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE", "BOLIVAR", "ATLANTICO"
+        ],
+    },
+
+    occidente: {
+
+        color: "#c7767f",
+        deps: [
+            "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "NARIÑO", "QUINDIO", "RISARALDA",
+        ],
+    },
+
+    orinoquia: {
+        color: "#fece46",
+        deps: [
+            "ARAUCA", "CASANARE", "META", "VICHADA"
+        ],
+    },
+}
 
 //Diccionario con la "configuracion" del plano, se modifica segun los cambios del usuario
 const formatoPlano = {
@@ -19,76 +56,40 @@ function updateSize(value) {
     formatoPlano.size = parseFloat(value);
 }
 
+function seeMacro(macroKey) {
+    const macro = macros[macroKey];
+    activeMacros[macroKey] = [];
 
-function showMacro(parent) {
-    const checkBox = parent.querySelector(".form-check-input");
+    (macro.deps).forEach(departamento => {
+        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+        depsCopy.features = [
+            (depsCopy.features).find(
+                feature => feature.properties.NOMBRE_DPT === departamento
+            )
+        ];
+        // Crear capa
+        (activeMacros[macroKey]).push(
+            new L.geoJson(depsCopy, {
+                style: {
+                    weight: 2,
+                    opacity: 2,
+                    color: '#ffffff',
+                    fillColor: macro.color,
+                    fillOpacity: formatoPlano.opacidad,
+                }
+            }).bindPopup((layer) => {
+                return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
+            }).addTo(map)
+        );
+    });
+}
+
+
+function showMacro(checkBox) {
     const macroKey = checkBox.getAttribute("id");
 
-    const macros = {
-        amazonia: {
-            color: "#61ad28",
-            deps: [
-                "AMAZONAS", "CAQUETA", "GUAVIARE", "PUTUMAYO", "VAUPES", "GUAINIA"
-            ]
-        },
-
-        centroOriente: {
-            color: "#ad68e6",
-            deps: [
-                "SANTAFE DE BOGOTA D.C", "BOYACA", "NORTE DE SANTANDER", "TOLIMA", "HUILA", "CUNDINAMARCA", "SANTANDER"
-            ],
-        },
-
-        norte: {
-            color: "#fe7547",
-            deps: [
-                "CESAR", "CORDOBA", "LA GUAJIRA", "MAGDALENA", "SUCRE", "BOLIVAR", "ATLANTICO"
-            ],
-        },
-
-        occidente: {
-
-            color: "#c7767f",
-            deps: [
-                "ANTIOQUIA", "CALDAS", "CAUCA", "VALLE DEL CAUCA", "CHOCO", "NARIÑO", "QUINDIO", "RISARALDA",
-            ],
-        },
-
-        orinoquia: {
-            color: "#fece46",
-            deps: [
-                "ARAUCA", "CASANARE", "META", "VICHADA"
-            ],
-        },
-    }
-
     if (checkBox.checked) {
-
-        const macro = macros[macroKey];
-        activeMacros[macroKey] = [];
-
-        (macro.deps).forEach(departamento => {
-            const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
-            depsCopy.features = [
-                (depsCopy.features).find(
-                    feature => feature.properties.NOMBRE_DPT === departamento
-                )
-            ];
-            // Crear capa
-            (activeMacros[macroKey]).push(
-                new L.geoJson(depsCopy, {
-                    style: {
-                        weight: 2,
-                        opacity: 2,
-                        color: '#ffffff',
-                        fillColor: macro.color,
-                        fillOpacity: formatoPlano.opacidad,
-                    }
-                }).bindPopup((layer) => {
-                    return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
-                }).addTo(map)
-            );
-        });
+        seeMacro(macroKey);
     } else {
         if (activeMacros.hasOwnProperty(macroKey)) {
             const activeDeps = activeMacros[macroKey];
