@@ -40,7 +40,12 @@ function fetchAmbiente() {
     const names = ["datapart1", "datapart2", "datapart3"]
     return names.map(nombre => {
         return fetch(
-            `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS/layers/${nombre}`
+            `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS/layers/${nombre}`,
+            {
+                headers: {
+                    'Cache-Control': 'max-age=604800'
+                }
+            }
         ).then(response => response.text())
     });
 }
@@ -54,7 +59,11 @@ Promise.all(fetchAmbiente()).then(res => {
 function fetchLayer(layerName, layerPath) {
     const link = `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS${layerPath}`;
 
-    fetch(link).then(response => response.json())
+    fetch(link, {
+        headers: {
+            'Cache-Control': 'max-age=604800'
+        }
+    }).then(response => response.json())
         .then(data => {
             window[layerName] = data;
         }).catch(error => {
