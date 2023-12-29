@@ -34,7 +34,6 @@ loadDataBase("1ZhaiG1Fz3NUrlQpQtNhH8lgNUpQ97ETqnhaKFNmrTrg", "EVENTOS").then(obj
     DataPrincipal = [...objeto].sort((a, b) => a.Year - b.Year);
 })
 
-
 // Cargar infoambiente
 function fetchAmbiente() {
     const names = ["datapart1", "datapart2", "datapart3"]
