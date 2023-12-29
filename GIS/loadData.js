@@ -40,7 +40,22 @@ function fetchAmbiente() {
     const names = ["datapart1", "datapart2", "datapart3"]
     return names.map(nombre => {
         return fetch(
-            `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS/layers/${nombre}`
+            `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS/layers/${nombre}`,
+            {
+                "headers": {
+                    "accept": "*/*",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "cross-site",
+                    'Cache-Control': 'max-age=604800'
+                },
+                "referrer": "https://odpiobservatorio.github.io/",
+                "referrerPolicy": "strict-origin-when-cross-origin",
+                "body": null,
+                "method": "GET",
+                "mode": "cors",
+                "credentials": "omit"
+            }
         ).then(response => response.text())
     });
 }
@@ -56,11 +71,11 @@ function fetchLayer(layerName, layerPath) {
 
     fetch(link, {
         "headers": {
-          "accept": "*/*",
-          "sec-fetch-dest": "empty",
-          "sec-fetch-mode": "cors",
-          "sec-fetch-site": "cross-site",
-          'Cache-Control': 'max-age=604800'
+            "accept": "*/*",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+            'Cache-Control': 'max-age=604800'
         },
         "referrer": "https://odpiobservatorio.github.io/",
         "referrerPolicy": "strict-origin-when-cross-origin",
@@ -68,7 +83,7 @@ function fetchLayer(layerName, layerPath) {
         "method": "GET",
         "mode": "cors",
         "credentials": "omit"
-      }).then(response => response.json())
+    }).then(response => response.json())
         .then(data => {
             window[layerName] = data;
         }).catch(error => {
