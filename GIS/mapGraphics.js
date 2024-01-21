@@ -259,8 +259,6 @@ const allLayers = {
         const conteos = {};
         const filtrado = bigData.DataToReport;
 
-        console.log(filtrado);
-
         const normalizeString = (string) => string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()
 
         filtrado.forEach(registro => {
@@ -268,20 +266,22 @@ const allLayers = {
             conteos[elemento] = (conteos[elemento] || 0) + 1;
         });
 
+        const max = Math.max(...Object.values(conteos));
+
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
         (depsCopy.features).forEach(feature => {
             const propiedades = feature.properties;
             const nombreDepartamento = normalizeString(propiedades.NOMBRE_DPT);
             const valor = conteos[nombreDepartamento]
 
-            propiedades.Casos = valor ? valor : 1;
+            propiedades.Casos = valor ? valor : 0;
         });
 
         //Crear capa
         Layers["LayerMapaCalor"] = new L.geoJson(depsCopy, {
             style: (feature) => {
                 return {
-                    fillColor: colorMap(feature.properties.Casos, filtrado.length),
+                    fillColor: colorMap(feature.properties.Casos, max),
                     weight: 2,
                     opacity: 1,
                     color: 'white',
@@ -302,7 +302,7 @@ const allLayers = {
             const elemento = (((registro.Departamento).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
             conteos[elemento] = (conteos[elemento] || 0) + 1;
         });
-
+        const max = Math.max(...Object.values(conteos));
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
 
         (depsCopy.features).forEach(feature => {
@@ -317,7 +317,7 @@ const allLayers = {
         Layers["LayerColorMap"] = new L.geoJson(depsCopy, {
             style: (feature) => {
                 return {
-                    fillColor: colorMap(feature.properties.Casos, DataPrincipal.length),
+                    fillColor: colorMap(feature.properties.Casos, max),
                     weight: 2,
                     opacity: 1,
                     color: 'white',
