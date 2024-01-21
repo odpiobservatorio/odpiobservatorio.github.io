@@ -219,12 +219,12 @@ function showLayer(parent) {
 //.............................................
 
 //Test-----
-function colorMap(casos) {
+function colorMap(casos, max = 794) {
     /*
     * Obtiene un gradiente de color dependiendo de cuantos casos hayan
     * n es el valor normalizado segun el maximo de casos
     */
-    const n = (1000 / 794) * casos;
+    const n = (1000 / max) * casos;
     return n > 1000 ? '#800026' :
         n > 500 ? '#BD0026' :
             n > 200 ? '#E31A1C' :
@@ -253,6 +253,47 @@ const allLayers = {
         }).addTo(map);
     },
 
+    "LayerMapaCalor": () => {
+
+        //Get deps
+        const conteos = {};
+        const filtrado = bigData.DataToReport;
+
+        console.log(filtrado);
+
+        const normalizeString = (string) => string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()
+
+        filtrado.forEach(registro => {
+            const elemento = normalizeString(registro.Departamento);
+            conteos[elemento] = (conteos[elemento] || 0) + 1;
+        });
+
+        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+        (depsCopy.features).forEach(feature => {
+            const propiedades = feature.properties;
+            const nombreDepartamento = normalizeString(propiedades.NOMBRE_DPT);
+            const valor = conteos[nombreDepartamento]
+
+            propiedades.Casos = valor ? valor : 1;
+        });
+
+        //Crear capa
+        Layers["LayerMapaCalor"] = new L.geoJson(depsCopy, {
+            style: (feature) => {
+                return {
+                    fillColor: colorMap(feature.properties.Casos, filtrado.length),
+                    weight: 2,
+                    opacity: 1,
+                    color: 'white',
+                    //dashArray: '3',
+                    fillOpacity: 0.75
+                }
+            }
+        }).bindPopup((layer) => {
+            return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
+        }).addTo(map);
+    },
+
     "LayerColorMap": () => {
 
         //Get deps
@@ -276,7 +317,7 @@ const allLayers = {
         Layers["LayerColorMap"] = new L.geoJson(depsCopy, {
             style: (feature) => {
                 return {
-                    fillColor: colorMap(feature.properties.Casos),
+                    fillColor: colorMap(feature.properties.Casos, DataPrincipal.length),
                     weight: 2,
                     opacity: 1,
                     color: 'white',

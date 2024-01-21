@@ -464,6 +464,13 @@
                             Coloreado por casos
                         </label>
                     </div>
+
+                    <div class="form-check m-2" onchange="showLayer(this)">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerMapaCalor">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Aplicar mapa de calor
+                        </label>
+                    </div>
                     <hr>
 
                     <form class="row g-2 align-items-center mb-2">
@@ -784,7 +791,7 @@
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     }).addTo(map);
 
-    map.on('click', putLabel);
+    // map.on('click', putLabel);
 </script>
 
 
