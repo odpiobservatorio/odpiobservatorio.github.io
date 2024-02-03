@@ -706,20 +706,11 @@ function AplicarColorMapa() {
 }
 
 function MostrarLeyendas() {
-    let HTML = `
-<div style="width:100px;" class="">
-    <div class="h6 text-dark">
-        Leyendas
-    </div>
-    <div id ="xLeyendas">
-    </div>
-</div>
-`
 
-    LabelMap = new L.marker([5.1, -75.55], { draggable: 'true', icon: otherIcons["senalador"] },);
+    LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
 
 
-    LabelMap.bindTooltip(HTML, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.bindTooltip(LeyendaCoca, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
         const position = LabelMap.getLatLng();
@@ -729,16 +720,6 @@ function MostrarLeyendas() {
 
     LabelsMap.push(LabelMap)
 
-    let ColorB="#16A085"
-    let p = `
-    <svg width="20" height="10">
-    <rect width="300" height="100" style="fill:${ColorB};" />
-    </svg>
-    
-    `
-
-    let a = document.getElementById("xLeyendas")
-    a.innerHTML=p
 
 
 
