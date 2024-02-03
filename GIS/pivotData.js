@@ -19,7 +19,7 @@ function showPivotArea() {
 function crearEncabezados(valueKey) {
     const encabezados = document.createElement("tr");
 
-    for (const titulo of [valueKey, "Cantidad"]) {
+    for (const titulo of [valueKey, "Cantidad", "Afectados"]) {
         const encabezado = document.createElement("td");
         encabezado.textContent = titulo;
         encabezados.appendChild(encabezado);
@@ -43,15 +43,24 @@ function PivotElementos() {
     const tablaBody = document.getElementById("tablaBody");
     tablaBody.innerHTML = "";
 
-    const conteos = {}; //Diccionario con etiqutas y sus respectivos contadores
+    const conteosCasos = {}; //Diccionario con etiqutas y sus respectivos contadores
+    const conteosAfectados = {};
     etiquetas = []; //Variable Global, una lista de las etiquetas, ejem: [2018, 2019, 2020]
     valores = []; //Variable Global, lista con los conteos, ejem: [10, 23, 15]
 
     (bigData.DataToReport).forEach(registro => {
-        conteos[registro[valueKey]] = (conteos[registro[valueKey]] || 0) + 1; //Revisa en todos los datos y cuenta cuantas veces aparece una "etiqueta"
+        conteosCasos[registro[valueKey]] = (conteosCasos[registro[valueKey]] || 0) + 1; //Revisa en todos los datos y cuenta cuantas veces aparece una "etiqueta"
+        conteosAfectados[registro[valueKey]] = (conteosAfectados[registro[valueKey]] || 0) + (registro["Total personas"] == "No registra" ? 0 : parseInt(registro["Total personas"]));
     });
 
-    for (const [etiqueta, contador] of Object.entries(conteos)) { //Agrega los datos a la tabla y ademas guarda los valores de las etiquetas y sus conteos (Ademas las etiquetas estan ordenadas)
+    let totalCasos = 0;
+    let totalAfectados = 0;
+
+    for (const [etiqueta, contador] of Object.entries(conteosCasos)) { //Agrega los datos a la tabla y ademas guarda los valores de las etiquetas y sus conteos (Ademas las etiquetas estan ordenadas)
+        
+        totalCasos += contador;
+        totalAfectados += conteosAfectados[etiqueta];
+        
         etiquetas.push(etiqueta);
         valores.push(contador);
 
@@ -63,10 +72,17 @@ function PivotElementos() {
         const valor = document.createElement("td");
         valor.textContent = contador;
 
+        const afectados = document.createElement("td");
+        afectados.textContent = conteosAfectados[etiqueta];
+
         fila.appendChild(nombre);
         fila.appendChild(valor);
+        fila.appendChild(afectados);
         tablaBody.appendChild(fila);
     }
+
+    document.getElementById("counter-casos").textContent = totalCasos;
+    document.getElementById("counter-afectados").textContent = totalAfectados;
 
     //tabla.appendChild(tablaBody);
     CreaGrafica();
