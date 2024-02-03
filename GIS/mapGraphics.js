@@ -1,4 +1,4 @@
-let Datafilter = 0;
+let Datafilter = 1;
 const Layers = {}
 let LabelsMap = []
 let TextoLabel = "";
@@ -236,7 +236,7 @@ function colorMap(casos, max = 794) {
 }
 //------------
 
-
+let a = 1
 //Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
     "LayerPlano": () => {
@@ -414,18 +414,28 @@ const allLayers = {
     },
 
     "LayerDensidadCoca": () => {
-        Layers["LayerDensidadCoca"] = new L.geoJSON(densidadCoca, {
-            style: {
+        
+        Layers["LayerDensidadCoca"] = new L.geoJSON(densidadCoca,
+            
+            {
+                
+                style: {
                 color: "#B7950B",
                 pointToLayer: { icon: icons[formatoPlano["markType"]] },
                 weight: 1,
-                fillColor: "#B7950B",
-                fillOpacity: 0.5
-            }
+                fillColor: "green",
+                fillOpacity: 1              
+            },
+
+
         }).bindPopup((layer) => {
-            return `Área ${layer.feature.properties.areacoca}`;
-        }).addTo(map);
+            return `Porcentaje ${layer.feature.properties.Procentaje}`           
+        },
+
+        ).addTo(map);
     },
+
+
 
     "LayerFluvialIlegal": () => {
         Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
