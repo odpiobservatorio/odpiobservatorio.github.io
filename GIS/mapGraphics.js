@@ -419,13 +419,15 @@ const allLayers = {
             
             {
                 
-                style: {
-                color: "#B7950B",
-                pointToLayer: { icon: icons[formatoPlano["markType"]] },
-                weight: 1,
-                fillColor: "green",
-                fillOpacity: 1              
-            },
+                style: (feature) => {
+                    return {
+                        color: "#B7950B",
+                        pointToLayer: { icon: icons[formatoPlano["markType"]] },
+                        weight: 1,
+                        fillColor: "green",
+                        fillOpacity: feature.properties.Procentaje,
+                    }
+                },
 
 
         }).bindPopup((layer) => {
