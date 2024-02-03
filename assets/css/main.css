@@ -4334,3 +4334,10 @@
 	user-select: none;
 	text-decoration: none;
 }
+
+/* --- CSS Juan --- */
+
+.counter-h2 {
+    font-size: 3.5rem;
+	margin:0;
+}
