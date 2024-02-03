@@ -414,11 +414,11 @@ const allLayers = {
     },
 
     "LayerDensidadCoca": () => {
-        
+
         Layers["LayerDensidadCoca"] = new L.geoJSON(densidadCoca,
-            
+
             {
-                
+
                 style: (feature) => {
                     return {
                         color: "#B7950B",
@@ -430,11 +430,11 @@ const allLayers = {
                 },
 
 
-        }).bindPopup((layer) => {
-            return `Porcentaje ${layer.feature.properties.Procentaje}`           
-        },
+            }).bindPopup((layer) => {
+                return `Porcentaje ${layer.feature.properties.Procentaje}`
+            },
 
-        ).addTo(map);
+            ).addTo(map);
     },
 
 
@@ -705,11 +705,52 @@ function AplicarColorMapa() {
     }
 }
 
+function MostrarLeyendas() {
+    let HTML = `
+<div style="width:100px;" class="">
+    <div class="h6 text-dark">
+        Leyendas
+    </div>
+    <div id ="xLeyendas">
+    </div>
+</div>
+`
+
+    LabelMap = new L.marker([5.1, -75.55], { draggable: 'true', icon: otherIcons["senalador"] },);
+
+
+    LabelMap.bindTooltip(HTML, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.on('dragend', function (event) {
+        LabelMap = event.target;
+        const position = LabelMap.getLatLng();
+        LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
+    });
+    map.addLayer(LabelMap);
+
+    LabelsMap.push(LabelMap)
+
+    let ColorB="#16A085"
+    let p = `
+    <svg width="20" height="10">
+    <rect width="300" height="100" style="fill:${ColorB};" />
+    </svg>
+    
+    `
+
+    let a = document.getElementById("xLeyendas")
+    a.innerHTML=p
+
+
+
+
+}
+
+
 
 //Otros iconos (No usados aun)
 const otherIcons = {
     "senalador": L.icon({
-        iconUrl: '../img/otherIcons["senalador"].png',
+        iconUrl: '../img/pSenalador.png',
         shadowUrl: '',
 
         iconSize: [14, 14], // size of the icon

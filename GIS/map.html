@@ -31,6 +31,8 @@
     <script src="mapGraphics.js" async></script>
     <script src="pivotData.js" async></script>
     <script src="mapData.js" async></script>
+
+
 </head>
 
 
@@ -78,8 +80,7 @@
         </div>
 
         <div class="col">
-            <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasFormato" aria-controls="offcanvasFormato">
+            <button class="btn btn-outline-success text-white" type="button" onclick="MostrarLeyendas()">
                 <i class="bi bi-bookmark-check" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="tooltip" data-bs-title="Panel de etiquetas"></i>
             </button>
@@ -99,6 +100,39 @@
 
 
 <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-auto me-auto"> 
+                <svg width="20" height="10" style="background-color: green;opacity: 1;"></svg>               
+            </div>
+            <div class="col">Color de la leyenda</div>
+        </div>
+        <div class="row">
+            <div class="col-auto me-auto"> 
+                <svg width="20" height="10" style="background-color: green;opacity: 0.8;"></svg>               
+            </div>
+            <div class="col">Color de la leyenda</div>
+        </div>
+        <div class="row">
+            <div class="col-auto me-auto"> 
+                <svg width="20" height="10" style="background-color: green;opacity: 0.7;"></svg>               
+            </div>
+            <div class="col">Color de la leyenda</div>
+        </div>
+        <div class="row">
+            <div class="col-auto me-auto"> 
+                <svg width="20" height="10" style="background-color: green;opacity: 0.5;"></svg>               
+            </div>
+            <div class="col">Color de la leyenda</div>
+        </div>
+        <div class="row">
+            <div class="col-auto me-auto"> 
+                <svg width="20" height="10" style="background-color: green;opacity: 0.2;"></svg>               
+            </div>
+            <div class="col">Color de la leyenda</div>
+        </div>
+    </div>
+
     <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
         aria-labelledby="offcanvasExampleLabel">
@@ -793,15 +827,7 @@
     </div>
 </div>
 
-<div id="map-wrapper">
-    <div id="map"></div>
-    <div class="legend">
-        <div><strong>In Connecticut</strong></div>
-        <i style="background:#ffa500;opacity:0.5"></i>
-        Dunkin '
-        <br>
-    </div>
-</div>
+
 <!-- llama a los eventos .js para esta página -->
 <script>
     let map;
@@ -816,10 +842,9 @@
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     }).addTo(map);
 
-    //map.on('click', putLabel);
 
 
-  
+
 
 
 
