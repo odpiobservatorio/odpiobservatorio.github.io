@@ -198,6 +198,7 @@ function showDep() {
 
 }
 
+
 function showLayer(parent) {
     /* 
     * Si el usuario selecciona una capa, la muestra, si ya esta seleccionada la elimina
@@ -208,6 +209,7 @@ function showLayer(parent) {
 
     if (checkBox.checked) {
         allLayers[key]();
+
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key]);
         delete Layers[key];
