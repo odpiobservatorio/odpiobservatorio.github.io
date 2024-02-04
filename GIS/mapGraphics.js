@@ -124,6 +124,7 @@ function changeMark(value) {
     * Cambia el tipo de la marca q se muestra
     */
     formatoPlano["markType"] = value
+
 }
 
 function clearLayers() {
@@ -206,6 +207,23 @@ function showLayer(parent) {
 
     if (checkBox.checked) {
         allLayers[key]();
+        switch (key) {
+            case 'LayerDensidadCoca':
+                LeyendaActiva = LeyendaCoca;
+                break;
+            default:
+                LeyendaActiva = "No hay capa activa"
+        }
+        switch (formatoPlano["markType"]) {
+            case 'green':
+                LeyendaPunto="../img/pVerdeV.png";
+                break;
+            default:
+                LeyendaPunto="../img/pVerdeV.png";
+
+        }
+
+
     } else {
         if (Layers.hasOwnProperty(key)) {
             map.removeLayer(Layers[key]);
@@ -431,7 +449,7 @@ const allLayers = {
 
 
             }).bindPopup((layer) => {
-                return `Porcentaje ${layer.feature.properties.Procentaje}`
+                return `Hectareas ${layer.feature.properties.Hectareas}`
             },
 
             ).addTo(map);
@@ -612,7 +630,8 @@ const icons = {
             iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
             popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
         })
-    },
+    }
+    ,
 
     "blue": () => {
         return L.icon({
@@ -710,7 +729,7 @@ function MostrarLeyendas() {
     LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
 
 
-    LabelMap.bindTooltip(LeyendaCoca, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.bindTooltip(LeyendaActiva, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
         const position = LabelMap.getLatLng();
