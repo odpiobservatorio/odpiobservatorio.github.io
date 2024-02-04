@@ -1,3 +1,7 @@
+const GLOBAL = {
+    state: {}
+}
+
 let Datafilter = 1;
 const Layers = {}
 let LabelsMap = []
@@ -84,7 +88,6 @@ function seeMacro(macroKey) {
     });
 }
 
-
 function showMacro(checkBox) {
     const macroKey = checkBox.getAttribute("id");
 
@@ -98,7 +101,6 @@ function showMacro(checkBox) {
         }
     }
 }
-
 
 function resetIconSize() {
     // Resetea el tamaño de las marcas y las muestra nuevamente
@@ -124,7 +126,6 @@ function changeMark(value) {
     * Cambia el tipo de la marca q se muestra
     */
     formatoPlano["markType"] = value
-
 }
 
 function clearLayers() {
@@ -207,28 +208,9 @@ function showLayer(parent) {
 
     if (checkBox.checked) {
         allLayers[key]();
-        switch (key) {
-            case 'LayerDensidadCoca':
-                LeyendaActiva = LeyendaCoca;
-                break;
-            default:
-                LeyendaActiva = "No hay capa activa"
-        }
-        switch (formatoPlano["markType"]) {
-            case 'green':
-                LeyendaPunto="../img/pVerdeV.png";
-                break;
-            default:
-                LeyendaPunto="../img/pVerdeV.png";
-
-        }
-
-
-    } else {
-        if (Layers.hasOwnProperty(key)) {
-            map.removeLayer(Layers[key]);
-            delete Layers[key];
-        }
+    } else if (Layers.hasOwnProperty(key)) {
+        map.removeLayer(Layers[key]);
+        delete Layers[key];
     }
 }
 
@@ -587,6 +569,13 @@ const allLayers = {
 //Variables para iconos personalizados
 //*****************************************************
 
+const iconsPaths = {
+    green: "../img/pVerdeV.png",
+    black: "../img/pNegroV.png",
+    red: "../img/pRojoV.png",
+    blue: "../img/pAzulV.png",
+    purple: "../img/pMoradoV.png",
+}
 
 const icons = {
     /*
@@ -596,7 +585,7 @@ const icons = {
 
     "green": () => {
         return L.icon({
-            iconUrl: "../img/pVerdeV.png",
+            iconUrl: iconsPaths.green,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -609,7 +598,7 @@ const icons = {
 
     "black": () => {
         return L.icon({
-            iconUrl: '../img/pNegroV.png',
+            iconUrl: iconsPaths.black,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -622,7 +611,7 @@ const icons = {
 
     "red": () => {
         return L.icon({
-            iconUrl: '../img/pRojoV.png',
+            iconUrl: iconsPaths.red,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -635,7 +624,7 @@ const icons = {
 
     "blue": () => {
         return L.icon({
-            iconUrl: '../img/pAzulV.png',
+            iconUrl: iconsPaths.blue,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -647,7 +636,7 @@ const icons = {
 
     "purple": () => {
         return L.icon({
-            iconUrl: '../img/pMoradoV.png',
+            iconUrl: iconsPaths.purple,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -726,10 +715,75 @@ function AplicarColorMapa() {
 
 function MostrarLeyendas() {
 
+    const templateLeyenda = `
+    <div style="width:200px;" class="text-dark">
+    <div class="h6 text-dark">Hectareas * Departamento</div>
+    <div class="row">
+        <div class="col-auto me-auto ms-3">
+            <svg width="20" height="10" style="background-color: green;opacity: 1;"></svg>
+        </div>
+        <div class="col">
+            <tLeyenda>26222,72 - 59746,49</tLeyenda>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto me-auto ms-3">
+            <svg width="20" height="10" style="background-color: green;opacity: 0.6;"></svg>
+        </div>
+        <div class="col" style="font-size: 5;">
+            <tLeyenda>14222,29</tLeyenda>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto me-auto ms-3">
+            <svg width="20" height="10" style="background-color: green;opacity: 0.4;"></svg>
+        </div>
+        <div class="col">
+            <tLeyenda>10368,03</tLeyenda>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto me-auto ms-3">
+            <svg width="20" height="10" style="background-color: green;opacity: 0.2;"></svg>
+        </div>
+        <div class="col">
+            <tLeyenda>4934,71 - 6363,79</tLeyenda>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto me-auto ms-3">
+            <svg width="20" height="10" style="background-color: green;opacity: 0.1;"></svg>
+        </div>
+        <div class="col">
+            <tLeyenda>2638,92</tLeyenda>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto me-auto ms-3">
+            <svg width="20" height="10" style="background-color: green;opacity: 0.08;"></svg>
+        </div>
+        <div class="col">
+            <tLeyenda>3 - 1833,62</tLeyenda>
+        </div>
+    </div>
+
+    <div>
+        <div class="row">
+            <div class="col-auto me-auto ms-3">
+                <img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
+            </div>
+            <div class="col">
+                <tLeyenda>Afectacion a los DPI</tLeyenda>
+            </div>
+        </div>
+    </div>
+
+    </div>`;
+
+
     LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
 
-
-    LabelMap.bindTooltip(LeyendaActiva, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.bindTooltip(templateLeyenda, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
         const position = LabelMap.getLatLng();
@@ -738,11 +792,6 @@ function MostrarLeyendas() {
     map.addLayer(LabelMap);
 
     LabelsMap.push(LabelMap)
-
-
-
-
-
 }
 
 
