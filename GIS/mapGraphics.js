@@ -530,6 +530,18 @@ const allLayers = {
     },
 
 
+    "LayerELN": () => {
+        Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
+            style: {
+                color: "yellow",
+                fillColor: "yellow",
+                fillOpacity: 0.5
+            }
+        }).bindPopup((layer) => {
+            return layer.feature.properties.MpNombre
+        }).addTo(map);
+    },
+
 
     "LayerReservas": () => {
         Layers["LayerReservas"] = new L.geoJSON(reservasCap, {
