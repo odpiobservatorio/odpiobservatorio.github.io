@@ -445,7 +445,7 @@ const allLayers = {
         Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
             style: {
                 color: "black",
-                weight: 4,
+                weight: 3,
                 fillColor: "#873600",
                 fillOpacity: 0.5
             }
@@ -459,7 +459,7 @@ const allLayers = {
         Layers["LayerRutaArmas"] = new L.geoJSON(capaRutaArmas, {
             style: {
                 color: "purple",
-                weight: 4,
+                weight: 3,
                 fillColor: "#873600",
                 fillOpacity: 0.5
             }

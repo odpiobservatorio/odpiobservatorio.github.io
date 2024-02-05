@@ -64,8 +64,9 @@ function fetchLayer(layerName, layerPath) {
 const layersToLoad = {
     CapaBloquePetrolero: '/layers/BloquePetrolero.json',
     LayerPlano: '/layers/Croquis.json',
-    capaDepartamentos: '/layers/Departamentos.json',
     FondoLayer: '/layers/Fondo.json',
+    capaDepartamentos: '/layers/Departamentos.json',
+    
     cpaPdet: '/layers/MunicipiosPDET.json',
     PozosPretoleros: '/layers/PozosPet.json',
     reservasCap: '/layers/ReservasCap.json',
@@ -78,6 +79,7 @@ const layersToLoad = {
     capaContrabando: '/layers/ECOIlegal/PuntosContrabando.json',
     capaPuntosNarcotrafico: '/layers/ECOIlegal/PuntosNarcotrafico.json',
     capaRutaMigrantes: '/layers/ECOIlegal/RutaMigrantes.json',
+    //TitulosMineros: '/layers/ELN2022Pares.json',
 };
 
 for (const layerName in layersToLoad) {
