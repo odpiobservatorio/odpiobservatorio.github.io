@@ -617,7 +617,7 @@ const allLayers = {
             return {
                 color: ColorAA,
                 fillColor: ColorAA,
-                weight: 1,             
+                weight: 3,             
                 fillOpacity: 1,
             }
         },
