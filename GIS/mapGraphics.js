@@ -577,7 +577,7 @@ const allLayers = {
             fillOpacity: 0.8
         }
     }).bindPopup((layer) => {
-        return layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
+        return "ELN 2022 " +layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
     }).addTo(map);
 },
 
