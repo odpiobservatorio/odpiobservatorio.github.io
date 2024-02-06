@@ -1,0 +1,29 @@
+    <div class="row row-cols-auto p-2" style="background-color: #0B5345;">
+        <div class="col">
+
+
+
+
+
+            <button class="btn btn-outline-success text-white" type="button" onclick="showPivotArea()">
+                <i class="bi-file-earmark-spreadsheet-fill text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Abrir consolidados"></i>
+            </button>
+        </div>
+
+        <div class="col">
+            <button class="btn btn-outline-success text-white" type="button" onclick="MostrarLeyendas()">
+                <i class="bi bi-bookmark-check" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Panel de etiquetas"></i>
+            </button>
+            <button class="btn btn-outline-success text-white" type="button" onclick="RemoverLabels()">
+                <i class="bi bi-eraser-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Limpiar etiquetas"></i>
+            </button>
+            <a href="../Chart/chart.html" class="btn btn-outline-success text-white" role="button">
+                <i class="bi bi-pie-chart-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Mostrar Gráficos"></i>
+            </a>
+        </div>
+
+    </div>

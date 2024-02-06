@@ -31,76 +31,109 @@
     <script src="mapGraphics.js" async></script>
     <script src="pivotData.js" async></script>
     <script src="mapData.js" async></script>
+    <script src="./Infografias.js" async></script>
 
 </head>
 
 
 <header id="headerMap" class="sticky-top">
     <!-- barra de menu de mapas -->
-    <div class="row row-cols-auto p-2" style="background-color: #0B5345;">
-        <div class="col">
-            <button class="btn btn-outline-success text-white ms-3" type="button" onclick="CargarlstMap()"
-                data-bs-toggle="offcanvas" data-bs-target="#offcanvasBuscar" aria-controls="offcanvasBuscar">
-                <i class="bi bi-binoculars" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Panel de búsquedas"></i>
-            </button>
-
-            <!-- Nuevo -->
-            <button class="btn btn-outline-success text-white" type="button" onclick="CargarTodoMarcas()">
-                <i class="bi bi-geo-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas"></i>
-            </button>
-            <button class="btn btn-outline-success text-white" type="button" onclick="clearMarkers()">
-                <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
-                    data-bs-title="Limpiar marcas"></i>
-            </button>
-            <button class="btn btn-outline-success text-white" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">
-                <i class="bi bi-gear-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Panel formato"></i>
-            </button>
-
-            <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasCapas" aria-controls="offcanvasCapas">
-                <i class="bi bi-stack" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
-                    data-bs-title="Panel de capas"></i>
-            </button>
-
-            <!-- Nuevo -->
-            <button class="btn btn-outline-success text-white" type="button" onclick="" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasResultados" aria-controls="offcanvasResultados">
-                <i class="bi bi-eye-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Ver resultados"></i>
-            </button>
-            <button class="btn btn-outline-success text-white" type="button" onclick="showPivotArea()">
-                <i class="bi-file-earmark-spreadsheet-fill text-white" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Abrir consolidados"></i>
-            </button>
-        </div>
-
-        <div class="col">
-            <button class="btn btn-outline-success text-white" type="button" onclick="MostrarLeyendas()">
-                <i class="bi bi-bookmark-check" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Panel de etiquetas"></i>
-            </button>
-            <button class="btn btn-outline-success text-white" type="button" onclick="RemoverLabels()">
-                <i class="bi bi-eraser-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Limpiar etiquetas"></i>
-            </button>
-            <a href="../Chart/chart.html" class="btn btn-outline-success text-white" role="button">
-                <i class="bi bi-pie-chart-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Mostrar Gráficos"></i>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">
+                <img src="/img/logo.png" width="40px" height="40px">
             </a>
-        </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="bi bi-list text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Casos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="CargarlstMap()"
+                                    data-bs-toggle="offcanvas" 
+                                    data-bs-target="#offcanvasBuscar" 
+                                    aria-controls="offcanvasBuscar">
+                                    <i class="bi bi-binoculars me-3"></i>Buscador de casos
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="clearMarkers()"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasResultados" 
+                                    aria-controls="offcanvasResultados">
+                                    <i class="bi bi-pencil-fill me-3"></i>Ver lista de casos
+                                </a>
+                            </li>
 
-    </div>
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="CargarTodoMarcas()">
+                                    <i class="bi bi-geo-alt-fill me-3"></i>Ver todas las marcas de casos
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="clearMarkers()">
+                                    <i class="bi bi-trash3-fill me-3"></i>Limpiar marcas del mapa
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasCapas" 
+                            aria-controls="offcanvasCapas">Visor de capas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#" onclick="showPivotArea()">Consolidados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasGrafico" 
+                            aria-controls="offcanvasGrafico">Configuración</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Infografias
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="MostrarLeyendas()">
+                                    <i class="bi bi-bookmarks-fill me-3"></i>Ver leyendas
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="RemoverLabels()">
+                                    <i class="bi bi-bookmark-x me-3"></i>Limpiar leyendas
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 
 
 
 <body>
 
-    
+
 
     <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
@@ -424,7 +457,7 @@
                         </label>
                     </div>
 
-                      <!--Menu información grupos armados-->
+                    <!--Menu información grupos armados-->
                     <div class="label text-success">Grupos armados ilegales</div>
                     <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerELN">
@@ -446,8 +479,8 @@
                             Actores Armados Puntos
                         </label>
                     </div>
-                                       
-                    
+
+
                     <!--Menu información ambiental-->
                     <div class="label text-success">Informacion ambiental</div>
 
