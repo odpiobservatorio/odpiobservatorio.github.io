@@ -582,7 +582,7 @@ const allLayers = {
 },
 
 "LayerGentilDuarte": () => {
-    Layers["LayerELN"] = new L.geoJSON(GentilDuarte2022Pares, {
+    Layers["LayerGentilDuarte"] = new L.geoJSON(GentilDuarte2022Pares, {
         style: {
             color: "white",
             weight: 1,
