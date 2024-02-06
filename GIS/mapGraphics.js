@@ -577,7 +577,7 @@ const allLayers = {
             fillOpacity: 0.8
         }
     }).bindPopup((layer) => {
-        return "ELN 2022 " +layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
+        return "ELN 2022 " + layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
     }).addTo(map);
 },
 
@@ -590,7 +590,9 @@ const allLayers = {
             fillOpacity: 0.8
         }
     }).bindPopup((layer) => {
-        return "Gentil Duarte (Pares 2022)"
+        return layer.feature.properties.nombre_dpt + " " 
+        + layer.feature.properties..mpio 
+        + " Gentil Duarte (Pares 2022)"
     }).addTo(map);
 },
 
