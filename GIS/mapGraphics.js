@@ -609,7 +609,10 @@ const allLayers = {
            
             if (feature.properties.NombreAA=="ELN"){
 
-                ColorAA="reed"
+                ColorAA="red"
+            }
+            else{
+                ColorAA="orange"
             }
             return {
                 color: ColorAA,
