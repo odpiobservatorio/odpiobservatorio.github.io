@@ -600,14 +600,20 @@ const allLayers = {
     }).addTo(map);
 },
 
+
 "LayerAAPuntos": () => {
     Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
         style: (feature) => {
+           
+            if (properties.NombreAA=="ELN"){
+
+                ColorAA="reed"
+            }
             return {
-                color: "orange",
-                weight: 1,
-                fillColor: "orange",
-                fillOpacity: feature.properties.Procentaje,
+                color: ColorAA,
+                fillColor: ColorAA,
+                weight: 1,             
+                fillOpacity: 1,
             }
         },
     }).bindPopup((layer) => {
