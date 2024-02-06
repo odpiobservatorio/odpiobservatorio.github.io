@@ -610,7 +610,7 @@ const allLayers = {
         }
     }).bindPopup((layer) => {
         //layer.feature.properties.Nombre
-        return layer.feature.properties.n_puntos
+        return layer.feature.properties.nombre
     }).addTo(map);
 },
 
