@@ -572,60 +572,52 @@ const allLayers = {
 
 
 
-//Grupos armados ilegales
-"LayerELN": () => {
-    Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
-        style: {
-            color: "white",
-            weight: 1,
-            fillColor: "yellow",
-            fillOpacity: 0.8
-        }
-    }).bindPopup((layer) => {
-        return "ELN 2022 " + layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
-    }).addTo(map);
-},
-
-
-"LayerGentilDuarte": () => {
-    Layers["LayerGentilDuarte"] = new L.geoJSON(GentilDuarte2022Pares, {
-        style: {
-            color: "white",
-            weight: 1,
-            fillColor: "gray",
-            fillOpacity: 0.8
-        }
-    }).bindPopup((layer) => {
-        return layer.feature.properties.nombre_dpt + " " 
-        + layer.feature.properties.nombre_mpi 
-        + " Gentil Duarte (Pares 2022)"
-    }).addTo(map);
-},
-
-
-"LayerAAPuntos": () => {
-    Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
-        style: (feature) => {
-           
-            if (feature.properties.NombreAA=="ELN"){
-
-                ColorAA="red"
+    //Grupos armados ilegales
+    "LayerELN": () => {
+        Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
+            style: {
+                color: "white",
+                weight: 1,
+                fillColor: "yellow",
+                fillOpacity: 0.8
             }
-            else{
-                ColorAA="orange"
+        }).bindPopup((layer) => {
+            return "ELN 2022 " + layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
+        }).addTo(map);
+    },
+
+
+    "LayerGentilDuarte": () => {
+        Layers["LayerGentilDuarte"] = new L.geoJSON(GentilDuarte2022Pares, {
+            style: {
+                color: "white",
+                weight: 1,
+                fillColor: "gray",
+                fillOpacity: 0.8
             }
-            return {
-                color: ColorAA,
-                fillColor: ColorAA,
-                weight: 3,             
-                fillOpacity: 1,
-            }
-        },
-    }).bindPopup((layer) => {
-        //layer.feature.properties.Nombre
-        return layer.feature.properties.NombreAA
-    }).addTo(map);
-},
+        }).bindPopup((layer) => {
+            return layer.feature.properties.nombre_dpt + " "
+                + layer.feature.properties.nombre_mpi
+                + " Gentil Duarte (Pares 2022)"
+        }).addTo(map);
+    },
+
+
+    "LayerAAPuntos": () => {
+        Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
+            style: (feature) => {
+                return {
+                    color: feature.properties.backcolor,
+                    fillColor: feature.properties.backcolor,
+                    weight: 3,
+                    fillOpacity: 1,
+                }
+            },
+        }).bindPopup((layer) => {
+            //layer.feature.properties.Nombre
+            return layer.feature.properties.NombreAA
+        }).addTo(map);
+    },
 
 
 }
