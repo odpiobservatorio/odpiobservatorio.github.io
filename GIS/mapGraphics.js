@@ -567,6 +567,9 @@ const allLayers = {
         }).bindPopup((layer) => {
         }).addTo(map);
     },
+
+
+
 //Grupos armados ilegales
 "LayerELN": () => {
     Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
@@ -580,6 +583,7 @@ const allLayers = {
         return "ELN 2022 " + layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
     }).addTo(map);
 },
+
 
 "LayerGentilDuarte": () => {
     Layers["LayerGentilDuarte"] = new L.geoJSON(GentilDuarte2022Pares, {
@@ -596,7 +600,18 @@ const allLayers = {
     }).addTo(map);
 },
 
-
+"LayerAAPuntos": () => {
+    Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntos, {
+        style: {
+            color: "white",
+            weight: 1,
+            fillColor: "Orange",
+            fillOpacity: 0.8
+        }
+    }).bindPopup((layer) => {
+        return layer.feature.properties.Nombre
+    }).addTo(map);
+},
 
 
 }

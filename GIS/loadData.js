@@ -81,6 +81,8 @@ const layersToLoad = {
     capaRutaMigrantes: '/layers/ECOIlegal/RutaMigrantes.json',
     ELN2022Pares: '/layers/ELN2022Pares.json',
     GentilDuarte2022Pares: '/layers/GentilDuarte2022Pares.json',
+    AAPuntos: '/layers/AAPuntos.json',
+    
     
 };
 
