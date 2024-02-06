@@ -8,6 +8,8 @@ let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
 
+let ColorAA;
+
 const activeMacros = {}
 const macros = {
     amazonia: {
