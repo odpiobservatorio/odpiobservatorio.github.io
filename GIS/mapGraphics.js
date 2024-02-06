@@ -591,7 +591,7 @@ const allLayers = {
         }
     }).bindPopup((layer) => {
         return layer.feature.properties.nombre_dpt + " " 
-        + layer.feature.properties..mpio 
+        + layer.feature.properties.nombre_mpi 
         + " Gentil Duarte (Pares 2022)"
     }).addTo(map);
 },
