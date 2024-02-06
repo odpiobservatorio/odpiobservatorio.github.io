@@ -605,7 +605,7 @@ const allLayers = {
         style: {
             color: "white",
             weight: 1,
-            fillColor: "gray",
+            fillColor: "orange",
             fillOpacity: 0.8
         }
     }).bindPopup((layer) => {
