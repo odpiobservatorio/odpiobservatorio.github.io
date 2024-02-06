@@ -605,7 +605,7 @@ const allLayers = {
     Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
         style: (feature) => {
            
-            if (properties.NombreAA=="ELN"){
+            if (feature.properties.NombreAA=="ELN"){
 
                 ColorAA="reed"
             }
