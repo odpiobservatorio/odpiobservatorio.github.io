@@ -609,8 +609,8 @@ const allLayers = {
             fillOpacity: 0.8
         }
     }).bindPopup((layer) => {
-        layer.feature.properties.Nombre
-        //return layer.feature.properties.Nombre
+        //layer.feature.properties.Nombre
+        return layer.feature.properties.NumActores
     }).addTo(map);
 },
 
