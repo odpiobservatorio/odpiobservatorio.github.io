@@ -79,7 +79,7 @@ const layersToLoad = {
     capaContrabando: '/layers/ECOIlegal/PuntosContrabando.json',
     capaPuntosNarcotrafico: '/layers/ECOIlegal/PuntosNarcotrafico.json',
     capaRutaMigrantes: '/layers/ECOIlegal/RutaMigrantes.json',
-    //TitulosMineros: '/layers/ELN2022Pares.json',
+    ELN2022Pares: '/layers/ELN2022Pares.json',
 };
 
 for (const layerName in layersToLoad) {
