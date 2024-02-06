@@ -602,12 +602,14 @@ const allLayers = {
 
 "LayerAAPuntos": () => {
     Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
-        style: {
-            color: "white",
-            weight: 1,
-            fillColor: "orange",
-            fillOpacity: 0.8
-        }
+        style: (feature) => {
+            return {
+                color: "orange",
+                weight: 1,
+                fillColor: "orange",
+                fillOpacity: feature.properties.Procentaje,
+            }
+        },
     }).bindPopup((layer) => {
         //layer.feature.properties.Nombre
         return layer.feature.properties.NombreAA
