@@ -2,7 +2,7 @@ const GLOBAL = {
     state: {}
 }
 
-let Datafilter = 1;
+let Datafilter = 0;
 const Layers = {}
 let LabelsMap = []
 let TextoLabel = "";
@@ -423,8 +423,8 @@ const allLayers = {
 
                 style: (feature) => {
                     return {
-                        color: "#B7950B",
-                        pointToLayer: { icon: icons[formatoPlano["markType"]] },
+                        color: "white",
+                        weight: 1,
                         weight: 1,
                         fillColor: "green",
                         fillOpacity: feature.properties.Procentaje,
@@ -433,7 +433,7 @@ const allLayers = {
 
 
             }).bindPopup((layer) => {
-                return `Hectareas ${layer.feature.properties.Hectareas}`
+                return "Departamento:" + layer.feature.properties.DeNombre + ` Hectareas ${layer.feature.properties.Hectareas}`
             },
 
             ).addTo(map);
@@ -530,17 +530,7 @@ const allLayers = {
     },
 
 
-    "LayerELN": () => {
-        Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
-            style: {
-                color: "yellow",
-                fillColor: "yellow",
-                fillOpacity: 0.5
-            }
-        }).bindPopup((layer) => {
-            return layer.feature.properties.MpNombre
-        }).addTo(map);
-    },
+
 
 
     "LayerReservas": () => {
@@ -577,6 +567,36 @@ const allLayers = {
         }).bindPopup((layer) => {
         }).addTo(map);
     },
+//Grupos armados ilegales
+"LayerELN": () => {
+    Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
+        style: {
+            color: "white",
+            weight: 1,
+            fillColor: "yellow",
+            fillOpacity: 0.8
+        }
+    }).bindPopup((layer) => {
+        return layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
+    }).addTo(map);
+},
+
+"LayerGentilDuarte": () => {
+    Layers["LayerELN"] = new L.geoJSON(GentilDuarte2022Pares, {
+        style: {
+            color: "white",
+            weight: 1,
+            fillColor: "gray",
+            fillOpacity: 0.8
+        }
+    }).bindPopup((layer) => {
+        return "Gentil Duarte (Pares 2022)"
+    }).addTo(map);
+},
+
+
+
+
 }
 
 //*****************************************************

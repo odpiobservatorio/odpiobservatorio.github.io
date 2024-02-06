@@ -80,6 +80,8 @@ const layersToLoad = {
     capaPuntosNarcotrafico: '/layers/ECOIlegal/PuntosNarcotrafico.json',
     capaRutaMigrantes: '/layers/ECOIlegal/RutaMigrantes.json',
     ELN2022Pares: '/layers/ELN2022Pares.json',
+    GentilDuarte2022Pares: '/layers/GentilDuarte2022Pares.json',
+    
 };
 
 for (const layerName in layersToLoad) {
