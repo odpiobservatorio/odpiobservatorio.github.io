@@ -601,15 +601,15 @@ const allLayers = {
 },
 
 "LayerAAPuntos": () => {
-    Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntos, {
+    Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
         style: {
             color: "white",
             weight: 1,
-            fillColor: "Orange",
+            fillColor: "gray",
             fillOpacity: 0.8
         }
     }).bindPopup((layer) => {
-        return layer.feature.properties.Nombre
+        //return layer.feature.properties.Nombre
     }).addTo(map);
 },
 
