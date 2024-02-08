@@ -50,5 +50,9 @@
 
 /* --- CSS Juan --- */
 tLeyenda {
+    font-size: 13px;
+}
+
+.pDot {
     font-size: 12px;
-  }
+}
