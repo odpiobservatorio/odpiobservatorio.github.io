@@ -607,8 +607,8 @@ const allLayers = {
         Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
             style: (feature) => {
                 return {
-                    //color: feature.properties.backcolor,
-                    fillColor: "red",
+                    color: feature.properties.backcolor,
+                    fillColor: feature.properties.backcolor,
                     weight: 0,
                     fillOpacity: 0.9,
                 }
