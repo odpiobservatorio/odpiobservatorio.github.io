@@ -621,8 +621,8 @@ const allLayers = {
                 return {
                     color: feature.properties.backcolor,
                     fillColor: feature.properties.backcolor,
-                    weight: 0,
-                    fillOpacity: 0.9,
+                    weight: 4,
+                    fillOpacity: 1,
                 }
             },
         }).bindPopup((layer) => {
