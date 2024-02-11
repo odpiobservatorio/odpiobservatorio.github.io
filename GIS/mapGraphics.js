@@ -766,8 +766,8 @@ function MostrarLeyendas() {
     
 
     let hrLeyenda = document.createElement('div');
-    hrLeyenda.className = "h6 text-dark";
-    hrLeyenda.textContent = LeyendaActiva;
+    hrLeyenda.className = "h6 text-secondary ms-3";
+    
     templateLeyenda.appendChild(hrLeyenda)
 
     if (LeyendaActiva == "LayerDensidadCoca") {
@@ -775,6 +775,7 @@ function MostrarLeyendas() {
         //Leo la matriz de Densidad y leo cada item
         LyDenCoca.forEach(item => {
             templateLeyenda.style.width = "200px"
+            hrLeyenda.textContent = "Densidad de Coca 2021";
             let rItem = document.createElement('div');
             rItem.className = "row";
             rItem.innerHTML = `
@@ -789,6 +790,7 @@ function MostrarLeyendas() {
         })
     } else if (LeyendaActiva == "LayerMacroT") {
         templateLeyenda.style.width = "250px"
+        hrLeyenda.textContent = "Macro Territorios C.V";
         //Leo la matriz de Densidad y leo cada item
         LyMacroT.forEach(item => {
             let rItem = document.createElement('div');
