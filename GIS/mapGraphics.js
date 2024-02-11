@@ -564,8 +564,19 @@ const allLayers = {
             style: {
                 color: "#ffffff",
                 weight: 0,
-                fillColor: "#ffffff",
-                fillOpacity: 100,
+                fillColor: "white",
+                fillOpacity: 1,
+            }
+        }).bindPopup((layer) => {
+        }).addTo(map);
+    },
+    "LayerFondoDark": () => {
+        Layers["LayerFondo"] = new L.geoJSON(FondoLayer, {
+            style: {
+                color: "#ffffff",
+                weight: 0,
+                fillColor: "black",
+                fillOpacity: 1,
             }
         }).bindPopup((layer) => {
         }).addTo(map);
@@ -603,22 +614,6 @@ const allLayers = {
         }).addTo(map);
     },
 
-
-    "LayerAAPuntos": () => {
-        Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
-            style: (feature) => {
-                return {
-                    color: feature.properties.backcolor,
-                    fillColor: feature.properties.backcolor,
-                    weight: 0,
-                    fillOpacity: 0.9,
-                }
-            },
-        }).bindPopup((layer) => {
-            //layer.feature.properties.Nombre
-            return layer.feature.properties.NombreAA
-        }).addTo(map);
-    },
 
     "LayerAAPuntos": () => {
         Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
