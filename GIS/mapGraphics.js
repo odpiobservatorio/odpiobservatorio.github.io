@@ -211,6 +211,7 @@ function showLayer(parent) {
 
     if (checkBox.checked) {
         allLayers[key]();
+        LeyendaActiva = key
 
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key]);
@@ -647,13 +648,13 @@ const allLayers = {
             },
         }).bindPopup((layer) => {
             //layer.feature.properties.Nombre
-            return layer.feature.properties.MacroT + " " 
-            + layer.feature.properties.nombre_mpi 
-            + " " + layer.feature.properties.nombre_dpt
+            return layer.feature.properties.MacroT + " "
+                + layer.feature.properties.nombre_mpi
+                + " " + layer.feature.properties.nombre_dpt
         }).addTo(map);
     },
 
-    
+
 }
 
 //*****************************************************
@@ -805,71 +806,53 @@ function AplicarColorMapa() {
 }
 
 function MostrarLeyendas() {
+    let templateLeyenda = document.createElement('div');
+    templateLeyenda.className = "text-dark p--3"
+    
 
-    const templateLeyenda = `
-    <div style="width:200px;" class="text-dark">
-    <div class="h6 text-dark">Hectareas * Departamento</div>
-    <div class="row">
-        <div class="col-auto me-auto ms-3">
-            <svg width="20" height="10" style="background-color: green;opacity: 1;"></svg>
-        </div>
-        <div class="col">
-            <tLeyenda>26222,72 - 59746,49</tLeyenda>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-auto me-auto ms-3">
-            <svg width="20" height="10" style="background-color: green;opacity: 0.6;"></svg>
-        </div>
-        <div class="col" style="font-size: 5;">
-            <tLeyenda>14222,29</tLeyenda>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-auto me-auto ms-3">
-            <svg width="20" height="10" style="background-color: green;opacity: 0.4;"></svg>
-        </div>
-        <div class="col">
-            <tLeyenda>10368,03</tLeyenda>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-auto me-auto ms-3">
-            <svg width="20" height="10" style="background-color: green;opacity: 0.2;"></svg>
-        </div>
-        <div class="col">
-            <tLeyenda>4934,71 - 6363,79</tLeyenda>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-auto me-auto ms-3">
-            <svg width="20" height="10" style="background-color: green;opacity: 0.1;"></svg>
-        </div>
-        <div class="col">
-            <tLeyenda>2638,92</tLeyenda>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-auto me-auto ms-3">
-            <svg width="20" height="10" style="background-color: green;opacity: 0.08;"></svg>
-        </div>
-        <div class="col">
-            <tLeyenda>3 - 1833,62</tLeyenda>
-        </div>
-    </div>
+    let hrLeyenda = document.createElement('div');
+    hrLeyenda.className = "h6 text-dark";
+    hrLeyenda.textContent = LeyendaActiva;
+    templateLeyenda.appendChild(hrLeyenda)
 
-    <div>
-        <div class="row">
+    if (LeyendaActiva == "LayerDensidadCoca") {
+
+        //Leo la matriz de Densidad y leo cada item
+        LyDenCoca.forEach(item => {
+            templateLeyenda.style.width = "200px"
+            let rItem = document.createElement('div');
+            rItem.className = "row";
+            rItem.innerHTML = `
+            <div class="col-auto me-auto ms-3 ">
+                <svg width="20" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
+            </div>
+            <div class="col tLeyenda ">
+                    ${item.label}
+            </div>  
+            `
+            templateLeyenda.appendChild(rItem)
+        })
+    } else if (LeyendaActiva == "LayerMacroT") {
+        templateLeyenda.style.width = "300px"
+        //Leo la matriz de Densidad y leo cada item
+        LyMacroT.forEach(item => {
+            let rItem = document.createElement('div');
+            rItem.className = "row";
+            rItem.innerHTML = `
             <div class="col-auto me-auto ms-3">
-                <img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
+                <svg width="15" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
             </div>
-            <div class="col">
-                <tLeyenda>Afectacion a los DPI</tLeyenda>
-            </div>
-        </div>
-    </div>
+            <div class="col tLeyenda mt-1">
+                ${item.label}
+            </div>  
+            `
+            templateLeyenda.appendChild(rItem)
+        })
+    }
 
-    </div>`;
+
+    //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
+
 
 
     LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);

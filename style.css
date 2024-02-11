@@ -49,9 +49,19 @@
 }
 
 /* --- CSS Juan --- */
-tLeyenda {
+.tLeyenda {
     font-size: 13px;
+    inline-size: 150px;
+    overflow-wrap: break-word;
 }
+.tLeyendaMin {
+    font-size: 10px;
+    inline-size: 150px;
+    overflow-wrap: break-word;
+}
+.wrap {
+    text-wrap: wrap;
+  }
 
 .pDot {
     font-size: 12px;
