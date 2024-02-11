@@ -619,7 +619,39 @@ const allLayers = {
         }).addTo(map);
     },
 
+    "LayerAAPuntos": () => {
+        Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
+            style: (feature) => {
+                return {
+                    color: feature.properties.backcolor,
+                    fillColor: feature.properties.backcolor,
+                    weight: 0,
+                    fillOpacity: 0.9,
+                }
+            },
+        }).bindPopup((layer) => {
+            //layer.feature.properties.Nombre
+            return layer.feature.properties.NombreAA
+        }).addTo(map);
+    },
 
+    "LayerMacroT": () => {
+        Layers["LayerMacroT"] = new L.geoJSON(MacroTcv, {
+            style: (feature) => {
+                return {
+                    color: feature.properties.backColor,
+                    fillColor: feature.properties.backColor,
+                    weight: 1,
+                    fillOpacity: 0.6,
+                }
+            },
+        }).bindPopup((layer) => {
+            //layer.feature.properties.Nombre
+            return layer.feature.properties.NombreAA
+        }).addTo(map);
+    },
+
+    
 }
 
 //*****************************************************

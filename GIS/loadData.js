@@ -82,6 +82,9 @@ const layersToLoad = {
     ELN2022Pares: '/layers/ELN2022Pares.json',
     GentilDuarte2022Pares: '/layers/GentilDuarte2022Pares.json',
     AAPuntosPares2022: '/layers/AAPuntos.json',
+    MacroTcv: '/layers/MacroTcv.json',
+
+    
     
     
 };
