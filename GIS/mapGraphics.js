@@ -571,7 +571,7 @@ const allLayers = {
         }).addTo(map);
     },
     "LayerFondoDark": () => {
-        Layers["LayerFondo"] = new L.geoJSON(FondoLayer, {
+        Layers["LayerFondoDark"] = new L.geoJSON(FondoLayer, {
             style: {
                 color: "#ffffff",
                 weight: 0,
@@ -735,53 +735,7 @@ const icons = {
 
 }
 
-function putLabel(e) {
-    if (ActiveLabels == "1") {
-        LabelMap = new L.marker(e.latlng, { draggable: 'true', icon: otherIcons["senalador"] },);
-        LabelMap.bindTooltip(TextoLabel.replace(/(?:\r\n|\r|\n)/g, '<p>'), { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
-        LabelMap.on('dragend', function (event) {
-            LabelMap = event.target;
-            const position = LabelMap.getLatLng();
-            LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
-        });
-        map.addLayer(LabelMap);
 
-        LabelsMap.push(LabelMap)
-    }
-};
-
-function ActualizarEtiquetas() {
-    TextoLabel = document.getElementById("txValorEtiqueta").value;
-}
-
-function ActivarEtiquetas() {
-    const Valor = document.getElementById("LayerEtiquetas").checked;
-    if (Valor == "0") {
-        ActiveLabels = "0"
-    } else {
-        ActiveLabels = "1"
-    }
-}
-
-function InserTAg(num) {
-    const textarea = document.getElementById("txValorEtiqueta")
-    switch (num) {
-        case 'N':
-            textarea.value += "<b>Texto</b>"
-        case 'C':
-            textarea.value += "<i>Texto</i>"
-        case 'T1':
-            textarea.value += "<h4>Texto</h4>"
-        case 'T2':
-            textarea.ape += "<h5>Texto</h5>"
-    }
-}
-
-function RemoverLabels() {
-    LabelsMap.forEach(elemento => {
-        map.removeLayer(elemento)
-    })
-}
 
 //Cambia el color del mapa, cambiando las especificaciones de la configuracion
 function AplicarColorMapa() {
@@ -800,9 +754,15 @@ function AplicarColorMapa() {
     }
 }
 
+function RemoverLabels() {
+    LabelsMap.forEach(elemento => {
+        map.removeLayer(elemento)
+    })
+}
+
 function MostrarLeyendas() {
     let templateLeyenda = document.createElement('div');
-    templateLeyenda.className = "text-dark p--3"
+    templateLeyenda.className = "text-dark"
     
 
     let hrLeyenda = document.createElement('div');
@@ -828,17 +788,15 @@ function MostrarLeyendas() {
             templateLeyenda.appendChild(rItem)
         })
     } else if (LeyendaActiva == "LayerMacroT") {
-        templateLeyenda.style.width = "300px"
+        templateLeyenda.style.width = "250px"
         //Leo la matriz de Densidad y leo cada item
         LyMacroT.forEach(item => {
             let rItem = document.createElement('div');
-            rItem.className = "row";
+            rItem.className = "r";
             rItem.innerHTML = `
-            <div class="col-auto me-auto ms-3">
-                <svg width="15" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
-            </div>
-            <div class="col tLeyenda mt-1">
-                ${item.label}
+            <div class="tLeyenda">
+            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
+             ${item.label}
             </div>  
             `
             templateLeyenda.appendChild(rItem)

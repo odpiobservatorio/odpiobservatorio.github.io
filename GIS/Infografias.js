@@ -16,10 +16,11 @@ const LyMacroT = [
     { label: 'Rio Guaviare > Venezuela', color: '#16A085', opacity: '1' },
     { label: 'Rio Vaupes > Brasil', color: '#E5E7E9', opacity: '1' },
     { label: 'S. del Darien > Centro América', color: '#85C1E9', opacity: '1' },
-    { label: 'S. San Jacinto, Conexión con el Caribe', color: '#196F3D', opacity: '1' },
+    { label: 'S. San Jacinto, > Caribe', color: '#196F3D', opacity: '1' },
     { label: 'Sur Cauca, N. Nariño > Pacífico', color: '#ABEBC6', opacity: '1' },
     { label: 'Sur Colombia > Perú, Brasil', color: '#FB0396', opacity: '1' },
     { label: 'Sur de Nariño > Ecuador', color: '#7B241C', opacity: '1' },
+    { label: '<i class="text-secondary"> ">" conexión o ruta</i>', color: 'white', opacity: '1' },
 ]
 
 const LyDenCoca = [
