@@ -446,8 +446,8 @@ const allLayers = {
     "LayerFluvialIlegal": () => {
         Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
             style: {
-                color: "black",
-                weight: 3,
+                color: "blue",
+                weight: 1,
                 fillColor: "#873600",
                 fillOpacity: 0.5
             }
@@ -642,7 +642,7 @@ const allLayers = {
                     color: feature.properties.backColor,
                     fillColor: feature.properties.backColor,
                     weight: 1,
-                    fillOpacity: 0.8,
+                    fillOpacity: 0.6,
                 }
             },
         }).bindPopup((layer) => {
