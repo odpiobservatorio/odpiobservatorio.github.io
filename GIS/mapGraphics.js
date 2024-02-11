@@ -642,12 +642,14 @@ const allLayers = {
                     color: feature.properties.backColor,
                     fillColor: feature.properties.backColor,
                     weight: 1,
-                    fillOpacity: 0.6,
+                    fillOpacity: 0.8,
                 }
             },
         }).bindPopup((layer) => {
             //layer.feature.properties.Nombre
-            return layer.feature.properties.NombreAA
+            return layer.feature.properties.MacroT + " " 
+            + layer.feature.properties.nombre_mpi 
+            + " " + layer.feature.properties.nombre_dpt
         }).addTo(map);
     },
 
