@@ -517,18 +517,17 @@ const allLayers = {
     "LayerBloquePretrolero": () => {
         Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero,
             {
-                style: {
-                    color: "white",
-                    weight: 1,
-                    fillColor: "pink",
-                    fillOpacity: 0.8
+                style: (feature) => {
+                    return {
+                        color: feature.properties.backcolor,
+                        fillColor: feature.properties.backcolor,
+                        weight: 4,
+                        fillOpacity: 1,
+                    }
                 },
-                filter: function (feature, layer) {
-                    return (feature.properties.TIPO_CONTR !== "NO APLICA") && (feature.properties.ESTAD_AREA !== "SIN ASIGNAR");
-                }
             }
         ).bindPopup((layer) => {
-            return `Tipo: ${layer.feature.properties.TIPO_CONTR}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
+            return `Tipo: ${layer.feature.properties.LEYENDA}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
         }).addTo(map);
     },
 
