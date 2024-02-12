@@ -514,26 +514,6 @@ const allLayers = {
         Layers["LayerTitulos"].eachLayer
     },
 
-    "LayerBloquePretrolero": () => {
-        Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero,
-            {
-                style: (feature) => {
-                    return {
-                        color: feature.properties.backcolor,
-                        fillColor: feature.properties.backcolor,
-                        weight: 1,
-                        fillOpacity: 0.6,
-                    }
-                },
-            }
-        ).bindPopup((layer) => {
-            return `Tipo: ${layer.feature.properties.LEYENDA}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
-        }).addTo(map);
-    },
-
-
-
-
 
     "LayerReservas": () => {
         Layers["LayerReservas"] = new L.geoJSON(reservasCap, {
@@ -558,6 +538,24 @@ const allLayers = {
             return layer.feature.properties.Name;
         }).addTo(map);
     },
+
+    "LayerBloquePretrolero": () => {
+        Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero,
+            {
+                style: (feature) => {
+                    return {
+                        color: feature.properties.backcolor,
+                        fillColor: feature.properties.backcolor,
+                        weight: 1,
+                        fillOpacity: 0.6,
+                    }
+                },
+            }
+        ).bindPopup((layer) => {
+            return `Tipo: ${layer.feature.properties.LEYENDA}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
+        }).addTo(map);
+    },
+
     "LayerFondo": () => {
         Layers["LayerFondo"] = new L.geoJSON(FondoLayer, {
             style: {
@@ -802,7 +800,28 @@ function MostrarLeyendas() {
             `
             templateLeyenda.appendChild(rItem)
         })
+    } else if (LeyendaActiva == "LayerBloquePretrolero") {
+        templateLeyenda.style.width = "250px"
+        hrLeyenda.textContent = "Agencia Nacional Hidrocarburos";
+        //Leo la matriz de Densidad y leo cada item
+        LyANH.forEach(item => {
+            let rItem = document.createElement('div');
+            rItem.className = "r";
+            rItem.innerHTML = `
+            <div class="tLeyenda">
+            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
+             ${item.label}
+            </div>  
+            `
+            templateLeyenda.appendChild(rItem)
+        })
     }
+
+
+
+
+
+    
 
 
     //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">

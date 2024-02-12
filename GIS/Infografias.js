@@ -23,27 +23,39 @@ const LyMacroT = [
     { label: '<i class="text-secondary"> ">" conexión o ruta</i>', color: 'white', opacity: '1' },
 ]
 
+const LyANH = [
+    { nombre: 'Área en exploracion', color: '#F4D03F', opacity: '1' },
+    { nombre: 'Área en produccion', color: '#8E44AD', opacity: '1' },
+    { nombre: 'Área reservada', color: '#5D6D7E', opacity: '1' },
+    { nombre: 'Evaluacion tecnica', color: '#45B39D', opacity: '1' },
+    { nombre: 'Tramite ampliacion', color: '#C0392B', opacity: '1' },
+    { nombre: 'Área reservada ambiental', color: '#E8DAEF', opacity: '1' },
+    { nombre: 'Basamento cristalino', color: '#D6EAF8', opacity: '1' },
+    { nombre: 'Área disponible', color: '#85929E', opacity: '1' },
+    { nombre: 'C.Especial proyecto  investigacion', color: '#2874A6', opacity: '1' },
+]
+
 const LyDenCoca = [
     {
-        label:'26222,72 - 59746,49',color:'green',opacity:'1'
+        label: '26222,72 - 59746,49', color: 'green', opacity: '1'
     },
     {
-        label:'14222,29',color:'green',opacity:'0.6'
+        label: '14222,29', color: 'green', opacity: '0.6'
     },
     {
-        label:'10368,03',color:'green',opacity:'0.4'
+        label: '10368,03', color: 'green', opacity: '0.4'
     },
     {
-        label:'4934,71 - 6363,79',color:'green',opacity:'0.2'
+        label: '4934,71 - 6363,79', color: 'green', opacity: '0.2'
     },
     {
-        label:'2638,92',color:'green',opacity:'0.1'
+        label: '2638,92', color: 'green', opacity: '0.1'
     },
     {
-        label:'3 - 1833,62',color:'green',opacity:'0.08'
+        label: '3 - 1833,62', color: 'green', opacity: '0.08'
     },
 
 
-    
- 
+
+
 ]
