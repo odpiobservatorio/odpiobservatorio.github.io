@@ -24,15 +24,15 @@ const LyMacroT = [
 ]
 
 const LyANH = [
-    { nombre: 'Área en exploracion', color: '#F4D03F', opacity: '1' },
-    { nombre: 'Área en produccion', color: '#8E44AD', opacity: '1' },
-    { nombre: 'Área reservada', color: '#5D6D7E', opacity: '1' },
-    { nombre: 'Evaluacion tecnica', color: '#45B39D', opacity: '1' },
-    { nombre: 'Tramite ampliacion', color: '#C0392B', opacity: '1' },
-    { nombre: 'Área reservada ambiental', color: '#E8DAEF', opacity: '1' },
-    { nombre: 'Basamento cristalino', color: '#D6EAF8', opacity: '1' },
-    { nombre: 'Área disponible', color: '#85929E', opacity: '1' },
-    { nombre: 'C.Especial proyecto  investigacion', color: '#2874A6', opacity: '1' },
+    { label: 'Área en exploracion', color: '#F4D03F', opacity: '1' },
+    { label: 'Área en produccion', color: '#8E44AD', opacity: '1' },
+    { label: 'Área reservada', color: '#5D6D7E', opacity: '1' },
+    { label: 'Evaluacion tecnica', color: '#45B39D', opacity: '1' },
+    { label: 'Tramite ampliacion', color: '#C0392B', opacity: '1' },
+    { label: 'Área reservada ambiental', color: '#E8DAEF', opacity: '1' },
+    { label: 'Basamento cristalino', color: '#D6EAF8', opacity: '1' },
+    { label: 'Área disponible', color: '#85929E', opacity: '1' },
+    { label: 'C.Especial proyecto  investigacion', color: '#2874A6', opacity: '1' },
 ]
 
 const LyDenCoca = [
