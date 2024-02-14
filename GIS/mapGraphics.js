@@ -380,7 +380,7 @@ const allLayers = {
                 }
             }
         ).bindPopup((layer) => {
-            return "Nombre: " + layer.feature.properties.NOMBRE_DPT
+            return "Nombre: " + layer.feature.properties.nombre_dpt
         }).addTo(map);
     },
 
