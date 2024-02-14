@@ -384,6 +384,32 @@ const allLayers = {
         }).addTo(map);
     },
 
+    "LayerMunicipios": () => {
+        Layers["LayerMunicipios"] = new L.geoJSON(capaMunicipios,
+            {
+                style: {
+                    color: formatoPlano.color,
+                    weight: 1,
+                    // fillColor: "darkgray",
+                    fillOpacity: 0,
+                    icon: icons[formatoPlano["markType"]]
+                },
+                filter: function (feature, layer) {
+                    if (Datafilter == 1) {
+                        return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
+                    }
+                    else {
+                        return feature.properties;
+                    };
+                }
+            }
+        ).bindPopup((layer) => {
+            return "Nombre: " + layer.feature.properties.nombre_mpi
+        }).addTo(map);
+    },
+
+    
+
     "LayerRutaMigrantes": () => {
         Layers["LayerRutaMigrantes"] = new L.geoJSON(capaRutaMigrantes, {
             style: {
