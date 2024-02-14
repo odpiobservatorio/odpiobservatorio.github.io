@@ -66,7 +66,7 @@ const layersToLoad = {
     LayerPlano: '/layers/Croquis.json',
     FondoLayer: '/layers/Fondo.json',
     capaDepartamentos: '/layers/Departamentos.json',
-    capaMunicipios: '/layers/Municipio.json',
+
     
     
     cpaPdet: '/layers/MunicipiosPDET.json',
@@ -85,6 +85,7 @@ const layersToLoad = {
     GentilDuarte2022Pares: '/layers/GentilDuarte2022Pares.json',
     AAPuntosPares2022: '/layers/AAPuntos.json',
     MacroTcv: '/layers/MacroTcv.json',
+    capaMunicipios: '/layers/Municipio.json',
 
     
     

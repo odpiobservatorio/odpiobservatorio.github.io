@@ -396,7 +396,7 @@ const allLayers = {
                 },
                 filter: function (feature, layer) {
                     if (Datafilter == 1) {
-                        return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
+                        //return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
                     }
                     else {
                         return feature.properties;
