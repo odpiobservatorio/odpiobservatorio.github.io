@@ -66,7 +66,7 @@ const layersToLoad = {
     LayerPlano: '/layers/Croquis.json',
     FondoLayer: '/layers/Fondo.json',
     capaDepartamentos: '/layers/Departamentos.json',
-    capaMunicipios: '/layers/Municipio.json',,
+    capaMunicipios: '/layers/Municipio.json',
     
     
     cpaPdet: '/layers/MunicipiosPDET.json',
