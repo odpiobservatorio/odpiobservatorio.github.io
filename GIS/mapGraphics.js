@@ -685,7 +685,8 @@ const iconsPaths = {
     red: "../img/pRojoV.png",
     blue: "../img/pAzulV.png",
     purple: "../img/pMoradoV.png",
-    Ppurple: "../clusMorado.png",
+    Ppurple: "../img/clusMorado.png",
+    Ppurple: "../img/clusAzul.png",
 }
 
 const icons = {
