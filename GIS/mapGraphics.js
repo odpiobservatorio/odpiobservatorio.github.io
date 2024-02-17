@@ -244,6 +244,8 @@ function colorMap(casos, max = 794) {
 let a = 1
 //Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
+
+
     "LayerPlano": () => {
         Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
             style: {
@@ -653,6 +655,27 @@ const allLayers = {
             return layer.feature.properties.NombreAA
         }).addTo(map);
     },
+
+    
+
+    "LayerCluster2024": () => {
+        Layers["LayerCluster2024"] = new L.geoJSON(ClusterODPI2024, {
+            style: (feature) => {
+                return {
+                    color: "gray",
+                    fillColor: "gray",
+                    weight: 1,
+                    fillOpacity: 1,
+                }
+            },
+        }).bindPopup((layer) => {
+            "Cluster de afectaciones a los DPI OBSERVATORIO ODPI ONIC 2016-2023"
+            //layer.feature.properties.Nombre
+            //return layer.feature.properties.NombreAA
+        }).addTo(map);
+    },
+
+
 
     "LayerMacroT": () => {
         Layers["LayerMacroT"] = new L.geoJSON(MacroTcv, {

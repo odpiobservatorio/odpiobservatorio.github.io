@@ -86,6 +86,9 @@ const layersToLoad = {
     AAPuntosPares2022: '/layers/AAPuntos.json',
     MacroTcv: '/layers/MacroTcv.json',
     capaMunicipios: '/layers/Municipio.json',
+    ClusterODPI2024: '/layers/ClusterODPI2024.json',
+
+    
 
     
     
