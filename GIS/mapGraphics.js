@@ -785,7 +785,7 @@ const icons = {
     },
     "Pgray": () => {
         return L.icon({
-            iconUrl: iconsPaths.Ppurple,
+            iconUrl: iconsPaths.Pgray,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -796,7 +796,7 @@ const icons = {
     },
     "Porange": () => {
         return L.icon({
-            iconUrl: iconsPaths.Ppurple,
+            iconUrl: iconsPaths.Porange,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -807,7 +807,7 @@ const icons = {
     },
     "Pred": () => {
         return L.icon({
-            iconUrl: iconsPaths.Ppurple,
+            iconUrl: iconsPaths.Pred,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
