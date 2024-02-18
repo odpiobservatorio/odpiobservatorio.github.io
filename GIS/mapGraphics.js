@@ -278,7 +278,7 @@ const allLayers = {
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
         (depsCopy.features).forEach(feature => {
             const propiedades = feature.properties;
-            const nombreDepartamento = normalizeString(propiedades.NOMBRE_DPT);
+            const nombreDepartamento = normalizeString(propiedades.nombre_dpt);
             const valor = conteos[nombreDepartamento]
 
             propiedades.Casos = valor ? valor : 0;
@@ -297,7 +297,7 @@ const allLayers = {
                 }
             }
         }).bindPopup((layer) => {
-            return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${layer.feature.properties.Casos}`;
         }).addTo(map);
     },
 
@@ -314,7 +314,7 @@ const allLayers = {
 
         (depsCopy.features).forEach(feature => {
             const propiedades = feature.properties;
-            const nombreDepartamento = (((propiedades.NOMBRE_DPT).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
+            const nombreDepartamento = (((propiedades.nombre_dpt).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
             const valor = conteos[nombreDepartamento]
 
             propiedades.Casos = valor ? valor : 1;
@@ -333,7 +333,7 @@ const allLayers = {
                 }
             }
         }).bindPopup((layer) => {
-            return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${layer.feature.properties.Casos}`;
         }).addTo(map);
     },
 
