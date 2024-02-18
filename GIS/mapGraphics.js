@@ -646,7 +646,7 @@ const allLayers = {
                 return {
                     color: feature.properties.backcolor,
                     fillColor: feature.properties.backcolor,
-                    weight: 4,
+                    weight: 6,
                     fillOpacity: 1,
                 }
             },
