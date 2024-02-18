@@ -407,7 +407,7 @@ const allLayers = {
             const casos = conteos[
                 normalizeString(layer.feature.properties.nombre_dpt)
             ];
-            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos.toLocaleString('de-DE')}`;
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos ? casos.toLocaleString('de-DE') : 0}`;
         }).addTo(map);
     },
 
