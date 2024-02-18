@@ -285,8 +285,11 @@ const allLayers = {
         //Crear capa
         Layers["LayerMapaCalor"] = new L.geoJson(depsCopy, {
             style: (feature) => {
+                const casos = conteos[
+                    normalizeString(feature.properties.nombre_dpt)
+                ];
                 return {
-                    fillColor: colorMap(feature.properties.Casos, max),
+                    fillColor: colorMap(casos || 1, max),
                     weight: 2,
                     opacity: 1,
                     color: 'white',
@@ -295,7 +298,10 @@ const allLayers = {
                 }
             }
         }).bindPopup((layer) => {
-            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${layer.feature.properties.Casos}`;
+            const casos = conteos[
+                normalizeString(layer.properties.nombre_dpt)
+            ];
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos}`;
         }).addTo(map);
     },
 
@@ -309,19 +315,14 @@ const allLayers = {
         const max = Math.max(...Object.values(conteos));
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
 
-        (depsCopy.features).forEach(feature => {
-            const propiedades = feature.properties;
-            const nombreDepartamento = normalizeString(propiedades.nombre_dpt);
-            const valor = conteos[nombreDepartamento]
-
-            propiedades.Casos = valor ? valor : 1;
-        });
-
         //Crear capa
         Layers["LayerColorMap"] = new L.geoJson(depsCopy, {
             style: (feature) => {
+                const casos = conteos[
+                    normalizeString(feature.properties.nombre_dpt)
+                ];
                 return {
-                    fillColor: colorMap(feature.properties.Casos, max),
+                    fillColor: colorMap(casos || 1, max),
                     weight: 2,
                     opacity: 1,
                     color: 'white',
@@ -330,7 +331,10 @@ const allLayers = {
                 }
             }
         }).bindPopup((layer) => {
-            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${layer.feature.properties.Casos}`;
+            const casos = conteos[
+                normalizeString(layer.properties.nombre_dpt)
+            ];
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos}`;
         }).addTo(map);
     },
 
@@ -385,7 +389,7 @@ const allLayers = {
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
 
         //Crear capa
-        Layers["LayerColorVictimas"] = new L.geoJson(depsCopy, {
+        Layers["LayerColorVictimasFiltrado"] = new L.geoJson(depsCopy, {
             style: (feature) => {
                 const casos = conteos[
                     normalizeString(feature.properties.nombre_dpt)
