@@ -303,7 +303,7 @@ const allLayers = {
         //Get deps
         const conteos = {};
         DataPrincipal.forEach(registro => {
-            const elemento = (((registro.Departamento).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
+            const elemento = normalizeString(registro.Departamento);
             conteos[elemento] = (conteos[elemento] || 0) + 1;
         });
         const max = Math.max(...Object.values(conteos));
@@ -311,7 +311,7 @@ const allLayers = {
 
         (depsCopy.features).forEach(feature => {
             const propiedades = feature.properties;
-            const nombreDepartamento = (((propiedades.nombre_dpt).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
+            const nombreDepartamento = normalizeString(propiedades.nombre_dpt);
             const valor = conteos[nombreDepartamento]
 
             propiedades.Casos = valor ? valor : 1;
