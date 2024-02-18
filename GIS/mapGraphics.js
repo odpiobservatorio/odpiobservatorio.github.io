@@ -266,8 +266,6 @@ const allLayers = {
         const conteos = {};
         const filtrado = bigData.DataToReport;
 
-        const normalizeString = (string) => string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()
-
         filtrado.forEach(registro => {
             const elemento = normalizeString(registro.Departamento);
             conteos[elemento] = (conteos[elemento] || 0) + 1;
@@ -300,43 +298,6 @@ const allLayers = {
             return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${layer.feature.properties.Casos}`;
         }).addTo(map);
     },
-
-    "LayerColorMap": () => {
-
-        //Get deps
-        const conteos = {};
-        DataPrincipal.forEach(registro => {
-            const elemento = (((registro.Departamento).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
-            conteos[elemento] = (conteos[elemento] || 0) + 1;
-        });
-        const max = Math.max(...Object.values(conteos));
-        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
-
-        (depsCopy.features).forEach(feature => {
-            const propiedades = feature.properties;
-            const nombreDepartamento = (((propiedades.nombre_dpt).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
-            const valor = conteos[nombreDepartamento]
-
-            propiedades.Casos = valor ? valor : 1;
-        });
-
-        //Crear capa
-        Layers["LayerColorMap"] = new L.geoJson(depsCopy, {
-            style: (feature) => {
-                return {
-                    fillColor: colorMap(feature.properties.Casos, max),
-                    weight: 2,
-                    opacity: 1,
-                    color: 'white',
-                    //dashArray: '3',
-                    fillOpacity: 0.75
-                }
-            }
-        }).bindPopup((layer) => {
-            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${layer.feature.properties.Casos}`;
-        }).addTo(map);
-    },
-
 
     "LayerResguardos": () => {
         Layers["LayerResguardos"] = new L.geoJSON(resguardos,
