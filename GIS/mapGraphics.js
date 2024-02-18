@@ -548,9 +548,9 @@ const allLayers = {
     "LayerFluvialIlegal": () => {
         Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
             style: {
-                color: "blue",
+                color: "#2E86C1",
                 weight: 1,
-                fillColor: "#873600",
+                fillColor: "#2E86C1",
                 fillOpacity: 0.5
             }
 
