@@ -334,6 +334,43 @@ const allLayers = {
         }).addTo(map);
     },
 
+
+    "LayerColorVictimas": () => {
+        //Get deps
+        const conteos = {};
+        DataPrincipal.forEach(registro => {
+            const dep = normalizeString(registro.Departamento);
+            const afectados = registro["Total personas"];
+            conteos[dep] = (conteos[dep] || 0) + (
+                afectados == "No registra" ? 0 : parseInt(afectados)
+            );
+        });
+        const max = Math.max(...Object.values(conteos));
+        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+
+        //Crear capa
+        Layers["LayerColorVictimas"] = new L.geoJson(depsCopy, {
+            style: (feature) => {
+                const casos = conteos[
+                    normalizeString(feature.properties.nombre_dpt)
+                ];
+                return {
+                    fillColor: colorMap(casos, max),
+                    weight: 2,
+                    opacity: 1,
+                    color: 'white',
+                    //dashArray: '3',
+                    fillOpacity: 0.75
+                }
+            }
+        }).bindPopup((layer) => {
+            const casos = conteos[
+                normalizeString(layer.feature.properties.nombre_dpt)
+            ];
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos.toLocaleString('de-DE')}`;
+        }).addTo(map);
+    },
+
     "LayerResguardos": () => {
         Layers["LayerResguardos"] = new L.geoJSON(resguardos,
             {
