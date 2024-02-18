@@ -81,8 +81,8 @@ function PivotElementos() {
         tablaBody.appendChild(fila);
     }
 
-    document.getElementById("counter-casos").textContent = totalCasos;
-    document.getElementById("counter-afectados").textContent = totalAfectados;
+    document.getElementById("counter-casos").textContent = totalCasos.toLocaleString('de-DE');
+    document.getElementById("counter-afectados").textContent = totalAfectados.toLocaleString('de-DE');
 
     //tabla.appendChild(tablaBody);
     CreaGrafica();
