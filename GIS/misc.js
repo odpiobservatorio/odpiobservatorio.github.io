@@ -100,7 +100,7 @@ function loadMapConfig(input) {
         const baseLayers = ["LayerFondo", "LayerPlano"]
 
         // Layers
-        const mapLayers = layers.filter(layer => 
+        const mapLayers = layers.filter(layer =>
             allLayers.hasOwnProperty(layer) && (!baseLayers.includes(layer))
         )
 

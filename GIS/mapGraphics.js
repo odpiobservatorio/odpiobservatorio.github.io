@@ -410,7 +410,7 @@ const allLayers = {
         }).addTo(map);
     },
 
-    
+
 
     "LayerRutaMigrantes": () => {
         Layers["LayerRutaMigrantes"] = new L.geoJSON(capaRutaMigrantes, {
@@ -656,7 +656,7 @@ const allLayers = {
         }).addTo(map);
     },
 
-    
+
 
     "LayerCluster2024": () => {
         Layers["LayerCluster2024"] = new L.geoJSON(ClusterODPI2024, {
@@ -870,11 +870,11 @@ function RemoverLabels() {
 function MostrarLeyendas() {
     let templateLeyenda = document.createElement('div');
     templateLeyenda.className = "text-dark"
-    
+
 
     let hrLeyenda = document.createElement('div');
     hrLeyenda.className = "h6 text-secondary ms-3";
-    
+
     templateLeyenda.appendChild(hrLeyenda)
 
     if (LeyendaActiva == "LayerDensidadCoca") {
@@ -931,7 +931,7 @@ function MostrarLeyendas() {
 
 
 
-    
+
 
 
     //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">

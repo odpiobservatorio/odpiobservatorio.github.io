@@ -57,10 +57,10 @@ function PivotElementos() {
     let totalAfectados = 0;
 
     for (const [etiqueta, contador] of Object.entries(conteosCasos)) { //Agrega los datos a la tabla y ademas guarda los valores de las etiquetas y sus conteos (Ademas las etiquetas estan ordenadas)
-        
+
         totalCasos += contador;
         totalAfectados += conteosAfectados[etiqueta];
-        
+
         etiquetas.push(etiqueta);
         valores.push(contador);
 

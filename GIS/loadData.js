@@ -67,8 +67,6 @@ const layersToLoad = {
     FondoLayer: '/layers/Fondo.json',
     capaDepartamentos: '/layers/Departamentos.json',
 
-    
-    
     cpaPdet: '/layers/MunicipiosPDET.json',
     PozosPretoleros: '/layers/PozosPet.json',
     reservasCap: '/layers/ReservasCap.json',
@@ -87,12 +85,6 @@ const layersToLoad = {
     MacroTcv: '/layers/MacroTcv.json',
     capaMunicipios: '/layers/Municipio.json',
     ClusterODPI2024: '/layers/ClusterODPI2024.json',
-
-    
-
-    
-    
-    
 };
 
 for (const layerName in layersToLoad) {
