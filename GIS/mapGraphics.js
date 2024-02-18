@@ -662,7 +662,7 @@ const allLayers = {
         Layers["LayerCluster2024"] = new L.geoJSON(ClusterODPI2024, {
             style: (feature) => {
                 return {
-                    color: "gray",
+                    color: "white",
                     fillColor: "gray",
                     weight: 1,
                     fillOpacity: 1,
