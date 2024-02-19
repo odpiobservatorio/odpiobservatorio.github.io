@@ -70,7 +70,7 @@ function seeMacro(macroKey) {
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
         depsCopy.features = [
             (depsCopy.features).find(
-                feature => feature.properties.NOMBRE_DPT === departamento
+                feature => feature.properties.nombre_dpt === departamento
             )
         ];
         // Crear capa
@@ -84,7 +84,7 @@ function seeMacro(macroKey) {
                     fillOpacity: formatoPlano.opacidad,
                 }
             }).bindPopup((layer) => {
-                return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
+                return `Departamento: ${layer.feature.properties.nombre_dpt}`;
             }).addTo(map)
         );
     });
@@ -180,7 +180,7 @@ function showDep() {
 
     depsCopy.features = [
         (depsCopy.features).find(
-            feature => feature.properties.NOMBRE_DPT === departamento
+            feature => feature.properties.nombre_dpt === departamento
         )
     ];
 
@@ -195,7 +195,7 @@ function showDep() {
             fillOpacity: formatoPlano.opacidad,
         }
     }).bindPopup((layer) => {
-        return `Departamento: ${layer.feature.properties.NOMBRE_DPT}`;
+        return `Departamento: ${layer.feature.properties.nombre_dpt}`;
     }).addTo(map);
 
 }
@@ -447,7 +447,7 @@ const allLayers = {
                 },
                 filter: function (feature, layer) {
                     if (Datafilter == 1) {
-                        return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
+                        return feature.properties.nombre_dpt == "CESAR" || feature.properties.nombre_dpt == "CHOCÓ";
                     }
                     else {
                         return feature.properties;
@@ -471,7 +471,7 @@ const allLayers = {
                 },
                 filter: function (feature, layer) {
                     if (Datafilter == 1) {
-                        //return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
+                        //return feature.properties.nombre_dpt == "CESAR" || feature.properties.nombre_dpt == "CHOCÓ";
                     }
                     else {
                         return feature.properties;
