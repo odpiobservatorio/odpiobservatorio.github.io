@@ -66,7 +66,7 @@ const layersToLoad = {
     LayerPlano: '/layers/Croquis.json',
     FondoLayer: '/layers/Fondo.json',
     capaDepartamentos: '/layers/Departamentos.json',
-    
+
     cpaPdet: '/layers/MunicipiosPDET.json',
     PozosPretoleros: '/layers/PozosPet.json',
     reservasCap: '/layers/ReservasCap.json',
@@ -83,10 +83,8 @@ const layersToLoad = {
     GentilDuarte2022Pares: '/layers/GentilDuarte2022Pares.json',
     AAPuntosPares2022: '/layers/AAPuntos.json',
     MacroTcv: '/layers/MacroTcv.json',
-
-    
-    
-    
+    capaMunicipios: '/layers/Municipio.json',
+    ClusterODPI2024: '/layers/ClusterODPI2024.json',
 };
 
 for (const layerName in layersToLoad) {

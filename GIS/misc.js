@@ -100,7 +100,7 @@ function loadMapConfig(input) {
         const baseLayers = ["LayerFondo", "LayerPlano"]
 
         // Layers
-        const mapLayers = layers.filter(layer => 
+        const mapLayers = layers.filter(layer =>
             allLayers.hasOwnProperty(layer) && (!baseLayers.includes(layer))
         )
 
@@ -192,4 +192,8 @@ function getColor(color = false) {
         }
         return color
     }
+}
+
+function normalizeString(string) {
+    return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 }

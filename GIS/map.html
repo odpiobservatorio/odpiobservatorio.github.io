@@ -123,7 +123,7 @@
 
 
 <body onload="">
-        <!-- Panel de busqueda-->
+    <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header text-white" style="background-color: #16A085;">
@@ -162,6 +162,7 @@
                                     <option value="Sexo">Género</option>
                                     <option value="Antecedentes">Detalle de caso, antecedente</option>
                                     <option value="Ocupación">Ocupación</option>
+                                    <option value="Macro Perpetrador">Macro perpetuador</option>
                                     <option value="Perpetrador">Perpetuador, afectador</option>
                                     <option value="Fuente">Fuente de información</option>
                                     <option value="Tipo desplazamiento">Tipo de desplazamiento</option>
@@ -351,6 +352,12 @@
                             Departamentos
                         </label>
                     </div>
+                    <div class="form-check m-2" onchange="showLayer(this)">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerMunicipios">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Municipios
+                        </label>
+                    </div>
 
                     <!-- Macros -->
                     <div class="label text-success">Macros</div>
@@ -475,6 +482,13 @@
                         </label>
                     </div>
 
+                    <div class="form-check m-2" onchange="showLayer(this)">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerCluster2024">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Cluster ODPI ONIC 2016-2024
+                        </label>
+                    </div>
+
 
 
                     <!--Menu información ambiental-->
@@ -536,6 +550,22 @@
                             Aplicar mapa de calor
                         </label>
                     </div>
+
+
+                    <div class="form-check m-2" onchange="showLayer(this)">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerColorVictimas">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Coloreado por casos segun victimas
+                        </label>
+                    </div>
+
+                    <div class="form-check m-2" onchange="showLayer(this)">
+                        <input class="form-check-input" type="checkbox" value="" id="LayerColorVictimasFiltrado">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Coloreado por casos segun victimas filtrado
+                        </label>
+                    </div>
+
                     <hr>
 
                     <form class="row g-2 align-items-center mb-2">
@@ -660,7 +690,7 @@
                     <form class="row align-items-center">
                         <div class="col-md-6">
 
-                            <div class="form-floating">
+                            <div class="form-floating m-2">
                                 <div class="list-group">
                                     <a onclick="changeMark(this.id)" id="green"><img src="../img/pVerdeV.png" width="20"
                                             height="20" />Verde</a>
@@ -672,6 +702,14 @@
                                             width="20" height="20" />Morado</a>
                                     <a onclick="changeMark(this.id)" id="blue"><img src="../img/pAzulV.png" width="20"
                                             height="20" />Azul</a>
+                                    <a onclick="changeMark(this.id)" id="Ppurple"><img src="../img/clusMorado.png"
+                                            width="20" height="20" />Morado</a>
+                                    <a onclick="changeMark(this.id)" id="Pgray"><img src="../img/clusGris.png"
+                                            width="20" height="20" />Gris</a>
+                                    <a onclick="changeMark(this.id)" id="Ppurple"><img src="../img/clusMorado.png"
+                                            width="20" height="20" />Morado</a>
+                                    <a onclick="changeMark(this.id)" id="Porange"><img src="../img/clusNaranja.png"
+                                            width="20" height="20" />Gris</a>
                                 </div>
                             </div>
                         </div>
@@ -742,6 +780,7 @@
                                 <option value="Pueblo">Pueblo</option>
                                 <option value="Tipo">Tipo de violencia</option>
                                 <option value="Perpetrador">Actor - Perpetuador</option>
+                                <option value="Macro Perpetrador">Macro perpetrador</option>
                                 <option value="Sexo">Género</option>
                             </select>
                             <label for="floatingSelect">Datos por</label>
@@ -770,7 +809,7 @@
                             <div class="col">
                                 <div class="d-flex flex-column">
                                     <h2 id="counter-afectados" class="mx-auto">...</h2>
-                                    <span class="mx-auto">Total afectaods</span>
+                                    <span class="mx-auto">Total afectados</span>
                                 </div>
                             </div>
                         </div>

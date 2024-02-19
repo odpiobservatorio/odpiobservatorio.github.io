@@ -57,10 +57,10 @@ function PivotElementos() {
     let totalAfectados = 0;
 
     for (const [etiqueta, contador] of Object.entries(conteosCasos)) { //Agrega los datos a la tabla y ademas guarda los valores de las etiquetas y sus conteos (Ademas las etiquetas estan ordenadas)
-        
+
         totalCasos += contador;
         totalAfectados += conteosAfectados[etiqueta];
-        
+
         etiquetas.push(etiqueta);
         valores.push(contador);
 
@@ -81,8 +81,8 @@ function PivotElementos() {
         tablaBody.appendChild(fila);
     }
 
-    document.getElementById("counter-casos").textContent = totalCasos;
-    document.getElementById("counter-afectados").textContent = totalAfectados;
+    document.getElementById("counter-casos").textContent = totalCasos.toLocaleString('de-DE');
+    document.getElementById("counter-afectados").textContent = totalAfectados.toLocaleString('de-DE');
 
     //tabla.appendChild(tablaBody);
     CreaGrafica();

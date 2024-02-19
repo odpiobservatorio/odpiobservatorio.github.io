@@ -120,7 +120,7 @@ function showBusqueda(datosParaMostrar = []) {
         // Agrega las marcas al mapa
         try {
             (bigData.MrkAntecedente).push(
-                 // Se llama el icono de la configuracion de iconos en mapGraphics.js
+                // Se llama el icono de la configuracion de iconos en mapGraphics.js
                 new L.marker([registro.Lat, registro.Lng], { icon: icons[formatoPlano["markType"]]() })
                     .addTo(map)
                     .bindPopup(
@@ -373,7 +373,7 @@ function TablaReport() {
     //Limpia el contenido dentro del formulario modal
     document.getElementById("divTableModal").innerHTML = "";
     document.getElementById("divDocModal").innerHTML = "";
-    
+
     // Agrega la imagen al documento
     const tablabase = document.getElementById("tbResultados");
     if (tablabase) tablabase.remove();
@@ -381,10 +381,10 @@ function TablaReport() {
     const tabla = document.createElement("table");
     const tablaHeader = document.createElement("thead");
     tabla.id = "tbResultados";
-    
+
     //Creamos el cuerpo de la tabla
     const tablaBody = document.createElement("tbody");
-    
+
     //Creamos los encabezados
     const Encabezados = document.createElement("tr");
 
@@ -427,7 +427,7 @@ function TablaReport() {
         const DatoCelta = document.createElement("td");
         DatoCelta.textContent = i;
         fila.appendChild(DatoCelta);
-        
+
         //Agrego las columnas para cada fila
         Keys.forEach(key => {
             DatoCelta = document.createElement("td");

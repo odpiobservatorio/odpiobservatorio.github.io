@@ -244,6 +244,8 @@ function colorMap(casos, max = 794) {
 let a = 1
 //Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
+
+
     "LayerPlano": () => {
         Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
             style: {
@@ -264,8 +266,6 @@ const allLayers = {
         const conteos = {};
         const filtrado = bigData.DataToReport;
 
-        const normalizeString = (string) => string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()
-
         filtrado.forEach(registro => {
             const elemento = normalizeString(registro.Departamento);
             conteos[elemento] = (conteos[elemento] || 0) + 1;
@@ -276,7 +276,7 @@ const allLayers = {
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
         (depsCopy.features).forEach(feature => {
             const propiedades = feature.properties;
-            const nombreDepartamento = normalizeString(propiedades.NOMBRE_DPT);
+            const nombreDepartamento = normalizeString(propiedades.nombre_dpt);
             const valor = conteos[nombreDepartamento]
 
             propiedades.Casos = valor ? valor : 0;
@@ -285,8 +285,11 @@ const allLayers = {
         //Crear capa
         Layers["LayerMapaCalor"] = new L.geoJson(depsCopy, {
             style: (feature) => {
+                const casos = conteos[
+                    normalizeString(feature.properties.nombre_dpt)
+                ];
                 return {
-                    fillColor: colorMap(feature.properties.Casos, max),
+                    fillColor: colorMap(casos || 1, max),
                     weight: 2,
                     opacity: 1,
                     color: 'white',
@@ -295,34 +298,31 @@ const allLayers = {
                 }
             }
         }).bindPopup((layer) => {
-            return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
+            const casos = conteos[
+                normalizeString(layer.properties.nombre_dpt)
+            ];
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos}`;
         }).addTo(map);
     },
 
     "LayerColorMap": () => {
-
         //Get deps
         const conteos = {};
         DataPrincipal.forEach(registro => {
-            const elemento = (((registro.Departamento).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
+            const elemento = normalizeString(registro.Departamento);
             conteos[elemento] = (conteos[elemento] || 0) + 1;
         });
         const max = Math.max(...Object.values(conteos));
         const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
 
-        (depsCopy.features).forEach(feature => {
-            const propiedades = feature.properties;
-            const nombreDepartamento = (((propiedades.NOMBRE_DPT).normalize("NFD").replace(/[\u0300-\u036f]/g, "")).toUpperCase());
-            const valor = conteos[nombreDepartamento]
-
-            propiedades.Casos = valor ? valor : 1;
-        });
-
         //Crear capa
         Layers["LayerColorMap"] = new L.geoJson(depsCopy, {
             style: (feature) => {
+                const casos = conteos[
+                    normalizeString(feature.properties.nombre_dpt)
+                ];
                 return {
-                    fillColor: colorMap(feature.properties.Casos, max),
+                    fillColor: colorMap(casos || 1, max),
                     weight: 2,
                     opacity: 1,
                     color: 'white',
@@ -331,10 +331,85 @@ const allLayers = {
                 }
             }
         }).bindPopup((layer) => {
-            return `Departamento: ${layer.feature.properties.NOMBRE_DPT}, #Casos: ${layer.feature.properties.Casos}`;
+            const casos = conteos[
+                normalizeString(layer.properties.nombre_dpt)
+            ];
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos}`;
         }).addTo(map);
     },
 
+
+    "LayerColorVictimas": () => {
+        //Get deps
+        const conteos = {};
+        DataPrincipal.forEach(registro => {
+            const dep = normalizeString(registro.Departamento);
+            const afectados = registro["Total personas"];
+            conteos[dep] = (conteos[dep] || 0) + (
+                afectados == "No registra" ? 0 : parseInt(afectados)
+            );
+        });
+        const max = Math.max(...Object.values(conteos));
+        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+
+        //Crear capa
+        Layers["LayerColorVictimas"] = new L.geoJson(depsCopy, {
+            style: (feature) => {
+                const casos = conteos[
+                    normalizeString(feature.properties.nombre_dpt)
+                ];
+                return {
+                    fillColor: colorMap(casos, max),
+                    weight: 2,
+                    opacity: 1,
+                    color: 'white',
+                    //dashArray: '3',
+                    fillOpacity: 0.75
+                }
+            }
+        }).bindPopup((layer) => {
+            const casos = conteos[
+                normalizeString(layer.feature.properties.nombre_dpt)
+            ];
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos.toLocaleString('de-DE')}`;
+        }).addTo(map);
+    },
+
+    "LayerColorVictimasFiltrado": () => {
+        //Get deps
+        const conteos = {};
+        (bigData.DataToReport).forEach(registro => {
+            const dep = normalizeString(registro.Departamento);
+            const afectados = registro["Total personas"];
+            conteos[dep] = (conteos[dep] || 0) + (
+                afectados == "No registra" ? 0 : parseInt(afectados)
+            );
+        });
+        const max = Math.max(...Object.values(conteos));
+        const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+
+        //Crear capa
+        Layers["LayerColorVictimasFiltrado"] = new L.geoJson(depsCopy, {
+            style: (feature) => {
+                const casos = conteos[
+                    normalizeString(feature.properties.nombre_dpt)
+                ];
+                return {
+                    fillColor: colorMap(casos, max),
+                    weight: 2,
+                    opacity: 1,
+                    color: 'white',
+                    //dashArray: '3',
+                    fillOpacity: 0.75
+                }
+            }
+        }).bindPopup((layer) => {
+            const casos = conteos[
+                normalizeString(layer.feature.properties.nombre_dpt)
+            ];
+            return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos ? casos.toLocaleString('de-DE') : 0}`;
+        }).addTo(map);
+    },
 
     "LayerResguardos": () => {
         Layers["LayerResguardos"] = new L.geoJSON(resguardos,
@@ -380,9 +455,35 @@ const allLayers = {
                 }
             }
         ).bindPopup((layer) => {
-            return "Nombre: " + layer.feature.properties.NOMBRE_DPT
+            return "Nombre: " + layer.feature.properties.nombre_dpt
         }).addTo(map);
     },
+
+    "LayerMunicipios": () => {
+        Layers["LayerMunicipios"] = new L.geoJSON(capaMunicipios,
+            {
+                style: {
+                    color: formatoPlano.color,
+                    weight: 1,
+                    // fillColor: "darkgray",
+                    fillOpacity: 0,
+                    icon: icons[formatoPlano["markType"]]
+                },
+                filter: function (feature, layer) {
+                    if (Datafilter == 1) {
+                        //return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
+                    }
+                    else {
+                        return feature.properties;
+                    };
+                }
+            }
+        ).bindPopup((layer) => {
+            return "Nombre: " + layer.feature.properties.nombre_mpi
+        }).addTo(map);
+    },
+
+
 
     "LayerRutaMigrantes": () => {
         Layers["LayerRutaMigrantes"] = new L.geoJSON(capaRutaMigrantes, {
@@ -447,9 +548,9 @@ const allLayers = {
     "LayerFluvialIlegal": () => {
         Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
             style: {
-                color: "blue",
+                color: "#2E86C1",
                 weight: 1,
-                fillColor: "#873600",
+                fillColor: "#2E86C1",
                 fillOpacity: 0.5
             }
 
@@ -618,7 +719,7 @@ const allLayers = {
                 return {
                     color: feature.properties.backcolor,
                     fillColor: feature.properties.backcolor,
-                    weight: 4,
+                    weight: 6,
                     fillOpacity: 1,
                 }
             },
@@ -627,6 +728,27 @@ const allLayers = {
             return layer.feature.properties.NombreAA
         }).addTo(map);
     },
+
+
+
+    "LayerCluster2024": () => {
+        Layers["LayerCluster2024"] = new L.geoJSON(ClusterODPI2024, {
+            style: (feature) => {
+                return {
+                    color: "white",
+                    fillColor: "gray",
+                    weight: 1,
+                    fillOpacity: 1,
+                }
+            },
+        }).bindPopup((layer) => {
+            "Cluster de afectaciones a los DPI OBSERVATORIO ODPI ONIC 2016-2023"
+            //layer.feature.properties.Nombre
+            //return layer.feature.properties.NombreAA
+        }).addTo(map);
+    },
+
+
 
     "LayerMacroT": () => {
         Layers["LayerMacroT"] = new L.geoJSON(MacroTcv, {
@@ -659,6 +781,11 @@ const iconsPaths = {
     red: "../img/pRojoV.png",
     blue: "../img/pAzulV.png",
     purple: "../img/pMoradoV.png",
+    Ppurple: "../img/clusMorado.png",
+    Pblue: "../img/clusAzul.png",
+    Pgray: "../img/clusGris.png",
+    Porange: "../img/clusGris.png",
+    Pred: "../img/clusGris.png",
 }
 
 const icons = {
@@ -730,6 +857,62 @@ const icons = {
         })
     },
 
+    "Ppurple": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Ppurple,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    "Pblue": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Ppurple,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    "Pgray": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Pgray,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    "Porange": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Porange,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    "Pred": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Pred,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+
 }
 
 
@@ -760,11 +943,11 @@ function RemoverLabels() {
 function MostrarLeyendas() {
     let templateLeyenda = document.createElement('div');
     templateLeyenda.className = "text-dark"
-    
+
 
     let hrLeyenda = document.createElement('div');
     hrLeyenda.className = "h6 text-secondary ms-3";
-    
+
     templateLeyenda.appendChild(hrLeyenda)
 
     if (LeyendaActiva == "LayerDensidadCoca") {
@@ -821,7 +1004,7 @@ function MostrarLeyendas() {
 
 
 
-    
+
 
 
     //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">

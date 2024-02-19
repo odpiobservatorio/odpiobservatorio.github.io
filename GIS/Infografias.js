@@ -1,6 +1,5 @@
 let LeyendaActiva;
 const LyMacroT = [
-
     { label: 'Bajo Caqueta, Mirití', color: '#D68910', opacity: '1' },
     { label: 'Paraná, Apaporis > Brasil', color: 'white', opacity: '1' },
     { label: 'C.Central, Cañ Hermosas', color: '#1BF9E1', opacity: '1' },
@@ -54,8 +53,4 @@ const LyDenCoca = [
     {
         label: '3 - 1833,62', color: 'green', opacity: '0.08'
     },
-
-
-
-
 ]
