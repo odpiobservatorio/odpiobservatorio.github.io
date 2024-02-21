@@ -197,3 +197,5 @@ function getColor(color = false) {
 function normalizeString(string) {
     return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 }
+
+//Guarda información para la capa de riesgos IRV

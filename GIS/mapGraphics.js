@@ -4,6 +4,8 @@ const GLOBAL = {
     state: {}
 }
 
+
+
 let Datafilter = 0;
 const Layers = {}
 let LabelsMap = []
@@ -772,23 +774,59 @@ const allLayers = {
 
 
     "LayerIRV": () => {
+        let Opacity;
         Layers["LayerIRV"] = new L.geoJSON(capaIRV,
+
             {
                 style: (feature) => {
-                    
-                    let col="red"
-                    console.log(feature.properties.nombre_dpt)
-                    return {
-                        color: feature.properties.backColor,
-                        fillColor: col,
-                        weight: 1,
-                        fillOpacity: 0.6,
+
+                    let MUN = feature.properties.nombre_mpi
+
+                    let filteredMun = IRV.filter(mun =>
+                        mun.Municipio.toLocaleLowerCase() == MUN.toLocaleLowerCase());
+                    //alert(filteredMun[0].Percent+MUN.toLocaleLowerCase() + filteredMun[0].Municipio.toLocaleLowerCase())
+                    try {
+                        Opacity = filteredMun[0].Percent
+                    } catch (error) {
+                        Opacity = 0
+
                     }
+                    return {
+                        color: "red",
+                        fillColor: "orange",
+                        weight: 1,
+                        fillOpacity: Opacity,
+                    }
+
                 },
 
             }
         ).bindPopup((layer) => {
-            return "Nombre: " + layer.feature.properties.nombre_mpi
+            let Cluster;
+            let Pdet;
+            let Estimado;
+            let parent = layer.feature.properties
+            let MUN = parent.nombre_mpi
+            let filteredMun = IRV.filter(mun =>
+                mun.Municipio.toLocaleLowerCase() == MUN.toLocaleLowerCase());
+            try {
+                Cluster = filteredMun[0].Cluster
+                Pdet= filteredMun[0].Pdet
+                Estimado= filteredMun[0].Estimado
+            } catch (error) {
+                Cluster = "Sin info"
+                Pdet="Sin info"
+
+            }
+
+            return `
+            <div>
+                <div class="fw-medium text-success">${parent.nombre_mpi}</div>
+                <div>Riesgo: ${Cluster}</div>
+                <div>Pdet: ${Pdet}</div>
+                <div>Estimado: ${Estimado}</div>
+            </div>        
+            `
         }).addTo(map);
     },
 
