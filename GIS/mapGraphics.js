@@ -812,7 +812,7 @@ const allLayers = {
             try {
                 Cluster = filteredMun[0].Cluster
                 Pdet= filteredMun[0].Pdet
-                Estimado= filteredMun[0].Estimado
+                Estimado=  filteredMun[0].Estimado
             } catch (error) {
                 Cluster = "Sin info"
                 Pdet="Sin info"
