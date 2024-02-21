@@ -85,6 +85,9 @@ const layersToLoad = {
     MacroTcv: '/layers/MacroTcv.json',
     capaMunicipios: '/layers/Municipio.json',
     ClusterODPI2024: '/layers/ClusterODPI2024.json',
+    capaIRV: '/layers/Municipio.json'
+
+    
 };
 
 for (const layerName in layersToLoad) {

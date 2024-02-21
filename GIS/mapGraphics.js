@@ -769,6 +769,31 @@ const allLayers = {
     },
 
 
+    "LayerIRV": () => {
+        Layers["LayerIRV"] = new L.geoJSON(capaIRV,
+            {
+                style: {
+                    color: "red",
+                    weight: 1,
+                    // fillColor: "darkgray",
+                    fillOpacity: 0,
+                    icon: icons[formatoPlano["markType"]]
+                },
+                filter: function (feature, layer) {
+                    if (Datafilter == 1) {
+                        //return feature.properties.NOMBRE_DPT == "CESAR" || feature.properties.NOMBRE_DPT == "CHOCÓ";
+                    }
+                    else {
+                        return feature.properties;
+                    };
+                }
+            }
+        ).bindPopup((layer) => {
+            return "Nombre: " + layer.feature.properties.nombre_mpi
+        }).addTo(map);
+    },
+
+
 }
 
 //*****************************************************
