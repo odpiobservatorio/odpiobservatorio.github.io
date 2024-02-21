@@ -98,7 +98,7 @@ const IRV =[
 	 "Municipio": "Santa Fe de Antioquia",
 	 "Estimado": 0.2225569,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -117,7 +117,7 @@ const IRV =[
 	 "Municipio": "Apartado",
 	 "Estimado": 0.30642518,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -180,7 +180,7 @@ const IRV =[
 	 "Municipio": "Betania",
 	 "Estimado": 0.25322996,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -198,7 +198,7 @@ const IRV =[
 	 "Municipio": "Ciudad Bolivar",
 	 "Estimado": 0.24227284,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -263,7 +263,7 @@ const IRV =[
 	 "Municipio": "Cañasgordas",
 	 "Estimado": 0.24647643,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -291,7 +291,7 @@ const IRV =[
 	 "Municipio": "Carepa",
 	 "Estimado": 0.2849488,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -329,7 +329,7 @@ const IRV =[
 	 "Municipio": "Chigorodo",
 	 "Estimado": 0.30599792,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -347,7 +347,7 @@ const IRV =[
 	 "Municipio": "Cocorna",
 	 "Estimado": 0.27667101,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -457,7 +457,7 @@ const IRV =[
 	 "Municipio": "Giraldo",
 	 "Estimado": 0.20737726,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -493,7 +493,7 @@ const IRV =[
 	 "Municipio": "Guadalupe",
 	 "Estimado": 0.229747,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -620,7 +620,7 @@ const IRV =[
 	 "Municipio": "Maceo",
 	 "Estimado": 0.35108051,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -667,7 +667,7 @@ const IRV =[
 	 "Municipio": "Nariño",
 	 "Estimado": 0.26389687,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -677,7 +677,7 @@ const IRV =[
 	 "Municipio": "Necocli",
 	 "Estimado": 0.2336915,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -687,7 +687,7 @@ const IRV =[
 	 "Municipio": "Nechi",
 	 "Estimado": 0.35806238,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -696,7 +696,7 @@ const IRV =[
 	 "Municipio": "Olaya",
 	 "Estimado": 0.28341455,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -714,7 +714,7 @@ const IRV =[
 	 "Municipio": "Peque",
 	 "Estimado": 0.2741961,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -732,7 +732,7 @@ const IRV =[
 	 "Municipio": "Puerto Berrio",
 	 "Estimado": 0.29842408,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -787,7 +787,7 @@ const IRV =[
 	 "Municipio": "Sabanalarga",
 	 "Estimado": 0.30456437,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -805,7 +805,7 @@ const IRV =[
 	 "Municipio": "Salgar",
 	 "Estimado": 0.31740386,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -868,7 +868,7 @@ const IRV =[
 	 "Municipio": "San Luis",
 	 "Estimado": 0.33979801,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -896,7 +896,7 @@ const IRV =[
 	 "Municipio": "San Rafael",
 	 "Estimado": 0.24606602,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -969,7 +969,7 @@ const IRV =[
 	 "Municipio": "Sonson",
 	 "Estimado": 0.26150069,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1034,7 +1034,7 @@ const IRV =[
 	 "Municipio": "Turbo",
 	 "Estimado": 0.35277869,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1043,7 +1043,7 @@ const IRV =[
 	 "Municipio": "Uramita",
 	 "Estimado": 0.2502343,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1052,7 +1052,7 @@ const IRV =[
 	 "Municipio": "Urrao",
 	 "Estimado": 0.31969537,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1080,7 +1080,7 @@ const IRV =[
 	 "Municipio": "Vegachi",
 	 "Estimado": 0.29057089,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1099,7 +1099,7 @@ const IRV =[
 	 "Municipio": "Vigia del Fuerte",
 	 "Estimado": 0.35263385,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1108,7 +1108,7 @@ const IRV =[
 	 "Municipio": "Yali",
 	 "Estimado": 0.22808145,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1136,7 +1136,7 @@ const IRV =[
 	 "Municipio": "Yondo",
 	 "Estimado": 0.33774763,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Antioquia",
@@ -1380,7 +1380,7 @@ const IRV =[
 	 "Municipio": "Achi",
 	 "Estimado": 0.22107881,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Bolívar",
@@ -1426,7 +1426,7 @@ const IRV =[
 	 "Municipio": "Barranco de Loba",
 	 "Estimado": 0.20990859,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Bolívar",
@@ -1483,7 +1483,7 @@ const IRV =[
 	 "Municipio": "El Carmen de Bolivar",
 	 "Estimado": 0.27911916,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Bolívar",
@@ -1649,7 +1649,7 @@ const IRV =[
 	 "Municipio": "San Jacinto",
 	 "Estimado": 0.2070719,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Bolívar",
@@ -1658,7 +1658,7 @@ const IRV =[
 	 "Municipio": "San Jacinto del Cauca",
 	 "Estimado": 0.23301405,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Bolívar",
@@ -1668,7 +1668,7 @@ const IRV =[
 	 "Municipio": "San Juan Nepomuceno",
 	 "Estimado": 0.20611691,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Bolívar",
@@ -1705,7 +1705,7 @@ const IRV =[
 	 "Municipio": "Santa Rosa",
 	 "Estimado": 0.3287769,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Bolívar",
@@ -1789,7 +1789,7 @@ const IRV =[
 	 "Municipio": "Zambrano",
 	 "Estimado": 0.22411459,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Boyacá",
@@ -2392,7 +2392,7 @@ const IRV =[
 	 "Municipio": "Pajarito",
 	 "Estimado": 0.35117449,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Boyacá",
@@ -3013,7 +3013,7 @@ const IRV =[
 	 "Municipio": "Marulanda",
 	 "Estimado": 0.3060154,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Caldas",
@@ -3031,7 +3031,7 @@ const IRV =[
 	 "Municipio": "Norcasia",
 	 "Estimado": 0.21781049,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Caldas",
@@ -3094,7 +3094,7 @@ const IRV =[
 	 "Municipio": "Samana",
 	 "Estimado": 0.35185591,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Caldas",
@@ -3159,7 +3159,7 @@ const IRV =[
 	 "Municipio": "Albania",
 	 "Estimado": 0.33734288,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Caquetá",
@@ -3308,7 +3308,7 @@ const IRV =[
 	 "Municipio": "Popayan",
 	 "Estimado": 0.21726566,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3317,7 +3317,7 @@ const IRV =[
 	 "Municipio": "Almaguer",
 	 "Estimado": 0.24308193,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3346,7 +3346,7 @@ const IRV =[
 	 "Municipio": "Bolivar",
 	 "Estimado": 0.23243014,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3366,7 +3366,7 @@ const IRV =[
 	 "Municipio": "Cajibio",
 	 "Estimado": 0.35889202,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3415,7 +3415,7 @@ const IRV =[
 	 "Municipio": "Florencia",
 	 "Estimado": 0.24121893,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3424,7 +3424,7 @@ const IRV =[
 	 "Municipio": "Guachene",
 	 "Estimado": 0.22317826,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3443,7 +3443,7 @@ const IRV =[
 	 "Municipio": "Inza",
 	 "Estimado": 0.27642247,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3462,7 +3462,7 @@ const IRV =[
 	 "Municipio": "La Sierra",
 	 "Estimado": 0.20656004,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3471,7 +3471,7 @@ const IRV =[
 	 "Municipio": "La Vega",
 	 "Estimado": 0.24900675,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3520,7 +3520,7 @@ const IRV =[
 	 "Municipio": "Padilla",
 	 "Estimado": 0.22532656,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3558,7 +3558,7 @@ const IRV =[
 	 "Municipio": "Piendamo - Tunia",
 	 "Estimado": 0.23960657,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3567,7 +3567,7 @@ const IRV =[
 	 "Municipio": "Puerto Tejada",
 	 "Estimado": 0.21772872,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3576,7 +3576,7 @@ const IRV =[
 	 "Municipio": "Purace",
 	 "Estimado": 0.23014091,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3585,7 +3585,7 @@ const IRV =[
 	 "Municipio": "Rosas",
 	 "Estimado": 0.24289141,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3604,7 +3604,7 @@ const IRV =[
 	 "Municipio": "Santander de Quilichao",
 	 "Estimado": 0.34426123,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3631,7 +3631,7 @@ const IRV =[
 	 "Municipio": "Sotara - Paispamba",
 	 "Estimado": 0.24848085,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3650,7 +3650,7 @@ const IRV =[
 	 "Municipio": "Sucre",
 	 "Estimado": 0.23329707,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3659,7 +3659,7 @@ const IRV =[
 	 "Municipio": "Timbio",
 	 "Estimado": 0.25841269,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3688,7 +3688,7 @@ const IRV =[
 	 "Municipio": "Totoro",
 	 "Estimado": 0.2892511,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cauca",
@@ -3716,7 +3716,7 @@ const IRV =[
 	 "Municipio": "Aguachica",
 	 "Estimado": 0.24623414,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3726,7 +3726,7 @@ const IRV =[
 	 "Municipio": "Agustin Codazzi",
 	 "Estimado": 0.24814084,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3745,7 +3745,7 @@ const IRV =[
 	 "Municipio": "Becerril",
 	 "Estimado": 0.25750574,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3781,7 +3781,7 @@ const IRV =[
 	 "Municipio": "Curumani",
 	 "Estimado": 0.28909028,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3790,7 +3790,7 @@ const IRV =[
 	 "Municipio": "El Copey",
 	 "Estimado": 0.24614692,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3826,7 +3826,7 @@ const IRV =[
 	 "Municipio": "La Gloria",
 	 "Estimado": 0.27936765,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3836,7 +3836,7 @@ const IRV =[
 	 "Municipio": "La Jagua de Ibirico",
 	 "Estimado": 0.22843273,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3846,7 +3846,7 @@ const IRV =[
 	 "Municipio": "Manaure Balcon del Cesar",
 	 "Estimado": 0.26049657,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3855,7 +3855,7 @@ const IRV =[
 	 "Municipio": "Pailitas",
 	 "Estimado": 0.33791604,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3864,7 +3864,7 @@ const IRV =[
 	 "Municipio": "Pelaya",
 	 "Estimado": 0.31152758,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3874,7 +3874,7 @@ const IRV =[
 	 "Municipio": "Pueblo Bello",
 	 "Estimado": 0.2320172,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3893,7 +3893,7 @@ const IRV =[
 	 "Municipio": "La Paz",
 	 "Estimado": 0.23984954,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3912,7 +3912,7 @@ const IRV =[
 	 "Municipio": "San Diego",
 	 "Estimado": 0.2125706,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cesar",
@@ -3948,7 +3948,7 @@ const IRV =[
 	 "Municipio": "Ayapel",
 	 "Estimado": 0.235838,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Córdoba",
@@ -3957,7 +3957,7 @@ const IRV =[
 	 "Municipio": "Buenavista",
 	 "Estimado": 0.22717791,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Córdoba",
@@ -4020,7 +4020,7 @@ const IRV =[
 	 "Municipio": "La Apartada",
 	 "Estimado": 0.22224014,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Córdoba",
@@ -4205,7 +4205,7 @@ const IRV =[
 	 "Municipio": "Valencia",
 	 "Estimado": 0.23684689,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cundinamarca",
@@ -4286,7 +4286,7 @@ const IRV =[
 	 "Municipio": "Cabrera",
 	 "Estimado": 0.22302668,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cundinamarca",
@@ -4718,7 +4718,7 @@ const IRV =[
 	 "Municipio": "Medina",
 	 "Estimado": 0.24166928,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Cundinamarca",
@@ -5332,7 +5332,7 @@ const IRV =[
 	 "Municipio": "El Canton del San Pablo",
 	 "Estimado": 0.26447742,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Chocó",
@@ -5351,7 +5351,7 @@ const IRV =[
 	 "Municipio": "Certegui",
 	 "Estimado": 0.21670311,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Chocó",
@@ -5361,7 +5361,7 @@ const IRV =[
 	 "Municipio": "Condoto",
 	 "Estimado": 0.29756225,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Chocó",
@@ -5474,7 +5474,7 @@ const IRV =[
 	 "Municipio": "Rio Quito",
 	 "Estimado": 0.33019698,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Chocó",
@@ -5540,7 +5540,7 @@ const IRV =[
 	 "Municipio": "Neiva",
 	 "Estimado": 0.26773804,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5549,7 +5549,7 @@ const IRV =[
 	 "Municipio": "Acevedo",
 	 "Estimado": 0.27529487,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5604,7 +5604,7 @@ const IRV =[
 	 "Municipio": "Campoalegre",
 	 "Estimado": 0.32226128,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5640,7 +5640,7 @@ const IRV =[
 	 "Municipio": "Gigante",
 	 "Estimado": 0.2144558,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5667,7 +5667,7 @@ const IRV =[
 	 "Municipio": "iquira",
 	 "Estimado": 0.34406823,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5676,7 +5676,7 @@ const IRV =[
 	 "Municipio": "Isnos",
 	 "Estimado": 0.27114349,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5685,7 +5685,7 @@ const IRV =[
 	 "Municipio": "La Argentina",
 	 "Estimado": 0.25114761,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5694,7 +5694,7 @@ const IRV =[
 	 "Municipio": "La Plata",
 	 "Estimado": 0.21808818,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5775,7 +5775,7 @@ const IRV =[
 	 "Municipio": "Saladoblanco",
 	 "Estimado": 0.21683644,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5784,7 +5784,7 @@ const IRV =[
 	 "Municipio": "San Agustin",
 	 "Estimado": 0.21082166,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5829,7 +5829,7 @@ const IRV =[
 	 "Municipio": "Tello",
 	 "Estimado": 0.27060413,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Huila",
@@ -5874,7 +5874,7 @@ const IRV =[
 	 "Municipio": "Riohacha",
 	 "Estimado": 0.21921871,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "La Guajira",
@@ -5892,7 +5892,7 @@ const IRV =[
 	 "Municipio": "Barrancas",
 	 "Estimado": 0.22545445,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "La Guajira",
@@ -5920,7 +5920,7 @@ const IRV =[
 	 "Municipio": "El Molino",
 	 "Estimado": 0.20594703,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "La Guajira",
@@ -5930,7 +5930,7 @@ const IRV =[
 	 "Municipio": "Fonseca",
 	 "Estimado": 0.23316979,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "La Guajira",
@@ -5948,7 +5948,7 @@ const IRV =[
 	 "Municipio": "La Jagua del Pilar",
 	 "Estimado": 0.20669666,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "La Guajira",
@@ -5957,7 +5957,7 @@ const IRV =[
 	 "Municipio": "Maicao",
 	 "Estimado": 0.2374423,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "La Guajira",
@@ -6032,7 +6032,7 @@ const IRV =[
 	 "Municipio": "Aracataca",
 	 "Estimado": 0.21649655,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Magdalena",
@@ -6069,7 +6069,7 @@ const IRV =[
 	 "Municipio": "Cienaga",
 	 "Estimado": 0.20821562,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Magdalena",
@@ -6196,7 +6196,7 @@ const IRV =[
 	 "Municipio": "Sabanas de San angel",
 	 "Estimado": 0.21193687,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Magdalena",
@@ -6277,7 +6277,7 @@ const IRV =[
 	 "Municipio": "Zona Bananera",
 	 "Estimado": 0.21196558,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6286,7 +6286,7 @@ const IRV =[
 	 "Municipio": "Villavicencio",
 	 "Estimado": 0.21924236,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6304,7 +6304,7 @@ const IRV =[
 	 "Municipio": "Barranca de Upia",
 	 "Estimado": 0.24939487,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6313,7 +6313,7 @@ const IRV =[
 	 "Municipio": "Cabuyaro",
 	 "Estimado": 0.2409953,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6331,7 +6331,7 @@ const IRV =[
 	 "Municipio": "Cubarral",
 	 "Estimado": 0.28441082,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6367,7 +6367,7 @@ const IRV =[
 	 "Municipio": "El Dorado",
 	 "Estimado": 0.24858865,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6376,7 +6376,7 @@ const IRV =[
 	 "Municipio": "Fuente de Oro",
 	 "Estimado": 0.21711963,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6385,7 +6385,7 @@ const IRV =[
 	 "Municipio": "Granada",
 	 "Estimado": 0.23984469,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6471,7 +6471,7 @@ const IRV =[
 	 "Municipio": "Puerto Lopez",
 	 "Estimado": 0.22700066,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6536,7 +6536,7 @@ const IRV =[
 	 "Municipio": "San Martin",
 	 "Estimado": 0.28817298,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Meta",
@@ -6582,7 +6582,7 @@ const IRV =[
 	 "Municipio": "Ancuya",
 	 "Estimado": 0.21703367,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Nariño",
@@ -6655,7 +6655,7 @@ const IRV =[
 	 "Municipio": "Cordoba",
 	 "Estimado": 0.20616619,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Nariño",
@@ -6673,7 +6673,7 @@ const IRV =[
 	 "Municipio": "Cumbal",
 	 "Estimado": 0.25152138,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Nariño",
@@ -6802,7 +6802,7 @@ const IRV =[
 	 "Municipio": "Ipiales",
 	 "Estimado": 0.28442141,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Nariño",
@@ -6915,7 +6915,7 @@ const IRV =[
 	 "Municipio": "Nariño",
 	 "Estimado": 0.22181112,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Nariño",
@@ -6972,7 +6972,7 @@ const IRV =[
 	 "Municipio": "Providencia",
 	 "Estimado": 0.20932006,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Nariño",
@@ -7129,7 +7129,7 @@ const IRV =[
 	 "Municipio": "Tuquerres",
 	 "Estimado": 0.21061631,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Nariño",
@@ -7147,7 +7147,7 @@ const IRV =[
 	 "Municipio": "San Jose de Cucuta",
 	 "Estimado": 0.21982737,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7183,7 +7183,7 @@ const IRV =[
 	 "Municipio": "Bucarasica",
 	 "Estimado": 0.28266304,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7210,7 +7210,7 @@ const IRV =[
 	 "Municipio": "Chinacota",
 	 "Estimado": 0.20694896,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7276,7 +7276,7 @@ const IRV =[
 	 "Municipio": "El Zulia",
 	 "Estimado": 0.29125673,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7367,7 +7367,7 @@ const IRV =[
 	 "Municipio": "Ocaña",
 	 "Estimado": 0.2759679,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7394,7 +7394,7 @@ const IRV =[
 	 "Municipio": "Puerto Santander",
 	 "Estimado": 0.33246346,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7431,7 +7431,7 @@ const IRV =[
 	 "Municipio": "San Cayetano",
 	 "Estimado": 0.22697909,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7488,7 +7488,7 @@ const IRV =[
 	 "Municipio": "Toledo",
 	 "Estimado": 0.2729435,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Norte de Santander",
@@ -7506,7 +7506,7 @@ const IRV =[
 	 "Municipio": "Villa del Rosario",
 	 "Estimado": 0.23290646,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Quindio",
@@ -7596,7 +7596,7 @@ const IRV =[
 	 "Municipio": "Pijao",
 	 "Estimado": 0.2825703,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Quindio",
@@ -7704,7 +7704,7 @@ const IRV =[
 	 "Municipio": "Mistrato",
 	 "Estimado": 0.30504067,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Risaralda",
@@ -7740,7 +7740,7 @@ const IRV =[
 	 "Municipio": "Santuario",
 	 "Estimado": 0.26114261,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -7803,7 +7803,7 @@ const IRV =[
 	 "Municipio": "Barrancabermeja",
 	 "Estimado": 0.20847691,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -7920,7 +7920,7 @@ const IRV =[
 	 "Municipio": "Cimitarra",
 	 "Estimado": 0.20614762,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -7992,7 +7992,7 @@ const IRV =[
 	 "Municipio": "El Peñon",
 	 "Estimado": 0.2162134,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -8154,7 +8154,7 @@ const IRV =[
 	 "Municipio": "Landazuri",
 	 "Estimado": 0.20741869,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -8325,7 +8325,7 @@ const IRV =[
 	 "Municipio": "Puerto Wilches",
 	 "Estimado": 0.21539533,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -8343,7 +8343,7 @@ const IRV =[
 	 "Municipio": "Sabana de Torres",
 	 "Estimado": 0.26464328,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -8433,7 +8433,7 @@ const IRV =[
 	 "Municipio": "Simacota",
 	 "Estimado": 0.22425744,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Santander",
@@ -8560,7 +8560,7 @@ const IRV =[
 	 "Municipio": "Coloso",
 	 "Estimado": 0.25233152,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Sucre",
@@ -8588,7 +8588,7 @@ const IRV =[
 	 "Municipio": "Chalan",
 	 "Estimado": 0.29199567,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Sucre",
@@ -8663,7 +8663,7 @@ const IRV =[
 	 "Municipio": "Ovejas",
 	 "Estimado": 0.22344858,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Sucre",
@@ -8719,7 +8719,7 @@ const IRV =[
 	 "Municipio": "San Onofre",
 	 "Estimado": 0.21240262,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Sucre",
@@ -8810,7 +8810,7 @@ const IRV =[
 	 "Municipio": "Anzoategui",
 	 "Estimado": 0.28610816,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -8838,7 +8838,7 @@ const IRV =[
 	 "Municipio": "Cajamarca",
 	 "Estimado": 0.25119895,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -8856,7 +8856,7 @@ const IRV =[
 	 "Municipio": "Casabianca",
 	 "Estimado": 0.20584806,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -8884,7 +8884,7 @@ const IRV =[
 	 "Municipio": "Coyaima",
 	 "Estimado": 0.31255284,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -8902,7 +8902,7 @@ const IRV =[
 	 "Municipio": "Dolores",
 	 "Estimado": 0.27921978,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -8956,7 +8956,7 @@ const IRV =[
 	 "Municipio": "Herveo",
 	 "Estimado": 0.25060762,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -8974,7 +8974,7 @@ const IRV =[
 	 "Municipio": "Icononzo",
 	 "Estimado": 0.26914554,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -9019,7 +9019,7 @@ const IRV =[
 	 "Municipio": "Murillo",
 	 "Estimado": 0.25898757,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -9028,7 +9028,7 @@ const IRV =[
 	 "Municipio": "Natagaima",
 	 "Estimado": 0.27592633,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -9037,7 +9037,7 @@ const IRV =[
 	 "Municipio": "Ortega",
 	 "Estimado": 0.24034782,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -9138,7 +9138,7 @@ const IRV =[
 	 "Municipio": "San Luis",
 	 "Estimado": 0.20997168,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -9147,7 +9147,7 @@ const IRV =[
 	 "Municipio": "Santa Isabel",
 	 "Estimado": 0.27814338,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -9183,7 +9183,7 @@ const IRV =[
 	 "Municipio": "Villahermosa",
 	 "Estimado": 0.24559843,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Tolima",
@@ -9219,7 +9219,7 @@ const IRV =[
 	 "Municipio": "Andalucia",
 	 "Estimado": 0.23409614,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9237,7 +9237,7 @@ const IRV =[
 	 "Municipio": "Argelia",
 	 "Estimado": 0.25206153,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9246,7 +9246,7 @@ const IRV =[
 	 "Municipio": "Bolivar",
 	 "Estimado": 0.3131422,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9274,7 +9274,7 @@ const IRV =[
 	 "Municipio": "Bugalagrande",
 	 "Estimado": 0.21333702,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9292,7 +9292,7 @@ const IRV =[
 	 "Municipio": "Calima",
 	 "Estimado": 0.22311599,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9319,7 +9319,7 @@ const IRV =[
 	 "Municipio": "Dagua",
 	 "Estimado": 0.21857057,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9337,7 +9337,7 @@ const IRV =[
 	 "Municipio": "El Cairo",
 	 "Estimado": 0.22420518,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9355,7 +9355,7 @@ const IRV =[
 	 "Municipio": "El Dovio",
 	 "Estimado": 0.33855409,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9392,7 +9392,7 @@ const IRV =[
 	 "Municipio": "Jamundi",
 	 "Estimado": 0.31301343,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9447,7 +9447,7 @@ const IRV =[
 	 "Municipio": "Pradera",
 	 "Estimado": 0.26847893,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9465,7 +9465,7 @@ const IRV =[
 	 "Municipio": "Riofrio",
 	 "Estimado": 0.24830734,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9483,7 +9483,7 @@ const IRV =[
 	 "Municipio": "San Pedro",
 	 "Estimado": 0.23616243,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9510,7 +9510,7 @@ const IRV =[
 	 "Municipio": "Trujillo",
 	 "Estimado": 0.27112648,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9519,7 +9519,7 @@ const IRV =[
 	 "Municipio": "Tulua",
 	 "Estimado": 0.21404084,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Valle Del Cauca",
@@ -9601,7 +9601,7 @@ const IRV =[
 	 "Municipio": "Cravo Norte",
 	 "Estimado": 0.34047632,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Arauca",
@@ -9649,7 +9649,7 @@ const IRV =[
 	 "Municipio": "Yopal",
 	 "Estimado": 0.25987688,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9658,7 +9658,7 @@ const IRV =[
 	 "Municipio": "Aguazul",
 	 "Estimado": 0.24876187,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9676,7 +9676,7 @@ const IRV =[
 	 "Municipio": "Hato Corozal",
 	 "Estimado": 0.33244166,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9685,7 +9685,7 @@ const IRV =[
 	 "Municipio": "La Salina",
 	 "Estimado": 0.33835006,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9694,7 +9694,7 @@ const IRV =[
 	 "Municipio": "Mani",
 	 "Estimado": 0.22413022,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9703,7 +9703,7 @@ const IRV =[
 	 "Municipio": "Monterrey",
 	 "Estimado": 0.21348825,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9712,7 +9712,7 @@ const IRV =[
 	 "Municipio": "Nunchia",
 	 "Estimado": 0.2516404,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9721,7 +9721,7 @@ const IRV =[
 	 "Municipio": "Orocue",
 	 "Estimado": 0.27815914,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9730,7 +9730,7 @@ const IRV =[
 	 "Municipio": "Paz de Ariporo",
 	 "Estimado": 0.25532913,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9739,7 +9739,7 @@ const IRV =[
 	 "Municipio": "Pore",
 	 "Estimado": 0.24796724,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9748,7 +9748,7 @@ const IRV =[
 	 "Municipio": "Recetor",
 	 "Estimado": 0.29368241,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9784,7 +9784,7 @@ const IRV =[
 	 "Municipio": "Tamara",
 	 "Estimado": 0.25908414,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9793,7 +9793,7 @@ const IRV =[
 	 "Municipio": "Tauramena",
 	 "Estimado": 0.22610427,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -9802,7 +9802,7 @@ const IRV =[
 	 "Municipio": "Trinidad",
 	 "Estimado": 0.20925404,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Casanare",
@@ -10018,7 +10018,7 @@ const IRV =[
 	 "Municipio": "Puerto Alegria",
 	 "Estimado": 0.21846299,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Amazonas",
@@ -10063,7 +10063,7 @@ const IRV =[
 	 "Municipio": "Inirida",
 	 "Estimado": 0.22173649,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Guainía",
@@ -10135,7 +10135,7 @@ const IRV =[
 	 "Municipio": "Morichal",
 	 "Estimado": 0.30481257,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Guaviare",
@@ -10184,7 +10184,7 @@ const IRV =[
 	 "Municipio": "Mitu",
 	 "Estimado": 0.2126407,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Vaupés",
@@ -10256,7 +10256,7 @@ const IRV =[
 	 "Municipio": "Santa Rosalia",
 	 "Estimado": 0.23477732,
 	 "Cluster": "Medio",
-	 "Percent": "0.5"
+	 "Percent": "0.6"
 	},
 	{
 	 "Departamento": "Vichada",

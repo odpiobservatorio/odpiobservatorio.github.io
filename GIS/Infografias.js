@@ -34,6 +34,14 @@ const LyANH = [
     { label: 'C.Especial proyecto  investigacion', color: '#2874A6', opacity: '1' },
 ]
 
+const LyIRV = [
+    { label: 'ALTO', color: 'orange', opacity: '1' },
+    { label: 'MEDIO ALTO', color: 'orange', opacity: '0.8' },
+    { label: 'MEDIO', color: 'orange', opacity: '0.6' },
+    { label: 'MEDIO BAJO', color: 'orange', opacity: '0.4' },
+    { label: 'BAJO', color: 'orange', opacity: '0.2' },
+]
+
 const LyDenCoca = [
     {
         label: '26222,72 - 59746,49', color: 'green', opacity: '1'

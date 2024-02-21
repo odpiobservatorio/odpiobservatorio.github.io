@@ -1060,7 +1060,27 @@ function MostrarLeyendas() {
             `
             templateLeyenda.appendChild(rItem)
         })
+    } else if (LeyendaActiva == "LayerIRV") {
+        templateLeyenda.style.width = "250px"
+        hrLeyenda.textContent = "IRV U.Victimas 2022";
+        //Leo la matriz de Densidad y leo cada item
+        LyIRV.forEach(item => {
+            let rItem = document.createElement('div');
+            rItem.className = "r";
+            rItem.innerHTML = `
+            <div class="tLeyenda">
+            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
+             ${item.label}
+            </div>  
+            `
+            templateLeyenda.appendChild(rItem)
+        })
     }
+
+
+    
+
+  
 
 
 
