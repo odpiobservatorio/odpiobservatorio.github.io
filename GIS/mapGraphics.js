@@ -872,11 +872,13 @@ const iconsPaths = {
     blue: "../img/pAzulV.png",
     purple: "../img/pMoradoV.png",
     Ppurple: "../img/clusMorado.png",
+    Ppurple2: "../img/clusMorado2.png",
     Pblue: "../img/clusAzul.png",
     Pgray: "../img/clusGris.png",
     Porange: "../img/clusNaranja.png",
     Pred: "../img/clusGris.png",
     Pgreen: "../img/clusVerde.png",
+    Pgreen2: "../img/clusVerde2.png",
 }
 
 const icons = {
@@ -959,6 +961,20 @@ const icons = {
             popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
         })
     },
+
+    
+    "Ppurple2": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Ppurple2,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+
     "Pblue": () => {
         return L.icon({
             iconUrl: iconsPaths.Ppurple,
@@ -995,6 +1011,30 @@ const icons = {
     "Pred": () => {
         return L.icon({
             iconUrl: iconsPaths.Pred,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+
+    "Pgreen": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Pgreen,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    
+    "Pgreen2": () => {
+        return L.icon({
+            iconUrl: iconsPaths.Pgreen2,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
