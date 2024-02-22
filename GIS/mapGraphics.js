@@ -257,7 +257,6 @@ const allLayers = {
                 weight: 0,
                 fillColor: formatoPlano["color"],
                 fillOpacity: formatoPlano["opacidad"],
-                icon: icons[formatoPlano["markType"]]
             }
         }).bindPopup((layer) => {
             return layer.feature.properties.categoria
@@ -423,7 +422,6 @@ const allLayers = {
                     weight: 0,
                     fillColor: "red",
                     fillOpacity: 5,
-                    icon: icons[formatoPlano["markType"]]
                 },
                 filter: function (feature, layer) {
                     if (Datafilter == 1) {
@@ -471,7 +469,6 @@ const allLayers = {
                     weight: 1,
                     // fillColor: "darkgray",
                     fillOpacity: 0,
-                    icon: icons[formatoPlano["markType"]]
                 },
                 filter: function (feature, layer) {
                     if (Datafilter == 1) {
@@ -775,12 +772,32 @@ const allLayers = {
     "LayerPIR": () => {
         PlanPIR.forEach(elemento =>{
             console.log(elemento.EstadoFase)
+            let LatIn="";
+            let LngIn="";
+
+            if (elemento.EstadoFase=="IMPLEMENTADO"){
+                LatIn=elemento.LAT
+                LngIn= elemento.LNG
+                formatoPlano["markType"]="Pgreen"
+            } else if(elemento.EstadoFase=="IMPLEMENTADO"){
+                LatIn=elemento.LAT -0.2
+                LngIn= elemento.LNG -0.2
+                formatoPlano["markType"]="Pgreen"
+            }
 
 
 
-            Layers["LayerPIR"] = new L.marker([elemento.LAT, elemento.LNG], { icon: icons[formatoPlano["markType"]]() })
+            Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
             .addTo(map)
-            .bindPopup(elemento["EstadoFase"])
+            .bindPopup(
+                `<div>
+                    <div class="fw-medium text-success">${elemento.Municipio}</div>
+                    <div class="ms-1">${elemento.EstadoFase}</div>
+                </div>`
+
+
+
+            )
         })        
     },
 
@@ -857,8 +874,9 @@ const iconsPaths = {
     Ppurple: "../img/clusMorado.png",
     Pblue: "../img/clusAzul.png",
     Pgray: "../img/clusGris.png",
-    Porange: "../img/clusGris.png",
+    Porange: "../img/clusNaranja.png",
     Pred: "../img/clusGris.png",
+    Pgreen: "../img/clusVerde.png",
 }
 
 const icons = {
@@ -1089,24 +1107,8 @@ function MostrarLeyendas() {
         })
     }
 
-
-    
-
-  
-
-
-
-
-
-
-
-
     //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
-
-
-
     LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
-
     LabelMap.bindTooltip(templateLeyenda, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
@@ -1114,7 +1116,6 @@ function MostrarLeyendas() {
         LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
     });
     map.addLayer(LabelMap);
-
     LabelsMap.push(LabelMap)
 }
 
