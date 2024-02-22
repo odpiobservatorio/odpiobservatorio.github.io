@@ -770,35 +770,56 @@ const allLayers = {
     },
 
     "LayerPIR": () => {
-        PlanPIR.forEach(elemento =>{
+        PlanPIR.forEach(elemento => {
             console.log(elemento.EstadoFase)
-            let LatIn="";
-            let LngIn="";
+            let LatIn = "";
+            let LngIn = "";
 
-            if (elemento.EstadoFase=="IMPLEMENTADO"){
-                LatIn=elemento.LAT
-                LngIn= elemento.LNG
-                formatoPlano["markType"]="Pgreen"
-            } else if(elemento.EstadoFase=="IMPLEMENTADO"){
-                LatIn=elemento.LAT -0.2
-                LngIn= elemento.LNG -0.2
-                formatoPlano["markType"]="Pgreen"
+            if (elemento.EstadoFase == "IMPLEMENTADO") {
+                LatIn = elemento.LAT
+                LngIn = elemento.LNG
+                formatoPlano["markType"] = "Pgreen"
+            } else if (elemento.EstadoFase == "IMPLEMENTACIÓN") {
+                LatIn = elemento.LAT - 0.2
+                LngIn = elemento.LNG
+                formatoPlano["markType"] = "Porange"
+            } else if (elemento.EstadoFase == "ALISTAMIENTO") {
+                LatIn = elemento.LAT + 0.2
+                LngIn = elemento.LNG
+                formatoPlano["markType"] = "Pgray"
+            } else if (elemento.EstadoFase == "IDENTIFICACIÓN") {
+                LatIn = elemento.LAT
+                LngIn = elemento.LNG + 0.2
+                formatoPlano["markType"] = "Ppurple2"
+            } else if (elemento.EstadoFase == "CARACTERIZACIÓN DEL DAÑO") {
+                LatIn = elemento.LAT
+                LngIn = elemento.LNG - 0.2
+                formatoPlano["markType"] = "Ppurple"
+            }
+            else if (elemento.EstadoFase == "CARACTERIZACIÓN DEL DAÑO") {
+                LatIn = elemento.LAT - 0.2
+                LngIn = elemento.LNG - 0.2
+                formatoPlano["markType"] = "Pblue"
+            }
+            else if (elemento.EstadoFase == "DISEÑO Y FORMULACIÓN") {
+                LatIn = elemento.LAT + 0.2
+                LngIn = elemento.LNG + 0.2
+                formatoPlano["markType"] = "Pred"
             }
 
-
-
             Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
-            .addTo(map)
-            .bindPopup(
-                `<div>
+                .addTo(map)
+                .bindPopup(
+                    `<div>
                     <div class="fw-medium text-success">${elemento.Municipio}</div>
                     <div class="ms-1">${elemento.EstadoFase}</div>
+                    <div class="ms-1">${elemento.PDET}</div>
                 </div>`
 
 
 
-            )
-        })        
+                )
+        })
     },
 
     "LayerIRV": () => {
@@ -839,11 +860,11 @@ const allLayers = {
                 mun.Municipio.toLocaleLowerCase() == MUN.toLocaleLowerCase());
             try {
                 Cluster = filteredMun[0].Cluster
-                Pdet= filteredMun[0].Pdet
-                Estimado=  filteredMun[0].Estimado.toFixed([3])
+                Pdet = filteredMun[0].Pdet
+                Estimado = filteredMun[0].Estimado.toFixed([3])
             } catch (error) {
                 Cluster = "Sin info"
-                Pdet="Sin info"
+                Pdet = "Sin info"
 
             }
 
@@ -962,7 +983,7 @@ const icons = {
         })
     },
 
-    
+
     "Ppurple2": () => {
         return L.icon({
             iconUrl: iconsPaths.Ppurple2,
@@ -1031,7 +1052,7 @@ const icons = {
             popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
         })
     },
-    
+
     "Pgreen2": () => {
         return L.icon({
             iconUrl: iconsPaths.Pgreen2,
@@ -1131,9 +1152,9 @@ function MostrarLeyendas() {
         })
     } else if (LeyendaActiva == "LayerIRV") {
         templateLeyenda.style.width = "250px"
-        
+
         hrLeyenda.textContent = "IRV U.Victimas 2022";
-        hrLeyenda.className="ms-2 tLeyenda fw-medium text-success"
+        hrLeyenda.className = "ms-2 tLeyenda fw-medium text-success"
         //Leo la matriz de Densidad y leo cada item
         LyIRV.forEach(item => {
             let rItem = document.createElement('div');
