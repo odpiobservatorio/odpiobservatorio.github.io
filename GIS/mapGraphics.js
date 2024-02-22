@@ -216,6 +216,7 @@ function showLayer(parent) {
     if (checkBox.checked) {
         allLayers[key]();
         LeyendaActiva = key
+        console.log(key)
 
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key]);
@@ -805,7 +806,8 @@ const allLayers = {
                 formatoPlano["markType"] = "Porange"
             }
 
-            Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
+            try {
+                Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
                 .addTo(map)
                 .bindPopup(
                     `<div>
@@ -816,10 +818,14 @@ const allLayers = {
                     <div class="ms-1"><b>Estado RUV: </b>:${elemento.EstadoRUV}</div>
                     <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
                 </div>`
-
-
-
                 )
+
+            } catch (error) {
+                console.log(elemento)
+
+            }
+
+
         })
     },
 
@@ -1098,8 +1104,6 @@ function RemoverLabels() {
 function MostrarLeyendas() {
     let templateLeyenda = document.createElement('div');
     templateLeyenda.className = "text-dark"
-
-
     let hrLeyenda = document.createElement('div');
     hrLeyenda.className = "h6 text-secondary ms-3";
 

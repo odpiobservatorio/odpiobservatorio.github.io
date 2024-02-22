@@ -44,11 +44,11 @@ const LyIRV = [
 
 const LyPIR = [
     { label: 'ALISTAMIENTO', color: 'gray', opacity: '1' },
-    { label: 'CARACTERIZACIÓN DEL DAÑO', color: 'purple', opacity: '0.8' },
-    { label: 'DISEÑO Y FORMULACIÓN', color: 'orange', opacity: '0.6' },
-    { label: 'IDENTIFICACIÓN', color: 'magenta', opacity: '0.4' },
-    { label: 'IMPLEMENTACIÓN', color: 'blue', opacity: '0.2' },
-    { label: 'IMPLEMENTACIÓN', color: 'green', opacity: '0.2' },
+    { label: 'CARACTERIZACIÓN DEL DAÑO', color: 'purple', opacity: '1' },
+    { label: 'DISEÑO Y FORMULACIÓN', color: 'orange', opacity: '1' },
+    { label: 'IDENTIFICACIÓN', color: 'magenta', opacity: '1' },
+    { label: 'IMPLEMENTACIÓN', color: 'blue', opacity: '1' },
+    { label: 'IMPLEMENTACIÓN', color: 'green', opacity: '1' },
 ]
 
 const LyDenCoca = [
