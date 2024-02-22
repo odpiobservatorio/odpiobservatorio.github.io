@@ -124,7 +124,7 @@
 </header>
 
 
-<body onload="">
+<body onload="showTile(openstreetmap)">
     <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
         aria-labelledby="offcanvasExampleLabel">
@@ -366,6 +366,26 @@
                         Ver tablero oscuro
                     </label>
                 </div>
+                <div class="label text-success">Mapa geográfico</div>
+                <div class="form-check" onchange="showTile(this)" id="openstreetmap">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Open Street Map
+                    </label>
+                </div>
+                <div class="form-check" onchange="showTile(this)" id="stadiamaps">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Escala de grices
+                    </label>
+                </div>
+                <div class="form-check" onchange="showTile(this)" id="opentopomap">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault">
+                    <label class="form-check-label" for="flexRadioDefault3">
+                        Topográfico
+                    </label>
+                </div>
+
                 <hr>
                 <div class="label text-success">Unidades territoriales</div>
                 <div class="list-group" id="lstLayers">
@@ -911,22 +931,32 @@
 
 
 <!-- llama a los eventos .js para esta página -->
+
 <script>
+
+    const TileLayerA = {
+        openstreetmap: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        opentopomap: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+        stadiamaps: "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
+    }
     let map;
     map = L.map("map", {
         zoomDelta: 0.25,
         zoomSnap: 0
     }).setView([5.1, -75.55], 5);
 
-    //https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png //Topo
-    //http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png //StreetMap
-    //https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png //Grices
-    //http://tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png //Verde y azul
-    tileMLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        // Y un mapa con un límite de zoom.
-        maxZoom: 19,
-        //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-    }).addTo(map);
+    let ActiveTile;
+    function showTile(object) {
+        tileMLayer = L.tileLayer(TileLayerA[object.id], {
+            // Y un mapa con un límite de zoom.
+            maxZoom: 19,
+            //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+        }).addTo(map);
+
+    }
+
+
+
 
 </script>
 
