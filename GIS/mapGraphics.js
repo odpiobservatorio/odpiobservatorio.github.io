@@ -886,7 +886,7 @@ const allLayers = {
                 return L.marker(latlng, { icon: otherIcons["negroN"] });
             }
         }).bindPopup((layer) => {
-            return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
+            return `Nombre: ${layer.feature.properties.Departamento}`;
         }).addTo(map);
     },
 
