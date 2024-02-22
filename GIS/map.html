@@ -345,7 +345,15 @@
         </div>
         <div class="offcanvas-body">
             <div>
-                <div class="label text-success">Unidades territoriales</div>
+
+                <!--Menu configuración gráfica-->
+                <div class="label text-success">Configuracion del mapa</div>
+                <div class="form-check m-2" onchange="showLayer(this)">
+                    <input class="form-check-input" type="checkbox" value="" id="LayerPlano">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Ver cróquis
+                    </label>
+                </div>
                 <div class="form-check m-2" onchange="showLayer(this)">
                     <input class="form-check-input" type="checkbox" value="" id="LayerFondo">
                     <label class="form-check-label" for="flexCheckDefault">
@@ -359,6 +367,7 @@
                     </label>
                 </div>
                 <hr>
+                <div class="label text-success">Unidades territoriales</div>
                 <div class="list-group" id="lstLayers">
                     <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerDepartamentos">
@@ -516,8 +525,6 @@
                         </label>
                     </div>
 
-
-
                     <!--Menu información ambiental-->
                     <div class="label text-success">Informacion ambiental</div>
 
@@ -539,15 +546,9 @@
                             Información ambiental
                         </label>
                     </div>
-                    <!--Menu configuración gráfica-->
-                    <div class="label text-success">Configuracion del mapa</div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerPlano">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ver cróquis
-                        </label>
-                    </div>
                     <hr>
+                    <!--Menu configuración tendencia-->
+                    <div class="label text-success">Mapas des calor</div>
                     <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerColorMap">
                         <label class="form-check-label" for="flexCheckDefault">

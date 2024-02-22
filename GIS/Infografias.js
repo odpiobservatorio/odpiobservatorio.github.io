@@ -48,7 +48,7 @@ const LyPIR = [
     { label: 'DISEÑO Y FORMULACIÓN', color: 'orange', opacity: '1' },
     { label: 'IDENTIFICACIÓN', color: 'magenta', opacity: '1' },
     { label: 'IMPLEMENTACIÓN', color: 'blue', opacity: '1' },
-    { label: 'IMPLEMENTACIÓN', color: 'green', opacity: '1' },
+    { label: 'IMPLEMENTADO', color: 'green', opacity: '1' },
 ]
 
 const LyDenCoca = [
