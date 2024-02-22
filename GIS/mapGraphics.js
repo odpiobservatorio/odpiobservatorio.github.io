@@ -807,7 +807,7 @@ const allLayers = {
             }
 
             try {
-                let PIR = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
+                Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
                 .addTo(map)
                 .bindPopup(
                     `<div>
@@ -819,7 +819,6 @@ const allLayers = {
                     <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
                 </div>`
                 )
-                Layers["LayerPIR"].push(PIR)
             } catch (error) {
                 console.log(elemento)
             }
@@ -1004,7 +1003,7 @@ const icons = {
 
     "Pblue": () => {
         return L.icon({
-            iconUrl: iconsPaths.Ppurple,
+            iconUrl: iconsPaths.Pblue,
             shadowUrl: '',
 
             iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
@@ -1178,7 +1177,6 @@ function MostrarLeyendas() {
         hrLeyenda.className = "ms-2 tLeyenda fw-medium text-success"
         //Leo la matriz de Densidad y leo cada item
         LyPIR.forEach(item => {
-            console.log(item.color)
             let rItem = document.createElement('div');
             rItem.innerHTML = `
             <div class="tLeyenda">
