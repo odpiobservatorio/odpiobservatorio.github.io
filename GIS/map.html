@@ -918,10 +918,14 @@
         zoomSnap: 0
     }).setView([5.1, -75.55], 5);
 
+    //https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png //Topo
+    //http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png //StreetMap
+    //https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png //Grices
+    //http://tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png //Verde y azul
     tileMLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         // Y un mapa con un límite de zoom.
         maxZoom: 19,
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+        //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     }).addTo(map);
 
 </script>
