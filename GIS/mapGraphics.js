@@ -807,7 +807,7 @@ const allLayers = {
             }
 
             try {
-                Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
+                let PIR = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
                 .addTo(map)
                 .bindPopup(
                     `<div>
@@ -819,13 +819,10 @@ const allLayers = {
                     <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
                 </div>`
                 )
-
+                Layers["LayerPIR"].push(PIR)
             } catch (error) {
                 console.log(elemento)
-
             }
-
-
         })
     },
 
