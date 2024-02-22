@@ -772,6 +772,14 @@ const allLayers = {
         }).addTo(map);
     },
 
+    "LayerPIR": () => {
+        PlanPIR.forEach(elemento =>{
+            console.log(elemento.LAT,elemento.LNG)
+            new L.marker([elemento.LAT, elemento.LNG], { icon: icons[formatoPlano["markType"]]() })
+            .addTo(map)
+            .bindPopup(elemento["EstadoFase"])
+        })        
+    },
 
     "LayerIRV": () => {
         let Opacity;
