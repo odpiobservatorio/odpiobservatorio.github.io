@@ -1170,12 +1170,14 @@ function MostrarLeyendas() {
             templateLeyenda.appendChild(rItem)
         })
     } else if (LeyendaActiva == "LayerPIR") {
+        alert("PIR")
         templateLeyenda.style.width = "250px"
 
         hrLeyenda.textContent = "Avance PIR U.V";
         hrLeyenda.className = "ms-2 tLeyenda fw-medium text-success"
         //Leo la matriz de Densidad y leo cada item
         LyPIR.forEach(item => {
+            console.log(item.color)
             let rItem = document.createElement('div');
             rItem.innerHTML = `
             <div class="tLeyenda">
