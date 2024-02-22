@@ -880,6 +880,15 @@ const allLayers = {
             `
         }).addTo(map);
     },
+    "LayerText": () => {
+        Layers["LayerText"] = new L.geoJSON(capaText, {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, { icon: otherIcons["negroN"] });
+            }
+        }).bindPopup((layer) => {
+            return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
+        }).addTo(map);
+    },
 
 
 }
