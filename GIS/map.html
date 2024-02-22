@@ -946,7 +946,7 @@
     }).setView([5.1, -75.55], 5);
 
     let ActiveTile;
-    function showTile(object) {
+    async function showTile(object) {
         tileMLayer = L.tileLayer(TileLayerA[object.id], {
             // Y un mapa con un límite de zoom.
             maxZoom: 19,

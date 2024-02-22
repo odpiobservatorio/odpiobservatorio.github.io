@@ -4,13 +4,12 @@ const GLOBAL = {
     state: {}
 }
 
-
-
 let Datafilter = 0;
 const Layers = {}
 let LabelsMap = []
 let TextoLabel = "";
 let ActiveLabels;
+let LayersPIR = [];
 
 let ColorAA;
 
@@ -216,10 +215,9 @@ function showLayer(parent) {
     if (checkBox.checked) {
         allLayers[key]();
         LeyendaActiva = key
-        console.log(key)
-
     } else if (Layers.hasOwnProperty(key)) {
-        map.removeLayer(Layers[key]);
+        map.removeLayer(Layers[key])
+        map.removeLayer(LayersPIR)
         delete Layers[key];
     }
 }
@@ -807,18 +805,19 @@ const allLayers = {
             }
 
             try {
-                Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
-                .addTo(map)
-                .bindPopup(
-                    `<div>
-                    <div class="fw-medium text-success">${elemento.Municipio}</div>
-                    <div class="ms-1"><b>Estado: </b>${elemento.EstadoFase}</div>
-                    <div class="ms-1"><b>Pdet: </b>${elemento.PDET}</div>
-                    <div class=" mt-2 ms-1 mb-2"><b>Sujeto: </b>${elemento.SujetoColectivo}</div>
-                    <div class="ms-1"><b>Estado RUV: </b>:${elemento.EstadoRUV}</div>
-                    <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
-                </div>`
-                )
+                    new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
+                        .addTo(map)
+                        .bindPopup(
+                            `<div>
+                        <div class="fw-medium text-success">${elemento.Municipio}</div>
+                        <div class="ms-1"><b>Estado: </b>${elemento.EstadoFase}</div>
+                        <div class="ms-1"><b>Pdet: </b>${elemento.PDET}</div>
+                        <div class=" mt-2 ms-1 mb-2"><b>Sujeto: </b>${elemento.SujetoColectivo}</div>
+                        <div class="ms-1"><b>Estado RUV: </b>:${elemento.EstadoRUV}</div>
+                        <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
+                    </div>`
+                        )
+
             } catch (error) {
                 console.log(elemento)
             }
