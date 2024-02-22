@@ -805,10 +805,10 @@ const allLayers = {
             }
 
             try {
-                    new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
-                        .addTo(map)
-                        .bindPopup(
-                            `<div>
+                new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
+                    .addTo(map)
+                    .bindPopup(
+                        `<div>
                         <div class="fw-medium text-success">${elemento.Municipio}</div>
                         <div class="ms-1"><b>Estado: </b>${elemento.EstadoFase}</div>
                         <div class="ms-1"><b>Pdet: </b>${elemento.PDET}</div>
@@ -816,7 +816,7 @@ const allLayers = {
                         <div class="ms-1"><b>Estado RUV: </b>:${elemento.EstadoRUV}</div>
                         <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
                     </div>`
-                        )
+                    )
 
             } catch (error) {
                 console.log(elemento)
@@ -1103,6 +1103,24 @@ function RemoverLabels() {
     LabelsMap.forEach(elemento => {
         map.removeLayer(elemento)
     })
+}
+
+function PurMarck() {
+    let lb = document.getElementById("inLabel").value
+    const LbEdit = `
+    <input type="text" class="form-control tLeyenda" value="${lb}">  
+    `
+
+    LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
+    LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.on('dragend', function (event) {
+        LabelMap = event.target;
+        const position = LabelMap.getLatLng();
+        LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
+    });
+    map.addLayer(LabelMap);
+    LabelsMap.push(LabelMap)
+
 }
 
 function MostrarLeyendas() {

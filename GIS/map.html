@@ -108,6 +108,14 @@
                                     <i class="bi bi-bookmarks-fill me-3"></i>Ver leyendas
                                 </a>
                             </li>
+                            <li>
+                                <input id="inLabel" type="text" class="form-control tLeyenda ms-2" placeholder="Etiqueta" aria-label="Etiqueta">  
+                            </li>
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="PurMarck()">
+                                    <i class="bi bi-bookmarks-fill me-3"></i>Poner Marca
+                                </a>
+                            </li>
 
                             <li>
                                 <a class="dropdown-item " href="#" onclick="RemoverLabels()">
@@ -125,6 +133,8 @@
 
 
 <body onload="showTile(openstreetmap)">
+   
+
     <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
         aria-labelledby="offcanvasExampleLabel">
