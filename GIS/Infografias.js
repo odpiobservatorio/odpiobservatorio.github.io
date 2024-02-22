@@ -42,6 +42,15 @@ const LyIRV = [
     { label: 'BAJO', color: 'orange', opacity: '0.2' },
 ]
 
+const LyPIR = [
+    { label: 'ALISTAMIENTO', color: 'gray', opacity: '1' },
+    { label: 'CARACTERIZACIÓN DEL DAÑO', color: 'purple', opacity: '0.8' },
+    { label: 'DISEÑO Y FORMULACIÓN', color: 'orange', opacity: '0.6' },
+    { label: 'IDENTIFICACIÓN', color: 'magenta', opacity: '0.4' },
+    { label: 'IMPLEMENTACIÓN', color: 'blue', opacity: '0.2' },
+    { label: 'IMPLEMENTACIÓN', color: 'green', opacity: '0.2' },
+]
+
 const LyDenCoca = [
     {
         label: '26222,72 - 59746,49', color: 'green', opacity: '1'

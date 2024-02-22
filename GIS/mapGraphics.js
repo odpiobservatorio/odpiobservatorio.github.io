@@ -771,7 +771,6 @@ const allLayers = {
 
     "LayerPIR": () => {
         PlanPIR.forEach(elemento => {
-            console.log(elemento.EstadoFase)
             let LatIn = "";
             let LngIn = "";
 
@@ -779,32 +778,31 @@ const allLayers = {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG
                 formatoPlano["markType"] = "Pgreen"
+
             } else if (elemento.EstadoFase == "IMPLEMENTACIÓN") {
                 LatIn = elemento.LAT - 0.2
                 LngIn = elemento.LNG
-                formatoPlano["markType"] = "Porange"
+                formatoPlano["markType"] = "Pblue"
+
             } else if (elemento.EstadoFase == "ALISTAMIENTO") {
                 LatIn = elemento.LAT + 0.2
                 LngIn = elemento.LNG
                 formatoPlano["markType"] = "Pgray"
+
             } else if (elemento.EstadoFase == "IDENTIFICACIÓN") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG + 0.2
                 formatoPlano["markType"] = "Ppurple2"
+
             } else if (elemento.EstadoFase == "CARACTERIZACIÓN DEL DAÑO") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG - 0.2
                 formatoPlano["markType"] = "Ppurple"
             }
-            else if (elemento.EstadoFase == "CARACTERIZACIÓN DEL DAÑO") {
-                LatIn = elemento.LAT - 0.2
-                LngIn = elemento.LNG - 0.2
-                formatoPlano["markType"] = "Pblue"
-            }
             else if (elemento.EstadoFase == "DISEÑO Y FORMULACIÓN") {
-                LatIn = elemento.LAT + 0.2
+                LatIn = elemento.LAT
                 LngIn = elemento.LNG + 0.2
-                formatoPlano["markType"] = "Pred"
+                formatoPlano["markType"] = "Porange"
             }
 
             Layers["LayerPIR"] = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
@@ -812,8 +810,11 @@ const allLayers = {
                 .bindPopup(
                     `<div>
                     <div class="fw-medium text-success">${elemento.Municipio}</div>
-                    <div class="ms-1">${elemento.EstadoFase}</div>
-                    <div class="ms-1">${elemento.PDET}</div>
+                    <div class="ms-1"><b>Estado: </b>${elemento.EstadoFase}</div>
+                    <div class="ms-1"><b>Pdet: </b>${elemento.PDET}</div>
+                    <div class=" mt-2 ms-1 mb-2"><b>Sujeto: </b>${elemento.SujetoColectivo}</div>
+                    <div class="ms-1"><b>Estado RUV: </b>:${elemento.EstadoRUV}</div>
+                    <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
                 </div>`
 
 
@@ -892,12 +893,14 @@ const iconsPaths = {
     red: "../img/pRojoV.png",
     blue: "../img/pAzulV.png",
     purple: "../img/pMoradoV.png",
+
+    //Cuadros de color
     Ppurple: "../img/clusMorado.png",
     Ppurple2: "../img/clusMorado2.png",
     Pblue: "../img/clusAzul.png",
     Pgray: "../img/clusGris.png",
     Porange: "../img/clusNaranja.png",
-    Pred: "../img/clusGris.png",
+    Pred: "../img/clusRojo.png",
     Pgreen: "../img/clusVerde.png",
     Pgreen2: "../img/clusVerde2.png",
 }
@@ -1166,7 +1169,25 @@ function MostrarLeyendas() {
             `
             templateLeyenda.appendChild(rItem)
         })
+    } else if (LeyendaActiva == "LayerPIR") {
+        templateLeyenda.style.width = "250px"
+
+        hrLeyenda.textContent = "Avance PIR U.V";
+        hrLeyenda.className = "ms-2 tLeyenda fw-medium text-success"
+        //Leo la matriz de Densidad y leo cada item
+        LyPIR.forEach(item => {
+            let rItem = document.createElement('div');
+            rItem.innerHTML = `
+            <div class="tLeyenda">
+            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
+             ${item.label}
+            </div>  
+            `
+            templateLeyenda.appendChild(rItem)
+        })
     }
+
+
 
     //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
     LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
