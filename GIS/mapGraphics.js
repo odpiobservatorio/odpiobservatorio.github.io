@@ -1105,64 +1105,6 @@ const icons = {
     },
 
 
-    //Marcas libres para leyendas
-    "pSenaladorAzul": () => {
-        return L.icon({
-            iconUrl: iconsPaths.pSenaladorAzul,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-    "pSenaladorRojo": () => {
-        return L.icon({
-            iconUrl: iconsPaths.pSenaladorRojo,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-    "pSenaladorVerde": () => {
-        return L.icon({
-            iconUrl: iconsPaths.pSenaladorVerde,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-    "pSenaladorGris": () => {
-        return L.icon({
-            iconUrl: iconsPaths.pSenaladorGris,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-    "pSenaladorMorado": () => {
-        return L.icon({
-            iconUrl: iconsPaths.pSenaladorMorado,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
 
 }
 
@@ -1209,6 +1151,7 @@ function PutLabelFree() {
 //
 }
 function PutMarkFree(icon) {
+
     let lb = document.getElementById("inLabel").value
     const LbEdit = `
     <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
@@ -1342,7 +1285,7 @@ const otherIcons = {
         iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
         popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
     }),
-    "senalador": L.icon({
+    "pSenaladorAzul": L.icon({
         iconUrl: '../img/pSenaladorAzul.png',
         shadowUrl: '',
 
@@ -1351,6 +1294,44 @@ const otherIcons = {
         iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
         popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
     }),
+
+    "pSenaladorRojo": L.icon({
+        iconUrl: '../img/pSenaladorRojo.png',
+        shadowUrl: '',
+
+        iconSize: [14, 14], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    }),
+    "pSenaladorVerde": L.icon({
+        iconUrl: '../img/pSenaladorVerde.png',
+        shadowUrl: '',
+
+        iconSize: [14, 14], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    }),
+    "pSenaladorMorado": L.icon({
+        iconUrl: '../img/pSenaladorMorado.png',
+        shadowUrl: '',
+
+        iconSize: [14, 14], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    }),
+    "pSenaladorGris": L.icon({
+        iconUrl: '../img/pSenaladorGris.png',
+        shadowUrl: '',
+
+        iconSize: [14, 14], // size of the icon
+        shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+    }),
+
 
     "negroN": L.icon({
         iconUrl: '../img/pNegroN.png',
