@@ -105,25 +105,31 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item " href="#" onclick="MostrarLeyendas()">
-                                    <i class="bi bi-bookmarks-fill me-3"></i>Ver leyendas
+                                    <i class="bi bi-bookmarks-fill me-2"></i>Ver leyendas
                                 </a>
                             </li>
                             <li>
-                                <input id="inLabel" type="text" class="form-control tLeyenda ms-2" placeholder="Etiqueta" aria-label="Etiqueta">  
+                                <input id="inLabel" type="text" class="form-control tLeyenda ms-3" placeholder="Etiqueta" aria-label="Etiqueta">  
                             </li>
                             <li>
                                 <a class="dropdown-item " href="#" onclick="PutLabelFree()">
-                                    <i class="bi bi-bookmarks-fill me-3"></i>Poner etiqueta libre
+                                    <i class="bi bi-bookmarks-fill me-2"></i>Poner etiqueta libre
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item " href="#" onclick="PutMarkFree('senalador')">
-                                    <i class="bi bi-tag me-3"></i>Poner etiqueta libre
+                                <a class="dropdown-item " href="#">
+                                    <i class="bi bi-tag me-2"></i>Poner marca libre
+                                    <select class="form-select mt-1 me-4" aria-label="Default select example" onchange="PutMarkFree(this)">
+                                        <option selected>senalador</option>
+                                        <option value="senalador">Básico</option>
+                                        <option value="pSenaladorAzul">Azul</option>
+                                        <option value="pSenaladorrojo">Rojo</option>
+                                      </select>
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item " href="#" onclick="RemoverLabels()">
-                                    <i class="bi bi-geo-alt me-3"></i>Limpiar leyendas
+                                    <i class="bi bi-trash me-2"></i>Limpiar leyendas
                                 </a>
                             </li>
 

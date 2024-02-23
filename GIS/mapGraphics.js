@@ -930,6 +930,15 @@ const iconsPaths = {
     Pred: "../img/clusRojo.png",
     Pgreen: "../img/clusVerde.png",
     Pgreen2: "../img/clusVerde2.png",
+
+
+    //Marcas libres
+    pSenaladorMorado: "../img/pSenaladorMorado.png",
+    pSenaladorGris: "../img/pSenaladorGris.png",
+    pSenaladorAzul: "../img/pSenaladorAzul.png",
+    pSenaladorVerde: "../img/pSenaladorVerde.png",
+    pSenaladorRojo: "../img/pSenaladorRojo.png",
+    
 }
 
 const icons = {
@@ -1095,6 +1104,66 @@ const icons = {
         })
     },
 
+
+    //Marcas libres para leyendas
+    "pSenaladorAzul": () => {
+        return L.icon({
+            iconUrl: iconsPaths.pSenaladorAzul,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    "pSenaladorRojo": () => {
+        return L.icon({
+            iconUrl: iconsPaths.pSenaladorRojo,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    "pSenaladorVerde": () => {
+        return L.icon({
+            iconUrl: iconsPaths.pSenaladorVerde,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+
+    "pSenaladorGris": () => {
+        return L.icon({
+            iconUrl: iconsPaths.pSenaladorGris,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+    "pSenaladorMorado": () => {
+        return L.icon({
+            iconUrl: iconsPaths.pSenaladorMorado,
+            shadowUrl: '',
+
+            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
+            shadowSize: [50, 64], // size of the shadow
+            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
+            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
+        })
+    },
+
+
 }
 
 
@@ -1128,7 +1197,7 @@ function PutLabelFree() {
     <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
     `
 
-    LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
+    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons["senalador"] },);
     LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
@@ -1144,8 +1213,7 @@ function PutMarkFree(icon) {
     const LbEdit = `
     <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
     `
-
-    LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons[icon] },);
+    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons[icon.value] },);
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
         const position = LabelMap.getLatLng();
@@ -1250,7 +1318,7 @@ function MostrarLeyendas() {
 
 
     //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
-    LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
+    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons["senalador"] },);
     LabelMap.bindTooltip(templateLeyenda, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
