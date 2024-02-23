@@ -221,6 +221,7 @@ function showLayer(parent) {
         map.removeLayer(Layers[key])
         map.removeLayer(MarkPIR)
         delete Layers[key];
+        delete Layers[MarkPIR];
     }
 }
 
