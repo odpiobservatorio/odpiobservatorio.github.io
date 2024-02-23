@@ -1156,7 +1156,7 @@ function PutMarkFree(icon) {
     const LbEdit = `
     <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
     `
-    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons[icon.value] },);
+    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon(icon.value)},);
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
         const position = LabelMap.getLatLng();
@@ -1357,14 +1357,14 @@ const otherIcons = {
 
 const otherIcons2={
     MakeIcon(key){
-        L.icon({
-            iconUrl: '../img/pSenalador.png', 
+       const IconC = L.icon({
+            iconUrl: `../img/${key}.png`,
             shadowUrl: '',
-    
             iconSize: [14, 14], // size of the icon
             shadowSize: [50, 64], // size of the shadow
             iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
             popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
         })
+        return IconC
     }
 }
