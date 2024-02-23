@@ -7,6 +7,8 @@ const GLOBAL = {
 let Datafilter = 0;
 const Layers = {}
 let LabelsMap = []
+let MarkPIR = []
+
 let TextoLabel = "";
 let ActiveLabels;
 let LayersPIR = [];
@@ -217,7 +219,7 @@ function showLayer(parent) {
         LeyendaActiva = key
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key])
-        map.removeLayer(LayersPIR)
+        map.removeLayer(MarkPIR)
         delete Layers[key];
     }
 }
@@ -805,7 +807,7 @@ const allLayers = {
             }
 
             try {
-                new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
+                PIRm= new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
                     .addTo(map)
                     .bindPopup(
                         `<div>
@@ -817,7 +819,7 @@ const allLayers = {
                         <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
                     </div>`
                     )
-
+                    MarkPIR.push(PIRm)
             } catch (error) {
                 console.log(elemento)
             }
