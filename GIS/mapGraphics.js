@@ -519,7 +519,7 @@ const allLayers = {
     "LayerNarcotrafico": () => {
         Layers["LayerNarcotrafico"] = new L.geoJSON(capaPuntosNarcotrafico, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { icon: otherIcons["negroN"] });
+                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pNegroN") });
             }
         }).bindPopup((layer) => {
             return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
@@ -529,7 +529,7 @@ const allLayers = {
     "LayerContrabando": () => {
         Layers["LayerContrabando"] = new L.geoJSON(capaContrabando, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { icon: otherIcons["azulC"] });
+                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pAzulC") });
             }
         }).bindPopup((layer) => {
             return `Tipo: ${layer.feature.properties.CONTRABAND}, Lugar: ${layer.feature.properties.NOM_CPOB}`;
@@ -900,7 +900,7 @@ const allLayers = {
     "LayerText": () => {
         Layers["LayerText"] = new L.geoJSON(capaText, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { icon: otherIcons["negroN"] });
+                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pAzulC")});
             }
         }).bindPopup((layer) => {
             return `Nombre: ${layer.feature.properties.Departamento}`;
@@ -1136,10 +1136,10 @@ function RemoverLabels() {
 function PutLabelFree() {
     let lb = document.getElementById("inLabel").value
     const LbEdit = `
-    <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
+        <div class="text-success" style="font-size:small;">${lb}</div>
     `
 
-    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons["senalador"] },);
+    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon("pSenalador") },);
     LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
@@ -1261,7 +1261,7 @@ function MostrarLeyendas() {
 
 
     //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
-    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons["senalador"] },);
+    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon("senalador") },);
     LabelMap.bindTooltip(templateLeyenda, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
@@ -1272,88 +1272,6 @@ function MostrarLeyendas() {
     LabelsMap.push(LabelMap)
 }
 
-
-
-//Otros iconos (No usados aun)
-const otherIcons = {
-    "senalador": L.icon({
-        iconUrl: '../img/pSenalador.png',
-        shadowUrl: '',
-
-        iconSize: [14, 14], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-    "pSenaladorAzul": L.icon({
-        iconUrl: '../img/pSenaladorAzul.png',
-        shadowUrl: '',
-
-        iconSize: [14, 14], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-
-    "pSenaladorRojo": L.icon({
-        iconUrl: '../img/pSenaladorRojo.png',
-        shadowUrl: '',
-
-        iconSize: [14, 14], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-    "pSenaladorVerde": L.icon({
-        iconUrl: '../img/pSenaladorVerde.png',
-        shadowUrl: '',
-
-        iconSize: [14, 14], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-    "pSenaladorMorado": L.icon({
-        iconUrl: '../img/pSenaladorMorado.png',
-        shadowUrl: '',
-
-        iconSize: [14, 14], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-    "pSenaladorGris": L.icon({
-        iconUrl: '../img/pSenaladorGris.png',
-        shadowUrl: '',
-
-        iconSize: [14, 14], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-
-
-    "negroN": L.icon({
-        iconUrl: '../img/pNegroN.png',
-        shadowUrl: '',
-
-        iconSize: [20, 20], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-
-    "azulC": L.icon({
-        iconUrl: '../img/pAzulC.png',
-        shadowUrl: '',
-
-        iconSize: [20, 20], // size of the icon
-        shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [10, 20], // point of the icon which will correspond to marker's location
-        popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-    }),
-
-}
 
 const otherIcons2={
     MakeIcon(key){
