@@ -112,14 +112,18 @@
                                 <input id="inLabel" type="text" class="form-control tLeyenda ms-2" placeholder="Etiqueta" aria-label="Etiqueta">  
                             </li>
                             <li>
-                                <a class="dropdown-item " href="#" onclick="PurMarck()">
-                                    <i class="bi bi-bookmarks-fill me-3"></i>Poner Marca
+                                <a class="dropdown-item " href="#" onclick="PutLabelFree()">
+                                    <i class="bi bi-bookmarks-fill me-3"></i>Poner etiqueta libre
                                 </a>
                             </li>
-
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="PutMarkFree('senalador')">
+                                    <i class="bi bi-tag me-3"></i>Poner etiqueta libre
+                                </a>
+                            </li>
                             <li>
                                 <a class="dropdown-item " href="#" onclick="RemoverLabels()">
-                                    <i class="bi bi-bookmark-x me-3"></i>Limpiar leyendas
+                                    <i class="bi bi-geo-alt me-3"></i>Limpiar leyendas
                                 </a>
                             </li>
 
@@ -548,7 +552,7 @@
                             IRV U. Victimas 2022
                         </label>
                     </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
+                    <div class="form-check m-2" onchange="showOverLay(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerPIR">
                         <label class="form-check-label" for="flexCheckDefault">
                             Estado PIR U.V

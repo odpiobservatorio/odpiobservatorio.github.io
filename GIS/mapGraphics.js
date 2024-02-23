@@ -216,13 +216,27 @@ function showLayer(parent) {
 
     if (checkBox.checked) {
         allLayers[key]();
-        LeyendaActiva = key
+        //LeyendaActiva = key
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key])
-        map.removeLayer(MarkPIR)
+
         delete Layers[key];
-        delete Layers[MarkPIR];
-    }
+
+    } 
+
+}
+
+function showOverLay(parent){
+    const checkBox = parent.querySelector(".form-check-input");
+    if (checkBox.checked) {
+        allLayers["LayerPIR"]()
+
+    } else {
+
+        MarkPIR.forEach(elemento => {
+            map.removeLayer(elemento)
+        })
+    } 
 }
 
 //.............................................
@@ -1108,10 +1122,10 @@ function RemoverLabels() {
     })
 }
 
-function PurMarck() {
+function PutLabelFree() {
     let lb = document.getElementById("inLabel").value
     const LbEdit = `
-    <input type="text" class="form-control tLeyenda" value="${lb}">  
+    <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
     `
 
     LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons["senalador"] },);
@@ -1123,7 +1137,23 @@ function PurMarck() {
     });
     map.addLayer(LabelMap);
     LabelsMap.push(LabelMap)
+//
+}
+function PutMarkFree(icon) {
+    let lb = document.getElementById("inLabel").value
+    const LbEdit = `
+    <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
+    `
 
+    LabelMap = new L.marker([3.12, -56.2], { draggable: 'true', icon: otherIcons[icon] },);
+    LabelMap.on('dragend', function (event) {
+        LabelMap = event.target;
+        const position = LabelMap.getLatLng();
+        LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
+    });
+    map.addLayer(LabelMap);
+    LabelsMap.push(LabelMap)
+//
 }
 
 function MostrarLeyendas() {
