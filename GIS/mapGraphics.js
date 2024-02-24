@@ -222,11 +222,11 @@ function showLayer(parent) {
 
         delete Layers[key];
 
-    } 
+    }
 
 }
 
-function showOverLay(parent){
+function showOverLay(parent) {
     const checkBox = parent.querySelector(".form-check-input");
     if (checkBox.checked) {
         allLayers["LayerPIR"]()
@@ -236,7 +236,7 @@ function showOverLay(parent){
         MarkPIR.forEach(elemento => {
             map.removeLayer(elemento)
         })
-    } 
+    }
 }
 
 //.............................................
@@ -822,7 +822,7 @@ const allLayers = {
             }
 
             try {
-                PIRm= new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
+                PIRm = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
                     .addTo(map)
                     .bindPopup(
                         `<div>
@@ -834,7 +834,7 @@ const allLayers = {
                         <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
                     </div>`
                     )
-                    MarkPIR.push(PIRm)
+                MarkPIR.push(PIRm)
             } catch (error) {
                 console.log(elemento)
             }
@@ -900,7 +900,7 @@ const allLayers = {
     "LayerText": () => {
         Layers["LayerText"] = new L.geoJSON(capaText, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pAzulC")});
+                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pAzulC") });
             }
         }).bindPopup((layer) => {
             return `Nombre: ${layer.feature.properties.Departamento}`;
@@ -938,7 +938,7 @@ const iconsPaths = {
     pSenaladorAzul: "../img/pSenaladorAzul.png",
     pSenaladorVerde: "../img/pSenaladorVerde.png",
     pSenaladorRojo: "../img/pSenaladorRojo.png",
-    
+
 }
 
 const icons = {
@@ -1133,6 +1133,49 @@ function RemoverLabels() {
     })
 }
 
+function PutMarkPoligon() {
+
+    var circle = new L.circle([4.797, -74.030], 
+        {
+        draggable: true,
+        color: '#810541',
+        fillColor: '#D462FF',
+        fillOpacity: 0.5,
+        radius: 15000
+      }).addTo(map);
+
+      circle.on('dragend', function(e) {
+        console.log(e.target._latlngs[0][0]);
+      });
+      
+
+
+
+    var poly1 = [
+        [
+            [7.30, -74.83],
+            [6.88, -74.83],
+            [6.88, -74.28],
+            [7.30, -74.28],
+            [7.30, -74.28],
+        ]
+      ]
+  
+      var polygon = new L.Polygon([poly1], {
+        draggable: true,
+        color: 'green',
+        fillColor: 'green',
+        fillOpacity: 1,
+      }).addTo(map);
+  
+      polygon.on('dragend', function(e) {
+        console.log(e.target._latlngs[0][0]);
+      });
+      
+
+    
+}
+
 function PutLabelFree() {
     let lb = document.getElementById("inLabel").value
     const LbEdit = `
@@ -1141,14 +1184,15 @@ function PutLabelFree() {
 
     LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon("pSenalador") },);
     LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
-    LabelMap.on('dragend', function (event) {
-        LabelMap = event.target;
-        const position = LabelMap.getLatLng();
-        LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
-    });
+    LabelMap.on('dragend',
+        function (event) {
+            LabelMap = event.target;
+            const position = LabelMap.getLatLng();
+            LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
+        });
     map.addLayer(LabelMap);
     LabelsMap.push(LabelMap)
-//
+    //
 }
 function PutMarkFree(icon) {
 
@@ -1156,7 +1200,7 @@ function PutMarkFree(icon) {
     const LbEdit = `
     <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
     `
-    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon(icon.value)},);
+    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon(icon.value) },);
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
         const position = LabelMap.getLatLng();
@@ -1164,7 +1208,7 @@ function PutMarkFree(icon) {
     });
     map.addLayer(LabelMap);
     LabelsMap.push(LabelMap)
-//
+    //
 }
 
 function MostrarLeyendas() {
@@ -1273,9 +1317,9 @@ function MostrarLeyendas() {
 }
 
 
-const otherIcons2={
-    MakeIcon(key){
-       const IconC = L.icon({
+const otherIcons2 = {
+    MakeIcon(key) {
+        const IconC = L.icon({
             iconUrl: `../img/${key}.png`,
             shadowUrl: '',
             iconSize: [14, 14], // size of the icon
