@@ -1131,27 +1131,17 @@ function RemoverLabels() {
     LabelsMap.forEach(elemento => {
         map.removeLayer(elemento)
     })
+
+    console.log(MarkPoligon)
+    MarkPoligon.forEach(elemento => {
+        map.removeLayer(elemento)
+    })
 }
 
+let MarkPoligon = [];
 function PutMarkPoligon() {
 
-    var circle = new L.circle([4.797, -74.030], 
-        {
-        draggable: true,
-        color: '#810541',
-        fillColor: '#D462FF',
-        fillOpacity: 0.5,
-        radius: 15000
-      }).addTo(map);
-
-      circle.on('dragend', function(e) {
-        console.log(e.target._latlngs[0][0]);
-      });
-      
-
-
-
-    var poly1 = [
+    poly1 = [
         [
             [7.30, -74.83],
             [6.88, -74.83],
@@ -1159,21 +1149,51 @@ function PutMarkPoligon() {
             [7.30, -74.28],
             [7.30, -74.28],
         ]
-      ]
-  
-      var polygon = new L.Polygon([poly1], {
+    ]
+
+    try {
+        circle = new L.circle([4.797, -74.030],
+            {
+                draggable: true,
+                color: '#810541',
+                fillColor: '#D462FF',
+                fillOpacity: 0.5,
+                radius: 20000
+            })
+
+            circle.on('dragend', function (e) {
+            })
+            MarkPoligon.push(circle)
+
+    } catch (error) {
+        alert(error.code)
+    }
+
+
+
+
+    polygon = new L.Polygon([poly1], {
         draggable: true,
         color: 'green',
         fillColor: 'green',
         fillOpacity: 1,
-      }).addTo(map);
-  
-      polygon.on('dragend', function(e) {
-        console.log(e.target._latlngs[0][0]);
-      });
-      
+    })
 
-    
+        polygon.on('dragend', function (e) {
+            console.log(e.target._latlngs[0][0]);
+        }),
+        MarkPoligon.push(polygon)
+
+    map.addLayer(circle);
+
+
+
+
+
+
+
+
+
 }
 
 function PutLabelFree() {
