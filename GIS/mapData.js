@@ -120,15 +120,16 @@ function showBusqueda(datosParaMostrar = []) {
         // Agrega las marcas al mapa
         try {
             (bigData.MrkAntecedente).push(
-                // Se llama el icono de la configuracion de iconos en mapGraphics.js
-                new L.marker([registro.Lat, registro.Lng], { icon: icons[formatoPlano["markType"]]() })
-                    .addTo(map)
-                    .bindPopup(
+                
+                // Se llama el marcador tipo poligono de GlobalMapGraphics         
+                PutMarkCicle(true, 'green', 0.7, 20000, registro.Lat, registro.Lng)
+                    .bindPopup(PutPopUpZ(
                         `<b>${registro.Departamento} - ${registro.Year}</b><br>${registro.Municipio
                         }, C: ${registro.ind
                         }<br><button type='button' class='btn btn-secondary' onclick ='verCaso(${JSON.stringify(
                             registro
-                        )})'>Ver</button></br>`
+                        )})'>Ver</button></br>`//Nuevo tipo de etiqueta en Zindez superior
+                    )
                     )
             );
         } catch (error) {

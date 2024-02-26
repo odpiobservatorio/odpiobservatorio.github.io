@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-     <script src="https://cdn.jsdelivr.net/npm/leaflet.path.drag@0.0.6/src/Path.Drag.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.path.drag@0.0.6/src/Path.Drag.min.js"></script>
 
 
     <!-- librerias de bootstrap -->
@@ -37,6 +37,10 @@
     <script src="./layers/IRV-2022.js" async></script>
     <script src="./layers/PlanPIR.js" async></script>
     <script src="./Infografias.js" async></script>
+
+    <!--Veriones optimizdas de los procesos-->
+    <script src="./GlobalMapGrphics.js" async></script>
+
 
 </head>
 
@@ -100,6 +104,12 @@
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">Configuración</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#" onclick="">Ver colores</a>
+                    </li>
+
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -119,27 +129,29 @@
                                     <i class="bi bi-bookmarks-fill me-2"></i>Poner etiqueta libre
                                 </a>
                             </li>
-                            <li>
-                                <a class="dropdown-item " href="#" onclick="PutMarkPoligon()">
-                                    <i class="bi bi-bookmarks-fill me-2"></i>Poner poligono
-                                </a>
-                            </li>
-                            
+
                             <li>
                                 <a class="dropdown-item " href="#">
                                     <i class="bi bi-tag me-2"></i>Poner marca libre
-                                    <select class="form-select mt-1 me-4" aria-label="Default select example" onchange="PutMarkFree(this)">
+                                    <select class="form-select mt-1 me-4 p-1" aria-label="Default select example"
+                                        onchange="PutMarkCicle(false,this.value)">
                                         <option selected>Básico</option>
-                                        <option value="pSenalador" style="background-color:azure;">Básico</option>
-                                        <option value="pSenaladorAzul" style="background-color:darkblue; color: white;">Azul</option>
-                                        <option value="pSenaladorAzul2" style="background-color:#6600ffff; color: white;">Azul 2</option>
-                                        <option value="pSenaladorRojo" style="background-color: red; color: white;">Rojo</option>
-                                        <option value="pSenaladorTerracota" style="background-color: #ff7f2aff; color: white;">Terracota</option>
-                                        <option value="pSenaladorNaranja" style="background-color:#ffd42aff; color: white;">Naranja</option>
-                                        <option value="pSenaladorVerde" style="background-color: green; color: white;">Verde</option>
-                                        <option value="pSenaladorGris" style="background-color: gray; color: white;">Gris</option>
-                                        <option value="pSenaladorMorado" style="background-color: purple; color: white;">Morado</option>
-                                      </select>
+                                        <option value="azure" style="background-color:azure;">Básico</option>
+                                        <option value="darkblue" style="background-color:darkblue; color: white;">Azul
+                                        </option>
+                                        <option value="#6600ffff" style="background-color:#6600ffff; color: white;">Azul
+                                            2</option>
+                                        <option value="red" style="background-color: red; color: white;">Rojo</option>
+                                        <option value="#ff7f2aff" style="background-color: #ff7f2aff; color: white;">
+                                            Terracota</option>
+                                        <option value="#ffd42aff" style="background-color:#ffd42aff; color: white;">
+                                            Naranja</option>
+                                        <option value="green" style="background-color: green; color: white;">Verde
+                                        </option>
+                                        <option value="gray" style="background-color: gray; color: white;">Gris</option>
+                                        <option value="purple" style="background-color: purple; color: white;">Morado
+                                        </option>
+                                    </select>
                                 </a>
                             </li>
                             <li>
@@ -158,7 +170,7 @@
 
 
 <body onload="showTile(openstreetmap)">
-   
+
 
     <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
@@ -689,75 +701,82 @@
         <div class="offcanvas-body">
             <div>
                 <div class="list-group">
-                    <div class="label text-success">Color fondo</div>
-                    <form class="row align-items-center">
-                        <div class="col-md-2">
-                            <input id="colorMapaColor" type="color" value="#ff0000" />
-                        </div>
-                        <div class="col-md-5">
-                            <input id="colorMapOpacity" type="range" min="0.1" max="1" step="0.1" value="0.5" />
-                        </div>
-                        <div class="col-md-1">
-                            <button class="btn btn-outline-success" type="button" onclick="AplicarColorMapa()">
-                                <i class="bi bi-check-circle"></i>
-                            </button>
-                        </div>
-
-                    </form>
-
-                    <hr>
-                    <div class="label text-success">Tamaño marcadores</div>
-
-                    <div>
-                        <input id="sizeIconV" type="range" min="0.1" max="2" step="0.1" value="1"
-                            onchange="updateSize(this.value)" />
-                        <div>
-                            <button class="btn btn-outline-success text-black" type="button" onclick="resetIconSize()">
-                                <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="tooltip" data-bs-title="Restablecer tamaño"
-                                    data-bs-original-title="" title=""></i>
-                            </button>
-
-                            <button class="btn btn-outline-success" type="button" onclick="reloadIcons()">
-                                <i class="bi bi-check-circle" data-bs-title="Aplicar cambios"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <div class="label text-success">Tipo marcadores</div>
-                    <form class="row align-items-center">
-                        <div class="col-md-6">
-
-                            <div class="form-floating m-2">
-                                <div class="list-group">
-                                    <a onclick="changeMark(this.id)" id="green"><img src="../img/pVerdeV.png" width="20"
-                                            height="20" />Verde</a>
-                                    <a onclick="changeMark(this.id)" id="black"><img src="../img/pNegroV.png" width="20"
-                                            height="20" />Negro</a>
-                                    <a onclick="changeMark(this.id)" id="red"><img src="../img/pRojoV.png" width="20"
-                                            height="20" />Rojo</a>
-                                    <a onclick="changeMark(this.id)" id="purple"><img src="../img/pMoradoV.png"
-                                            width="20" height="20" />Morado</a>
-                                    <a onclick="changeMark(this.id)" id="blue"><img src="../img/pAzulV.png" width="20"
-                                            height="20" />Azul</a>
-                                    <a onclick="changeMark(this.id)" id="Ppurple"><img src="../img/clusMorado.png"
-                                            width="20" height="20" />Morado</a>
-                                    <a onclick="changeMark(this.id)" id="Pgray"><img src="../img/clusGris.png"
-                                            width="20" height="20" />Gris</a>
-                                    <a onclick="changeMark(this.id)" id="Ppurple"><img src="../img/clusMorado.png"
-                                            width="20" height="20" />Morado</a>
-                                    <a onclick="changeMark(this.id)" id="Porange"><img src="../img/clusNaranja.png"
-                                            width="20" height="20" />Gris</a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <div>
-                        <button class="btn btn-outline-success" type="button" onclick="reloadIcons()">
-                            <i class="bi bi-check-circle"></i>
+                   <!--Menú que despliega lista de colores layers-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" onclick="ListColors('Layers','ulColorListLayers')">
+                            Color mapa base
                         </button>
+                        <ul class="dropdown-menu">
+                            <div id="ulColorListLayers" class="container-fluid"></div>
+                        </ul>
+                    </div>
+                    <!--Lista de opciones de opacidad del marcador-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="width: 230px;">
+                            Opacidad del mapa base
+                        </button>
+                        <ul id="" class="dropdown-menu" style="width: 50px;">
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(1)">100%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.9)">90%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.8)">80%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.7)">70%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.6)">60%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.5)">50%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.4)">40%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.3)">30%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.2)">20%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.1)">10%</a></li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <!--Lista de tamaño del marcador-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="width: 230px;">
+                            Tamaño del marcador
+                        </button>
+                        <ul class="dropdown-menu" style="width: 50px;">
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(10)">1x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(15)">1.5x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(20)">2x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(25)">2.5x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(30)">3x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(35)">3.5x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(40)">4x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(50)">5x</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(60)">6x</a></li>
+                        </ul>
+                    </div>
+                    <!--Menú que despliega lista de colores-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" onclick="ListColors('Marks','ulColorListMarks')">
+                            Color de marcador
+                        </button>
+                        <ul class="dropdown-menu">
+                            <div id="ulColorListMarks" class="container-fluid"></div>
+                        </ul>
+                    </div>
+                    <!--Lista de opciones de opacidad del marcador-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="width: 230px;">
+                            Opacidad del marcador
+                        </button>
+                        <ul id="" class="dropdown-menu" style="width: 50px;">
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(1)">100%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.9)">90%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.8)">80%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.7)">70%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.6)">60%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.5)">50%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.4)">40%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.3)">30%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.2)">20%</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.1)">10%</a></li>
+                        </ul>
                     </div>
 
                     <hr>
@@ -928,7 +947,7 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Reporte de resultados</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" tab>
                 <div id="divTableModal"></div>
                 <div id="divDocModal" class="divCols" id="divTableModal" spellcheck="true"></div>
             </div>
@@ -953,6 +972,7 @@
     }).setView([5.1, -75.55], 5);
 
     let ActiveTile;
+
     async function showTile(object) {
         tileMLayer = L.tileLayer(TileLayerA[object.id], {
             // Y un mapa con un límite de zoom.
@@ -961,6 +981,21 @@
         }).addTo(map);
 
     }
+
+    //Crea una capa en el mapa para colocar los marcadores tipo poligono, pero los deja siempre arriba.  
+    map.createPane('polygonsPane');
+    map.getPane('polygonsPane').style.zIndex = 700;
+    //Crea una capa en el mapa para colocar el mapa croquis.
+    map.createPane('mapPane');
+    map.getPane('mapPane').style.zIndex = 500;
+
+    //Crea una capa en el mapa para las capas de analisis.
+    map.createPane('mapLayers');
+    map.getPane('mapLayers').style.zIndex = 600;
+    //Crea una capa en el mapa para las capas de analisis.
+    map.createPane('mapPopUps');
+    map.getPane('mapPopUps').style.zIndex = 800;
+
 
 
 

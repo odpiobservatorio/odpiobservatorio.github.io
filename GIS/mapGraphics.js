@@ -58,14 +58,8 @@ const macros = {
 const formatoPlano = {
     "color": "orange", // Configuracion de color 
     "opacidad": "0.5", // Configuracion de Opacidad
-    "markType": "green", //Tipo de marcas q se muestran
-    "size": 1, // Tamaño de las marcas
 }
 
-function updateSize(value) {
-    // Actualiza el tamaño de las marcas
-    formatoPlano.size = parseFloat(value);
-}
 
 function seeMacro(macroKey) {
     const macro = macros[macroKey];
@@ -109,31 +103,6 @@ function showMacro(checkBox) {
     }
 }
 
-function resetIconSize() {
-    // Resetea el tamaño de las marcas y las muestra nuevamente
-    document.getElementById("sizeIconV").value = 1;
-    formatoPlano.size = 1;
-    reloadIcons()
-}
-
-function reloadIcons() {
-    /*
-    * Recarga las marcas en el mapa, con la configuracion actualizada
-    */
-
-    //Limpiamos las marcas del mapa
-    clearMarkers();
-
-    // Mostrar datos en el mapa
-    showBusqueda(bigData.DataToReport);
-}
-
-function changeMark(value) {
-    /* 
-    * Cambia el tipo de la marca q se muestra
-    */
-    formatoPlano["markType"] = value
-}
 
 function clearLayers() {
     /*
@@ -216,7 +185,6 @@ function showLayer(parent) {
 
     if (checkBox.checked) {
         allLayers[key]();
-        //LeyendaActiva = key
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key])
 
@@ -226,13 +194,12 @@ function showLayer(parent) {
 
 }
 
+//Administra los objetos que son superpeustos
 function showOverLay(parent) {
     const checkBox = parent.querySelector(".form-check-input");
     if (checkBox.checked) {
         allLayers["LayerPIR"]()
-
     } else {
-
         MarkPIR.forEach(elemento => {
             map.removeLayer(elemento)
         })
@@ -261,11 +228,9 @@ function colorMap(casos, max = 794) {
 }
 //------------
 
-let a = 1
+
 //Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
-
-
     "LayerPlano": () => {
         Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
             style: {
@@ -273,10 +238,9 @@ const allLayers = {
                 weight: 0,
                 fillColor: formatoPlano["color"],
                 fillOpacity: formatoPlano["opacidad"],
+                pane: 'mapPane' //Orden en la capa              
             }
-        }).bindPopup((layer) => {
-            return layer.feature.properties.categoria
-        }).addTo(map);
+        }).addTo(map)
     },
 
     "LayerMapaCalor": () => {
@@ -313,7 +277,8 @@ const allLayers = {
                     opacity: 1,
                     color: 'white',
                     //dashArray: '3',
-                    fillOpacity: 0.75
+                    fillOpacity: 0.75,
+                    pane: 'mapLayers'
                 }
             }
         }).bindPopup((layer) => {
@@ -345,8 +310,8 @@ const allLayers = {
                     weight: 2,
                     opacity: 1,
                     color: 'white',
-                    //dashArray: '3',
-                    fillOpacity: 0.75
+                    fillOpacity: 0.75,
+                    pane: 'mapLayers'
                 }
             }
         }).bindPopup((layer) => {
@@ -382,7 +347,7 @@ const allLayers = {
                     weight: 2,
                     opacity: 1,
                     color: 'white',
-                    //dashArray: '3',
+                    pane: 'mapLayers',
                     fillOpacity: 0.75
                 }
             }
@@ -418,7 +383,7 @@ const allLayers = {
                     weight: 2,
                     opacity: 1,
                     color: 'white',
-                    //dashArray: '3',
+                    pane: 'mapLayers',
                     fillOpacity: 0.75
                 }
             }
@@ -438,6 +403,7 @@ const allLayers = {
                     weight: 0,
                     fillColor: "red",
                     fillOpacity: 5,
+                    pane: 'mapLayers'
                 },
                 filter: function (feature, layer) {
                     if (Datafilter == 1) {
@@ -459,9 +425,9 @@ const allLayers = {
                 style: {
                     color: formatoPlano.color,
                     weight: 1,
-                    // fillColor: "darkgray",
+                    pane: 'mapLayers',
                     fillOpacity: 0,
-                    icon: icons[formatoPlano["markType"]]
+                    
                 },
                 filter: function (feature, layer) {
                     if (Datafilter == 1) {
@@ -483,7 +449,7 @@ const allLayers = {
                 style: {
                     color: formatoPlano.color,
                     weight: 1,
-                    // fillColor: "darkgray",
+                    pane: 'mapLayers',
                     fillOpacity: 0,
                 },
                 filter: function (feature, layer) {
@@ -506,9 +472,10 @@ const allLayers = {
         Layers["LayerRutaMigrantes"] = new L.geoJSON(capaRutaMigrantes, {
             style: {
                 color: "red",
-                weight: 5,
+                weight: 3,
                 fillColor: "#873600",
-                fillOpacity: 0.5
+                fillOpacity: 0.5,
+                pane: 'mapLayers'
             }
 
         }).bindPopup((layer) => {
@@ -517,9 +484,13 @@ const allLayers = {
     },
 
     "LayerNarcotrafico": () => {
+
+
         Layers["LayerNarcotrafico"] = new L.geoJSON(capaPuntosNarcotrafico, {
-            pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pNegroN") });
+            pointToLayer: function (feature, latlng)
+            //
+            {
+                return PutMarkCicle(true, 'blue', 1, 20000, latlng.lat, latlng.lng);
             }
         }).bindPopup((layer) => {
             return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
@@ -529,7 +500,7 @@ const allLayers = {
     "LayerContrabando": () => {
         Layers["LayerContrabando"] = new L.geoJSON(capaContrabando, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pAzulC") });
+                return PutMarkCicle(true, 'black', 1, 20000, latlng.lat, latlng.lng);
             }
         }).bindPopup((layer) => {
             return `Tipo: ${layer.feature.properties.CONTRABAND}, Lugar: ${layer.feature.properties.NOM_CPOB}`;
@@ -546,12 +517,11 @@ const allLayers = {
                     return {
                         color: "white",
                         weight: 1,
-                        weight: 1,
                         fillColor: "green",
+                        pane: 'mapLayers',
                         fillOpacity: feature.properties.Procentaje,
                     }
                 },
-
 
             }).bindPopup((layer) => {
                 return "Departamento:" + layer.feature.properties.DeNombre + ` Hectareas ${layer.feature.properties.Hectareas}`
@@ -560,14 +530,13 @@ const allLayers = {
             ).addTo(map);
     },
 
-
-
     "LayerFluvialIlegal": () => {
         Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
             style: {
                 color: "#2E86C1",
                 weight: 1,
                 fillColor: "#2E86C1",
+                pane: 'mapLayers',
                 fillOpacity: 0.5
             }
 
@@ -582,6 +551,7 @@ const allLayers = {
                 color: "purple",
                 weight: 3,
                 fillColor: "#873600",
+                pane: 'mapLayers',
                 fillOpacity: 0.5
             }
         }).bindPopup((layer) => {
@@ -593,9 +563,9 @@ const allLayers = {
         Layers["LayerPdet"] = new L.geoJSON(cpaPdet, {
             style: {
                 color: "white",
-                pointToLayer: { icon: icons[formatoPlano["markType"]] },
                 weight: 1,
                 fillColor: "#873600",
+                pane: 'mapLayers',
                 fillOpacity: 0.5
             }
         }).bindPopup((layer) => {
@@ -609,6 +579,7 @@ const allLayers = {
                 color: "white",
                 weight: 1,
                 fillColor: "red",
+                pane: 'mapLayers',
                 fillOpacity: 0.5
             }
         }).bindPopup((layer) => {
@@ -623,7 +594,8 @@ const allLayers = {
                 color: "white",
                 weight: 0,
                 fillColor: "#212F3D",
-                fillOpacity: 1
+                fillOpacity: 1,
+                pane: 'mapLayers'
             }
         }).bindPopup((layer) => {
 
@@ -638,7 +610,8 @@ const allLayers = {
             style: {
                 color: "orange",
                 fillColor: "orange",
-                fillOpacity: 3
+                fillOpacity: 3,
+                pane: 'mapLayers'
             }
         }).bindPopup((layer) => {
             return layer.feature.properties.NOMBRE_ZONA_RESERVA_CAMPESINA
@@ -650,7 +623,8 @@ const allLayers = {
             style: {
                 color: "#5DADE2",
                 fillColor: "#5DADE2",
-                fillOpacity: 3
+                fillOpacity: 3,
+                pane: 'mapLayers'
             }
         }).bindPopup((layer) => {
             return layer.feature.properties.Name;
@@ -658,20 +632,24 @@ const allLayers = {
     },
 
     "LayerBloquePretrolero": () => {
+        let LabelB
         Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero,
             {
                 style: (feature) => {
+                    LabelB = PutPopUpZ(
+                        `Tipo: ${feature.properties.LEYENDA}
+                        Operador: ${feature.properties.TIPO_CONTR} 
+                        Estado: ${feature.properties.ESTAD_AREA}`)
                     return {
                         color: feature.properties.backcolor,
                         fillColor: feature.properties.backcolor,
                         weight: 1,
                         fillOpacity: 0.6,
+                        pane: 'mapLayers'
                     }
                 },
             }
-        ).bindPopup((layer) => {
-            return `Tipo: ${layer.feature.properties.LEYENDA}, Operador: ${layer.feature.properties.TIPO_CONTR}, Estado: ${layer.feature.properties.ESTAD_AREA}`
-        }).addTo(map);
+        ).bindPopup(LabelB).addTo(map);
     },
 
     "LayerFondo": () => {
@@ -682,8 +660,7 @@ const allLayers = {
                 fillColor: "white",
                 fillOpacity: 1,
             }
-        }).bindPopup((layer) => {
-        }).addTo(map);
+        }).bindPopup().addTo(map);
     },
     "LayerFondoDark": () => {
         Layers["LayerFondoDark"] = new L.geoJSON(FondoLayer, {
@@ -693,57 +670,65 @@ const allLayers = {
                 fillColor: "black",
                 fillOpacity: 1,
             }
-        }).bindPopup((layer) => {
-        }).addTo(map);
+        }).bindPopup().addTo(map);
     },
-
-
 
     //Grupos armados ilegales
     "LayerELN": () => {
+        let LabelB
         Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
-            style: {
-                color: "white",
-                weight: 1,
-                fillColor: "yellow",
-                fillOpacity: 0.8
+            style: (feature) => {
+                LabelB = PutPopUpZ("ELN 2022 "
+                    + feature.properties.MpNombre
+                    + " " + feature.properties.Depto)
+                return {
+                    color: "white",
+                    weight: 1,
+                    fillColor: "yellow",
+                    fillOpacity: 0.8,
+                    pane: 'mapLayers'
+                }
             }
-        }).bindPopup((layer) => {
-            return "ELN 2022 " + layer.feature.properties.MpNombre + " " + layer.feature.properties.Depto
-        }).addTo(map);
+        }).bindPopup(LabelB).addTo(map);
     },
 
 
     "LayerGentilDuarte": () => {
+        let LabelB
         Layers["LayerGentilDuarte"] = new L.geoJSON(GentilDuarte2022Pares, {
-            style: {
-                color: "white",
-                weight: 1,
-                fillColor: "gray",
-                fillOpacity: 0.8
+
+            style: (feature) => {
+                LabelB = PutPopUpZ(
+                    feature.properties.nombre_dpt + " "
+                    + feature.properties.nombre_mpi
+                    + " Gentil Duarte (Pares 2022)")
+                return {
+                    color: "white",
+                    weight: 1,
+                    fillColor: "gray",
+                    fillOpacity: 0.8,
+                    pane: 'mapLayers'
+                }
             }
-        }).bindPopup((layer) => {
-            return layer.feature.properties.nombre_dpt + " "
-                + layer.feature.properties.nombre_mpi
-                + " Gentil Duarte (Pares 2022)"
-        }).addTo(map);
+        }).bindPopup(LabelB).addTo(map);
     },
 
 
     "LayerAAPuntos": () => {
+        let LabelB
         Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
             style: (feature) => {
+                LabelB = PutPopUpZ(
+                    feature.properties.NombreAA)
                 return {
                     color: feature.properties.backcolor,
                     fillColor: feature.properties.backcolor,
                     weight: 6,
                     fillOpacity: 1,
+                    pane: 'mapLayers',
                 }
             },
-        }).bindPopup((layer) => {
-            //layer.feature.properties.Nombre
-            return layer.feature.properties.NombreAA
-        }).addTo(map);
+        }).bindPopup(LabelB).addTo(map);
     },
 
 
@@ -756,84 +741,84 @@ const allLayers = {
                     fillColor: "gray",
                     weight: 1,
                     fillOpacity: 1,
+                    pane: 'mapLayers'
                 }
             },
-        }).bindPopup((layer) => {
-            "Cluster de afectaciones a los DPI OBSERVATORIO ODPI ONIC 2016-2023"
-            //layer.feature.properties.Nombre
-            //return layer.feature.properties.NombreAA
-        }).addTo(map);
+        }).bindPopup("Cluster de afectaciones a los DPI OBSERVATORIO ODPI ONIC 2016-2023").addTo(map);
     },
 
 
 
     "LayerMacroT": () => {
+        let LabelB
         Layers["LayerMacroT"] = new L.geoJSON(MacroTcv, {
             style: (feature) => {
+                //Configuro el Popup nuevo
+                LabelB = PutPopUpZ(
+                    feature.properties.MacroT
+                    + feature.properties.nombre_mpi
+                    + " " + feature.properties.nombre_dpt)
                 return {
                     color: feature.properties.backColor,
                     fillColor: feature.properties.backColor,
                     weight: 1,
                     fillOpacity: 0.6,
+                    pane: 'mapLayers',
                 }
             },
-        }).bindPopup((layer) => {
-            //layer.feature.properties.Nombre
-            return layer.feature.properties.MacroT + " "
-                + layer.feature.properties.nombre_mpi
-                + " " + layer.feature.properties.nombre_dpt
-        }).addTo(map);
+        }).bindPopup(LabelB).addTo(map);
     },
 
     "LayerPIR": () => {
         PlanPIR.forEach(elemento => {
             let LatIn = "";
             let LngIn = "";
+            let Mark;
+
 
             if (elemento.EstadoFase == "IMPLEMENTADO") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG
-                formatoPlano["markType"] = "Pgreen"
+                Mark = PutMarkCicle(true, 'green', 0.8, 20000, LatIn, LngIn)
 
             } else if (elemento.EstadoFase == "IMPLEMENTACIÓN") {
                 LatIn = elemento.LAT - 0.2
                 LngIn = elemento.LNG
-                formatoPlano["markType"] = "Pblue"
+                Mark = PutMarkCicle(true, 'blue', 0.8, 20000, LatIn, LngIn)
 
             } else if (elemento.EstadoFase == "ALISTAMIENTO") {
                 LatIn = elemento.LAT + 0.2
                 LngIn = elemento.LNG
-                formatoPlano["markType"] = "Pgray"
+                Mark = PutMarkCicle(true, 'gray', 0.8, 20000, LatIn, LngIn)
 
             } else if (elemento.EstadoFase == "IDENTIFICACIÓN") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG + 0.2
-                formatoPlano["markType"] = "Ppurple2"
+                Mark = PutMarkCicle(true, '#EF59A4', 0.8, 20000, LatIn, LngIn)
+
 
             } else if (elemento.EstadoFase == "CARACTERIZACIÓN DEL DAÑO") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG - 0.2
-                formatoPlano["markType"] = "Ppurple"
+                Mark = PutMarkCicle(true, 'purple', 0.8, 20000, LatIn, LngIn)
             }
             else if (elemento.EstadoFase == "DISEÑO Y FORMULACIÓN") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG + 0.2
-                formatoPlano["markType"] = "Porange"
+                Mark = PutMarkCicle(true, 'orange', 0.8, 20000, LatIn, LngIn)
             }
 
             try {
-                PIRm = new L.marker([LatIn, LngIn], { icon: icons[formatoPlano["markType"]]() })
-                    .addTo(map)
-                    .bindPopup(
-                        `<div>
-                        <div class="fw-medium text-success">${elemento.Municipio}</div>
-                        <div class="ms-1"><b>Estado: </b>${elemento.EstadoFase}</div>
-                        <div class="ms-1"><b>Pdet: </b>${elemento.PDET}</div>
-                        <div class=" mt-2 ms-1 mb-2"><b>Sujeto: </b>${elemento.SujetoColectivo}</div>
-                        <div class="ms-1"><b>Estado RUV: </b>:${elemento.EstadoRUV}</div>
-                        <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
-                    </div>`
-                    )
+                PIRm = Mark.bindPopup(
+                    PutPopUpZ(`<div>
+                    <div class="fw-medium text-success">${elemento.Municipio}</div>
+                    <div class="ms-1"><b>Estado: </b>${elemento.EstadoFase}</div>
+                    <div class="ms-1"><b>Pdet: </b>${elemento.PDET}</div>
+                    <div class=" mt-2 ms-1 mb-2"><b>Sujeto: </b>${elemento.SujetoColectivo}</div>
+                    <div class="ms-1"><b>Estado RUV: </b>:${elemento.EstadoRUV}</div>
+                    <div class="ms-1"><b>Avance: %</b>:${elemento.PorcentajeAvancePIRC}</div>                  
+                </div>`));
+                map.addLayer(PIRm)
                 MarkPIR.push(PIRm)
             } catch (error) {
                 console.log(elemento)
@@ -842,12 +827,14 @@ const allLayers = {
     },
 
     "LayerIRV": () => {
+
         let Opacity;
+        let parent
         Layers["LayerIRV"] = new L.geoJSON(capaIRV,
 
             {
                 style: (feature) => {
-
+                    parent = feature.properties
                     let MUN = feature.properties.nombre_mpi
 
                     let filteredMun = IRV.filter(mun =>
@@ -869,38 +856,52 @@ const allLayers = {
                 },
 
             }
-        ).bindPopup((layer) => {
-            let Cluster;
-            let Pdet;
-            let Estimado;
-            let parent = layer.feature.properties
-            let MUN = parent.nombre_mpi
-            let filteredMun = IRV.filter(mun =>
-                mun.Municipio.toLocaleLowerCase() == MUN.toLocaleLowerCase());
-            try {
-                Cluster = filteredMun[0].Cluster
-                Pdet = filteredMun[0].Pdet
-                Estimado = filteredMun[0].Estimado.toFixed([3])
-            } catch (error) {
-                Cluster = "Sin info"
-                Pdet = "Sin info"
+        ).bindPopup(
+            PutPopUpZ(
+                (layer) => {
+                    let label
+                    let parent = layer.feature.properties
+                    let MUN = parent.nombre_mpi
+                    let filteredMun = IRV.filter(mun =>
+                        mun.Municipio.toLocaleLowerCase() == MUN.toLocaleLowerCase());
 
-            }
+                    try {
+                        label = `
+                        <div>
+                            <div class="fw-medium text-success">${parent.nombre_mpi}</div>
+                            <div>Riesgo: ${filteredMun[0].Cluster}</div>
+                            <div>Pdet: ${filteredMun[0].Pdet}</div>
+                            <div>Estimado: ${filteredMun[0].Estimado.toFixed([3])}</div>
+                        </div>        
+                        `
 
-            return `
-            <div>
-                <div class="fw-medium text-success">${parent.nombre_mpi}</div>
-                <div>Riesgo: ${Cluster}</div>
-                <div>Pdet: ${Pdet}</div>
-                <div>Estimado: ${Estimado}</div>
-            </div>        
-            `
-        }).addTo(map);
+                    } catch (error) {
+                        label = `
+                        <div>
+                            <div class="fw-medium text-success">${parent.nombre_mpi}</div>
+                            <div>Riesgo: Sin información</div>
+                            <div>Pdet: Sin información</div>
+                            <div>Estimado: Sin información</div>
+                        </div>        
+                        `
+                    }
+
+                    return label
+
+                }
+            )
+
+
+
+        ).addTo(map);
     },
+
+
+
     "LayerText": () => {
         Layers["LayerText"] = new L.geoJSON(capaText, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { icon: otherIcons2.MakeIcon("pAzulC") });
+                return L.marker(latlng);
             }
         }).bindPopup((layer) => {
             return `Nombre: ${layer.feature.properties.Departamento}`;
@@ -910,325 +911,14 @@ const allLayers = {
 
 }
 
-//*****************************************************
-//Variables para iconos personalizados
-//*****************************************************
 
-const iconsPaths = {
-    green: "../img/pVerdeV.png",
-    black: "../img/pNegroV.png",
-    red: "../img/pRojoV.png",
-    blue: "../img/pAzulV.png",
-    purple: "../img/pMoradoV.png",
-
-    //Cuadros de color
-    Ppurple: "../img/clusMorado.png",
-    Ppurple2: "../img/clusMorado2.png",
-    Pblue: "../img/clusAzul.png",
-    Pgray: "../img/clusGris.png",
-    Porange: "../img/clusNaranja.png",
-    Pred: "../img/clusRojo.png",
-    Pgreen: "../img/clusVerde.png",
-    Pgreen2: "../img/clusVerde2.png",
-
-
-    //Marcas libres
-    pSenaladorMorado: "../img/pSenaladorMorado.png",
-    pSenaladorGris: "../img/pSenaladorGris.png",
-    pSenaladorAzul: "../img/pSenaladorAzul.png",
-    pSenaladorVerde: "../img/pSenaladorVerde.png",
-    pSenaladorRojo: "../img/pSenaladorRojo.png",
-
-}
-
-const icons = {
-    /*
-    * Al llamar una funcion se obtiene un icono personalizado con las especificaciones
-    * Se usa tambien en mapData.js
-    */
-
-    "green": () => {
-        return L.icon({
-            iconUrl: iconsPaths.green,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        });
-    },
-
-
-    "black": () => {
-        return L.icon({
-            iconUrl: iconsPaths.black,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-
-    "red": () => {
-        return L.icon({
-            iconUrl: iconsPaths.red,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    }
-    ,
-
-    "blue": () => {
-        return L.icon({
-            iconUrl: iconsPaths.blue,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-    "purple": () => {
-        return L.icon({
-            iconUrl: iconsPaths.purple,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-    "Ppurple": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Ppurple,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-
-    "Ppurple2": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Ppurple2,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-    "Pblue": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Pblue,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-    "Pgray": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Pgray,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-    "Porange": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Porange,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-    "Pred": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Pred,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-    "Pgreen": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Pgreen,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-    "Pgreen2": () => {
-        return L.icon({
-            iconUrl: iconsPaths.Pgreen2,
-            shadowUrl: '',
-
-            iconSize: [18 * formatoPlano.size, 18 * formatoPlano.size], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [9 * formatoPlano.size, 18 * formatoPlano.size], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-    },
-
-
-
-}
-
-
-
-//Cambia el color del mapa, cambiando las especificaciones de la configuracion
-function AplicarColorMapa() {
-    formatoPlano["color"] = document.getElementById("colorMapaColor").value;
-    formatoPlano["opacidad"] = document.getElementById("colorMapOpacity").value;
-
-    //Si el mapa tiene la capa activa, la elimina y genera nuevamente con los colores actualizados
-    //Asi el cambio de la configuracion es instantaneo
-    if (Layers.hasOwnProperty("LayerPlano") && map.hasLayer(Layers["LayerPlano"])) {
-        map.removeLayer(Layers["LayerPlano"]);
-        allLayers["LayerPlano"]();
-    }
-
-    if (Layers.hasOwnProperty("currentDep")) {
-        showDep();
-    }
-}
 
 function RemoverLabels() {
     LabelsMap.forEach(elemento => {
         map.removeLayer(elemento)
     })
-
-    console.log(MarkPoligon)
-    MarkPoligon.forEach(elemento => {
-        map.removeLayer(elemento)
-    })
-}
-
-let MarkPoligon = [];
-function PutMarkPoligon() {
-
-    poly1 = [
-        [
-            [7.30, -74.83],
-            [6.88, -74.83],
-            [6.88, -74.28],
-            [7.30, -74.28],
-            [7.30, -74.28],
-        ]
-    ]
-
-    try {
-        circle = new L.circle([4.797, -74.030],
-            {
-                draggable: true,
-                color: '#810541',
-                fillColor: '#D462FF',
-                fillOpacity: 0.5,
-                radius: 20000
-            })
-
-            circle.on('dragend', function (e) {
-            })
-            MarkPoligon.push(circle)
-
-    } catch (error) {
-        alert(error.code)
-    }
-
-
-
-
-    polygon = new L.Polygon([poly1], {
-        draggable: true,
-        color: 'green',
-        fillColor: 'green',
-        fillOpacity: 1,
-    })
-
-        polygon.on('dragend', function (e) {
-            console.log(e.target._latlngs[0][0]);
-        }),
-        MarkPoligon.push(polygon)
-
-    map.addLayer(circle);
-
-
-
-
-
-
-
-
-
-}
-
-function PutLabelFree() {
-    let lb = document.getElementById("inLabel").value
-    const LbEdit = `
-        <div class="text-success" style="font-size:small;">${lb}</div>
-    `
-
-    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon("pSenalador") },);
-    LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
-    LabelMap.on('dragend',
-        function (event) {
-            LabelMap = event.target;
-            const position = LabelMap.getLatLng();
-            LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
-        });
-    map.addLayer(LabelMap);
-    LabelsMap.push(LabelMap)
-    //
-}
-function PutMarkFree(icon) {
-
-    let lb = document.getElementById("inLabel").value
-    const LbEdit = `
-    <a type="text" class="form-control tLeyenda nav-lik" value="${lb}">  
-    `
-    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon(icon.value) },);
-    LabelMap.on('dragend', function (event) {
-        LabelMap = event.target;
-        const position = LabelMap.getLatLng();
-        LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
-    });
-    map.addLayer(LabelMap);
-    LabelsMap.push(LabelMap)
-    //
+    //Funcion de GoblaMapGraphiscs
+    DeleteMarks()
 }
 
 function MostrarLeyendas() {
@@ -1324,8 +1014,8 @@ function MostrarLeyendas() {
 
 
 
-    //<img src="${iconsPaths[formatoPlano.markType]}" width="18" height="18">
-    LabelMap = new L.marker([4.797, -74.030], { draggable: 'true', icon: otherIcons2.MakeIcon("senalador") },);
+    let LabelMap = PutMarkCicle(false, 'azure', 1, 15000)
+
     LabelMap.bindTooltip(templateLeyenda, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
@@ -1336,17 +1026,3 @@ function MostrarLeyendas() {
     LabelsMap.push(LabelMap)
 }
 
-
-const otherIcons2 = {
-    MakeIcon(key) {
-        const IconC = L.icon({
-            iconUrl: `../img/${key}.png`,
-            shadowUrl: '',
-            iconSize: [14, 14], // size of the icon
-            shadowSize: [50, 64], // size of the shadow
-            iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-            popupAnchor: [-0, -0] // point from which the popup should open relative to the iconAnchor
-        })
-        return IconC
-    }
-}
