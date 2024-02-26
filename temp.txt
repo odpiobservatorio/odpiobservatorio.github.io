@@ -1,3 +1,10 @@
+            PutPopUpZ(
+                (layer) => {
+                    return layer.feature.properties.NombreAA
+                }
+            )
+
+
 const icons = {
     /*
     * Al llamar una funcion se obtiene un icono personalizado con las especificaciones
