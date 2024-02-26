@@ -50,7 +50,7 @@ function PutMarkCicle(
     static = false,
     colorB = 'black',
     fillOpacity = 1,
-    radius = 20000,
+    radius = 10,
     LatB = 4.797,
     LngB = -74.030,
 
@@ -72,7 +72,7 @@ function PutMarkCicle(
 
 
 
-    circle = new L.circle([Lat, Lng],
+    circle = new L.circleMarker([Lat, Lng],
         {
             draggable: draggable,
             color: 'white',
@@ -180,7 +180,7 @@ function UpdateOpacityMark(fillOpacity) {
 }
 function UpdateRadiusMark(radius) {
     bigData.MrkAntecedente.forEach(marca => {
-        marca.setRadius(radius * 1000)
+        marca.setRadius(radius)
     })
 }
 function UpdateColorLayer(color) {

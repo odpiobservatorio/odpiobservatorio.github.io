@@ -441,7 +441,7 @@ const allLayers = {
             pointToLayer: function (feature, latlng)
             //
             {
-                return PutMarkCicle(true, 'blue', 1, 20000, latlng.lat, latlng.lng);
+                return PutMarkCicle(true, 'blue', 1, 10, latlng.lat, latlng.lng);
             }
         }).bindPopup(
             PutPopUpZ(
@@ -454,7 +454,7 @@ const allLayers = {
     "LayerContrabando": () => {
         Layers["LayerContrabando"] = new L.geoJSON(capaContrabando, {
             pointToLayer: function (feature, latlng) {
-                return PutMarkCicle(true, 'black', 1, 20000, latlng.lat, latlng.lng);
+                return PutMarkCicle(true, 'black', 1, 10, latlng.lat, latlng.lng);
             }
         }).bindPopup(
             PutPopUpZ(
@@ -614,33 +614,33 @@ const allLayers = {
             if (elemento.EstadoFase == "IMPLEMENTADO") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG
-                Mark = PutMarkCicle(true, 'green', 0.8, 20000, LatIn, LngIn)
+                Mark = PutMarkCicle(true, 'green', 0.8, 10, LatIn, LngIn)
 
             } else if (elemento.EstadoFase == "IMPLEMENTACIÓN") {
                 LatIn = elemento.LAT - 0.2
                 LngIn = elemento.LNG
-                Mark = PutMarkCicle(true, 'blue', 0.8, 20000, LatIn, LngIn)
+                Mark = PutMarkCicle(true, 'blue', 0.8, 10, LatIn, LngIn)
 
             } else if (elemento.EstadoFase == "ALISTAMIENTO") {
                 LatIn = elemento.LAT + 0.2
                 LngIn = elemento.LNG
-                Mark = PutMarkCicle(true, 'gray', 0.8, 20000, LatIn, LngIn)
+                Mark = PutMarkCicle(true, 'gray', 0.8, 10, LatIn, LngIn)
 
             } else if (elemento.EstadoFase == "IDENTIFICACIÓN") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG + 0.2
-                Mark = PutMarkCicle(true, '#EF59A4', 0.8, 20000, LatIn, LngIn)
+                Mark = PutMarkCicle(true, '#EF59A4', 0.8, 10, LatIn, LngIn)
 
 
             } else if (elemento.EstadoFase == "CARACTERIZACIÓN DEL DAÑO") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG - 0.2
-                Mark = PutMarkCicle(true, 'purple', 0.8, 20000, LatIn, LngIn)
+                Mark = PutMarkCicle(true, 'purple', 0.8, 10, LatIn, LngIn)
             }
             else if (elemento.EstadoFase == "DISEÑO Y FORMULACIÓN") {
                 LatIn = elemento.LAT
                 LngIn = elemento.LNG + 0.2
-                Mark = PutMarkCicle(true, 'orange', 0.8, 20000, LatIn, LngIn)
+                Mark = PutMarkCicle(true, 'orange', 0.8, 10, LatIn, LngIn)
             }
 
             try {
