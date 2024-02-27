@@ -275,8 +275,21 @@ function SaveMarks() {
     a.download = 'Puntos ODPI';
     a.click();
     URL.revokeObjectURL(url);
-
-
-
-
 }
+
+function leerArchivo(e) {
+    var archivo = e.target.files[0];
+    if (!archivo) {
+      return;
+    }
+    var lector = new FileReader();
+    lector.onload = function(e) {
+      var contenido = e.target.result;
+      console.log(contenido)
+    };
+    lector.readAsText(archivo);
+  }
+
+  
+  document.getElementById('file-input')
+    .addEventListener('change', leerArchivo);
