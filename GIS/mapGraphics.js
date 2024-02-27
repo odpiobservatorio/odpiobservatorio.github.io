@@ -195,7 +195,7 @@ function showLayer(parent) {
         allLayers[key]();
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key])
-
+        LeyendaActiva = key
         delete Layers[key];
 
     }
@@ -346,8 +346,8 @@ const allLayers = {
             PutPopUpZ(
                 (layer) => {
                     return layer.feature.properties.MacroT
-                    + layer.feature.properties.nombre_mpi
-                    + " " + layer.feature.properties.nombre_dpt;
+                        + layer.feature.properties.nombre_mpi
+                        + " " + layer.feature.properties.nombre_dpt;
                 }
             )
         ).addTo(map);
@@ -524,8 +524,8 @@ const allLayers = {
             ).addTo(map);
     },
 
-     //Grupos armados ilegales
-     "LayerELN": () => {
+    //Grupos armados ilegales
+    "LayerELN": () => {
         Layers["LayerELN"] = new L.geoJSON(ELN2022Pares, {
             style: (feature) => {
                 LabelB = PutPopUpZ()
@@ -541,8 +541,8 @@ const allLayers = {
             PutPopUpZ(
                 (layer) => {
                     return "ELN 2022 "
-                    + layer.feature.properties.MpNombre
-                    + " " + layer.feature.properties.Depto
+                        + layer.feature.properties.MpNombre
+                        + " " + layer.feature.properties.Depto
                 }
             )
         ).addTo(map);
@@ -550,7 +550,7 @@ const allLayers = {
 
     "LayerGentilDuarte": () => {
         Layers["LayerGentilDuarte"] = new L.geoJSON(GentilDuarte2022Pares, {
-            style: (feature) => {               
+            style: (feature) => {
                 return {
                     color: "white",
                     weight: 1,
@@ -563,8 +563,8 @@ const allLayers = {
             PutPopUpZ(
                 (layer) => {
                     return layer.feature.properties.nombre_dpt + " "
-                    + layer.feature.properties.nombre_mpi
-                    + " Gentil Duarte (Pares 2022)"
+                        + layer.feature.properties.nombre_mpi
+                        + " Gentil Duarte (Pares 2022)"
                 }
             )
         ).addTo(map);
@@ -717,7 +717,7 @@ const allLayers = {
                             <div>Estimado: Sin información</div>
                         </div>        
                         `
-                   }
+                    }
 
                     return label
 
@@ -729,8 +729,8 @@ const allLayers = {
         ).addTo(map);
     },
 
-       //Variable que guarda el layer MAP
-       "LayerTitulos": () => {
+    //Variable que guarda el layer MAP
+    "LayerTitulos": () => {
         Layers["LayerTitulos"] = new L.geoJSON(TitulosMineros, {
             style: {
                 color: "white",
@@ -976,6 +976,7 @@ function RemoverLabels() {
 }
 
 function MostrarLeyendas() {
+    alert(LeyendaActiva)
     let templateLeyenda = document.createElement('div');
     templateLeyenda.className = "text-dark"
     let hrLeyenda = document.createElement('div');
@@ -1066,11 +1067,17 @@ function MostrarLeyendas() {
         })
     }
 
+    let LabelMap = PutMarkCicle(false, 'gray', 0.5, 5)
 
-
-    let LabelMap = PutMarkCicle(false, 'azure', 1, 15000)
-
-    LabelMap.bindTooltip(templateLeyenda, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.bindTooltip(
+        templateLeyenda,
+        {
+            draggable: 'true',
+            permanent: true,
+            className: "map-labels",
+            offset: [10, 0],
+            pane: 'polygonsPane'
+        });
     LabelMap.on('dragend', function (event) {
         LabelMap = event.target;
         const position = LabelMap.getLatLng();

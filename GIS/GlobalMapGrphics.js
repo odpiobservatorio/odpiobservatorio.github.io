@@ -144,7 +144,7 @@ function PutLabelFree() {
         <div class="text-success" style="font-size:small;">${lb}</div>
     `
 
-    let LabelMap = PutMarkCicle(false, 'azure', 1, 15000)
+    let LabelMap = PutMarkCicle(false, 'azure', 0.5, 5)
     LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend',
         function (event) {
@@ -235,8 +235,8 @@ let exportableMark=[]
                 pane: marca.options.pane,
             }
         )
-        console.log(exportableMark)
+        
     })
-
+    console.log(exportableMark)
 
 }
