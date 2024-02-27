@@ -53,6 +53,7 @@ function PutMarkCicle(
     radius = 10,
     LatB = 4.797,
     LngB = -74.030,
+    MarksFree=true
 
 
 ) {
@@ -86,12 +87,15 @@ function PutMarkCicle(
 
 
     if (static == false) {
+        //Si es no estatico se activa la función de arrastrar
         circle.on('dragend', function (e) {
         })
+        //solo se guardan la marca no fijas
+        MarkFreePoligon.push(circle)
     }
 
     map.addLayer(circle)
-    MarkFreePoligon.push(circle)
+
     return circle
 
 }
@@ -212,4 +216,27 @@ function UpdateOpacityLayer(opacity) {
     if (Layers.hasOwnProperty("currentDep")) {
         showDep();
     }
+}
+
+function readMarks(){
+let exportableMark=[]
+    MarkFreePoligon.forEach(marca =>{
+
+        exportableMark.push(
+            {
+                draggable: true,
+                color: 'white',
+                fillColor:  marca.options.fillColor,
+                fillOpacity: marca.options.fillOpacity,
+                radius: marca.options.radius,
+                weight: 1,
+                lat:marca._latlng.lat,
+                lng:marca._latlng.lng,
+                pane: marca.options.pane,
+            }
+        )
+        console.log(exportableMark)
+    })
+
+
 }
