@@ -6,7 +6,7 @@ const GLOBAL = {
 
 let Datafilter = 0;
 const Layers = {}
-let LabelsMap = []
+
 let MarkPIR = []
 
 let TextoLabel = "";
@@ -193,9 +193,9 @@ function showLayer(parent) {
 
     if (checkBox.checked) {
         allLayers[key]();
+        LeyendaActiva = key
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key])
-        LeyendaActiva = key
         delete Layers[key];
 
     }
@@ -770,14 +770,11 @@ const allLayers = {
     },
 
     "LayerBloquePretrolero": () => {
-        let LabelB
         Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero,
             {
                 style: (feature) => {
-                    LabelB = PutPopUpZ(
-                        `Tipo: ${feature.properties.LEYENDA}
-                        Operador: ${feature.properties.TIPO_CONTR} 
-                        Estado: ${feature.properties.ESTAD_AREA}`)
+                    
+                        
                     return {
                         color: feature.properties.backcolor,
                         fillColor: feature.properties.backcolor,
@@ -787,7 +784,13 @@ const allLayers = {
                     }
                 },
             }
-        ).bindPopup(LabelB).addTo(map);
+        ).bindPopup(
+            PutPopUpZ((layer)=>{
+                return `Tipo: ${layer.feature.properties.LEYENDA}
+                Operador: ${layer.feature.properties.TIPO_CONTR} 
+                Estado: ${layer.feature.properties.ESTAD_AREA}`
+            })
+        ).addTo(map);
     },
     "LayerAmbiental": () => {
         Layers["LayerAmbiental"] = new L.geoJSON(ambiental, {
@@ -966,11 +969,7 @@ const allLayers = {
 }
 
 
-
 function RemoverLabels() {
-    LabelsMap.forEach(elemento => {
-        map.removeLayer(elemento)
-    })
     //Funcion de GoblaMapGraphiscs
     DeleteMarks()
 }
@@ -1084,6 +1083,6 @@ function MostrarLeyendas() {
         LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
     });
     map.addLayer(LabelMap);
-    LabelsMap.push(LabelMap)
+    LeyendasMap.push(LabelMap)
 }
 

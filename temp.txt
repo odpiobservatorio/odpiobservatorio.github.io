@@ -1,9 +1,15 @@
-            PutPopUpZ(
-                (layer) => {
-                    return layer.feature.properties.NombreAA
-                }
-            )
+    let LabelMap = PutMarkCicle(false, 'azure', 0.5, 5)
+    LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    LabelMap.on('dragend',
+        function (event) {
+            LabelMap = event.target;
+            const position = LabelMap.getLatLng();
+            LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
+        });
+    map.addLayer(LabelMap);
+    LabelsMap.push(LabelMap)
 
+    
 
 const icons = {
     /*

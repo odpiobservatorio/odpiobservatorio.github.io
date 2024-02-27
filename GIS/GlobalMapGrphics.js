@@ -1,4 +1,10 @@
+//Guarda los marcadores libres
 let MarkFreePoligon = [];
+//Guarda las etiquetas libres punto/etiqueta
+let LabelsMapGrup = []
+let LabelsMap = []
+//Guarda la leyendas/convenciones
+let LeyendasMap = []
 //Lista de colores para usar
 const ColorList = [
     //rojos
@@ -21,9 +27,9 @@ const ColorList = [
 //Función para crear menú de colores
 
 function ListColors(type, control) {
-    
+
     let cUl = document.getElementById(control)
-    
+
     cUl.innerHTML = ""
     ColorList.forEach(color => {
         let liC = document.createElement("svg")
@@ -53,9 +59,8 @@ function PutMarkCicle(
     radius = 10,
     LatB = 4.797,
     LngB = -74.030,
-    MarksFree=true
-
-
+    Onlabel = false,
+    Content=''
 ) {
     let Lat
     let Lng
@@ -75,6 +80,7 @@ function PutMarkCicle(
 
     circle = new L.circleMarker([Lat, Lng],
         {
+            Type: 'Mark',
             draggable: draggable,
             color: 'white',
             fillColor: colorB,
@@ -82,7 +88,10 @@ function PutMarkCicle(
             radius: radius,
             weight: 1,
             //Para colocar las marcas arriba de otras capas.
-            pane: 'polygonsPane'//Se encuentra configurado al inicio de map.html
+            pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
+            Onlabel: Onlabel,
+            Content:Content
+            
         })
 
 
@@ -133,9 +142,23 @@ function PutMarkSquare(
 }
 
 function DeleteMarks() {
+    //Borra los marcadores libres
     MarkFreePoligon.forEach(elemento => {
         map.removeLayer(elemento)
     })
+    //Borra las leyendas
+    LeyendasMap.forEach(elemento => {
+        map.removeLayer(elemento)
+    })
+
+    //Borra las etiquetas libres punto/etiqueta
+    LabelsMapGrup.forEach(elemento => {
+        map.removeLayer(elemento)
+    })
+
+    LabelsMapGrup = []
+    MarkFreePoligon = []
+    LeyendasMap = []
 }
 
 function PutLabelFree() {
@@ -144,7 +167,7 @@ function PutLabelFree() {
         <div class="text-success" style="font-size:small;">${lb}</div>
     `
 
-    let LabelMap = PutMarkCicle(false, 'azure', 0.5, 5)
+    let LabelMap = PutMarkCicle(false, 'azure', 0.5, 5, 4.797, -74.030, true,lb)
     LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend',
         function (event) {
@@ -153,7 +176,11 @@ function PutLabelFree() {
             LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
         });
     map.addLayer(LabelMap);
-    LabelsMap.push(LabelMap)
+    //Guarda el conjunto de etiquetas libres punto/etiqueta
+    LabelsMapGrup.push(LabelMap)
+
+
+
     //
 }
 
@@ -218,25 +245,38 @@ function UpdateOpacityLayer(opacity) {
     }
 }
 
-function readMarks(){
-let exportableMark=[]
-    MarkFreePoligon.forEach(marca =>{
-
+function SaveMarks() {
+    let exportableMark = []
+    MarkFreePoligon.forEach(marca => {
+        //Solo exporta las marcas independientes, no las de las etiquetas
         exportableMark.push(
             {
+                type: marca.options.Type,
                 draggable: true,
                 color: 'white',
-                fillColor:  marca.options.fillColor,
+                fillColor: marca.options.fillColor,
                 fillOpacity: marca.options.fillOpacity,
                 radius: marca.options.radius,
                 weight: 1,
-                lat:marca._latlng.lat,
-                lng:marca._latlng.lng,
+                lat: marca._latlng.lat,
+                lng: marca._latlng.lng,
                 pane: marca.options.pane,
+                onlabel: marca.options.Onlabel,
+                content:marca.options.Content
             }
         )
-        
+
     })
-    console.log(exportableMark)
+
+    const a = document.createElement("a");
+    const archivo = new Blob([JSON.stringify(exportableMark)], { type: 'text/plain' });
+    const url = URL.createObjectURL(archivo);
+    a.href = url;
+    a.download = 'Puntos ODPI';
+    a.click();
+    URL.revokeObjectURL(url);
+
+
+
 
 }

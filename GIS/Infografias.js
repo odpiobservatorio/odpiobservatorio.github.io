@@ -1,3 +1,4 @@
+
 let LeyendaActiva;
 const LyMacroT = [
     { label: 'Bajo Caqueta, Mirití', color: '#D68910', opacity: '1' },
