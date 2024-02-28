@@ -122,36 +122,22 @@
                                     <i class="bi bi-bookmarks-fill me-2"></i>Ver leyendas
                                 </a>
                             </li>
-                            <li class="p-2">
-                                <textarea id="inLabel" class="form-control" rows="1"></textarea>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="#" onclick="PutLabelFree()">
-                                    <i class="bi bi-bookmarks-fill me-2"></i>Poner etiqueta libre
+                    
+                            <li class="mt-1">
+                                <a class="dropdown-item" href="#" onclick="PutLabelFree()">
+                                    <i class="bi bi-bookmarks-fill"></i>Poner etiqueta libre 
+                                </a>
+                                
+                                <a class="dropdown-item" href="#">
+                                    <textarea id="inLabel" class="form-control" rows="1"></textarea>
                                 </a>
                             </li>
-
+                            
                             <li>
                                 <a class="dropdown-item " href="#">
                                     <i class="bi bi-tag me-2"></i>Poner marca libre
-                                    <select class="form-select mt-1 me-4 p-1" aria-label="Default select example"
-                                        onchange="PutMarkCicle(false,this.value)">
-                                        <option selected>Básico</option>
-                                        <option value="azure" style="background-color:azure;">Básico</option>
-                                        <option value="darkblue" style="background-color:darkblue; color: white;">Azul
-                                        </option>
-                                        <option value="#6600ffff" style="background-color:#6600ffff; color: white;">Azul
-                                            2</option>
-                                        <option value="red" style="background-color: red; color: white;">Rojo</option>
-                                        <option value="#ff7f2aff" style="background-color: #ff7f2aff; color: white;">
-                                            Terracota</option>
-                                        <option value="#ffd42aff" style="background-color:#ffd42aff; color: white;">
-                                            Naranja</option>
-                                        <option value="green" style="background-color: green; color: white;">Verde
-                                        </option>
-                                        <option value="gray" style="background-color: gray; color: white;">Gris</option>
-                                        <option value="purple" style="background-color: purple; color: white;">Morado
-                                        </option>
+                                    <select class="form-select p-1"
+                                        id="LisColorsSel" onclick="ListColorsMn('LisColorsSel')">
                                     </select>
                                 </a>
                             </li>
@@ -161,13 +147,18 @@
                                 </a>
                             </li>
                             <li>
-                                <input class="ms-2 me-2" type="file" id="file-input" />
+                                <a class="dropdown-item" href="#">
+                                    <label for="file-input" class="">
+                                        <i class="bi bi-upload me-2"></i>Importar marcadores
+                                    </label>
+                                    <input id="file-input" style="visibility:hidden; width: 50px;" type="file" >
+                                </a> 
+
                             </li>
                             <li>
                                 <a class="dropdown-item " href="#" onclick="RemoverLabels()">
                                     <i class="bi bi-trash me-2"></i>Limpiar leyendas
-                                </a>
-                                
+                                </a>                               
                             </li>
 
                         </ul>
@@ -805,7 +796,7 @@
                                     Importar
                                 </label>
                                 <input id="configFileInput" style="visibility:hidden;" type="file"
-                                    onchange="loadMapConfig(this)">
+                                    >
                             </div>
 
                             <!-- Exportar -->

@@ -26,11 +26,31 @@ const ColorList = [
 ]
 //Función para crear menú de colores
 
+
+function ListColorsMn(control) {
+    let cUl = document.getElementById(control)
+    cUl.innerHTML = ""
+
+    cUl.onchange = () => { PutMarkCicle(false, cUl.value, 1, 10) }
+
+    ColorList.forEach(color => {
+        let liC = document.createElement("option")
+        liC.style.background = color
+        liC.value = color
+        liC.textContent = color
+
+        cUl.appendChild(liC)
+    })
+
+
+}
+
 function ListColors(type, control) {
 
     let cUl = document.getElementById(control)
 
     cUl.innerHTML = ""
+
     ColorList.forEach(color => {
         let liC = document.createElement("svg")
 
@@ -44,7 +64,6 @@ function ListColors(type, control) {
         } else if (type == 'Layers') {
 
             liC.onclick = () => UpdateColorLayer(color)
-
         }
 
         cUl.appendChild(liC)
@@ -60,7 +79,7 @@ function PutMarkCicle(
     LatB = 4.797,
     LngB = -74.030,
     Onlabel = false,
-    Content=''
+    Content = ''
 ) {
     let Lat
     let Lng
@@ -68,8 +87,8 @@ function PutMarkCicle(
 
     if (static == false) {
         draggable = true
-        Lat = 4.797
-        Lng = -74.030
+        Lat = LatB
+        Lng = LngB
     } else {
         draggable = false
         Lat = LatB
@@ -90,8 +109,8 @@ function PutMarkCicle(
             //Para colocar las marcas arriba de otras capas.
             pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
             Onlabel: Onlabel,
-            Content:Content
-            
+            Content: Content
+
         })
 
 
@@ -134,11 +153,6 @@ function PutMarkSquare(
         fillColor: 'green',
         fillOpacity: 1,
     })
-
-
-
-
-
 }
 
 function DeleteMarks() {
@@ -161,14 +175,23 @@ function DeleteMarks() {
     LeyendasMap = []
 }
 
-function PutLabelFree() {
-    let lb = document.getElementById("inLabel").value
+function PutLabelFree(
+    text='',
+    LatB = 4.797,
+    LngB = -74.030) {
+    let lb
+    if (text.length==0){
+        lb= document.getElementById("inLabel").value     
+    } else{
+        lb=text
+    }
+
     const LbEdit = `
         <div class="text-success" style="font-size:small;">${lb}</div>
     `
 
-    let LabelMap = PutMarkCicle(false, 'azure', 0.5, 5, 4.797, -74.030, true,lb)
-    LabelMap.bindTooltip(LbEdit, { draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+    let LabelMap = PutMarkCicle(false, 'azure', 0.5, 5, LatB, LngB, true, lb)
+    LabelMap.bindTooltip(LbEdit, {draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend',
         function (event) {
             LabelMap = event.target;
@@ -252,7 +275,6 @@ function SaveMarks() {
         exportableMark.push(
             {
                 type: marca.options.Type,
-                draggable: true,
                 color: 'white',
                 fillColor: marca.options.fillColor,
                 fillOpacity: marca.options.fillOpacity,
@@ -260,9 +282,8 @@ function SaveMarks() {
                 weight: 1,
                 lat: marca._latlng.lat,
                 lng: marca._latlng.lng,
-                pane: marca.options.pane,
                 onlabel: marca.options.Onlabel,
-                content:marca.options.Content
+                content: marca.options.Content
             }
         )
 
@@ -277,19 +298,44 @@ function SaveMarks() {
     URL.revokeObjectURL(url);
 }
 
-function leerArchivo(e) {
+function LoadMarks(e) {
     var archivo = e.target.files[0];
     if (!archivo) {
-      return;
+
+        return;
     }
     var lector = new FileReader();
-    lector.onload = function(e) {
-      var contenido = e.target.result;
-      console.log(contenido)
+    lector.onload = function (e) {
+        var contenido = e.target.result;
+        var Parse = JSON.parse(contenido)
+
+        Parse.forEach(marca => {
+            //Si la entrada es una marca, pues creamos una marca
+            if (marca.onlabel == false) {
+                PutMarkCicle(
+                    false,
+                    marca.fillColor,
+                    marca.fillOpacity,
+                    marca.radius,
+                    marca.lat,
+                    marca.lng,
+                    marca.onlabel,
+                    '')
+            } else {
+                console.log(marca.content,marca.lat,marca.lng)
+                PutLabelFree(marca.content,marca.lat,marca.lng)
+            }
+        })
+
     };
     lector.readAsText(archivo);
-  }
+    //Limpiamos el contenedor archivo para que permita recargas
+    document.getElementById('file-input').value = ''
+}
+//Vincula el evento del control input para cargar el archivo
+document.getElementById('file-input')
+    .addEventListener('change', LoadMarks);
 
-  
-  document.getElementById('file-input')
-    .addEventListener('change', leerArchivo);
+function HideMark(){
+
+}
