@@ -2,7 +2,7 @@
 let MarkFreePoligon = [];
 //Guarda las etiquetas libres punto/etiqueta
 let LabelsMapGrup = []
-let LabelsMap = []
+
 //Guarda la leyendas/convenciones
 let LeyendasMap = []
 //Lista de colores para usar
@@ -79,7 +79,8 @@ function PutMarkCicle(
     LatB = 4.797,
     LngB = -74.030,
     Onlabel = false,
-    Content = ''
+    Content = '',
+    key = ''
 ) {
     let Lat
     let Lng
@@ -109,7 +110,8 @@ function PutMarkCicle(
             //Para colocar las marcas arriba de otras capas.
             pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
             Onlabel: Onlabel,
-            Content: Content
+            Content: Content,
+            key: key
 
         })
 
@@ -174,34 +176,35 @@ function DeleteMarks() {
     MarkFreePoligon = []
     LeyendasMap = []
 }
+  
 
 function PutLabelFree(
-    text='',
+    text = '',
     LatB = 4.797,
     LngB = -74.030) {
     let lb
-    if (text.length==0){
-        lb= document.getElementById("inLabel").value     
-    } else{
-        lb=text
+    if (text.length == 0) {
+        lb = document.getElementById("inLabel").value
+    } else {
+        lb = text
     }
 
     const LbEdit = `
-        <div class="text-success" style="font-size:small;">${lb}</div>
-    `
+    <div class="text-success" style="font-size:small;" onclick="HideMark()">${lb}</div>`
 
     let LabelMap = PutMarkCicle(false, 'azure', 0.5, 5, LatB, LngB, true, lb)
-    LabelMap.bindTooltip(LbEdit, {draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
+
+    LabelMap.bindTooltip(LbEdit, { interactive: true, draggable: 'true', permanent: true, className: "map-labels", offset: [10, 0] });
     LabelMap.on('dragend',
         function (event) {
             LabelMap = event.target;
             const position = LabelMap.getLatLng();
             LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
         });
+
     map.addLayer(LabelMap);
     //Guarda el conjunto de etiquetas libres punto/etiqueta
     LabelsMapGrup.push(LabelMap)
-
 
 
     //
@@ -322,8 +325,8 @@ function LoadMarks(e) {
                     marca.onlabel,
                     '')
             } else {
-                console.log(marca.content,marca.lat,marca.lng)
-                PutLabelFree(marca.content,marca.lat,marca.lng)
+                console.log(marca.content, marca.lat, marca.lng)
+                PutLabelFree(marca.content, marca.lat, marca.lng)
             }
         })
 
@@ -336,6 +339,7 @@ function LoadMarks(e) {
 document.getElementById('file-input')
     .addEventListener('change', LoadMarks);
 
-function HideMark(){
+function HideMark() {
 
+    console.log(LabelsMapGrup[0].options.key)
 }
