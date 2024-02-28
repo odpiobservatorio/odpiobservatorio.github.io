@@ -182,6 +182,8 @@ function PutLabelFree(
     text = '',
     LatB = 4.797,
     LngB = -74.030) {
+         
+
     let lb
     if (text.length == 0) {
         lb = document.getElementById("inLabel").value
