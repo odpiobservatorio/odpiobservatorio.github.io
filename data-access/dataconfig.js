@@ -122,8 +122,6 @@ async function CredentialIn(email, password) {
 //función para cerrar la sesión de la aplicación
 async function CredentialOut() {
     await signOut(auth)
-    AccessProgram=false
-    hiddenProgram(true)
     location.href = "../index.html"
 
 }
@@ -147,6 +145,7 @@ onAuthStateChanged(auth, async (user) => {
         mensajes("Fuera de conexión", "red")
         document.getElementById('map').hidden=true
         document.getElementById('headerMap').hidden=true
+        location.href = "../index.html"
     }
 
 })
