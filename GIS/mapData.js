@@ -120,7 +120,7 @@ function showBusqueda(datosParaMostrar = []) {
         // Agrega las marcas al mapa
         try {
             (bigData.MrkAntecedente).push(
-                
+
                 // Se llama el marcador tipo poligono de GlobalMapGraphics         
                 PutMarkCicle(true, 'green', 0.7, 10, registro.Lat, registro.Lng)
                     .bindPopup(PutPopUpZ(
@@ -343,7 +343,16 @@ function verCaso(registro) {
         document.getElementById(id).textContent = data[id];
     }
 
+
+ActiveSuper()
+
+if (superUser == true) {
     bootstrap.Modal.getOrCreateInstance(document.getElementById("ModalCaseOnMap")).show();
+} else{
+    mensajes("Usted no tiene permiso para esta lectura")
+}
+
+    
 }
 
 function VerFindExtend() {
@@ -447,52 +456,60 @@ function TablaReport() {
 }
 
 function DocumentReport() {
-    const ContenedorDocumento = document.getElementById("divDocModal");
-    document.getElementById("divTableModal").innerHTML = "";
-    document.getElementById("divDocModal").innerHTML = "";
+    ActiveSuper()
+    if (superUser == true) {
+        const ContenedorDocumento = document.getElementById("divDocModal");
+        document.getElementById("divTableModal").innerHTML = "";
+        document.getElementById("divDocModal").innerHTML = "";
 
-    let contador = 1;
-    let tagElement;
+        let contador = 1;
+        let tagElement;
 
-    (bigData.DataToReport).forEach(registro => {
-        tagElement = document.createElement("div");
-        tagElement.textContent = registro.Tipo;
-        tagElement.classList.add("h4", "text-success");
-        ContenedorDocumento.appendChild(tagElement);
+        (bigData.DataToReport).forEach(registro => {
+            tagElement = document.createElement("div");
+            tagElement.textContent = registro.Tipo;
+            tagElement.classList.add("h4", "text-success");
+            ContenedorDocumento.appendChild(tagElement);
 
-        const sm = document.createElement("small");
-        sm.classList.add("text-muted");
-        sm.textContent = contador;
-        ContenedorDocumento.appendChild(sm);
+            const sm = document.createElement("small");
+            sm.classList.add("text-muted");
+            sm.textContent = contador;
+            ContenedorDocumento.appendChild(sm);
 
-        tagElement = document.createElement("div");
-        tagElement.textContent = registro.Year;
-        tagElement.classList.add("h5", "text-secondary", "ms-2");
-        ContenedorDocumento.appendChild(tagElement);
+            tagElement = document.createElement("div");
+            tagElement.textContent = registro.Year;
+            tagElement.classList.add("h5", "text-secondary", "ms-2");
+            ContenedorDocumento.appendChild(tagElement);
 
-        tagElement = document.createElement("div");
-        tagElement.textContent = `${registro.Departamento} (${registro.Municipio})`;
-        tagElement.classList.add("h6", "text-info-emphasis", "ms-3");
-        ContenedorDocumento.appendChild(tagElement);
+            tagElement = document.createElement("div");
+            tagElement.textContent = `${registro.Departamento} (${registro.Municipio})`;
+            tagElement.classList.add("h6", "text-info-emphasis", "ms-3");
+            ContenedorDocumento.appendChild(tagElement);
 
-        tagElement = document.createElement("div");
-        tagElement.textContent = registro.Pueblo;
-        tagElement.classList.add("h6", "text-primary", "ms-3");
-        ContenedorDocumento.appendChild(tagElement);
+            tagElement = document.createElement("div");
+            tagElement.textContent = registro.Pueblo;
+            tagElement.classList.add("h6", "text-primary", "ms-3");
+            ContenedorDocumento.appendChild(tagElement);
 
-        tagElement = document.createElement("div");
-        tagElement.textContent = registro.Perpetrador;
-        tagElement.classList.add("h7", "text-primary", "ms-4");
-        ContenedorDocumento.appendChild(tagElement);
+            tagElement = document.createElement("div");
+            tagElement.textContent = registro.Perpetrador;
+            tagElement.classList.add("h7", "text-primary", "ms-4");
+            ContenedorDocumento.appendChild(tagElement);
 
-        tagElement = document.createElement("p");
-        tagElement.textContent = registro.Antecedentes;
-        tagElement.classList.add("fs-5", "text-dark", "mb-5", "ms-5");
-        ContenedorDocumento.appendChild(tagElement);
+            tagElement = document.createElement("p");
+            tagElement.textContent = registro.Antecedentes;
+            tagElement.classList.add("fs-5", "text-dark", "mb-5", "ms-5");
+            ContenedorDocumento.appendChild(tagElement);
 
-        tagElement = document.createElement("hr");
-        ContenedorDocumento.appendChild(tagElement);
+            tagElement = document.createElement("hr");
+            ContenedorDocumento.appendChild(tagElement);
 
-        contador++;
-    });
+            contador++;
+        });
+    } else {
+        mensajes("Usted no tiene permisos para este procesos", "gray")
+    }
+
+
+
 }

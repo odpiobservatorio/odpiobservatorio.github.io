@@ -82,11 +82,14 @@ async function getUsuarios() {
     const usuarios = [];
     const querySnapshot = await getDocs(coleccionUsuarios)
     querySnapshot.forEach((doc) => {
+
         usuarios.push({
             ...doc.data(),
             id: doc.id,
+            
         });
     });
+
     return usuarios;
 }
 
@@ -140,6 +143,7 @@ onAuthStateChanged(auth, async (user) => {
         mensajes("Usuario registrado como: " + user.email, "orange") //Muestra que usuarios está conectado
         document.getElementById('map').hidden=false
         document.getElementById('headerMap').hidden=false
+        activeEmail= user.email
 
     } catch (error) {
         mensajes("Fuera de conexión", "red")
