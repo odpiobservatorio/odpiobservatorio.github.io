@@ -1,3 +1,16 @@
+const GLOBAL = {
+    state: {
+        proyecto: null,
+        proyectos: [],
+        usuario: null,
+        usuarios: [],
+    },
+    firestore: {},
+};
+
+let aUsers = []
+let activeEmail;
+
 
 /* Mi lenguaje de busqueda */
 
@@ -198,4 +211,33 @@ function normalizeString(string) {
     return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 }
 
-//Guarda información para la capa de riesgos IRV
+function mensajes(text, color) {
+    Toastify({
+        text: text,
+        duration: 3000,
+        destination: "",
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: color,
+            color: "white",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+
+}
+
+
+function modalIn() {
+    const modal = new bootstrap.Modal(document.getElementById('myModal'));
+    const texto = document.getElementById("textoModal")
+
+
+    modal.show();
+    const btn = document.getElementById('btnConfirm')
+    btn.onclick = ()=> IniCredential()
+
+}

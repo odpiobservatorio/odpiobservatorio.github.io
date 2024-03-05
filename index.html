@@ -12,12 +12,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 
+    <!--Toasty-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
 	<!-- Boostrap 5 -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 	<script src="assets/js/counter-animation.js" defer></script>
+	<script src="./GIS/misc.js" defer></script>
+	<script defer src="./data-access/dataconfig.js" type="module"></script>
+    <script src="./data-access/credentials.js"></script>
 </head>
 
 <body>
@@ -107,7 +115,7 @@
 								mediante la categorización de la información cualitativa y cuantitativamente
 								en un contexto territorial, además de factores contextuales de seguridad y riesgos.
 							</p>
-							<a class="my-a-pill" href="./GIS/map.html">Ingresar</a>
+							<a class="my-a-pill" href="#" onclick="modalIn()">Ingresar</a>
 						</div>
 					</div>
 				</div>
@@ -138,11 +146,11 @@
 	<footer id="footer">
 		<div class="container">
 			<ul class="icons">
-				<li><a href="https://twitter.com/asokorhpa" class="icon fa-twitter"><span
+				<li><a href="" class="icon fa-twitter"><span
 							class="label">Twitter</span></a></li>
-				<li><a href="https://www.instagram.com/asokorhpa/" class="icon fa-instagram"><span
+				<li><a href="" class="icon fa-instagram"><span
 							class="label">Instagram</span></a></li>
-				<li><a href="mailto:asokorhpayukpa@gmail.com" class="icon fa-envelope-o"><span
+				<li><a href="" class="icon fa-envelope-o"><span
 							class="label">Email</span></a></li>
 			</ul>
 		</div>
@@ -159,3 +167,46 @@
 </body>
 
 </html>
+
+<!-- Contenedor de formulario modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Administrador de Ingreso</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="textoModal">
+
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">
+						<i class="bi bi-people-fill h5"></i>
+					</span>
+					<!--Guarda información texto del correo de ingreso afecta el archivo (credential.js)-->
+					<input id="inEmail" type="text" class="form-control" placeholder="nombre@email.com"
+						aria-label="Correo eléctrónico" aria-describedby="basic-addon1">
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">
+						<i class="bi bi-key h4"></i>
+					</span>
+					<!--Guarda información contraseña de ingreso afecta el archivo (credential.js)-->
+					<input id="inPass" type="password" class="form-control" placeholder="******" aria-label="Contraseña"
+						aria-describedby="basic-addon1">
+				</div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button id="btnConfirm" type="button" class="my-a-pill">Ingresar</button>
+                <button type="button" class="my-a-pill" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

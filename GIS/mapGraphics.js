@@ -1,9 +1,4 @@
 
-
-const GLOBAL = {
-    state: {}
-}
-
 let Datafilter = 0;
 const Layers = {}
 
