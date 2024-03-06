@@ -176,13 +176,13 @@ function DeleteMarks() {
     MarkFreePoligon = []
     LeyendasMap = []
 }
-  
+
 
 function PutLabelFree(
     text = '',
     LatB = 4.797,
     LngB = -74.030) {
-         
+
 
     let lb
     if (text.length == 0) {
@@ -303,6 +303,15 @@ function SaveMarks() {
     URL.revokeObjectURL(url);
 }
 
+function LoadFiles(e) {
+    var archivo = e.target.files[0];
+    GLOBAL.firestore.loadfile(archivo)
+    if (!archivo) {
+
+        return;
+    }
+}
+
 function LoadMarks(e) {
     var archivo = e.target.files[0];
     if (!archivo) {
@@ -340,6 +349,9 @@ function LoadMarks(e) {
 //Vincula el evento del control input para cargar el archivo
 document.getElementById('file-input')
     .addEventListener('change', LoadMarks);
+
+document.getElementById('file-load')
+    .addEventListener('change', LoadFiles);
 
 function HideMark() {
 

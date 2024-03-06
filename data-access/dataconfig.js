@@ -8,6 +8,9 @@
 //Importa las instanacias de firebase y administración de base de datos
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
+
+import { getStorage,ref,uploadBytes } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+
 import {
     getFirestore,
     collection,
@@ -39,6 +42,7 @@ import {
 
 
 
+
 // Utiliza las claves y credenciales de mi base de datos de Tomakare
 const firebaseConfig = {
     apiKey: "AIzaSyAi1ZdkKtKktSKVk_afvPQ9IkkCNbmghFQ",
@@ -55,10 +59,48 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const db = getFirestore(app);
 
+const storage = getStorage();
+
+// Create a storage reference from our storage service
+let storageRef;
+
+async function loadfile(file){
+try {
+    //Guarda en una carpeta segun su extensión
+    let extension = file.name.split('.').pop()
+    if (extension=='json'){
+        storageRef = ref(storage,'json/' + file.name);
+    } else if (extension=='txt'){
+        storageRef = ref(storage,'txt/' + file.name);
+    } else if(extension=='geojson'){
+        storageRef = ref(storage,'geojson/' + file.name);
+    }
+    
+    const filebloop = await uploadBytes(storageRef, file).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
+      });
+      mensajes("Se ha cargado el archivo " + file.name,"green")
+} catch (error) {
+    mensajes("Reintente cargar de nuevo el archivo","orange")
+}
+}
+// imagesRef now points to 'images'
+
+
+
+
+
+
 // Referencia a las colecciones de proyectos y objetivos
 const coleccionProyectos = collection(db, "proyectos");
 // Referencia a las colecciones de usuarios
 const coleccionUsuarios = collection(db, "usuarios");
+
+// Create a root reference
+//const storage = getStorage();
+//const storageRef = ref(storage, 'json');
+
+// 'file' comes from the Blob or File API
 
 
 
@@ -86,7 +128,7 @@ async function getUsuarios() {
         usuarios.push({
             ...doc.data(),
             id: doc.id,
-            
+
         });
     });
 
@@ -135,20 +177,21 @@ GLOBAL.firestore = {
     CredentialIn, //para iniciar la aplicación, evoca la función en este módulo (CredentialIn(email,pass))
     CredentialOut, //para cerrar la aplicación
     getUsuarios, //función para verificar usuarios programadores
+    loadfile,
 }
 
 //Función que escucha el cambio en inicio o cerrar sesión
 onAuthStateChanged(auth, async (user) => {
     try {
         mensajes("Usuario registrado como: " + user.email, "orange") //Muestra que usuarios está conectado
-        document.getElementById('map').hidden=false
-        document.getElementById('headerMap').hidden=false
-        activeEmail= user.email
+        document.getElementById('map').hidden = false
+        document.getElementById('headerMap').hidden = false
+        activeEmail = user.email
 
     } catch (error) {
         mensajes("Fuera de conexión", "red")
-        document.getElementById('map').hidden=true
-        document.getElementById('headerMap').hidden=true
+        document.getElementById('map').hidden = true
+        document.getElementById('headerMap').hidden = true
         location.href = "../index.html"
     }
 

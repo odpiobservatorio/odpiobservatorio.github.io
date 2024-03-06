@@ -111,9 +111,7 @@
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">Configuración</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" href="#" onclick="SaveMarks()">Ver colores</a>
-                    </li>
+
 
 
                     <li class="nav-item dropdown">
@@ -158,14 +156,23 @@
                                     </label>
                                     <input id="file-input" style="visibility:hidden; width: 50px;" type="file">
                                 </a>
-
                             </li>
                             <li>
                                 <a class="dropdown-item " href="#" onclick="RemoverLabels()">
                                     <i class="bi bi-trash me-2"></i>Limpiar leyendas
                                 </a>
                             </li>
-
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <label for="file-load" class="">
+                                        <i class="bi bi-cloud-arrow-up-fill me-2"></i>Subir archivos a la nube
+                                    </label>
+                                    <input  id="file-load" 
+                                            style="visibility:hidden; width: 50px;" 
+                                            type="file"
+                                            multiple accept=".json, .geojson, .txt">
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
