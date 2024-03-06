@@ -69,11 +69,13 @@ try {
     //Guarda en una carpeta segun su extensión
     let extension = file.name.split('.').pop()
     if (extension=='json'){
-        storageRef = ref(storage,'json/' + file.name);
+        storageRef = ref(storage,'plain-text/json/' + file.name);
     } else if (extension=='txt'){
-        storageRef = ref(storage,'txt/' + file.name);
+        storageRef = ref(storage,'plain-text/txt/' + file.name);
     } else if(extension=='geojson'){
-        storageRef = ref(storage,'geojson/' + file.name);
+        storageRef = ref(storage,'plain-text/geojson/' + file.name);
+    } else{
+        storageRef = ref(storage,'plain-text/non-plain/' + file.name);
     }
     
     const filebloop = await uploadBytes(storageRef, file).then((snapshot) => {
