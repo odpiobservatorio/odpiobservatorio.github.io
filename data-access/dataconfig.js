@@ -88,42 +88,36 @@ async function loadfile(file) {
 }
 // imagesRef now points to 'images'
 
-
+const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 
 async function obtenerInfo() {
-    
-    const starsRef = ref(storage, 'plain-text/json/PLA PIR.json');
+
+    const starsRef = ref(storage, 'plain-text/json/odpi.json');
+    const yourUrl = starsRef
+
 
     // Get the download URL
     getDownloadURL(starsRef)
         .then((url) => {
-            // Insert url into an <img> tag to "download"
+            const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 
-            const response = fetch(url)
-                .then(response => response.json())
-                .then(json => console.log(json));
-            //console.log(url)
-        })
-        .catch((error) => {
-            // A full list of error codes is available at
-            // https://firebase.google.com/docs/storage/web/handle-errors
-            switch (error.code) {
-                case 'storage/object-not-found':
-                    // File doesn't exist
-                    break;
-                case 'storage/unauthorized':
-                    // User doesn't have permission to access the object
-                    break;
-                case 'storage/canceled':
-                    // User canceled the upload
-                    break;
+            const yourUrl =
+                'datos.comunidad.madrid/catalogo/dataset/7da43feb-8d4d-47e0-abd5-3d022d29d09e/resource/877fa8f5-cd6c-4e44-9df5-0fb60944a841/download/covid19_tia_muni_y_distritos_s.json';
+                var responseClone
+            fetch(corsAnywhere + url, {
+                method: 'GET',
+                headers: new Headers({
+                    'Content-Type': 'application/text',
+                    'Access-Control-Allow-Origin': '*',
+                }),
+            })
+                .then(function (response) {
+                    responseClone = response.clone(); // 2
+                    return response.json();
+                })
+                .catch((err) => console.log(err));
 
-                // ...
 
-                case 'storage/unknown':
-                    // Unknown error occurred, inspect the server response
-                    break;
-            }
         });
 }
 
