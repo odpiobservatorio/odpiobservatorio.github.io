@@ -47,6 +47,7 @@
 
     <script defer src="../data-access/dataconfig.js" type="module"></script>
     <script src="../data-access/credentials.js"></script>
+    <script src="../data-access/cors.json"></script>
 
 
 </head>
@@ -162,6 +163,7 @@
                                     <i class="bi bi-trash me-2"></i>Limpiar leyendas
                                 </a>
                             </li>
+
                             <li>
                                 <a class="dropdown-item" href="#">
                                     <label for="file-load" class="">
@@ -171,6 +173,11 @@
                                             style="visibility:hidden; width: 50px;" 
                                             type="file"
                                             multiple accept=".json, .geojson, .txt">
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item " href="#" onclick="GLOBAL.firestore.obtenerInfo()">
+                                    <i class=""></i>leer archivo
                                 </a>
                             </li>
                         </ul>

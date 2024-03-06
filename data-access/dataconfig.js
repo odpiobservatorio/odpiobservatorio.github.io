@@ -9,7 +9,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 
-import { getStorage,ref,uploadBytes } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
 
 import {
     getFirestore,
@@ -64,31 +64,68 @@ const storage = getStorage();
 // Create a storage reference from our storage service
 let storageRef;
 
-async function loadfile(file){
-try {
-    //Guarda en una carpeta segun su extensión
-    let extension = file.name.split('.').pop()
-    if (extension=='json'){
-        storageRef = ref(storage,'plain-text/json/' + file.name);
-    } else if (extension=='txt'){
-        storageRef = ref(storage,'plain-text/txt/' + file.name);
-    } else if(extension=='geojson'){
-        storageRef = ref(storage,'plain-text/geojson/' + file.name);
-    } else{
-        storageRef = ref(storage,'plain-text/non-plain/' + file.name);
+async function loadfile(file) {
+    try {
+        //Guarda en una carpeta segun su extensión
+        let extension = file.name.split('.').pop()
+        if (extension == 'json') {
+            storageRef = ref(storage, 'plain-text/json/' + file.name);
+        } else if (extension == 'txt') {
+            storageRef = ref(storage, 'plain-text/txt/' + file.name);
+        } else if (extension == 'geojson') {
+            storageRef = ref(storage, 'plain-text/geojson/' + file.name);
+        } else {
+            storageRef = ref(storage, 'plain-text/non-plain/' + file.name);
+        }
+
+        const filebloop = await uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+        });
+        mensajes("Se ha cargado el archivo " + file.name, "green")
+    } catch (error) {
+        mensajes("Reintente cargar de nuevo el archivo", "orange")
     }
-    
-    const filebloop = await uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-      });
-      mensajes("Se ha cargado el archivo " + file.name,"green")
-} catch (error) {
-    mensajes("Reintente cargar de nuevo el archivo","orange")
-}
 }
 // imagesRef now points to 'images'
 
 
+
+async function obtenerInfo() {
+    
+    const starsRef = ref(storage, 'plain-text/json/PLA PIR.json');
+
+    // Get the download URL
+    getDownloadURL(starsRef)
+        .then((url) => {
+            // Insert url into an <img> tag to "download"
+
+            const response = fetch(url)
+                .then(response => response.json())
+                .then(json => console.log(json));
+            //console.log(url)
+        })
+        .catch((error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+                case 'storage/object-not-found':
+                    // File doesn't exist
+                    break;
+                case 'storage/unauthorized':
+                    // User doesn't have permission to access the object
+                    break;
+                case 'storage/canceled':
+                    // User canceled the upload
+                    break;
+
+                // ...
+
+                case 'storage/unknown':
+                    // Unknown error occurred, inspect the server response
+                    break;
+            }
+        });
+}
 
 
 
@@ -180,6 +217,7 @@ GLOBAL.firestore = {
     CredentialOut, //para cerrar la aplicación
     getUsuarios, //función para verificar usuarios programadores
     loadfile,
+    obtenerInfo
 }
 
 //Función que escucha el cambio en inicio o cerrar sesión
