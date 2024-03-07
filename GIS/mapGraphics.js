@@ -189,6 +189,7 @@ function showLayer(parent) {
     if (checkBox.checked) {
         allLayers[key]();
         LeyendaActiva = key
+
     } else if (Layers.hasOwnProperty(key)) {
         map.removeLayer(Layers[key])
         delete Layers[key];
@@ -202,6 +203,7 @@ function showOverLay(parent) {
     const checkBox = parent.querySelector(".form-check-input");
     if (checkBox.checked) {
         allLayers["LayerPIR"]()
+        LeyendaActiva = "LayerPIR"
     } else {
         MarkPIR.forEach(elemento => {
             map.removeLayer(elemento)
@@ -573,7 +575,7 @@ const allLayers = {
                     fillColor: feature.properties.backcolor,
                     weight: 6,
                     fillOpacity: 1,
-                    pane: 'mapLayers',
+                    pane: 'polygonsPane',
                 }
             },
         }).bindPopup(
@@ -768,8 +770,8 @@ const allLayers = {
         Layers["LayerBloquePretrolero"] = new L.geoJSON(CapaBloquePetrolero,
             {
                 style: (feature) => {
-                    
-                        
+
+
                     return {
                         color: feature.properties.backcolor,
                         fillColor: feature.properties.backcolor,
@@ -780,7 +782,7 @@ const allLayers = {
                 },
             }
         ).bindPopup(
-            PutPopUpZ((layer)=>{
+            PutPopUpZ((layer) => {
                 return `Tipo: ${layer.feature.properties.LEYENDA}
                 Operador: ${layer.feature.properties.TIPO_CONTR} 
                 Estado: ${layer.feature.properties.ESTAD_AREA}`
@@ -846,6 +848,26 @@ const allLayers = {
         }).bindPopup(
             PutPopUpZ(
                 (layer) => {
+                    const filtrado = bigData.DataToReport;
+
+                    filtrado.forEach(registro => {
+                        const elemento = normalizeString(registro.Departamento);
+                        conteos[elemento] = (conteos[elemento] || 0) + 1;
+                    });
+            
+                    const max = Math.max(...Object.values(conteos));
+            
+                    const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+                    (depsCopy.features).forEach(feature => {
+                        const propiedades = layer.feature.properties;
+                        const nombreDepartamento = normalizeString(propiedades.nombre_dpt);
+                        const valor = conteos[nombreDepartamento]
+            
+                        propiedades.Casos = valor ? valor : 0;
+                    });
+                    const casos = conteos[
+                        normalizeString(layer.feature.properties.nombre_dpt)
+                    ];
                     return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos}`;
 
                 }
@@ -855,6 +877,7 @@ const allLayers = {
     "LayerColorMap": () => {
         //Get deps
         const conteos = {};
+
         DataPrincipal.forEach(registro => {
             const elemento = normalizeString(registro.Departamento);
             conteos[elemento] = (conteos[elemento] || 0) + 1;
@@ -880,7 +903,14 @@ const allLayers = {
         }).bindPopup(
             PutPopUpZ(
                 (layer) => {
-                    return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos}`;
+                    DataPrincipal.forEach(registro => {
+                        const elemento = normalizeString(registro.Departamento);
+                        conteos[elemento] = (conteos[elemento] || 0) + 1;
+                    });
+                    const casos = conteos[
+                        normalizeString(layer.feature.properties.nombre_dpt)
+                    ];
+                    return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos:${casos}`;
                 }
             )).addTo(map);
     },
@@ -917,7 +947,20 @@ const allLayers = {
         }).bindPopup(
             PutPopUpZ(
                 (layer) => {
-                    return `Departamento: ${layer.feature.properties.nombre_dpt}, #Casos: ${casos.toLocaleString('de-DE')}`;
+                    DataPrincipal.forEach(registro => {
+                        const dep = normalizeString(registro.Departamento);
+                        const afectados = registro["Total personas"];
+                        conteos[dep] = (conteos[dep] || 0) + (
+                            afectados == "No registra" ? 0 : parseInt(afectados)
+                        );
+                    });
+                    const max = Math.max(...Object.values(conteos));
+                    const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+                    const casos = conteos[
+                        normalizeString(layer.feature.properties.nombre_dpt)
+                    ];
+
+                    return `Departamento: ${layer.feature.properties.nombre_dpt}, #Víctimas: ${casos.toLocaleString('de-DE')}`;
                 }
             )).addTo(map);
     },
@@ -953,6 +996,16 @@ const allLayers = {
         }).bindPopup(
             PutPopUpZ(
                 (layer) => {
+                    (bigData.DataToReport).forEach(registro => {
+                        const dep = normalizeString(registro.Departamento);
+                        const afectados = registro["Total personas"];
+                        conteos[dep] = (conteos[dep] || 0) + (
+                            afectados == "No registra" ? 0 : parseInt(afectados)
+                        );
+                    });
+                    const max = Math.max(...Object.values(conteos));
+                    const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
+
                     const casos = conteos[
                         normalizeString(layer.feature.properties.nombre_dpt)
                     ];
@@ -970,7 +1023,7 @@ function RemoverLabels() {
 }
 
 function MostrarLeyendas() {
-    alert(LeyendaActiva)
+
     let templateLeyenda = document.createElement('div');
     templateLeyenda.className = "text-dark"
     let hrLeyenda = document.createElement('div');
@@ -978,88 +1031,23 @@ function MostrarLeyendas() {
 
     templateLeyenda.appendChild(hrLeyenda)
 
-    if (LeyendaActiva == "LayerDensidadCoca") {
+    putLeyenda[LeyendaActiva].forEach(item => {
 
-        //Leo la matriz de Densidad y leo cada item
-        LyDenCoca.forEach(item => {
-            templateLeyenda.style.width = "200px"
-            hrLeyenda.textContent = "Densidad de Coca 2021";
-            let rItem = document.createElement('div');
-            rItem.className = "row";
-            rItem.innerHTML = `
-            <div class="col-auto me-auto ms-3 ">
-                <svg width="20" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
-            </div>
-            <div class="col tLeyenda ">
-                    ${item.label}
-            </div>  
-            `
-            templateLeyenda.appendChild(rItem)
-        })
-    } else if (LeyendaActiva == "LayerMacroT") {
         templateLeyenda.style.width = "250px"
-        hrLeyenda.textContent = "Macro Territorios C.V";
-        //Leo la matriz de Densidad y leo cada item
-        LyMacroT.forEach(item => {
-            let rItem = document.createElement('div');
-            rItem.className = "r";
-            rItem.innerHTML = `
-            <div class="tLeyenda">
-            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
-             ${item.label}
-            </div>  
-            `
-            templateLeyenda.appendChild(rItem)
-        })
-    } else if (LeyendaActiva == "LayerBloquePretrolero") {
-        templateLeyenda.style.width = "250px"
-        hrLeyenda.textContent = "Agencia Nacional Hidrocarburos";
-        //Leo la matriz de Densidad y leo cada item
-        LyANH.forEach(item => {
-            let rItem = document.createElement('div');
-            rItem.className = "r";
-            rItem.innerHTML = `
-            <div class="tLeyenda">
-            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
-             ${item.label}
-            </div>  
-            `
-            templateLeyenda.appendChild(rItem)
-        })
-    } else if (LeyendaActiva == "LayerIRV") {
-        templateLeyenda.style.width = "250px"
+        //hrLeyenda.textContent = item.title;
+        let rItem = document.createElement('div');
+        rItem.className = "row";
+        rItem.innerHTML = `
+        <div class="tLeyenda">
+        <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
+         ${item.label}
+        </div>  
+        `
+        templateLeyenda.appendChild(rItem)
+    })
 
-        hrLeyenda.textContent = "IRV U.Victimas 2022";
-        hrLeyenda.className = "ms-2 tLeyenda fw-medium text-success"
-        //Leo la matriz de Densidad y leo cada item
-        LyIRV.forEach(item => {
-            let rItem = document.createElement('div');
-            rItem.innerHTML = `
-            <div class="tLeyenda">
-            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
-             ${item.label}
-            </div>  
-            `
-            templateLeyenda.appendChild(rItem)
-        })
-    } else if (LeyendaActiva == "LayerPIR") {
-        alert("PIR")
-        templateLeyenda.style.width = "250px"
 
-        hrLeyenda.textContent = "Avance PIR U.V";
-        hrLeyenda.className = "ms-2 tLeyenda fw-medium text-success"
-        //Leo la matriz de Densidad y leo cada item
-        LyPIR.forEach(item => {
-            let rItem = document.createElement('div');
-            rItem.innerHTML = `
-            <div class="tLeyenda">
-            <svg class="ms-1 me-2" width="17" height="10" style="background-color:${item.color};opacity: ${item.opacity};"></svg>
-             ${item.label}
-            </div>  
-            `
-            templateLeyenda.appendChild(rItem)
-        })
-    }
+
 
     let LabelMap = PutMarkCicle(false, 'gray', 0.5, 5)
 
