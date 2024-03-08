@@ -76,6 +76,7 @@ function inputFromLatLng() {
     coordenadas = (valueCoord.value).split(",")
 
     PutMarkCicle(false, 'orange', 1, 10, coordenadas[0], coordenadas[1])
+    mensajes("La marca fue creada")
 }
 
 function PutMarkCicle(
