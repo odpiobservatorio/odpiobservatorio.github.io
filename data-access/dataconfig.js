@@ -91,8 +91,12 @@ async function loadfile(file) {
 async function obtenerInfo() {
     const starsRef = ref(storage, 'plain-text/json/odpi.json');
 
-    const blob = await getBlob(starsRef);
-    console.log(blob)
+    const link = await getDownloadURL(starsRef);
+    console.log(link)
+
+    const res = await fetch(link);
+    const data = await res.json();
+    console.log(data)
 }
 
 
