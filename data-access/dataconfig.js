@@ -9,7 +9,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 
-import { getStorage, ref, uploadBytes, getDownloadURL, getBlob } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
 
 import {
     getFirestore,
@@ -99,7 +99,31 @@ async function obtenerInfo() {
     console.log(data)
 }
 
+async function ListFilesFirebase() {
+    // Create a reference under which you want to list
+    const listRef = ref(storage, 'plain-text/geojson');
 
+    // Find all the prefixes and items.
+    listAll(listRef)
+        .then((res) => {
+            
+            res.prefixes.forEach((folderRef) => {
+                console.log(folderRef._location.path_)
+
+
+                // All the prefixes under listRef.
+                // You may call listAll() recursively on them.
+            });
+            res.items.forEach((itemRef) => {
+                // All the items under listRef.
+                console.log(itemRef._location.path_)
+                
+            });
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+        });
+
+}
 
 
 // Referencia a las colecciones de proyectos y objetivos
@@ -189,7 +213,8 @@ GLOBAL.firestore = {
     CredentialOut, //para cerrar la aplicación
     getUsuarios, //función para verificar usuarios programadores
     loadfile,
-    obtenerInfo
+    obtenerInfo,
+    ListFilesFirebase,
 }
 
 //Función que escucha el cambio en inicio o cerrar sesión
