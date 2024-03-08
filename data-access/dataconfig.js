@@ -9,7 +9,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, getBlob } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
 
 import {
     getFirestore,
@@ -88,37 +88,11 @@ async function loadfile(file) {
 }
 // imagesRef now points to 'images'
 
-const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-
 async function obtenerInfo() {
-
     const starsRef = ref(storage, 'plain-text/json/odpi.json');
-    const yourUrl = starsRef
 
-
-    // Get the download URL
-    getDownloadURL(starsRef)
-        .then((url) => {
-            const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-
-            const yourUrl =
-                'datos.comunidad.madrid/catalogo/dataset/7da43feb-8d4d-47e0-abd5-3d022d29d09e/resource/877fa8f5-cd6c-4e44-9df5-0fb60944a841/download/covid19_tia_muni_y_distritos_s.json';
-                var responseClone
-            fetch(corsAnywhere + url, {
-                method: 'GET',
-                headers: new Headers({
-                    'Content-Type': 'application/text',
-                    'Access-Control-Allow-Origin': '*',
-                }),
-            })
-                .then(function (response) {
-                    responseClone = response.clone(); // 2
-                    return response.json();
-                })
-                .catch((err) => console.log(err));
-
-
-        });
+    const blob = await getBlob(starsRef);
+    console.log(blob)
 }
 
 
