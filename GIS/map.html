@@ -169,15 +169,19 @@
                                     <label for="file-load" class="">
                                         <i class="bi bi-cloud-arrow-up-fill me-2"></i>Subir archivos a la nube
                                     </label>
-                                    <input  id="file-load" 
-                                            style="visibility:hidden; width: 50px;" 
-                                            type="file"
-                                            multiple accept=".json, .geojson, .txt">
+                                    <input id="file-load" style="visibility:hidden; width: 50px;" type="file" multiple
+                                        accept=".json, .geojson, .txt">
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item " href="#" onclick="GLOBAL.firestore.obtenerInfo()">
                                     <i class=""></i>leer archivo
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item " href="#" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasInfografia" aria-controls="offcanvasRight">
+                                    Mas...
                                 </a>
                             </li>
                         </ul>
@@ -357,7 +361,8 @@
                 <h5 class="offcanvas-title" id="tlResultados">Resultados</h5>
             </div>
             <form class="row align-items-center">
-                <div class="col-1" data-bs-toggle="modal" data-bs-target="#TableAModal" onclick="TablaReport()" hidden="true">
+                <div class="col-1" data-bs-toggle="modal" data-bs-target="#TableAModal" onclick="TablaReport()"
+                    hidden="true">
                     <i class="bi bi-table text-white" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-custom-class="tooltip" data-bs-title="Ver tabla"></i>
                 </div>
@@ -832,6 +837,24 @@
 
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasInfografia" aria-labelledby="offcanvasInfografia">
+        <div class="offcanvas-header bg-success text-white">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Infografias avanzado</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1" onclick="inputFromLatLng()">
+                    <i class="bi bi-geo-fill"></i>
+                </span>
+                <!--Guarda información texto del correo de ingreso afecta el archivo (credential.js)-->
+                <input id="inMarkFrom" type="text" class="form-control" placeholder="coordenadas"
+                    aria-label="Coordenadas" aria-describedby="basic-addon1">
             </div>
         </div>
     </div>

@@ -70,6 +70,14 @@ function ListColors(type, control) {
     })
 }
 
+function inputFromLatLng() {
+    const valueCoord = document.getElementById('inMarkFrom')
+    let coordenadas = []
+    coordenadas = (valueCoord.value).split(",")
+
+    PutMarkCicle(false, 'orange', 1, 10, coordenadas[0], coordenadas[1])
+}
+
 function PutMarkCicle(
     //Propiedasdes del marcador por defecto
     static = false,
