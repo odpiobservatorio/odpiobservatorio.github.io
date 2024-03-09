@@ -852,19 +852,21 @@
                 <div>
                     <button type="button" class="btn btn-outline-success mt-2" style="width: 80%;"
                         onclick="GLOBAL.firestore.ListFilesFirebase()">
-                        Ver archivos
+                        <i class="bi bi-cloud-arrow-down-fill me-2"></i>
+                        Ver archivos de la nube
                     </button>
                 </div>
-                <select id="selPathFiles"
-                class="form-select mt-2" multiple aria-label="Multiple select example" style="width: 80%;">
+                <select id="selPathFiles" class="form-select mt-2" multiple aria-label="Multiple select example"
+                    style="width: 80%;">
 
                 </select>
 
-
-                <button type="button" class="btn btn-outline-success mt-2" style="width: 80%;"
-                    onclick="LoadFileSelected()">
-                    cargar archivo
-                </button>
+                <div class="btn-group mt-2" role="group" aria-label="Basic example" style="width: 80%;">
+                    <button type="button" class="btn btn-outline-success"  
+                    onclick="LoadFileSelected()"><i class="bi bi-eye"></i></button>
+                    <button type="button" class="btn btn-outline-success"
+                    onclick="hideLayer()"><i class="bi bi-eye-slash"></i></button>
+                  </div>
 
             </div>
         </div>
@@ -1018,7 +1020,7 @@
 <!-- llama a los eventos .js para esta página -->
 
 <script>
-    
+
 
     const TileLayerA = {
         openstreetmap: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",

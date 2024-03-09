@@ -89,13 +89,13 @@ async function loadfile(file) {
 
 //Esta función descarga un archivo en firebase storage y lo guarda en memoria
 //Es un archivo plano tipo texto, ya sea json, txt, o geojson
-async function readFile(path) {
+async function readFile(path, name) {
     const starsRef = ref(storage, path);
     const link = await getDownloadURL(starsRef);
     const res = await fetch(link);
     const data = await res.json();
     //Evoca una función en GlobalMapGrafics y lo coloca en el mapa
-    InterPretarData(data)
+    InterPretarData(data, name)
 }
 
 //Esta función me crea uan lista de archivos en mi nube

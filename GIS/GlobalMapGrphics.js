@@ -5,6 +5,8 @@ let MarkFreePoligon = [];
 //Guarda las etiquetas libres punto/etiqueta
 let LabelsMapGrup = []
 
+let CapasCustom = {}
+
 //Guarda la leyendas/convenciones
 let LeyendasMap = []
 //Lista de colores para usar
@@ -372,21 +374,100 @@ function HideMark() {
 function LoadFileSelected() {
     const ListFiles = document.getElementById('selPathFiles')
 
-    GLOBAL.firestore.readFile(ListFiles.value)
+    var selectedText = ListFiles.options[ListFiles.selectedIndex].text;
+    GLOBAL.firestore.readFile(ListFiles.value, selectedText)
 
 }
 
-function InterPretarData(Data){
-    console.log(Data)
+function InterPretarData(Data, name) {
 
-    const CapaCustom = new L.geoJSON(Data, {
-        style: {
-            color: 'white',
-            weight: 3,
-            fillColor: 'gray',
-            fillOpacity: 0.5,
-            pane: 'mapPane'           
-        }
-    }).addTo(map)
 
+    let Mark
+    let typeGeometry = Data.features[0].geometry.type
+
+    if (typeGeometry == 'MultiPoint') {
+
+        let i = 0
+        CapasCustom[name]=[]
+        new L.geoJSON(Data, {
+            style: (feature) => {
+                const Lat = feature.geometry.coordinates[0][1]
+                const Lng = feature.geometry.coordinates[0][0]
+                const mark= new L.circleMarker([Lat, Lng],
+                    {
+
+                        color: 'white',
+                        fillColor: 'red',
+                        fillOpacity: 1,
+                        radius: 10,
+                        weight: 1,
+                        //Para colocar las marcas arriba de otras capas.
+                        pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
+
+
+                    }).addTo(map)
+                    CapasCustom[name].push(mark)
+            },
+        })
+
+
+
+
+    } else if (typeGeometry == 'MultiLineString') {
+        CapasCustom[name]=[]
+        const Line = new L.geoJSON(Data, {
+            style: (feature) => {
+                return {
+                    color: "blue",
+                    fillColor: "gray",
+                    weight: 2,
+                    fillOpacity: 0.5,
+                    pane: 'mapLayers',
+                }
+            },
+        }).addTo(map)
+        CapasCustom[name].push(Line)
+    } else {
+        CapasCustom[name]=[]
+        const Poligon = new L.geoJSON(Data, {
+            style: (feature) => {
+                return {
+                    color: "white",
+                    fillColor: "gray",
+                    weight: 2,
+                    fillOpacity: 0.5,
+                    pane: 'mapLayers',
+                }
+            },
+        }).addTo(map)
+        CapasCustom[name].push(Poligon)
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+function hideLayer() {
+    const ListFiles = document.getElementById('selPathFiles')
+    var selectedText = ListFiles.options[ListFiles.selectedIndex].text;
+
+    const ItemsArray = (CapasCustom[selectedText])
+   
+    ItemsArray.forEach(elemento=>{
+        map.removeLayer(elemento)
+
+    })
+
+
+    //
 }
