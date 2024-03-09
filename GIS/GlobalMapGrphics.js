@@ -1,3 +1,5 @@
+
+
 //Guarda los marcadores libres
 let MarkFreePoligon = [];
 //Guarda las etiquetas libres punto/etiqueta
@@ -365,4 +367,26 @@ document.getElementById('file-load')
 function HideMark() {
 
     console.log(LabelsMapGrup[0].options.key)
+}
+
+function LoadFileSelected() {
+    const ListFiles = document.getElementById('selPathFiles')
+
+    GLOBAL.firestore.readFile(ListFiles.value)
+
+}
+
+function InterPretarData(Data){
+    console.log(Data)
+
+    const CapaCustom = new L.geoJSON(Data, {
+        style: {
+            color: 'white',
+            weight: 3,
+            fillColor: 'gray',
+            fillOpacity: 0.5,
+            pane: 'mapPane'           
+        }
+    }).addTo(map)
+
 }

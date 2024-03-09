@@ -86,43 +86,93 @@ async function loadfile(file) {
         mensajes("Reintente cargar de nuevo el archivo", "orange")
     }
 }
-// imagesRef now points to 'images'
 
-async function obtenerInfo() {
-    const starsRef = ref(storage, 'plain-text/json/odpi.json');
-
+//Esta función descarga un archivo en firebase storage y lo guarda en memoria
+//Es un archivo plano tipo texto, ya sea json, txt, o geojson
+async function readFile(path) {
+    const starsRef = ref(storage, path);
     const link = await getDownloadURL(starsRef);
-    console.log(link)
-
     const res = await fetch(link);
     const data = await res.json();
-    console.log(data)
+    //Evoca una función en GlobalMapGrafics y lo coloca en el mapa
+    InterPretarData(data)
 }
+
+//Esta función me crea uan lista de archivos en mi nube
+//los lista para poder acceder a ellos por su ruta
 
 async function ListFilesFirebase() {
     // Create a reference under which you want to list
-    const listRef = ref(storage, 'plain-text/geojson');
+    const cListFiles = document.getElementById("selPathFiles")
+    cListFiles.innerHTML = ''
+    //Crea listas por cada carpeta que tengo en firebase y por su tipo
+    const pJson = ref(storage, 'plain-text/json');
 
     // Find all the prefixes and items.
-    listAll(listRef)
+    listAll(pJson)
         .then((res) => {
-            
+
             res.prefixes.forEach((folderRef) => {
-                console.log(folderRef._location.path_)
-
-
                 // All the prefixes under listRef.
                 // You may call listAll() recursively on them.
             });
             res.items.forEach((itemRef) => {
                 // All the items under listRef.
-                console.log(itemRef._location.path_)
-                
+                ListFolders.push(itemRef._location.path_)
+                const itemLista = document.createElement('option')
+                itemLista.value = itemRef._location.path_
+                itemLista.textContent = (itemRef._location.path_).replace('plain-text/json/', '')
+                cListFiles.appendChild(itemLista)
+
             });
         }).catch((error) => {
             // Uh-oh, an error occurred!
         });
 
+    const pGeoJson = ref(storage, 'plain-text/geojson');
+
+    // Find all the prefixes and items.
+    listAll(pGeoJson)
+        .then((res) => {
+
+            res.prefixes.forEach((folderRef) => {
+                // All the prefixes under listRef.
+                // You may call listAll() recursively on them.
+            });
+            res.items.forEach((itemRef) => {
+                // All the items under listRef.
+                ListFolders.push(itemRef._location.path_)
+                const itemLista = document.createElement('option')
+                itemLista.value = itemRef._location.path_
+                itemLista.textContent = (itemRef._location.path_).replace('plain-text/geojson/', '')
+                cListFiles.appendChild(itemLista)
+
+            });
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+        });
+
+    const pText = ref(storage, 'plain-text/text');
+
+    // Find all the prefixes and items.
+    listAll(pText)
+        .then((res) => {
+
+            res.prefixes.forEach((folderRef) => {
+                // All the prefixes under listRef.
+                // You may call listAll() recursively on them.
+            });
+            res.items.forEach((itemRef) => {
+                // All the items under listRef.
+                ListFolders.push(itemRef._location.path_)
+                const itemLista = document.createElement('option')
+                itemLista.value = itemRef._location.path_
+                itemLista.textContent = (itemRef._location.path_).replace('plain-text/text/', '')
+                cListFiles.appendChild(itemLista)
+            });
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+        });
 }
 
 
@@ -213,7 +263,7 @@ GLOBAL.firestore = {
     CredentialOut, //para cerrar la aplicación
     getUsuarios, //función para verificar usuarios programadores
     loadfile,
-    obtenerInfo,
+    readFile,
     ListFilesFirebase,
 }
 
