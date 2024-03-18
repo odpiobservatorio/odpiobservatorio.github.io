@@ -41,8 +41,6 @@ import {
 
 
 
-
-
 // Utiliza las claves y credenciales de mi base de datos de Tomakare
 const firebaseConfig = {
     apiKey: "AIzaSyAi1ZdkKtKktSKVk_afvPQ9IkkCNbmghFQ",
@@ -165,7 +163,8 @@ cListFiles.innerHTML=''
                         // You may call listAll() recursively on them.
                     });
                     res.items.forEach((itemRef) => {
-                        // All the items under listRef.
+                        // Aquí se incorporan los controles a la lista
+                        //Ajustar para tipo check
 
                         const itemLista = document.createElement('option')
                         itemLista.value=itemRef._location.path_
