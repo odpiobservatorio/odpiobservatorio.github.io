@@ -66,3 +66,8 @@
 .pDot {
     font-size: 12px;
 }
+
+.list-group-scroll{
+    overflow:scroll;
+    height: 100px;  
+}

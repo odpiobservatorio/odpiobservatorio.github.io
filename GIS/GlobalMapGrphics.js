@@ -371,11 +371,9 @@ function HideMark() {
     console.log(LabelsMapGrup[0].options.key)
 }
 
-function LoadFileSelected() {
+function LoadFileSelected(file,name) {
     const ListFiles = document.getElementById('selPathFiles')
-
-    var selectedText = ListFiles.options[ListFiles.selectedIndex].text;
-    GLOBAL.firestore.readFile(ListFiles.value, selectedText)
+    GLOBAL.firestore.readFile(file, name)
 
 }
 
@@ -409,7 +407,6 @@ function InterPretarData(Data, name) {
                     CapasCustom[name].push(mark)
             },
         })
-
 
 
 
@@ -457,15 +454,10 @@ function InterPretarData(Data, name) {
 
 }
 
-function hideLayer() {
-    const ListFiles = document.getElementById('selPathFiles')
-    var selectedText = ListFiles.options[ListFiles.selectedIndex].text;
-
-    const ItemsArray = (CapasCustom[selectedText])
-   
+function hideLayer(selectedText) {
+    const ItemsArray = (CapasCustom[selectedText])   
     ItemsArray.forEach(elemento=>{
         map.removeLayer(elemento)
-
     })
 
 

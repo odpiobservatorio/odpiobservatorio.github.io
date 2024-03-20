@@ -101,11 +101,11 @@ async function readFile(path, name) {
 
 async function ListFilesFirebase() {
     // Create a reference under which you want to list
-const cListFiles= document.getElementById("selPathFiles")
-cListFiles.innerHTML=''
+    const cListFiles = document.getElementById("selPathFiles")
+    cListFiles.innerHTML = ''
 
 
-//Crea listas por cada carpeta que tengo en firebase y por su tipo
+    //Crea listas por cada carpeta que tengo en firebase y por su tipo
     const pJson = ref(storage, 'plain-text/json');
 
     // Find all the prefixes and items.
@@ -120,8 +120,8 @@ cListFiles.innerHTML=''
                 // All the items under listRef.
 
                 const itemLista = document.createElement('option')
-                itemLista.value=itemRef._location.path_
-                itemLista.textContent=(itemRef._location.path_).replace('plain-text/json/','')
+                itemLista.value = itemRef._location.path_
+                itemLista.textContent = (itemRef._location.path_).replace('plain-text/json/', '')
                 cListFiles.appendChild(itemLista)
 
             });
@@ -129,52 +129,69 @@ cListFiles.innerHTML=''
             // Uh-oh, an error occurred!
         });
 
-        const pGeoJson = ref(storage, 'plain-text/geojson');
+    const pGeoJson = ref(storage, 'plain-text/geojson');
 
-        // Find all the prefixes and items.
-        listAll(pGeoJson)
-            .then((res) => {
-    
-                res.prefixes.forEach((folderRef) => {
-                    // All the prefixes under listRef.
-                    // You may call listAll() recursively on them.
-                });
-                res.items.forEach((itemRef) => {
-                    // All the items under listRef.
+    // Find all the prefixes and items.
+    listAll(pGeoJson)
+        .then((res) => {
 
-                    const itemLista = document.createElement('option')
-                    itemLista.value=itemRef._location.path_
-                    itemLista.textContent=(itemRef._location.path_).replace('plain-text/geojson/','')
-                    cListFiles.appendChild(itemLista)
-    
-                });
-            }).catch((error) => {
-                // Uh-oh, an error occurred!
+            res.prefixes.forEach((folderRef) => {
+                // All the prefixes under listRef.
+                // You may call listAll() recursively on them.
             });
+            let i = 0
+            res.items.forEach((itemRef) => {
+                // All the items under listRef.
+                const itemLista = document.createElement('li')
+                itemLista.className = 'list-group-item'
+                i++
+                itemLista.innerHTML = `
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="${i}checkLayer">
+                    <label class="form-check-label" for="${i}checkLayer">
+                    ${(itemRef._location.path_).replace('plain-text/geojson/', '')}
+                    </label>
+                </div>
+                `
+                cListFiles.appendChild(itemLista)
 
-            const pText = ref(storage, 'plain-text/text');
+                const ItemCheck = document.getElementById(`${i}checkLayer`)
+                ItemCheck.onchange=()=>{
+                    if (ItemCheck.checked==true){
+                        LoadFileSelected(itemRef._location.path_,(itemRef._location.path_).replace('plain-text/geojson/', ''))
+                    } else{
+                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''))
+                    }
+                }
 
-            // Find all the prefixes and items.
-            listAll(pText)
-                .then((res) => {
-        
-                    res.prefixes.forEach((folderRef) => {
-                        // All the prefixes under listRef.
-                        // You may call listAll() recursively on them.
-                    });
-                    res.items.forEach((itemRef) => {
-                        // Aquí se incorporan los controles a la lista
-                        //Ajustar para tipo check
+            });
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+        });
 
-                        const itemLista = document.createElement('option')
-                        itemLista.value=itemRef._location.path_
-                        itemLista.textContent=(itemRef._location.path_).replace('plain-text/text/','')
-                        cListFiles.appendChild(itemLista)
-        
-                    });
-                }).catch((error) => {
-                    // Uh-oh, an error occurred!
-                });
+    const pText = ref(storage, 'plain-text/text');
+
+    // Find all the prefixes and items.
+    listAll(pText)
+        .then((res) => {
+
+            res.prefixes.forEach((folderRef) => {
+                // All the prefixes under listRef.
+                // You may call listAll() recursively on them.
+            });
+            res.items.forEach((itemRef) => {
+                // Aquí se incorporan los controles a la lista
+                //Ajustar para tipo check
+
+                const itemLista = document.createElement('option')
+                itemLista.value = itemRef._location.path_
+                itemLista.textContent = (itemRef._location.path_).replace('plain-text/text/', '')
+                cListFiles.appendChild(itemLista)
+
+            });
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+        });
 
 }
 
