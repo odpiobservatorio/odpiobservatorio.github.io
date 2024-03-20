@@ -317,10 +317,10 @@ function SaveMarks() {
 }
 
 function LoadFiles(e) {
+ console.log(archivo)
     var archivo = e.target.files[0];
     GLOBAL.firestore.loadfile(archivo)
     if (!archivo) {
-
         return;
     }
 }
