@@ -372,7 +372,7 @@ const allLayers = {
         ).bindPopup(
             PutPopUpZ(
                 (layer) => {
-                    return `${layer.feature.properties.NOMBRE_RESGUARDO_INDIGENA} ETNIA: ${layer.feature.properties.PUEBLO}`
+                    return `${layer.feature.properties.NOMBRE} ETNIA: ${layer.feature.properties.PUEBLO} MUNICIPIO: ${layer.feature.properties.MUNICIPIO}`
                 }
             )
         ).addTo(map);
