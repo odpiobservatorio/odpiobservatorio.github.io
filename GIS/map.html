@@ -388,13 +388,7 @@
                 <div class="form-check m-2" onchange="showLayer(this)">
                     <input class="form-check-input" type="checkbox" value="" id="LayerFondo">
                     <label class="form-check-label" for="flexCheckDefault">
-                        Ver tablero claro
-                    </label>
-                </div>
-                <div class="form-check m-2" onchange="showLayer(this)">
-                    <input class="form-check-input" type="checkbox" value="" id="LayerFondoDark">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Ver tablero oscuro
+                        Ver tablero
                     </label>
                 </div>
 
@@ -714,7 +708,19 @@
         <div class="offcanvas-body">
             <div>
                 <div class="list-group">
-                    <!--Menú que despliega lista de colores layers-->
+
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            onclick="ListColors('Desktop','ulColorListDesktop')">
+                            Color tablero
+                        </button>
+                        <ul class="dropdown-menu">
+                            <div id="ulColorListDesktop" class="container-fluid"></div>
+                        </ul>
+                    </div>
+                    <hr>
+                    <!--Menú que despliega lista de colores mapa base-->
                     <div class="dropdown mb-2">
                         <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false"
@@ -725,7 +731,38 @@
                             <div id="ulColorListLayers" class="container-fluid"></div>
                         </ul>
                     </div>
-                    <!--Lista de opciones de opacidad del marcador-->
+
+                    <!--Menú que despliega lista de colores mapa base-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            onclick="ListColors('CroquisBorde','ulColorListBorde')">
+                            Color borde mapa base
+                        </button>
+                        <ul class="dropdown-menu">
+                            <div id="ulColorListBorde" class="container-fluid"></div>
+                        </ul>
+                    </div>
+                    <!--Lista de opciones de grosor borde-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="width: 230px;">
+                            Grosor borde mapa base
+                        </button>
+                        <ul id="" class="dropdown-menu" style="width: 50px;">
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(1)">Fino</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(2)">Normal</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(3)">3</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(4)">4</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(5)">Mediano</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(6)">6</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(7)">7</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(8)">8</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(9)">9</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(10)">Extra</a></li>
+                        </ul>
+                    </div>
+                    <!--Lista de opciones de opacidad del croquis-->
                     <div class="dropdown mb-2">
                         <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false" style="width: 230px;">
@@ -794,7 +831,6 @@
                             <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.1)">10%</a></li>
                         </ul>
                     </div>
-
                     <hr>
                     <!-- Contenedor cargar y descargar configuracion -->
                     <div>

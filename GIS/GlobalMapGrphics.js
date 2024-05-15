@@ -23,14 +23,13 @@ const ColorList = [
     "#52BE80 ", "#2ECC71", "#145A32",
     //Naranjas
     "#F1C40F", "#F39C12", "#E67E22", "#D35400",
-
+    "white",
     "#ECF0F1",
     "#BDC3C7", "#95A5A6", "#7F8C8D", "#34495E",
     "#2C3E50", "#17202A"
+    
 ]
 //Función para crear menú de colores
-
-
 function ListColorsMn(control) {
     let cUl = document.getElementById(control)
     cUl.innerHTML = ""
@@ -52,7 +51,6 @@ function ListColorsMn(control) {
 function ListColors(type, control) {
 
     let cUl = document.getElementById(control)
-
     cUl.innerHTML = ""
 
     ColorList.forEach(color => {
@@ -66,8 +64,11 @@ function ListColors(type, control) {
         if (type == 'Marks') {
             liC.onclick = () => UpdateColorMark(color)
         } else if (type == 'Layers') {
-
             liC.onclick = () => UpdateColorLayer(color)
+        } else if (type == 'Desktop'){
+            liC.onclick = () => UpdateColorDesktop(color)
+        }else if (type == 'CroquisBorde'){
+            liC.onclick = () => UpdateCroquisBorde(color)
         }
 
         cUl.appendChild(liC)
@@ -108,8 +109,6 @@ function PutMarkCicle(
         Lat = LatB
         Lng = LngB
     }
-
-
 
     circle = new L.circleMarker([Lat, Lng],
         {
@@ -285,6 +284,55 @@ function UpdateOpacityLayer(opacity) {
         showDep();
     }
 }
+
+function UpdateCroquisBorde(color) {
+
+    formatoPlano["bordercolor"] = color;
+
+    //Si el mapa tiene la capa activa, la elimina y genera nuevamente con los colores actualizados
+    //Asi el cambio de la configuracion es instantaneo
+    if (Layers.hasOwnProperty("LayerPlano") && map.hasLayer(Layers["LayerPlano"])) {
+        map.removeLayer(Layers["LayerPlano"]);
+        allLayers["LayerPlano"]();
+    }
+
+    if (Layers.hasOwnProperty("currentDep")) {
+        showDep();
+    }
+}
+
+function UpdateBorderAncho(ancho) {
+
+    formatoPlano["weight"] = ancho;
+
+    //Si el mapa tiene la capa activa, la elimina y genera nuevamente con los colores actualizados
+    //Asi el cambio de la configuracion es instantaneo
+    if (Layers.hasOwnProperty("LayerPlano") && map.hasLayer(Layers["LayerPlano"])) {
+        map.removeLayer(Layers["LayerPlano"]);
+        allLayers["LayerPlano"]();
+    }
+
+    if (Layers.hasOwnProperty("currentDep")) {
+        showDep();
+    }
+}
+
+function UpdateColorDesktop(color) {
+
+    formatoDesktop["color"] = color;
+
+    //Si el mapa tiene la capa activa, la elimina y genera nuevamente con los colores actualizados
+    //Asi el cambio de la configuracion es instantaneo
+    if (Layers.hasOwnProperty("LayerFondo") && map.hasLayer(Layers["LayerFondo"])) {
+        map.removeLayer(Layers["LayerFondo"]);
+        allLayers["LayerFondo"]();
+    }
+
+    if (Layers.hasOwnProperty("currentDep")) {
+        showDep();
+    }
+}
+
 
 function SaveMarks() {
     let exportableMark = []

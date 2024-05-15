@@ -1,6 +1,7 @@
 
 let Datafilter = 0;
 const Layers = {}
+const LayersDep = []
 
 let MarkPIR = []
 
@@ -53,6 +54,12 @@ const macros = {
 const formatoPlano = {
     "color": "orange", // Configuracion de color 
     "opacidad": "0.5", // Configuracion de Opacidad
+    "bordercolor":"white",
+    "weight":"2"
+}
+const formatoDesktop = {
+    "color": "#29D5D8", // Configuracion de color 
+    "opacidad": "1", // Configuracion de Opacidad
 }
 
 //Función para visualizar macros por unidades
@@ -135,9 +142,11 @@ function clearDep() {
     /*
     * Limpia el departamento inidividual q se esta mostrando
     */
-    if (Layers.hasOwnProperty("currentDep")) {
-        map.removeLayer(Layers["currentDep"]);
-    }
+    LayersDep.forEach(departamento =>{
+        map.removeLayer(departamento)
+
+
+    })
 }
 
 function showDep() {
@@ -146,7 +155,7 @@ function showDep() {
     */
 
     // Si hay un departamento mostrandose, lo elimina
-    clearDep()
+    //clearDep()
 
     const departamento = document.getElementById("lstDeps").value;
     const depsCopy = JSON.parse(JSON.stringify(capaDepartamentos));
@@ -158,14 +167,19 @@ function showDep() {
     ];
 
     // Crear capa
+
+    
+
+
+
     Layers["currentDep"] = new L.geoJson(depsCopy, {
         style: {
-            //color: formatoPlano["color"],
+            color: formatoPlano["bordercolor"],
             weight: 2,
             opacity: 1,
-            color: '#FC4E2A',
             fillColor: formatoPlano.color,
             fillOpacity: formatoPlano.opacidad,
+            pane:"polygonsPane"
         }
     }).bindPopup(
         PutPopUpZ(
@@ -174,6 +188,9 @@ function showDep() {
             }
         )
     ).addTo(map);
+
+    LayersDep.push(Layers["currentDep"])
+
 
 }
 
@@ -236,14 +253,11 @@ function colorMap(casos, max = 794) {
 
 //Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
-
-
-
     "LayerPlano": () => {
         Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
             style: {
-                color: formatoPlano["color"],
-                weight: 0,
+                color: formatoPlano["bordercolor"],
+                weight: formatoPlano["weight"],
                 fillColor: formatoPlano["color"],
                 fillOpacity: formatoPlano["opacidad"],
                 pane: 'mapPane' //Orden en la capa              
@@ -254,9 +268,9 @@ const allLayers = {
     "LayerFondo": () => {
         Layers["LayerFondo"] = new L.geoJSON(FondoLayer, {
             style: {
-                color: "#ffffff",
+                color: formatoDesktop["color"],
                 weight: 0,
-                fillColor: "white",
+                fillColor: formatoDesktop["color"],
                 fillOpacity: 1,
             }
         }).addTo(map);
@@ -275,7 +289,7 @@ const allLayers = {
         Layers["LayerDepartamentos"] = new L.geoJSON(capaDepartamentos,
             {
                 style: {
-                    color: formatoPlano.color,
+                    color: formatoPlano["bordercolor"],
                     weight: 1,
                     pane: 'mapLayers',
                     fillOpacity: 0,
@@ -304,7 +318,7 @@ const allLayers = {
         Layers["LayerMunicipios"] = new L.geoJSON(capaMunicipios,
             {
                 style: {
-                    color: formatoPlano.color,
+                    color: formatoPlano["bordercolor"],
                     weight: 1,
                     pane: 'mapLayers',
                     fillOpacity: 0,
@@ -839,10 +853,10 @@ const allLayers = {
                     fillColor: colorMap(casos || 1, max),
                     weight: 2,
                     opacity: 1,
-                    color: 'white',
+                    color: formatoPlano,
                     //dashArray: '3',
                     fillOpacity: 0.75,
-                    pane: 'mapLayers'
+                    pane: 'polygonsPane'
                 }
             }
         }).bindPopup(
