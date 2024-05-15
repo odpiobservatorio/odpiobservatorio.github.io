@@ -149,6 +149,16 @@ function clearDep() {
     })
 }
 
+
+function updateDepColors(){
+    clearDep()
+
+
+
+
+
+}
+
 function showDep() {
     /*
     * Muestra un departamento individual en el mapa
@@ -165,10 +175,6 @@ function showDep() {
             feature => feature.properties.nombre_dpt === departamento
         )
     ];
-
-    // Crear capa
-
-    
 
 
 

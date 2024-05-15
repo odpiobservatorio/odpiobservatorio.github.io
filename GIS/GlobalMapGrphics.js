@@ -266,7 +266,7 @@ function UpdateColorLayer(color) {
     }
 
     if (Layers.hasOwnProperty("currentDep")) {
-        showDep();
+        updateDepColors()
     }
 }
 function UpdateOpacityLayer(opacity) {
@@ -297,7 +297,7 @@ function UpdateCroquisBorde(color) {
     }
 
     if (Layers.hasOwnProperty("currentDep")) {
-        showDep();
+        updateDepColors()
     }
 }
 
@@ -313,7 +313,7 @@ function UpdateBorderAncho(ancho) {
     }
 
     if (Layers.hasOwnProperty("currentDep")) {
-        showDep();
+        updateDepColors()
     }
 }
 
