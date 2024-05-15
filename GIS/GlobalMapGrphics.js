@@ -14,7 +14,7 @@ const ColorList = [
     //rojos
     "#C0392B", "#E74C3C",
     //Violetas
-    "#9B59B6", "#AF7AC5",
+    "#9B59B6", "#AF7AC5", "#D40055",
     //Azules
     "#2980B9", "#3498DB",
     //Asure
@@ -317,7 +317,7 @@ function SaveMarks() {
 }
 
 function LoadFiles(e) {
- console.log(archivo)
+    console.log(archivo)
     var archivo = e.target.files[0];
     GLOBAL.firestore.loadfile(archivo)
     if (!archivo) {
@@ -371,7 +371,7 @@ function HideMark() {
     console.log(LabelsMapGrup[0].options.key)
 }
 
-function LoadFileSelected(file,name) {
+function LoadFileSelected(file, name) {
     const ListFiles = document.getElementById('selPathFiles')
     GLOBAL.firestore.readFile(file, name)
 
@@ -386,12 +386,12 @@ function InterPretarData(Data, name) {
     if (typeGeometry == 'MultiPoint') {
 
         let i = 0
-        CapasCustom[name]=[]
+        CapasCustom[name] = []
         new L.geoJSON(Data, {
             style: (feature) => {
                 const Lat = feature.geometry.coordinates[0][1]
                 const Lng = feature.geometry.coordinates[0][0]
-                const mark= new L.circleMarker([Lat, Lng],
+                const mark = new L.circleMarker([Lat, Lng],
                     {
 
                         color: 'white',
@@ -404,14 +404,14 @@ function InterPretarData(Data, name) {
 
 
                     }).addTo(map)
-                    CapasCustom[name].push(mark)
+                CapasCustom[name].push(mark)
             },
         })
 
 
 
     } else if (typeGeometry == 'MultiLineString') {
-        CapasCustom[name]=[]
+        CapasCustom[name] = []
         const Line = new L.geoJSON(Data, {
             style: (feature) => {
                 return {
@@ -425,7 +425,7 @@ function InterPretarData(Data, name) {
         }).addTo(map)
         CapasCustom[name].push(Line)
     } else {
-        CapasCustom[name]=[]
+        CapasCustom[name] = []
         const Poligon = new L.geoJSON(Data, {
             style: (feature) => {
                 return {
@@ -455,8 +455,8 @@ function InterPretarData(Data, name) {
 }
 
 function hideLayer(selectedText) {
-    const ItemsArray = (CapasCustom[selectedText])   
-    ItemsArray.forEach(elemento=>{
+    const ItemsArray = (CapasCustom[selectedText])
+    ItemsArray.forEach(elemento => {
         map.removeLayer(elemento)
     })
 
