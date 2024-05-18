@@ -111,6 +111,12 @@
                             data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">Configuración</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasMarcador" aria-controls="offcanvasMarcador"><i
+                                class="bi bi-pin-map-fill me-2"></i>Marcadores</a>
+                    </li>
+
 
 
                     <li class="nav-item dropdown">
@@ -697,6 +703,30 @@
         </div>
     </div>
 
+
+    <!-- Panel de marcadores-->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasMarcador" aria-labelledby="offcanvasMarcadorLabel">
+        <div class="offcanvas-header bg-success text-white">
+            <h5 class="offcanvas-title" id="offcanvasMarcadorLabel">Panel marcadores libres</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        
+        <div class="offcanvas-body">
+            <label class="mb-1 text-secondary">Tipo de marcador</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-circle-fill text-secondary" id="ico-Tipo-Marca"></i></span>
+                <select class="form-select" aria-label="Default select example" id="sel-tipo-marca" onchange="Change_icon(this)">
+                    <option selected value="0">Círculo</option>
+                    <option value="1">Cuadro</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-outline-secondary" onclick="Insertar_marcador_personalizado()">Insertar marcador</button>
+        </div>
+
+    </div>
+
     <!-- Panel de formato-->
     <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasGrafico"
         aria-labelledby="offcanvasExampleLabel">
@@ -801,7 +831,7 @@
                             <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(60)">6x</a></li>
                         </ul>
                     </div>
-                    <!--Menú que despliega lista de colores-->
+                    <!--Menú que despliega lista de colores marcador-->
                     <div class="dropdown mb-2">
                         <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false"
@@ -810,6 +840,17 @@
                         </button>
                         <ul class="dropdown-menu">
                             <div id="ulColorListMarks" class="container-fluid"></div>
+                        </ul>
+                    </div>
+                    <!--Menú que despliega lista de colores marcador-->
+                    <div class="dropdown mb-2">
+                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            onclick="ListColors('BorderMarksColor','ulColorBorderMarks')">
+                            Color borde marcador
+                        </button>
+                        <ul class="dropdown-menu">
+                            <div id="ulColorBorderMarks" class="container-fluid"></div>
                         </ul>
                     </div>
                     <!--Lista de opciones de opacidad del marcador-->

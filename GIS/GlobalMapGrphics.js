@@ -27,7 +27,7 @@ const ColorList = [
     "#ECF0F1",
     "#BDC3C7", "#95A5A6", "#7F8C8D", "#34495E",
     "#2C3E50", "#17202A"
-    
+
 ]
 //Función para crear menú de colores
 function ListColorsMn(control) {
@@ -65,10 +65,12 @@ function ListColors(type, control) {
             liC.onclick = () => UpdateColorMark(color)
         } else if (type == 'Layers') {
             liC.onclick = () => UpdateColorLayer(color)
-        } else if (type == 'Desktop'){
+        } else if (type == 'Desktop') {
             liC.onclick = () => UpdateColorDesktop(color)
-        }else if (type == 'CroquisBorde'){
+        } else if (type == 'CroquisBorde') {
             liC.onclick = () => UpdateCroquisBorde(color)
+        } else if (type == 'BorderMarksColor') {
+            liC.onclick = () => UpdateColorBorderMark(color)
         }
 
         cUl.appendChild(liC)
@@ -94,7 +96,7 @@ function PutMarkCicle(
     LngB = -74.030,
     Onlabel = false,
     Content = '',
-    key = ''
+    key = '',
 ) {
     let Lat
     let Lng
@@ -166,7 +168,12 @@ function PutMarkSquare(
         color: 'green',
         fillColor: 'green',
         fillOpacity: 1,
+        pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
     })
+
+    map.addLayer(polygon)
+
+    return polygon
 }
 
 function DeleteMarks() {
@@ -241,6 +248,14 @@ function UpdateColorMark(fillColor) {
             })
     })
 }
+function UpdateColorBorderMark(color) {
+    bigData.MrkAntecedente.forEach(marca => {
+        marca.setStyle(
+            {
+                color: color,
+            })
+    })
+}
 function UpdateOpacityMark(fillOpacity) {
     bigData.MrkAntecedente.forEach(marca => {
         marca.setStyle(
@@ -302,7 +317,6 @@ function UpdateCroquisBorde(color) {
 }
 
 function UpdateBorderAncho(ancho) {
-
     formatoPlano["weight"] = ancho;
 
     //Si el mapa tiene la capa activa, la elimina y genera nuevamente con los colores actualizados
@@ -510,4 +524,137 @@ function hideLayer(selectedText) {
 
 
     //
+}
+
+//////ADMINISTRA LAS FUNCIONES DE MARCADORES LIBRES PERO CON CONFIGURACIÓN
+function Insertar_marcador_personalizado() {
+
+    const Tipo_Marca = document.getElementById("sel-tipo-marca").value
+
+    if (Tipo_Marca == 0) {
+        Marca_Personalizada_Circulo(false, "red", 1, 10)
+        document.getElementById("ico-Tipo-Marca").className="bi bi-circle-fill text-secondary"
+    } else {
+        Marca_Personalizada_Cuadrado(false, "red", 1, 0.5)
+        
+    }
+
+
+}
+function Change_icon(control){
+    if (control.value==0){
+        document.getElementById("ico-Tipo-Marca").className="bi bi-circle-fill text-secondary"
+    }else{
+        document.getElementById("ico-Tipo-Marca").className="bi bi-square-fill text-secondary"
+    }
+
+}
+
+let Marcadores_Personalizados = []
+function Marca_Personalizada_Circulo(
+    //Propiedasdes del marcador por defecto
+    static = false,
+    fillcolor = 'black',
+    fillOpacity = 1,
+    radius = 10,
+    color = "white",
+    weight = 1,
+    pane = 'polygonsPane',
+    LatB = 4.797,
+    LngB = -74.030,
+) {
+    let Lat
+    let Lng
+    let draggable
+
+    if (static == false) {
+        draggable = true
+        Lat = LatB
+        Lng = LngB
+    } else {
+        draggable = false
+        Lat = LatB
+        Lng = LngB
+    }
+
+    circle = new L.circleMarker([Lat, Lng],
+        {
+            Type: 'Mark',
+            draggable: draggable,
+            fillColor: fillcolor,
+            fillOpacity: fillOpacity,
+            radius: radius,
+            color: color,
+            weight: weight,
+            //Para colocar las marcas arriba de otras capas.
+            pane: pane,//Se encuentra configurado al inicio de map.html
+        })
+
+
+    if (static == false) {
+        //Si es no estatico se activa la función de arrastrar
+        circle.on('dragend', function (e) {
+        })
+        //solo se guardan la marca no fijas
+        Marcadores_Personalizados.push(circle)
+    }
+
+    map.addLayer(circle)
+
+    return circle
+}
+function Marca_Personalizada_Cuadrado(
+    //Propiedasdes del marcador por defecto
+    static = false,
+    fillcolor = 'black',
+    fillOpacity = 1,
+    radius = 0.3,
+    color = "white",
+    weight = 1,
+    pane = 'polygonsPane',
+    LatB = 7,
+    LngB = -75,
+
+) {
+
+    let Lat
+    let Lng
+    let draggable
+
+    if (static == false) {
+        draggable = true
+        Lat = LatB
+        Lng = LngB
+    } else {
+        draggable = false
+        Lat = LatB
+        Lng = LngB
+    }
+    let size = parseFloat(radius)
+
+
+    var bounds = [[LatB - size, LngB], [LatB, LngB + size]];
+
+    polygon = new L.rectangle(bounds, {
+        Type: 'Mark',
+        draggable: draggable,
+        fillColor: fillcolor,
+        fillOpacity: fillOpacity,
+        color: color,
+        weight: weight,
+        //Para colocar las marcas arriba de otras capas.
+        pane: pane,//Se encuentra configurado al inicio de map.html
+    })
+
+    if (static == false) {
+        //Si es no estatico se activa la función de arrastrar
+        polygon.on('dragend', function (e) {
+        })
+        //solo se guardan la marca no fijas
+        Marcadores_Personalizados.push(polygon)
+    }
+
+    map.addLayer(polygon)
+
+    return polygon
 }
