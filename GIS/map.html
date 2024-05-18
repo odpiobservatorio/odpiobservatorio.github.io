@@ -803,20 +803,32 @@
                     <div class="collapse" id="collapseCoord">
                         Insertar marca formato (5.30, -76.60)
                         <input id="int_coord-custom" type="text" class="form-control mt-1" placeholder="coordenadas"
-                        aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;" value="4.797, -74.030">
+                        aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;" value="4.797, -74.030" oninput="{coordenada_activa=(this.value)}"">
                       </div>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseInfo" role="button" aria-expanded="false" aria-controls="collapseInfo">Informacion</div>
+                    <!--Lista de tamaño del marcador-->
 
+                    <div class="collapse" id="collapseInfo">
+                        Insertar texto del marcador
+                        <input id="int_coord-custom" type="text" class="form-control mt-1" placeholder="texto"
+                        aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;" oninput="{texto_activo=(this.value)}">
+                      </div>
                     </div>
                 </li>
 
             </ol>
                 <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()"><i class="bi bi-geo-fill"></i></button>
+                    <button type="button" class="btn btn-success" onclick="paste_format_custom()"><i class="bi bi-clipboard-check"></i></i></button>
                     <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(1)"><i class="bi bi-file-x"></i></button>
                     <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(0)"><i class="bi bi-trash3"></i></button>
                   </div>
 
-
+                  
         </div>
 
 

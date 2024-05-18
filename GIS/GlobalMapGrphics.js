@@ -2,9 +2,12 @@
 //VARIABLES PARA MARCADORES PERSONALIZADOS
 //COLOR ACTIVO
 let color_activo;
+let tipo_activo;
 let tamaño_activo = 5;
 let mark_selected;
 let opacidad_activa = 1;
+let coordenada_activa = "4.797, -74.030";
+let texto_activo = "";
 //VARIABLE QUE GUARDA TODOS LOS MARCADORES PERSONALIZADOS, POSIBILITA LA OPCIÓN DE BORRAR TODOS O ÚLTIMO
 let Marcadores_Personalizados = []
 
@@ -546,22 +549,40 @@ function hideLayer(selectedText) {
 
 //////ADMINISTRA LAS FUNCIONES DE MARCADORES LIBRES PERO CON CONFIGURACIÓN
 function Insertar_marcador_personalizado() {
-  
-    let Coordenadas= document.getElementById("int_coord-custom").value.split(",");
+
+    let Coordenadas = coordenada_activa.split(",");
 
     const Tipo_Marca = document.getElementById("sel-tipo-marca").value
 
     if (Tipo_Marca == 0) {
-        Marca_Personalizada_Circulo(false, color_activo, opacidad_activa, tamaño_activo,Coordenadas[0],Coordenadas[1])
+        Marca_Personalizada_Circulo(false, color_activo, opacidad_activa, tamaño_activo, Coordenadas[0], Coordenadas[1])
 
     } else {
-        Marca_Personalizada_Cuadrado(false, color_activo, opacidad_activa, tamaño_activo,parseFloat(Coordenadas[0]),parseFloat(Coordenadas[1]))
+        Marca_Personalizada_Cuadrado(false, color_activo, opacidad_activa, tamaño_activo, parseFloat(Coordenadas[0]), parseFloat(Coordenadas[1]))
 
     }
+}
 
+function paste_format_custom() {
+    //mark_selected
+    let MarcaAtivaIni = Marcadores_Personalizados[mark_selected]
+    const Tipo_Marca = document.getElementById("sel-tipo-marca").value
+    
+
+    if (Tipo_Marca==0){
+        coordenada_activa = `${MarcaAtivaIni._latlng.lat}, ${MarcaAtivaIni._latlng.lng}`
+        map.removeLayer(MarcaAtivaIni)
+        Insertar_marcador_personalizado(Tipo_Marca)
+    }else{
+        map.removeLayer(MarcaAtivaIni)
+        coordenada_activa = `${MarcaAtivaIni._latlngs[0][1].lat}, ${MarcaAtivaIni._latlngs[0][1].lng}`
+        Insertar_marcador_personalizado(Tipo_Marca)
+    }
+    
 
 
 }
+
 function Change_icon(control) {
     if (control.value == 0) {
         document.getElementById("ico-Tipo-Marca").className = "bi bi-circle-fill text-secondary fs-3"
@@ -575,7 +596,7 @@ function Change_size_custom(value) {
     document.getElementById("span-size-marca").textContent = tamaño_activo / 10 + "x"
 }
 function Change_opacity_custom(value) {
-    opacidad_activa=value
+    opacidad_activa = value
     document.getElementById("span-opacity-marca").textContent = 100 - ((opacidad_activa) * 100) + "%"
     document.getElementById("span-opacity-marca").style.opacity = opacidad_activa
 }
@@ -627,10 +648,19 @@ function Marca_Personalizada_Circulo(
     //Para agregar labels e iconos a las marcas
     //circle.bindTooltip('<i class="bi bi-airplane-fill fs-2"></i>', { permanent: true, offset: [10, 0] });
 
+    //Agrega un díalogo personalizable que se bare al hacer click
+    if (texto_activo != "") {
+        circle.bindPopup(PutPopUpZ(texto_activo));
+    }
+
     //Acciones relacionadas con el evento click en la marca
     circle.on('click', onClick);
     function onClick() {
         mark_selected = indexMark
+        //mark_selected
+        let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
+        //Copia las coordenadas de la marca actual
+        coordenada_activa = `${MarcaAtivaIni._latlng.lat}, ${MarcaAtivaIni._latlng.lng}`
     }
 
 
@@ -693,13 +723,20 @@ function Marca_Personalizada_Cuadrado(
         index: Marcadores_Personalizados.length
     })
     let indexMark = polygon.options.index
-    //Para agregar labels e iconos a las marcas
-    //polygon.bindTooltip('<i class="bi bi-airplane-fill fs-2"></i>', { permanent: true, offset: [10, 0] });
+
+    //Agrega un díalogo personalizable que se bare al hacer click
+    if (texto_activo != "") {
+        circle.bindPopup(PutPopUpZ(texto_activo));
+    }
 
     //Acciones relacionadas con el evento click en la marca
     polygon.on('click', onClick);
     function onClick() {
         mark_selected = indexMark
+        let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
+
+        //Copia las coordenadas de la marca actual / NOTA, como este es un poligono, las coordenadas principales so bidimencinal
+        coordenada_activa = `${MarcaAtivaIni._latlngs[0][1].lat}, ${MarcaAtivaIni._latlngs[0][1].lng}`
     }
 
     if (static == false) {
@@ -721,11 +758,11 @@ function delete_all_custom_marks(option) {
             map.removeLayer(elemento)
         })
     } else {
-       try {
-        map.removeLayer(Marcadores_Personalizados[mark_selected])
-       } catch (error) {
-        mensajes("seleccione una marca","orange")
-       }
+        try {
+            map.removeLayer(Marcadores_Personalizados[mark_selected])
+        } catch (error) {
+            mensajes("seleccione una marca", "orange")
+        }
     }
 
 }
