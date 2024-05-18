@@ -546,14 +546,16 @@ function hideLayer(selectedText) {
 
 //////ADMINISTRA LAS FUNCIONES DE MARCADORES LIBRES PERO CON CONFIGURACIÓN
 function Insertar_marcador_personalizado() {
+  
+    let Coordenadas= document.getElementById("int_coord-custom").value.split(",");
 
     const Tipo_Marca = document.getElementById("sel-tipo-marca").value
 
     if (Tipo_Marca == 0) {
-        Marca_Personalizada_Circulo(false, color_activo, opacidad_activa, tamaño_activo)
+        Marca_Personalizada_Circulo(false, color_activo, opacidad_activa, tamaño_activo,Coordenadas[0],Coordenadas[1])
 
     } else {
-        Marca_Personalizada_Cuadrado(false, color_activo, opacidad_activa, tamaño_activo)
+        Marca_Personalizada_Cuadrado(false, color_activo, opacidad_activa, tamaño_activo,parseFloat(Coordenadas[0]),parseFloat(Coordenadas[1]))
 
     }
 
@@ -586,11 +588,12 @@ function Marca_Personalizada_Circulo(
     fillcolor = 'black',
     fillOpacity = 1,
     radius = 10,
+    LatB = 4.797,
+    LngB = -74.030,
     color = "white",
     weight = 1,
     pane = 'polygonsPane',
-    LatB = 4.797,
-    LngB = -74.030,
+
 ) {
     let Lat
     let Lng
@@ -651,11 +654,12 @@ function Marca_Personalizada_Cuadrado(
     fillcolor = 'black',
     fillOpacity = 1,
     radius = 5,
+    LatB = 7,
+    LngB = -75,
     color = "white",
     weight = 1,
     pane = 'polygonsPane',
-    LatB = 7,
-    LngB = -75,
+
 
 ) {
 

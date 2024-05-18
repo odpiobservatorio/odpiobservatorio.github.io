@@ -795,6 +795,20 @@
                     <span class="badge rounded-pill p-2 text-white" style="background-color: black;"
                         id="span-opacity-marca">0%</span>
                 </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseCoord" role="button" aria-expanded="false" aria-controls="collapseCoord">Coordenadas</div>
+                    <!--Lista de tamaño del marcador-->
+
+                    <div class="collapse" id="collapseCoord">
+                        Insertar marca formato (5.30, -76.60)
+                        <input id="int_coord-custom" type="text" class="form-control mt-1" placeholder="coordenadas"
+                        aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;" value="4.797, -74.030">
+                      </div>
+
+                    </div>
+                </li>
+
             </ol>
                 <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()"><i class="bi bi-geo-fill"></i></button>
