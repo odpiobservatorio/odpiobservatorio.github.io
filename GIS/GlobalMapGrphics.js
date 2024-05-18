@@ -1,4 +1,14 @@
 
+//VARIABLES PARA MARCADORES PERSONALIZADOS
+//COLOR ACTIVO
+let color_activo;
+let tamaño_activo = 5;
+let mark_selected;
+let opacidad_activa = 1;
+//VARIABLE QUE GUARDA TODOS LOS MARCADORES PERSONALIZADOS, POSIBILITA LA OPCIÓN DE BORRAR TODOS O ÚLTIMO
+let Marcadores_Personalizados = []
+
+
 
 //Guarda los marcadores libres
 let MarkFreePoligon = [];
@@ -71,6 +81,14 @@ function ListColors(type, control) {
             liC.onclick = () => UpdateCroquisBorde(color)
         } else if (type == 'BorderMarksColor') {
             liC.onclick = () => UpdateColorBorderMark(color)
+        } else if (type == 'color-mark-custom') {
+            liC.onclick = () => {
+                //Aplica para el panel de marcadores personalizados
+                color_activo = color
+                document.getElementById("span-color-marca").style.background = color
+                document.getElementById("span-opacity-marca").style.background = color
+                document.getElementById("span-opacity-marca").style.opacity = opacidad_activa
+            }
         }
 
         cUl.appendChild(liC)
@@ -532,25 +550,36 @@ function Insertar_marcador_personalizado() {
     const Tipo_Marca = document.getElementById("sel-tipo-marca").value
 
     if (Tipo_Marca == 0) {
-        Marca_Personalizada_Circulo(false, "red", 1, 10)
-        document.getElementById("ico-Tipo-Marca").className="bi bi-circle-fill text-secondary"
+        Marca_Personalizada_Circulo(false, color_activo, opacidad_activa, tamaño_activo)
+
     } else {
-        Marca_Personalizada_Cuadrado(false, "red", 1, 0.5)
-        
+        Marca_Personalizada_Cuadrado(false, color_activo, opacidad_activa, tamaño_activo)
+
     }
 
 
+
 }
-function Change_icon(control){
-    if (control.value==0){
-        document.getElementById("ico-Tipo-Marca").className="bi bi-circle-fill text-secondary"
-    }else{
-        document.getElementById("ico-Tipo-Marca").className="bi bi-square-fill text-secondary"
+function Change_icon(control) {
+    if (control.value == 0) {
+        document.getElementById("ico-Tipo-Marca").className = "bi bi-circle-fill text-secondary fs-3"
+    } else {
+        document.getElementById("ico-Tipo-Marca").className = "bi bi-square-fill text-secondary fs-3"
     }
 
 }
+function Change_size_custom(value) {
+    tamaño_activo = value
+    document.getElementById("span-size-marca").textContent = tamaño_activo / 10 + "x"
+}
+function Change_opacity_custom(value) {
+    opacidad_activa=value
+    document.getElementById("span-opacity-marca").textContent = 100 - ((opacidad_activa) * 100) + "%"
+    document.getElementById("span-opacity-marca").style.opacity = opacidad_activa
+}
 
-let Marcadores_Personalizados = []
+
+
 function Marca_Personalizada_Circulo(
     //Propiedasdes del marcador por defecto
     static = false,
@@ -588,7 +617,18 @@ function Marca_Personalizada_Circulo(
             weight: weight,
             //Para colocar las marcas arriba de otras capas.
             pane: pane,//Se encuentra configurado al inicio de map.html
+            index: Marcadores_Personalizados.length
         })
+
+    let indexMark = circle.options.index
+    //Para agregar labels e iconos a las marcas
+    //circle.bindTooltip('<i class="bi bi-airplane-fill fs-2"></i>', { permanent: true, offset: [10, 0] });
+
+    //Acciones relacionadas con el evento click en la marca
+    circle.on('click', onClick);
+    function onClick() {
+        mark_selected = indexMark
+    }
 
 
     if (static == false) {
@@ -599,6 +639,8 @@ function Marca_Personalizada_Circulo(
         Marcadores_Personalizados.push(circle)
     }
 
+
+
     map.addLayer(circle)
 
     return circle
@@ -608,7 +650,7 @@ function Marca_Personalizada_Cuadrado(
     static = false,
     fillcolor = 'black',
     fillOpacity = 1,
-    radius = 0.3,
+    radius = 5,
     color = "white",
     weight = 1,
     pane = 'polygonsPane',
@@ -630,7 +672,7 @@ function Marca_Personalizada_Cuadrado(
         Lat = LatB
         Lng = LngB
     }
-    let size = parseFloat(radius)
+    let size = parseFloat(radius / 10)
 
 
     var bounds = [[LatB - size, LngB], [LatB, LngB + size]];
@@ -644,7 +686,17 @@ function Marca_Personalizada_Cuadrado(
         weight: weight,
         //Para colocar las marcas arriba de otras capas.
         pane: pane,//Se encuentra configurado al inicio de map.html
+        index: Marcadores_Personalizados.length
     })
+    let indexMark = polygon.options.index
+    //Para agregar labels e iconos a las marcas
+    //polygon.bindTooltip('<i class="bi bi-airplane-fill fs-2"></i>', { permanent: true, offset: [10, 0] });
+
+    //Acciones relacionadas con el evento click en la marca
+    polygon.on('click', onClick);
+    function onClick() {
+        mark_selected = indexMark
+    }
 
     if (static == false) {
         //Si es no estatico se activa la función de arrastrar
@@ -657,4 +709,19 @@ function Marca_Personalizada_Cuadrado(
     map.addLayer(polygon)
 
     return polygon
+}
+function delete_all_custom_marks(option) {
+    //Borra los marcadores libres
+    if (option == 0) {
+        Marcadores_Personalizados.forEach(elemento => {
+            map.removeLayer(elemento)
+        })
+    } else {
+       try {
+        map.removeLayer(Marcadores_Personalizados[mark_selected])
+       } catch (error) {
+        mensajes("seleccione una marca","orange")
+       }
+    }
+
 }
