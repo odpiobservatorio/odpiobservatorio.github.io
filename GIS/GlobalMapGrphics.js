@@ -25,21 +25,21 @@ let LeyendasMap = []
 //Lista de colores para usar
 const ColorList = [
     //rojos
-    "#C0392B", "#E74C3C",
+    "#C0392B", "#E74C3C", "#FF0000","#FFC0CB","#C19A6B","#E6BF83","#483C32","#FA8072",
     //Violetas
-    "#9B59B6", "#AF7AC5", "#D40055",
+    "#9B59B6", "#AF7AC5", "#D40055","#FF00FF","#800080","#F6358A",
     //Azules
-    "#2980B9", "#3498DB",
+    "#2980B9", "#3498DB","#00FFFF","#0000FF","#00008B","#7FFFD4",
     //Asure
-    "#48C9B0", "#45B39D",
+    "#48C9B0", "#45B39D","#E2F516",
     //Verdes
-    "#52BE80 ", "#2ECC71", "#145A32",
+    "#52BE80 ", "#2ECC71", "#145A32","#00FF00","#01F9C6","#808000",
     //Naranjas
-    "#F1C40F", "#F39C12", "#E67E22", "#D35400",
-    "white",
+    "#FFFF00","#F1C40F", "#F39C12", "#E67E22", "#D35400","#F8F6F0",
+    "#FFFFFF",
     "#ECF0F1",
     "#BDC3C7", "#95A5A6", "#7F8C8D", "#34495E",
-    "#2C3E50", "#17202A"
+    "#2C3E50", "#17202A","#EB5406","#3F000F"
 
 ]
 //Función para crear menú de colores
@@ -640,7 +640,8 @@ function Marca_Personalizada_Circulo(
             weight: weight,
             //Para colocar las marcas arriba de otras capas.
             pane: pane,//Se encuentra configurado al inicio de map.html
-            index: Marcadores_Personalizados.length
+            index: Marcadores_Personalizados.length,
+            info: texto_activo
         })
 
     let indexMark = circle.options.index
@@ -720,14 +721,15 @@ function Marca_Personalizada_Cuadrado(
         radius: radius,
         //Para colocar las marcas arriba de otras capas.
         pane: pane,//Se encuentra configurado al inicio de map.html
-        index: Marcadores_Personalizados.length
+        index: Marcadores_Personalizados.length,
+        info: texto_activo
 
     })
     let indexMark = polygon.options.index
 
     //Agrega un díalogo personalizable que se bare al hacer click
     if (texto_activo != "") {
-        circle.bindPopup(PutPopUpZ(texto_activo));
+        polygon.bindPopup(PutPopUpZ(texto_activo));
     }
 
     //Acciones relacionadas con el evento click en la marca
@@ -752,6 +754,7 @@ function Marca_Personalizada_Cuadrado(
 
     return polygon
 }
+
 function delete_all_custom_marks(option) {
     //Borra los marcadores libres
     if (option == 0) {
@@ -789,7 +792,7 @@ fileSelector.addEventListener('change', (event) => {
         var Parse = JSON.parse(contenido)
         let i = 0
         Parse.forEach(marca => {
-
+            texto_activo = marca.info
             if (marca.Type == "circle") {
                 Marca_Personalizada_Circulo(
                     marca.draggable,
@@ -802,6 +805,7 @@ fileSelector.addEventListener('change', (event) => {
                     marca.weight,
                     marca.pane
                 )
+
             } else {
                 Marca_Personalizada_Cuadrado(
                     marca.draggable,
@@ -814,11 +818,11 @@ fileSelector.addEventListener('change', (event) => {
                     marca.weight,
                     marca.pane
                 )
+
             }
-            
-            Marcadores_Personalizados[i].options.index=i
-            console.log(Marcadores_Personalizados[i])
-            i=i+1
+
+            Marcadores_Personalizados[i].options.index = i
+            i = i + 1
         })
 
     };
@@ -857,7 +861,8 @@ function save_load_custom_marks(value) {
                     pane: marca.options.pane,
                     index: marca.options.index,
                     lat: lat,
-                    lng: lng
+                    lng: lng,
+                    info:marca.options.info
                 }
             )
 
@@ -870,5 +875,5 @@ function save_load_custom_marks(value) {
         a.download = 'Marcas Personales.json';
         a.click();
         URL.revokeObjectURL(url);
-    } 
+    }
 }
