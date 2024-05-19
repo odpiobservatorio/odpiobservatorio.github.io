@@ -146,14 +146,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
-                                    <label for="file-input" class="">
-                                        <i class="bi bi-upload me-2"></i>Importar marcadores
-                                    </label>
-                                    <input id="file-input" style="visibility:hidden; width: 50px;" type="file">
-                                </a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item " href="#" onclick="RemoverLabels()">
                                     <i class="bi bi-trash me-2"></i>Limpiar leyendas
                                 </a>
@@ -746,89 +738,102 @@
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">Tamaño del marcador</div>
-                    <!--Lista de tamaño del marcador-->
-                    <div class="dropdown border border-1">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="width: 230px;">
-                            Tamaño
-                        </button>
-                        <ul class="dropdown-menu" style="width: 50px;">
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(5)">0.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(10)">1x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(15)">1.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(20)">2x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(25)">2.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(30)">3x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(35)">3.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(40)">4x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(45)">5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_size_custom(50)">6x</a></li>
-                        </ul>
+                        <!--Lista de tamaño del marcador-->
+                        <div class="dropdown border border-1">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="width: 230px;">
+                                Tamaño
+                            </button>
+                            <ul class="dropdown-menu" style="width: 50px;">
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(5)">0.5x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(10)">1x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(15)">1.5x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(20)">2x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(25)">2.5x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(30)">3x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(35)">3.5x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(40)">4x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(45)">5x</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(50)">6x</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    </div>
-                    <span class="badge rounded-pill p-2 text-dark fs-5"
-                        id="span-size-marca">0.5x</span>
+                    <span class="badge rounded-pill p-2 text-dark fs-5" id="span-size-marca">0.5x</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">Opacidad del marcador</div>
-                    <!--Lista de tamaño del marcador-->
-                    <div class="dropdown border border-1">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="width: 230px;">
-                            Opacidad
-                        </button>
-                        <ul class="dropdown-menu" style="width: 50px;">
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(1)">0%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.9)">10%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.8)">20%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.7)">30%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.6)">40%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.5)">50%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.4)">60%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.3)">70%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.2)">80%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.1)">90%</a></li>
-                        </ul>
-                    </div>
+                        <!--Lista de tamaño del marcador-->
+                        <div class="dropdown border border-1">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="width: 230px;">
+                                Opacidad
+                            </button>
+                            <ul class="dropdown-menu" style="width: 50px;">
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(1)">0%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.9)">10%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.8)">20%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.7)">30%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.6)">40%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.5)">50%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.4)">60%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.3)">70%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.2)">80%</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.1)">90%</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <span class="badge rounded-pill p-2 text-white" style="background-color: black;"
                         id="span-opacity-marca">0%</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseCoord" role="button" aria-expanded="false" aria-controls="collapseCoord">Coordenadas</div>
-                    <!--Lista de tamaño del marcador-->
+                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseCoord" role="button"
+                            aria-expanded="false" aria-controls="collapseCoord">Coordenadas</div>
+                        <!--Lista de tamaño del marcador-->
 
-                    <div class="collapse" id="collapseCoord">
-                        Insertar marca formato (5.30, -76.60)
-                        <input id="int_coord-custom" type="text" class="form-control mt-1" placeholder="coordenadas"
-                        aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;" value="4.797, -74.030" oninput="{coordenada_activa=(this.value)}"">
+                        <div class="collapse" id="collapseCoord">
+                            Insertar marca formato (5.30, -76.60)
+                            <input id="int_coord-custom" type="text" class="form-control mt-1" placeholder="coordenadas"
+                                aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;"
+                                value="4.797, -74.030" oninput="{coordenada_activa=(this.value)}"">
                       </div>
                     </div>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseInfo" role="button" aria-expanded="false" aria-controls="collapseInfo">Informacion</div>
-                    <!--Lista de tamaño del marcador-->
+                <li class=" list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold" data-bs-toggle="collapse" href="#collapseInfo" role="button"
+                                    aria-expanded="false" aria-controls="collapseInfo">Informacion</div>
+                                <!--Lista de tamaño del marcador-->
 
-                    <div class="collapse" id="collapseInfo">
-                        Insertar texto del marcador
-                        <input id="int_coord-custom" type="text" class="form-control mt-1" placeholder="texto"
-                        aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;" oninput="{texto_activo=(this.value)}">
-                      </div>
-                    </div>
+                                <div class="collapse" id="collapseInfo">
+                                    Insertar texto del marcador
+                                    <input id="int_coord-custom" type="text" class="form-control mt-1"
+                                        placeholder="texto" aria-label="Coordenadas" aria-describedby="basic-addon1"
+                                        style="width: 230px;" oninput="{texto_activo=(this.value)}">
+                                </div>
+                            </div>
                 </li>
 
             </ol>
-                <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()"><i class="bi bi-geo-fill"></i></button>
-                    <button type="button" class="btn btn-success" onclick="paste_format_custom()"><i class="bi bi-clipboard-check"></i></i></button>
-                    <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(1)"><i class="bi bi-file-x"></i></button>
-                    <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(0)"><i class="bi bi-trash3"></i></button>
-                  </div>
-
-                  
+            <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()"><i
+                        class="bi bi-geo-fill"></i></button>
+                <button type="button" class="btn btn-success" onclick="paste_format_custom()"><i
+                        class="bi bi-clipboard-check"></i></i></button>
+                <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(1)"><i
+                        class="bi bi-file-x"></i></button>
+                <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(0)"><i
+                        class="bi bi-trash3"></i></button>
+                <button type="button" class="btn btn-success" onclick="save_load_custom_marks(0)"><i
+                        class="bi bi-download"></i></button>
+                <button type="button" class="btn btn-success">
+                    <label for="file-input-marks" href="">
+                        <i class="bi bi-upload"></i>
+                    </label>
+                </button>
+            </div>
+            <input id="file-input-marks" style="visibility:hidden; width: 50px;" type="file" accept=".json">
         </div>
 
 

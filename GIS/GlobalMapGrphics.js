@@ -443,8 +443,7 @@ function LoadMarks(e) {
     document.getElementById('file-input').value = ''
 }
 //Vincula el evento del control input para cargar el archivo
-document.getElementById('file-input')
-    .addEventListener('change', LoadMarks);
+
 
 document.getElementById('file-load')
     .addEventListener('change', LoadFiles);
@@ -567,18 +566,18 @@ function paste_format_custom() {
     //mark_selected
     let MarcaAtivaIni = Marcadores_Personalizados[mark_selected]
     const Tipo_Marca = document.getElementById("sel-tipo-marca").value
-    
 
-    if (Tipo_Marca==0){
+
+    if (Tipo_Marca == 0) {
         coordenada_activa = `${MarcaAtivaIni._latlng.lat}, ${MarcaAtivaIni._latlng.lng}`
         map.removeLayer(MarcaAtivaIni)
         Insertar_marcador_personalizado(Tipo_Marca)
-    }else{
+    } else {
         map.removeLayer(MarcaAtivaIni)
         coordenada_activa = `${MarcaAtivaIni._latlngs[0][1].lat}, ${MarcaAtivaIni._latlngs[0][1].lng}`
         Insertar_marcador_personalizado(Tipo_Marca)
     }
-    
+
 
 
 }
@@ -632,7 +631,7 @@ function Marca_Personalizada_Circulo(
 
     circle = new L.circleMarker([Lat, Lng],
         {
-            Type: 'Mark',
+            Type: 'circle',
             draggable: draggable,
             fillColor: fillcolor,
             fillOpacity: fillOpacity,
@@ -712,15 +711,17 @@ function Marca_Personalizada_Cuadrado(
     var bounds = [[LatB - size, LngB], [LatB, LngB + size]];
 
     polygon = new L.rectangle(bounds, {
-        Type: 'Mark',
+        Type: 'polygon',
         draggable: draggable,
         fillColor: fillcolor,
         fillOpacity: fillOpacity,
         color: color,
         weight: weight,
+        radius: radius,
         //Para colocar las marcas arriba de otras capas.
         pane: pane,//Se encuentra configurado al inicio de map.html
         index: Marcadores_Personalizados.length
+
     })
     let indexMark = polygon.options.index
 
@@ -756,13 +757,118 @@ function delete_all_custom_marks(option) {
     if (option == 0) {
         Marcadores_Personalizados.forEach(elemento => {
             map.removeLayer(elemento)
+            Marcadores_Personalizados = []
         })
     } else {
         try {
+            console.log(Marcadores_Personalizados.length)
             map.removeLayer(Marcadores_Personalizados[mark_selected])
+            Marcadores_Personalizados.splice(mark_selected, 1); // returns [1]
+            let i = 0
+            Marcadores_Personalizados.forEach(marca => {
+                marca.index = i++
+            })
+
         } catch (error) {
             mensajes("seleccione una marca", "orange")
         }
     }
 
+}
+
+const fileSelector = document.getElementById('file-input-marks');
+fileSelector.addEventListener('change', (event) => {
+    const archivo = event.target.files[0];
+
+    if (!archivo) {
+        return;
+    }
+    var lector = new FileReader();
+    lector.onload = function (e) {
+        var contenido = e.target.result;
+        var Parse = JSON.parse(contenido)
+        let i = 0
+        Parse.forEach(marca => {
+
+            if (marca.Type == "circle") {
+                Marca_Personalizada_Circulo(
+                    marca.draggable,
+                    marca.fillColor,
+                    marca.fillOpacity,
+                    marca.radius,
+                    marca.lat,
+                    marca.lng,
+                    marca.color,
+                    marca.weight,
+                    marca.pane
+                )
+            } else {
+                Marca_Personalizada_Cuadrado(
+                    marca.draggable,
+                    marca.fillColor,
+                    marca.fillOpacity,
+                    marca.radius,
+                    marca.lat,
+                    marca.lng,
+                    marca.color,
+                    marca.weight,
+                    marca.pane
+                )
+            }
+            
+            Marcadores_Personalizados[i].options.index=i
+            console.log(Marcadores_Personalizados[i])
+            i=i+1
+        })
+
+    };
+    lector.readAsText(archivo);
+    //Limpiamos el contenedor archivo para que permita recargas
+    document.getElementById('file-input-marks').value = ''
+
+});
+
+
+function save_load_custom_marks(value) {
+    //Si es 0 implica que se va a guardar las marcas
+    if (value == 0) {
+        let exportableMark = []
+        Marcadores_Personalizados.forEach(marca => {
+            //Solo exporta las marcas independientes, no las de las etiquetas
+            let lat
+            let lng
+
+            if (marca.options.Type == "circle") {
+                lat = marca._latlng.lat;
+                lng = marca._latlng.lng;
+            } else if (marca.options.Type == "polygon") {
+                lat = marca._latlngs[0][1].lat;
+                lng = marca._latlngs[0][1].lng;
+            }
+            exportableMark.push(
+                {
+                    Type: marca.options.Type,
+                    draggable: marca.options.Type.draggable,
+                    fillColor: marca.options.fillColor,
+                    fillOpacity: marca.options.fillOpacity,
+                    radius: marca.options.radius,
+                    color: marca.options.color,
+                    weight: marca.options.weight,
+                    pane: marca.options.pane,
+                    index: marca.options.index,
+                    lat: lat,
+                    lng: lng
+                }
+            )
+
+        })
+
+        const a = document.createElement("a");
+        const archivo = new Blob([JSON.stringify(exportableMark)], { type: 'text/plain' });
+        const url = URL.createObjectURL(archivo);
+        a.href = url;
+        a.download = 'Marcas Personales.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    } 
 }
