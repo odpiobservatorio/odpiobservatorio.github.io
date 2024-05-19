@@ -2,7 +2,7 @@
 //VARIABLES PARA MARCADORES PERSONALIZADOS
 //COLOR ACTIVO
 let color_activo;
-let tipo_activo;
+let tipo_activo=0;
 let tamaño_activo = 5;
 let mark_selected;
 let opacidad_activa = 1;
@@ -25,21 +25,21 @@ let LeyendasMap = []
 //Lista de colores para usar
 const ColorList = [
     //rojos
-    "#C0392B", "#E74C3C", "#FF0000","#FFC0CB","#C19A6B","#E6BF83","#483C32","#FA8072",
+    "#C0392B", "#E74C3C", "#FF0000", "#FFC0CB", "#C19A6B", "#E6BF83", "#483C32", "#FA8072",
     //Violetas
-    "#9B59B6", "#AF7AC5", "#D40055","#FF00FF","#800080","#F6358A",
+    "#9B59B6", "#AF7AC5", "#D40055", "#FF00FF", "#800080", "#F6358A",
     //Azules
-    "#2980B9", "#3498DB","#00FFFF","#0000FF","#00008B","#7FFFD4",
+    "#2980B9", "#3498DB", "#00FFFF", "#0000FF", "#00008B", "#7FFFD4",
     //Asure
-    "#48C9B0", "#45B39D","#E2F516",
+    "#48C9B0", "#45B39D", "#E2F516",
     //Verdes
-    "#52BE80 ", "#2ECC71", "#145A32","#00FF00","#01F9C6","#808000",
+    "#52BE80 ", "#2ECC71", "#145A32", "#00FF00", "#01F9C6", "#808000",
     //Naranjas
-    "#FFFF00","#F1C40F", "#F39C12", "#E67E22", "#D35400","#F8F6F0",
+    "#FFFF00", "#F1C40F", "#F39C12", "#E67E22", "#D35400", "#F8F6F0",
     "#FFFFFF",
     "#ECF0F1",
     "#BDC3C7", "#95A5A6", "#7F8C8D", "#34495E",
-    "#2C3E50", "#17202A","#EB5406","#3F000F"
+    "#2C3E50", "#17202A", "#EB5406", "#3F000F"
 
 ]
 //Función para crear menú de colores
@@ -560,12 +560,15 @@ function Insertar_marcador_personalizado() {
         Marca_Personalizada_Cuadrado(false, color_activo, opacidad_activa, tamaño_activo, parseFloat(Coordenadas[0]), parseFloat(Coordenadas[1]))
 
     }
+    //Lista las marcas en el contenedor de marcas
+    list_marcas_custom()
+    console.log(Marcadores_Personalizados)
 }
 
 function paste_format_custom() {
     //mark_selected
     let MarcaAtivaIni = Marcadores_Personalizados[mark_selected]
-    const Tipo_Marca = document.getElementById("sel-tipo-marca").value
+    const Tipo_Marca = tipo_activo
 
 
     if (Tipo_Marca == 0) {
@@ -577,7 +580,8 @@ function paste_format_custom() {
         coordenada_activa = `${MarcaAtivaIni._latlngs[0][1].lat}, ${MarcaAtivaIni._latlngs[0][1].lng}`
         Insertar_marcador_personalizado(Tipo_Marca)
     }
-
+    //Lista las marcas en el contenedor de marcas
+    list_marcas_custom()
 
 
 }
@@ -657,10 +661,14 @@ function Marca_Personalizada_Circulo(
     circle.on('click', onClick);
     function onClick() {
         mark_selected = indexMark
+        tipo_activo=0
         //mark_selected
         let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
+        console.log(MarcaAtivaIni)
         //Copia las coordenadas de la marca actual
         coordenada_activa = `${MarcaAtivaIni._latlng.lat}, ${MarcaAtivaIni._latlng.lng}`
+
+        document.getElementById("marcador-item" + indexMark).className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action active"
     }
 
 
@@ -671,9 +679,6 @@ function Marca_Personalizada_Circulo(
         //solo se guardan la marca no fijas
         Marcadores_Personalizados.push(circle)
     }
-
-
-
     map.addLayer(circle)
 
     return circle
@@ -736,10 +741,12 @@ function Marca_Personalizada_Cuadrado(
     polygon.on('click', onClick);
     function onClick() {
         mark_selected = indexMark
+        tipo_activo=1
         let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
 
         //Copia las coordenadas de la marca actual / NOTA, como este es un poligono, las coordenadas principales so bidimencinal
         coordenada_activa = `${MarcaAtivaIni._latlngs[0][1].lat}, ${MarcaAtivaIni._latlngs[0][1].lng}`
+        document.getElementById("marcador-item" + indexMark).className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action active"
     }
 
     if (static == false) {
@@ -749,7 +756,6 @@ function Marca_Personalizada_Cuadrado(
         //solo se guardan la marca no fijas
         Marcadores_Personalizados.push(polygon)
     }
-
     map.addLayer(polygon)
 
     return polygon
@@ -762,23 +768,30 @@ function delete_all_custom_marks(option) {
             map.removeLayer(elemento)
             Marcadores_Personalizados = []
         })
+        list_marcas_custom()
     } else {
         try {
-            console.log(Marcadores_Personalizados.length)
             map.removeLayer(Marcadores_Personalizados[mark_selected])
             Marcadores_Personalizados.splice(mark_selected, 1); // returns [1]
             let i = 0
             Marcadores_Personalizados.forEach(marca => {
-                marca.index = i++
+                marca.options.index = i++
+                
+                
             })
-
+            list_marcas_custom()
         } catch (error) {
+            alert(marca.options.index)
             mensajes("seleccione una marca", "orange")
         }
     }
 
+    //Lista las marcas en el contenedor de marcas
+    
+
 }
 
+//Carga las marcas de un archivo local
 const fileSelector = document.getElementById('file-input-marks');
 fileSelector.addEventListener('change', (event) => {
     const archivo = event.target.files[0];
@@ -823,12 +836,16 @@ fileSelector.addEventListener('change', (event) => {
 
             Marcadores_Personalizados[i].options.index = i
             i = i + 1
+            list_marcas_custom()
         })
 
     };
+
     lector.readAsText(archivo);
     //Limpiamos el contenedor archivo para que permita recargas
     document.getElementById('file-input-marks').value = ''
+    //Lista las marcas en el contenedor de marcas
+
 
 });
 
@@ -862,7 +879,7 @@ function save_load_custom_marks(value) {
                     index: marca.options.index,
                     lat: lat,
                     lng: lng,
-                    info:marca.options.info
+                    info: marca.options.info
                 }
             )
 
@@ -876,4 +893,80 @@ function save_load_custom_marks(value) {
         a.click();
         URL.revokeObjectURL(url);
     }
+}
+
+function list_marcas_custom() {
+    const contenedor = document.getElementById("list_marcas-custom")
+    contenedor.innerHTML = ""
+
+
+    Marcadores_Personalizados.forEach(marca => {
+        let tipo;
+
+
+        if (marca.options.Type == "circle") {
+            tipo = "bi-circle-fill"
+        } else if("polygon") {
+            tipo = "bi-square-fill"
+            
+        }
+
+        const item = document.createElement("lis")
+        item.className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action"
+        item.id = "marcador-item" + marca.options.index
+        item.innerHTML = `
+        <span class="badge text-bg-primary rounded-pill">
+            <i class="bi ${tipo} fs-5" id="ico-list-marca" style="color: ${marca.options.fillColor};"></i>
+        </span>
+        <div class="ms-2 me-auto">
+
+        <div class="">[${marca.options.index + 1}] ${marca.options.info}</div>
+        </div>
+            <span class="badge text-bg-primary rounded-pill" id="btn-borrar-marca${marca.options.index}">
+                <i class="bi bi-trash3 text-secondary fs-5"></i>
+            </span>
+
+        `
+        contenedor.appendChild(item)
+
+        document.getElementById("marcador-item" + marca.options.index).onclick = () => {
+            let lat
+            let lng
+
+            if (marca.options.Type == "circle") {
+                lat = marca._latlng.lat;
+                lng = marca._latlng.lng;
+                tipo_activo=0
+            } else if (marca.options.Type == "polygon") {
+                lat = marca._latlngs[0][1].lat;
+                lng = marca._latlngs[0][1].lng;
+                tipo_activo=1
+            }
+
+            var tooltip = L.tooltip([lat, lng], {
+                content: marca.options.info,
+                pane:'polygonsPane'})
+                .addTo(map);
+                
+        
+        }
+        document.getElementById("marcador-item" + marca.options.index).onmousemove=()=>{
+
+            document.getElementById("marcador-item" + marca.options.index).className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action"
+        }
+        document.getElementById(`btn-borrar-marca${marca.options.index}`).onclick = () => {
+            mark_selected = marca.options.index
+            console.log(mark_selected)
+            if (marca.options.Type == "circle") {
+                tipo_activo=0
+            } else if (marca.options.Type == "polygon") {
+                tipo_activo=1
+            }
+            delete_all_custom_marks(1)
+
+        }
+
+
+
+    })
 }

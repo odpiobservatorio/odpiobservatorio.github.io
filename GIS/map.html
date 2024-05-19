@@ -697,125 +697,178 @@
         </div>
 
         <div class="offcanvas-body">
-            <hr>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Configuración
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
 
-            <ol class="list-group list-group-numbered">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Tipo de marcador</div>
-                        <!--Selector de tipo marcador-->
-                        <div class="input-group mb-3" style="width: 230px;">
-                            <select class="form-select" aria-label="Default select example" id="sel-tipo-marca"
-                                onchange="Change_icon(this)">
-                                <option selected value="0">Círculo</option>
-                                <option value="1">Cuadro</option>
-                            </select>
-                        </div>
-                    </div>
-                    <span class="badge text-bg-primary rounded-pill">
-                        <i class="bi bi-circle-fill text-secondary fs-3" id="ico-Tipo-Marca"></i>
-                    </span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Color del marcador</div>
-                        <!--Selector de colores-->
-                        <div class="dropdown mb-2 border border-1 w-100">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                onclick="ListColors('color-mark-custom','ulColorMarcaPersonalizada')"
-                                style="width: 230px;">
-                                Color
-                            </button>
-                            <ul class="dropdown-menu">
-                                <div id="ulColorMarcaPersonalizada" class="container-fluid"></div>
-                            </ul>
-                        </div>
-                    </div>
-                    <span class="badge rounded-pill p-2 text-black" style="background-color: black;"
-                        id="span-color-marca">color</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Tamaño del marcador</div>
-                        <!--Lista de tamaño del marcador-->
-                        <div class="dropdown border border-1">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false" style="width: 230px;">
-                                Tamaño
-                            </button>
-                            <ul class="dropdown-menu" style="width: 50px;">
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(5)">0.5x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(10)">1x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(15)">1.5x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(20)">2x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(25)">2.5x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(30)">3x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(35)">3.5x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(40)">4x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(45)">5x</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_size_custom(50)">6x</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <span class="badge rounded-pill p-2 text-dark fs-5" id="span-size-marca">0.5x</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Opacidad del marcador</div>
-                        <!--Lista de tamaño del marcador-->
-                        <div class="dropdown border border-1">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false" style="width: 230px;">
-                                Opacidad
-                            </button>
-                            <ul class="dropdown-menu" style="width: 50px;">
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(1)">0%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.9)">10%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.8)">20%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.7)">30%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.6)">40%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.5)">50%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.4)">60%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.3)">70%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.2)">80%</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="Change_opacity_custom(0.1)">90%</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <span class="badge rounded-pill p-2 text-white" style="background-color: black;"
-                        id="span-opacity-marca">0%</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseCoord" role="button"
-                            aria-expanded="false" aria-controls="collapseCoord">Coordenadas</div>
-                        <!--Lista de tamaño del marcador-->
+                            <ol class=" list-group list-group-numbered">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Tipo de marcador</div>
+                                        <!--Selector de tipo marcador-->
+                                        <div class="input-group mb-3" style="width: 230px;">
+                                            <select class="form-select" aria-label="Default select example"
+                                                id="sel-tipo-marca" onchange="Change_icon(this)">
+                                                <option selected value="0">Círculo</option>
+                                                <option value="1">Cuadro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <span class="badge text-bg-primary rounded-pill">
+                                        <i class="bi bi-circle-fill text-secondary fs-3" id="ico-Tipo-Marca"></i>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Color del marcador</div>
+                                        <!--Selector de colores-->
+                                        <div class="dropdown mb-2 border border-1 w-100">
+                                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                                onclick="ListColors('color-mark-custom','ulColorMarcaPersonalizada')"
+                                                style="width: 230px;">
+                                                Color
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <div id="ulColorMarcaPersonalizada" class="container-fluid"></div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <span class="badge rounded-pill p-2 text-black" style="background-color: black;"
+                                        id="span-color-marca">color</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Tamaño del marcador</div>
+                                        <!--Lista de tamaño del marcador-->
+                                        <div class="dropdown border border-1">
+                                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false" style="width: 230px;">
+                                                Tamaño
+                                            </button>
+                                            <ul class="dropdown-menu" style="width: 50px;">
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(5)">0.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(10)">1x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(15)">1.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(20)">2x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(25)">2.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(30)">3x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(35)">3.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(40)">4x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(45)">5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(50)">6x</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <span class="badge rounded-pill p-2 text-dark fs-5" id="span-size-marca">0.5x</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Opacidad del marcador</div>
+                                        <!--Lista de tamaño del marcador-->
+                                        <div class="dropdown border border-1">
+                                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false" style="width: 230px;">
+                                                Opacidad
+                                            </button>
+                                            <ul class="dropdown-menu" style="width: 50px;">
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(1)">0%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.9)">10%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.8)">20%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.7)">30%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.6)">40%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.5)">50%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.4)">60%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.3)">70%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.2)">80%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.1)">90%</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <span class="badge rounded-pill p-2 text-white" style="background-color: black;"
+                                        id="span-opacity-marca">0%</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseCoord"
+                                            role="button" aria-expanded="false" aria-controls="collapseCoord">
+                                            Coordenadas</div>
+                                        <!--Lista de tamaño del marcador-->
 
-                        <div class="collapse" id="collapseCoord">
-                            Insertar marca formato (5.30, -76.60)
-                            <input id="int_coord-custom" type="text" class="form-control mt-1" placeholder="coordenadas"
-                                aria-label="Coordenadas" aria-describedby="basic-addon1" style="width: 230px;"
-                                value="4.797, -74.030" oninput="{coordenada_activa=(this.value)}"">
-                      </div>
-                    </div>
-                </li>
-                <li class=" list-group-item d-flex justify-content-between align-items-start">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold" data-bs-toggle="collapse" href="#collapseInfo" role="button"
-                                    aria-expanded="false" aria-controls="collapseInfo">Informacion</div>
-                                <!--Lista de tamaño del marcador-->
-
-                                <div class="collapse" id="collapseInfo">
-                                    Insertar texto del marcador
-                                    <input id="int_coord-custom" type="text" class="form-control mt-1"
-                                        placeholder="texto" aria-label="Coordenadas" aria-describedby="basic-addon1"
-                                        style="width: 230px;" oninput="{texto_activo=(this.value)}">
+                                        <div class="collapse" id="collapseCoord">
+                                            Insertar marca formato (5.30, -76.60)
+                                            <input id="int_coord-custom" type="text" class="form-control mt-1"
+                                                placeholder="coordenadas" aria-label="Coordenadas"
+                                                aria-describedby="basic-addon1" style="width: 230px;"
+                                                value="4.797, -74.030" oninput="{coordenada_activa=(this.value)}"">
+                                  </div>
                                 </div>
-                            </div>
-                </li>
+                            </li>
+                            <li class=" list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                                <div class="fw-bold" data-bs-toggle="collapse" href="#collapseInfo"
+                                                    role="button" aria-expanded="false" aria-controls="collapseInfo">
+                                                    Informacion</div>
+                                                <!--Lista de tamaño del marcador-->
 
-            </ol>
+                                                <div class="collapse" id="collapseInfo">
+                                                    Insertar texto del marcador
+                                                    <input id="int_coord-custom" type="text" class="form-control mt-1"
+                                                        placeholder="texto" aria-label="Coordenadas"
+                                                        aria-describedby="basic-addon1" style="width: 230px;"
+                                                        oninput="{texto_activo=(this.value)}">
+                                                </div>
+                                            </div>
+                                </li>
+
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Marcadores
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ol class="list-group list-group-numbered" id="list_marcas-custom">
+
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()"><i
                         class="bi bi-geo-fill"></i></button>
