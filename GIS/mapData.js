@@ -343,16 +343,17 @@ function verCaso(registro) {
         document.getElementById(id).textContent = data[id];
     }
 
-
-ActiveSuper()
-
-if (superUser == true) {
     bootstrap.Modal.getOrCreateInstance(document.getElementById("ModalCaseOnMap")).show();
-} else{
-    mensajes("Usted no tiene permiso para esta lectura")
-}
 
-    
+    ActiveSuper()
+
+    if (superUser == true) {
+
+    } else {
+        //mensajes("Usted no tiene permiso para esta lectura")
+    }
+
+
 }
 
 function VerFindExtend() {
