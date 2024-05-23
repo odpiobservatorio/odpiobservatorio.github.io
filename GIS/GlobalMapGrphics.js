@@ -10,8 +10,8 @@ let coordenada_activa = "4.797, -74.030";
 let texto_activo = "";
 //VARIABLE QUE GUARDA TODOS LOS MARCADORES PERSONALIZADOS, POSIBILITA LA OPCIÓN DE BORRAR TODOS O ÚLTIMO
 let Marcadores_Personalizados = []
-
-
+//Esta variable aplica para el módulo mapData, showBusqueda
+let color_marca_busqueda="green"
 
 //Guarda los marcadores libres
 let MarkFreePoligon = [];
@@ -92,7 +92,11 @@ function ListColors(type, control) {
                 document.getElementById("span-opacity-marca").style.background = color
                 document.getElementById("span-opacity-marca").style.opacity = opacidad_activa
             }
-        }
+        } else if(type=="color-mark-busqueda"){
+            
+            liC.onclick = () => {
+                color_marca_busqueda= color
+        }}
 
         cUl.appendChild(liC)
     })

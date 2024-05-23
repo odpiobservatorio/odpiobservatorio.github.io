@@ -174,27 +174,37 @@
 
 
     <!-- Panel de busqueda-->
-    <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasBuscar"
-        aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header text-white" style="background-color: #16A085;">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Opciones de búsqueda</h5>
-            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas offcanvas-start shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasBuscar" aria-labelledby="offcanvasBuscarLabel">
+        <div class="offcanvas-header text-white bg-success text-white">
+            <h5 class="offcanvas-title" id="offcanvasBuscarLabel">Opciones de búsqueda</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
+            <div class="h6">Configuración de búsqueda</div>
+            <hr>
+            <div class="input-group">
+                <div class="dropdown mb-2">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" onclick="ListColors('color-mark-busqueda','ulColorMarcaBuscar')"
+                        id="btnColor_busqueda">
+                        <i class="bi bi-brush"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="BuscarFaseI()">
+                        <i class="bi bi-binoculars"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="clearMarkers()">
+                        <i class="bi bi-x-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <div id="ulColorMarcaBuscar" class="container-fluid"></div>
+                    </ul>
+                </div>
+            </div>
             <div>
-
                 <div class="list-group" id="lstBusqueda">
                     <form class="row align-items-center">
-                        <div class="col-md-9">
-                            <div class="h6">Criterios de búsqueda básico</div>
-                        </div>
-                        <div class="col-md-1">
-                            <button class="btn btn-outline-success" type="button" onclick="BuscarFaseI()"
-                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados"
-                                aria-controls="offcanvasResultados">
-                                <i class="bi bi-binoculars"></i>
-                            </button>
-                        </div>
                     </form>
                     <!--Lista de campos o culumnas por donde buscar-->
                     <form class="row g-2 align-items-center mb-2">

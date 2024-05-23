@@ -122,7 +122,7 @@ function showBusqueda(datosParaMostrar = []) {
             (bigData.MrkAntecedente).push(
 
                 // Se llama el marcador tipo poligono de GlobalMapGraphics         
-                PutMarkCicle(true, 'green', 0.7, 10, registro.Lat, registro.Lng)
+                PutMarkCicle(true, color_marca_busqueda, 1, 10, registro.Lat, registro.Lng)
                     .bindPopup(PutPopUpZ(
                         `<b>${registro.Departamento} - ${registro.Year}</b><br>${registro.Municipio
                         }, C: ${registro.ind
