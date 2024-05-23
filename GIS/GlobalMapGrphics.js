@@ -96,6 +96,14 @@ function ListColors(type, control) {
             
             liC.onclick = () => {
                 color_marca_busqueda= color
+                document.getElementById("btnColor_busqueda").style.background=color
+        }}
+        else if(type=="color-mark-busqueda-plus"){
+            
+            liC.onclick = () => {
+                color_marca_busqueda= color
+                document.getElementById("btnColor_busquedaPlus").style.background=color
+                document.getElementById("btnColor_busqueda").style.background=color
         }}
 
         cUl.appendChild(liC)

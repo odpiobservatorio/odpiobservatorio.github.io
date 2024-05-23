@@ -72,7 +72,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item " href="#" onclick="CargarlstMap()" data-bs-toggle="offcanvas"
+                                <a class="dropdown-item " href="#" onclick="" data-bs-toggle="offcanvas"
                                     data-bs-target="#offcanvasBuscar" aria-controls="offcanvasBuscar">
                                     <i class="bi bi-binoculars me-3"></i>Buscador de casos
                                 </a>
@@ -170,7 +170,7 @@
 </header>
 
 
-<body onload="showTile(openstreetmap)">
+<body onload="IniProgram(openstreetmap)">
 
 
     <!-- Panel de busqueda-->
@@ -182,157 +182,168 @@
                 aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div class="h6">Configuración de búsqueda</div>
-            <hr>
-            <div class="input-group">
-                <div class="dropdown mb-2">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" onclick="ListColors('color-mark-busqueda','ulColorMarcaBuscar')"
-                        id="btnColor_busqueda">
-                        <i class="bi bi-brush"></i>
-                    </button>
-                    <button class="btn btn-outline-secondary" type="button" onclick="BuscarFaseI()">
-                        <i class="bi bi-binoculars"></i>
-                    </button>
-                    <button class="btn btn-outline-secondary" type="button" onclick="clearMarkers()">
-                        <i class="bi bi-x-circle"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <div id="ulColorMarcaBuscar" class="container-fluid"></div>
-                    </ul>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Búsqueda simple
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="input-group">
+                                <div class="dropdown mb-2">
+                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        style="background-color: green;" aria-expanded="false"
+                                        onclick="ListColors('color-mark-busqueda','ulColorMarcaBuscar')"
+                                        id="btnColor_busqueda">
+                                        <i class="bi bi-brush"></i>
+                                    </button>
+
+                                    <button class="btn btn-outline-secondary" type="button" onclick="clearMarkers()">
+                                        <i class="bi bi-x-circle"></i>
+                                    </button>
+                                    <button class="btn btn-outline-secondary" type="button" onclick="BuscarFaseI()">
+                                        <i class="bi bi-binoculars"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <div id="ulColorMarcaBuscar" class="container-fluid"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Lista de campos o culumnas por donde buscar-->
+                            <form class="row g-2 align-items-center mb-2">
+                                <div class="col-md-9">
+                                    <div class="form-floating">
+                                        <select id="lstCampos" class="form-select"
+                                            onchange="listasAutomaticas(this.value)">
+                                            <option value="Macro">Macro</option>
+                                            <option value="Departamento">Departamento</option>
+                                            <option value="Municipio">Lugar</option>
+                                            <option value="Territorio">Resguardo o cabildo</option>
+                                            <option value="Pueblo">Pueblo, Etnia</option>
+                                            <option value="Tipo">Tipo de afectación</option>
+                                            <option value="Year">Año</option>
+                                            <option value="Edad">Edad</option>
+                                            <option value="Sexo">Género</option>
+                                            <option value="Antecedentes">Detalle de caso, antecedente</option>
+                                            <option value="Ocupación">Ocupación</option>
+                                            <option value="Macro Perpetrador">Macro perpetuador</option>
+                                            <option value="Perpetrador">Perpetuador, afectador</option>
+                                            <option value="Fuente">Fuente de información</option>
+                                            <option value="Tipo desplazamiento">Tipo de desplazamiento</option>
+
+                                            <option value="Mes">Mes</option>
+                                            <option value="FECHA">Fecha</option>
+                                        </select>
+                                        <label for="floatingSelect">Buscar por</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--Lista de operadores de comparación-->
+                            <form class="row g-2 align-items-center mb-3">
+                                <div class="col-md-9">
+                                    <div class="form-floating">
+                                        <select id="lstOperador" class="form-select" onchange="">
+                                            <option value="==">IGUAL (=)</option>
+                                            <option value=">">MAYOR (>)</option>
+                                            <option value="&lt;">MENOR (&lt;)</option>
+                                            <option value="1">SIMILAR</option>
+                                        </select>
+                                        <label for="floatingSelect">Operador</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--Lista automatica-->
+                            <form class="row g-2 align-items-center mb-3">
+                                <div class="col-md-9">
+                                    <div class="form-floating">
+                                        <select id="lstAutomatica" class="form-select" onchange="addTextHelp()">
+                                        </select>
+                                        <label for="floatingSelect">Información de apoyo</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--Lista valor a buscar-->
+                            <form class="row g-2 align-items-center mb-2">
+                                <div class="col-md-9">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="txValorBusquedaA">
+                                        <label for="floatingSelect">Valor</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div class="list-group" id="lstBusqueda">
-                    <form class="row align-items-center">
-                    </form>
-                    <!--Lista de campos o culumnas por donde buscar-->
-                    <form class="row g-2 align-items-center mb-2">
-                        <div class="col-md-9">
-                            <div class="form-floating">
-                                <select id="lstCampos" class="form-select" onchange="listasAutomaticas(this.value)">
-                                    <option value="Macro">Macro</option>
-                                    <option value="Departamento">Departamento</option>
-                                    <option value="Municipio">Lugar</option>
-                                    <option value="Territorio">Resguardo o cabildo</option>
-                                    <option value="Pueblo">Pueblo, Etnia</option>
-                                    <option value="Tipo">Tipo de afectación</option>
-                                    <option value="Year">Año</option>
-                                    <option value="Edad">Edad</option>
-                                    <option value="Sexo">Género</option>
-                                    <option value="Antecedentes">Detalle de caso, antecedente</option>
-                                    <option value="Ocupación">Ocupación</option>
-                                    <option value="Macro Perpetrador">Macro perpetuador</option>
-                                    <option value="Perpetrador">Perpetuador, afectador</option>
-                                    <option value="Fuente">Fuente de información</option>
-                                    <option value="Tipo desplazamiento">Tipo de desplazamiento</option>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Búsqueda ampliada
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="input-group">
+                                <div class="dropdown mb-2">
+                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        style="background-color: green;" aria-expanded="false"
+                                        onclick="ListColors('color-mark-busqueda-plus','ulColorMarcaBuscarPlus')"
+                                        id="btnColor_busquedaPlus">
+                                        <i class="bi bi-brush"></i>
+                                    </button>
+                                    <button class="btn btn-outline-secondary" type="button" onclick="clearMarkers()">
+                                        <i class="bi bi-x-circle"></i>
+                                    </button>
+                                    <button class="btn btn-outline-secondary" type="button" onclick="BuscarFaseII()">
+                                        <i class="bi bi-binoculars"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <div id="ulColorMarcaBuscarPlus" class="container-fluid"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <form class="row align-items-center" id="PlusFind">
+                                <div class="col-md-2">
+                                    <button class="btn btn-outline-primary" type="button"
+                                        onclick="AgregarCriterioFind()">
+                                        <i class="bi bi-file-earmark-plus" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" data-bs-custom-class="tooltip"
+                                            data-bs-title="Agregar criterio"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-outline-primary" type="button"
+                                        onclick="addOperadorCriterio(this)" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" data-bs-custom-class="tooltip"
+                                        data-bs-title="Críterio Y de búsqueda" id="Y">{Y}</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-outline-primary" type="button"
+                                        onclick="addOperadorCriterio(this)" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" data-bs-custom-class="tooltip"
+                                        data-bs-title="Críterio O de búsqueda" id="O">{O}</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-outline-primary" type="button" onclick="LimpiarCriterios()">
+                                        <i class="bi bi-eraser-fill" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-custom-class="tooltip" data-bs-title="Limpiar criterios"></i>
+                                    </button>
+                                </div>
 
-                                    <option value="Mes">Mes</option>
-                                    <option value="FECHA">Fecha</option>
-                                </select>
-                                <label for="floatingSelect">Buscar por</label>
-                            </div>
-                        </div>
-                    </form>
-                    <!--Lista de operadores de comparación-->
-                    <form class="row g-2 align-items-center mb-3">
-                        <div class="col-md-9">
-                            <div class="form-floating">
-                                <select id="lstOperador" class="form-select" onchange="">
-                                    <option value="==">IGUAL (=)</option>
-                                    <option value=">">MAYOR (>)</option>
-                                    <option value="&lt;">MENOR (&lt;)</option>
-                                    <option value="1">SIMILAR</option>
-                                </select>
-                                <label for="floatingSelect">Operador</label>
-                            </div>
-                        </div>
-                    </form>
-                    <!--Lista automatica-->
-                    <form class="row g-2 align-items-center mb-3">
-                        <div class="col-md-9">
-                            <div class="form-floating">
-                                <select id="lstAutomatica" class="form-select" onchange="addTextHelp()">
-                                </select>
-                                <label for="floatingSelect">Información de apoyo</label>
-                            </div>
-                        </div>
-                    </form>
-                    <!--Lista valor a buscar-->
-                    <form class="row g-2 align-items-center mb-2">
-                        <div class="col-md-9">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="txValorBusquedaA">
-                                <label for="floatingSelect">Valor</label>
-                            </div>
-                        </div>
-                    </form>
 
+                            </form>
+                            <form class="row g-2 align-items-center mt-2">
+                                <div class="col-md-12">
+                                    <ul class="list-group" id="lstCriterios">
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
-                <hr>
-
-                <form class="row align-items-center mb-3">
-                    <div class="col-md-8">
-                        <div class="h6 mt-2">Criterio de búsqueda avanzado</div>
-                    </div>
-                    <div class="col-md-1">
-                        <a href="#" class="h3 text-success" onclick="VerFindExtend()" style="text-decoration: none;"
-                            id="plusOption">+</a>
-                    </div>
-                </form>
-                <form class="row align-items-center" id="PlusFind" hidden="true">
-                    <div class="col-md-2">
-                        <button class="btn btn-outline-primary" type="button" onclick="AgregarCriterioFind()">
-                            <i class="bi bi-file-earmark-plus" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="tooltip" data-bs-title="Agregar criterio"></i>
-                        </button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-outline-primary" type="button" onclick="addOperadorCriterio(this)"
-                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
-                            data-bs-title="Críterio Y de búsqueda" id="Y">{Y}</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-outline-primary" type="button" onclick="addOperadorCriterio(this)"
-                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
-                            data-bs-title="Críterio O de búsqueda" id="O">{O}</button>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-outline-primary" type="button" onclick="LimpiarCriterios()">
-                            <i class="bi bi-eraser-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="tooltip" data-bs-title="Limpiar criterios"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-1">
-                        <button class="btn btn-outline-primary" type="button" onclick="BuscarFaseII()"
-                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados"
-                            aria-controls="offcanvasResultados">
-                            <i class="bi bi-binoculars" data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="tooltip" data-bs-title="Buscar resultados"></i>
-                        </button>
-                    </div>
-                </form>
-                <form class="row g-2 align-items-center mt-2">
-                    <div class="col-md-12">
-
-                        <ul class="list-group" id="lstCriterios">
-                        </ul>
-
-                        <!-- Query busqueda
-                        <textarea class="form-control" id="queryBusqueda" cols="30" rows="10">
-                        </textarea>
-
-                        <button class="btn btn-outline-success" type="button" onclick="buscarQuery()"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasResultados"
-                        aria-controls="offcanvasResultados">
-                        <i class="bi bi-binoculars"></i>
-                        </button>
-                        -->
-
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -1272,8 +1283,9 @@
 
     let ActiveTile;
 
-    async function showTile(object) {
-
+    async function IniProgram(object) {
+        //Carga las listas para búsqueda
+        CargarlstMap()
 
         tileMLayer = L.tileLayer(TileLayerA[object.id], {
             // Y un mapa con un límite de zoom.
