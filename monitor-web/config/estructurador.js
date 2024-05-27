@@ -127,24 +127,7 @@ async function GuardarDatos() {
 async function AgregarCaso() {
     ActiveDB.addCaso(new Caso(0, "Sin macrotipo", "Sin detalle", ActiveDB))
     GuardarDatos()
-    const lstCasos = document.getElementById("lstCasos")
-    //Lo limpiamos
-    lstCasos.innerHTML = ""
-    let c = 0
-    ActiveDB.clsCasos.forEach(caso => {
-        const itemCaso = document.createElement("a");
-        itemCaso.href = "#"
-        itemCaso.className = "list-group-item list-group-item-action"
-        itemCaso.textContent = caso.macrotipo
-        lstCasos.appendChild(itemCaso)
-        itemCaso.id = "caso" + caso.id
-
-        //Configuramos las acciones relacionadas con el item
-        itemCaso.onclick = () => {
-            caso.id = c++
-            caso.makerHTMLCaso()
-        }
-    });
+    ListarCasos()
     gotoEnd()
     mensajes("Elemento creado", "Green")
 }
@@ -164,7 +147,6 @@ async function ListarCasos() {
 
         //Configuramos las acciones relacionadas con el item
         itemCaso.onclick = () => {
-            caso.id = c++
             caso.makerHTMLCaso()
         }
 
