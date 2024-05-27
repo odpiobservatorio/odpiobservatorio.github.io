@@ -20,12 +20,13 @@ class clsObservatorio {
 
     //Inicia la transformación del objeto firebase en un objeto para la clase proyecto
     static loadAsInstance(objDatosODPI) {
-         //Esta acción carga las actividades que están en firebase y la sube convierte en 
+        //Esta acción carga las actividades que están en firebase y la sube convierte en 
         //un objeto que llena la lista de areas
         const loadCasos = (fromclsCasos) => {
             return fromclsCasos.map(casos => {
                 const casoNew = new Caso(
                     casos.id,
+                    casos.macrotipo,
                     casos.detalle,
                     casos.parent,
                 );
@@ -58,24 +59,60 @@ class clsObservatorio {
 }
 
 class Caso {
-    constructor(id, detalle, dominio) {
+    constructor(id, macrotipo, detalle, dominio) {
         this.id = id;
+        this.macrotipo = macrotipo;
         this.detalle = detalle;
         this.parent = dominio;
     }
+    makerHTMLCaso() {
+        const intDetalle = document.getElementById("intDetalle")
+        intDetalle.value = this.detalle
+        intDetalle.oninput = () => {
+            this.detalle = intDetalle.value
+            GuardarDatos()
+        }
+        //
+        const intMacrotipo = document.getElementById("intMacrotipo")
+        intMacrotipo.value = this.macrotipo
+
+        intMacrotipo.onchange = () => {
+            this.macrotipo = intMacrotipo.value
+            document.getElementById("caso" + this.id).textContent = this.macrotipo
+            GuardarDatos()
+        }
+
+    }
+
 
 }
 
 
 
 function loadProyecto() {
-    if(Registrado==1){
+    if (Registrado == 1) {
         const proyectos = GLOBAL.state.proyectos;
         ActiveDB = clsObservatorio.loadAsInstance(proyectos[0]);
-        document.getElementById("panel-escritorio").hidden=false
-    }else{
+        document.getElementById("panel-escritorio").hidden = false
+        ListarCasos()
+        gotoFirst()
+
+        //Cargar macrotipos
+        const lstMacrotipos = document.getElementById("intMacrotipo")
+        lstMacrotipos.innerHTML = ""
+
+        macrotipos.forEach(tipo => {
+            const item = document.createElement("option")
+            item.value = tipo
+            item.textContent = tipo
+            lstMacrotipos.appendChild(item)
+        })
+        gotoFirst()
+
+
+    } else {
         mensajes("Aun no se ha registrado en el sistema", "orange")
-        document.getElementById("panel-escritorio").hidden=true
+        document.getElementById("panel-escritorio").hidden = true
     }
 }
 async function GuardarDatos() {
@@ -88,7 +125,74 @@ async function GuardarDatos() {
 }
 
 async function AgregarCaso() {
-    ActiveDB.addCaso(new Caso(0, "Sin detalle", ActiveDB))
+    ActiveDB.addCaso(new Caso(0, "Sin macrotipo", "Sin detalle", ActiveDB))
     GuardarDatos()
+    const lstCasos = document.getElementById("lstCasos")
+    //Lo limpiamos
+    lstCasos.innerHTML = ""
+    let c = 0
+    ActiveDB.clsCasos.forEach(caso => {
+        const itemCaso = document.createElement("a");
+        itemCaso.href = "#"
+        itemCaso.className = "list-group-item list-group-item-action"
+        itemCaso.textContent = caso.macrotipo
+        lstCasos.appendChild(itemCaso)
+
+        //Configuramos las acciones relacionadas con el item
+        itemCaso.onclick = () => {
+            caso.id = c++
+            caso.makerHTMLCaso()
+        }
+    });
+    gotoEnd()
     mensajes("Elemento creado", "Green")
+}
+async function ListarCasos() {
+    const lstCasos = document.getElementById("lstCasos")
+    //Lo limpiamos
+    lstCasos.innerHTML = ""
+    let c = 0
+    ActiveDB.clsCasos.forEach(caso => {
+        caso.id=c++
+        const itemCaso = document.createElement("a");
+        itemCaso.href = "#"
+        itemCaso.className = "list-group-item list-group-item-action"
+        itemCaso.textContent = caso.macrotipo
+        itemCaso.id = "caso" + caso.id
+        lstCasos.appendChild(itemCaso)
+
+        //Configuramos las acciones relacionadas con el item
+        itemCaso.onclick = () => {
+            caso.makerHTMLCaso()
+        }
+
+
+    });
+
+}
+let activeIndex = 0;
+async function gotoCaso(id) {
+    activeIndex = id
+    ActiveDB.clsCasos[id].makerHTMLCaso()
+}
+async function gotoFirst() {
+    activeIndex = 0
+    ActiveDB.clsCasos[0].makerHTMLCaso()
+}
+async function gotoEnd() {
+    activeIndex = ActiveDB.clsCasos.length - 1
+    ActiveDB.clsCasos[activeIndex].makerHTMLCaso()
+}
+async function gotoBackNext(option) {
+    let newIndex
+    //Si la opción es 0=back
+    if (option == 0 && activeIndex > 0) {
+        newIndex = activeIndex - 1
+        activeIndex = newIndex
+
+    } else if (option == 1 && activeIndex < ActiveDB.clsCasos.length) {
+        newIndex = activeIndex + 1
+        activeIndex = newIndex
+    }
+    ActiveDB.clsCasos[activeIndex].makerHTMLCaso()
 }

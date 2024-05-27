@@ -12,3 +12,9 @@ background-color: #DF013A;
     border-color: #F5A9D0;
 
 }
+.list-group-scroll{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
