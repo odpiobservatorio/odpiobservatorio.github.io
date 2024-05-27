@@ -3,12 +3,11 @@
 //crear, abrir, eliminar proyectos, así como permitir el ingreso a los datos
 
 
-
-
 //Importa las instanacias de firebase y administración de base de datos
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 
+//importa las acciones para almacenar en la nube
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
 
 import {
@@ -57,6 +56,130 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const db = getFirestore(app);
 
+
+// Referencia a las colecciones de datos del observatorio
+const coleccionDatos = collection(db, "observatorio");
+// Referencia a las colecciones de usuarios
+const coleccionUsuarios = collection(db, "usuarios");
+
+
+
+// Función para obtener todos los proyectos de la base de datos
+async function getObservatorioData() {
+    const observatorioDB = [];
+    const querySnapshot = await getDocs(coleccionDatos)
+    querySnapshot.forEach((doc) => {
+        observatorioDB.push({
+            ...doc.data(),
+            id: doc.id,
+        });
+    });
+    return observatorioDB;
+}
+
+// Función para actualizar un proyecto
+async function updateData(observatorioDB) {
+    const docRef = doc(db, "observatorio", observatorioDB.id);
+    await setDoc(docRef, observatorioDB);
+}
+
+// Escuchar si hay en un cambio en la coleccion de datos y actualizar automaticamente la lista de proyectos
+onSnapshot(coleccionDatos, (querySnapshot) => {
+    const observatorioDB = [];
+    querySnapshot.forEach((doc) => {
+        observatorioDB.push({
+            ...doc.data(),
+            id: doc.id,
+        });
+    });
+    GLOBAL.state.observatorio = observatorioDB;
+});
+
+
+//Verifica la lista de usuarios que hay /para filtrar administardores
+async function getUsuarios() {
+    const usuarios = [];
+    const querySnapshot = await getDocs(coleccionUsuarios)
+    querySnapshot.forEach((doc) => {
+
+        usuarios.push({
+            ...doc.data(),
+            id: doc.id,
+
+        });
+    });
+
+    return usuarios;
+}
+
+
+onSnapshot(coleccionUsuarios, (querySnapshot) => {
+    const usuarios = [];
+    querySnapshot.forEach((doc) => {
+        usuarios.push({
+            ...doc.data(),
+            id: doc.id,
+        });
+    });
+    aUsers = usuarios
+});
+
+//Función para autorizar ingreso a la base de datos
+async function CredentialIn(email, password) {
+    try {
+        const crearcredencial = await signInWithEmailAndPassword(auth, email, password)
+        mensajes("A ingresado exitosamente", "green")
+        location.href = "../GIS/map.html"
+
+    } catch (error) {
+        if (error.code === "auth/invalid-email") {
+            mensajes("Correo inválido", "red")
+        }
+        else if (error.code === "auth/invalid-credential") {
+            mensajes("Los datos proporcionados no son válidos", "red")
+        }
+    }
+}
+//función para cerrar la sesión de la aplicación
+async function CredentialOut() {
+    await signOut(auth)
+    location.href = "../index.html"
+}
+
+// Exponer las funciones globalmente
+GLOBAL.firestore = {
+    getObservatorioData, //Carga todos los proyectos
+    updateData, //Gaurda los datos en la base de datos
+    CredentialIn, //para iniciar la aplicación, evoca la función en este módulo (CredentialIn(email,pass))
+    CredentialOut, //para cerrar la aplicación
+    getUsuarios, //función para verificar usuarios programadores
+    loadfile,
+    readFile,
+    ListFilesFirebase,
+    
+}
+
+//Función que escucha el cambio en inicio o cerrar sesión
+onAuthStateChanged(auth, async (user) => {
+    try {
+        mensajes("Usuario registrado como: " + user.email, "orange") //Muestra que usuarios está conectado
+        document.getElementById('map').hidden = false
+        document.getElementById('headerMap').hidden = false
+        activeEmail = user.email
+
+    } catch (error) {
+        mensajes("Fuera de conexión", "red")
+        try {
+            document.getElementById('map').hidden = true
+            document.getElementById('headerMap').hidden = true
+            location.href = "../index.html"
+        } catch (error) {
+            //location.href = "../index.html"
+        }
+    }
+
+})
+
 const storage = getStorage();
 
 // Create a storage reference from our storage service
@@ -85,6 +208,10 @@ async function loadfile(file) {
     }
 }
 
+
+//============================================================================
+//============================================================================
+//============================================================================
 //Esta función descarga un archivo en firebase storage y lo guarda en memoria
 //Es un archivo plano tipo texto, ya sea json, txt, o geojson
 async function readFile(path, name) {
@@ -98,7 +225,6 @@ async function readFile(path, name) {
 
 //Esta función me crea uan lista de archivos en mi nube
 //los lista para poder acceder a ellos por su ruta
-
 async function ListFilesFirebase() {
     // Create a reference under which you want to list
     const cListFiles = document.getElementById("selPathFiles")
@@ -194,115 +320,10 @@ async function ListFilesFirebase() {
         });
 
 }
+//============================================================================
+//============================================================================
+//============================================================================
 
-
-// Referencia a las colecciones de proyectos y objetivos
-const coleccionProyectos = collection(db, "proyectos");
-// Referencia a las colecciones de usuarios
-const coleccionUsuarios = collection(db, "usuarios");
-
-// Create a root reference
-//const storage = getStorage();
-//const storageRef = ref(storage, 'json');
-
-// 'file' comes from the Blob or File API
-
-
-
-/* Funciones base para manejar la base de datos de proyectos */
-
-// Función para obtener todos los proyectos de la base de datos
-async function getProyectos() {
-    const proyectos = [];
-    const querySnapshot = await getDocs(coleccionProyectos)
-    querySnapshot.forEach((doc) => {
-        proyectos.push({
-            ...doc.data(),
-            id: doc.id,
-        });
-    });
-    return proyectos;
-}
-
-//Verifica la lista de usuarios que hay /para filtrar administardores
-async function getUsuarios() {
-    const usuarios = [];
-    const querySnapshot = await getDocs(coleccionUsuarios)
-    querySnapshot.forEach((doc) => {
-
-        usuarios.push({
-            ...doc.data(),
-            id: doc.id,
-
-        });
-    });
-
-    return usuarios;
-}
-
-
-onSnapshot(coleccionUsuarios, (querySnapshot) => {
-    const usuarios = [];
-    querySnapshot.forEach((doc) => {
-        usuarios.push({
-            ...doc.data(),
-            id: doc.id,
-        });
-    });
-    aUsers = usuarios
-});
-
-//Función para autorizar ingreso a la base de datos
-
-async function CredentialIn(email, password) {
-    try {
-        const crearcredencial = await signInWithEmailAndPassword(auth, email, password)
-        mensajes("A ingresado exitosamente", "green")
-        location.href = "../GIS/map.html"
-
-    } catch (error) {
-        if (error.code === "auth/invalid-email") {
-            mensajes("Correo inválido", "red")
-        }
-        else if (error.code === "auth/invalid-credential") {
-            mensajes("Los datos proporcionados no son válidos", "red")
-        }
-    }
-}
-//función para cerrar la sesión de la aplicación
-async function CredentialOut() {
-    await signOut(auth)
-    location.href = "../index.html"
-
-}
-
-// Exponer las funciones globalmente
-GLOBAL.firestore = {
-    getProyectos, //Carga todos los proyectos
-    CredentialIn, //para iniciar la aplicación, evoca la función en este módulo (CredentialIn(email,pass))
-    CredentialOut, //para cerrar la aplicación
-    getUsuarios, //función para verificar usuarios programadores
-    loadfile,
-    readFile,
-    ListFilesFirebase,
-}
-
-//Función que escucha el cambio en inicio o cerrar sesión
-onAuthStateChanged(auth, async (user) => {
-    try {
-        mensajes("Usuario registrado como: " + user.email, "orange") //Muestra que usuarios está conectado
-        document.getElementById('map').hidden = false
-        document.getElementById('headerMap').hidden = false
-        activeEmail = user.email
-
-    } catch (error) {
-        mensajes("Fuera de conexión", "red")
-        document.getElementById('map').hidden = true
-        document.getElementById('headerMap').hidden = true
-        location.href = "../index.html"
-    }
-
-})
 
 
 

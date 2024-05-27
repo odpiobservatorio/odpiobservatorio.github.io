@@ -193,23 +193,29 @@
                     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div class="input-group">
-                                <div class="dropdown mb-2">
-                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        style="background-color: green;" aria-expanded="false"
-                                        onclick="ListColors('color-mark-busqueda','ulColorMarcaBuscar')"
-                                        id="btnColor_busqueda">
-                                        <i class="bi bi-brush"></i>
-                                    </button>
+                                <div class="dropdown">
+                                    <div class="btn-group mb-2" role="group" aria-label="Basic example">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            style="background-color: green;" aria-expanded="false"
+                                            onclick="ListColors('color-mark-busqueda','ulColorMarcaBuscar')"
+                                            id="btnColor_busqueda">
+                                            <i class="bi bi-brush"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <div id="ulColorMarcaBuscar" class="container-fluid"></div>
+                                        </ul>
+                                        <button type="button" class="btn btn-secondary" onclick="clearMarkers()"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-custom-class="tooltip" data-bs-title="Limpiar marcas">
+                                            <i class="bi bi-x-circle"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" onclick="BuscarFaseI()"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-custom-class="tooltip" data-bs-title="Buscar">
+                                            <i class="bi bi-binoculars"></i>
+                                        </button>
 
-                                    <button class="btn btn-outline-secondary" type="button" onclick="clearMarkers()">
-                                        <i class="bi bi-x-circle"></i>
-                                    </button>
-                                    <button class="btn btn-outline-secondary" type="button" onclick="BuscarFaseI()">
-                                        <i class="bi bi-binoculars"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <div id="ulColorMarcaBuscar" class="container-fluid"></div>
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
                             <!--Lista de campos o culumnas por donde buscar-->
@@ -274,76 +280,83 @@
                                     </div>
                                 </div>
                             </form>
+
                         </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Búsqueda ampliada
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="input-group">
-                                <div class="dropdown mb-2">
-                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        style="background-color: green;" aria-expanded="false"
-                                        onclick="ListColors('color-mark-busqueda-plus','ulColorMarcaBuscarPlus')"
-                                        id="btnColor_busquedaPlus">
-                                        <i class="bi bi-brush"></i>
+                        <div class="accordion" id="accordionFindcomplex">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseAvanzado" aria-expanded="true"
+                                        aria-controls="collapseAvanzado">
+                                        Búsqueda avanzada
                                     </button>
-                                    <button class="btn btn-outline-secondary" type="button" onclick="clearMarkers()">
-                                        <i class="bi bi-x-circle"></i>
-                                    </button>
-                                    <button class="btn btn-outline-secondary" type="button" onclick="BuscarFaseII()">
-                                        <i class="bi bi-binoculars"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <div id="ulColorMarcaBuscarPlus" class="container-fluid"></div>
-                                    </ul>
+                                </h2>
+                                <div id="collapseAvanzado" class="accordion-collapse collapse m-2"
+                                    data-bs-parent="#accordionFindcomplex">
+                                    <div class="input-group">
+                                        <div class="dropdown">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-secondary"
+                                                    onclick="AgregarCriterioFind()">
+                                                    <i class="bi bi-file-earmark-plus" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" data-bs-custom-class="tooltip"
+                                                        data-bs-title="Agregar criterio"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary fw-bold"
+                                                    onclick="addOperadorCriterio(this)" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-custom-class="tooltip"
+                                                    data-bs-title="Críterio de búsqueda AND, coordinada" id="Y">
+                                                    {AND}
+                                                </button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    onclick="addOperadorCriterio(this)" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-custom-class="tooltip"
+                                                    data-bs-title="Críterio OR de búsqueda no cordinada" id="O">
+                                                    {OR}
+                                                </button>
+                                                <button class="btn dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" style="background-color: green;"
+                                                    aria-expanded="false"
+                                                    onclick="ListColors('color-mark-busqueda-plus','ulColorMarcaBuscarPlus')"
+                                                    id="btnColor_busquedaPlus">
+                                                    <i class="bi bi-brush"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <div id="ulColorMarcaBuscarPlus" class="container-fluid"></div>
+                                                </ul>
+                                                <button type="button" class="btn btn-secondary" onclick="clearMarkers()"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    data-bs-custom-class="tooltip" data-bs-title="Limpiar marcas">
+                                                    <i class="bi bi-x-circle"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    onclick="LimpiarCriterios()" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-custom-class="tooltip"
+                                                    data-bs-title="Limpiar criterios">
+                                                    <i class="bi bi-eraser-fill"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" onclick="BuscarFaseII()"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    data-bs-custom-class="tooltip" data-bs-title="Buscar">
+                                                    <i class="bi bi-binoculars"></i>
+                                                </button>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form class="row g-2 align-items-center mt-2">
+                                        <div class="col-md-12">
+                                            <ul class="list-group" id="lstCriterios">
+                                            </ul>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <form class="row align-items-center" id="PlusFind">
-                                <div class="col-md-2">
-                                    <button class="btn btn-outline-primary" type="button"
-                                        onclick="AgregarCriterioFind()">
-                                        <i class="bi bi-file-earmark-plus" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-custom-class="tooltip"
-                                            data-bs-title="Agregar criterio"></i>
-                                    </button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-outline-primary" type="button"
-                                        onclick="addOperadorCriterio(this)" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="tooltip"
-                                        data-bs-title="Críterio Y de búsqueda" id="Y">{Y}</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-outline-primary" type="button"
-                                        onclick="addOperadorCriterio(this)" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="tooltip"
-                                        data-bs-title="Críterio O de búsqueda" id="O">{O}</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-outline-primary" type="button" onclick="LimpiarCriterios()">
-                                        <i class="bi bi-eraser-fill" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            data-bs-custom-class="tooltip" data-bs-title="Limpiar criterios"></i>
-                                    </button>
-                                </div>
-
-
-                            </form>
-                            <form class="row g-2 align-items-center mt-2">
-                                <div class="col-md-12">
-                                    <ul class="list-group" id="lstCriterios">
-                                    </ul>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

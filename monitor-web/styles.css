@@ -1,0 +1,14 @@
+.bg-org-red {
+background-color: #DF013A;
+}
+.border-org-1{
+    border-bottom: solid;
+    border-bottom-width:0.5rem ;
+    border-color: #F5A9D0;
+}
+.border-org-2 {
+    border-bottom: solid;
+    border-bottom-width:1rem ;
+    border-color: #F5A9D0;
+
+}

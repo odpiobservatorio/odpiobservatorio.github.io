@@ -1,7 +1,5 @@
 const GLOBAL = {
     state: {
-        proyecto: null,
-        proyectos: [],
         usuario: null,
         usuarios: [],
     },
@@ -11,25 +9,6 @@ const GLOBAL = {
 let aUsers = []
 let activeEmail;
 
-
-/* Mi lenguaje de busqueda */
-
-/*
-Ejemplo:
-`
-    (id > 2 && departamento == Antioquia)
-    .||.
-    (id == 10 && departamento == Cundinamarca)
-    .&&.
-    (id similar 10 || departamento similar Cundinamarca)
-`
-
-`
-    (Year == 2023)
-    .&&.
-    (Perpetrador similar FF || Perpetrador similar ESMAD)
-`
-*/
 
 function procesarHecho(cadena) {
     if (cadena == "&&" || cadena == "||") {
@@ -65,26 +44,6 @@ function convertirQuery(raw) {
 }
 
 
-/* Lenguaje de guardado de configuracion */
-
-// Estructura archivo de configuracion
-
-/*  
-loadMapConfig({
-    mapConfig: {
-        "color": "orange",
-        "opacidad": "0.5",
-        "markType": "green",
-        "size": 0.2,
-    },
-
-    layers: [
-        "LayerPlano",
-        "LayerResguardos",
-        "LayerDepartamentos",
-    ]
-})
-*/
 
 function loadMapConfig(input) {
     /*
@@ -234,8 +193,6 @@ function mensajes(text, color) {
 function modalIn() {
     const modal = new bootstrap.Modal(document.getElementById('myModal'));
     const texto = document.getElementById("textoModal")
-
-
     modal.show();
     const btn = document.getElementById('btnConfirm')
     btn.onclick = ()=> IniCredential()
