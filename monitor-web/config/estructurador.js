@@ -137,6 +137,7 @@ async function AgregarCaso() {
         itemCaso.className = "list-group-item list-group-item-action"
         itemCaso.textContent = caso.macrotipo
         lstCasos.appendChild(itemCaso)
+        itemCaso.id = "caso" + caso.id
 
         //Configuramos las acciones relacionadas con el item
         itemCaso.onclick = () => {
@@ -163,6 +164,7 @@ async function ListarCasos() {
 
         //Configuramos las acciones relacionadas con el item
         itemCaso.onclick = () => {
+            caso.id = c++
             caso.makerHTMLCaso()
         }
 
