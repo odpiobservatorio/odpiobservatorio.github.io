@@ -49,3 +49,18 @@ function mensajes(text, color) {
     }).showToast();
 
 }
+const modal = {
+
+    modalDelete(comando) {
+        const modal = new bootstrap.Modal(document.getElementById('ModalDelete'));
+        const texto = document.getElementById("textoModalDel")
+        texto.textContent = "¿Está seguro de eliminar este elemento?"
+
+        modal.show();
+        const btn = document.getElementById('btnBorrarConfirm')
+        btn.onclick = comando
+
+    }
+
+
+}
