@@ -28,9 +28,15 @@ class clsObservatorio {
                     casos.id,
                     casos.macrotipo,
                     casos.detalle,
+                    casos.departamento,
+                    casos.macroregion,
+                    casos.detalleLugar,
+                    casos.fecha,
                     casos.parent,
                 );
                 casoNew.clsTipos = loadTipos(casos.clsTipos);
+                casoNew.clsLugares = loadLugares(casos.clsLugares);
+
                 return casoNew;
             })
         }
@@ -44,7 +50,18 @@ class clsObservatorio {
                 return tipoNew;
             })
         }
-
+        const loadLugares = (clsLugares) => {
+            return clsLugares.map(lugar => {
+                const lugarNew = new Lugar(
+                    lugar.id,
+                    lugar.municipio,
+                    lugar.latlng,
+                    lugar.lat,
+                    lugar.lng,
+                );
+                return lugarNew;
+            })
+        }
 
         //Crea una nueva clase datos
         const dataODPI = new clsObservatorio();
@@ -70,11 +87,16 @@ class clsObservatorio {
 }
 
 class Caso {
-    constructor(id, macrotipo, detalle, dominio) {
+    constructor(id, macrotipo, detalle, departamento, macroregion, detalleLugar, fecha, dominio) {
         this.id = id;
         this.macrotipo = macrotipo;
         this.detalle = detalle;
+        this.departamento = departamento;
+        this.macroregion = macroregion;
+        this.detalleLugar = detalleLugar;
+        this.fecha = fecha;
         this.clsTipos = []
+        this.clsLugares = []
         this.parent = dominio;
     }
     addTipo(Tipo) {
@@ -83,8 +105,12 @@ class Caso {
     deleteTipo(id) {
         this.clsTipos.splice(id, 1);
     }
-
-
+    addLugar(Lugar) {
+        this.clsLugares.push(Lugar);
+    }
+    deleteLugar(id) {
+        this.clsLugares.splice(id, 1);
+    }
 
     makerHTMLCaso() {
         const intDetalle = document.getElementById("intDetalle")
@@ -129,9 +155,94 @@ class Caso {
             tipo.makerHTMLTipo()
         })
 
+        //Identifico el input de departamentos
+        const intDepartamento = document.getElementById("intDepartamento")
+        const intMacroregion = document.getElementById("intMacroregional")
+        intDepartamento.value = this.departamento
+        //Filtramos los lugares según la entrada del registro
+        filtrarLugares(this.departamento)
+        intMacroregion.value = this.macroregion
 
+        intDepartamento.onchange = () => {
+            this.departamento = intDepartamento.value
+            intMacroregion.value = departamentos[intDepartamento.selectedIndex].macroregion
+            this.macroregion = intMacroregion.value
+            GuardarDatos()
+            //Según sea el departamento, se debe filtrar los lugares
+            filtrarLugares(this.departamento)
+        }
+
+        //Configuramos las acciones del listado de lugares
+        const lstLugares = document.getElementById("lstLugar")
+        const contenedorLugares = document.getElementById("contenedor-lugares")
+        lstLugares.onchange = () => {
+            contenedorLugares.innerHTML = ""
+            //Preparamso las variables
+            const nlugar = lstLugares.value
+            const filterDep = lugares.filter(lugares => lugares.key == intDepartamento.value + nlugar)
+            const latlgnParse = filterDep[0].latlng.split(",")
+            //Agrega un elemento tipo desde una nueva clase lugar
+            this.addLugar(new Lugar(0, filterDep[0].lugar, filterDep[0].latlng, latlgnParse[0], latlgnParse[1]))
+            GuardarDatos()
+            let l = 0
+            this.clsLugares.forEach(lugar => {
+                lugar.id = l++
+                lugar.parent = this
+                lugar.makerHTMLLugar()
+            })
+        }
+
+        //Configuramos la entrada alterna o manual, sin usar la lista de lugares
+        const btnAddLugar = document.getElementById("btnAddLugar")
+        btnAddLugar.onclick = () => {
+            contenedorLugares.innerHTML = ""
+            //Preparamso las variables
+            const nlugar = document.getElementById("intLugar").value
+            const coordenadas = document.getElementById("intCoordenadas").value
+            const latlgnParse = coordenadas.split(",")
+            //Agrega un elemento tipo desde una nueva clase lugar
+            this.addLugar(new Lugar(0, nlugar, coordenadas, latlgnParse[0], latlgnParse[1]))
+            GuardarDatos()
+            let l = 0
+            this.clsLugares.forEach(lugar => {
+                lugar.id = l++
+                lugar.parent = this
+                lugar.makerHTMLLugar()
+            })
+
+
+        }
+
+        //Carga los lugares que existén en cada caso
+        contenedorLugares.innerHTML = ""
+        let l = 0
+        this.clsLugares.forEach(lugar => {
+            lugar.id = l++
+            lugar.parent = this
+            lugar.makerHTMLLugar()
+        })
+
+        //Detalles adicionales al lugar
+        const intDetalleLugar = document.getElementById("intDetalleLugar")
+        intDetalleLugar.oninput = () => {
+            this.detalleLugar = intDetalleLugar.value
+            GuardarDatos()
+        }
+        intDetalleLugar.value = this.detalleLugar
+
+        //}fecha del evento
+        const intFecha = document.getElementById("intFecha")
+        intFecha.oninput = () => {
+            this.fecha = intFecha.value
+            document.getElementById("casoyear" + this.id).textContent =
+                new Date(this.fecha).getFullYear()
+            GuardarDatos()
+        }
+        intFecha.value = this.fecha
 
     }
+
+
 
 }
 class Tipo {
@@ -160,7 +271,7 @@ class Tipo {
             let t = 0
             this.parent.clsTipos.forEach(tipo => {
                 tipo.id = t++
-                tipo.parent=this.parent
+                tipo.parent = this.parent
                 tipo.makerHTMLTipo()
             })
         }
@@ -168,8 +279,43 @@ class Tipo {
     }
 
 }
+class Lugar {
+    constructor(id, municipio, latlng, lat, lng) {
+        this.id = id;
+        this.municipio = municipio;
+        this.latlng = latlng;
+        this.lat = lat;
+        this.lng = lng;
+    }
+    makerHTMLLugar() {
+        const contenedorLugares = document.getElementById("contenedor-lugares")
+        //Creo el contenedor a
+        const a = document.createElement("a")
+        a.className = "nav-link label-org-green-light"
+        a.href = "#"
+        a.innerHTML = `
+        ${this.municipio} (${this.lat}, ${this.lng})
+        <i class="bi bi-trash3 ms-2" id="btnborrarLugar${this.id}"></i>
+        <small></small>
+        `
+        contenedorLugares.appendChild(a)
+        const btnBorrarLugar = document.getElementById(`btnborrarLugar${this.id}`)
+        btnBorrarLugar.onclick = () => {
+            this.parent.deleteLugar(this.id)
+            GuardarDatos()
+            //Se cargan todos los tipos
+            contenedorLugares.innerHTML = ""
+            let t = 0
+            this.parent.clsLugares.forEach(lugar => {
+                lugar.id = t++
+                lugar.parent = this.parent
+                lugar.makerHTMLLugar()
+            })
+        }
 
+    }
 
+}
 
 function loadProyecto() {
     if (Registrado == 1) {
@@ -200,6 +346,17 @@ function loadProyecto() {
             lstTipos.appendChild(item)
         })
 
+        const intDepartamento = document.getElementById("intDepartamento")
+        intDepartamento.innerHTML = ""
+        departamentos.forEach(dep => {
+            const item = document.createElement("option")
+            item.value = dep.departamento
+            item.textContent = dep.departamento
+            intDepartamento.appendChild(item)
+
+        })
+        filtrarLugares("Amazonas")
+
 
         gotoFirst()
 
@@ -219,7 +376,7 @@ async function GuardarDatos() {
 }
 
 async function AgregarCaso() {
-    ActiveDB.addCaso(new Caso(0, "Sin macrotipo", "Sin detalle", ActiveDB))
+    ActiveDB.addCaso(new Caso(0, "Sin macrotipo", "Sin detalle", "Sin determinar", "Sin determinar", "", "0-0-0000", ActiveDB))
     GuardarDatos()
     ListarCasos()
     gotoEnd()
@@ -249,12 +406,18 @@ async function ListarCasos() {
     lstCasos.innerHTML = ""
     let c = 0
     ActiveDB.clsCasos.forEach(caso => {
+        let año = new Date(caso.fecha).getFullYear()
         caso.id = c++
-        const itemCaso = document.createElement("a");
+        const itemCaso = document.createElement("li");
         itemCaso.href = "#"
-        itemCaso.className = "list-group-item list-group-item-action border border-0"
-        itemCaso.textContent = caso.macrotipo
-        itemCaso.id = "caso" + caso.id
+        itemCaso.className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action border border-0"
+        itemCaso.innerHTML = `    
+        <div class="ms-2 me-auto">
+            <div class="" id="caso${caso.id}">${caso.macrotipo}</div>   
+        </div>
+        <span id="casoyear${caso.id}" class="badge text-bg-primary rounded-pill">${año}</span>`
+
+
         lstCasos.appendChild(itemCaso)
 
         //Configuramos las acciones relacionadas con el item
@@ -262,8 +425,20 @@ async function ListarCasos() {
             caso.makerHTMLCaso()
         }
 
-
     });
+
+}
+function filtrarLugares(dep) {
+    const lstLugares = document.getElementById("lstLugar")
+    lstLugares.innerHTML = ""
+
+    const filterDep = lugares.filter(lugares => lugares.departamento == dep)
+    filterDep.forEach(lugar => {
+        const item = document.createElement("option")
+        item.value = lugar.lugar
+        item.textContent = lugar.lugar
+        lstLugares.appendChild(item)
+    })
 
 }
 let activeIndex = 0;

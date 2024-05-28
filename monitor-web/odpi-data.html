@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="col-lg-10 col-md-9 col-sm-12 py-3" id="panel-escritorio" hidden="true">
-                <div class="btn-group">
+                <div class="btn-group sticky-top">
                     <a href="#" class="btn btn-secondary fs-5" onclick="AgregarCaso()">
                         <i class="bi bi-file-earmark-plus"></i>
                     </a>
@@ -90,28 +90,71 @@
                             <label for="intDetalle" class="label-org-warning-light">Macrotipo</label>
                             <select class="form-select" aria-label="Default select example" id="intMacrotipo">
                             </select>
+                            <!--fecha-->
+                            <label for="intDetalle" class="label-org-warning-light">Fecha</label>
+                            <input type="date" class="form-control" id="intFecha" placeholder="">
+
+                             <!--detalle-->
                             <label for="intDetalle" class="label-org-warning-light">Detalle del
                                 caso</label>
 
                             <textarea class="form-control mb-2" id="intDetalle" rows="5"
                                 placeholder="Detalle"></textarea>
 
-                             <!--Entrada de otros tipos-->   
+                            <!--Entrada de otros tipos-->
                             <label for="intDetalle" class="label-org-warning-light">Sub-tipos</label>
                             <small>Seleccione un elemento de la lista y este se añadirá al registro de tipos</small>
-                            <select class="form-select mb-2"  id="lstTipos">
+                            <select class="form-select mb-2" id="lstTipos">
                             </select>
-
                             <div class="d-flex flex-wrap border border 1 rounded p-2" id="contenedor-tipos">
                             </div>
+                            <!--Entrada de otros territorialidad-->
+                            <label for="intDetalle" class="label-org-warning-light">Lugar</label>
+                            <div class="row">
+                                <small class="fw-medium">Departamento y Macroregión</small>
+                                <div class="col">
+                                    <select class="form-select" id="intDepartamento">
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <input disabled type="text" class="form-control" placeholder="Macroregion"
+                                        id="intMacroregional">
+                                </div>
+                                <small class="fw-medium mt-3">Municipio o Lugar</small>
+                                <div class="col">
+                                    <select class="form-select" id="lstLugar">
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Municipio o Lugar"
+                                        id="intLugar">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Coordenadas"
+                                        id="intCoordenadas">
+                                </div>
+                                <button type="button" class="btn btn-secondary" id="btnAddLugar" style="width:40px;">
+                                    <i class="bi bi-geo-alt"></i>
+                                </button>
+                            </div>
+                            <!--Contenedor lugares-->
+                            <div class="d-flex flex-wrap border border 1 rounded p-2 mt-2" id="contenedor-lugares">
+                            </div>
+                            <small class="fw-medium mt-3">Detalle Lugar, territorio, resguardo</small>
+                            <textarea class="form-control mb-2 bg-warning-subtle" id="intDetalleLugar" rows="3"
+                                placeholder="Detalle lugar"></textarea>
+
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="w-100 bg-secondary p-2 text-white rounded shadow fw-medium mb-2">
-                            <div class="ms-3">Lista de casos</div>
+
+                        <div class="sticky-top">
+                            <div class="w-100 bg-secondary p-2 text-white rounded shadow fw-medium mb-2">
+                                <div class="ms-3">Lista de casos</div>
+                            </div>
+                            <ol class="list-group list-group-numbered list-group-scroll border border-1" id="lstCasos">
+                            </ol>
                         </div>
-                        <ol class="list-group list-group-numbered list-group-scroll border border-1" id="lstCasos">
-                        </ol>
                     </div>
                 </div>
 
