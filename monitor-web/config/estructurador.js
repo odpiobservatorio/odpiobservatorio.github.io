@@ -30,10 +30,22 @@ class clsObservatorio {
                     casos.detalle,
                     casos.parent,
                 );
-                //areaNew.cslNotas = loadNotas(Areas.cslNotas);
+                casoNew.clsTipos = loadTipos(casos.clsTipos);
                 return casoNew;
             })
         }
+        const loadTipos = (fromclsTipos) => {
+            return fromclsTipos.map(tipos => {
+                const tipoNew = new Tipo(
+                    tipos.id,
+                    tipos.nombre,
+                    tipos.parent,
+                );
+                return tipoNew;
+            })
+        }
+
+
         //Crea una nueva clase datos
         const dataODPI = new clsObservatorio();
         //Lo carga en uan variable global
@@ -54,7 +66,6 @@ class clsObservatorio {
     }
     deleteCaso(id) {
         this.clsCasos.splice(id, 1);
-        GuardarVigencia()
     }
 }
 
@@ -63,8 +74,18 @@ class Caso {
         this.id = id;
         this.macrotipo = macrotipo;
         this.detalle = detalle;
+        this.clsTipos = []
         this.parent = dominio;
     }
+    addTipo(Tipo) {
+        this.clsTipos.push(Tipo);
+    }
+    deleteTipo(id) {
+        this.clsTipos.splice(id, 1);
+    }
+
+
+
     makerHTMLCaso() {
         const intDetalle = document.getElementById("intDetalle")
         intDetalle.value = this.detalle
@@ -82,8 +103,69 @@ class Caso {
             GuardarDatos()
         }
 
+        //Identifico la lista de tipos alterna y configuro ssus cambios
+        //Cuando cambio un elemento de la lista, lo agrega a la lista de tipos
+        const lstTipos = document.getElementById("lstTipos")
+        const contenedorTipos = document.getElementById("contenedor-tipos")
+        //Se agregan nuevos tipo
+        lstTipos.onchange = () => {
+            contenedorTipos.innerHTML = ""
+            //Agrega un elemento tipo desde una nueva lcase tipo
+            this.addTipo(new Tipo(0, lstTipos.value, this))
+            GuardarDatos()
+            let t = 0
+            this.clsTipos.forEach(tipo => {
+                tipo.id = t++
+                tipo.parent = this
+                tipo.makerHTMLTipo()
+            })
+        }
+        //Se cargan todos los tipos
+        contenedorTipos.innerHTML = ""
+        let t = 0
+        this.clsTipos.forEach(tipo => {
+            tipo.id = t++
+            tipo.parent = this
+            tipo.makerHTMLTipo()
+        })
+
+
+
     }
 
+}
+class Tipo {
+    constructor(id, nombre, dominio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.parent = dominio;
+    }
+    makerHTMLTipo() {
+        const contenedorTipos = document.getElementById("contenedor-tipos")
+        //Creo el contenedor a
+        const a = document.createElement("a")
+        a.className = "nav-link label-org-warning"
+        a.href = "#"
+        a.innerHTML = `
+        ${this.nombre}
+        <i class="bi bi-trash3 ms-2" id="btnborrarTipo${this.id}"></i>
+        `
+        contenedorTipos.appendChild(a)
+        const btnBorrarTipo = document.getElementById(`btnborrarTipo${this.id}`)
+        btnBorrarTipo.onclick = () => {
+            this.parent.deleteTipo(this.id)
+            GuardarDatos()
+            //Se cargan todos los tipos
+            contenedorTipos.innerHTML = ""
+            let t = 0
+            this.parent.clsTipos.forEach(tipo => {
+                tipo.id = t++
+                tipo.parent=this.parent
+                tipo.makerHTMLTipo()
+            })
+        }
+
+    }
 
 }
 
@@ -97,9 +179,10 @@ function loadProyecto() {
         ListarCasos()
         gotoFirst()
 
-        //Cargar macrotipos
+        //Cargar macrotipos y tipos
         const lstMacrotipos = document.getElementById("intMacrotipo")
         lstMacrotipos.innerHTML = ""
+
 
         macrotipos.forEach(tipo => {
             const item = document.createElement("option")
@@ -107,6 +190,17 @@ function loadProyecto() {
             item.textContent = tipo
             lstMacrotipos.appendChild(item)
         })
+
+        const lstTipos = document.getElementById("lstTipos")
+        lstTipos.innerHTML = ""
+        macrotipos.forEach(tipo => {
+            const item = document.createElement("option")
+            item.value = tipo
+            item.textContent = tipo
+            lstTipos.appendChild(item)
+        })
+
+
         gotoFirst()
 
 
@@ -131,16 +225,34 @@ async function AgregarCaso() {
     gotoEnd()
     mensajes("Elemento creado", "Green")
 }
+
+async function BorrarCaso() {
+
+    modal.modalDelete(
+        () => {
+            //Esta función encrustada borra una vigencia
+            ActiveDB.deleteCaso(activeIndex)
+            GuardarDatos()
+            ListarCasos()
+            gotoFirst()
+            activeIndex = 0
+            mensajes("La vigencia ha sido eliminada", "blue")
+        }
+    )
+
+
+
+}
 async function ListarCasos() {
     const lstCasos = document.getElementById("lstCasos")
     //Lo limpiamos
     lstCasos.innerHTML = ""
     let c = 0
     ActiveDB.clsCasos.forEach(caso => {
-        caso.id=c++
+        caso.id = c++
         const itemCaso = document.createElement("a");
         itemCaso.href = "#"
-        itemCaso.className = "list-group-item list-group-item-action"
+        itemCaso.className = "list-group-item list-group-item-action border border-0"
         itemCaso.textContent = caso.macrotipo
         itemCaso.id = "caso" + caso.id
         lstCasos.appendChild(itemCaso)

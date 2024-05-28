@@ -4,17 +4,39 @@ background-color: #DF013A;
 .border-org-1{
     border-bottom: solid;
     border-bottom-width:0.5rem ;
-    border-color: #F5A9D0;
+    border-color: white;
+    opacity: 0.3;
 }
 .border-org-2 {
     border-bottom: solid;
     border-bottom-width:1rem ;
-    border-color: #F5A9D0;
+    border-color: white;
+    opacity: 0.3;
 
 }
 .list-group-scroll{
     max-height: 300px;
     margin-bottom: 10px;
-    overflow:scroll;
-    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll; /* Show vertical scrollbar */
+    
+}
+
+.label-org-warning-light{
+    width: 100%;
+    background-color:bisque;
+    color:dimgray;
+    padding: 8px;
+    padding-left: 10px;
+    margin-bottom:8px;
+    margin-top:8px;
+    font-weight:lighter;
+    border-radius: 8px;
+}
+.label-org-warning{
+    background-color:orange;
+    color:white;
+    padding: 8px;
+    padding: 10px;
+    margin:6px;
+    border-radius: 8px;
 }

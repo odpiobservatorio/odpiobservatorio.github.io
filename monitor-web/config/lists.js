@@ -30,3 +30,13 @@ const macrotipos = [
     'Victima de MAP-MUSE',
     'Xenofobia'
 ]
+const departamentos = [
+    {
+        "macroregion": "Norte",
+        "departamento": "Guajira"
+    },
+    {
+        "macroregion": "Norte",
+        "departamento": "Guajira"
+    }
+]
