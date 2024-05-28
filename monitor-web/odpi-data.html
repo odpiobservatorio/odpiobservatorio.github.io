@@ -31,19 +31,17 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 
-<header class="bg-org-red fw-bold fs-3 text-white p-3">
+<header class="bg-dark fw-bold fs-3 text-white p-3">
 
-
-    <div class="border-org-1 m-2">
-        Sistema de Registro de Casos ODPI
-    </div>
+    Sistema de Registro de Casos ODPI
+    <hr>
 
 </header>
 
 <body onload="">
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                         id="menu">
@@ -64,7 +62,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col py-3" id="panel-escritorio" hidden="true">
+            <div class="col-lg-10 col-md-9 col-sm-12 py-3" id="panel-escritorio" hidden="true">
                 <div class="btn-group">
                     <a href="#" class="btn btn-secondary fs-5" onclick="AgregarCaso()">
                         <i class="bi bi-file-earmark-plus"></i>
@@ -86,7 +84,7 @@
                     </a>
                 </div>
                 <div class="row">
-                    <div class="col-9">
+                    <div class="col-lg-9 col-md-9 col-sm-12">
                         <div>
                             <label for="intDetalle" class="form-label fw-medium text-success mt-2">Detalle del
                                 caso</label>
@@ -99,9 +97,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-3 border border-1 p-2">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
                         <label for="lstCasos" class="fw-medium text-success form-label">Lista de casos</label>
-                        <ol class="list-group list-group-numbered list-group-scroll" style="height:300px;"
+                        <ol class="list-group list-group-numbered list-group-scroll"
                             id="lstCasos">
                         </ol>
                     </div>
