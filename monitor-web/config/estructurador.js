@@ -32,12 +32,15 @@ class clsObservatorio {
                     casos.macroregion,
                     casos.detalleLugar,
                     casos.fecha,
+                    casos.macroactor,
                     casos.parent,
                 );
                 casoNew.clsTipos = loadTipos(casos.clsTipos);
                 casoNew.clsLugares = loadLugares(casos.clsLugares);
                 casoNew.clsPueblos = loadPueblos(casos.clsPueblos);
                 casoNew.clsPersonas = loadPersonas(casos.clsPersonas);
+                casoNew.clsActores = loadActores(casos.clsActores);
+                casoNew.clsDesplazamiento = loadDesplazamiento(casos.clsDesplazamiento);
                 return casoNew;
             })
         }
@@ -89,6 +92,35 @@ class clsObservatorio {
                 return personaNew;
             })
         }
+
+        const loadActores = (fromclsActores) => {
+            return fromclsActores.map(actor => {
+                const actornaNew = new Actores(
+                    actor.id,
+                    actor.nombre,
+                    actor.parent,
+
+                );
+                return actornaNew;
+            })
+        }
+
+        const loadDesplazamiento = (fromclsDesplaza) => {
+            return fromclsDesplaza.map(hecho => {
+                const hechoNew = new Desplazamientos(
+                    hecho.id,
+                    hecho.tipo,
+                    hecho.fechaex,
+                    hecho.lugarOri,
+                    hecho.entornoOri,
+                    hecho.fechaDes,
+                    hecho.LugarDes,
+                    hecho.TipoDes,
+                    hecho.parent
+                );
+                return hechoNew;
+            })
+        }
         //Crea una nueva clase datos
         const dataODPI = new clsObservatorio();
         //Lo carga en uan variable global
@@ -113,7 +145,7 @@ class clsObservatorio {
 }
 
 class Caso {
-    constructor(id, macrotipo, detalle, departamento, macroregion, detalleLugar, fecha, dominio) {
+    constructor(id, macrotipo, detalle, departamento, macroregion, detalleLugar, fecha, macroactor, dominio) {
         this.id = id;
         this.macrotipo = macrotipo;
         this.detalle = detalle;
@@ -121,10 +153,13 @@ class Caso {
         this.macroregion = macroregion;
         this.detalleLugar = detalleLugar;
         this.fecha = fecha;
+        this.macroactor = macroactor;
         this.clsTipos = []
         this.clsLugares = []
         this.clsPueblos = []
         this.clsPersonas = []
+        this.clsActores = []
+        this.clsDesplazamiento = []
         this.parent = dominio;
     }
     addTipo(Tipo) {
@@ -150,6 +185,18 @@ class Caso {
     }
     deletePersona(id) {
         this.clsPersonas.splice(id, 1);
+    }
+    addActor(Actor) {
+        this.clsActores.push(Actor);
+    }
+    deleteActor(id) {
+        this.clsActores.splice(id, 1);
+    }
+    addDesplazamiento(Hecho) {
+        this.clsDesplazamiento.push(Hecho);
+    }
+    deleteDesplazamiento(id) {
+        this.clsDesplazamiento.splice(id, 1);
     }
 
     makerHTMLCaso() {
@@ -184,6 +231,8 @@ class Caso {
         intFecha.value = this.fecha
 
         this._putPersonas()
+        this._putActores()
+        this._putDesplazamiento()
 
 
     }
@@ -357,9 +406,60 @@ class Caso {
             persona.parent = this
             persona.makerHTMLPersona()
         })
+    }
+    _putActores() {
+        const intMacroactor = document.getElementById("intMacroactor")
+        intMacroactor.onchange = () => {
+            this.macroactor = intMacroactor.value
+            GuardarDatos()
+        }
+        intMacroactor.value = this.macroactor
 
+        const lstActores = document.getElementById("lstActores")
+        const divActores = document.getElementById("contenedor-actores")
+        divActores.innerHTML = ""
+        lstActores.onchange = () => {
+            divActores.innerHTML = ""
+            this.addActor(new Actores(0, lstActores.value, this))
+            GuardarDatos()
+            let a = 0
+            this.clsActores.forEach(actor => {
+                actor.id = a++
+                actor.parent = this
+                actor.makerActores()
+            })
+        }
+        let a = 0
+        this.clsActores.forEach(actor => {
+            actor.id = a++
+            actor.parent = this
+            actor.makerActores()
+        })
 
+    }
+    _putDesplazamiento() {
+        //Identificamos el contenedor
+        const contenedorDesplazamiento = document.getElementById("contenedor-desplazamiento")
 
+        const btnAdd = document.getElementById("btnAddDesplazamiento")
+        btnAdd.onclick = () => {
+            contenedorDesplazamiento.innerHTML = ""
+            this.addDesplazamiento(new Desplazamientos(0, "Sin determinar", "0/0/0000", "Sin determinar", "Sin determinar", "0/0/0000","Sin determinar", "Sin determinar", this))
+            GuardarDatos()
+            let d = 0
+            this.clsDesplazamiento.forEach(hecho => {
+                hecho.id = d++
+                hecho.parent = this
+                hecho.makerHTMLDesplazamiento()
+            })
+        }
+        contenedorDesplazamiento.innerHTML = ""
+        let d = 0
+        this.clsDesplazamiento.forEach(hecho => {
+            hecho.id = d++
+            hecho.parent = this
+            hecho.makerHTMLDesplazamiento()
+        })
 
     }
 
@@ -615,6 +715,228 @@ class Persona {
 
     }
 }
+class Actores {
+    constructor(id, nombre, dominio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.parent = dominio;
+    }
+    makerActores() {
+        const divActores = document.getElementById("contenedor-actores")
+        //Creo el contenedor a
+        const a = document.createElement("a")
+        a.className = "nav-link label-org-rojod-dark"
+        a.href = "#"
+        a.innerHTML = `
+        ${this.nombre}
+        <i class="bi bi-trash3 ms-2" id="btnborrarActor${this.id}"></i>
+        <small></small>
+        `
+        divActores.appendChild(a)
+        const btnBorrar = document.getElementById(`btnborrarActor${this.id}`)
+        btnBorrar.onclick = () => {
+            this.parent.deleteActor(this.id)
+            GuardarDatos()
+            //Se cargan todos los tipos
+            divActores.innerHTML = ""
+            let a = 0
+            this.parent.clsActores.forEach(actor => {
+                actor.id = a++
+                actor.parent = this.parent
+                actor.makerActores()
+            })
+        }
+        const intActor = document.getElementById("intActor")
+        const btnAddActor = document.getElementById(`btnAddActor`)
+        btnAddActor.onclick = () => {
+            this.parent.addActor(new Actores(0, intActor.value, this))
+            GuardarDatos()
+            //Se cargan todos los tipos
+            divActores.innerHTML = ""
+            let a = 0
+            this.parent.clsActores.forEach(actor => {
+                actor.id = a++
+                actor.parent = this.parent
+                actor.makerActores()
+            })
+        }
+
+
+    }
+}
+class Desplazamientos {
+    constructor(id, tipo, fechaex, lugarOri, entornoOri, fechaDes, LugarDes,TipoDes, dominio) {
+        this.id = id;
+        this.tipo = tipo;
+        this.fechaex = fechaex;
+        this.lugarOri = lugarOri;
+        this.entornoOri = entornoOri;
+        this.fechaDes = fechaDes;
+        this.LugarDes = LugarDes;
+        this.TipoDes = TipoDes;
+        this.parent = dominio;
+    }
+    makerHTMLDesplazamiento() {
+        const contenedorDesplazamiento = document.getElementById("contenedor-desplazamiento")
+        //Creamos un boton para abrir collapse persona
+        const div = document.createElement("div")
+        div.className = "label-org-gray-light"
+        div.innerHTML = ` 
+        <a class="nav-link" data-bs-toggle="collapse" href="#collapseHecho${this.id}" role="button"
+            aria-expanded="false">
+            <div class="fw-medium ms-3" id="tituloHecho${this.id}">${this.tipo}</div>
+        </a>    
+        `
+        contenedorDesplazamiento.appendChild(div)
+        const collapse = document.createElement("div")
+        collapse.className = "collapse"
+        collapse.id = "collapseHecho" + this.id
+        contenedorDesplazamiento.appendChild(collapse)
+
+        const divbody = document.createElement("div")
+        divbody.className = "card card-body ms-2 me-2"
+        divbody.style.background = "#E5E7E9"
+        collapse.appendChild(divbody)
+
+        //Todas las acciones para el tipo
+        const formTipo = document.createElement("form")
+        formTipo.className = "form-floating mb-2"
+        formTipo.innerHTML =
+            `
+        <select class="form-select" id="intTipo${this.id}"
+            aria-label="Floating label select example">
+            <option value="Individual">Individual</option>
+            <option value="Colectivo">Colectivo</option>
+            <option value="Unifamiliar">Unifamiliar</option>
+            <option value="Multifamiliar">Multifamiliar</option>
+            <option value="Sin determinar">Sin determinar</option>
+
+        </select>
+        <label for="intTipo${this.id}">Tipo desplazamiento</label>
+                `
+        divbody.appendChild(formTipo)
+
+        const intTipo = document.getElementById(`intTipo${this.id}`)
+        intTipo.onchange = () => {
+            this.tipo = intTipo.value
+            document.getElementById(`tituloHecho${this.id}`).textContent = this.tipo
+            GuardarDatos()
+        }
+        intTipo.value = this.tipo
+
+        //Todas las acciones para el campo fecha1
+        const formFecha = document.createElement("form")
+        formFecha.className = "form-floating mb-2"
+        formFecha.innerHTML =
+            `
+            <input type="date" class="form-control" id="intFechaEx${this.id}" placeholder="Fecha salida">
+            <label for="intFechaEx${this.id}">Fecha salida</label>
+            `
+        divbody.appendChild(formFecha)
+
+        const intFechaEx = document.getElementById(`intFechaEx${this.id}`)
+        intFechaEx.oninput = () => {
+            this.fechaex = intFechaEx.value
+            GuardarDatos()
+        }
+        intFechaEx.value = this.fechaex
+
+        //Todas las acciones para el lugar salida
+        const formSalida = document.createElement("form")
+        formSalida.className = "form-floating mb-2"
+        formSalida.innerHTML =
+            `
+            <input type="text" class="form-control" id="intLugarOri${this.id}" placeholder="Lugar de salida">
+            <label for="intLugarOri${this.id}">Lugar salida</label>
+            `
+        divbody.appendChild(formSalida)
+
+        const intLugarOri = document.getElementById(`intLugarOri${this.id}`)
+        intLugarOri.oninput = () => {
+            this.lugarOri = intLugarOri.value
+            GuardarDatos()
+        }
+        intLugarOri.value = this.lugarOri
+
+        //Todas las acciones para el tipo urbano
+        const formTipoUrbano = document.createElement("form")
+        formTipoUrbano.className = "form-floating mb-2"
+        formTipoUrbano.innerHTML =
+            `
+        <select class="form-select" id="intTipoUrbano${this.id}"
+            aria-label="Floating label select example">
+            <option value="Rural">Rural</option>
+            <option value="Urbano">Urbano</option>
+            <option value="Mixto">Mixto</option>
+        </select>
+        <label for="intTipoUrbano${this.id}">Entorno salida</label>
+                `
+        divbody.appendChild(formTipoUrbano)
+
+        const intTipoUrbano = document.getElementById(`intTipoUrbano${this.id}`)
+        intTipoUrbano.onchange = () => {
+            this.entornoOri = intTipoUrbano.value
+            GuardarDatos()
+        }
+        intTipoUrbano.value = this.entornoOri
+
+        //Todas las acciones para el campo fecha2
+        const formFecha2 = document.createElement("form")
+        formFecha2.className = "form-floating mb-2"
+        formFecha2.innerHTML =
+            `
+            <input type="date" class="form-control" id="intFechaDes${this.id}" placeholder="Fecha salida">
+            <label for="intFechaDes${this.id}">Fecha llegada</label>
+                    `
+        divbody.appendChild(formFecha2)
+
+        const intFechaDes = document.getElementById(`intFechaDes${this.id}`)
+        intFechaDes.oninput = () => {
+            this.fechaDes = intFechaDes.value
+            GuardarDatos()
+        }
+        intFechaDes.value = this.fechaDes
+
+        //Todas las acciones para el lugar llegada
+        const formLlegada = document.createElement("form")
+        formLlegada.className = "form-floating mb-2"
+        formLlegada.innerHTML =
+            `
+            <input type="text" class="form-control" id="intLugarDes${this.id}" placeholder="Lugar de salida">
+            <label for="intLugarOri${this.id}">Lugar lelgada</label>
+     `
+        divbody.appendChild(formLlegada)
+
+        const intLugarDes = document.getElementById(`intLugarDes${this.id}`)
+        intLugarDes.oninput = () => {
+            this.LugarDes = intLugarDes.value
+            GuardarDatos()
+        }
+        intLugarDes.value = this.LugarDes
+
+        //Todas las acciones para el tipo urbano
+        const formTipoDestino= document.createElement("form")
+        formTipoDestino.className = "form-floating mb-2"
+        formTipoDestino.innerHTML =
+            `
+        <select class="form-select" id="intTipoDestino${this.id}"
+            aria-label="Floating label select example">
+            <option value="Rural">Rural</option>
+            <option value="Urbano">Urbano</option>
+            <option value="Mixto">Mixto</option>
+        </select>
+        <label for="intTipoDestino${this.id}">Entorno llegada</label>
+                `
+        divbody.appendChild(formTipoUrbano)
+
+        const intTipoDestino = document.getElementById(`intTipoDestino${this.id}`)
+        intTipoUrbano.onchange = () => {
+            this.TipoDes = intTipoDestino.value
+            GuardarDatos()
+        }
+        intTipoDestino.value = this.TipoDes
+    }
+}
 
 function loadProyecto() {
     if (Registrado == 1) {
@@ -666,6 +988,25 @@ function loadProyecto() {
             lstPueblos.appendChild(item)
 
         })
+        //llenar lista macroactor
+        const intMacroactor = document.getElementById("intMacroactor")
+        intMacroactor.innerHTML = ""
+        DataMacroActor.forEach(actor => {
+            const item = document.createElement("option")
+            item.value = actor
+            item.textContent = actor
+            intMacroactor.appendChild(item)
+
+        })
+        //llenar lista actor
+        const lstActores = document.getElementById("lstActores")
+        lstActores.innerHTML = ""
+        DataActor.forEach(actor => {
+            const item = document.createElement("option")
+            item.value = actor
+            item.textContent = actor
+            lstActores.appendChild(item)
+        })
         gotoFirst()
 
 
@@ -704,8 +1045,6 @@ async function BorrarCaso() {
             mensajes("La vigencia ha sido eliminada", "blue")
         }
     )
-
-
 
 }
 async function ListarCasos() {
