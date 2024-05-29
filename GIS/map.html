@@ -1297,14 +1297,15 @@
     let ActiveTile;
 
     async function IniProgram(object) {
-        //Carga las listas para búsqueda
-        CargarlstMap()
+
 
         tileMLayer = L.tileLayer(TileLayerA[object.id], {
             // Y un mapa con un límite de zoom.
             maxZoom: 19,
             //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
         }).addTo(map);
+        //Carga las listas para búsqueda
+        CargarlstMap()
 
     }
 
