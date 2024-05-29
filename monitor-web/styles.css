@@ -41,10 +41,31 @@ background-color: #DF013A;
     border-radius: 8px;
 }
 .label-org-green-light{
-    background-color:#82E0AA;
+    background-color:#58D68D;
     color:white;
     padding: 8px;
     padding: 10px;
     margin:6px;
     border-radius: 8px;
 }
+
+.label-org-gray-light{
+    background-color:#99A3A4;
+    color:white;
+    padding: 8px;
+    padding: 10px;
+    margin:6px;
+    border-radius: 8px;
+}
+.label-org-pink{
+    background-color:#FDEDEC;
+    color:dimgray;
+    padding: 8px;
+    padding: 10px;
+    margin:6px;
+    border-radius: 8px;
+}
+
+
+
+
