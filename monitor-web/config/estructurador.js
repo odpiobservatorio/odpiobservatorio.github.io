@@ -45,6 +45,7 @@ class clsObservatorio {
                 casoNew.clsPersonas = loadPersonas(casos.clsPersonas);
                 casoNew.clsActores = loadActores(casos.clsActores);
                 casoNew.clsDesplazamiento = loadDesplazamiento(casos.clsDesplazamiento);
+                casoNew.clsAccJuridica = loadMedidas(casos.clsAccJuridica);
                 return casoNew;
             })
         }
@@ -125,6 +126,21 @@ class clsObservatorio {
                 return hechoNew;
             })
         }
+
+        const loadMedidas = (fromclsAccJuridica) => {
+            return fromclsAccJuridica.map(medida => {
+                const medidaNew = new Medidas(
+                    medida.id,
+                    medida.accion,
+                    medida.fecha,
+                    medida.respuesta,
+                    medida.parent,
+
+                );
+                return medidaNew;
+            })
+        }
+
         //Crea una nueva clase datos
         const dataODPI = new clsObservatorio();
         //Lo carga en uan variable global
@@ -149,7 +165,9 @@ class clsObservatorio {
 }
 
 class Caso {
-    constructor(id, macrotipo, detalle, departamento, macroregion, detalleLugar, fecha, macroactor, nhombres, nmujeres, nmenores, npersonas, dominio) {
+    constructor(id, macrotipo, detalle, departamento,
+        macroregion, detalleLugar, fecha, macroactor,
+        nhombres, nmujeres, nmenores, npersonas, fuente, fechafuente, enlace, dominio) {
         this.id = id;
         this.macrotipo = macrotipo;
         this.detalle = detalle;
@@ -162,12 +180,16 @@ class Caso {
         this.nmujeres = nmujeres;
         this.nmenores = nmenores;
         this.npersonas = npersonas;
+        this.fuente = fuente;
+        this.fechafuente = fechafuente;
+        this.enlace = enlace;
         this.clsTipos = []
         this.clsLugares = []
         this.clsPueblos = []
         this.clsPersonas = []
         this.clsActores = []
         this.clsDesplazamiento = []
+        this.clsAccJuridica = []
         this.parent = dominio;
     }
     addTipo(Tipo) {
@@ -207,6 +229,13 @@ class Caso {
         this.clsDesplazamiento.splice(id, 1);
     }
 
+    addMedidas(medida) {
+        this.clsAccJuridica.push(medida);
+    }
+    deleteMedidas(id) {
+        this.clsAccJuridica.splice(id, 1);
+    }
+
     makerHTMLCaso() {
         const intDetalle = document.getElementById("intDetalle")
         intDetalle.value = this.detalle
@@ -244,34 +273,35 @@ class Caso {
             this.npersonas = intnPersonas.value
             GuardarDatos()
         }
-        intnPersonas.value=this.npersonas
+        intnPersonas.value = this.npersonas
 
         const intnPersonasM = document.getElementById("intnPersonasM")
         intnPersonasM.oninput = () => {
             this.nmujeres = intnPersonasM.value
             GuardarDatos()
         }
-        intnPersonasM.value=this.nmujeres
+        intnPersonasM.value = this.nmujeres
 
         const intnPersonasH = document.getElementById("intnPersonasH")
         intnPersonasH.oninput = () => {
             this.nhombres = intnPersonasH.value
             GuardarDatos()
         }
-        intnPersonasH.value=this.nhombres
+        intnPersonasH.value = this.nhombres
 
         const intnPersonasMen = document.getElementById("intnPersonasMen")
         intnPersonasMen.oninput = () => {
             this.nmenores = intnPersonasMen.value
             GuardarDatos()
         }
-        intnPersonasMen.value=this.nmenores
+        intnPersonasMen.value = this.nmenores
 
 
 
         this._putPersonas()
         this._putActores()
         this._putDesplazamiento()
+        this._putMedidas()
 
 
 
@@ -501,6 +531,32 @@ class Caso {
             hecho.makerHTMLDesplazamiento()
         })
 
+    }
+    _putMedidas() {
+        //Identificamos el contenedor
+        const contenedorMedidas = document.getElementById("contenedor-medidas")
+
+        const btnAdd = document.getElementById("btnAddMedidas")
+        btnAdd.onclick = () => {
+            contenedorMedidas.innerHTML = ""
+            this.addMedidas(new Medidas(0, "Sin determinar", "0-0-0000", "Sin determinar", this))
+            GuardarDatos()
+            let m = 0
+            this.clsAccJuridica.forEach(medida => {
+                medida.id = m++
+                medida.parent = this
+                medida.makerHTMLMedidas()
+            })
+        }
+        contenedorMedidas.innerHTML = ""
+        let m = 0
+        this.clsAccJuridica.forEach(medida => {
+            medida.id = m++
+            medida.parent = this
+            medida.makerHTMLMedidas()
+        })
+
+        
     }
 
 }
@@ -1000,6 +1056,110 @@ class Desplazamientos {
         divbody.appendChild(btnBorrar)
     }
 }
+class Medidas {
+    constructor(id, accion, fecha, respuesta, dominio) {
+        this.id = id;
+        this.accion = accion;
+        this.fecha = fecha;
+        this.respuesta = respuesta;
+        this.parent = dominio;
+    }
+    makerHTMLMedidas() {
+        const contenedorMedidas = document.getElementById("contenedor-medidas")
+        //Creamos un boton para abrir collapse persona
+        const div = document.createElement("div")
+        div.className = "label-org-pink"
+        div.innerHTML = ` 
+        <a class="nav-link" data-bs-toggle="collapse" href="#collapseMedida${this.id}" role="button"
+            aria-expanded="false">
+            <div class="fw-medium ms-3" id="tituloMedida${this.id}">${this.accion}</div>
+        </a>    
+        `
+        contenedorMedidas.appendChild(div)
+        const collapse = document.createElement("div")
+        collapse.className = "collapse"
+        collapse.id = "collapseMedida" + this.id
+        contenedorMedidas.appendChild(collapse)
+
+        const divbody = document.createElement("div")
+        divbody.className = "card card-body ms-2 me-2"
+        divbody.style.background = "#E5E7E9"
+        collapse.appendChild(divbody)
+        //Todas las acciones para el campo medida
+        const formMedida = document.createElement("form")
+        formMedida.className = "form-floating mb-2"
+        formMedida.innerHTML =
+            `
+        <input type="text" class="form-control" id="intMedida${this.id}">
+        <label for="intNombres">Medida</label>
+    `
+        divbody.appendChild(formMedida)
+        const intMedida = document.getElementById(`intMedida${this.id}`)
+        intMedida.oninput = () => {
+            this.accion = intMedida.value
+            document.getElementById(`tituloMedida${this.id}`).textContent = intMedida.value
+            GuardarDatos()
+        }
+        intMedida.value = this.accion
+
+        //Todas las acciones para el campo medida
+        const formFecha = document.createElement("form")
+        formFecha.className = "form-floating mb-2"
+        formFecha.innerHTML =
+            `
+                <input type="date" class="form-control" id="intFecha${this.id}">
+                <label for="intNombres">Fecha de acción o medida</label>
+            `
+        divbody.appendChild(formFecha)
+        const intFecha = document.getElementById(`intFecha${this.id}`)
+        intFecha.oninput = () => {
+            this.fecha = intFecha.value
+            GuardarDatos()
+        }
+        intFecha.value = this.fecha
+
+        //Todas las acciones para el campo medida
+        const formREspuesta = document.createElement("form")
+        formREspuesta.className = "form-floating mb-2"
+        formREspuesta.innerHTML =
+            `
+                <input type="date" class="form-control" id="intRespuesta${this.id}">
+                <label for="intNombres">Respuesta institucional</label>
+            `
+        divbody.appendChild(formREspuesta)
+        const intRespuesta = document.getElementById(`intRespuesta${this.id}`)
+        intRespuesta.oninput = () => {
+            this.respuesta = intRespuesta.value
+            GuardarDatos()
+        }
+        intRespuesta.value = this.respuesta
+
+        const btnBorrar = document.createElement("button")
+        btnBorrar.type = "button"
+        btnBorrar.className = "btn btn-secondary"
+        btnBorrar.innerHTML =
+            `
+        Eliminar elemento
+        <i class="bi bi-trash3 ms-2"></i>
+        `
+        btnBorrar.onclick = () => {
+            this.parent.deleteMedidas(this.id)
+            GuardarDatos()
+            contenedorMedidas.innerHTML = ""
+            let p = 0
+            this.parent.clsAccJuridica.forEach(medida => {
+                medida.id = p++
+                medida.parent = this.parent
+                medida.makerHTMLMedidas()
+            })
+
+        }
+        divbody.appendChild(btnBorrar)
+
+
+
+    }
+}
 
 function loadProyecto() {
     if (Registrado == 1) {
@@ -1088,7 +1248,9 @@ async function GuardarDatos() {
 }
 
 async function AgregarCaso() {
-    ActiveDB.addCaso(new Caso(0, "Sin macrotipo", "Sin detalle", "Sin determinar", "Sin determinar", "", "0-0-0000", "Sin determinar", 0, 0, 0, 0, ActiveDB))
+    ActiveDB.addCaso(new Caso(0,
+        "Sin macrotipo", "Sin detalle", "Sin determinar",
+        "Sin determinar", "", "0-0-0000", "Sin determinar", 0, 0, 0, 0, "Sin determinar", "0-0-0000", "Sin determinar", ActiveDB))
     GuardarDatos()
     ListarCasos()
     gotoEnd()
