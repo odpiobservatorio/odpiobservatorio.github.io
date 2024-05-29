@@ -33,6 +33,10 @@ class clsObservatorio {
                     casos.detalleLugar,
                     casos.fecha,
                     casos.macroactor,
+                    casos.nhombres,
+                    casos.nmujeres,
+                    casos.nmenores,
+                    casos.npersonas,
                     casos.parent,
                 );
                 casoNew.clsTipos = loadTipos(casos.clsTipos);
@@ -145,7 +149,7 @@ class clsObservatorio {
 }
 
 class Caso {
-    constructor(id, macrotipo, detalle, departamento, macroregion, detalleLugar, fecha, macroactor, dominio) {
+    constructor(id, macrotipo, detalle, departamento, macroregion, detalleLugar, fecha, macroactor, nhombres, nmujeres, nmenores, npersonas, dominio) {
         this.id = id;
         this.macrotipo = macrotipo;
         this.detalle = detalle;
@@ -154,6 +158,10 @@ class Caso {
         this.detalleLugar = detalleLugar;
         this.fecha = fecha;
         this.macroactor = macroactor;
+        this.nhombres = nhombres;
+        this.nmujeres = nmujeres;
+        this.nmenores = nmenores;
+        this.npersonas = npersonas;
         this.clsTipos = []
         this.clsLugares = []
         this.clsPueblos = []
@@ -230,9 +238,41 @@ class Caso {
         }
         intFecha.value = this.fecha
 
+        //Cantidades de las personas afectadas
+        const intnPersonas = document.getElementById("intnPersonas")
+        intnPersonas.oninput = () => {
+            this.npersonas = intnPersonas.value
+            GuardarDatos()
+        }
+        intnPersonas.value=this.npersonas
+
+        const intnPersonasM = document.getElementById("intnPersonasM")
+        intnPersonasM.oninput = () => {
+            this.nmujeres = intnPersonasM.value
+            GuardarDatos()
+        }
+        intnPersonasM.value=this.nmujeres
+
+        const intnPersonasH = document.getElementById("intnPersonasH")
+        intnPersonasH.oninput = () => {
+            this.nhombres = intnPersonasH.value
+            GuardarDatos()
+        }
+        intnPersonasH.value=this.nhombres
+
+        const intnPersonasMen = document.getElementById("intnPersonasMen")
+        intnPersonasMen.oninput = () => {
+            this.nmenores = intnPersonasMen.value
+            GuardarDatos()
+        }
+        intnPersonasMen.value=this.nmenores
+
+
+
         this._putPersonas()
         this._putActores()
         this._putDesplazamiento()
+
 
 
     }
@@ -444,7 +484,7 @@ class Caso {
         const btnAdd = document.getElementById("btnAddDesplazamiento")
         btnAdd.onclick = () => {
             contenedorDesplazamiento.innerHTML = ""
-            this.addDesplazamiento(new Desplazamientos(0, "Sin determinar", "0/0/0000", "Sin determinar", "Sin determinar", "0/0/0000","Sin determinar", "Sin determinar", this))
+            this.addDesplazamiento(new Desplazamientos(0, "Sin determinar", "0/0/0000", "Sin determinar", "Sin determinar", "0/0/0000", "Sin determinar", "Sin determinar", this))
             GuardarDatos()
             let d = 0
             this.clsDesplazamiento.forEach(hecho => {
@@ -765,7 +805,7 @@ class Actores {
     }
 }
 class Desplazamientos {
-    constructor(id, tipo, fechaex, lugarOri, entornoOri, fechaDes, LugarDes,TipoDes, dominio) {
+    constructor(id, tipo, fechaex, lugarOri, entornoOri, fechaDes, LugarDes, TipoDes, dominio) {
         this.id = id;
         this.tipo = tipo;
         this.fechaex = fechaex;
@@ -903,7 +943,7 @@ class Desplazamientos {
         formLlegada.innerHTML =
             `
             <input type="text" class="form-control" id="intLugarDes${this.id}" placeholder="Lugar de salida">
-            <label for="intLugarOri${this.id}">Lugar lelgada</label>
+            <label for="intLugarOri${this.id}">Lugar llegada</label>
      `
         divbody.appendChild(formLlegada)
 
@@ -915,7 +955,7 @@ class Desplazamientos {
         intLugarDes.value = this.LugarDes
 
         //Todas las acciones para el tipo urbano
-        const formTipoDestino= document.createElement("form")
+        const formTipoDestino = document.createElement("form")
         formTipoDestino.className = "form-floating mb-2"
         formTipoDestino.innerHTML =
             `
@@ -925,16 +965,39 @@ class Desplazamientos {
             <option value="Urbano">Urbano</option>
             <option value="Mixto">Mixto</option>
         </select>
-        <label for="intTipoDestino${this.id}">Entorno llegada</label>
+        <label for="intTipoDestino${this.id}">Entorno destino</label>
                 `
-        divbody.appendChild(formTipoUrbano)
+        divbody.appendChild(formTipoDestino)
 
         const intTipoDestino = document.getElementById(`intTipoDestino${this.id}`)
-        intTipoUrbano.onchange = () => {
+        intTipoDestino.onchange = () => {
             this.TipoDes = intTipoDestino.value
             GuardarDatos()
         }
         intTipoDestino.value = this.TipoDes
+
+        //Eliminar elemento
+        const btnBorrar = document.createElement("button")
+        btnBorrar.type = "button"
+        btnBorrar.className = "btn btn-secondary"
+        btnBorrar.innerHTML =
+            `
+        Eliminar elemento
+        <i class="bi bi-trash3 ms-2"></i>
+        `
+        btnBorrar.onclick = () => {
+            this.parent.deleteDesplazamiento(this.id)
+            GuardarDatos()
+            contenedorDesplazamiento.innerHTML = ""
+            let h = 0
+            this.parent.clsDesplazamiento.forEach(hecho => {
+                hecho.id = h++
+                hecho.parent = this.parent
+                hecho.makerHTMLDesplazamiento()
+            })
+
+        }
+        divbody.appendChild(btnBorrar)
     }
 }
 
@@ -1025,7 +1088,7 @@ async function GuardarDatos() {
 }
 
 async function AgregarCaso() {
-    ActiveDB.addCaso(new Caso(0, "Sin macrotipo", "Sin detalle", "Sin determinar", "Sin determinar", "", "0-0-0000", ActiveDB))
+    ActiveDB.addCaso(new Caso(0, "Sin macrotipo", "Sin detalle", "Sin determinar", "Sin determinar", "", "0-0-0000", "Sin determinar", 0, 0, 0, 0, ActiveDB))
     GuardarDatos()
     ListarCasos()
     gotoEnd()
