@@ -1123,7 +1123,7 @@ class Medidas {
         formREspuesta.className = "form-floating mb-2"
         formREspuesta.innerHTML =
             `
-                <input type="date" class="form-control" id="intRespuesta${this.id}">
+                <input type="text" class="form-control" id="intRespuesta${this.id}">
                 <label for="intNombres">Respuesta institucional</label>
             `
         divbody.appendChild(formREspuesta)
