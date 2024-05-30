@@ -28,6 +28,7 @@ const macrotipos = [
     'Seguimiento',
     'Tortura',
     'Victima de MAP-MUSE',
+    'Violencias basadas en género',
     'Xenofobia'
 ]
 const departamentos = [

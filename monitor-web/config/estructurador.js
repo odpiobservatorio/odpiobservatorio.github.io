@@ -741,6 +741,7 @@ class Persona {
             aria-label="Floating label select example">
             <option value="Hombre">Hombre</option>
             <option value="Mujer">Mujer</option>
+            <option value="Mujer">LGTBIQ+</option>
             <option value="Sin determinar">Sin determinar</option>
         </select>
         <label for="intGenero${this.id}">Género</label>
