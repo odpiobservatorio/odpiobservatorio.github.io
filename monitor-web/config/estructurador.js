@@ -37,6 +37,9 @@ class clsObservatorio {
                     casos.nmujeres,
                     casos.nmenores,
                     casos.npersonas,
+                    casos.fuente,
+                    casos.fechafuente,
+                    casos.enlace,
                     casos.parent,
                 );
                 casoNew.clsTipos = loadTipos(casos.clsTipos);
@@ -556,7 +559,34 @@ class Caso {
             medida.makerHTMLMedidas()
         })
 
-        
+
+    }
+    _putFuente() {
+
+        //Detalles adicionales al fuente
+        const intFuente = document.getElementById("intFuente")
+        intFuente.oninput = () => {
+            this.fuente = intFuente.value
+            GuardarDatos()
+        }
+        intFuente.value = this.fuente
+
+
+        //Detalles adicionales al fuente
+        const intFuenteFecha = document.getElementById("intFuenteFecha")
+        intFuenteFecha.oninput = () => {
+            this.fuefechafuentente = intFuenteFecha.value
+            GuardarDatos()
+        }
+        intFuenteFecha.value = this.fechafuente
+
+        //Detalles adicionales al fuente
+        const intContacto = document.getElementById("intContacto")
+        intFuenteFecha.oninput = () => {
+            this.enlace = intContacto.value
+            GuardarDatos()
+        }
+        intContacto.value = this.enlace
     }
 
 }
