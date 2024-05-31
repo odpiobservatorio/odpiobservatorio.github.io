@@ -52,10 +52,16 @@ background-color: #DF013A;
 .label-org-gray-light{
     background-color:#99A3A4;
     color:white;
-    padding: 8px;
     padding: 10px;
     margin:6px;
     border-radius: 8px;
+}
+.label-cell-gray-light{
+    background-color:#C0392B;
+    border-color: black;
+    padding: 10px;
+    border-radius: 8px;
+    border-width: 1rem solid;
 }
 .label-org-pink{
     background-color:#FDEDEC;
