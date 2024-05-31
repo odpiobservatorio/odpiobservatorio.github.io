@@ -64,3 +64,31 @@ const modal = {
 
 
 }
+//Esta función llama a la librería para crear texto desdd html
+function crearTexto() {
+    verTexto()
+    var opt = {
+        margin: 1,
+        filename: 'myfile.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 3 },
+        jsPDF: { unit: 'cm', format: 'letter', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    var element = document.getElementById('element-to-print');
+    var worker = html2pdf().set(opt).from(element).save();
+}
+function verTexto(){
+    document.getElementById('panel-escritorio').hidden= true;
+    document.getElementById('panel-escritorio').hidden= true;
+    document.getElementById('panel-Tablas').hidden=true;
+    document.getElementById('element-to-print').hidden=false;
+
+}
+function openIni(){
+    document.getElementById('btnRegistros').hidden= false;
+    document.getElementById('btndocumentos').hidden= false;
+    document.getElementById('btntablas').hidden= false;
+    
+
+}

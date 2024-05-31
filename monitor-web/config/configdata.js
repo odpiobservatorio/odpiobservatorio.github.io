@@ -185,6 +185,7 @@ async function CredentialIn(email, password) {
         const crearcredencial = await signInWithEmailAndPassword(auth, email, password)
         mensajes("A ingresado exitosamente", "green")
         Registrado=1
+        openIni()
     } catch (error) {
         //location.href = "../index.html"
         Registrado=0

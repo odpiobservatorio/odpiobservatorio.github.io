@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODPI-Data observatorio</title>
 
+    <!--Administra las librerias de exportar a PDF-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!--Bootstrapp-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,21 +30,37 @@
     <script src="./config/globalvar.js"></script>
     <script src="./config/estructurador.js"></script>
     <script src="./config/lists.js"></script>
+    <script src="./config/dataTable.js"></script>
 
     <!--Cargamos nuestra hoja de estilos personalziados-->
     <link rel="stylesheet" href="./styles.css">
 </head>
 
-<header class="bg-dark fw-bold fs-3 text-white p-3">
+<header>
+    <nav class="navbar navbar-expand-lg shadow" style="background-color: #DC143C;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white fw-medium" href="#">Monitor ODPI 1.2 ONIC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    </li>
 
-    Sistema de Registro de Casos ODPI
-    <hr style="color: white; opacity:0.3; border-width: 0.5rem;">
-
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 
-<body onload="">
+<body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
+            <!-- Contenedor panelizquierdo -->
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -51,7 +71,7 @@
                                     class="ms-1 d-none d-sm-inline text-white">Registrarse</span>
                             </a>
                         </li>
-                        <li>
+                        <li id="btnRegistros" hidden="true">
                             <a href="#panel-vigencias" data-bs-toggle="collapse" class="nav-link px-0 align-middle"
                                 onclick="loadProyecto()">
                                 <i class="fs-3 fw-bold bi-journal-text text-white"></i> <span
@@ -59,10 +79,43 @@
                             <ul class="collapse hide nav flex-column ms-2" id="" data-bs-parent="#menu">
                             </ul>
                         </li>
+                        <li onclick="verTexto()" id="btndocumentos" hidden="true">
+                            <a href="#panel-documento" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-3 fw-bold bi-file-earmark-text text-white"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Documentos</span> </a>
+                            <ul class="collapse hide nav flex-column ms-2" id="panel-documento" data-bs-parent="#menu">
+                                <li class="w-100" onclick="crearTexto()">
+                                    <a href="#" class="nav-link px-0 text-white">
+                                        <i class="bi-file-earmark-pdf-fill text-white"></i>
+                                        <span class="d-none d-sm-inline text-white">
+
+                                        </span>
+                                        Exportar
+                                    </a>
+                                </li>
+                                <li class="w-100" onclick="">
+                                    <a href="#" class="nav-link px-0 text-white">
+                                        <i class="bi-cloud-download text-white"></i>
+                                        <span class="d-none d-sm-inline text-white">
+
+                                        </span>
+                                        Backup
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li onclick="iniTables()" id="btntablas" hidden="true">
+                            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-3 fw-bold bi-table text-white"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Tablas</span> </a>
+                            <ul class="collapse hide nav flex-column ms-2" id="" data-bs-parent="#menu">
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-10 col-md-9 col-sm-12 py-3" id="panel-escritorio" hidden="true">
+            <div  class="col-lg-10 col-md-9 col-sm-12 py-3" id="panel-escritorio" hidden="true">
                 <div class="btn-group sticky-top">
                     <a href="#" class="btn btn-secondary fs-5" onclick="AgregarCaso()">
                         <i class="bi bi-file-earmark-plus"></i>
@@ -84,7 +137,7 @@
                     </a>
                 </div>
                 <hr>
-                <div class="row">
+                <div class="row" id="panel-escritorio2">
                     <div class="col-lg-9 col-md-9 col-sm-12">
                         <div>
                             <label for="intDetalle" class="label-org-warning-light">Macrotipo</label>
@@ -268,14 +321,15 @@
                                 </div>
                                 <div class="col">
                                     <small class="fw-medium">Fuente</small>
-                                    <input type="date" class="form-control" placeholder="Fecha de la fuente" id="intFuenteFecha">
+                                    <input type="date" class="form-control" placeholder="Fecha de la fuente"
+                                        id="intFuenteFecha">
 
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <small class="fw-medium">Contacto / enlace</small>
                                         <input type="text" class="form-control" placeholder="Contacto" id="intContacto">
-                                        </div>                    
+                                    </div>
                                 </div>
                             </div>
 
@@ -295,9 +349,16 @@
                 </div>
 
             </div>
+            <div id="panel-Tablas" hidden="true">
+                
+            </div>
+            <div id="element-to-print" hidden="true">
+                Pagina tipo texto del registro
+            </div>
         </div>
     </div>
 </body>
+<!-- Contenedor de formulario registrarse -->
 <div class="modal" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -340,7 +401,7 @@
         </div>
     </div>
 </div>
-<!-- Contenedor de formulario modal -->
+<!-- Contenedor de formulario borrar elemento -->
 <div class="modal" id="ModalDelete">
     <div class="modal-dialog">
         <div class="modal-content">

@@ -1197,6 +1197,8 @@ function loadProyecto() {
         const proyectos = GLOBAL.state.proyectos;
         ActiveDB = clsObservatorio.loadAsInstance(proyectos[0]);
         document.getElementById("panel-escritorio").hidden = false
+        document.getElementById("element-to-print").hidden = true
+        document.getElementById("panel-Tablas").hidden = true
         ListarCasos()
         gotoFirst()
 
