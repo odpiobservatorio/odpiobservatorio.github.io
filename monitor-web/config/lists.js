@@ -692,7 +692,6 @@ const lugares = [
     { 'departamento': 'Purtumayo', 'lugar': 'San miguel', 'lat': '0.331', 'lng': '-76.876', 'latlng': '0.331,-76.876', 'key': 'PurtumayoSan miguel' },
     { 'departamento': 'Putumayo', 'lugar': 'Mocoa', 'lat': '1.15', 'lng': '-76.6475', 'latlng': '1.15,-76.6475', 'key': 'PutumayoMocoa' },
     { 'departamento': 'Putumayo', 'lugar': 'Orito', 'lat': '0.6661', 'lng': '-76.8708', 'latlng': '0.6661,-76.8708', 'key': 'PutumayoOrito' },
-    { 'departamento': 'Putumayo', 'lugar': 'Puerto Asis', 'lat': '0.5167', 'lng': '-76.5', 'latlng': '0.5167,-76.5', 'key': 'PutumayoPuerto Asis' },
     { 'departamento': 'Putumayo', 'lugar': 'Puerto Asís', 'lat': '0.5167', 'lng': '-76.5', 'latlng': '0.5167,-76.5', 'key': 'PutumayoPuerto Asís' },
     { 'departamento': 'Putumayo', 'lugar': 'Puerto Caicedo', 'lat': '0.685', 'lng': '-76.6044', 'latlng': '0.685,-76.6044', 'key': 'PutumayoPuerto Caicedo' },
     { 'departamento': 'Putumayo', 'lugar': 'Puerto Guzman', 'lat': '0.9636', 'lng': '-76.4086', 'latlng': '0.9636,-76.4086', 'key': 'PutumayoPuerto Guzman' },

@@ -21,6 +21,13 @@ background-color: #DF013A;
     
 }
 
+.menu-group-scroll{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow-y: auto; /* Show vertical scrollbar */ 
+    overflow-x:hidden
+}
+
 .label-org-warning-light{
     width: 100%;
     background-color:bisque;

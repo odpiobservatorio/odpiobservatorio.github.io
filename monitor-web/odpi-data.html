@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active text-white" aria-current="page" href="#"></a>
                     </li>
 
                 </ul>
@@ -80,11 +80,11 @@
                             </ul>
                         </li>
                         <li onclick="verTexto()" id="btndocumentos" hidden="true">
-                            <a href="#panel-documento" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <a href="#mn-documento" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi-file-earmark-text text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Documentos</span> </a>
-                            <ul class="collapse hide nav flex-column ms-2" id="panel-documento" data-bs-parent="#menu">
-                                <li class="w-100" onclick="crearTexto()">
+                            <ul class="collapse hide nav flex-column ms-2" id="mn-documento" data-bs-parent="#menu">
+                                <li class="w-100" onclick="crearTexto('element-to-print')">
                                     <a href="#" class="nav-link px-0 text-white">
                                         <i class="bi-file-earmark-pdf-fill text-white"></i>
                                         <span class="d-none d-sm-inline text-white">
@@ -105,10 +105,19 @@
                             </ul>
                         </li>
                         <li onclick="iniTables()" id="btntablas" hidden="true">
-                            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi-table text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Tablas</span> </a>
-                            <ul class="collapse hide nav flex-column ms-2" id="" data-bs-parent="#menu">
+                            <ul class="collapse hide nav flex-column ms-2" id="mn-tablas" data-bs-parent="#menu" hidden="true">
+                                <li class="w-100" onclick="crearTexto('panel-Tablas')">
+                                    <a href="#" class="nav-link px-0 text-white">
+                                        <i class="bi-file-earmark-pdf-fill text-white"></i>
+                                        <span class="d-none d-sm-inline text-white">
+
+                                        </span>
+                                        Exportar
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 

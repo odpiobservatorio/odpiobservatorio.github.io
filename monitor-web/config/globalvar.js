@@ -65,7 +65,7 @@ const modal = {
 
 }
 //Esta función llama a la librería para crear texto desdd html
-function crearTexto() {
+function crearTexto(control) {
     verTexto()
     var opt = {
         margin: 1,
@@ -75,7 +75,7 @@ function crearTexto() {
         jsPDF: { unit: 'cm', format: 'letter', orientation: 'portrait' },
         pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
     };
-    var element = document.getElementById('element-to-print');
+    var element = document.getElementById(control);
     var worker = html2pdf().set(opt).from(element).save();
 }
 function verTexto(){
