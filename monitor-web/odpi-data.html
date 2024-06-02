@@ -57,7 +57,7 @@
     </nav>
 </header>
 
-<body>
+<body onunload="SignOut()">
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <!-- Contenedor panelizquierdo -->
@@ -116,6 +116,22 @@
 
                                         </span>
                                         Exportar
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li onclick="SignOut()" id="btntablas">
+                            <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-3 fw-bold bi-box-arrow-left text-white"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Salir</span> </a>
+                            <ul class="collapse hide nav flex-column ms-2" id="mn-tablas" data-bs-parent="#menu" hidden="true">
+                                <li class="w-100" onclick="crearTexto('panel-Tablas')">
+                                    <a href="#" class="nav-link px-0 text-white">
+                                        <i class="text-white"></i>
+                                        <span class="d-none d-sm-inline text-white">
+
+                                        </span>
+
                                     </a>
                                 </li>
                             </ul>
