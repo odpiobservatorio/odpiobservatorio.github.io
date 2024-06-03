@@ -1,7 +1,24 @@
 
-        `<div class="form-check ms-3 me-3">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="" for="flexCheckDefault">
-              Departamentos
-            </label>
-    </div>`  
+`
+<div class="modal shadow rounded" tabindex="-1" id="ModalCaseOnMap" data-bs-backdrop="static" style="z-index: 1900">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tlTipoCaso">Caso Número</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" spellcheck="true">
+                <div class="h3" id="txTipo"></div>
+                <div class="h4 text-primary" id="txAño"></div>
+                <div class="h5 text-primary" id="txLugar"></div>
+                <div class="h5 text-success" id="txEtnia"></div>
+                <div class="h6 text-danger" id="txPerpetuador"></div>
+                <p id="txCaso">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+`

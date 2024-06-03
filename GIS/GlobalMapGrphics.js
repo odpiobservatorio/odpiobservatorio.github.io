@@ -2,7 +2,7 @@
 //VARIABLES PARA MARCADORES PERSONALIZADOS
 //COLOR ACTIVO
 let color_activo;
-let tipo_activo=0;
+let tipo_activo = 0;
 let tamaño_activo = 5;
 let mark_selected;
 let opacidad_activa = 1;
@@ -11,7 +11,7 @@ let texto_activo = "";
 //VARIABLE QUE GUARDA TODOS LOS MARCADORES PERSONALIZADOS, POSIBILITA LA OPCIÓN DE BORRAR TODOS O ÚLTIMO
 let Marcadores_Personalizados = []
 //Esta variable aplica para el módulo mapData, showBusqueda
-let color_marca_busqueda="green"
+let color_marca_busqueda = "green"
 
 //Guarda los marcadores libres
 let MarkFreePoligon = [];
@@ -92,19 +92,28 @@ function ListColors(type, control) {
                 document.getElementById("span-opacity-marca").style.background = color
                 document.getElementById("span-opacity-marca").style.opacity = opacidad_activa
             }
-        } else if(type=="color-mark-busqueda"){
-            
+        } else if (type == "color-mark-busqueda") {
+
             liC.onclick = () => {
-                color_marca_busqueda= color
-                document.getElementById("btnColor_busqueda").style.background=color
-        }}
-        else if(type=="color-mark-busqueda-plus"){
-            
+                color_marca_busqueda = color
+                document.getElementById("btnColor_busqueda").style.background = color
+            }
+        }
+        else if (type == "color-mark-busqueda-plus") {
+
             liC.onclick = () => {
-                color_marca_busqueda= color
-                document.getElementById("btnColor_busquedaPlus").style.background=color
-                document.getElementById("btnColor_busqueda").style.background=color
-        }}
+                color_marca_busqueda = color
+                document.getElementById("btnColor_busquedaPlus").style.background = color
+                document.getElementById("btnColor_busqueda").style.background = color
+            }
+            //Este evento es nuevo, remplazará a los anteriores
+        } else if (type == "color-mark-consulta") {
+
+            liC.onclick = () => {
+                color_marca_busqueda = color
+                document.getElementById("btnColor_consulta").style.background = color
+            }
+        }
 
         cUl.appendChild(liC)
     })
@@ -379,7 +388,6 @@ function UpdateColorDesktop(color) {
         showDep();
     }
 }
-
 
 function SaveMarks() {
     let exportableMark = []
@@ -673,7 +681,7 @@ function Marca_Personalizada_Circulo(
     circle.on('click', onClick);
     function onClick() {
         mark_selected = indexMark
-        tipo_activo=0
+        tipo_activo = 0
         //mark_selected
         let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
         console.log(MarcaAtivaIni)
@@ -753,7 +761,7 @@ function Marca_Personalizada_Cuadrado(
     polygon.on('click', onClick);
     function onClick() {
         mark_selected = indexMark
-        tipo_activo=1
+        tipo_activo = 1
         let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
 
         //Copia las coordenadas de la marca actual / NOTA, como este es un poligono, las coordenadas principales so bidimencinal
@@ -788,8 +796,8 @@ function delete_all_custom_marks(option) {
             let i = 0
             Marcadores_Personalizados.forEach(marca => {
                 marca.options.index = i++
-                
-                
+
+
             })
             list_marcas_custom()
         } catch (error) {
@@ -799,7 +807,7 @@ function delete_all_custom_marks(option) {
     }
 
     //Lista las marcas en el contenedor de marcas
-    
+
 
 }
 
@@ -918,9 +926,9 @@ function list_marcas_custom() {
 
         if (marca.options.Type == "circle") {
             tipo = "bi-circle-fill"
-        } else if("polygon") {
+        } else if ("polygon") {
             tipo = "bi-square-fill"
-            
+
         }
 
         const item = document.createElement("lis")
@@ -948,21 +956,22 @@ function list_marcas_custom() {
             if (marca.options.Type == "circle") {
                 lat = marca._latlng.lat;
                 lng = marca._latlng.lng;
-                tipo_activo=0
+                tipo_activo = 0
             } else if (marca.options.Type == "polygon") {
                 lat = marca._latlngs[0][1].lat;
                 lng = marca._latlngs[0][1].lng;
-                tipo_activo=1
+                tipo_activo = 1
             }
 
             var tooltip = L.tooltip([lat, lng], {
                 content: marca.options.info,
-                pane:'polygonsPane'})
+                pane: 'polygonsPane'
+            })
                 .addTo(map);
-                
-        
+
+
         }
-        document.getElementById("marcador-item" + marca.options.index).onmousemove=()=>{
+        document.getElementById("marcador-item" + marca.options.index).onmousemove = () => {
 
             document.getElementById("marcador-item" + marca.options.index).className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action"
         }
@@ -970,9 +979,9 @@ function list_marcas_custom() {
             mark_selected = marca.options.index
             console.log(mark_selected)
             if (marca.options.Type == "circle") {
-                tipo_activo=0
+                tipo_activo = 0
             } else if (marca.options.Type == "polygon") {
-                tipo_activo=1
+                tipo_activo = 1
             }
             delete_all_custom_marks(1)
 

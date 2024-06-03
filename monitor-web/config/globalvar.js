@@ -22,7 +22,8 @@ function IniCredential() {
 }
 
 function SignOut() {
-    GLOBAL.firestore.CredentialOut()
+    location.href = "../index.html"
+    //GLOBAL.firestore.CredentialOut()
 }
 function autenticar(){
     const modal = new bootstrap.Modal(document.getElementById('myModal'));

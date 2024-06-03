@@ -40,7 +40,7 @@ import {
 
 
 
-// Utiliza las claves y credenciales de mi base de datos de Tomakare
+// Utiliza las claves y credenciales de mi base de datos de 
 const firebaseConfig = {
     apiKey: "AIzaSyAi1ZdkKtKktSKVk_afvPQ9IkkCNbmghFQ",
     authDomain: "odpiobservatorio-onic.firebaseapp.com",
@@ -58,41 +58,49 @@ const db = getFirestore(app);
 
 
 // Referencia a las colecciones de datos del observatorio
-const coleccionDatos = collection(db, "observatorio");
+const coleccionProyectos = collection(db, "observatorio");
 // Referencia a las colecciones de usuarios
 const coleccionUsuarios = collection(db, "usuarios");
 
 
 
 // Función para obtener todos los proyectos de la base de datos
-async function getObservatorioData() {
-    const observatorioDB = [];
-    const querySnapshot = await getDocs(coleccionDatos)
+async function getProyectos() {
+    const proyectos = [];
+    const querySnapshot = await getDocs(coleccionProyectos)
     querySnapshot.forEach((doc) => {
-        observatorioDB.push({
+        proyectos.push({
             ...doc.data(),
             id: doc.id,
         });
     });
-    return observatorioDB;
+
+    return proyectos;
 }
 
-// Función para actualizar un proyecto
-async function updateData(observatorioDB) {
-    const docRef = doc(db, "observatorio", observatorioDB.id);
-    await setDoc(docRef, observatorioDB);
+// Función para obtener un proyecto por id
+async function getProyecto(id) {
+    const docRef = doc(db, "observatorio", id);
+    const docSnap = await getDoc(docRef);
+
+    return docSnap.exists() ? ({
+        ...docSnap.data(),
+        id: docSnap.id,
+    }) : null;
 }
 
-// Escuchar si hay en un cambio en la coleccion de datos y actualizar automaticamente la lista de proyectos
-onSnapshot(coleccionDatos, (querySnapshot) => {
-    const observatorioDB = [];
+// Escuchar si hay en un cambio en la coleccion de proyectos y actualizar automaticamente la lista de proyectos
+onSnapshot(coleccionProyectos, (querySnapshot) => {
+    const proyectos = [];
     querySnapshot.forEach((doc) => {
-        observatorioDB.push({
+        proyectos.push({
             ...doc.data(),
             id: doc.id,
         });
     });
-    GLOBAL.state.observatorio = observatorioDB;
+    GLOBAL.state.proyectos = proyectos;
+    Active_data_monitor=GLOBAL.state.proyectos[0];
+
 });
 
 
@@ -148,8 +156,8 @@ async function CredentialOut() {
 
 // Exponer las funciones globalmente
 GLOBAL.firestore = {
-    getObservatorioData, //Carga todos los proyectos
-    updateData, //Gaurda los datos en la base de datos
+    getProyectos, //Carga todos los proyectos
+    getProyecto,
     CredentialIn, //para iniciar la aplicación, evoca la función en este módulo (CredentialIn(email,pass))
     CredentialOut, //para cerrar la aplicación
     getUsuarios, //función para verificar usuarios programadores

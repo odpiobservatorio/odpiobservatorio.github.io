@@ -33,11 +33,16 @@
 
     <!-- Cargar scripts -->
     <link rel="stylesheet" href="../style.css">
+    <!-- Cargar la nueva configuración para acdeso a los datos de monitor -->
+
+
+
 
     <script src="misc.js" async></script>
     <script src="mapGraphics.js" async></script>
     <script src="pivotData.js" async></script>
     <script src="mapData.js" async></script>
+    <script src="./config/dataquery.js" async></script>
     <script src="./layers/IRV-2022.js" async></script>
     <script src="./layers/PlanPIR.js" async></script>
     <script src="./Infografias.js" async></script>
@@ -49,7 +54,6 @@
     <script src="../data-access/credentials.js"></script>
 
 </head>
-
 
 <header id="headerMap" class="sticky-top">
     <!-- barra de menu de mapas -->
@@ -98,7 +102,6 @@
 
                         </ul>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasCapas" aria-controls="offcanvasCapas">Visor de capas</a>
@@ -116,8 +119,6 @@
                             data-bs-target="#offcanvasMarcador" aria-controls="offcanvasMarcador"><i
                                 class="bi bi-pin-map-fill me-2"></i>Marcadores</a>
                     </li>
-
-
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
@@ -159,6 +160,14 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    
+                    <li class="nav-item" onclick="cinfigIni_data()">
+                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasConsulta" aria-controls="offcanvasConsulta">
+                            <i class="bi bi-binoculars-fill me-2"></i>
+                            Consultas
+                        </a>
                     </li>
                 </ul>
                 <form class="d-flex m-1">
@@ -1258,6 +1267,37 @@
         </div>
     </div>
 </div>
+<!-- Modal resuktado consulta NEW -->
+<div class="modal shadow rounded" tabindex="-1" id="modalconsultacaso" data-bs-backdrop="static" style="z-index: 1900">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <span id="spanvigencia" class="badge bg-secondary rounded-pill fs-6 me-2"></span> 
+                <h5 class="modal-title text-white" id="tl_index_caso">Caso Número</h5>
+
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" spellcheck="true" id="body_consolta_caso">
+                <div class="fw-bold fs-6 text-success" id="consulta_macroregion"></div>
+                <div class="fw-bold fs-6 text-secondary ms-2" id="consulta_departamento"></div>
+                <small class="ms-3 fw-bold">Lugares involucrados</small>
+                <div class="d-flex flex-wrap ms-3" id="consulta_lugares"></div>
+                <div class="fw-bold fs-6 text-primary ms-2" id="consulta_macrotipo"></div>
+                <small class="ms-3 fw-bold">Lista de otras afectaciones</small>
+                <div class="d-flex flex-wrap ms-3" id="consulta_tipos"></div>
+                <small class="ms-3 fw-bold">Descripción del caso</small>
+                <div class="ms-4 p-2 border border-1 bg-body-tertiary" id="consulta_detalle" style="text-align: justify;"></div>
+                <small class="ms-3 fw-bold">Pueblos involucrados</small>
+                <div class="d-flex flex-wrap ms-3" id="consulta_pueblos"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>
 
 <!-- Modal tabla-->
 <div class="modal fade modal-dialog-scrollable" id="TableAModal" tabindex="-1" aria-labelledby="TableAModalLabel"
@@ -1277,6 +1317,76 @@
     </div>
 </div>
 
+<!--New panel consultas-->
+<div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasConsulta" data-bs-scroll="true"
+    data-bs-backdrop="false">
+    <div class="offcanvas-header bg-success">
+        <h5 class="offcanvas-title text-white" id="offcanvasConsultaLabel">Panel de consultas</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="row row align-items-center">
+            <!--Botones de configuración de búsqueda-->
+            <div class="input-group">
+                <div class="dropdown">
+                    <div class="btn-group mb-2" role="group" aria-label="Basic example">
+                        <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown"
+                            style="background-color: green;" aria-expanded="false"
+                            onclick="ListColors('color-mark-consulta','ulColorMarcaConsulta')" id="btnColor_consulta">
+                            <i class="bi bi-brush" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Color marca"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <div id="ulColorMarcaConsulta" class="container-fluid"></div>
+                        </ul>
+                        <button type="button" class="btn btn-secondary" onclick="limpiar_todo_marcas()"
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                            data-bs-title="Limpiar marcas">
+                            <i class="bi bi-x-circle"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="ver_todo()" data-bs-toggle="tooltip"
+                            data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas">
+                            <i class="bi bi-list-ul"></i>
+                        </button>
+                        <button id="btnConsulta" type="button" class="btn btn-secondary" onclick=""
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                            data-bs-title="Buscar">
+                            <i class="bi bi-binoculars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Lista de campos globales de búsqueda-->
+        <small>Lista de campos</small>
+        <select id="lstCampos" class="form-select mt-2 mb-2" onchange="crear_listas(this.value)">
+            <option value="clsCasos_macroregion">Macroregion</option>
+            <option value="clsCasos_departamento">Departamento</option>
+            <option value="clsLugares_municipio">Lugar</option>
+            <option value="pueblo_nombre">Pueblo, Etnia</option>
+            <option value="clsCasos_macrotipo">Macrotipo</option>
+            <option value="tipo_nombre">Subtipo</option>
+            <option value="clsCasos_fecha">Año</option>
+            <option value="personas_genero">Género</option>
+            <option value="clsCasos_detalle">Detalle</option>
+            <option value="clsCasos_macroactor">Macro actor</option>
+            <option value="actores_nombre">Otros actores</option>
+            <option value="desplazamiento_tipo">Tipo de desplazamiento</option>
+            <option value="clsCasos_npersonas">Numero Personas</option>
+        </select>
+        <!--Lista de criterios de búsqueda-->
+        <small>Lista de criterios</small>
+        <div class="dropdown w-100 mt-2 mb-2">
+            <button class="btn dropdown-toggle border border-2" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" style="width: 100%;">
+                Criterios
+            </button>
+            <ul class="dropdown-menu menu-group-scroll" style="width: 100%;" id="contenedor_criterios">
+
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!-- llama a los eventos .js para esta página -->
 
@@ -1298,7 +1408,6 @@
 
     async function IniProgram(object) {
 
-
         tileMLayer = L.tileLayer(TileLayerA[object.id], {
             // Y un mapa con un límite de zoom.
             maxZoom: 19,
@@ -1306,7 +1415,6 @@
         }).addTo(map);
         //Carga las listas para búsqueda
         CargarlstMap()
-
     }
 
     //Crea una capa en el mapa para colocar los marcadores tipo poligono, pero los deja siempre arriba.  

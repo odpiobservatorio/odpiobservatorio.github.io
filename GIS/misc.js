@@ -1,11 +1,13 @@
+
 const GLOBAL = {
     state: {
         usuario: null,
         usuarios: [],
+        proyecto: null,
+        proyectos: [],
     },
     firestore: {},
 };
-
 let aUsers = []
 let activeEmail;
 

@@ -63,9 +63,6 @@ const coleccionProyectos = collection(db, "observatorio");
 const coleccionUsuarios = collection(db, "usuarios");
 
 
-
-/* Funciones base para manejar la base de datos de proyectos */
-
 // Función para obtener todos los proyectos de la base de datos
 async function getProyectos() {
     const proyectos = [];
