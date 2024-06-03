@@ -76,7 +76,7 @@ function crear_listas(opcion) {
     if (clase[0] == "clsCasos") {
         makerList["simple_list"](opcion)
     } else {
-
+        makerList["open_list"](opcion)
     }
 
 }
@@ -116,8 +116,6 @@ const makerList = {
             //Al identificar esta variacón, indica que es un valor tipo número, entonces
             detectNumero = true
         }
-
-
 
 
         //Con base a essa lista creamos una lista de selección on check
@@ -162,6 +160,95 @@ const makerList = {
             mostrar_resultados(filtered)
         }
         filterList = []
+
+    },
+    "open_list": (opcion) => {
+        //Toma el criterio y los divide por _ para obtener el campo y la clase
+        const criterio = opcion.split("_")
+        //Contenedor delas listas
+        const contenedor = document.getElementById("contenedor_criterios")
+        contenedor.innerHTML = ""
+
+        let newCriteria = []
+
+        let casoCls = criterio[0] + ""
+        Active_data_monitor["clsCasos"].forEach(caso => {
+            caso[casoCls].forEach(elemento => {
+                if (newCriteria.includes(elemento[criterio[1]]) == false) {
+                    newCriteria.push(elemento[criterio[1]])
+                }
+            })
+        })
+        let detectNumero = false
+        //Ordenamos la lsita de AZ
+        let newDataOrdenado;
+        try {
+            function porDato(a, b) {
+                return a.localeCompare(b);
+            }
+            newDataOrdenado = newCriteria.sort(porDato);
+            detectNumero = false
+
+        } catch (error) {
+            newDataOrdenado = newCriteria.sort();
+            newDataOrdenado.sort(function (a, b) {
+                return a - b;
+            });
+            //Al identificar esta variacón, indica que es un valor tipo número, entonces
+            detectNumero = true
+        }
+        //Con base a essa lista creamos una lista de selección on check
+        newDataOrdenado.forEach(item => {
+            const elemento = document.createElement("div")
+            elemento.className = "ms-3 me-3"
+            elemento.style.fontWeight = "normal"
+            elemento.innerHTML =
+            `
+                <input class="fst-normal form-check-input" type="checkbox" value="${item}" id="check${item}${criterio[1]}">
+             ${item}
+            `
+            contenedor.appendChild(elemento)
+            const checkers = document.getElementById(`check${item}${criterio[1]}`)
+            checkers.onchange = () => {
+                if (checkers.checked == true) {
+                    filterList.push(checkers.value)
+                } else {
+                    const eliminados = filterList.filter(elemento => elemento != checkers.value);
+                    filterList = eliminados
+                }
+            }
+        })
+        const filtrador = document.getElementById("btnConsulta")
+        filtrador.onclick = () => {
+            //Creamos cadena de criterios
+            let criterios = ""
+            if (detectNumero == true) {
+                filterList.forEach(filtro => {
+                    criterios = criterios + `value.${criterio[1]} == ${filtro} || `
+                })
+                criterios = criterios + `value.${criterio[1]} ==100000000`
+            } else {
+                filterList.forEach(filtro => {
+                    criterios = criterios + `value.${criterio[1]} == "${filtro}" || `
+                })
+                criterios = criterios + `value.${criterio[1]} ==""`
+            }
+
+            let datafiltered = []
+            Active_data_monitor.clsCasos.forEach(caso => {
+                if (caso[casoCls].length != 0) {
+                    let filtered = caso[casoCls].filter(value => eval(criterios));
+                    if (filtered.length != 0) {
+                        datafiltered.push(caso)
+                    }
+                }
+            })
+            mostrar_resultados(datafiltered)
+            filterList=[]
+        }
+
+
+        
 
     },
 }
@@ -231,43 +318,52 @@ function mostrar_caso(id) {
     const caso = Active_data_monitor.clsCasos[id]
 
     try {
-        document.getElementById("tl_index_caso").textContent="Caso número " + (caso.id + 1)
-        document.getElementById("spanvigencia").textContent= new Date(caso.fecha).getFullYear()
-        
-        document.getElementById("consulta_macrotipo").textContent=caso.macrotipo
-        document.getElementById("consulta_macroregion").textContent="Macroregión " + caso.macroregion
-        document.getElementById("consulta_departamento").textContent="Departamento " + caso.departamento
-        document.getElementById("consulta_lugares").innerHTML=""
-        caso.clsLugares.forEach(lugar=>{
+        document.getElementById("tl_index_caso").textContent = "Caso número " + (caso.id + 1)
+        document.getElementById("spanvigencia").textContent = new Date(caso.fecha).getFullYear()
+
+        document.getElementById("consulta_macrotipo").textContent = caso.macrotipo
+        document.getElementById("consulta_macroregion").textContent = "Macroregión " + caso.macroregion
+        document.getElementById("consulta_departamento").textContent = "Departamento " + caso.departamento
+        document.getElementById("consulta_lugares").innerHTML = ""
+        caso.clsLugares.forEach(lugar => {
             const div = document.createElement("div")
-            div.className="label-org-yellow-light p-2"
-            div.textContent=lugar.municipio
+            div.className = "label-org-yellow-light p-2"
+            div.textContent = lugar.municipio
             document.getElementById("consulta_lugares").appendChild(div)
 
         })
-        document.getElementById("consulta_tipos").innerHTML=""
-        caso.clsTipos.forEach(item=>{
+        document.getElementById("consulta_tipos").innerHTML = ""
+        caso.clsTipos.forEach(item => {
             const div = document.createElement("div")
-            div.className="label-org-yellow-light p-2"
-            div.textContent=item.nombre
+            div.className = "label-org-yellow-light p-2"
+            div.textContent = item.nombre
             document.getElementById("consulta_tipos").appendChild(div)
 
         })
-        document.getElementById("consulta_detalle").textContent=caso.detalle
+        document.getElementById("consulta_detalle").textContent = caso.detalle
 
-        document.getElementById("consulta_pueblos").innerHTML=""
-        caso.clsPueblos.forEach(item=>{
+        document.getElementById("consulta_pueblos").innerHTML = ""
+        caso.clsPueblos.forEach(item => {
             const div = document.createElement("div")
-            div.className="label-org-yellow-light p-2"
-            div.textContent=item.nombre
+            div.className = "label-org-yellow-light p-2"
+            div.textContent = item.nombre
             document.getElementById("consulta_pueblos").appendChild(div)
 
         })
+        document.getElementById("consulta_macroactor").textContent = "Macro actor " + caso.macroactor
+
+        document.getElementById("consulta_actores").innerHTML = ""
+        caso.clsActores.forEach(item => {
+            const div = document.createElement("div")
+            div.className = "label-org-yellow-light p-2"
+            div.textContent = item.nombre
+            document.getElementById("consulta_actores").appendChild(div)
+        })
 
     } catch (error) {
-        
+
     }
-    
+
 
     bootstrap.Modal.getOrCreateInstance(document.getElementById("modalconsultacaso")).show();
 }

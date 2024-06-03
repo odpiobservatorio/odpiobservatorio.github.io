@@ -1267,7 +1267,7 @@
         </div>
     </div>
 </div>
-<!-- Modal resuktado consulta NEW -->
+<!-- Modal resultado consulta NEW -->
 <div class="modal shadow rounded" tabindex="-1" id="modalconsultacaso" data-bs-backdrop="static" style="z-index: 1900">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -1289,6 +1289,9 @@
                 <div class="ms-4 p-2 border border-1 bg-body-tertiary" id="consulta_detalle" style="text-align: justify;"></div>
                 <small class="ms-3 fw-bold">Pueblos involucrados</small>
                 <div class="d-flex flex-wrap ms-3" id="consulta_pueblos"></div>
+                <div class="fw-bold fs-6 text-secondary ms-2" id="consulta_macroactor"></div>
+                <small class="ms-3 fw-bold">Actores involucrados</small>
+                <div class="d-flex flex-wrap ms-3" id="consulta_actores"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -1363,15 +1366,15 @@
             <option value="clsCasos_macroregion">Macroregion</option>
             <option value="clsCasos_departamento">Departamento</option>
             <option value="clsLugares_municipio">Lugar</option>
-            <option value="pueblo_nombre">Pueblo, Etnia</option>
+            <option value="clsPueblos_nombre">Pueblo, Etnia</option>
             <option value="clsCasos_macrotipo">Macrotipo</option>
-            <option value="tipo_nombre">Subtipo</option>
+            <option value="clsTipos_nombre">Subtipo</option>
             <option value="clsCasos_fecha">Año</option>
-            <option value="personas_genero">Género</option>
+            <option value="clsPersonas_genero">Género</option>
             <option value="clsCasos_detalle">Detalle</option>
             <option value="clsCasos_macroactor">Macro actor</option>
-            <option value="actores_nombre">Otros actores</option>
-            <option value="desplazamiento_tipo">Tipo de desplazamiento</option>
+            <option value="clsActores_nombre">Otros actores</option>
+            <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
             <option value="clsCasos_npersonas">Numero Personas</option>
         </select>
         <!--Lista de criterios de búsqueda-->

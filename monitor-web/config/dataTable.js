@@ -568,7 +568,6 @@ const _configHeaders = {
     },
     hd_Lugar(parent) {
 
-
         let newData = []
 
         parent.forEach(caso => {
