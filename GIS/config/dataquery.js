@@ -118,6 +118,11 @@ const makerList = {
             detectNumero = true
         }
 
+        const btnAddCriterios= document.createElement("button")
+        btnAddCriterios.className="btn btn-outline-secondary w-100 mb-3"
+        btnAddCriterios.type="button"
+        btnAddCriterios.textContent="+ Agregar a criterios extendidos"
+        contenedor.appendChild(btnAddCriterios)
 
         //Con base a essa lista creamos una lista de selección on check
         newDataOrdenado.forEach(item => {
@@ -173,10 +178,16 @@ const makerList = {
                 criterios = criterios + `value.${criterio[1]} ==""`
                 console.log(criterios)
             }
+            const opentext= document.getElementById("intOpentCriterio")
+            if (opentext.value!=""){
+                criterios = `value.${criterio[1]}.includes("${opentext.value}")`
+            }
             let filtered = Active_data_monitor.clsCasos.filter(value => eval(criterios));
             mostrar_resultados(filtered)
+            opentext.value=""
+            filterList = []
         }
-        filterList = []
+        
 
     },
     "open_list": (opcion) => {
@@ -214,6 +225,12 @@ const makerList = {
             //Al identificar esta variacón, indica que es un valor tipo número, entonces
             detectNumero = true
         }
+        const btnAddCriterios= document.createElement("button")
+        btnAddCriterios.className="btn btn-outline-secondary w-100 mb-3"
+        btnAddCriterios.type="button"
+        btnAddCriterios.textContent="+ Agregar a criterios extendidos"
+        contenedor.appendChild(btnAddCriterios)
+
         //Con base a essa lista creamos una lista de selección on check
         newDataOrdenado.forEach(item => {
             const elemento = document.createElement("div")
@@ -265,16 +282,22 @@ const makerList = {
             }
 
             let datafiltered = []
+            const opentext= document.getElementById("intOpentCriterio")
             Active_data_monitor.clsCasos.forEach(caso => {
+                if (opentext.value!=""){
+                    criterios = `value.${criterio[1]}.includes("${opentext.value}")`
+                }
                 if (caso[casoCls].length != 0) {
                     let filtered = caso[casoCls].filter(value => eval(criterios));
                     if (filtered.length != 0) {
                         datafiltered.push(caso)
+                        
                     }
                 }
             })
             mostrar_resultados(datafiltered)
             filterList = []
+            opentext.value=""
         }
 
 

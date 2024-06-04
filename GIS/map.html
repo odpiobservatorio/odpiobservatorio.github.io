@@ -161,7 +161,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="nav-item" onclick="cinfigIni_data()">
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasConsulta" aria-controls="offcanvasConsulta">
@@ -1272,10 +1272,10 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header bg-warning">
-                <span id="spanvigencia" class="badge bg-secondary rounded-pill fs-6 me-2"></span> 
+                <span id="spanvigencia" class="badge bg-secondary rounded-pill fs-6 me-2"></span>
                 <h5 class="modal-title text-white" id="tl_index_caso">Caso Número</h5>
 
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" spellcheck="true" id="body_consolta_caso">
                 <div class="fw-bold fs-6 text-success" id="consulta_macroregion"></div>
@@ -1286,7 +1286,8 @@
                 <small class="ms-3 fw-bold">Lista de otras afectaciones</small>
                 <div class="d-flex flex-wrap ms-3" id="consulta_tipos"></div>
                 <small class="ms-3 fw-bold">Descripción del caso</small>
-                <div class="ms-4 p-2 border border-1 bg-body-tertiary" id="consulta_detalle" style="text-align: justify;"></div>
+                <div class="ms-4 p-2 border border-1 bg-body-tertiary" id="consulta_detalle"
+                    style="text-align: justify;"></div>
                 <small class="ms-3 fw-bold">Pueblos involucrados</small>
                 <div class="d-flex flex-wrap ms-3" id="consulta_pueblos"></div>
                 <div class="fw-bold fs-6 text-secondary ms-2" id="consulta_macroactor"></div>
@@ -1401,8 +1402,11 @@
             <option value="3">Similar a</option>
             <option value="4">Mayor a</option>
             <option value="5">Menor a</option>
-
         </select>
+        <!--Entrada de criterio abierto-->
+        <small>Criterio abierto</small>
+        <input type="text" class="form-control" id="intOpentCriterio">
+
     </div>
 </div>
 
