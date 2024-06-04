@@ -5,7 +5,7 @@ let Active_data_monitor
 function cinfigIni_data() {
     //Inicia la lista con ese criterio
     crear_listas("clsCasos_macroregion")
-    document.getElementById("btnConsulta").value=1
+    document.getElementById("btnConsulta").value = 1
 }
 function ver_todo() {
     //Leer todos los cass primero
@@ -118,11 +118,26 @@ const makerList = {
             detectNumero = true
         }
 
-        const btnAddCriterios= document.createElement("button")
-        btnAddCriterios.className="btn btn-outline-secondary w-100 mb-3"
-        btnAddCriterios.type="button"
-        btnAddCriterios.textContent="+ Agregar a criterios extendidos"
+        const btnAddCriterios = document.createElement("button")
+        btnAddCriterios.className = "btn btn-outline-secondary w-100 mb-3"
+        btnAddCriterios.type = "button"
+        btnAddCriterios.textContent = "+ Agregar a criterios extendidos"
         contenedor.appendChild(btnAddCriterios)
+        btnAddCriterios.onclick = () => {
+            const contenedorlistas = document.getElementById("listconsultaextendida")
+            const lstCampos = document.getElementById("lstCampos")
+
+            filterList.forEach(texto => {
+                const item = document.createElement("li")
+                item.className = "list-group-item"
+                item.textContent = lstCampos.value + ":" + texto
+                contenedorlistas.appendChild(item)
+                
+            })
+
+        }
+
+
 
         //Con base a essa lista creamos una lista de selección on check
         newDataOrdenado.forEach(item => {
@@ -153,16 +168,16 @@ const makerList = {
         filtrador.onclick = () => {
             let operador;
             const lstValOperadores = document.getElementById("lstOperadores")
-            if(lstValOperadores.value==1){
-                operador=" == "
-            }else if(lstValOperadores.value==2){
-                operador=" != "
-            }else if(lstValOperadores.value==3){
-                operador=".includes"
-            }else if(lstValOperadores.value==4){
-                operador=" > "
-            }else if(lstValOperadores.value==4){
-                operador=" < "
+            if (lstValOperadores.value == 1) {
+                operador = " == "
+            } else if (lstValOperadores.value == 2) {
+                operador = " != "
+            } else if (lstValOperadores.value == 3) {
+                operador = ".includes"
+            } else if (lstValOperadores.value == 4) {
+                operador = " > "
+            } else if (lstValOperadores.value == 4) {
+                operador = " < "
             }
             //Creamos cadena de criterios
             let criterios = ""
@@ -178,16 +193,16 @@ const makerList = {
                 criterios = criterios + `value.${criterio[1]} ==""`
                 console.log(criterios)
             }
-            const opentext= document.getElementById("intOpentCriterio")
-            if (opentext.value!=""){
+            const opentext = document.getElementById("intOpentCriterio")
+            if (opentext.value != "") {
                 criterios = `value.${criterio[1]}.includes("${opentext.value}")`
             }
             let filtered = Active_data_monitor.clsCasos.filter(value => eval(criterios));
             mostrar_resultados(filtered)
-            opentext.value=""
+            opentext.value = ""
             filterList = []
         }
-        
+
 
     },
     "open_list": (opcion) => {
@@ -225,10 +240,10 @@ const makerList = {
             //Al identificar esta variacón, indica que es un valor tipo número, entonces
             detectNumero = true
         }
-        const btnAddCriterios= document.createElement("button")
-        btnAddCriterios.className="btn btn-outline-secondary w-100 mb-3"
-        btnAddCriterios.type="button"
-        btnAddCriterios.textContent="+ Agregar a criterios extendidos"
+        const btnAddCriterios = document.createElement("button")
+        btnAddCriterios.className = "btn btn-outline-secondary w-100 mb-3"
+        btnAddCriterios.type = "button"
+        btnAddCriterios.textContent = "+ Agregar a criterios extendidos"
         contenedor.appendChild(btnAddCriterios)
 
         //Con base a essa lista creamos una lista de selección on check
@@ -256,16 +271,16 @@ const makerList = {
         filtrador.onclick = () => {
             let operador;
             const lstValOperadores = document.getElementById("lstOperadores")
-            if(lstValOperadores.value==1){
-                operador=" == "
-            }else if(lstValOperadores.value==2){
-                operador=" != "
-            }else if(lstValOperadores.value==3){
-                operador=".includes"
-            }else if(lstValOperadores.value==4){
-                operador=" > "
-            }else if(lstValOperadores.value==4){
-                operador=" < "
+            if (lstValOperadores.value == 1) {
+                operador = " == "
+            } else if (lstValOperadores.value == 2) {
+                operador = " != "
+            } else if (lstValOperadores.value == 3) {
+                operador = ".includes"
+            } else if (lstValOperadores.value == 4) {
+                operador = " > "
+            } else if (lstValOperadores.value == 4) {
+                operador = " < "
             }
             //Creamos cadena de criterios
             let criterios = ""
@@ -282,22 +297,22 @@ const makerList = {
             }
 
             let datafiltered = []
-            const opentext= document.getElementById("intOpentCriterio")
+            const opentext = document.getElementById("intOpentCriterio")
             Active_data_monitor.clsCasos.forEach(caso => {
-                if (opentext.value!=""){
+                if (opentext.value != "") {
                     criterios = `value.${criterio[1]}.includes("${opentext.value}")`
                 }
                 if (caso[casoCls].length != 0) {
                     let filtered = caso[casoCls].filter(value => eval(criterios));
                     if (filtered.length != 0) {
                         datafiltered.push(caso)
-                        
+
                     }
                 }
             })
             mostrar_resultados(datafiltered)
             filterList = []
-            opentext.value=""
+            opentext.value = ""
         }
 
 
