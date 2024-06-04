@@ -32,6 +32,7 @@ class clsObservatorio {
                     casos.macroregion,
                     casos.detalleLugar,
                     casos.fecha,
+                    casos.vigencia,
                     casos.macroactor,
                     casos.nhombres,
                     casos.nmujeres,
@@ -169,7 +170,7 @@ class clsObservatorio {
 
 class Caso {
     constructor(id, macrotipo, detalle, departamento,
-        macroregion, detalleLugar, fecha, macroactor,
+        macroregion, detalleLugar, fecha, vigencia, macroactor,
         nhombres, nmujeres, nmenores, npersonas, fuente, fechafuente, enlace, dominio) {
         this.id = id;
         this.macrotipo = macrotipo;
@@ -178,6 +179,7 @@ class Caso {
         this.macroregion = macroregion;
         this.detalleLugar = detalleLugar;
         this.fecha = fecha;
+        this.vigencia = vigencia;
         this.macroactor = macroactor;
         this.nhombres = nhombres;
         this.nmujeres = nmujeres;
@@ -266,9 +268,11 @@ class Caso {
             this.fecha = intFecha.value
             document.getElementById("casoyear" + this.id).textContent =
                 new Date(this.fecha).getFullYear()
+            this.vigencia=new Date(this.fecha).getFullYear()
             GuardarDatos()
         }
         intFecha.value = this.fecha
+        this.vigencia=new Date(this.fecha).getFullYear()
 
         //Cantidades de las personas afectadas
         const intnPersonas = document.getElementById("intnPersonas")

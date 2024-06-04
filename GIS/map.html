@@ -1369,13 +1369,18 @@
             <option value="clsPueblos_nombre">Pueblo, Etnia</option>
             <option value="clsCasos_macrotipo">Macrotipo</option>
             <option value="clsTipos_nombre">Subtipo</option>
-            <option value="clsCasos_fecha">Año</option>
+            <option value="clsCasos_fecha">Fecha</option>
+            <option value="clsCasos_vigencia">Año</option>
             <option value="clsPersonas_genero">Género</option>
             <option value="clsCasos_detalle">Detalle</option>
             <option value="clsCasos_macroactor">Macro actor</option>
             <option value="clsActores_nombre">Otros actores</option>
             <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
             <option value="clsCasos_npersonas">Numero Personas</option>
+            <option value="clsCasos_nmujeres">Numero Mujeres</option>
+            <option value="clsCasos_nhombres">Numero Hombres</option>
+            <option value="clsCasos_nmenores">Numero Menores</option>
+            <option value="clsPersonas_edad">Edad</option>
         </select>
         <!--Lista de criterios de búsqueda-->
         <small>Lista de criterios</small>
@@ -1388,6 +1393,16 @@
 
             </ul>
         </div>
+        <!--Lista de operadores-->
+        <small>Lista de operadores</small>
+        <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
+            <option value="1">Igual a</option>
+            <option value="2">Diferente a</option>
+            <option value="3">Similar a</option>
+            <option value="4">Mayor a</option>
+            <option value="5">Menor a</option>
+
+        </select>
     </div>
 </div>
 

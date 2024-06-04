@@ -5,6 +5,7 @@ let Active_data_monitor
 function cinfigIni_data() {
     //Inicia la lista con ese criterio
     crear_listas("clsCasos_macroregion")
+    document.getElementById("btnConsulta").value=1
 }
 function ver_todo() {
     //Leer todos los cass primero
@@ -141,20 +142,36 @@ const makerList = {
             }
         })
 
+
+
         const filtrador = document.getElementById("btnConsulta")
         filtrador.onclick = () => {
+            let operador;
+            const lstValOperadores = document.getElementById("lstOperadores")
+            if(lstValOperadores.value==1){
+                operador=" == "
+            }else if(lstValOperadores.value==2){
+                operador=" != "
+            }else if(lstValOperadores.value==3){
+                operador=".includes"
+            }else if(lstValOperadores.value==4){
+                operador=" > "
+            }else if(lstValOperadores.value==4){
+                operador=" < "
+            }
             //Creamos cadena de criterios
             let criterios = ""
             if (detectNumero == true) {
                 filterList.forEach(filtro => {
-                    criterios = criterios + `value.${criterio[1]} == ${filtro} || `
+                    criterios = criterios + `value.${criterio[1]}${operador}(${filtro}) || `
                 })
                 criterios = criterios + `value.${criterio[1]} ==100000000`
             } else {
                 filterList.forEach(filtro => {
-                    criterios = criterios + `value.${criterio[1]} == "${filtro}" || `
+                    criterios = criterios + `value.${criterio[1]}${operador}("${filtro}") || `
                 })
                 criterios = criterios + `value.${criterio[1]} ==""`
+                console.log(criterios)
             }
             let filtered = Active_data_monitor.clsCasos.filter(value => eval(criterios));
             mostrar_resultados(filtered)
@@ -203,7 +220,7 @@ const makerList = {
             elemento.className = "ms-3 me-3"
             elemento.style.fontWeight = "normal"
             elemento.innerHTML =
-            `
+                `
                 <input class="fst-normal form-check-input" type="checkbox" value="${item}" id="check${item}${criterio[1]}">
              ${item}
             `
@@ -220,16 +237,29 @@ const makerList = {
         })
         const filtrador = document.getElementById("btnConsulta")
         filtrador.onclick = () => {
+            let operador;
+            const lstValOperadores = document.getElementById("lstOperadores")
+            if(lstValOperadores.value==1){
+                operador=" == "
+            }else if(lstValOperadores.value==2){
+                operador=" != "
+            }else if(lstValOperadores.value==3){
+                operador=".includes"
+            }else if(lstValOperadores.value==4){
+                operador=" > "
+            }else if(lstValOperadores.value==4){
+                operador=" < "
+            }
             //Creamos cadena de criterios
             let criterios = ""
             if (detectNumero == true) {
                 filterList.forEach(filtro => {
-                    criterios = criterios + `value.${criterio[1]} == ${filtro} || `
+                    criterios = criterios + `value.${criterio[1]}${operador}(${filtro}) || `
                 })
                 criterios = criterios + `value.${criterio[1]} ==100000000`
             } else {
                 filterList.forEach(filtro => {
-                    criterios = criterios + `value.${criterio[1]} == "${filtro}" || `
+                    criterios = criterios + `value.${criterio[1]}${operador}("${filtro}") || `
                 })
                 criterios = criterios + `value.${criterio[1]} ==""`
             }
@@ -244,11 +274,11 @@ const makerList = {
                 }
             })
             mostrar_resultados(datafiltered)
-            filterList=[]
+            filterList = []
         }
 
 
-        
+
 
     },
 }
