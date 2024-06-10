@@ -1,8 +1,12 @@
+let filterList = []
+
+let criteria_items = []
+
 function iniTables() {
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('element-to-print').hidden = true;
-    document.getElementById('panel-Tablas').hidden = false;
+    document.getElementById('panel-Tablas-inicio').hidden = false;
 
     //Cargamos la base de datos actual
     const proyectos = GLOBAL.state.proyectos;
@@ -10,6 +14,10 @@ function iniTables() {
     data = ActiveDB
 
     makerTable(ActiveDB.clsCasos)
+
+    //Inicia la lista con ese criterio
+    crear_listas("clsCasos_macroregion")
+    document.getElementById("btnConsulta").value = 1
 }
 function makerTable(data) {
     const contenedor = document.getElementById('panel-Tablas')
@@ -23,28 +31,28 @@ function makerTable(data) {
 
     thead.innerHTML =
         `
-    <tr class="sticky-top">
+    <tr class="">
         <th scope="col"></th>
         <th class="bg-secondary text-white">
 
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            MACROREGION
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuMacroregion">
-            <li class="sticky-top bg-white" id="lifilterMacroregion">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullMacroregion">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                MACROREGION
+            </a>
+            <ul class="dropdown-menu menu-group-scroll shadow" id="menuMacroregion">
+                <li class="sticky-top bg-white" id="lifilterMacroregion">
+                    <a class="dropdown-item" href="#">
+                    <i class="bi bi-funnel-fill me-2"></i>
+                    Aplicar filtro
+                    </a>
+                </li>
+                <li class="sticky-top bg-white" id="lifilterNullMacroregion">
+                    <a class="dropdown-item" href="#">
+                    <i class="bi bi-funnel me-2"></i>
+                        Vertodo
+                    </a>
+                </li>
+                <hr>       
+            </ul>
       
         </th>
         <th class="bg-secondary text-white">
@@ -219,7 +227,7 @@ function makerTable(data) {
         <th class="bg-secondary text-white">CONTACTO</th>
     </tr>
     `
-    tableParent.appendChild(thead)
+    //tableParent.appendChild(thead)
     //========================================================
     //Agregar un body table
     const tbody = document.createElement("tbody")
@@ -348,7 +356,7 @@ function makerTable(data) {
     _configHeaders.hd_Fecha(data)
     _configHeaders.hd_Macroactor(data)
     _configHeaders.hd_Actores(data)
-    
+
 
 
 
@@ -378,7 +386,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
 
         newDataOrdenado.forEach(item => {
@@ -448,7 +456,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuDepartamento")
@@ -517,7 +525,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuMacrotipo")
@@ -585,7 +593,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuLugar")
@@ -665,7 +673,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuPueblo")
@@ -744,7 +752,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuTipo")
@@ -812,7 +820,7 @@ const _configHeaders = {
 
             if (newData.includes(caso.fecha) == false) {
                 newData.push(caso.fecha)
-               
+
             }
         })
 
@@ -823,7 +831,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuFecha")
@@ -883,7 +891,7 @@ const _configHeaders = {
 
             if (newData.includes(caso.macroactor) == false) {
                 newData.push(caso.macroactor)
-               
+
             }
         })
 
@@ -894,7 +902,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuMacroactor")
@@ -958,7 +966,7 @@ const _configHeaders = {
         }
 
         // Sort the array by name in ascending order
-        let newDataOrdenado= newData.sort(porDato);
+        let newDataOrdenado = newData.sort(porDato);
 
         newDataOrdenado.forEach(item => {
             const mncontenedor = document.getElementById("menuActores")
@@ -1292,4 +1300,267 @@ const _crearCelda = {
 
     }
 
+}
+
+function crear_listas(opcion) {
+    filterList = []
+    makerList["newOpen_list"](opcion)
+}
+//Guarda en esta variable las cadenas de criterios de filto js
+const makerList = {
+    "newOpen_list": (opcion) => {
+        //Contenedor delas listas
+        const contenedor = document.getElementById("contenedor_criterios")
+        contenedor.innerHTML = ""
+        //Toma el criterio y los divide por _ para obtener el campo y la clase
+        const criterio = opcion.split("_")
+        //Aquí obtengo la clase y el campo, deriva la acción si es la clase Padre o Hija
+        let newCriteria = [] //Esta variable guarda la lista según la clase
+        if (criterio[0] == "clsCasos") {
+            ActiveDB.clsCasos.forEach(caso => {
+                if (newCriteria.includes(caso[criterio[1]]) == false) {
+                    newCriteria.push(caso[criterio[1]])
+                }
+            })
+        } else {
+            //Aquí es la derivación en caso de que la clase no sea CASOS (Padre)
+            //Busca en la clase hija.
+            ActiveDB.clsCasos.forEach(caso => {
+                caso[criterio[0]].forEach(item => {
+                    if (newCriteria.includes(item[criterio[1]]) == false) {
+                        newCriteria.push(item[criterio[1]])
+                    }
+                })
+            })
+        }
+
+
+        //Ordenamos la lsita de AZ
+        let newDataOrdenado;
+        try {
+            function porDato(a, b) {
+                return a.localeCompare(b);
+            }
+            newDataOrdenado = newCriteria.sort(porDato);
+
+
+        } catch (error) {
+            //Esto en el caso que los valores sean solo numérico, entonces se ordena por número
+            newDataOrdenado = newCriteria.sort();
+            newDataOrdenado.sort(function (a, b) {
+                return a - b;
+            });
+            //Al identificar esta variacón, indica que es un valor tipo número, entonces
+
+        }
+
+        //Con base a essa lista creamos una lista de selección on check
+        newDataOrdenado.forEach(item => {
+            const elemento = document.createElement("div")
+            elemento.className = "ms-3 me-3"
+            elemento.style.fontWeight = "normal"
+            elemento.innerHTML =
+                `
+            <input class="fst-normal form-check-input" type="checkbox" value="${item}" id="check${item}${criterio[1]}">
+             ${item}
+        `
+            //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
+            contenedor.appendChild(elemento)
+            const checkers = document.getElementById(`check${item}${criterio[1]}`)
+            //Miramos si el valor viene de la lista o viene de el campo abirto
+
+            //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
+            checkers.onchange = () => {
+                //Validamos si la clase es mayor o menor
+                let tipo;
+                if (criterio[0] == "clsCasos") {
+                    tipo = "a"
+                } else {
+                    tipo = "b"
+                }
+
+                if (checkers.checked == true) {
+                    const criterios = {
+                        "tipo": tipo,
+                        "clase": criterio[0],
+                        "field": criterio[1],
+                        "operador": document.getElementById("lstOperadores").value,
+                        "value": checkers.value
+                    }
+                    filterList.push(criterios)
+                } else {
+                    const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
+                    filterList = eliminados
+                }
+            }
+        })
+
+        document.getElementById("intOpentCriterio").oninput = () => {
+            let valor_buscar = ""
+            filterList = []
+            valor_buscar = document.getElementById("intOpentCriterio").value
+            criterios_filter = `value.${criterio[1]}${document.getElementById("lstOperadores").value}("${valor_buscar}")`
+
+            let tipo;
+            if (criterio[0] == "clsCasos") {
+                tipo = "a"
+            } else {
+                tipo = "b"
+            }
+            const criterios = {
+                "tipo": tipo,
+                "clase": criterio[0],
+                "field": criterio[1],
+                "operador": document.getElementById("lstOperadores").value,
+                "value": document.getElementById("intOpentCriterio").value
+            }
+            filterList.push(criterios)
+
+        }
+
+
+        //Ahora trabajamos con los filtros
+        const filtrador = document.getElementById("btnConsulta")
+        //Debemos construir las cadenas de filtro según las listas en filterlist
+        filtrador.onclick = () => {
+            let criterios_filter = ""
+            let operador_link = "" //Esta variable guarda el operador de vinculo
+
+            if (filterList.length == 0) {
+                operador_link = ""
+            }
+            //Miramos todos los elementos de filtros creados
+            let i = 0
+            filterList.forEach(elemento => {
+                if (i == filterList.length - 1) {
+                    operador_link = ""
+                }
+                if (i < filterList.length - 1) {
+                    operador_link = "||"
+                }
+                i = i + 1
+                //Unimos los elementos en uan cadena final de filtro
+                criterios_filter = criterios_filter + `value.${elemento.field}${elemento.operador}("${elemento.value}")${operador_link}`
+            })
+
+
+            //Se verifica que clase es y se deriba la construcción del filtro
+            let filtros_ampliados = []
+            if (criterio[0] == "clsCasos") {
+                let filtered = ActiveDB.clsCasos.filter(value => eval(criterios_filter));
+                makerTable(filtered)
+
+            } else {
+                ActiveDB.clsCasos.forEach(caso => {
+                    let filtered = caso[criterio[0]].filter(value => eval(criterios_filter));
+                    //Si el filtro en ese momento no dice nada, entonces no agrego
+                    if (filtered.length != 0) {
+                        filtros_ampliados.push(caso)
+                    }
+
+                })
+                makerTable(filtros_ampliados)
+
+            }
+            //Limpiamos el campo abierto
+            document.getElementById("intOpentCriterio").value = ""
+        }
+
+    }
+}
+function add_criterio_extendido() {
+    const contenedorlistas = document.getElementById("listconsultaextendida")
+
+    if (filterList.length == 0) {
+        operador_link = ""
+    }
+    //Miramos todos los elementos de filtros creados
+    let i = 0
+    filterList.forEach(texto => {
+        const item = document.createElement("li")
+        item.className = "list-group-item"
+        item.textContent = texto.field + "" + texto.operador + "" + texto.value
+        contenedorlistas.appendChild(item)
+        if (i == filterList.length - 1) {
+            operador_link = ""
+        }
+        if (i < filterList.length - 1) {
+            operador_link = "||"
+        }
+        i = i + 1
+
+        const newItemCriterio =
+        {
+            "tipo": texto.tipo,
+            "clase": texto.clase,
+            "field": texto.field,
+            "operador": texto.operador,
+            "value": texto.value,
+            "link": operador_link
+        }
+        criteria_items.push(newItemCriterio)
+    })
+}
+function LimpiarConsulta() {
+    criteria_items = []
+    const contenedorlistas = document.getElementById("listconsultaextendida")
+    contenedorlistas.innerHTML = ""
+}
+function filter_extend() {
+    let config_filer = ""
+
+    function sortJSON(data, key, orden) {
+        return data.sort(function (a, b) {
+            var x = a[key],
+                y = b[key];
+
+            if (orden === 'asc') {
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            }
+
+            if (orden === 'desc') {
+                return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+            }
+        });
+    }
+    var oJSON = sortJSON(criteria_items, 'tipo', 'asc');
+
+
+    let criterio_Join = ""
+    oJSON.forEach(filtro => {
+        if (filtro.tipo == "a") {
+            criterio_Join = criterio_Join + `value.${filtro.field}${filtro.operador}("${filtro.value}")${filtro.link}`
+        } else if (filtro.tipo == "c") {
+
+        }
+    })
+    let dataParentFilter = ActiveDB.clsCasos.filter(value => eval(criterio_Join))
+
+    criterio_Join = ""
+    let clase = ""
+    let datachieldFilter = []
+    oJSON.forEach(filtro => {
+        if (filtro.tipo == "b") {
+            criterio_Join = criterio_Join + `value.${filtro.field}${filtro.operador}("${filtro.value}")${filtro.link}`
+            clase = filtro.clase
+        }
+
+    })
+    //let datachieldFilter= dataParentFilter.clsCasos[clase].filter(value=>eval(criterio_Join))
+    dataParentFilter.forEach(caso => {
+        const filtered = caso[clase].filter(value => eval(criterio_Join))
+        if (filtered.length != 0) {
+            datachieldFilter.push(caso)
+        }
+    })
+
+    console.log(datachieldFilter)
+    makerTable(datachieldFilter)
+
+
+}
+function testfilter(){  
+    
+
+    
 }

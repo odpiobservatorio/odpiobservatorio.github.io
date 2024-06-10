@@ -108,7 +108,8 @@
                             <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi-table text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Tablas</span> </a>
-                            <ul class="collapse hide nav flex-column ms-2" id="mn-tablas" data-bs-parent="#menu" hidden="true">
+                            <ul class="collapse hide nav flex-column ms-2" id="mn-tablas" data-bs-parent="#menu"
+                                hidden="true">
                                 <li class="w-100" onclick="crearTexto('panel-Tablas')">
                                     <a href="#" class="nav-link px-0 text-white">
                                         <i class="bi-file-earmark-pdf-fill text-white"></i>
@@ -124,7 +125,8 @@
                             <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi-box-arrow-left text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Salir</span> </a>
-                            <ul class="collapse hide nav flex-column ms-2" id="mn-tablas" data-bs-parent="#menu" hidden="true">
+                            <ul class="collapse hide nav flex-column ms-2" id="mn-tablas" data-bs-parent="#menu"
+                                hidden="true">
                                 <li class="w-100" onclick="crearTexto('panel-Tablas')">
                                     <a href="#" class="nav-link px-0 text-white">
                                         <i class="text-white"></i>
@@ -375,7 +377,72 @@
 
             </div>
             <div>
-                <div id="panel-Tablas" hidden="true" style="width: 3000px;">
+                <div id="panel-Tablas-inicio" hidden="true" style="width: 3000px;">
+                    <div class="">
+                        <div class="row align-items-center mt-3">
+                            <div class="col-auto">
+                                <select id="lstCampos" class="form-select mt-2 mb-2"
+                                    onchange="crear_listas(this.value)">
+                                    <option value="clsCasos_macroregion">Macroregion</option>
+                                    <option value="clsCasos_departamento">Departamento</option>
+                                    <option value="clsLugares_municipio">Lugar</option>
+                                    <option value="clsPueblos_nombre">Pueblo, Etnia</option>
+                                    <option value="clsCasos_macrotipo">Macrotipo</option>
+                                    <option value="clsTipos_nombre">Subtipo</option>
+                                    <option value="clsCasos_fecha">Fecha</option>
+                                    <option value="clsCasos_vigencia">Año</option>
+                                    <option value="clsPersonas_genero">Género</option>
+                                    <option value="clsCasos_detalle">Detalle</option>
+                                    <option value="clsCasos_macroactor">Macro actor</option>
+                                    <option value="clsActores_nombre">Otros actores</option>
+                                    <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
+                                    <option value="clsCasos_npersonas">Numero Personas</option>
+                                    <option value="clsCasos_nmujeres">Numero Mujeres</option>
+                                    <option value="clsCasos_nhombres">Numero Hombres</option>
+                                    <option value="clsCasos_nmenores">Numero Menores</option>
+                                    <option value="clsPersonas_edad">Edad</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
+                                    <option value="==">Igual a</option>
+                                    <option value="!=">Diferente a</option>
+                                    <option value=".includes">Similar a</option>
+                                    <option value=">">Mayor a</option>
+                                    <option value=&lt>Menor a</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <div class="dropdown w-100 mt-2 mb-2">
+                                    <button class="btn dropdown-toggle border border-2" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                                        Criterios
+                                    </button>
+                                    <ul class="dropdown-menu menu-group-scroll" style="width: 100%;"
+                                        id="contenedor_criterios">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" id="intOpentCriterio">
+                            </div>
+                            <div class="col-auto">
+                                <button id="btnConsulta" type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Buscar"
+                                onclick="testfilter()">
+                                <i class="bi bi-binoculars"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div id="panel-Tablas" style="width: 3000px;">
+
+
+                    </div>
 
                 </div>
             </div>

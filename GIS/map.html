@@ -1297,8 +1297,6 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
-
-
         </div>
     </div>
 </div>
@@ -1352,9 +1350,8 @@
                             data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas">
                             <i class="bi bi-list-ul"></i>
                         </button>
-                        <button id="btnConsulta" type="button" class="btn btn-secondary" onclick=""
-                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
-                            data-bs-title="Buscar">
+                        <button id="btnConsulta" type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                            data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Buscar">
                             <i class="bi bi-binoculars"></i>
                         </button>
                     </div>
@@ -1383,6 +1380,15 @@
             <option value="clsCasos_nmenores">Numero Menores</option>
             <option value="clsPersonas_edad">Edad</option>
         </select>
+        <!--Lista de operadores-->
+        <small>Lista de operadores</small>
+        <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
+            <option value="==">Igual a</option>
+            <option value="!=">Diferente a</option>
+            <option value=".includes">Similar a</option>
+            <option value=">">Mayor a</option>
+            <option value=&lt>Menor a</option>
+        </select>
         <!--Lista de criterios de búsqueda-->
         <small>Lista de criterios</small>
         <div class="dropdown w-100 mt-2 mb-2">
@@ -1394,30 +1400,57 @@
 
             </ul>
         </div>
-        <!--Lista de operadores-->
-        <small>Lista de operadores</small>
-        <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
-            <option value="1">Igual a</option>
-            <option value="2">Diferente a</option>
-            <option value="3">Similar a</option>
-            <option value="4">Mayor a</option>
-            <option value="5">Menor a</option>
-        </select>
+
         <!--Entrada de criterio abierto-->
         <small>Criterio abierto</small>
         <input type="text" class="form-control" id="intOpentCriterio">
         <hr>
+        <div class="dropdown">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary fw-bold" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasConsola">
+                    {*}
+                </button>
+                <button type="button" class="btn btn-secondary fw-bold" onclick="add_criterio_extendido()"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Agregar criterio" id="btnAddCriterio">
+                    <i class="bi bi-file-earmark-plus"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" id="btnfilter_extend"
+                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Buscar" onclick="filter_extend()">
+                    <i class="bi bi-binoculars"></i>
+                </button>
+
+                <button type="button" class="btn btn-secondary" onclick="LimpiarConsulta()" data-bs-toggle="tooltip"
+                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Limpiar consulta">
+                    <i class="bi bi-eraser-fill"></i>
+                </button>
+            </div>
+        </div>
         <ul class="list-group" id="listconsultaextendida">
 
         </ul>
     </div>
 </div>
+<div class="offcanvas offcanvas-bottom shadow" tabindex="-1" id="offcanvasConsola" data-bs-scroll="true"
+    data-bs-backdrop="false">
+    <div class="offcanvas-header bg-dark" style="font-size: 10px; height: 20px;">
+        <div class="row">
+            <div class="col text-end">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="col text-white">
+                <button type="button" class="btn-close-white" onclick="consola_command()">Ejecutar</button>
+            </div>
+        </div>
+    </div>
+    <textarea class="form-control text-white bg-dark" id="txtconsola" rows="4"></textarea>
+</div>
 
 <!-- llama a los eventos .js para esta página -->
 
 <script>
-
-
     const TileLayerA = {
         openstreetmap: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         opentopomap: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
@@ -1433,16 +1466,21 @@
 
     async function IniProgram(object) {
 
-        tileMLayer = L.tileLayer(TileLayerA[object.id], {
+try {
+    tileMLayer = L.tileLayer(TileLayerA[object.id], {
             // Y un mapa con un límite de zoom.
             maxZoom: 19,
             //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
         }).addTo(map);
         //Carga las listas para búsqueda
         CargarlstMap()
+    
+} catch (error) {
+    console.log("Error en la función ini")
+}
     }
-
-    //Crea una capa en el mapa para colocar los marcadores tipo poligono, pero los deja siempre arriba.  
+    try {
+            //Crea una capa en el mapa para colocar los marcadores tipo poligono, pero los deja siempre arriba.  
     map.createPane('polygonsPane');
     map.getPane('polygonsPane').style.zIndex = 800;
     //Crea una capa en el mapa para colocar el mapa croquis.
@@ -1455,6 +1493,11 @@
     //Crea una capa en el mapa para las capas de analisis.
     map.createPane('mapPopUps');
     map.getPane('mapPopUps').style.zIndex = 900;
+        
+    } catch (error) {
+        
+    }
+
 </script>
 
 

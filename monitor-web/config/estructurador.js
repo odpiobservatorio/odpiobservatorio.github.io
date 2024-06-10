@@ -1202,7 +1202,7 @@ function loadProyecto() {
         ActiveDB = clsObservatorio.loadAsInstance(proyectos[0]);
         document.getElementById("panel-escritorio").hidden = false
         document.getElementById("element-to-print").hidden = true
-        document.getElementById("panel-Tablas").hidden = true
+        document.getElementById("panel-Tablas-inicio").hidden = true
         ListarCasos()
         gotoFirst()
 

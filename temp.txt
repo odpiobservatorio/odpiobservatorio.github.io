@@ -1,24 +1,63 @@
+let operador_val = document.getElementById("lstOperadores").value
+            const contenedorlistas = document.getElementById("listconsultaextendida")
 
-`
-<div class="modal shadow rounded" tabindex="-1" id="ModalCaseOnMap" data-bs-backdrop="static" style="z-index: 1900">
-    <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tlTipoCaso">Caso Número</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" spellcheck="true">
-                <div class="h3" id="txTipo"></div>
-                <div class="h4 text-primary" id="txAño"></div>
-                <div class="h5 text-primary" id="txLugar"></div>
-                <div class="h5 text-success" id="txEtnia"></div>
-                <div class="h6 text-danger" id="txPerpetuador"></div>
-                <p id="txCaso">Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-`
+            let i = 0
+            let operador_link = ""
+            if (filterList.length == 0) {
+                operador = ""
+            }
+            filterList.forEach(texto => {
+                if (i == filterList.length - 1) {
+                    operador_link = ""
+                }
+                if (i < filterList.length - 1) {
+                    operador_link = "||"
+                }
+                i = i + 1
+                const newItemCriterio =
+                {
+                    "field": criterio[1],
+                    "operador": operador_val,
+                    "value": texto,
+                    "link": operador_link,
+                }
+                criteria_items.push(newItemCriterio)
+
+                const item = document.createElement("li")
+                item.className = "list-group-item"
+                item.textContent = criterio[1] + "" + operador_val + "" + texto
+                contenedorlistas.appendChild(item)
+            })
+            filterList = []
+            document.getElementById("btnfilter_extend").onclick = () => {
+                filter_extend("clsCasos")
+            }
+
+        const filtrador = document.getElementById("btnConsulta")
+        filtrador.onclick = () => {
+            let operador_val = document.getElementById("lstOperadores").value
+            const lstValOperadores = document.getElementById("lstOperadores")
+
+            //Creamos cadena de criterios
+            let criterios = ""
+            if (detectNumero == true) {
+                filterList.forEach(filtro => {
+                    criterios = criterios + `value.${criterio[1]}${operador_val}(${filtro}) || `
+                })
+                criterios = criterios + `value.${criterio[1]} ==100000000`
+            } else {
+                filterList.forEach(filtro => {
+                    criterios = criterios + `value.${criterio[1]}${operador_val}("${filtro}") || `
+                })
+                criterios = criterios + `value.${criterio[1]} ==""`
+                console.log(criterios)
+            }
+            const opentext = document.getElementById("intOpentCriterio")
+            if (opentext.value != "") {
+                criterios = `value.${criterio[1]}.includes("${opentext.value}")`
+            }
+            let filtered = Active_data_monitor.clsCasos.filter(value => eval(criterios));
+            mostrar_resultados(filtered)
+            opentext.value = ""
+            filterList = []
+        }

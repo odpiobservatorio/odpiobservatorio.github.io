@@ -82,7 +82,7 @@ function crearTexto(control) {
 function verTexto(){
     document.getElementById('panel-escritorio').hidden= true;
     document.getElementById('panel-escritorio').hidden= true;
-    document.getElementById('panel-Tablas').hidden=true;
+    document.getElementById('panel-Tablas-inicio').hidden=true;
     document.getElementById('element-to-print').hidden=false;
 
 }
