@@ -151,6 +151,7 @@ const makerList = {
             checkers.onchange = () => {
                 //Validamos si la clase es mayor o menor
 
+
                 if (checkers.checked == true) {
 
                     const criterios = {
@@ -164,30 +165,26 @@ const makerList = {
                     const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
                     filterList = eliminados
                 }
+
+                let tituloboton = ""
+                filterList.forEach(palabra => {
+                    tituloboton = tituloboton + "[" + palabra.value + "]"
+
+                })
+                const btnCriterios = document.getElementById("btnCriterios")
+                btnCriterios.textContent = tituloboton
             }
         })
 
         document.getElementById("intOpentCriterio").oninput = () => {
-            let valor_buscar = ""
-            filterList = []
-            valor_buscar = document.getElementById("intOpentCriterio").value
-            criterios_filter = `value.${criterio[1]}${document.getElementById("lstOperadores").value}("${valor_buscar}")`
-
-            let tipo;
-            if (criterio[0] == "clsCasos") {
-                tipo = "a"
-            } else {
-                tipo = "b"
-            }
             const criterios = {
-                "tipo": tipo,
                 "clase": criterio[0],
                 "field": criterio[1],
                 "operador": document.getElementById("lstOperadores").value,
                 "value": document.getElementById("intOpentCriterio").value
             }
+            filterList=[]
             filterList.push(criterios)
-
         }
 
 
@@ -195,47 +192,10 @@ const makerList = {
         const filtrador = document.getElementById("btnConsulta")
         //Debemos construir las cadenas de filtro según las listas en filterlist
         filtrador.onclick = () => {
-            let criterios_filter = ""
-            let operador_link = "" //Esta variable guarda el operador de vinculo
-
-            if (filterList.length == 0) {
-                operador_link = ""
-            }
-            //Miramos todos los elementos de filtros creados
-            let i = 0
-            filterList.forEach(elemento => {
-                if (i == filterList.length - 1) {
-                    operador_link = ""
-                }
-                if (i < filterList.length - 1) {
-                    operador_link = "||"
-                }
-                i = i + 1
-                //Unimos los elementos en uan cadena final de filtro
-                criterios_filter = criterios_filter + `value.${elemento.field}${elemento.operador}("${elemento.value}")${operador_link}`
-            })
-
-
-            //Se verifica que clase es y se deriba la construcción del filtro
-            let filtros_ampliados = []
-            if (criterio[0] == "clsCasos") {
-                let filtered = Active_data_monitor.clsCasos.filter(value => eval(criterios_filter));
-                mostrar_resultados(filtered)
-
-            } else {
-                Active_data_monitor.clsCasos.forEach(caso => {
-                    let filtered = caso[criterio[0]].filter(value => eval(criterios_filter));
-                    //Si el filtro en ese momento no dice nada, entonces no agrego
-                    if (filtered.length != 0) {
-                        filtros_ampliados.push(caso)
-                    }
-
-                })
-                mostrar_resultados(filtros_ampliados)
-
-            }
-            //Limpiamos el campo abierto
-            document.getElementById("intOpentCriterio").value = ""
+            add_criterio_extendido()
+            filter_extend()
+            LimpiarConsulta()
+            //document.getElementById("intOpentCriterio").value = ""
         }
 
     }
@@ -272,34 +232,37 @@ function add_criterio_extendido() {
             "link": operador_link
         }
 
+
         line.push(newItemCriterio)
 
     })
 
-    const registros = Active_data_monitor.clsCasos[0]
     let cadena = ""
 
     if (filterList[0].clase !== "clsCasos") {
+        const registros = Active_data_monitor.clsCasos[0]
         line.forEach(item => {
-            if (typeof registros[item.field] === "number") {
-                cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"] ${item.operador} ${item.value} ${item.link})`
-
-            } else{
-                cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"] ${item.operador} "${item.value}" ${item.link})`
+            if (typeof registros[item.clase][0][item.field] === "number") {
+                cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}(${item.value}) ${item.link})`
+                //alert(typeof registros[item.clase][0].edad)
+            } else {
+                cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}("${item.value}") ${item.link})`
             }
-         })
+        })
         criteria_items.push([filterList[0].clase, cadena])
     } else {
-        
+        const registros = Active_data_monitor.clsCasos[0]
         line.forEach(item => {
             if (typeof registros[item.field] === "number") {
-                cadena = cadena + `registro["${item.field}"] ${item.operador} ${item.value} ${item.link}`
-            } else{
-                cadena = cadena + `registro["${item.field}"] ${item.operador} "${item.value}" ${item.link}`
+                cadena = cadena + `registro["${item.field}"]${item.operador}(${item.value}) ${item.link}`
+            } else {
+                cadena = cadena + `registro["${item.field}"]${item.operador}("${item.value}") ${item.link}`
             }
         })
         criteria_items.push([filterList[0].clase, cadena])
     }
+    document.getElementById("intOpentCriterio").value=""
+    fromOpenText=""
 
 }
 
@@ -309,44 +272,13 @@ function LimpiarConsulta() {
     criteria_items = []
     const contenedorlistas = document.getElementById("listconsultaextendida")
     contenedorlistas.innerHTML = ""
+    const btnCriterios = document.getElementById("btnCriterios")
+    btnCriterios.textContent = "Criterios"
+    document.getElementById("intOpentCriterio").value=""
+    fromOpenText=""
+
 }
 
-const operadores = {
-    "operadorIgual": (registro, campo, valor) => {
-        if (typeof registro[campo] === "number") {
-            return registro[campo] === parseInt(valor)
-        }
-
-        return registro[campo] === valor
-    },
-
-    "operadorMayor": (registro, campo, valor) => {
-        if (typeof registro[campo] === "number") {
-            return registro[campo] > parseInt(valor)
-        }
-
-        return registro[campo] > valor
-    },
-
-    "operadorMenor": (registro, campo, valor) => {
-        if (typeof registro[campo] === "number") {
-            return registro[campo] < parseInt(valor)
-        }
-
-        return registro[campo] < valor
-    },
-
-    "operadorDiferente": (registro, campo, valor) => {
-        if (typeof registro[campo] === "number") {
-            return registro[campo] !== parseInt(valor)
-        }
-
-        return registro[campo] !== valor
-    },
-    "operadorAlguno": (registro, campo, label, valor) => {
-        return registro[campo].some((objeto) => objeto[label] === valor);
-    },
-}
 
 function filter_extend() {
     const registros = Active_data_monitor.clsCasos
@@ -445,66 +377,7 @@ function mostrar_resultados(data) {
 
     });
 }
-function mostrar_resultadosII(data) {
-    //Leer todos los cass primero
-    data.forEach(caso => {
-        console.log(caso)
-        //Por cada caso listo los lugares
-        caso.clsLugares.forEach(lugar => {
 
-            const marca = PutMarkCicle(
-                true, //Indica si el marcador es fijo
-                color_marca_busqueda, //Define el color de la marca en ese momento 
-                1, //Define el nivel de opacidad
-                10, //Define el tamaño del marcador  
-                lugar.lat,
-                lugar.lng
-            )
-                .bindPopup(PutPopUpZ(
-                    //Contenido del popup cuanod se hace click
-                    `
-                <div style="width: 200px;">
-                    <div class="row">
-                        <div class="col fw-bold">${lugar.municipio}</div>
-                        <div class="col-auto"><span class="badge bg-warning rounded-pill">${new Date(caso.fecha).getFullYear()}</span></div>
-                    </div>
-                    <div class="fst-italic fw-bold text-primary">${caso.macrotipo}</div>
-                    <div class="row">
-                        <div class="col">Victimas</div>
-                        <div class="col-auto">${caso.npersonas}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Mujeres</div>
-                        <div class="col-auto">${caso.nmujeres}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Hombres</div>
-                        <div class="col-auto">${caso.nhombres}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Menores</div>
-                        <div class="col-auto">${caso.nmenores}</div>
-                    </div>
-                    <div class="text-end text-success">${caso.fecha}</div>
-                    <a class="mt-2 nav-link 
-                        border border-1 bg-success 
-                        text-white text-center
-                        rounded-pill" 
-                        href="#"
-                        id="btncaso${caso.id}"
-                        onclick="mostrar_caso(${caso.id})"
-                        >Ver</a>
-                </div>
-                    `
-
-                )
-
-                )
-            marcas_consulta.push(marca)
-        })
-
-    });
-}
 function mostrar_caso(id) {
     const contenedor = document.getElementById("body_consolta_caso")
     const caso = Active_data_monitor.clsCasos[id]
