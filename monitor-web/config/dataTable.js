@@ -19,6 +19,7 @@ function iniTables() {
     crear_listas("clsCasos_macroregion")
     document.getElementById("btnConsulta").value = 1
 }
+let activeHeadfilter = []
 function makerTable(data) {
     const contenedor = document.getElementById('panel-Tablas')
     contenedor.innerHTML = ""
@@ -29,204 +30,185 @@ function makerTable(data) {
     //========================================================
     const thead = document.createElement("thead")
 
-    thead.innerHTML =
-        `
-    <tr class="">
-        <th scope="col"></th>
-        <th class="bg-secondary text-white">
 
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                MACROREGION
-            </a>
-            <ul class="dropdown-menu menu-group-scroll shadow" id="menuMacroregion">
-                <li class="sticky-top bg-white" id="lifilterMacroregion">
-                    <a class="dropdown-item" href="#">
+    //Crear los encabezados dinámicamente
+    const trHead = document.createElement("tr")
+    thead.appendChild(trHead)
+
+    const visibles = [
+        ["clsCasos", "macroregion", "MACROREGIÓN"],
+        ["clsCasos", "departamento", "DEPARTAMENTO"],
+        ["clsLugares", "municipio", "LUGARES"],
+        ["clsPueblos", "nombre", "PUEBLO/ÉTNIA"],
+        ["clsCasos", "macrotipo", "MACROTIPO"],
+        ["clsTipos", "nombre", "SUBTIPOS"],
+        ["clsCasos", "fecha", "FECHA"],
+        ["clsCasos", "vigencia", "AÑO"],
+        ["clsCasos", "macroactor", "MACROACTOR"],
+        ["clsActores", "nombre", "ACTORES"],
+        ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO"],
+        ["clsCasos", "npersonas", "VICTIMAS"],
+        ["clsCasos", "nmujeres", "MUJERES"],
+        ["clsCasos", "nhombres", "HOMBRES"],
+        ["clsCasos", "nmenores", "MENORES DE EDAD"],
+        ["clsAccJuridica", "accion", "ACCIONES"],
+        ["clsCasos", "fuente", "FUENTE"],
+        ["clsCasos", "fechafuente", "FECHA FUENTE"],
+        ["clsCasos", "enlace", "ENLACE"],
+        
+
+
+    ]
+
+    const thscope = document.createElement("th")
+    thscope.scope = "col"
+    trHead.appendChild(thscope)
+
+    visibles.forEach(campo => {
+        const th = document.createElement("th")
+        th.className = "bg-secondary text-white"
+        trHead.appendChild(th)
+
+        const div = document.createElement("div")
+        div.style.fontSize = "10pt"
+        div.innerHTML = `
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ${campo[2]}
+        </a>
+        `
+        const ul = document.createElement("ul")
+        ul.className = "dropdown-menu menu-group-scroll shadow"
+        div.appendChild(ul)
+
+        //Este botón aplicará el filto según lo que se encuentre adentro
+        const lifilter = document.createElement("li")
+        lifilter.className = "sticky-top bg-white"
+        lifilter.innerHTML = `                
+                <a class="dropdown-item" href="#">
                     <i class="bi bi-funnel-fill me-2"></i>
                     Aplicar filtro
-                    </a>
-                </li>
-                <li class="sticky-top bg-white" id="lifilterNullMacroregion">
-                    <a class="dropdown-item" href="#">
-                    <i class="bi bi-funnel me-2"></i>
-                        Vertodo
-                    </a>
-                </li>
-                <hr>       
-            </ul>
-      
-        </th>
-        <th class="bg-secondary text-white">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            DEPARTAMENTOS
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuDepartamento">
-            <li class="sticky-top bg-white" id="lifilterDepartamento">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNull">
-                <a class="dropdown-item" href="#">
+                </a>`
+        ul.appendChild(lifilter)
+
+        lifilter.onclick = () => {
+            //Creamos cadena de criterios
+            let criterios = ""
+            activeHeadfilter.forEach(filtro => {
+
+                criterios = criterios + `value["${campo[1]}"] == '${filtro}' || `
+            })
+            criterios = criterios + `value["${campo[1]}"]  ==""`
+
+            if (campo[0] == "clsCasos") {
+                let filtered = data.filter(value => eval(criterios));
+                makerTable(filtered)
+
+            } else {
+                let datafiltered = []
+                data.forEach(caso => {
+                    if (caso[campo[0]].length != 0) {
+                        let filtered = caso[campo[0]].filter(value => eval(criterios));
+                        if (filtered.length != 0) {
+                            datafiltered.push(caso)
+                        }
+                    }
+                })
+                makerTable(datafiltered)
+            }
+            activeHeadfilter = []
+        }
+
+        const lifilternull = document.createElement("li")
+        lifilternull.className = "sticky-top bg-white"
+        lifilternull.innerHTML = `                
+            <a class="dropdown-item" href="#">
                 <i class="bi bi-funnel me-2"></i>
                     Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        
-        </th>
-        <th class="bg-secondary text-white">
-         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            LUGAR
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuLugar">
-            <li class="sticky-top bg-white" id="lifilterLugar">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullLugar">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        </th>
-        <th class="bg-secondary text-white">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            PUEBLO ÉTNIA
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuPueblo">
-            <li class="sticky-top bg-white" id="lifilterPueblo">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullPueblo">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        </th>
-        <th class="bg-secondary text-white">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            MACROTIPO
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuMacrotipo">
-            <li class="sticky-top bg-white" id="lifilterMacrotipo">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullMacrotipo">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        </th>
-        <th class="bg-secondary text-white">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            SUB TIPO
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuTipo">
-            <li class="sticky-top bg-white" id="lifilterTipo">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullTipo">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        </th>
-        <th class="bg-secondary text-white">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            FECHA
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuFecha">
-            <li class="sticky-top bg-white" id="lifilterFecha">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullFecha">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        </th>
-        <th class="bg-secondary text-white">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            MACROACTOR
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuMacroactor">
-            <li class="sticky-top bg-white" id="lifilterMacroactor">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullMacroactor">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        </th>
-        <th class="bg-secondary text-white">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            OTROS ACTORES
-        </a>
-        <ul class="dropdown-menu menu-group-scroll shadow" id="menuActores">
-            <li class="sticky-top bg-white" id="lifilterActores">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel-fill me-2"></i>
-                Aplicar filtro
-                </a>
-            </li>
-            <li class="sticky-top bg-white" id="lifilterNullActores">
-                <a class="dropdown-item" href="#">
-                <i class="bi bi-funnel me-2"></i>
-                    Vertodo
-                </a>
-            </li>
-            <hr>       
-        </ul>
-        </th>
-        <th class="bg-secondary text-white">DESPLAZAMIENTO</th>
-        <th class="bg-secondary text-white">AFECTADOS</th>
-        <th class="bg-secondary text-white">MUJERES</th>
-        <th class="bg-secondary text-white">HOMBRES</th>
-        <th class="bg-secondary text-white">MENORES</th>
-        <th class="bg-secondary text-white">ACCIONES</th>
-        <th class="bg-secondary text-white">FUENTE</th>
-        <th class="bg-secondary text-white">FECHA</th>
-        <th class="bg-secondary text-white">CONTACTO</th>
-    </tr>
-    `
+             </a>
+             <hr>
+             `
+        ul.appendChild(lifilternull)
+        lifilternull.onclick = () => {
+            makerTable(ActiveDB.clsCasos)
+            activeHeadfilter = []
+        }
+
+        //Se extraen los elemento únicos para crear las listas del control
+        let newData = []
+        if (campo[0] == "clsCasos") {
+            data.forEach(item => {
+                if (newData.includes(item[campo[1]]) == false) {
+                    newData.push(item[campo[1]])
+                }
+            }
+            )
+
+        } else {
+            data.forEach(caso => {
+                caso[campo[0]].forEach(item => {
+                    if (newData.includes(item[campo[1]]) == false) {
+                        newData.push(item[campo[1]])
+                    }
+                })
+            })
+        }
+
+        //Se ordenan los elementos según sea número o letra
+        let newDataOrdenado;
+        try {
+            function porDato(a, b) {
+                return a.localeCompare(b);
+            }
+            newDataOrdenado = newData.sort(porDato);
+
+        } catch (error) {
+            //Esto en el caso que los valores sean solo numérico, entonces se ordena por número
+            newDataOrdenado = newData.sort();
+            newDataOrdenado.sort(function (a, b) {
+                return a - b;
+            });
+            //Al identificar esta variacón, indica que es un valor tipo número, entonces
+        }
+
+        const mncontenedor = ul
+        newDataOrdenado.forEach(item => {
+            const div = document.createElement("div")
+            div.className = "ms-2 form-check"
+            mncontenedor.appendChild(div)
+
+            const checkers = document.createElement("input")
+            checkers.className = "form-check-input"
+            checkers.type = "checkbox"
+            checkers.value = item
+            div.appendChild(checkers)
+
+            checkers.onchange = () => {
+                if (checkers.checked == true) {
+                    activeHeadfilter.push(checkers.value)
+                } else {
+                    const eliminados = activeHeadfilter.filter(elemento => elemento != checkers.value);
+                    activeHeadfilter = eliminados
+                }
+            }
+
+            const label = document.createElement("label")
+            label.className = "form-check-label"
+            label.style.fontSize = "12pt"
+            label.style.fontWeight = "normal"
+            label.textContent = item
+            div.appendChild(label)
+
+        })
+
+
+
+
+
+
+        th.appendChild(div)
+        //console.log(campo[0])
+    })
+
     tableParent.appendChild(thead)
     //========================================================
     //Agregar un body table
@@ -288,6 +270,11 @@ function makerTable(data) {
         td_fecha.textContent = caso.fecha
         tr.appendChild(td_fecha)
 
+        const td_vigencia = document.createElement("td")
+        td_vigencia.style.verticalAlign = "middle"
+        td_vigencia.textContent = caso.vigencia
+        tr.appendChild(td_vigencia)
+
         const td_macroactor = document.createElement("td")
         td_macroactor.style.verticalAlign = "middle"
         td_macroactor.textContent = caso.macroactor
@@ -346,688 +333,9 @@ function makerTable(data) {
     //Agregamos la tabla al contenedor
     contenedor.appendChild(tableParent)
 
-    //Ahora configuramos los encabezados para filtro
-    _configHeaders.hd_macroregional(data)
-    _configHeaders.hd_departamento(data)
-    _configHeaders.hd_Macrotipo(data)
-    _configHeaders.hd_Lugar(data)
-    _configHeaders.hd_Pueblo(data)
-    _configHeaders.hd_Tipos(data)
-    _configHeaders.hd_Fecha(data)
-    _configHeaders.hd_Macroactor(data)
-    _configHeaders.hd_Actores(data)
-
-
-
-
 }
-let departamentosfilter = []
-let macroregionfilter = []
-let macrotipofilter = []
-let lugarfilter = []
-let pueblofilter = []
-let tipofilter = []
-let fechafilter = []
-let macroactorfilter = []
-let actoresfilter = []
 
-const _configHeaders = {
-    hd_macroregional(parent) {
 
-
-        var unicos = {};
-        newData = parent.filter(function (caso) {
-            var exists = !unicos[caso.macroregion];
-            unicos[caso.macroregion] = true;
-            return exists;
-        });
-        function porDato(a, b) {
-            return a.macroregion.localeCompare(b.macroregion);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuMacroregion")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item.macroregion}" id="check${item.macroregion}macro">
-                 ${item.macroregion}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item.macroregion}macro`)
-
-            checkers.onchange = () => {
-                if (checkers.checked == true) {
-                    macroregionfilter.push(checkers.value)
-                } else {
-                    const eliminados = macroregionfilter.filter(elemento => elemento != checkers.value);
-                    macroregionfilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterMacroregion")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            macroregionfilter.forEach(filtro => {
-
-                criterios = criterios + `value.macroregion == '${filtro}' || `
-            })
-            criterios = criterios + `value.macroregion ==""`
-
-
-            let filtered = parent.filter(value => eval(criterios));
-
-            makerTable(filtered)
-
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullMacroregion")
-        nofiltrar.onclick = () => {
-            macroregionfilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-    },
-    hd_departamento(parent) {
-
-
-        var unicos = {};
-        newData = parent.filter(function (caso) {
-            var exists = !unicos[caso.departamento];
-            unicos[caso.departamento] = true;
-            return exists;
-        });
-
-        function porDato(a, b) {
-            return a.departamento.localeCompare(b.departamento);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuDepartamento")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item.departamento}" id="check${item.departamento}dep">
-                 ${item.departamento}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item.departamento}dep`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    departamentosfilter.push(checkers.value)
-                } else {
-                    const eliminados = departamentosfilter.filter(elemento => elemento != checkers.value);
-                    departamentosfilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterDepartamento")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            departamentosfilter.forEach(filtro => {
-                criterios = criterios + `value.departamento == '${filtro}' || `
-            })
-            criterios = criterios + `value.departamento ==""`
-
-            let filtered = parent.filter(value => eval(criterios));
-
-            makerTable(filtered)
-
-        }
-
-        const nofiltrar = document.getElementById("lifilterNull")
-        nofiltrar.onclick = () => {
-            departamentosfilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-
-    },
-    hd_Macrotipo(parent) {
-
-
-        var unicos = {};
-        newData = parent.filter(function (caso) {
-            var exists = !unicos[caso.macrotipo];
-            unicos[caso.macrotipo] = true;
-            return exists;
-        });
-
-
-        function porDato(a, b) {
-            return a.macrotipo.localeCompare(b.macrotipo);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuMacrotipo")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item.macrotipo}" id="check${item.macrotipo}mtipo">
-                 ${item.macrotipo}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item.macrotipo}mtipo`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    macrotipofilter.push(checkers.value)
-                } else {
-                    const eliminados = macrotipofilter.filter(elemento => elemento != checkers.value);
-                    macrotipofilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterMacrotipo")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            macrotipofilter.forEach(filtro => {
-                criterios = criterios + `value.macrotipo == '${filtro}' || `
-            })
-            criterios = criterios + `value.macrotipo ==""`
-
-            let filtered = parent.filter(value => eval(criterios));
-
-            makerTable(filtered)
-
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullMacrotipo")
-        nofiltrar.onclick = () => {
-            macrotipofilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-    },
-    hd_Lugar(parent) {
-
-        let newData = []
-
-        parent.forEach(caso => {
-            caso.clsLugares.forEach(lugar => {
-                if (newData.includes(lugar.municipio) == false) {
-                    newData.push(lugar.municipio)
-                }
-            })
-        })
-
-
-
-        function porDato(a, b) {
-            return a.localeCompare(b);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuLugar")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item}" id="check${item}lugar">
-                 ${item}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item}lugar`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    lugarfilter.push(checkers.value)
-                } else {
-                    const eliminados = lugarfilter.filter(elemento => elemento != checkers.value);
-                    lugarfilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterLugar")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            lugarfilter.forEach(filtro => {
-                criterios = criterios + `value.municipio == '${filtro}' || `
-            })
-            criterios = criterios + `value.municipio ==""`
-            console.log(criterios)
-
-            let datafiltered = []
-
-            parent.forEach(caso => {
-                if (caso.clsLugares.length != 0) {
-                    let filtered = caso.clsLugares.filter(value => eval(criterios));
-                    if (filtered.length != 0) {
-                        datafiltered.push(caso)
-                    }
-                }
-            })
-            makerTable(datafiltered)
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullLugar")
-        nofiltrar.onclick = () => {
-            lugarfilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-    },
-    hd_Pueblo(parent) {
-
-
-        let newData = []
-
-        parent.forEach(caso => {
-            caso.clsPueblos.forEach(elemento => {
-                if (newData.includes(elemento.nombre) == false) {
-                    newData.push(elemento.nombre)
-                }
-            })
-        })
-
-
-
-        function porDato(a, b) {
-            return a.localeCompare(b);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuPueblo")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item}" id="check${item}pueblo">
-                 ${item}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item}pueblo`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    pueblofilter.push(checkers.value)
-                } else {
-                    const eliminados = pueblofilter.filter(elemento => elemento != checkers.value);
-                    pueblofilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterPueblo")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            pueblofilter.forEach(filtro => {
-                criterios = criterios + `value.nombre == '${filtro}' || `
-            })
-            criterios = criterios + `value.nombre ==""`
-
-            let datafiltered = []
-
-            parent.forEach(caso => {
-                if (caso.clsPueblos.length != 0) {
-                    let filtered = caso.clsPueblos.filter(value => eval(criterios));
-                    if (filtered.length != 0) {
-                        datafiltered.push(caso)
-                    }
-                }
-            })
-            makerTable(datafiltered)
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullPueblo")
-        nofiltrar.onclick = () => {
-            pueblofilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-    },
-    hd_Tipos(parent) {
-
-
-        let newData = []
-
-        parent.forEach(caso => {
-            caso.clsTipos.forEach(elemento => {
-                if (newData.includes(elemento.nombre) == false) {
-                    newData.push(elemento.nombre)
-                }
-            })
-        })
-
-
-
-        function porDato(a, b) {
-            return a.localeCompare(b);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuTipo")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item}" id="check${item}tipo">
-                 ${item}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item}tipo`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    tipofilter.push(checkers.value)
-                } else {
-                    const eliminados = tipofilter.filter(elemento => elemento != checkers.value);
-                    tipofilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterTipo")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            tipofilter.forEach(filtro => {
-                criterios = criterios + `value.nombre == '${filtro}' || `
-            })
-            criterios = criterios + `value.nombre ==""`
-
-            let datafiltered = []
-
-            parent.forEach(caso => {
-                if (caso.clsTipos.length != 0) {
-                    let filtered = caso.clsTipos.filter(value => eval(criterios));
-                    if (filtered.length != 0) {
-                        datafiltered.push(caso)
-                    }
-                }
-            })
-            makerTable(datafiltered)
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullTipo")
-        nofiltrar.onclick = () => {
-            tipofilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-    },//Este es de tipo no anidado
-    hd_Fecha(parent) {
-
-
-        let newData = []
-
-        parent.forEach(caso => {
-
-            if (newData.includes(caso.fecha) == false) {
-                newData.push(caso.fecha)
-
-            }
-        })
-
-
-
-        function porDato(a, b) {
-            return a.localeCompare(b);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuFecha")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item}" id="check${item}fecha">
-                 ${item}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item}fecha`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    fechafilter.push(checkers.value)
-                } else {
-                    const eliminados = fechafilter.filter(elemento => elemento != checkers.value);
-                    fechafilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterFecha")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            fechafilter.forEach(filtro => {
-                criterios = criterios + `value.fecha == '${filtro}' || `
-            })
-            criterios = criterios + `value.fecha ==""`
-
-
-            let filtered = parent.filter(value => eval(criterios));
-            makerTable(filtered)
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullFecha")
-        nofiltrar.onclick = () => {
-            fechafilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-    },
-    hd_Macroactor(parent) {
-
-
-        let newData = []
-
-        parent.forEach(caso => {
-
-            if (newData.includes(caso.macroactor) == false) {
-                newData.push(caso.macroactor)
-
-            }
-        })
-
-
-
-        function porDato(a, b) {
-            return a.localeCompare(b);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuMacroactor")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item}" id="check${item}macroactor">
-                 ${item}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item}macroactor`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    macroactorfilter.push(checkers.value)
-                } else {
-                    const eliminados = macroactorfilter.filter(elemento => elemento != checkers.value);
-                    macroactorfilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterMacroactor")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            macroactorfilter.forEach(filtro => {
-                criterios = criterios + `value.macroactor == '${filtro}' || `
-            })
-            criterios = criterios + `value.macroactor ==""`
-
-            let filtered = parent.filter(value => eval(criterios));
-            makerTable(filtered)
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullMacroactor")
-        nofiltrar.onclick = () => {
-            macroactorfilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-    },
-    hd_Actores(parent) {
-        let newData = []
-        parent.forEach(caso => {
-            caso.clsActores.forEach(elemento => {
-                if (newData.includes(elemento.nombre) == false) {
-                    newData.push(elemento.nombre)
-                }
-            })
-        })
-        function porDato(a, b) {
-            return a.localeCompare(b);
-        }
-
-        // Sort the array by name in ascending order
-        let newDataOrdenado = newData.sort(porDato);
-
-        newDataOrdenado.forEach(item => {
-            const mncontenedor = document.getElementById("menuActores")
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-                <input class="fst-normal" type="checkbox" value="${item}" id="check${item}actores">
-                 ${item}
-            `
-            mncontenedor.appendChild(elemento)
-
-            const checkers = document.getElementById(`check${item}actores`)
-            checkers.onchange = () => {
-
-                if (checkers.checked == true) {
-                    actoresfilter.push(checkers.value)
-                } else {
-                    const eliminados = actoresfilter.filter(elemento => elemento != checkers.value);
-                    actoresfilter = eliminados
-                }
-            }
-        })
-
-        const filtrador = document.getElementById("lifilterActores")
-        filtrador.onclick = () => {
-            //Creamos cadena de criterios
-            let criterios = ""
-            actoresfilter.forEach(filtro => {
-                criterios = criterios + `value.nombre == '${filtro}' || `
-            })
-            criterios = criterios + `value.nombre ==""`
-
-            let datafiltered = []
-
-            parent.forEach(caso => {
-                if (caso.clsActores.length != 0) {
-                    let filtered = caso.clsActores.filter(value => eval(criterios));
-                    if (filtered.length != 0) {
-                        datafiltered.push(caso)
-                    }
-                }
-            })
-            makerTable(datafiltered)
-        }
-
-        const nofiltrar = document.getElementById("lifilterNullActores")
-        nofiltrar.onclick = () => {
-            actoresfilter = []
-            makerTable(ActiveDB.clsCasos)
-        }
-
-
-
-
-
-    }
-
-
-}
 
 const _crearCelda = {
     data_lugar(parent) {
@@ -1559,8 +867,8 @@ function filter_extend() {
 
 
 }
-function testfilter(){  
-    
+function testfilter() {
 
-    
+
+
 }
