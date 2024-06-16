@@ -128,12 +128,18 @@ const makerList = {
 
         //Con base a essa lista creamos una lista de selección on check
         newDataOrdenado.forEach(item => {
+            let realvalue;
+            if (typeof item === "number") {
+                realvalue = parseInt(item)
+            } else {
+                realvalue = (item)
+            }
             const elemento = document.createElement("div")
             elemento.className = "ms-3 me-3"
             elemento.style.fontWeight = "normal"
             elemento.innerHTML =
                 `
-            <input class="fst-normal form-check-input" type="checkbox" value="${item}" id="check${item}${criterio[1]}">
+            <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
              ${item}
         `
             //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
@@ -144,16 +150,10 @@ const makerList = {
             //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
             checkers.onchange = () => {
                 //Validamos si la clase es mayor o menor
-                let tipo;
-                if (criterio[0] == "clsCasos") {
-                    tipo = "a"
-                } else {
-                    tipo = "b"
-                }
 
                 if (checkers.checked == true) {
+
                     const criterios = {
-                        "tipo": tipo,
                         "clase": criterio[0],
                         "field": criterio[1],
                         "operador": document.getElementById("lstOperadores").value,
@@ -249,10 +249,11 @@ function add_criterio_extendido() {
     }
     //Miramos todos los elementos de filtros creados
     let i = 0
+    let line = []
     filterList.forEach(texto => {
         const item = document.createElement("li")
         item.className = "list-group-item"
-        item.textContent = texto.field + "" + texto.operador + "" + texto.value
+        item.textContent = texto.clase + " " + texto.operador + " " + texto.value
         contenedorlistas.appendChild(item)
         if (i == filterList.length - 1) {
             operador_link = ""
@@ -264,222 +265,117 @@ function add_criterio_extendido() {
 
         const newItemCriterio =
         {
-            "tipo": texto.tipo,
             "clase": texto.clase,
             "field": texto.field,
             "operador": texto.operador,
             "value": texto.value,
             "link": operador_link
         }
-        criteria_items.push(newItemCriterio)
-    })
-}
-//Obsoleto
-function add_operador(operador) {
-    const newItemCriterio =
-    {
-        "tipo": "d",
-        "clase": "",
-        "field": "",
-        "operador": operador,
-        "value": "",
-        "link": ""
-    }
-    criteria_items.push(newItemCriterio)
 
-    const contenedorlistas = document.getElementById("listconsultaextendida")
-    const item = document.createElement("li")
-    item.className = "list-group-item text-center bg-warning"
-    item.textContent = "{AND}"
-    contenedorlistas.appendChild(item)
+        line.push(newItemCriterio)
+
+    })
+
+    const registros = Active_data_monitor.clsCasos[0]
+    let cadena = ""
+
+    if (filterList[0].clase !== "clsCasos") {
+        line.forEach(item => {
+            if (typeof registros[item.field] === "number") {
+                cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"] ${item.operador} ${item.value} ${item.link})`
+
+            } else{
+                cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"] ${item.operador} "${item.value}" ${item.link})`
+            }
+         })
+        criteria_items.push([filterList[0].clase, cadena])
+    } else {
+        
+        line.forEach(item => {
+            if (typeof registros[item.field] === "number") {
+                cadena = cadena + `registro["${item.field}"] ${item.operador} ${item.value} ${item.link}`
+            } else{
+                cadena = cadena + `registro["${item.field}"] ${item.operador} "${item.value}" ${item.link}`
+            }
+        })
+        criteria_items.push([filterList[0].clase, cadena])
+    }
+
 }
+
+
+
 function LimpiarConsulta() {
     criteria_items = []
     const contenedorlistas = document.getElementById("listconsultaextendida")
     contenedorlistas.innerHTML = ""
 }
+
+const operadores = {
+    "operadorIgual": (registro, campo, valor) => {
+        if (typeof registro[campo] === "number") {
+            return registro[campo] === parseInt(valor)
+        }
+
+        return registro[campo] === valor
+    },
+
+    "operadorMayor": (registro, campo, valor) => {
+        if (typeof registro[campo] === "number") {
+            return registro[campo] > parseInt(valor)
+        }
+
+        return registro[campo] > valor
+    },
+
+    "operadorMenor": (registro, campo, valor) => {
+        if (typeof registro[campo] === "number") {
+            return registro[campo] < parseInt(valor)
+        }
+
+        return registro[campo] < valor
+    },
+
+    "operadorDiferente": (registro, campo, valor) => {
+        if (typeof registro[campo] === "number") {
+            return registro[campo] !== parseInt(valor)
+        }
+
+        return registro[campo] !== valor
+    },
+    "operadorAlguno": (registro, campo, label, valor) => {
+        return registro[campo].some((objeto) => objeto[label] === valor);
+    },
+}
+
 function filter_extend() {
-    const txt = document.getElementById("txtconsola")
-    let operador_join = ""
+    const registros = Active_data_monitor.clsCasos
+    /* CODIGO DE PARTIDA DE INICIO */
 
-    let dataCondensed = []
-    Active_data_monitor.clsCasos.forEach(caso => {
-        let tipos = []
-        caso.clsTipos.forEach(item => {
-            tipos.push(item.nombre)
-        })
-        let lugares = []
-        caso.clsLugares.forEach(item => {
-            lugares.push(item.municipio)
-        })
-        let pueblos = []
-        caso.clsPueblos.forEach(item => {
-            pueblos.push(item.nombre)
-        })
-        let personas = []
-        caso.clsPersonas.forEach(item => {
-            personas.push(item.genero)
-        })
-        let actores = []
-        caso.clsActores.forEach(item => {
-            actores.push(item.nombre)
-        })
-        let desplazamientos = []
-        caso.clsDesplazamiento.forEach(item => {
-            desplazamientos.push(item.tipo)
-        })
-        let acciones = []
-        caso.clsAccJuridica.forEach(item => {
-            desplazamientos.push(item.accion)
+    let datafilter = []
+    const filtrados = registros.filter((registro) => {
+        let condiciones = []
+
+        criteria_items.forEach(criterio => {
+            //console.log(eval(criterio[1]))
+            condiciones.push(eval(criterio[1]))
         })
 
-        const item = {
-            "score": 0,
-            "id": caso.id,
-            "macrotipo": caso.macrotipo,
-            "detalle": caso.detalle,
-            "departamento": caso.departamento,
-            "macroregion": caso.macroregion,
-            "detalleLugar": caso.detalleLugar,
-            "fecha": caso.fecha,
-            "vigencia": caso.vigencia,
-            "macroactor": caso.macroactor,
-            "nmujeres": caso.nmujeres,
-            "nmenores": caso.nhombres,
-            "npersonas": caso.nmenores,
-            "fuente": caso.fuente,
-            "fechafuente": caso.fechafuente,
-            "enlace": caso.enlace,
-            "clsTipos": tipos,
-            "clsLugares": lugares,
-            "clsPueblos": pueblos,
-            "clsPersonas": personas,
-            "clsActores": actores,
-            "clsDesplazamiento": desplazamientos,
-            "clsAccJuridica": acciones,
+        let score = 0
+        condiciones.forEach(valor => {
+            score = score + valor
+        })
+
+        if (score == condiciones.length) {
+            datafilter.push(registro)
         }
-        dataCondensed.push(item)
+        score = []
+    });
 
-    })
-
-    if (criteria_items.length == 0) {
-        operador_join = ""
-    }
-    //Miramos todos los elementos de filtros creados
-    let i = 0
-    let cadena_filtro = ""
-    criteria_items.forEach(filtro => {
-        if (i == criteria_items.length - 1) {
-            operador_join = ""
-        }
-        if (i < criteria_items.length - 1) {
-            operador_join = "&&"
-        }
-        i = i + 1
-
-        if (filtro.clase == "clsCasos") {
-            cadena_filtro = cadena_filtro + `value.${filtro.field}.includes("${filtro.value}")${filtro.link}`
-        } else {
-            cadena_filtro = cadena_filtro + `value.${filtro.clase}.includes("${filtro.value}")${filtro.link}`
-        }
-        cadena_filtro = cadena_filtro + operador_join
-
-    })
-
-    let fullfilter = cadena_filtro.replace("||&&", "||")
-
-    let primerfiltro = dataCondensed.filter(function (value) {
-        let filtrosincambios = eval(fullfilter)
-        return filtrosincambios
-    }
-    )
-    let o = 0
-    primerfiltro.forEach(caso => {
-        criteria_items.forEach(item => {
-            if (item.clase != "clsCaso") {
-                caso[item.clase].forEach(clase => {
-                    let formula = `clase ${item.operador} "${item.value}"`
-                    if (eval(formula))
-                        caso.score = o++
-                })
-            }
-        })
-    })
-
-    console.log(primerfiltro)
-
-
-    let dataMostar = []
-    primerfiltro.forEach(caso => {
-        let filtrado = Active_data_monitor.clsCasos.filter(value => value.id == caso.id)
-        if (filtrado.length != 0) {
-            dataMostar.push(Active_data_monitor.clsCasos[caso.id])
-        }
-    })
-
-    //txt.value = fullfilter
-    mostrar_resultados(dataMostar)
-
-
-
-
+    mostrar_resultados(datafilter)
 
 }
-function filter_extend2() {
 
-
-    let config_filer = ""
-
-
-    function sortJSON(data, key, orden) {
-        return data.sort(function (a, b) {
-            var x = a[key],
-                y = b[key];
-
-            if (orden === 'asc') {
-                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-            }
-
-            if (orden === 'desc') {
-                return ((x > y) ? -1 : ((x < y) ? 1 : 0));
-            }
-        });
-    }
-    var oJSON = sortJSON(criteria_items, 'tipo', 'asc');
-
-
-    let criterio_Join = ""
-    oJSON.forEach(filtro => {
-        if (filtro.tipo == "a") {
-            criterio_Join = criterio_Join + `value.${filtro.field}${filtro.operador}("${filtro.value}")${filtro.link}`
-        } else if (filtro.tipo == "c") {
-
-        }
-    })
-    let dataParentFilter = Active_data_monitor.clsCasos.filter(value => eval(criterio_Join))
-
-    criterio_Join = ""
-    let clase = ""
-    let datachieldFilter = []
-    oJSON.forEach(filtro => {
-        if (filtro.tipo == "b") {
-            criterio_Join = criterio_Join + `value.${filtro.field}${filtro.operador}("${filtro.value}")${filtro.link}`
-            clase = filtro.clase
-        }
-
-    })
-    //let datachieldFilter= dataParentFilter.clsCasos[clase].filter(value=>eval(criterio_Join))
-    dataParentFilter.forEach(caso => {
-        const filtered = caso[clase].filter(value => eval(criterio_Join))
-        if (filtered.length != 0) {
-            datachieldFilter.push(caso)
-        }
-    })
-
-    mostrar_resultados(datachieldFilter)
-
-
-}
 function consola_command() {
     try {
         const criterios = document.getElementById("txtconsola").value

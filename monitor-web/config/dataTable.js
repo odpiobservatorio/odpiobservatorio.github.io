@@ -227,7 +227,7 @@ function makerTable(data) {
         <th class="bg-secondary text-white">CONTACTO</th>
     </tr>
     `
-    //tableParent.appendChild(thead)
+    tableParent.appendChild(thead)
     //========================================================
     //Agregar un body table
     const tbody = document.createElement("tbody")

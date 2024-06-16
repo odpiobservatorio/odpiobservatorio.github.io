@@ -181,10 +181,10 @@ class Caso {
         this.fecha = fecha;
         this.vigencia = vigencia;
         this.macroactor = macroactor;
-        this.nhombres = nhombres;
-        this.nmujeres = nmujeres;
-        this.nmenores = nmenores;
-        this.npersonas = npersonas;
+        this.nhombres = parseInt(nhombres);
+        this.nmujeres = parseInt(nmujeres);
+        this.nmenores = parseInt(nmenores);
+        this.npersonas = parseInt(npersonas);
         this.fuente = fuente;
         this.fechafuente = fechafuente;
         this.enlace = enlace;
@@ -277,31 +277,31 @@ class Caso {
         //Cantidades de las personas afectadas
         const intnPersonas = document.getElementById("intnPersonas")
         intnPersonas.oninput = () => {
-            this.npersonas = intnPersonas.value
+            this.npersonas = parseInt(intnPersonas.value)
             GuardarDatos()
         }
-        intnPersonas.value = this.npersonas
+        intnPersonas.value = parseInt(this.npersonas)
 
         const intnPersonasM = document.getElementById("intnPersonasM")
         intnPersonasM.oninput = () => {
-            this.nmujeres = intnPersonasM.value
+            this.nmujeres = parseInt(intnPersonasM.value)
             GuardarDatos()
         }
-        intnPersonasM.value = this.nmujeres
+        intnPersonasM.value = parseInt(this.nmujeres)
 
         const intnPersonasH = document.getElementById("intnPersonasH")
         intnPersonasH.oninput = () => {
-            this.nhombres = intnPersonasH.value
+            this.nhombres = parseInt(intnPersonasH.value)
             GuardarDatos()
         }
-        intnPersonasH.value = this.nhombres
+        intnPersonasH.value = parseInt(this.nhombres)
 
         const intnPersonasMen = document.getElementById("intnPersonasMen")
         intnPersonasMen.oninput = () => {
-            this.nmenores = intnPersonasMen.value
+            this.nmenores = parseInt(intnPersonasMen.value)
             GuardarDatos()
         }
-        intnPersonasMen.value = this.nmenores
+        intnPersonasMen.value = parseInt(this.nmenores)
 
 
 
@@ -704,7 +704,7 @@ class Persona {
         this.nombres = nombres;
         this.documento = documento;
         this.genero = genero;
-        this.edad = edad;
+        this.edad = parseInt(edad);
         this.cargo = cargo;
 
 
@@ -800,10 +800,10 @@ class Persona {
 
         const intEdad = document.getElementById(`intEdad${this.id}`)
         intEdad.oninput = () => {
-            this.edad = intEdad.value
+            this.edad = parseInt(intEdad.value)
             GuardarDatos()
         }
-        intEdad.value = this.edad
+        intEdad.value = parseInt(this.edad)
         //Todas las acciones para ocupacion
         const formCargo = document.createElement("form")
         formCargo.className = "form-floating mb-2"

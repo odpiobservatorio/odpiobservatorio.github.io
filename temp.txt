@@ -1,63 +1,9 @@
-let operador_val = document.getElementById("lstOperadores").value
-            const contenedorlistas = document.getElementById("listconsultaextendida")
-
-            let i = 0
-            let operador_link = ""
-            if (filterList.length == 0) {
-                operador = ""
-            }
-            filterList.forEach(texto => {
-                if (i == filterList.length - 1) {
-                    operador_link = ""
-                }
-                if (i < filterList.length - 1) {
-                    operador_link = "||"
-                }
-                i = i + 1
-                const newItemCriterio =
-                {
-                    "field": criterio[1],
-                    "operador": operador_val,
-                    "value": texto,
-                    "link": operador_link,
-                }
-                criteria_items.push(newItemCriterio)
-
-                const item = document.createElement("li")
-                item.className = "list-group-item"
-                item.textContent = criterio[1] + "" + operador_val + "" + texto
-                contenedorlistas.appendChild(item)
-            })
-            filterList = []
-            document.getElementById("btnfilter_extend").onclick = () => {
-                filter_extend("clsCasos")
+            if (criterio.clase=="clsCasos"){
+                const l = operadores.operadorIgual(registro,criterio.field,criterio.value)
+                condiciones.push(l)
+            }else{
+                const l = operadores.operadorAlguno(registro,criterio.clase,criterio.field,criterio.value)
+                condiciones.push(l)
             }
 
-        const filtrador = document.getElementById("btnConsulta")
-        filtrador.onclick = () => {
-            let operador_val = document.getElementById("lstOperadores").value
-            const lstValOperadores = document.getElementById("lstOperadores")
-
-            //Creamos cadena de criterios
-            let criterios = ""
-            if (detectNumero == true) {
-                filterList.forEach(filtro => {
-                    criterios = criterios + `value.${criterio[1]}${operador_val}(${filtro}) || `
-                })
-                criterios = criterios + `value.${criterio[1]} ==100000000`
-            } else {
-                filterList.forEach(filtro => {
-                    criterios = criterios + `value.${criterio[1]}${operador_val}("${filtro}") || `
-                })
-                criterios = criterios + `value.${criterio[1]} ==""`
-                console.log(criterios)
-            }
-            const opentext = document.getElementById("intOpentCriterio")
-            if (opentext.value != "") {
-                criterios = `value.${criterio[1]}.includes("${opentext.value}")`
-            }
-            let filtered = Active_data_monitor.clsCasos.filter(value => eval(criterios));
-            mostrar_resultados(filtered)
-            opentext.value = ""
-            filterList = []
-        }
+   
