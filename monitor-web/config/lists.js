@@ -924,6 +924,7 @@ const DataMacroActor = [
     'MULTI ACTOR',
     'NO IDENTIFICADO',
     'OTRO',
+    'PARAMILITARES',
     'PRENSA',
 ]
 const DataActor = [
