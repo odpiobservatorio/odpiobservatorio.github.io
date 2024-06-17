@@ -303,6 +303,27 @@ class Caso {
         }
         intnPersonasMen.value = parseInt(this.nmenores)
 
+        const intFuente = document.getElementById("intFuente")
+        intFuente.oninput = () => {
+            this.fuente = intFuente.value
+            GuardarDatos()
+        }
+        intFuente.value = this.fuente
+
+        const intFuenteFecha = document.getElementById("intFuenteFecha")
+        intFuenteFecha.oninput = () => {
+            this.fechafuente = intFuenteFecha.value
+            GuardarDatos()
+        }
+        intFuente.value = this.fechafuente
+
+        const intContacto = document.getElementById("intContacto")
+        intContacto.oninput = () => {
+            this.enlace = intFuenteFecha.value
+            GuardarDatos()
+        }
+        intContacto.value = this.enlace
+
 
 
         this._putPersonas()
