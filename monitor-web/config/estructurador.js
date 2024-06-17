@@ -1298,7 +1298,7 @@ async function GuardarDatos() {
 async function AgregarCaso() {
     ActiveDB.addCaso(new Caso(0,
         "Sin macrotipo", "Sin detalle", "Sin determinar",
-        "Sin determinar", "", "0-0-0000", "Sin determinar", 0, 0, 0, 0, "Sin determinar", "0-0-0000", "Sin determinar", ActiveDB))
+        "Sin determinar","", "0-0-0000","", "Sin determinar", 0, 0, 0, 0, "Sin determinar", "0-0-0000", "Sin determinar", ActiveDB))
     GuardarDatos()
     ListarCasos()
     gotoEnd()
