@@ -268,11 +268,11 @@ class Caso {
             this.fecha = intFecha.value
             document.getElementById("casoyear" + this.id).textContent =
                 new Date(this.fecha).getFullYear()
-            this.vigencia=new Date(this.fecha).getFullYear()
+            this.vigencia = new Date(this.fecha).getFullYear()
             GuardarDatos()
         }
         intFecha.value = this.fecha
-        this.vigencia=new Date(this.fecha).getFullYear()
+        this.vigencia = new Date(this.fecha).getFullYear()
 
         //Cantidades de las personas afectadas
         const intnPersonas = document.getElementById("intnPersonas")
@@ -593,7 +593,7 @@ class Caso {
 
         }
         intFuenteFecha.value = this.fechafuente
-       
+
 
         //Detalles adicionales al fuente
         const intContacto = document.getElementById("intContacto")
@@ -1298,7 +1298,7 @@ async function GuardarDatos() {
 async function AgregarCaso() {
     ActiveDB.addCaso(new Caso(0,
         "Sin macrotipo", "Sin detalle", "Sin determinar",
-        "Sin determinar","", "0-0-0000","", "Sin determinar", 0, 0, 0, 0, "Sin determinar", "0-0-0000", "Sin determinar", ActiveDB))
+        "Sin determinar", "", "0-0-0000", "", "Sin determinar", 0, 0, 0, 0, "Sin determinar", "0-0-0000", "Sin determinar", ActiveDB))
     GuardarDatos()
     ListarCasos()
     gotoEnd()
@@ -1386,4 +1386,56 @@ async function gotoBackNext(option) {
         activeIndex = newIndex
     }
     ActiveDB.clsCasos[activeIndex].makerHTMLCaso()
+}
+function pastetab() {
+    navigator.clipboard.readText()
+        .then(text => {
+            let parteTab = text.split("\t")
+            let fecha = new Date((parteTab[1]))
+            let macroactores = parteTab[21].split("|")
+            let macroactor
+            if (macroactores.length!==1){
+                macroactor="MULTI ACTOR"
+                alert()
+            }else{
+                macroactor=macroactores[0] 
+            }
+            let caso = new Caso(
+                0,
+                parteTab[0],//Macrotipo
+                parteTab[2],//Detalle
+                parteTab[4],//Departamento
+                parteTab[3],//Macroregión
+                parteTab[3] + "," + parteTab[9] + parteTab[10],//Detalle lugar
+                fecha,//Fecha
+                fecha.getFullYear(),//Vigencia Año
+                macroactor,//Macro actor
+                parteTab[13], parteTab[14], parteTab[15], parteTab[12], //Numero de personas
+                parteTab[33],//fuente
+                parteTab[34], //fecha fuente
+                parteTab[35], //enlace
+                ActiveDB)
+            ActiveDB.addCaso(caso)
+            //GuardarDatos()
+            ListarCasos()
+            gotoEnd()
+            mensajes("Elemento creado", "Green")
+            document.getElementById("intFecha").value=fecha
+            document.getElementById("intFuenteFecha").value=parteTab[34]
+
+            let pueblos = parteTab[11].split("|")
+            pueblos.forEach(pueblo=>{
+                alert(pueblo)
+                document.getElementById("lstPueblos").value=pueblo
+            }) 
+
+            console.log(caso)
+            
+
+        })
+        .catch(err => {
+            console.error('Error al leer del portapapeles:', err)
+        })
+
+
 }

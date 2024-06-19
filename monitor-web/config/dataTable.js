@@ -867,8 +867,3 @@ function filter_extend() {
 
 
 }
-function testfilter() {
-
-
-
-}

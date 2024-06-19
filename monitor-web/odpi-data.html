@@ -144,6 +144,9 @@
             </div>
             <div class="col-lg-10 col-md-9 col-sm-12 py-3" id="panel-escritorio" hidden="true">
                 <div class="btn-group sticky-top">
+                    <a href="#" class="btn btn-secondary fs-5" onclick="pastetab()">
+                        <i class="bi bi-clipboard"></i>
+                    </a>
                     <a href="#" class="btn btn-secondary fs-5" onclick="AgregarCaso()">
                         <i class="bi bi-file-earmark-plus"></i>
                     </a>
@@ -252,7 +255,7 @@
                             <div class="d-flex flex-wrap border border 1 rounded p-2 mt-2" id="contenedor-pueblos">
                             </div>
                             <!--Entrada de datos personas-->
-                            <label class="label-org-warning-light">Personas, comunidades afectas</label>
+                            <label class="label-org-warning-light">Personas, comunidades afectadas</label>
                             <div class="row">
                                 <div class="col">
                                     <small class="ms-3 text-end"> Número de personas</small>
@@ -348,7 +351,8 @@
                                 </div>
                                 <div class="col">
                                     <small class="fw-medium">Fecha fuente</small>
-                                    <input type="date" class="form-control" placeholder="Fecha de la fuente" id="intFuenteFecha">
+                                    <input type="date" class="form-control" placeholder="Fecha de la fuente"
+                                        id="intFuenteFecha">
                                 </div>
                                 <div class="row">
                                     <div class="col">
@@ -426,11 +430,11 @@
                                 <input type="text" class="form-control" id="intOpentCriterio">
                             </div>
                             <div class="col-auto">
-                                <button id="btnConsulta" type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
-                                data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Buscar"
-                                onclick="testfilter()">
-                                <i class="bi bi-binoculars"></i>
-                            </button>
+                                <button id="btnConsulta" type="button" class="btn btn-secondary"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                                    data-bs-title="Buscar" onclick="testfilter()">
+                                    <i class="bi bi-binoculars"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
