@@ -1342,6 +1342,7 @@ async function ListarCasos() {
 
         //Configuramos las acciones relacionadas con el item
         itemCaso.onclick = () => {
+            activeIndex=caso.id
             caso.makerHTMLCaso()
         }
 
@@ -1363,8 +1364,8 @@ function filtrarLugares(dep) {
 }
 let activeIndex = 0;
 async function gotoCaso(id) {
-    activeIndex = id
-    ActiveDB.clsCasos[id].makerHTMLCaso()
+    activeIndex = id - 1
+    ActiveDB.clsCasos[id - 1].makerHTMLCaso()
 }
 async function gotoFirst() {
     activeIndex = 0
@@ -1394,11 +1395,10 @@ function pastetab() {
             let fecha = new Date((parteTab[1]))
             let macroactores = parteTab[21].split("|")
             let macroactor
-            if (macroactores.length!==1){
-                macroactor="MULTI ACTOR"
-                alert()
-            }else{
-                macroactor=macroactores[0] 
+            if (macroactores.length !== 1) {
+                macroactor = "MULTI ACTOR"
+            } else {
+                macroactor = macroactores[0]
             }
             let caso = new Caso(
                 0,
@@ -1406,7 +1406,7 @@ function pastetab() {
                 parteTab[2],//Detalle
                 parteTab[4],//Departamento
                 parteTab[3],//Macroregión
-                parteTab[3] + "," + parteTab[9] + parteTab[10],//Detalle lugar
+                parteTab[8] + "," + parteTab[9] + parteTab[10],//Detalle lugar
                 fecha,//Fecha
                 fecha.getFullYear(),//Vigencia Año
                 macroactor,//Macro actor
@@ -1420,17 +1420,69 @@ function pastetab() {
             ListarCasos()
             gotoEnd()
             mensajes("Elemento creado", "Green")
-            document.getElementById("intFecha").value=fecha
-            document.getElementById("intFuenteFecha").value=parteTab[34]
+            document.getElementById("intFecha").value = fecha
+            document.getElementById("intFuenteFecha").value = parteTab[34]
+
 
             let pueblos = parteTab[11].split("|")
-            pueblos.forEach(pueblo=>{
-                alert(pueblo)
-                document.getElementById("lstPueblos").value=pueblo
-            }) 
+            const contenedorPueblos = document.getElementById("contenedor-pueblos")
+            contenedorPueblos.innerHTML = ""
+            pueblos.forEach(pueblo => {
+                caso.addPueblo(new Pueblo(0, pueblo, caso))
 
-            console.log(caso)
-            
+
+            })
+
+            let p = 0;
+            caso.clsPueblos.forEach(pueblo => {
+                pueblo.id = p++
+                pueblo.parent = caso
+                pueblo.makerHTMLPueblo()
+            })
+            const contenedorLugares = document.getElementById("contenedor-lugares")
+            contenedorLugares.innerHTML = ""
+            let lugaresNew = parteTab[5].split("|")
+            lugaresNew.forEach(lugar => {
+                const nlugar = lugar
+                const filterDep = lugares.filter(lugares => lugares.key == parteTab[4] + nlugar)
+                const latlgnParse = filterDep[0].latlng.split(",")
+                caso.addLugar(new Lugar(0, filterDep[0].lugar, filterDep[0].latlng, latlgnParse[0], latlgnParse[1]))
+
+            })
+            let l = 0
+            caso.clsLugares.forEach(lugar => {
+                lugar.id = l++
+                lugar.parent = caso
+                lugar.makerHTMLLugar()
+            })
+            const contenedorTipos = document.getElementById("contenedor-tipos")
+            contenedorTipos.innerHTML = ""
+            let tipos = parteTab[0].split("|")
+            tipos.forEach(tipo => {
+                caso.addTipo(new Tipo(0, tipo, caso))
+
+            })
+            let t = 0
+            caso.clsTipos.forEach(tipo => {
+                tipo.id = t++
+                tipo.parent = caso
+                tipo.makerHTMLTipo()
+            })
+            const divActores = document.getElementById("contenedor-actores")
+            divActores.innerHTML = ""
+            let actores = parteTab[22].split("|")
+            actores.forEach(actor => {
+                caso.addActor(new Actores(0, actor, caso))
+            })
+            let a = 0
+            caso.clsActores.forEach(actor => {
+                actor.id = a++
+                actor.parent = caso
+                actor.makerActores()
+            })
+
+            gotoEnd()
+            GuardarDatos()
 
         })
         .catch(err => {

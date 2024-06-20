@@ -362,7 +362,6 @@ const lugares = [
     { 'departamento': 'Cauca', 'lugar': 'Timbío', 'lat': '2.35', 'lng': '-76.68', 'latlng': '2.35,-76.68', 'key': 'CaucaTimbío' },
     { 'departamento': 'Cauca', 'lugar': 'Timbiqui', 'lat': '2.7667', 'lng': '-77.6333', 'latlng': '2.7667,-77.6333', 'key': 'CaucaTimbiqui' },
     { 'departamento': 'Cauca', 'lugar': 'Timbiquí', 'lat': '2.77', 'lng': '-77.66', 'latlng': '2.77,-77.66', 'key': 'CaucaTimbiquí' },
-    { 'departamento': 'Cauca', 'lugar': 'Toribio', 'lat': '2.9581', 'lng': '-76.2714', 'latlng': '2.9581,-76.2714', 'key': 'CaucaToribio' },
     { 'departamento': 'Cauca', 'lugar': 'Toribío', 'lat': '2.95', 'lng': '-76.27', 'latlng': '2.95,-76.27', 'key': 'CaucaToribío' },
     { 'departamento': 'Cauca', 'lugar': 'Totoro', 'lat': '2.5117', 'lng': '-76.4003', 'latlng': '2.5117,-76.4003', 'key': 'CaucaTotoro' },
     { 'departamento': 'Cauca', 'lugar': 'Villa Rica', 'lat': '2.5167', 'lng': '-76.85', 'latlng': '2.5167,-76.85', 'key': 'CaucaVilla Rica' },
