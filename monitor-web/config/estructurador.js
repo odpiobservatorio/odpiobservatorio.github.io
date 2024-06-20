@@ -1342,7 +1342,7 @@ async function ListarCasos() {
 
         //Configuramos las acciones relacionadas con el item
         itemCaso.onclick = () => {
-            activeIndex=caso.id
+            activeIndex = caso.id
             caso.makerHTMLCaso()
         }
 
@@ -1365,7 +1365,7 @@ function filtrarLugares(dep) {
 let activeIndex = 0;
 async function gotoCaso(id) {
     activeIndex = id - 1
-    ActiveDB.clsCasos[id - 1].makerHTMLCaso()
+    ActiveDB.clsCasos[id].makerHTMLCaso()
 }
 async function gotoFirst() {
     activeIndex = 0
@@ -1407,21 +1407,26 @@ function pastetab() {
                 parteTab[4],//Departamento
                 parteTab[3],//Macroregión
                 parteTab[8] + "," + parteTab[9] + parteTab[10],//Detalle lugar
-                fecha,//Fecha
-                fecha.getFullYear(),//Vigencia Año
+                "",//Fecha
+                "",//Vigencia Año
                 macroactor,//Macro actor
                 parteTab[13], parteTab[14], parteTab[15], parteTab[12], //Numero de personas
                 parteTab[33],//fuente
-                parteTab[34], //fecha fuente
+                "", //fecha fuente
                 parteTab[35], //enlace
                 ActiveDB)
             ActiveDB.addCaso(caso)
             //GuardarDatos()
-            ListarCasos()
+            caso.fecha = parteTab[1]
+            caso.vigencia = new Date(caso.fecha).getFullYear()
+            caso.fechafuente = parteTab[34]
+
+
             gotoEnd()
+
             mensajes("Elemento creado", "Green")
-            document.getElementById("intFecha").value = fecha
-            document.getElementById("intFuenteFecha").value = parteTab[34]
+            document.getElementById("intFecha").value = caso.fecha
+            document.getElementById("intFuenteFecha").value = caso.fechafuente
 
 
             let pueblos = parteTab[11].split("|")
@@ -1429,8 +1434,6 @@ function pastetab() {
             contenedorPueblos.innerHTML = ""
             pueblos.forEach(pueblo => {
                 caso.addPueblo(new Pueblo(0, pueblo, caso))
-
-
             })
 
             let p = 0;
@@ -1481,6 +1484,43 @@ function pastetab() {
                 actor.makerActores()
             })
 
+            const contenedorDesplazamiento = document.getElementById("contenedor-desplazamiento")
+            contenedorDesplazamiento.innerHTML = ""
+            if (parteTab[23] !== "No aplica") {
+                caso.addDesplazamiento(new Desplazamientos(0, parteTab[23], parteTab[24], parteTab[25], parteTab[26], parteTab[27], parteTab[28], parteTab[29], caso))
+            }
+
+            let d = 0
+            caso.clsDesplazamiento.forEach(hecho => {
+                hecho.id = d++
+                hecho.parent = caso
+                hecho.makerHTMLDesplazamiento()
+            })
+
+            const contenedorMedidas = document.getElementById("contenedor-medidas")
+            contenedorMedidas.innerHTML = ""
+            caso.addMedidas(new Medidas(0, parteTab[30], parteTab[31], parteTab[32], caso))
+
+            let m = 0
+            caso.clsAccJuridica.forEach(medida => {
+                medida.id = m++
+                medida.parent = caso
+                medida.makerHTMLMedidas()
+            })
+
+            const contenedorPersonas = document.getElementById("contenedor-personas")
+            contenedorPersonas.innerHTML = ""
+            let pers= parteTab[16].split("|")
+            let documentos= parteTab[17].split("|")
+            let generos= parteTab[18].split("|")
+            let edades= parteTab[19].split("|")
+            let per=0
+            pers.forEach(pers=>{
+                caso.addPersona(new Persona(0, pers,documentos[per], generos[per],edades[per],parteTab[20], caso))
+                per++
+            })
+
+            ListarCasos()
             gotoEnd()
             GuardarDatos()
 
