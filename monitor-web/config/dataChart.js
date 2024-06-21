@@ -205,7 +205,6 @@ function crear_grafico(data,tipo) {
                 label: '# of Victimas',
                 data: newVictimas,
                 borderWidth: 1,
-                borderColor: '#DF013A',
                 backgroundColor: newColors,
             }],
 
