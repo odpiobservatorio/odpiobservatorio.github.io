@@ -1,41 +1,81 @@
-let criterios_filter = ""
-            let operador_link = "" //Esta variable guarda el operador de vinculo
-
-            if (filterList.length == 0) {
-                operador_link = ""
-            }
-            //Miramos todos los elementos de filtros creados
-            let i = 0
-            filterList.forEach(elemento => {
-                if (i == filterList.length - 1) {
-                    operador_link = ""
-                }
-                if (i < filterList.length - 1) {
-                    operador_link = "||"
-                }
-                i = i + 1
-                //Unimos los elementos en uan cadena final de filtro
-                criterios_filter = criterios_filter + `value.${elemento.field}${elemento.operador}("${elemento.value}")${operador_link}`
-            })
 
 
-            //Se verifica que clase es y se deriba la construcción del filtro
-            let filtros_ampliados = []
-            if (criterio[0] == "clsCasos") {
-                let filtered = Active_data_monitor.clsCasos.filter(value => eval(criterios_filter));
-                mostrar_resultados(filtered)
+        const td_departamento = document.createElement("td")
+        td_departamento.style.verticalAlign = "middle"
+        td_departamento.textContent = caso.departamento
+        tr.appendChild(td_departamento)
 
-            } else {
-                Active_data_monitor.clsCasos.forEach(caso => {
-                    let filtered = caso[criterio[0]].filter(value => eval(criterios_filter));
-                    //Si el filtro en ese momento no dice nada, entonces no agrego
-                    if (filtered.length != 0) {
-                        filtros_ampliados.push(caso)
-                    }
 
-                })
-                mostrar_resultados(filtros_ampliados)
+        const td_lugar = _crearCelda.data_lugar(caso)
+        tr.appendChild(td_lugar)
 
-            }
-            //Limpiamos el campo abierto
-   
+        const td_pueblo = _crearCelda.data_pueblo(caso)
+        tr.appendChild(td_pueblo)
+
+        const td_macrotipo = document.createElement("td")
+        td_macrotipo.style.verticalAlign = "middle"
+        td_macrotipo.textContent = caso.macrotipo
+        tr.appendChild(td_macrotipo)
+
+        const td_tipos = _crearCelda.data_tipos(caso)
+        tr.appendChild(td_tipos)
+
+        const td_fecha = document.createElement("td")
+        td_fecha.style.verticalAlign = "middle"
+        td_fecha.textContent = caso.fecha
+        tr.appendChild(td_fecha)
+
+        const td_vigencia = document.createElement("td")
+        td_vigencia.style.verticalAlign = "middle"
+        td_vigencia.textContent = caso.vigencia
+        tr.appendChild(td_vigencia)
+
+        const td_macroactor = document.createElement("td")
+        td_macroactor.style.verticalAlign = "middle"
+        td_macroactor.textContent = caso.macroactor
+        tr.appendChild(td_macroactor)
+
+        const td_actores = _crearCelda.data_actores(caso)
+        tr.appendChild(td_actores)
+
+        const td_desplazamiento = _crearCelda.data_desplazamiento(caso)
+        tr.appendChild(td_desplazamiento)
+
+        const td_tpersonas = document.createElement("td")
+        td_tpersonas.style.verticalAlign = "middle"
+        td_tpersonas.textContent = caso.npersonas
+        tr.appendChild(td_tpersonas)
+
+        const td_tmujeres = document.createElement("td")
+        td_tmujeres.style.verticalAlign = "middle"
+        td_tmujeres.style.backgroundColor = "pink"
+        td_tmujeres.textContent = caso.nmujeres
+        tr.appendChild(td_tmujeres)
+
+        const td_thombres = document.createElement("td")
+        td_thombres.style.verticalAlign = "middle"
+        td_thombres.textContent = caso.nhombres
+        tr.appendChild(td_thombres)
+
+        const td_tmenores = document.createElement("td")
+        td_tmenores.style.verticalAlign = "middle"
+        td_tmenores.textContent = caso.nmenores
+        tr.appendChild(td_tmenores)
+
+        const td_acciones = _crearCelda.data_acciones(caso)
+        tr.appendChild(td_acciones)
+
+        const td_fuente = document.createElement("td")
+        td_fuente.style.verticalAlign = "middle"
+        td_fuente.textContent = caso.fuente
+        tr.appendChild(td_fuente)
+
+        const td_fechafuente = document.createElement("td")
+        td_fechafuente.style.verticalAlign = "middle"
+        td_fechafuente.textContent = caso.fechafuente
+        tr.appendChild(td_fechafuente)
+
+        const td_enlace = document.createElement("td")
+        td_enlace.style.verticalAlign = "middle"
+        td_enlace.textContent = caso.enlace
+        tr.appendChild(td_enlace)

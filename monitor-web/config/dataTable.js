@@ -1,23 +1,31 @@
 let filterList = []
 
 let criteria_items = []
+let dataWfilter=[]
+
+
 
 function iniTables() {
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('element-to-print').hidden = true;
+    document.getElementById('panel-graficos').hidden = true;
     document.getElementById('panel-Tablas-inicio').hidden = false;
 
     //Cargamos la base de datos actual
     const proyectos = GLOBAL.state.proyectos;
     ActiveDB = clsObservatorio.loadAsInstance(proyectos[0]);
-    data = ActiveDB
 
-    makerTable(ActiveDB.clsCasos)
-
-    //Inicia la lista con ese criterio
     crear_listas("clsCasos_macroregion")
-    document.getElementById("btnConsulta").value = 1
+
+    if (dataWfilter.length!==0){
+        makerTable(dataWfilter)
+        
+    }else{
+        makerTable(ActiveDB.clsCasos)
+    }
+    
+
 }
 let activeHeadfilter = []
 function makerTable(data) {
@@ -55,7 +63,8 @@ function makerTable(data) {
         ["clsCasos", "fuente", "FUENTE"],
         ["clsCasos", "fechafuente", "FECHA FUENTE"],
         ["clsCasos", "enlace", "ENLACE"],
-        
+        ["clsCasos", "detalle", "DETALLE"],
+
 
 
     ]
@@ -64,6 +73,7 @@ function makerTable(data) {
     thscope.scope = "col"
     trHead.appendChild(thscope)
 
+    //Toma cada elemento de visibles y crea un encabezado
     visibles.forEach(campo => {
         const th = document.createElement("th")
         th.className = "bg-secondary text-white"
@@ -101,6 +111,7 @@ function makerTable(data) {
 
             if (campo[0] == "clsCasos") {
                 let filtered = data.filter(value => eval(criterios));
+                dataWfilter=filtered
                 makerTable(filtered)
 
             } else {
@@ -113,6 +124,7 @@ function makerTable(data) {
                         }
                     }
                 })
+                dataWfilter=datafiltered
                 makerTable(datafiltered)
             }
             activeHeadfilter = []
@@ -129,6 +141,7 @@ function makerTable(data) {
              `
         ul.appendChild(lifilternull)
         lifilternull.onclick = () => {
+            dataWfilter=ActiveDB.clsCasos
             makerTable(ActiveDB.clsCasos)
             activeHeadfilter = []
         }
@@ -200,11 +213,6 @@ function makerTable(data) {
 
         })
 
-
-
-
-
-
         th.appendChild(div)
         //console.log(campo[0])
     })
@@ -221,6 +229,8 @@ function makerTable(data) {
     data.forEach(caso => {
         const tr = document.createElement("tr")
 
+        //=========================================================
+        //             Se crea el boton de fila para acceder al registro en formulario
         const td_scope = document.createElement("td")
         td_scope.style.verticalAlign = "middle"
         td_scope.className = "bg-secondary text-center text-white"
@@ -236,94 +246,112 @@ function makerTable(data) {
             loadProyecto()
             gotoCaso(caso.id)
         }
-
-
         tr.appendChild(td_scope)
-
-        const td_macroregion = document.createElement("td")
-        td_macroregion.style.verticalAlign = "middle"
-        td_macroregion.textContent = caso.macroregion
-        tr.appendChild(td_macroregion)
-
-        const td_departamento = document.createElement("td")
-        td_departamento.style.verticalAlign = "middle"
-        td_departamento.textContent = caso.departamento
-        tr.appendChild(td_departamento)
+        //=========================================================
 
 
-        const td_lugar = _crearCelda.data_lugar(caso)
-        tr.appendChild(td_lugar)
 
-        const td_pueblo = _crearCelda.data_pueblo(caso)
-        tr.appendChild(td_pueblo)
+        visibles.forEach(campo => {
+            if (campo[0] == "clsCasos") {
+                try {
+                    let longitud = caso[campo[1]].length
 
-        const td_macrotipo = document.createElement("td")
-        td_macrotipo.style.verticalAlign = "middle"
-        td_macrotipo.textContent = caso.macrotipo
-        tr.appendChild(td_macrotipo)
+                    if (longitud > 15) {
 
-        const td_tipos = _crearCelda.data_tipos(caso)
-        tr.appendChild(td_tipos)
+                        const acordeon = document.createElement("div")
+                        acordeon.className = ""
 
-        const td_fecha = document.createElement("td")
-        td_fecha.style.verticalAlign = "middle"
-        td_fecha.textContent = caso.fecha
-        tr.appendChild(td_fecha)
+                        const acordeonitem = document.createElement("div")
+                        acordeonitem.className = "accordion-item"
+                        acordeon.appendChild(acordeonitem)
 
-        const td_vigencia = document.createElement("td")
-        td_vigencia.style.verticalAlign = "middle"
-        td_vigencia.textContent = caso.vigencia
-        tr.appendChild(td_vigencia)
+                        const accordionheader = document.createElement("h3")
+                        accordionheader.className = "accordion-header"
+                        acordeon.appendChild(accordionheader)
 
-        const td_macroactor = document.createElement("td")
-        td_macroactor.style.verticalAlign = "middle"
-        td_macroactor.textContent = caso.macroactor
-        tr.appendChild(td_macroactor)
+                        const accordionbutton = document.createElement("div")
+                        accordionbutton.innerHTML =
+                            `
+                        <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button"
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapse${caso.id}" 
+                                        aria-expanded="true" 
+                                        >
+                            ${campo[2]} ...
+                        </button>
+                        `
+                        acordeon.appendChild(accordionbutton)
+                        const collapse = document.createElement("div")
+                        collapse.className = "accordion-collapse collapse"
+                        collapse.id = "collapse" + caso.id
+                        collapse.textContent = caso[campo[1]]
 
-        const td_actores = _crearCelda.data_actores(caso)
-        tr.appendChild(td_actores)
+                        acordeon.appendChild(collapse)
+                        const td = document.createElement("td")
+                        td.appendChild(acordeon)
+                        tr.appendChild(td)
 
-        const td_desplazamiento = _crearCelda.data_desplazamiento(caso)
-        tr.appendChild(td_desplazamiento)
+                    } else {
+                        const td = document.createElement("td")
+                        td.className = "td-wrap"
+                        td.style.verticalAlign = "middle"
+                        td.textContent = caso[campo[1]]
+                        tr.appendChild(td)
+                    }
+                } catch (error) {
 
-        const td_tpersonas = document.createElement("td")
-        td_tpersonas.style.verticalAlign = "middle"
-        td_tpersonas.textContent = caso.npersonas
-        tr.appendChild(td_tpersonas)
+                }
 
-        const td_tmujeres = document.createElement("td")
-        td_tmujeres.style.verticalAlign = "middle"
-        td_tmujeres.style.backgroundColor = "pink"
-        td_tmujeres.textContent = caso.nmujeres
-        tr.appendChild(td_tmujeres)
 
-        const td_thombres = document.createElement("td")
-        td_thombres.style.verticalAlign = "middle"
-        td_thombres.textContent = caso.nhombres
-        tr.appendChild(td_thombres)
+            } else {
 
-        const td_tmenores = document.createElement("td")
-        td_tmenores.style.verticalAlign = "middle"
-        td_tmenores.textContent = caso.nmenores
-        tr.appendChild(td_tmenores)
+                const acordeon = document.createElement("div")
+                acordeon.className = ""
 
-        const td_acciones = _crearCelda.data_acciones(caso)
-        tr.appendChild(td_acciones)
+                const acordeonitem = document.createElement("div")
+                acordeonitem.className = "accordion-item"
+                acordeon.appendChild(acordeonitem)
 
-        const td_fuente = document.createElement("td")
-        td_fuente.style.verticalAlign = "middle"
-        td_fuente.textContent = caso.fuente
-        tr.appendChild(td_fuente)
+                const accordionheader = document.createElement("h3")
+                accordionheader.className = "accordion-header"
+                acordeon.appendChild(accordionheader)
 
-        const td_fechafuente = document.createElement("td")
-        td_fechafuente.style.verticalAlign = "middle"
-        td_fechafuente.textContent = caso.fechafuente
-        tr.appendChild(td_fechafuente)
+                const accordionbutton = document.createElement("div")
+                accordionbutton.innerHTML =
+                    `
+                    <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button"
+                                    data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse${caso.id}${campo[1]}" 
+                                    aria-expanded="true" 
+                                    >
+                        ${campo[2]} (${caso[campo[0]].length})
+                    </button>
+                    `
+                acordeon.appendChild(accordionbutton)
 
-        const td_enlace = document.createElement("td")
-        td_enlace.style.verticalAlign = "middle"
-        td_enlace.textContent = caso.enlace
-        tr.appendChild(td_enlace)
+                const collapse = document.createElement("div")
+                collapse.className = "accordion-collapse collapse"
+                collapse.id = "collapse" + caso.id + campo[1]
+                acordeon.appendChild(collapse)
+
+                caso[campo[0]].forEach(lugar => {
+                    const itemlugar = document.createElement("div")
+                    itemlugar.textContent = lugar[campo[1]]
+                    itemlugar.className = "m-2"
+                    collapse.appendChild(itemlugar)
+
+                })
+                const td = document.createElement("td")
+                td.className = "td-wrap"
+                if (caso[campo[0]].length != 0) {
+                    td.appendChild(acordeon)
+                }
+
+                tr.appendChild(td)
+
+            }
+
+        })
 
         tbody.appendChild(tr)
 
@@ -337,279 +365,9 @@ function makerTable(data) {
 
 
 
-const _crearCelda = {
-    data_lugar(parent) {
 
-        const acordeon = document.createElement("div")
-        acordeon.className = ""
 
-        const acordeonitem = document.createElement("div")
-        acordeonitem.className = "accordion-item"
-        acordeon.appendChild(acordeonitem)
-
-        const accordionheader = document.createElement("h3")
-        accordionheader.className = "accordion-header"
-        acordeon.appendChild(accordionheader)
-
-        const accordionbutton = document.createElement("div")
-        accordionbutton.innerHTML =
-            `
-                    <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button"
-                                    data-bs-toggle="collapse" 
-                                    data-bs-target="#collapse${parent.id}" 
-                                    aria-expanded="true" 
-                                    >
-                        Lugares (${parent.clsLugares.length})
-                    </button>
-        `
-        acordeon.appendChild(accordionbutton)
-
-        const collapse = document.createElement("div")
-        collapse.className = "accordion-collapse collapse"
-        collapse.id = "collapse" + parent.id
-        acordeon.appendChild(collapse)
-
-        parent.clsLugares.forEach(lugar => {
-            const itemlugar = document.createElement("div")
-            itemlugar.textContent = lugar.municipio
-            itemlugar.className = "m-2"
-            collapse.appendChild(itemlugar)
-
-        })
-        const td = document.createElement("td")
-        if (parent.clsLugares.length != 0) {
-            td.appendChild(acordeon)
-        }
-        return td
-    },
-    data_pueblo(parent) {
-
-        const acordeon = document.createElement("div")
-        acordeon.className = ""
-
-        const acordeonitem = document.createElement("div")
-        acordeonitem.className = "accordion-item"
-        acordeon.appendChild(acordeonitem)
-
-        const accordionheader = document.createElement("h3")
-        accordionheader.className = "accordion-header"
-        acordeon.appendChild(accordionheader)
-
-        const accordionbutton = document.createElement("div")
-        accordionbutton.innerHTML =
-            `
-                    <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button" 
-                                    data-bs-toggle="collapse" 
-                                    data-bs-target="#collapsepueblo${parent.id}" 
-                                    aria-expanded="true" 
-                                    >
-                        Pueblos (${parent.clsPueblos.length})
-                    </button>
-        `
-        acordeon.appendChild(accordionbutton)
-
-        const collapse = document.createElement("div")
-        collapse.className = "accordion-collapse collapse"
-        collapse.id = "collapsepueblo" + parent.id
-        acordeon.appendChild(collapse)
-
-        parent.clsPueblos.forEach(pueblo => {
-            const itempueblo = document.createElement("div")
-            itempueblo.textContent = pueblo.nombre
-            itempueblo.className = "m-2"
-            collapse.appendChild(itempueblo)
-
-        })
-        const td = document.createElement("td")
-        if (parent.clsPueblos.length != 0) {
-            td.appendChild(acordeon)
-        }
-        return td
-
-    },
-    data_tipos(parent) {
-
-        const acordeon = document.createElement("div")
-        acordeon.className = ""
-
-        const acordeonitem = document.createElement("div")
-        acordeonitem.className = "accordion-item"
-        acordeon.appendChild(acordeonitem)
-
-        const accordionheader = document.createElement("h3")
-        accordionheader.className = "accordion-header"
-        acordeon.appendChild(accordionheader)
-
-        const accordionbutton = document.createElement("div")
-        accordionbutton.innerHTML =
-            `
-                    <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button"
-                                    data-bs-toggle="collapse" 
-                                    data-bs-target="#collapsetipo${parent.id}" 
-                                    aria-expanded="true" 
-                                    >
-                        Tipos (${parent.clsTipos.length})
-                    </button>
-        `
-        acordeon.appendChild(accordionbutton)
-
-        const collapse = document.createElement("div")
-        collapse.className = "accordion-collapse collapse"
-        collapse.id = "collapsetipo" + parent.id
-        acordeon.appendChild(collapse)
-
-        parent.clsTipos.forEach(tipo => {
-            const item = document.createElement("div")
-            item.textContent = tipo.nombre
-            item.className = "m-2"
-            collapse.appendChild(item)
-
-        })
-        const td = document.createElement("td")
-        if (parent.clsTipos.length != 0) {
-            td.appendChild(acordeon)
-        }
-        return td
-
-    },
-    data_actores(parent) {
-
-        const acordeon = document.createElement("div")
-        acordeon.className = ""
-
-        const acordeonitem = document.createElement("div")
-        acordeonitem.className = "accordion-item"
-        acordeon.appendChild(acordeonitem)
-
-        const accordionheader = document.createElement("h3")
-        accordionheader.className = "accordion-header"
-        acordeon.appendChild(accordionheader)
-
-        const accordionbutton = document.createElement("div")
-        accordionbutton.innerHTML =
-            `
-                    <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button"
-                                    data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseactor${parent.id}" 
-                                    aria-expanded="true" 
-                                    >
-                        Actores (${parent.clsActores.length})
-                    </button>
-        `
-        acordeon.appendChild(accordionbutton)
-
-        const collapse = document.createElement("div")
-        collapse.className = "accordion-collapse collapse"
-        collapse.id = "collapseactor" + parent.id
-        acordeon.appendChild(collapse)
-
-        parent.clsActores.forEach(actor => {
-            const item = document.createElement("div")
-            item.textContent = actor.nombre
-            item.className = "m-2"
-            collapse.appendChild(item)
-
-        })
-        const td = document.createElement("td")
-        if (parent.clsActores.length != 0) {
-            td.appendChild(acordeon)
-        }
-        return td
-
-    },
-    data_desplazamiento(parent) {
-
-        const acordeon = document.createElement("div")
-        acordeon.className = ""
-
-        const acordeonitem = document.createElement("div")
-        acordeonitem.className = "accordion-item"
-        acordeon.appendChild(acordeonitem)
-
-        const accordionheader = document.createElement("h3")
-        accordionheader.className = "accordion-header"
-        acordeon.appendChild(accordionheader)
-
-        const accordionbutton = document.createElement("div")
-        accordionbutton.innerHTML =
-            `
-                    <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button"
-                                    data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseactor${parent.id}" 
-                                    aria-expanded="true" 
-                                    >
-                        Hechos (${parent.clsDesplazamiento.length})
-                    </button>
-        `
-        acordeon.appendChild(accordionbutton)
-
-        const collapse = document.createElement("div")
-        collapse.className = "accordion-collapse collapse"
-        collapse.id = "collapseactor" + parent.id
-        acordeon.appendChild(collapse)
-
-        parent.clsDesplazamiento.forEach(hecho => {
-            const item = document.createElement("div")
-            item.textContent = hecho.tipo
-            item.className = "m-2"
-            collapse.appendChild(item)
-
-        })
-        const td = document.createElement("td")
-        if (parent.clsDesplazamiento.length != 0) {
-            td.appendChild(acordeon)
-        }
-        return td
-
-    },
-    data_acciones(parent) {
-
-        const acordeon = document.createElement("div")
-        acordeon.className = ""
-
-        const acordeonitem = document.createElement("div")
-        acordeonitem.className = "accordion-item"
-        acordeon.appendChild(acordeonitem)
-
-        const accordionheader = document.createElement("h3")
-        accordionheader.className = "accordion-header"
-        acordeon.appendChild(accordionheader)
-
-        const accordionbutton = document.createElement("div")
-        accordionbutton.innerHTML =
-            `
-                    <button class="accordion-button ps-2 border-1 rounded bg-warning-subtle" type="button"
-                                    data-bs-toggle="collapse" 
-                                    data-bs-target="#collapseaccion${parent.id}" 
-                                    aria-expanded="true" 
-                                    >
-                        Acciones (${parent.clsAccJuridica.length})
-                    </button>
-        `
-        acordeon.appendChild(accordionbutton)
-
-        const collapse = document.createElement("div")
-        collapse.className = "accordion-collapse collapse"
-        collapse.id = "collapseaccion" + parent.id
-        acordeon.appendChild(collapse)
-
-        parent.clsAccJuridica.forEach(accion => {
-            const item = document.createElement("div")
-            item.textContent = accion.accion
-            item.className = "m-2"
-            collapse.appendChild(item)
-
-        })
-        const td = document.createElement("td")
-        if (parent.clsAccJuridica.length != 0) {
-            td.appendChild(acordeon)
-        }
-        return td
-
-    }
-
-}
-
+//Aquí todo para las listas y búsquedas
 function crear_listas(opcion) {
     filterList = []
     makerList["newOpen_list"](opcion)
@@ -664,12 +422,18 @@ const makerList = {
 
         //Con base a essa lista creamos una lista de selección on check
         newDataOrdenado.forEach(item => {
+            let realvalue;
+            if (typeof item === "number") {
+                realvalue = parseInt(item)
+            } else {
+                realvalue = (item)
+            }
             const elemento = document.createElement("div")
             elemento.className = "ms-3 me-3"
             elemento.style.fontWeight = "normal"
             elemento.innerHTML =
                 `
-            <input class="fst-normal form-check-input" type="checkbox" value="${item}" id="check${item}${criterio[1]}">
+            <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
              ${item}
         `
             //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
@@ -680,16 +444,11 @@ const makerList = {
             //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
             checkers.onchange = () => {
                 //Validamos si la clase es mayor o menor
-                let tipo;
-                if (criterio[0] == "clsCasos") {
-                    tipo = "a"
-                } else {
-                    tipo = "b"
-                }
+
 
                 if (checkers.checked == true) {
+
                     const criterios = {
-                        "tipo": tipo,
                         "clase": criterio[0],
                         "field": criterio[1],
                         "operador": document.getElementById("lstOperadores").value,
@@ -700,30 +459,26 @@ const makerList = {
                     const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
                     filterList = eliminados
                 }
+
+                let tituloboton = ""
+                filterList.forEach(palabra => {
+                    tituloboton = tituloboton + "[" + palabra.value + "]"
+
+                })
+                const btnCriterios = document.getElementById("btnCriterios")
+                btnCriterios.textContent = tituloboton
             }
         })
 
         document.getElementById("intOpentCriterio").oninput = () => {
-            let valor_buscar = ""
-            filterList = []
-            valor_buscar = document.getElementById("intOpentCriterio").value
-            criterios_filter = `value.${criterio[1]}${document.getElementById("lstOperadores").value}("${valor_buscar}")`
-
-            let tipo;
-            if (criterio[0] == "clsCasos") {
-                tipo = "a"
-            } else {
-                tipo = "b"
-            }
             const criterios = {
-                "tipo": tipo,
                 "clase": criterio[0],
                 "field": criterio[1],
                 "operador": document.getElementById("lstOperadores").value,
                 "value": document.getElementById("intOpentCriterio").value
             }
+            filterList = []
             filterList.push(criterios)
-
         }
 
 
@@ -731,46 +486,9 @@ const makerList = {
         const filtrador = document.getElementById("btnConsulta")
         //Debemos construir las cadenas de filtro según las listas en filterlist
         filtrador.onclick = () => {
-            let criterios_filter = ""
-            let operador_link = "" //Esta variable guarda el operador de vinculo
-
-            if (filterList.length == 0) {
-                operador_link = ""
-            }
-            //Miramos todos los elementos de filtros creados
-            let i = 0
-            filterList.forEach(elemento => {
-                if (i == filterList.length - 1) {
-                    operador_link = ""
-                }
-                if (i < filterList.length - 1) {
-                    operador_link = "||"
-                }
-                i = i + 1
-                //Unimos los elementos en uan cadena final de filtro
-                criterios_filter = criterios_filter + `value.${elemento.field}${elemento.operador}("${elemento.value}")${operador_link}`
-            })
-
-
-            //Se verifica que clase es y se deriba la construcción del filtro
-            let filtros_ampliados = []
-            if (criterio[0] == "clsCasos") {
-                let filtered = ActiveDB.clsCasos.filter(value => eval(criterios_filter));
-                makerTable(filtered)
-
-            } else {
-                ActiveDB.clsCasos.forEach(caso => {
-                    let filtered = caso[criterio[0]].filter(value => eval(criterios_filter));
-                    //Si el filtro en ese momento no dice nada, entonces no agrego
-                    if (filtered.length != 0) {
-                        filtros_ampliados.push(caso)
-                    }
-
-                })
-                makerTable(filtros_ampliados)
-
-            }
-            //Limpiamos el campo abierto
+            add_criterio_extendido()
+            filter_extend()
+            LimpiarConsulta()
             document.getElementById("intOpentCriterio").value = ""
         }
 
@@ -784,10 +502,11 @@ function add_criterio_extendido() {
     }
     //Miramos todos los elementos de filtros creados
     let i = 0
+    let line = []
     filterList.forEach(texto => {
         const item = document.createElement("li")
         item.className = "list-group-item"
-        item.textContent = texto.field + "" + texto.operador + "" + texto.value
+        item.textContent = texto.clase + " " + texto.operador + " " + texto.value
         contenedorlistas.appendChild(item)
         if (i == filterList.length - 1) {
             operador_link = ""
@@ -799,71 +518,97 @@ function add_criterio_extendido() {
 
         const newItemCriterio =
         {
-            "tipo": texto.tipo,
             "clase": texto.clase,
             "field": texto.field,
             "operador": texto.operador,
             "value": texto.value,
             "link": operador_link
         }
-        criteria_items.push(newItemCriterio)
+
+
+        line.push(newItemCriterio)
+
     })
+
+    let cadena = ""
+    try {
+        if (filterList[0].clase !== "clsCasos") {
+            const registros = ActiveDB.clsCasos[0]
+            line.forEach(item => {
+                if (typeof registros[item.clase][0][item.field] === "number") {
+                    cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}(${item.value}) ${item.link})`
+                    //alert(typeof registros[item.clase][0].edad)
+                } else {
+                    cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}("${item.value}") ${item.link})`
+                }
+            })
+            criteria_items.push([filterList[0].clase, cadena])
+        } else {
+            const registros = ActiveDB.clsCasos[0]
+            line.forEach(item => {
+                if (typeof registros[item.field] === "number") {
+                    cadena = cadena + `registro["${item.field}"]${item.operador}(${item.value}) ${item.link}`
+                } else {
+                    cadena = cadena + `registro["${item.field}"]${item.operador}("${item.value}") ${item.link}`
+                }
+            })
+            criteria_items.push([filterList[0].clase, cadena])
+        }
+        document.getElementById("intOpentCriterio").value = ""
+        fromOpenText = ""
+    } catch (error) {
+
+    }
+
+
 }
+
+function quitar_filtro(){
+    makerTable(ActiveDB.clsCasos)
+    dataWfilter=[]
+}
+
 function LimpiarConsulta() {
     criteria_items = []
     const contenedorlistas = document.getElementById("listconsultaextendida")
     contenedorlistas.innerHTML = ""
+    const btnCriterios = document.getElementById("btnCriterios")
+    btnCriterios.textContent = "Criterios"
+    document.getElementById("intOpentCriterio").value = ""
+    fromOpenText = ""
 }
+
+
 function filter_extend() {
-    let config_filer = ""
+    const registros = ActiveDB.clsCasos
+    /* CODIGO DE PARTIDA DE INICIO */
 
-    function sortJSON(data, key, orden) {
-        return data.sort(function (a, b) {
-            var x = a[key],
-                y = b[key];
+    let datafilter = []
+    const filtrados = registros.filter((registro) => {
+        let condiciones = []
 
-            if (orden === 'asc') {
-                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-            }
+        criteria_items.forEach(criterio => {
+            //console.log(eval(criterio[1]))
+            condiciones.push(eval(criterio[1]))
+        })
 
-            if (orden === 'desc') {
-                return ((x > y) ? -1 : ((x < y) ? 1 : 0));
-            }
-        });
-    }
-    var oJSON = sortJSON(criteria_items, 'tipo', 'asc');
+        let score = 0
+        condiciones.forEach(valor => {
+            score = score + valor
+        })
 
-
-    let criterio_Join = ""
-    oJSON.forEach(filtro => {
-        if (filtro.tipo == "a") {
-            criterio_Join = criterio_Join + `value.${filtro.field}${filtro.operador}("${filtro.value}")${filtro.link}`
-        } else if (filtro.tipo == "c") {
-
+        if (score == condiciones.length) {
+            datafilter.push(registro)
         }
-    })
-    let dataParentFilter = ActiveDB.clsCasos.filter(value => eval(criterio_Join))
+        score = []
+    });
 
-    criterio_Join = ""
-    let clase = ""
-    let datachieldFilter = []
-    oJSON.forEach(filtro => {
-        if (filtro.tipo == "b") {
-            criterio_Join = criterio_Join + `value.${filtro.field}${filtro.operador}("${filtro.value}")${filtro.link}`
-            clase = filtro.clase
-        }
 
-    })
-    //let datachieldFilter= dataParentFilter.clsCasos[clase].filter(value=>eval(criterio_Join))
-    dataParentFilter.forEach(caso => {
-        const filtered = caso[clase].filter(value => eval(criterio_Join))
-        if (filtered.length != 0) {
-            datachieldFilter.push(caso)
-        }
-    })
-
-    console.log(datachieldFilter)
-    makerTable(datachieldFilter)
-
+    makerTable(datafilter)
+    dataWfilter=datafilter
+    //mostrar_resultados(datafilter)
 
 }
+
+
+

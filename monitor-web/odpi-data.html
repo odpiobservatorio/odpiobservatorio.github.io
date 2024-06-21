@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODPI-Data observatorio</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--Administra las librerias de exportar a PDF-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
@@ -31,6 +32,7 @@
     <script src="./config/estructurador.js"></script>
     <script src="./config/lists.js"></script>
     <script src="./config/dataTable.js"></script>
+    <script src="./config/dataChart.js"></script>
 
     <!--Cargamos nuestra hoja de estilos personalziados-->
     <link rel="stylesheet" href="./styles.css">
@@ -50,7 +52,6 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="#"></a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -121,7 +122,15 @@
                                 </li>
                             </ul>
                         </li>
-                        <li onclick="SignOut()" id="btntablas">
+                        <li onclick="verGraficos()" id="btngraficos" hidden="true">
+                            <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-3 fw-bold bi-bar-chart text-white"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Gráficos</span> </a>
+                            <ul class="collapse hide nav flex-column ms-2" id="mn-graficos" data-bs-parent="#menu"
+                                hidden="true">
+                            </ul>
+                        </li>
+                        <li onclick="SignOut()" id="">
                             <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi-box-arrow-left text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Salir</span> </a>
@@ -181,8 +190,8 @@
                             <label for="intDetalle" class="label-org-warning-light">Detalle del
                                 caso</label>
 
-                            <textarea class="form-control mb-2" id="intDetalle" rows="5"
-                                placeholder="Detalle" contenteditable="true" spellcheck="true"></textarea>
+                            <textarea class="form-control mb-2" id="intDetalle" rows="5" placeholder="Detalle"
+                                contenteditable="true" spellcheck="true"></textarea>
 
                             <!--Entrada de otros tipos-->
                             <label for="intDetalle" class="label-org-warning-light">Sub-tipos</label>
@@ -378,61 +387,121 @@
                 </div>
 
             </div>
+            <div id="panel-graficos" class="text-dark" hidden="true">
+                <div>
+                    <div class="row align-items-center mt-3">
+                        <div class="col-auto">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button id="btnOpenConsulta2" type="button" class="btn btn-secondary"
+                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasConsulta">
+                                    <i class="bi bi-binoculars"></i>
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="ver_todo()">TODO</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row row align-items-center mt-3">
+                        <div class="col" id="">
+                            <small>Buscar por:</small>
+                            <select id="lstbuscarpor" class="ms-2 form-select mt-2 mb-2"
+                                onchange="crear_listas(this.value)" style="width: 200px;">
+                                <option value="clsCasos_vigencia">Sin filtro</option>
+                                <option value="clsCasos_vigencia">Año</option>
+                                <option value="clsCasos_macroregion">Macro region</option>
+                                <option value="clsCasos_departamento">Departamento</option>
+                                <option value="clsCasos_macrotipo">Macro tipo</option>
+                                <option value="clsTipos_nombre">Tipos</option>
+                                <option value="clsCasos_macroactor">Macro actores</option>
+                                <option value="clsActores_nombre">Actores</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row ms-2">
+                        <div class="col-4 border border-1 rounded" id="div-consolidados">
+                            <table class="table ms-2">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Campo
+                                                </button>
+                                                <ul class="dropdown-menu shadow">
+                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(0,0)">A-Z</a></li>
+                                                    <li><a class="dropdown-item" href="#"onclick="sort_consolidado(0,1)">Z-A</a></li>
+                                                </ul>
+                                            </div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Casos
+                                                </button>
+                                                <ul class="dropdown-menu shadow">
+                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(1,0)">A-Z</a></li>
+                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(1,1)">Z-A</a></li>
+                                                </ul>
+                                            </div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Víctimas
+                                                </button>
+                                                <ul class="dropdown-menu shadow">
+                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(2,0)">A-Z</a></li>
+                                                    <li><a class="dropdown-item" href="#"onclick="sort_consolidado(2,1)">Z-A</a></li>
+                                                </ul>
+                                            </div>
+                                            
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbodyconsolidados">
+
+                                </tbody>
+                                <tr class="fw-bold">
+                                    <td>Totales</td>
+                                    <td id="nCasos" class="text-end"></td>
+                                    <td id="nVictimas" class="text-end"></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <small>Tipo de gráfico</small>
+                                    <select class="ms-2 form-select mt-2 mb-2"
+                                        onchange="tipo_grafico(this.value)">
+                                        <option value="bar">Barras</option>
+                                        <option value="line">Líneas</option>
+                                        <option value="doughnut">Anillo</option>
+                                        <option value="pie">Torta</option>
+
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="divChart">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
             <div>
                 <div id="panel-Tablas-inicio" hidden="true" style="width: 3000px;">
                     <div class="">
                         <div class="row align-items-center mt-3">
                             <div class="col-auto">
-                                <select id="lstCampos" class="form-select mt-2 mb-2"
-                                    onchange="crear_listas(this.value)">
-                                    <option value="clsCasos_macroregion">Macroregion</option>
-                                    <option value="clsCasos_departamento">Departamento</option>
-                                    <option value="clsLugares_municipio">Lugar</option>
-                                    <option value="clsPueblos_nombre">Pueblo, Etnia</option>
-                                    <option value="clsCasos_macrotipo">Macrotipo</option>
-                                    <option value="clsTipos_nombre">Subtipo</option>
-                                    <option value="clsCasos_fecha">Fecha</option>
-                                    <option value="clsCasos_vigencia">Año</option>
-                                    <option value="clsPersonas_genero">Género</option>
-                                    <option value="clsCasos_detalle">Detalle</option>
-                                    <option value="clsCasos_macroactor">Macro actor</option>
-                                    <option value="clsActores_nombre">Otros actores</option>
-                                    <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
-                                    <option value="clsCasos_npersonas">Numero Personas</option>
-                                    <option value="clsCasos_nmujeres">Numero Mujeres</option>
-                                    <option value="clsCasos_nhombres">Numero Hombres</option>
-                                    <option value="clsCasos_nmenores">Numero Menores</option>
-                                    <option value="clsPersonas_edad">Edad</option>
-                                </select>
-                            </div>
-                            <div class="col-auto">
-                                <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
-                                    <option value="==">Igual a</option>
-                                    <option value="!=">Diferente a</option>
-                                    <option value=".includes">Similar a</option>
-                                    <option value=">">Mayor a</option>
-                                    <option value=&lt>Menor a</option>
-                                </select>
-                            </div>
-                            <div class="col-auto">
-                                <div class="dropdown w-100 mt-2 mb-2">
-                                    <button class="btn dropdown-toggle border border-2" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
-                                        Criterios
-                                    </button>
-                                    <ul class="dropdown-menu menu-group-scroll" style="width: 100%;"
-                                        id="contenedor_criterios">
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <input type="text" class="form-control" id="intOpentCriterio">
-                            </div>
-                            <div class="col-auto">
-                                <button id="btnConsulta" type="button" class="btn btn-secondary"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
-                                    data-bs-title="Buscar" onclick="testfilter()">
+                                <button id="btnOpenConsulta" type="button" class="btn btn-secondary"
+                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasConsulta">
                                     <i class="bi bi-binoculars"></i>
                                 </button>
                             </div>
@@ -440,18 +509,22 @@
                     </div>
 
 
-
                     <div id="panel-Tablas" style="width: 3000px;">
+
 
 
                     </div>
 
+
+
                 </div>
             </div>
             <div id="element-to-print" hidden="true">
+
                 Pagina tipo texto del registro
             </div>
         </div>
+
     </div>
 </body>
 <!-- Contenedor de formulario registrarse -->
@@ -521,6 +594,106 @@
             </div>
 
         </div>
+    </div>
+</div>
+<div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasConsulta" data-bs-scroll="true"
+    data-bs-backdrop="false">
+    <div class="offcanvas-header" style="background-color: #DC143C;">
+        <h5 class="offcanvas-title text-white" id="offcanvasConsultaLabel">Panel de consultas</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="row row align-items-center">
+            <!--Botones de configuración de búsqueda-->
+            <div class="input-group">
+                <div class="dropdown">
+                    <div class="btn-group mb-2" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary" onclick="quitar_filtro()">
+                            <i class="bi bi-x-circle"></i>
+                        </button>
+                        <button id="btnConsulta" type="button" class="btn btn-secondary">
+                            <i class="bi bi-binoculars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Lista de campos globales de búsqueda-->
+        <small>Lista de campos</small>
+        <select id="lstCampos" class="form-select mt-2 mb-2" onchange="crear_listas(this.value)">
+            <option value="clsCasos_macroregion">Macroregion</option>
+            <option value="clsCasos_departamento">Departamento</option>
+            <option value="clsLugares_municipio">Lugar</option>
+            <option value="clsPueblos_nombre">Pueblo, Etnia</option>
+            <option value="clsCasos_macrotipo">Macrotipo</option>
+            <option value="clsTipos_nombre">Subtipo</option>
+            <option value="clsCasos_fecha">Fecha</option>
+            <option value="clsCasos_vigencia">Año</option>
+            <option value="clsPersonas_genero">Género</option>
+            <option value="clsCasos_detalle">Detalle</option>
+            <option value="clsCasos_macroactor">Macro actor</option>
+            <option value="clsActores_nombre">Otros actores</option>
+            <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
+            <option value="clsCasos_npersonas">Numero Personas</option>
+            <option value="clsCasos_nmujeres">Numero Mujeres</option>
+            <option value="clsCasos_nhombres">Numero Hombres</option>
+            <option value="clsCasos_nmenores">Numero Menores</option>
+            <option value="clsPersonas_edad">Edad</option>
+        </select>
+        <!--Lista de operadores-->
+        <small>Lista de operadores</small>
+        <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
+            <option value="===">Igual a</option>
+            <option value="!==">Diferente a</option>
+            <option value=".includes">Similar a</option>
+            <option value=">">Mayor a</option>
+            <option value=">=">Mayor e igual a</option>
+            <option value=&lt>Menor a</option>
+            <option value="&lt=">Menor e igual a</option>
+        </select>
+        <!--Lista de criterios de búsqueda-->
+        <small>Lista de criterios</small>
+        <div class="dropdown w-100 mt-2 mb-2">
+            <button class="btn dropdown-toggle border border-2" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" style="width: 100%;" id="btnCriterios">
+                Criterios
+            </button>
+            <ul class="dropdown-menu menu-group-scroll border border-1 border-success shadow" style="width: 100%;"
+                id="contenedor_criterios">
+
+            </ul>
+        </div>
+
+        <!--Entrada de criterio abierto-->
+        <small>Criterio abierto</small>
+        <input type="text" class="form-control" id="intOpentCriterio">
+        <hr>
+        <div class="dropdown">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary fw-bold" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasConsola">
+                    {*}
+                </button>
+                <button type="button" class="btn btn-secondary fw-bold" onclick="add_criterio_extendido()"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Agregar criterio" id="btnAddCriterio">
+                    <i class="bi bi-file-earmark-plus"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" id="btnfilter_extend"
+                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Buscar"
+                    onclick="filter_extend()">
+                    <i class="bi bi-binoculars"></i>
+                </button>
+
+                <button type="button" class="btn btn-secondary" onclick="LimpiarConsulta()" data-bs-toggle="tooltip"
+                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Limpiar consulta">
+                    <i class="bi bi-eraser-fill"></i>
+                </button>
+            </div>
+        </div>
+        <ul class="list-group" id="listconsultaextendida">
+
+        </ul>
     </div>
 </div>
 

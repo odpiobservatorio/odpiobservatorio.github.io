@@ -12,6 +12,7 @@ let aUsers = []
 let activeEmail;
 let Registrado=0
 
+
 function IniCredential() {
     //Lee la información del form,ulario de ingreso en index.html
     const email = document.getElementById("inEmail").value
@@ -83,13 +84,19 @@ function verTexto(){
     document.getElementById('panel-escritorio').hidden= true;
     document.getElementById('panel-escritorio').hidden= true;
     document.getElementById('panel-Tablas-inicio').hidden=true;
+    document.getElementById('panel-graficos').hidden=true;
     document.getElementById('element-to-print').hidden=false;
-
+}
+function verGraficos(){
+    document.getElementById('panel-escritorio').hidden= true;
+    document.getElementById('panel-escritorio').hidden= true;
+    document.getElementById('panel-Tablas-inicio').hidden=true;
+    document.getElementById('panel-graficos').hidden=false;
+    ini_chat()
 }
 function openIni(){
     document.getElementById('btnRegistros').hidden= false;
     document.getElementById('btndocumentos').hidden= false;
     document.getElementById('btntablas').hidden= false;
-    
-
+    document.getElementById('btngraficos').hidden= false;
 }
