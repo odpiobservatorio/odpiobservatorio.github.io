@@ -397,6 +397,11 @@
                                     <i class="bi bi-binoculars"></i>
                                 </button>
                                 <button type="button" class="btn btn-secondary" onclick="ver_todo()">TODO</button>
+                                <button type="button" class="btn btn-secondary fw-bold" onclick="add_consulta()"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                                    data-bs-title="Agregar criterio" id="btnAddCriterio">
+                                    <i class="bi bi-database-add"></i>
+                                </button>
                             </div>
 
                         </div>
@@ -406,7 +411,7 @@
                             <small>Buscar por:</small>
                             <select id="lstbuscarpor" class="ms-2 form-select mt-2 mb-2"
                                 onchange="crear_listas(this.value)" style="width: 200px;">
-                                <option value="clsCasos_vigencia">Sin filtro</option>
+                                <option value="sininfo">Sin información</option>
                                 <option value="clsCasos_vigencia">Año</option>
                                 <option value="clsCasos_macroregion">Macro region</option>
                                 <option value="clsCasos_departamento">Departamento</option>
@@ -425,37 +430,46 @@
                                     <tr>
                                         <th scope="col">
                                             <div class="dropdown">
-                                                <button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button class="btn dropdown-toggle fw-bold" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
                                                     Campo
                                                 </button>
                                                 <ul class="dropdown-menu shadow">
-                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(0,0)">A-Z</a></li>
-                                                    <li><a class="dropdown-item" href="#"onclick="sort_consolidado(0,1)">Z-A</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="sort_consolidado(0,0)">A-Z</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="sort_consolidado(0,1)">Z-A</a></li>
                                                 </ul>
                                             </div>
                                         </th>
                                         <th scope="col">
                                             <div class="dropdown">
-                                                <button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button class="btn dropdown-toggle fw-bold" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
                                                     Casos
                                                 </button>
                                                 <ul class="dropdown-menu shadow">
-                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(1,0)">A-Z</a></li>
-                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(1,1)">Z-A</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="sort_consolidado(1,0)">A-Z</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="sort_consolidado(1,1)">Z-A</a></li>
                                                 </ul>
                                             </div>
                                         </th>
                                         <th scope="col">
                                             <div class="dropdown">
-                                                <button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button class="btn dropdown-toggle fw-bold" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
                                                     Víctimas
                                                 </button>
                                                 <ul class="dropdown-menu shadow">
-                                                    <li><a class="dropdown-item" href="#" onclick="sort_consolidado(2,0)">A-Z</a></li>
-                                                    <li><a class="dropdown-item" href="#"onclick="sort_consolidado(2,1)">Z-A</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="sort_consolidado(2,0)">A-Z</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            onclick="sort_consolidado(2,1)">Z-A</a></li>
                                                 </ul>
                                             </div>
-                                            
+
                                         </th>
                                     </tr>
                                 </thead>
@@ -474,19 +488,23 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <small>Tipo de gráfico</small>
-                                    <select class="ms-2 form-select mt-2 mb-2"
-                                        onchange="tipo_grafico(this.value)">
+                                    <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)">
                                         <option value="bar">Barras</option>
                                         <option value="line">Líneas</option>
                                         <option value="doughnut">Anillo</option>
                                         <option value="pie">Torta</option>
-
+                                        <option value="polarArea">Area</option>
+                                        <option value="scatter">Puntos</option>
                                         
+                                        
+
+
                                     </select>
                                 </div>
                             </div>
-                            <div id="divChart">
-                                
+                            <div id="divChart" class="border border-2 border-secondary p-3 m-3"
+                            style="width: 600px; height: 400px;">
+
                             </div>
                         </div>
 
@@ -611,6 +629,11 @@
                         <button type="button" class="btn btn-secondary" onclick="quitar_filtro()">
                             <i class="bi bi-x-circle"></i>
                         </button>
+                        <button type="button" class="btn btn-secondary fw-bold" onclick="add_consulta()"
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                            data-bs-title="Agregar criterio" id="btnAddCriterio">
+                            <i class="bi bi-database-add"></i>
+                        </button>
                         <button id="btnConsulta" type="button" class="btn btn-secondary">
                             <i class="bi bi-binoculars"></i>
                         </button>
@@ -670,9 +693,10 @@
         <hr>
         <div class="dropdown">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary fw-bold" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasConsola">
-                    {*}
+                <button type="button" class="btn btn-secondary fw-bold" onclick="add_consulta()"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Agregar criterio" id="btnAddCriterio">
+                    <i class="bi bi-database-add"></i>
                 </button>
                 <button type="button" class="btn btn-secondary fw-bold" onclick="add_criterio_extendido()"
                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"

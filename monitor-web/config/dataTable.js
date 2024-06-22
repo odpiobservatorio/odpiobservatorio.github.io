@@ -112,6 +112,7 @@ function makerTable(data) {
             if (campo[0] == "clsCasos") {
                 let filtered = data.filter(value => eval(criterios));
                 dataWfilter=filtered
+                mostrar_consolidados(dataWfilter)
                 makerTable(filtered)
 
             } else {
@@ -125,6 +126,7 @@ function makerTable(data) {
                     }
                 })
                 dataWfilter=datafiltered
+                mostrar_consolidados(dataWfilter)
                 makerTable(datafiltered)
             }
             activeHeadfilter = []
@@ -142,6 +144,7 @@ function makerTable(data) {
         ul.appendChild(lifilternull)
         lifilternull.onclick = () => {
             dataWfilter=ActiveDB.clsCasos
+            mostrar_consolidados(dataWfilter)
             makerTable(ActiveDB.clsCasos)
             activeHeadfilter = []
         }
@@ -566,6 +569,7 @@ function add_criterio_extendido() {
 function quitar_filtro(){
     makerTable(ActiveDB.clsCasos)
     dataWfilter=[]
+    add_consulta(ActiveDB.clsCasos)
 }
 
 function LimpiarConsulta() {
@@ -606,6 +610,7 @@ function filter_extend() {
 
     makerTable(datafilter)
     dataWfilter=datafilter
+    mostrar_consolidados(dataWfilter)
     //mostrar_resultados(datafilter)
 
 }

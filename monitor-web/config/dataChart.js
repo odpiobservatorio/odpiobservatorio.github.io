@@ -12,8 +12,15 @@ function ini_chat() {
     mostrar_consolidados(ActiveDBchart)
 }
 
-
+function add_consulta(){
+    data2chart.push(dataWfilter)
+    
+}
 function mostrar_consolidados(data) {
+    const tbody = document.getElementById("tbodyconsolidados")
+    document.getElementById("lstbuscarpor").value="sininfo"
+    tbody.innerHTML = ""
+
     document.getElementById("nCasos").textContent = data.length
     const totalPersonas = data.reduce((prev, curr) => prev + curr.npersonas, 0);
     document.getElementById("nVictimas").textContent = totalPersonas
@@ -196,13 +203,12 @@ function crear_grafico(data,tipo) {
     })
 
 
-
     new Chart(ctx, {
         type: tipo,
         data: {
             labels: newLabels,
             datasets: [{
-                label: '# of Victimas',
+                label: '# de Victimas',
                 data: newVictimas,
                 borderWidth: 1,
                 backgroundColor: newColors,
@@ -210,6 +216,8 @@ function crear_grafico(data,tipo) {
 
         },
         options: {
+            responsive: true,
+            indexAxis: 'y',
             scales: {
                 y: {
                     beginAtZero: true
