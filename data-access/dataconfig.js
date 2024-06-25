@@ -228,7 +228,13 @@ async function readFile(path, name) {
     const res = await fetch(link);
     const data = await res.json();
     //Evoca una función en GlobalMapGrafics y lo coloca en el mapa
-    InterPretarData(data, name)
+    if(path.includes(".json")){
+        InterPretarData(data,name,"json")
+    }else if(path.includes(".geojson")){
+       InterPretarData(data, name, "geojson") 
+    }
+
+    
 }
 
 //Esta función me crea uan lista de archivos en mi nube
@@ -250,13 +256,31 @@ async function ListFilesFirebase() {
                 // All the prefixes under listRef.
                 // You may call listAll() recursively on them.
             });
+            let i=0
             res.items.forEach((itemRef) => {
-                // All the items under listRef.
 
-                const itemLista = document.createElement('option')
-                itemLista.value = itemRef._location.path_
-                itemLista.textContent = (itemRef._location.path_).replace('plain-text/json/', '')
+                // All the items under listRef.
+                const itemLista = document.createElement('li')
+                itemLista.className = 'list-group-item'
+                i++
+                itemLista.innerHTML = `
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="${i}checkLayerJson">
+                    <label class="form-check-label" for="${i}checkLayerJson">
+                    ${(itemRef._location.path_).replace('plain-text/json/', '')}
+                    </label>
+                </div>
+                `
                 cListFiles.appendChild(itemLista)
+
+                const ItemCheck = document.getElementById(`${i}checkLayerJson`)
+                ItemCheck.onchange=()=>{
+                    if (ItemCheck.checked==true){
+                        LoadFileSelected(itemRef._location.path_,(itemRef._location.path_).replace('plain-text/json/', ''))
+                    } else{
+                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''),"json")
+                    }
+                }
 
             });
         }).catch((error) => {
@@ -294,7 +318,7 @@ async function ListFilesFirebase() {
                     if (ItemCheck.checked==true){
                         LoadFileSelected(itemRef._location.path_,(itemRef._location.path_).replace('plain-text/geojson/', ''))
                     } else{
-                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''))
+                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''),"geojson")
                     }
                 }
 

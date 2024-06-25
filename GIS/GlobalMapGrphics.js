@@ -23,7 +23,23 @@ let CapasCustom = {}
 //Guarda la leyendas/convenciones
 let LeyendasMap = []
 //Lista de colores para usar
+
 const ColorList = [
+    //rojos
+    "#F0F8FF", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
+    "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
+    "#FF7F50", "#6495ED", "#FFF8DC", "#DC143C", "#00FFFF", "#00008B", "#008B8B",
+    "#B8860B", "#006400", "#A9A9A9", "#BDB76B", "#8B008B", "#556B2F", "#FF8C00",
+    "#9932CC", "#8B0000", "#E9967A", "#8FBC8F", "#483D8B", "#2F4F4F", "#00CED1",
+    "#FF1493", "#00BFFF", "#696969", "#1E90FF", "#B22222", "#FFFAF0", "#228B22",
+    "#FF00FF", "#FFD700", "#DAA520", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C",
+    "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
+    "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
+
+
+]
+
+const ColorList2 = [
     //rojos
     "#C0392B", "#E74C3C", "#FF0000", "#FFC0CB", "#C19A6B", "#E6BF83", "#483C32", "#FA8072",
     //Violetas
@@ -420,7 +436,6 @@ function SaveMarks() {
 }
 
 function LoadFiles(e) {
-    console.log(archivo)
     var archivo = e.target.files[0];
     GLOBAL.firestore.loadfile(archivo)
     if (!archivo) {
@@ -477,93 +492,123 @@ function LoadFileSelected(file, name) {
     const ListFiles = document.getElementById('selPathFiles')
     GLOBAL.firestore.readFile(file, name)
 
+
 }
 
-function InterPretarData(Data, name) {
-
-
-    let Mark
-    let typeGeometry = Data.features[0].geometry.type
-
-    if (typeGeometry == 'MultiPoint') {
-
+function InterPretarData(Data, name, type) {
+    if (type == "json") {
+        var contenido = Data;
+        var Parse = JSON.stringify(contenido)
         let i = 0
-        CapasCustom[name] = []
-        new L.geoJSON(Data, {
-            style: (feature) => {
-                const Lat = feature.geometry.coordinates[0][1]
-                const Lng = feature.geometry.coordinates[0][0]
-                const mark = new L.circleMarker([Lat, Lng],
-                    {
+        Data.forEach(marca => {
+                      
+            texto_activo = marca.info
+            if (marca.Type == "circle") {
+                Marca_Personalizada_Circulo(
+                    marca.draggable,
+                    marca.fillColor,
+                    marca.fillOpacity,
+                    marca.radius,
+                    marca.lat,
+                    marca.lng,
+                    marca.color,
+                    marca.weight,
+                    marca.pane
+                )
 
-                        color: 'white',
-                        fillColor: 'red',
-                        fillOpacity: 1,
-                        radius: 10,
-                        weight: 1,
-                        //Para colocar las marcas arriba de otras capas.
-                        pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
+            } else {
+                Marca_Personalizada_Cuadrado(
+                    marca.draggable,
+                    marca.fillColor,
+                    marca.fillOpacity,
+                    marca.radius,
+                    marca.lat,
+                    marca.lng,
+                    marca.color,
+                    marca.weight,
+                    marca.pane
+                )
 
+            }
 
-                    }).addTo(map)
-                CapasCustom[name].push(mark)
-            },
+            Marcadores_Personalizados[i].options.index = i
+            i = i + 1
+            list_marcas_custom()
         })
+    } else if (type == "geojson") {
+        let Mark
+        let typeGeometry = Data.features[0].geometry.type
+
+        if (typeGeometry == 'MultiPoint') {
+            let i = 0
+            CapasCustom[name] = []
+            new L.geoJSON(Data, {
+                style: (feature) => {
+                    const Lat = feature.geometry.coordinates[0][1]
+                    const Lng = feature.geometry.coordinates[0][0]
+                    const mark = new L.circleMarker([Lat, Lng],
+                        {
+
+                            color: 'white',
+                            fillColor: 'red',
+                            fillOpacity: 1,
+                            radius: 10,
+                            weight: 1,
+                            //Para colocar las marcas arriba de otras capas.
+                            pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
 
 
+                        }).addTo(map)
+                    CapasCustom[name].push(mark)
+                },
+            })
 
-    } else if (typeGeometry == 'MultiLineString') {
-        CapasCustom[name] = []
-        const Line = new L.geoJSON(Data, {
-            style: (feature) => {
-                return {
-                    color: "blue",
-                    fillColor: "gray",
-                    weight: 2,
-                    fillOpacity: 0.5,
-                    pane: 'mapLayers',
-                }
-            },
-        }).addTo(map)
-        CapasCustom[name].push(Line)
-    } else {
-        CapasCustom[name] = []
-        const Poligon = new L.geoJSON(Data, {
-            style: (feature) => {
-                return {
-                    color: "white",
-                    fillColor: "gray",
-                    weight: 2,
-                    fillOpacity: 0.5,
-                    pane: 'mapLayers',
-                }
-            },
-        }).addTo(map)
-        CapasCustom[name].push(Poligon)
 
+        } else if (typeGeometry == 'MultiLineString') {
+            CapasCustom[name] = []
+            const Line = new L.geoJSON(Data, {
+                style: (feature) => {
+                    return {
+                        color: "blue",
+                        fillColor: "gray",
+                        weight: 2,
+                        fillOpacity: 0.5,
+                        pane: 'mapLayers',
+                    }
+                },
+            }).addTo(map)
+            CapasCustom[name].push(Line)
+        } else {
+            CapasCustom[name] = []
+            const Poligon = new L.geoJSON(Data, {
+                style: (feature) => {
+                    return {
+                        color: "white",
+                        fillColor: "gray",
+                        weight: 2,
+                        fillOpacity: 0.5,
+                        pane: 'mapLayers',
+                    }
+                },
+            }).addTo(map)
+            CapasCustom[name].push(Poligon)
+        }
     }
 
 
 
-
-
-
-
-
-
-
-
-
 }
 
-function hideLayer(selectedText) {
-    const ItemsArray = (CapasCustom[selectedText])
-    ItemsArray.forEach(elemento => {
-        map.removeLayer(elemento)
-    })
+function hideLayer(selectedText, type) {
+    if (type == "json") {
+        delete_all_custom_marks(0)
+    } else if (type == "geojson") {
+        const ItemsArray = (CapasCustom[selectedText])
+        ItemsArray.forEach(elemento => {
+            map.removeLayer(elemento)
+        })
+    }
 
-
-    //
 }
 
 //////ADMINISTRA LAS FUNCIONES DE MARCADORES LIBRES PERO CON CONFIGURACIÓN
