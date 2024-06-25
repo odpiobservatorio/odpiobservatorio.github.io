@@ -802,6 +802,8 @@
                                                 <li><a class="dropdown-item" href="#"
                                                         onclick="Change_size_custom(7)">0.7x</a></li>
                                                 <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(8)">0.8x</a></li>
+                                                <li><a class="dropdown-item" href="#"
                                                         onclick="Change_size_custom(10)">1x</a></li>
                                                 <li><a class="dropdown-item" href="#"
                                                         onclick="Change_size_custom(15)">1.5x</a></li>
@@ -888,7 +890,7 @@
                                                     <input id="int_coord-custom" type="text" class="form-control mt-1"
                                                         placeholder="texto" aria-label="Coordenadas"
                                                         aria-describedby="basic-addon1" style="width: 230px;"
-                                                        oninput="{texto_activo=(this.value)}">
+                                                        oninput="{formatActivo.texto=(this.value)}">
                                                 </div>
                                             </div>
                                 </li>
@@ -905,6 +907,17 @@
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="ms-3">
+                            <button type="button" class="btn btn-secondary m-2" onclick="show_legens()">
+                                <i class="bi bi-tags me-2"></i>
+                                Mostrar
+                            </button>
+                            <button type="button" class="btn btn-secondary m-2" onclick="DeleteMarks()">
+                                <i class="bi bi-bookmark-x-fill"></i>
+                                Eliminar
+                            </button>
+
+                        </div>
                         <div class="accordion-body">
                             <ol class="list-group list-group-numbered" id="list_marcas-custom">
 
@@ -915,10 +928,18 @@
             </div>
 
             <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()"><i
-                        class="bi bi-geo-fill"></i></button>
-                <button type="button" class="btn btn-success" onclick="paste_format_custom()"><i
-                        class="bi bi-clipboard-check"></i></i></button>
+                <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()">
+                    <i class="bi bi-geo-fill"></i></button>
+
+                <button type="button" class="btn btn-success" onclick="copy_format_custom()">
+                    <i class="bi bi-c-circle-fill"></i>
+                </button>
+                <button type="button" class="btn btn-success" onclick="paste_format_custom()">
+                    <i class="bi bi-clipboard-check"></i>
+                </button>
+                <button type="button" class="btn btn-success" onclick="update_format_custom()">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
                 <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(1)"><i
                         class="bi bi-file-x"></i></button>
                 <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(0)"><i
@@ -1329,7 +1350,7 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="row row align-items-center">
+        <div class="row align-items-center">
             <!--Botones de configuración de búsqueda-->
             <div class="input-group">
                 <div class="dropdown">

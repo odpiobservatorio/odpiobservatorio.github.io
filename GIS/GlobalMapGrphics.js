@@ -1,13 +1,21 @@
 
 //VARIABLES PARA MARCADORES PERSONALIZADOS
 //COLOR ACTIVO
-let color_activo;
-let tipo_activo = 0;
-let tamaño_activo = 5;
+
+
 let mark_selected;
-let opacidad_activa = 1;
+
 let coordenada_activa = "4.797, -74.030";
-let texto_activo = "";
+
+let formatActivo = {
+    "tipo_activo": "0",
+    "color": "black",
+    "size": "8",
+    "opacidad": "1",
+    "texto": ""
+}
+
+let markCopy;
 //VARIABLE QUE GUARDA TODOS LOS MARCADORES PERSONALIZADOS, POSIBILITA LA OPCIÓN DE BORRAR TODOS O ÚLTIMO
 let Marcadores_Personalizados = []
 //Esta variable aplica para el módulo mapData, showBusqueda
@@ -26,7 +34,7 @@ let LeyendasMap = []
 
 const ColorList = [
     //rojos
-    "#F0F8FF", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
+    "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
     "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
     "#FF7F50", "#6495ED", "#FFF8DC", "#DC143C", "#00FFFF", "#00008B", "#008B8B",
     "#B8860B", "#006400", "#A9A9A9", "#BDB76B", "#8B008B", "#556B2F", "#FF8C00",
@@ -35,29 +43,9 @@ const ColorList = [
     "#FF00FF", "#FFD700", "#DAA520", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C",
     "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
     "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
-
-
 ]
 
-const ColorList2 = [
-    //rojos
-    "#C0392B", "#E74C3C", "#FF0000", "#FFC0CB", "#C19A6B", "#E6BF83", "#483C32", "#FA8072",
-    //Violetas
-    "#9B59B6", "#AF7AC5", "#D40055", "#FF00FF", "#800080", "#F6358A",
-    //Azules
-    "#2980B9", "#3498DB", "#00FFFF", "#0000FF", "#00008B", "#7FFFD4",
-    //Asure
-    "#48C9B0", "#45B39D", "#E2F516",
-    //Verdes
-    "#52BE80 ", "#2ECC71", "#145A32", "#00FF00", "#01F9C6", "#808000",
-    //Naranjas
-    "#FFFF00", "#F1C40F", "#F39C12", "#E67E22", "#D35400", "#F8F6F0",
-    "#FFFFFF",
-    "#ECF0F1",
-    "#BDC3C7", "#95A5A6", "#7F8C8D", "#34495E",
-    "#2C3E50", "#17202A", "#EB5406", "#3F000F"
 
-]
 //Función para crear menú de colores
 function ListColorsMn(control) {
     let cUl = document.getElementById(control)
@@ -103,10 +91,10 @@ function ListColors(type, control) {
         } else if (type == 'color-mark-custom') {
             liC.onclick = () => {
                 //Aplica para el panel de marcadores personalizados
-                color_activo = color
+                formatActivo.color = color
                 document.getElementById("span-color-marca").style.background = color
                 document.getElementById("span-opacity-marca").style.background = color
-                document.getElementById("span-opacity-marca").style.opacity = opacidad_activa
+                document.getElementById("span-opacity-marca").style.opacity = formatActivo.opacidad
             }
         } else if (type == "color-mark-busqueda") {
 
@@ -288,6 +276,92 @@ function PutLabelFree(
 
     //
 }
+function show_legens() {
+    let labels = []
+    let items = []
+    Marcadores_Personalizados.forEach(item => {
+
+        if (labels.includes(item.options.info) === false) {
+            //let newItem=[item.options.info,item.options.Type, item.options.fillColor]
+            labels.push(item.options.info)
+            let newLabel = [item.options.info, item.options.Type, item.options.fillColor]
+            items.push(newLabel)
+        }
+    })
+
+    //Ordeno los datos A-Z
+    let newDataOrdenado
+    newDataOrdenado = items.sort(function (a, b) {
+        var textA = a[0];
+        var textB = b[0];
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    //const LbEdit = `
+    //<div class="text-success" style="font-size:small;" onclick="HideMark()">${lb}</div>`
+
+    const div = document.createElement("div")
+    div.className = "m-1 border border-1 border-secondary  rounded"
+    div.style.width = "200px"
+    div.style.display = "inline-block"
+    newDataOrdenado.forEach(item => {
+        const row = document.createElement("div")
+        row.className = "row ms-1 text-secondary align-items-center"
+        row.style.fontSize = "10pt"
+
+        const col1 = document.createElement("div")
+        col1.className = "col-auto"
+
+        if (item[1] == "circle") {
+            const i = document.createElement("i")
+            i.className = "bi-circle-fill"
+            i.style.fontSize = "12pt"
+            i.style.color = item[2]
+            col1.appendChild(i)
+
+        } else {
+            const i = document.createElement("i")
+            i.className = "bi-square-fill"
+            i.style.fontSize = "12pt"
+            i.style.color = item[2]
+            col1.appendChild(i)
+        }
+
+
+        row.appendChild(col1)
+
+        const col2 = document.createElement("div")
+        col2.className = "col-auto"
+        col2.textContent = item[0]
+        row.appendChild(col2)
+
+
+        div.appendChild(row)
+    })
+
+
+
+    let LabelMap = PutMarkCicle(false, 'gray', 0.5, 5)
+
+    LabelMap.bindTooltip(
+        div,
+        {
+            draggable: 'true',
+            permanent: true,
+            className: "",
+            offset: [10, 0],
+            pane: 'polygonsPane'
+        });
+    LabelMap.on('dragend', function (event) {
+        LabelMap = event.target;
+        const position = LabelMap.getLatLng();
+        LabelMap.setLatLng(new L.LatLng(position.lat, position.lng));
+    });
+    map.addLayer(LabelMap);
+    LeyendasMap.push(LabelMap)
+
+
+}
 
 function PutPopUpZ(text) {
 
@@ -467,7 +541,6 @@ function LoadMarks(e) {
                     marca.onlabel,
                     '')
             } else {
-                console.log(marca.content, marca.lat, marca.lng)
                 PutLabelFree(marca.content, marca.lat, marca.lng)
             }
         })
@@ -480,12 +553,16 @@ function LoadMarks(e) {
 //Vincula el evento del control input para cargar el archivo
 
 
-document.getElementById('file-load')
-    .addEventListener('change', LoadFiles);
+try {
+    document.getElementById('file-load')
+        .addEventListener('change', LoadFiles);
+} catch (error) {
+    console.log("Evento file-load")
+}
 
 function HideMark() {
 
-    console.log(LabelsMapGrup[0].options.key)
+
 }
 
 function LoadFileSelected(file, name) {
@@ -501,8 +578,8 @@ function InterPretarData(Data, name, type) {
         var Parse = JSON.stringify(contenido)
         let i = 0
         Data.forEach(marca => {
-                      
-            texto_activo = marca.info
+
+            formatActivo.texto = marca.info
             if (marca.Type == "circle") {
                 Marca_Personalizada_Circulo(
                     marca.draggable,
@@ -611,31 +688,12 @@ function hideLayer(selectedText, type) {
 
 }
 
-//////ADMINISTRA LAS FUNCIONES DE MARCADORES LIBRES PERO CON CONFIGURACIÓN
-function Insertar_marcador_personalizado() {
 
-    let Coordenadas = coordenada_activa.split(",");
 
-    const Tipo_Marca = document.getElementById("sel-tipo-marca").value
-
-    if (Tipo_Marca == 0) {
-        Marca_Personalizada_Circulo(false, color_activo, opacidad_activa, tamaño_activo, Coordenadas[0], Coordenadas[1])
-
-    } else {
-        Marca_Personalizada_Cuadrado(false, color_activo, opacidad_activa, tamaño_activo, parseFloat(Coordenadas[0]), parseFloat(Coordenadas[1]))
-
-    }
-    //Lista las marcas en el contenedor de marcas
-    list_marcas_custom()
-    console.log(Marcadores_Personalizados)
-}
-
-function paste_format_custom() {
+function update_format_custom() {
     //mark_selected
     let MarcaAtivaIni = Marcadores_Personalizados[mark_selected]
-    const Tipo_Marca = tipo_activo
-
-
+    const Tipo_Marca = formatActivo.tipo_activo
     if (Tipo_Marca == 0) {
         coordenada_activa = `${MarcaAtivaIni._latlng.lat}, ${MarcaAtivaIni._latlng.lng}`
         map.removeLayer(MarcaAtivaIni)
@@ -647,9 +705,54 @@ function paste_format_custom() {
     }
     //Lista las marcas en el contenedor de marcas
     list_marcas_custom()
+}
+
+function copy_format_custom() {
+    //mark_selected
+    markCopy = Marcadores_Personalizados[mark_selected]
+    console.log("copiar de:", mark_selected)
+    mensajes("se ha copiado el formato","orange")
 
 
 }
+
+function paste_format_custom() {
+    console.log("pegar a:", mark_selected)
+    let MarcaAtivaIni = Marcadores_Personalizados[mark_selected]
+
+
+    if (markCopy.options.Type == "circle") {
+        coordenada_activa = `${MarcaAtivaIni._latlng.lat}, ${MarcaAtivaIni._latlng.lng}`
+
+    } else {
+        coordenada_activa = `${MarcaAtivaIni._latlngs[0][1].lat}, ${MarcaAtivaIni._latlngs[0][1].lng}`
+    }
+
+    let Coordenadas = coordenada_activa.split(",");
+
+
+    formatActivo.texto = markCopy.options.info
+
+    if (markCopy.options.Type == "circle") {
+        Marca_Personalizada_Circulo(false, markCopy.options.fillColor, markCopy.options.fillOpacity, markCopy.options.radius, Coordenadas[0], Coordenadas[1])
+
+    } else {
+        Marca_Personalizada_Cuadrado(false, markCopy.options.fillColor, markCopy.options.fillOpacity, markCopy.options.radius, parseFloat(Coordenadas[0]), parseFloat(Coordenadas[1]))
+
+    }
+    //Lista las marcas en el contenedor de marcas
+    map.removeLayer(MarcaAtivaIni)
+    delete_all_custom_marks(1)
+    let i = 0
+    Marcadores_Personalizados.forEach(marca => {
+        marca.options.index = i++
+    })
+
+    list_marcas_custom()
+    mensajes("se ha actualizado el marcador","orange")
+}
+
+
 
 function Change_icon(control) {
     if (control.value == 0) {
@@ -660,16 +763,37 @@ function Change_icon(control) {
 
 }
 function Change_size_custom(value) {
-    tamaño_activo = value
-    document.getElementById("span-size-marca").textContent = tamaño_activo / 10 + "x"
+
+    formatActivo.size = value
+    document.getElementById("span-size-marca").textContent = formatActivo.size / 10 + "x"
 }
 function Change_opacity_custom(value) {
-    opacidad_activa = value
-    document.getElementById("span-opacity-marca").textContent = 100 - ((opacidad_activa) * 100) + "%"
-    document.getElementById("span-opacity-marca").style.opacity = opacidad_activa
+
+    formatActivo.opacidad = value
+    document.getElementById("span-opacity-marca").textContent = 100 - ((formatActivo.opacidad) * 100) + "%"
+    document.getElementById("span-opacity-marca").style.opacity = formatActivo.opacidad
 }
 
 
+//////ADMINISTRA LAS FUNCIONES DE MARCADORES LIBRES PERO CON CONFIGURACIÓN
+function Insertar_marcador_personalizado() {
+
+    let Coordenadas = coordenada_activa.split(",");
+
+    const Tipo_Marca = document.getElementById("sel-tipo-marca").value
+
+    if (Tipo_Marca == 0) {
+        Marca_Personalizada_Circulo(false, formatActivo.color, formatActivo.opacidad, formatActivo.size, Coordenadas[0], Coordenadas[1])
+
+    } else {
+        Marca_Personalizada_Cuadrado(false, formatActivo.color, formatActivo.opacidad, formatActivo.size, parseFloat(Coordenadas[0]), parseFloat(Coordenadas[1]))
+    }
+
+
+
+    list_marcas_custom()
+
+}
 
 function Marca_Personalizada_Circulo(
     //Propiedasdes del marcador por defecto
@@ -710,41 +834,38 @@ function Marca_Personalizada_Circulo(
             //Para colocar las marcas arriba de otras capas.
             pane: pane,//Se encuentra configurado al inicio de map.html
             index: Marcadores_Personalizados.length,
-            info: texto_activo
+            info: formatActivo.texto
         })
 
     let indexMark = circle.options.index
-    //Para agregar labels e iconos a las marcas
-    //circle.bindTooltip('<i class="bi bi-airplane-fill fs-2"></i>', { permanent: true, offset: [10, 0] });
 
-    //Agrega un díalogo personalizable que se bare al hacer click
-    if (texto_activo != "") {
-        circle.bindPopup(PutPopUpZ(texto_activo));
+    //Agrega un díalogo personalizable que se abre al hacer click
+    if (formatActivo.texto != "") {
+        circle.bindPopup(PutPopUpZ(`${indexMark + 1}. ${formatActivo.texto}`));
     }
 
     //Acciones relacionadas con el evento click en la marca
     circle.on('click', onClick);
     function onClick() {
-        mark_selected = indexMark
-        tipo_activo = 0
+        mark_selected = this.options.index
+        console.log(this.options.index)
+        formatActivo.tipo_activo = 0
         //mark_selected
-        let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
-        console.log(MarcaAtivaIni)
+        let MarcaAtivaIni = this
         //Copia las coordenadas de la marca actual
         coordenada_activa = `${MarcaAtivaIni._latlng.lat}, ${MarcaAtivaIni._latlng.lng}`
 
-        document.getElementById("marcador-item" + indexMark).className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action active"
     }
-
-
     if (static == false) {
         //Si es no estatico se activa la función de arrastrar
         circle.on('dragend', function (e) {
         })
         //solo se guardan la marca no fijas
-        Marcadores_Personalizados.push(circle)
+
     }
     map.addLayer(circle)
+    Marcadores_Personalizados.push(circle)
+
 
     return circle
 }
@@ -792,26 +913,26 @@ function Marca_Personalizada_Cuadrado(
         //Para colocar las marcas arriba de otras capas.
         pane: pane,//Se encuentra configurado al inicio de map.html
         index: Marcadores_Personalizados.length,
-        info: texto_activo
+        info: formatActivo.texto
 
     })
     let indexMark = polygon.options.index
 
     //Agrega un díalogo personalizable que se bare al hacer click
-    if (texto_activo != "") {
-        polygon.bindPopup(PutPopUpZ(texto_activo));
+    if (formatActivo.texto != "") {
+        polygon.bindPopup(PutPopUpZ(`${indexMark + 1}. ${formatActivo.texto}`));
     }
 
     //Acciones relacionadas con el evento click en la marca
     polygon.on('click', onClick);
     function onClick() {
-        mark_selected = indexMark
-        tipo_activo = 1
-        let MarcaAtivaIni = Marcadores_Personalizados[indexMark]
+        mark_selected = this.options.index
+        console.log(this.options.index)
+        formatActivo.tipo_activo = 1
+        let MarcaAtivaIni = this
 
         //Copia las coordenadas de la marca actual / NOTA, como este es un poligono, las coordenadas principales so bidimencinal
         coordenada_activa = `${MarcaAtivaIni._latlngs[0][1].lat}, ${MarcaAtivaIni._latlngs[0][1].lng}`
-        document.getElementById("marcador-item" + indexMark).className = "list-group-item d-flex justify-content-between align-items-start list-group-item-action active"
     }
 
     if (static == false) {
@@ -822,6 +943,7 @@ function Marca_Personalizada_Cuadrado(
         Marcadores_Personalizados.push(polygon)
     }
     map.addLayer(polygon)
+    Marcadores_Personalizados.push(polygon)
 
     return polygon
 }
@@ -835,21 +957,16 @@ function delete_all_custom_marks(option) {
         })
         list_marcas_custom()
     } else {
-        try {
-            map.removeLayer(Marcadores_Personalizados[mark_selected])
-            Marcadores_Personalizados.splice(mark_selected, 1); // returns [1]
-            let i = 0
-            Marcadores_Personalizados.forEach(marca => {
-                marca.options.index = i++
+        console.log("borrar:", mark_selected)
+        map.removeLayer(Marcadores_Personalizados[mark_selected])
 
-
-            })
-            list_marcas_custom()
-        } catch (error) {
-            alert(marca.options.index)
-            mensajes("seleccione una marca", "orange")
-        }
+        Marcadores_Personalizados.splice(mark_selected, 1); // returns [1]
+        let i = 0
+        Marcadores_Personalizados.forEach(marca => {
+            marca.options.index = i++
+        })
     }
+    list_marcas_custom()
 
     //Lista las marcas en el contenedor de marcas
 
@@ -870,7 +987,7 @@ fileSelector.addEventListener('change', (event) => {
         var Parse = JSON.parse(contenido)
         let i = 0
         Parse.forEach(marca => {
-            texto_activo = marca.info
+            formatActivo.texto = marca.info
             if (marca.Type == "circle") {
                 Marca_Personalizada_Circulo(
                     marca.draggable,
@@ -964,8 +1081,9 @@ function list_marcas_custom() {
     const contenedor = document.getElementById("list_marcas-custom")
     contenedor.innerHTML = ""
 
-
+    let i = 0
     Marcadores_Personalizados.forEach(marca => {
+        marca.options.index = i++
         let tipo;
 
 
@@ -1001,11 +1119,11 @@ function list_marcas_custom() {
             if (marca.options.Type == "circle") {
                 lat = marca._latlng.lat;
                 lng = marca._latlng.lng;
-                tipo_activo = 0
+                formatActivo.tipo_activo = 0
             } else if (marca.options.Type == "polygon") {
                 lat = marca._latlngs[0][1].lat;
                 lng = marca._latlngs[0][1].lng;
-                tipo_activo = 1
+                formatActivo.tipo_activo = 1
             }
 
             var tooltip = L.tooltip([lat, lng], {
@@ -1022,11 +1140,11 @@ function list_marcas_custom() {
         }
         document.getElementById(`btn-borrar-marca${marca.options.index}`).onclick = () => {
             mark_selected = marca.options.index
-            console.log(mark_selected)
+
             if (marca.options.Type == "circle") {
-                tipo_activo = 0
+                formatActivo.tipo_activo = 0
             } else if (marca.options.Type == "polygon") {
-                tipo_activo = 1
+                formatActivo.tipo_activo = 1
             }
             delete_all_custom_marks(1)
 
