@@ -66,7 +66,7 @@ const departamentos = [
 ]
 const lugares = [
     { 'departamento': 'Amazonas', 'lugar': 'Leticia', 'lat': '-4.2167', 'lng': '-69.9333', 'latlng': '-4.2167,-69.9333', 'key': 'AmazonasLeticia' },
-    { 'departamento': 'Amazonas', 'lugar': 'Puerto Narino', 'lat': '-3.7733', 'lng': '-70.3819', 'latlng': '-3.7733,-70.3819', 'key': 'AmazonasPuerto Narino' },
+    { 'departamento': 'Amazonas', 'lugar': 'Puerto Nariño', 'lat': '-3.7733', 'lng': '-70.3819', 'latlng': '-3.7733,-70.3819', 'key': 'AmazonasPuerto Nariño' },
     { 'departamento': 'Antioquia', 'lugar': 'Abejorral', 'lat': '5.7894', 'lng': '-75.4281', 'latlng': '5.7894,-75.4281', 'key': 'AntioquiaAbejorral' },
     { 'departamento': 'Antioquia', 'lugar': 'Amaga', 'lat': '6.5', 'lng': '-75.7', 'latlng': '6.5,-75.7', 'key': 'AntioquiaAmaga' },
     { 'departamento': 'Antioquia', 'lugar': 'Amalfi', 'lat': '6.9167', 'lng': '-75.833', 'latlng': '6.9167,-75.833', 'key': 'AntioquiaAmalfi' },
