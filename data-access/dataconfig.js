@@ -233,8 +233,6 @@ async function readFile(path, name) {
     }else if(path.includes(".geojson")){
        InterPretarData(data, name, "geojson") 
     }
-
-    
 }
 
 //Esta función me crea uan lista de archivos en mi nube
@@ -243,7 +241,6 @@ async function ListFilesFirebase() {
     // Create a reference under which you want to list
     const cListFiles = document.getElementById("selPathFiles")
     cListFiles.innerHTML = ''
-
 
     //Crea listas por cada carpeta que tengo en firebase y por su tipo
     const pJson = ref(storage, 'plain-text/json');
