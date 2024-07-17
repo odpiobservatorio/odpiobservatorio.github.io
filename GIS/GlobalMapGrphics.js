@@ -4,9 +4,7 @@
 
 
 let mark_selected;
-
 let coordenada_activa = "4.797, -74.030";
-
 let formatActivo = {
     "tipo_activo": "0",
     "color": "black",
@@ -359,8 +357,6 @@ function show_legens() {
     });
     map.addLayer(LabelMap);
     LeyendasMap.push(LabelMap)
-
-
 }
 
 function PutPopUpZ(text) {

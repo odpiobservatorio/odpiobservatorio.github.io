@@ -35,9 +35,6 @@
     <link rel="stylesheet" href="../style.css">
     <!-- Cargar la nueva configuración para acdeso a los datos de monitor -->
 
-
-
-
     <script src="misc.js" async></script>
     <script src="mapGraphics.js" async></script>
     <script src="pivotData.js" async></script>
@@ -47,12 +44,24 @@
     <script src="./layers/PlanPIR.js" async></script>
     <script src="./Infografias.js" async></script>
 
+
+    <!--Versiones nuevs d eadministración de capas-->
+    <script src="/GIS/layers_config.js" async></script>
+    <script src="/GIS/newLayers/001tablero.js" async></script>
+    <script src="/GIS/newLayers/002basemap.js" async></script>
+    <script src="/GIS/newLayers/003departamentos.js" async></script>
+    <script src="/GIS/newLayers/004municipios.js" async></script>
+    <script src="/GIS/newLayers/004resguardos.js" async></script>
+    <script src="/GIS/newLayers/005mamazonia.js" async></script>
+    <script src="/GIS/newLayers/006reservacampesina.js" async></script>
+    <script src="/GIS/newLayers/007pdet.js" async></script>
+
+
     <!--Veriones optimizdas de los procesos-->
     <script src="./GlobalMapGrphics.js" async></script>
 
     <script defer src="../data-access/dataconfig.js" type="module"></script>
     <script src="../data-access/credentials.js"></script>
-
 </head>
 
 <header id="headerMap" class="sticky-top">
@@ -105,6 +114,10 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasCapas" aria-controls="offcanvasCapas">Visor de capas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#offCapas" aria-controls="offcanvasCapas">Capas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" onclick="showPivotArea()">Consolidados</a>
@@ -927,7 +940,8 @@
                 </div>
             </div>
 
-            <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example" style="background-color: azure; font-size: 10pt;">
+            <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example"
+                style="background-color: azure; font-size: 10pt;">
                 <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()">
                     <i class="bi bi-geo-fill"></i></button>
 
@@ -1521,11 +1535,256 @@
         map.createPane('mapPopUps');
         map.getPane('mapPopUps').style.zIndex = 900;
 
+        map.createPane('1');
+
+        //New panes to layer
+        map.getPane('1').style.zIndex = 400;
+        //Crea una capa en el mapa para colocar el mapa croquis.
+        map.createPane('2');
+        map.getPane('2').style.zIndex = 600;
+
+        map.createPane('3');
+        map.getPane('3').style.zIndex = 800;
+
+        map.createPane('4');
+        map.getPane('4').style.zIndex = 900;
+
+        map.createPane('5');
+        map.getPane('5').style.zIndex = 1100;
+
+        map.createPane('labels');
+        map.getPane('labels').style.zIndex = 2000;
+
     } catch (error) {
 
     }
-
 </script>
+<div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offCapas" data-bs-scroll="true"
+    data-bs-backdrop="false">
+    <div class="offcanvas-header bg-primary">
+        <h5 class="offcanvas-title text-white" id="offcanvasCapasLabel">Panel capas</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="btn-group w-100" role="group" aria-label="Basic example" hidden="true">
+            <button type="button" class="btn btn-secondary">
+                <label for="file-input-layers">
+                    <i class="bi bi-folder2-open"></i>
+                </label>
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="">
+                <i class="bi bi-download"></i>
+            </button>
+        </div>
+        <!--Control collapse tablero-->
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseTablero"
+                            onclick="config_format('layer_tablero')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_tablero')" id="checklayer_tablero">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Ver tablero
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapseTablero" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_tablero">
 
+                </div>
+            </div>
+        </div>
+        <!--Control collapse basemap-->
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseBasemap"
+                            onclick="config_format('layer_basemap')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_basemap')" id="checklayer_basemap">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Ver mapa base
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapseBasemap" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_basemap">
+
+                </div>
+            </div>
+        </div>
+        <div class="fw-bold">Unidade territoriales</div>
+        <!--Control collapse departamentos-->
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsedepartamentos"
+                            onclick="config_format('layer_departamentos')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_departamentos')" id="checklayer_departamentos">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Departamentos
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapsedepartamentos" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_departamentos">
+
+                </div>
+            </div>
+        </div>
+        <!--Control collapse municipios-->
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsemunicipios"
+                            onclick="config_format('layer_municipios')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_municipios')" id="checklayer_municipios">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Municipios
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapsemunicipios" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_municipios">
+
+                </div>
+            </div>
+        </div>
+        <div class="fw-bold">Macroregiones</div>
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseamazonia"
+                            onclick="config_format('layer_amazonia')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_amazonia')" id="checklayer_amazonia">
+                        <label class="form-check-label" for="checklayer_amazonia">
+                            Macro amazonía
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapseamazonia" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_amazonia">
+
+                </div>
+            </div>
+        </div>
+        <div class="fw-bold">Territorios</div>
+        <!--Control collapse resguardos-->
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseresguardos"
+                            onclick="config_format('layer_resguardos')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_resguardos')" id="checklayer_resguardos">
+                        <label class="form-check-label" for="checklayer_resguardos">
+                            Resguardos
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapseresguardos" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_resguardos">
+
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsepdet"
+                            onclick="config_format('layer_reservac')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_pdet')" id="checklayer_pdet">
+                        <label class="form-check-label" for="checklayer_pdet">
+                            Municipios PDET
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapsepdet" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_pdet">
+
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsereservac"
+                            onclick="config_format('layer_reservac')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_reservac')" id="checklayer_reservac">
+                        <label class="form-check-label" for="checklayer_reservac">
+                            Reservas campesinas
+                            </labele </div>
+                    </div>
+                </div>
+                <div id="collapsereservac" class="accordion-collapse collapse ms-1">
+                    <div class="accordion-body container-fluid" id="layer_reservac">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div id="body_layers">
+
+            </div>
+            <input id="file-input-layers" style="visibility:hidden; width: 50px;" type="file" accept=".geojson"
+                onchange="openfile(event)">
+        </div>
+    </div>
 
 </html>
