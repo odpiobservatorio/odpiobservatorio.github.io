@@ -55,6 +55,7 @@
     <script src="/GIS/newLayers/005mamazonia.js" async></script>
     <script src="/GIS/newLayers/006reservacampesina.js" async></script>
     <script src="/GIS/newLayers/007pdet.js" async></script>
+    <script src="/GIS/newLayers/008macroterritorioscv.js" async></script>
 
 
     <!--Veriones optimizdas de los procesos-->
@@ -193,7 +194,6 @@
 
 
 <body onload="IniProgram(openstreetmap)">
-
 
     <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -1278,7 +1278,6 @@
         </div>
 
     </div>
-
 </body>
 
 <!-- Modal de caso -->
@@ -1332,24 +1331,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal tabla-->
-<div class="modal fade modal-dialog-scrollable" id="TableAModal" tabindex="-1" aria-labelledby="TableAModalLabel"
-    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Reporte de resultados</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" tab>
-                <div id="divTableModal"></div>
-                <div id="divDocModal" class="divCols" id="divTableModal" spellcheck="true"></div>
             </div>
         </div>
     </div>
@@ -1702,6 +1683,31 @@
                 </div>
             </div>
         </div>
+        <div class="accordion-item border border-1 p-1 mb-1">
+            <div class="form-check">
+                <div class="row">
+                    <div class="col-auto me-2">
+                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsemacroterritorioscv"
+                            onclick="config_format('layer_macroterritorioscv')">
+                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input" type="checkbox"
+                            onchange="layers['put_layer'](this,'layer_macroterritorioscv')"
+                            id="checklayer_macroterritorioscv">
+                        <label class="form-check-label" for="checklayer_macroterritorioscv">
+                            Macro Territorios C.V
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapsemacroterritorioscv" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_macroterritorioscv">
+
+                </div>
+            </div>
+        </div>
         <div class="fw-bold">Territorios</div>
         <!--Control collapse resguardos-->
         <div class="accordion-item border border-1 p-1 mb-1">
@@ -1728,12 +1734,13 @@
                 </div>
             </div>
         </div>
+        <!--Control collapse pdet-->
         <div class="accordion-item border border-1 p-1 mb-1">
             <div class="form-check">
                 <div class="row">
                     <div class="col-auto me-2">
                         <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsepdet"
-                            onclick="config_format('layer_reservac')">
+                            onclick="config_format('layer_pdet')">
                             <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
                         </a>
                     </div>
@@ -1752,6 +1759,7 @@
                 </div>
             </div>
         </div>
+        <!--Control collapse reservas-->
         <div class="accordion-item border border-1 p-1 mb-1">
             <div class="form-check">
                 <div class="row">
@@ -1766,25 +1774,18 @@
                             onchange="layers['put_layer'](this,'layer_reservac')" id="checklayer_reservac">
                         <label class="form-check-label" for="checklayer_reservac">
                             Reservas campesinas
-                            </labele </div>
-                    </div>
-                </div>
-                <div id="collapsereservac" class="accordion-collapse collapse ms-1">
-                    <div class="accordion-body container-fluid" id="layer_reservac">
-
+                        </label>
                     </div>
                 </div>
             </div>
+            <div id="collapsereservac" class="accordion-collapse collapse ms-1">
+                <div class="accordion-body container-fluid" id="layer_reservac">
 
-
-
-
-            <div id="body_layers">
-
+                </div>
             </div>
-            <input id="file-input-layers" style="visibility:hidden; width: 50px;" type="file" accept=".geojson"
-                onchange="openfile(event)">
         </div>
+
+
     </div>
 
 </html>
