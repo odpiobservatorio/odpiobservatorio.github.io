@@ -285,7 +285,7 @@ function loadlayers() {
         accordion_collapse.className = "accordion-collapse collapse container-fluid"
         accordion_collapse.id="collapse"+ name
         accordion_collapse.innerHTML=`
-        <div class="accordion-body container-fluid pe-2" id="bodyCollapse${name}">
+        <div class="accordion-body container-fluid" id="bodyCollapse${name}">
                     
         </div>
         `
@@ -368,12 +368,9 @@ function config_format(layer_name,controlname) {
     console.log(cCollapseBody)
     const btngroup = document.createElement("div")
     btngroup.role="group"
-    btngroup.className = "btn-group"
+    btngroup.className = "btn-group border-1 border border-info p-2"
 
 
-
-
-    btngroup.role = "group"
     cCollapseBody.appendChild(btngroup)
 
     maker_control_backcolor()
@@ -384,10 +381,11 @@ function config_format(layer_name,controlname) {
     function maker_control_backcolor() {
         //Crearemos un control desplegable de color personalizado
         const dropdown = document.createElement("div")
-        dropdown.className = "dropdown"
+        dropdown.className = "dropdown me-1"
         dropdown.innerHTML =
             `
-        <button class="dropdown-toggle border-1 m-1" 
+        <button class="dropdown-toggle border-0 
+        border-0 btn-outline-secondary p-1" 
             type="button" 
             data-bs-toggle="dropdown"
             id="btnColor${layer_name}">
@@ -453,10 +451,10 @@ function config_format(layer_name,controlname) {
     function maker_control_linecolor() {
         //Crearemos un control desplegable de color linea personalizado
         const dropdown = document.createElement("div")
-        dropdown.className = "dropdown"
+        dropdown.className = "dropdown me-1"
         dropdown.innerHTML =
             `
-        <button class="border-1 m-1
+        <button class="border-0 btn-outline-secondary p-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
@@ -522,10 +520,10 @@ function config_format(layer_name,controlname) {
     function maker_control_lineWeight() {
         //Crearemos un control desplegable de color linea personalizado
         const dropdown = document.createElement("div")
-        dropdown.className = "dropdown"
+        dropdown.className = "dropdown me-1"
         dropdown.innerHTML =
             `
-        <button class="border-1 m-1
+        <button class="border-0 btn-outline-secondary p-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
@@ -598,10 +596,10 @@ function config_format(layer_name,controlname) {
     function maker_control_opacity() {
         //Crearemos un control desplegable de color linea personalizado
         const dropdown = document.createElement("div")
-        dropdown.className = "dropdown"
+        dropdown.className = "dropdown me-1"
         dropdown.innerHTML =
             `
-        <button class="border-1 m-1
+        <button class="border-0 btn-outline-secondary p-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
@@ -682,10 +680,10 @@ function config_format(layer_name,controlname) {
     function maker_control_pane() {
         //Crearemos un control desplegable de color linea personalizado
         const dropdown = document.createElement("div")
-        dropdown.className = "dropdown"
+        dropdown.className = "dropdown me-1"
         dropdown.innerHTML =
             `
-        <button class="border-1 m-1
+        <button class="border-0 btn-outline-secondary p-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
