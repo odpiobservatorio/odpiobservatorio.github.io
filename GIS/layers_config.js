@@ -220,20 +220,73 @@ let format_layer = {
             "local": "nolocal",
         },
         "atributes": []
+    },    
+    "layer_ganepares": {
+        "format": {
+            color_linea: "feature.properties.backcolor",
+            color_fondo: "feature.properties.backcolor",
+            opacidad: 1,
+            ancho_linea: 6,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold",
+                "contenido": "Nombre",
+                "campo": "NombreAA"
+            },
+            {
+                "clase": "fw-bold",
+                "contenido": "Zona",
+                "campo": "Zona"
+            },
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
+    "layer_clusterodpi2024": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'black'",
+            opacidad: 1,
+            ancho_linea: 3,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold",
+                "contenido": "Cluster de afectaciones a los DPI OBSERVATORIO ODPI ONIC 2016-2023",
+                "campo": ""
+            },
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
     }
 }
 
 function loadlayers() {
     const jslayers = [
+        ["nolayer", "Mapa general"],//=================
         ["001tablero", "tablero", "Tablero"],
         ["002basemap", "basemap", "Mapa base"],
+        ["nolayer", "Unidades Territoriales"],//=================
         ["003departamentos", "departamentos", "Departamentos"],
         ["004municipios", "municipios", "Municipios"],
-        ["004resguardos", "resguardos", "Resguardos"],
+        ["nolayer", "Macroregiones"],//=================
+        ["008macroterritorioscv", "macroterritorioscv", "Macroregiones CV"],
         ["005mamazonia", "amazonia", "Macro amazonía"],
+        ["nolayer", "Territorios"],//=================
+        ["004resguardos", "resguardos", "Resguardos"],
         ["006reservacampesina", "reservasc", "Reservas campecinas"],
         ["007pdet", "pdet", "Municipios PDET"],
-        ["008macroterritorioscv", "macroterritorioscv", "Macroregiones CV"],
+        ["nolayer", "Grupos Armados no Estatales"],//=================
+        ["009ganepares", "ganepares", "Presencia GANE (Pares)"],
+        ["nolayer", "Información víctimas"],//=================
+        ["010clusterodpi2024", "clusterodpi2024", "Cluster ODPI ONIC 2024"],
     ]
 
     const panel_control_layers = document.getElementById("panel_control_layers")
@@ -241,13 +294,19 @@ function loadlayers() {
 
     document.getElementById("layerjsdiv").innerHTML = ""
     jslayers.forEach(item => {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = `/GIS/newLayers/${item[0]}.js`;
-        document.getElementById("layerjsdiv").appendChild(script);
-        maker_coltrol_layer(item[1], item[2])
+        if (item[0] !== "nolayer") {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = `/GIS/newLayers/${item[0]}.js`;
+            document.getElementById("layerjsdiv").appendChild(script);
+            maker_coltrol_layer(item[1], item[2])
+        }else{
+            const sm = document.createElement("small")
+            sm.className="text-info fw-bold"
+            sm.textContent=item[1]
+            document.getElementById("panel_control_layers").appendChild(sm)
+        }
     })
-
 
     function maker_coltrol_layer(name, title) {
         const accordion_item = document.createElement("div")
@@ -283,8 +342,8 @@ function loadlayers() {
 
         const accordion_collapse = document.createElement("div")
         accordion_collapse.className = "accordion-collapse collapse container-fluid"
-        accordion_collapse.id="collapse"+ name
-        accordion_collapse.innerHTML=`
+        accordion_collapse.id = "collapse" + name
+        accordion_collapse.innerHTML = `
         <div class="accordion-body container-fluid" id="bodyCollapse${name}">
                     
         </div>
@@ -296,10 +355,9 @@ function loadlayers() {
         panel_control_layers.appendChild(accordion_item)
 
         const btnConfigLayer = document.getElementById("btnConfigLayer" + name)
-        btnConfigLayer.onclick = () => config_format("layer_"+ name,"bodyCollapse"+name)
+        btnConfigLayer.onclick = () => config_format("layer_" + name, "bodyCollapse" + name)
 
     }
-
 
 }
 
@@ -322,13 +380,15 @@ const layers = {
                             propiedades.push(property)
                         }
                     }
-
+                    console.log(eval(format_layer[layer_name].format.color_fondo))
                     return {
                         color: eval(format_layer[layer_name].format.color_linea),
                         fillColor: eval(format_layer[layer_name].format.color_fondo),
                         fillOpacity: eval(format_layer[layer_name].format.opacidad),
                         weight: eval(format_layer[layer_name].format.ancho_linea),
-                        pane: eval(format_layer[layer_name].format.pane)
+                        pane: eval(format_layer[layer_name].format.pane),
+
+                        
                     };
                 }
             }).bindPopup(function (layer) {
@@ -360,14 +420,14 @@ const layers = {
 
     }
 }
-function config_format(layer_name,controlname) {
+function config_format(layer_name, controlname) {
 
     const cCollapseBody = document.getElementById(controlname)
     cCollapseBody.innerHTML = ""
 
     console.log(cCollapseBody)
     const btngroup = document.createElement("div")
-    btngroup.role="group"
+    btngroup.role = "group"
     btngroup.className = "btn-group border-1 border border-info p-2"
 
 
@@ -470,9 +530,13 @@ function config_format(layer_name,controlname) {
         //Colocamos un icono que cambiará de color cuando cambie la selección
         const i = document.createElement("i")
         i.className = "bi bi-square fw-bold"
-        i.style.color = eval(format_layer[layer_name].format.color_linea)
-
         const btnLineColor = document.getElementById("btnLineColor" + layer_name)
+        try {
+            i.style.color = eval(format_layer[layer_name].format.color_fondo)
+        } catch (error) {
+            btnLineColor.hidden = true
+        }
+        
         btnLineColor.appendChild(i)
 
         //Colocamos los colores en el ul control
