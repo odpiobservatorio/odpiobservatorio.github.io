@@ -12,7 +12,6 @@ const ColorLayer = [
 let lis_layers = []
 let lis_layers_open = []
 let format_layer = {
-
     "layer_tablero": {
         "format": {
             color_linea: "'white'",
@@ -222,6 +221,85 @@ let format_layer = {
         },
         "atributes": []
     }
+}
+
+function loadlayers() {
+    const jslayers = [
+        ["001tablero", "tablero", "Tablero"],
+        ["002basemap", "basemap", "Mapa base"],
+        ["003departamentos", "departamentos", "Departamentos"],
+        ["004municipios", "municipios", "Municipios"],
+        ["004resguardos", "resguardos", "Resguardos"],
+        ["005mamazonia", "amazonia", "Macro amazonía"],
+        ["006reservacampesina", "reservasc", "Reservas campecinas"],
+        ["007pdet", "pdet", "Municipios PDET"],
+        ["008macroterritorioscv", "macroterritorioscv", "Macroregiones CV"],
+    ]
+
+    const panel_control_layers = document.getElementById("panel_control_layers")
+    panel_control_layers.innerHTML = ""
+
+    document.getElementById("layerjsdiv").innerHTML = ""
+    jslayers.forEach(item => {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = `/GIS/newLayers/${item[0]}.js`;
+        document.getElementById("layerjsdiv").appendChild(script);
+        maker_coltrol_layer(item[1], item[2])
+    })
+
+
+    function maker_coltrol_layer(name, title) {
+        const accordion_item = document.createElement("div")
+        accordion_item.className = "accordion-item border border-1 p-1 mb-1"
+
+        const btn_group = document.createElement("div")
+        btn_group.className = "btn-group"
+        btn_group.role = "group"
+
+        btn_group.innerHTML = `            
+        <a class="ms-1 me-2" data-bs-toggle="collapse" href="#" data-bs-target="#collapse${name}"
+          id=btnConfigLayer${name}>
+          <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+        </a>`
+
+        const form_check = document.createElement("div")
+        form_check.className = "form-check"
+
+        const input = document.createElement("input")
+        input.className = "form-check-input"
+        input.type = "checkbox"
+        input.id = "checklayer_" + name
+        input.onchange = () => layers['put_layer'](input, 'layer_' + name)
+        form_check.appendChild(input)
+
+        const label = document.createElement("label")
+        label.className = "form-check-label"
+        label.for = "checklayer_" + name
+        label.textContent = title
+        form_check.appendChild(label)
+        btn_group.appendChild(form_check)
+        accordion_item.appendChild(btn_group)
+
+        const accordion_collapse = document.createElement("div")
+        accordion_collapse.className = "accordion-collapse collapse container-fluid"
+        accordion_collapse.id="collapse"+ name
+        accordion_collapse.innerHTML=`
+        <div class="accordion-body container-fluid pe-2" id="bodyCollapse${name}">
+                    
+        </div>
+        `
+
+
+        accordion_item.appendChild(accordion_collapse)
+
+        panel_control_layers.appendChild(accordion_item)
+
+        const btnConfigLayer = document.getElementById("btnConfigLayer" + name)
+        btnConfigLayer.onclick = () => config_format("layer_"+ name,"bodyCollapse"+name)
+
+    }
+
 
 }
 
@@ -229,6 +307,7 @@ const layers = {
     //función que obtiene desde el control el nombre del control y nombre de la capa
     "put_layer"(control, layer_name) {
         const format = format_layer[layer_name]
+
         //Verifica si el contro check su estado
         let propiedades = []
         if (control.checked == true) {
@@ -281,12 +360,19 @@ const layers = {
 
     }
 }
-function config_format(layer_name) {
-    const cCollapseBody = document.getElementById(layer_name)
+function config_format(layer_name,controlname) {
+
+    const cCollapseBody = document.getElementById(controlname)
     cCollapseBody.innerHTML = ""
 
+    console.log(cCollapseBody)
     const btngroup = document.createElement("div")
+    btngroup.role="group"
     btngroup.className = "btn-group"
+
+
+
+
     btngroup.role = "group"
     cCollapseBody.appendChild(btngroup)
 
@@ -313,9 +399,6 @@ function config_format(layer_name) {
         ul.style.width = "300px"
         dropdown.appendChild(ul)
         btngroup.appendChild(dropdown)
-
-
-
 
         const btnColor = document.getElementById("btnColor" + layer_name)
         //Colocamos un icono que cambiará de color cuando cambie la selección

@@ -47,16 +47,6 @@
 
     <!--Versiones nuevs d eadministración de capas-->
     <script src="/GIS/layers_config.js" async></script>
-    <script src="/GIS/newLayers/001tablero.js" async></script>
-    <script src="/GIS/newLayers/002basemap.js" async></script>
-    <script src="/GIS/newLayers/003departamentos.js" async></script>
-    <script src="/GIS/newLayers/004municipios.js" async></script>
-    <script src="/GIS/newLayers/004resguardos.js" async></script>
-    <script src="/GIS/newLayers/005mamazonia.js" async></script>
-    <script src="/GIS/newLayers/006reservacampesina.js" async></script>
-    <script src="/GIS/newLayers/007pdet.js" async></script>
-    <script src="/GIS/newLayers/008macroterritorioscv.js" async></script>
-
 
     <!--Veriones optimizdas de los procesos-->
     <script src="./GlobalMapGrphics.js" async></script>
@@ -64,6 +54,7 @@
     <script defer src="../data-access/dataconfig.js" type="module"></script>
     <script src="../data-access/credentials.js"></script>
 </head>
+<div id="layerjsdiv"></div>
 
 <header id="headerMap" class="sticky-top">
     <!-- barra de menu de mapas -->
@@ -1487,6 +1478,7 @@
     let ActiveTile;
 
     async function IniProgram(object) {
+        loadlayers()
 
         try {
             tileMLayer = L.tileLayer(TileLayerA[object.id], {
@@ -1557,233 +1549,32 @@
                 <i class="bi bi-download"></i>
             </button>
         </div>
+        <div id="panel_control_layers">
+
+        </div>
         <!--Control collapse tablero-->
         <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseTablero"
-                            onclick="config_format('layer_tablero')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_tablero')" id="checklayer_tablero">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ver tablero
-                        </label>
-                    </div>
+            <div class="btn-group" role="group">
+                <a class="ms-1 me-2" data-bs-toggle="collapse" href="#" data-bs-target="#collapseTablero"
+                    onclick="config_format('layer_tablero')">
+                    <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
+                </a>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" onchange="layers['put_layer'](this,'layer_tablero')"
+                        id="checklayer_tablero">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Ver tablero
+                    </label>
                 </div>
+
             </div>
+
             <div id="collapseTablero" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_tablero">
 
-                </div>
             </div>
         </div>
-        <!--Control collapse basemap-->
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseBasemap"
-                            onclick="config_format('layer_basemap')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_basemap')" id="checklayer_basemap">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ver mapa base
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapseBasemap" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_basemap">
 
-                </div>
-            </div>
-        </div>
-        <div class="fw-bold">Unidade territoriales</div>
-        <!--Control collapse departamentos-->
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsedepartamentos"
-                            onclick="config_format('layer_departamentos')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_departamentos')" id="checklayer_departamentos">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Departamentos
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapsedepartamentos" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_departamentos">
-
-                </div>
-            </div>
-        </div>
-        <!--Control collapse municipios-->
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsemunicipios"
-                            onclick="config_format('layer_municipios')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_municipios')" id="checklayer_municipios">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Municipios
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapsemunicipios" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_municipios">
-
-                </div>
-            </div>
-        </div>
-        <div class="fw-bold">Macroregiones</div>
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseamazonia"
-                            onclick="config_format('layer_amazonia')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_amazonia')" id="checklayer_amazonia">
-                        <label class="form-check-label" for="checklayer_amazonia">
-                            Macro amazonía
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapseamazonia" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_amazonia">
-
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsemacroterritorioscv"
-                            onclick="config_format('layer_macroterritorioscv')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_macroterritorioscv')"
-                            id="checklayer_macroterritorioscv">
-                        <label class="form-check-label" for="checklayer_macroterritorioscv">
-                            Macro Territorios C.V
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapsemacroterritorioscv" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_macroterritorioscv">
-
-                </div>
-            </div>
-        </div>
-        <div class="fw-bold">Territorios</div>
-        <!--Control collapse resguardos-->
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapseresguardos"
-                            onclick="config_format('layer_resguardos')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_resguardos')" id="checklayer_resguardos">
-                        <label class="form-check-label" for="checklayer_resguardos">
-                            Resguardos
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapseresguardos" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_resguardos">
-
-                </div>
-            </div>
-        </div>
-        <!--Control collapse pdet-->
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsepdet"
-                            onclick="config_format('layer_pdet')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_pdet')" id="checklayer_pdet">
-                        <label class="form-check-label" for="checklayer_pdet">
-                            Municipios PDET
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapsepdet" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_pdet">
-
-                </div>
-            </div>
-        </div>
-        <!--Control collapse reservas-->
-        <div class="accordion-item border border-1 p-1 mb-1">
-            <div class="form-check">
-                <div class="row">
-                    <div class="col-auto me-2">
-                        <a data-bs-toggle="collapse" href="#" data-bs-target="#collapsereservac"
-                            onclick="config_format('layer_reservac')">
-                            <i class="bi bi-gear-fill" style="color:#CEECF5;"></i>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <input class="form-check-input" type="checkbox"
-                            onchange="layers['put_layer'](this,'layer_reservac')" id="checklayer_reservac">
-                        <label class="form-check-label" for="checklayer_reservac">
-                            Reservas campesinas
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div id="collapsereservac" class="accordion-collapse collapse ms-1">
-                <div class="accordion-body container-fluid" id="layer_reservac">
-
-                </div>
-            </div>
-        </div>
+     
 
 
     </div>
