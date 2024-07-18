@@ -387,8 +387,7 @@ function config_format(layer_name,controlname) {
         dropdown.className = "dropdown"
         dropdown.innerHTML =
             `
-        <button class="btn btn-outline-info 
-            dropdown-toggle" 
+        <button class="dropdown-toggle border-1 m-1" 
             type="button" 
             data-bs-toggle="dropdown"
             id="btnColor${layer_name}">
@@ -457,7 +456,7 @@ function config_format(layer_name,controlname) {
         dropdown.className = "dropdown"
         dropdown.innerHTML =
             `
-        <button class="btn btn-outline-info 
+        <button class="border-1 m-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
@@ -526,7 +525,7 @@ function config_format(layer_name,controlname) {
         dropdown.className = "dropdown"
         dropdown.innerHTML =
             `
-        <button class="btn btn-outline-info 
+        <button class="border-1 m-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
@@ -602,7 +601,7 @@ function config_format(layer_name,controlname) {
         dropdown.className = "dropdown"
         dropdown.innerHTML =
             `
-        <button class="btn btn-outline-info 
+        <button class="border-1 m-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
@@ -686,7 +685,7 @@ function config_format(layer_name,controlname) {
         dropdown.className = "dropdown"
         dropdown.innerHTML =
             `
-        <button class="btn btn-outline-info 
+        <button class="border-1 m-1
             dropdown-toggle" 
             type="button" 
             data-bs-toggle="dropdown"
@@ -709,7 +708,7 @@ function config_format(layer_name,controlname) {
         btnOpacity.appendChild(i)
 
         //Colocamos los colores en el ul control
-        const Pane = ["1", "2", "3", "4", "5"]
+        const Pane = ["1", "2", "3", "4", "5", "6"]
 
         Pane.forEach(value => {
             const li = document.createElement("li")
@@ -744,7 +743,6 @@ function config_format(layer_name,controlname) {
                             capa[0][1]._layers[property].options.pane = eval(format_layer[layer_name].format.pane)
                         }
                         capa[0][1].addTo(map)
-                        console.log(layer_remove)
                     }
                 }
 
