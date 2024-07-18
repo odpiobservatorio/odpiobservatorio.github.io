@@ -415,18 +415,7 @@
 
                 <!--Menu configuración gráfica-->
                 <div class="label text-success">Configuracion del mapa</div>
-                <div class="form-check m-2" onchange="showLayer(this)">
-                    <input class="form-check-input" type="checkbox" value="" id="LayerPlano">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Ver cróquis
-                    </label>
-                </div>
-                <div class="form-check m-2" onchange="showLayer(this)">
-                    <input class="form-check-input" type="checkbox" value="" id="LayerFondo">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Ver tablero
-                    </label>
-                </div>
+
 
                 <div class="label text-success">Mapa geográfico</div>
                 <div class="form-check m-2" onchange="showTile(this)" id="openstreetmap">
@@ -451,27 +440,7 @@
                 <hr>
                 <div class="label text-success">Unidades territoriales</div>
                 <div class="list-group" id="lstLayers">
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerDepartamentos">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Departamentos
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerMunicipios">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Municipios
-                        </label>
-                    </div>
 
-                    <!-- Macros -->
-                    <div class="label text-success">Macros</div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input" type="checkbox" onchange="showMacro(this)" id="amazonia">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Macro Amazonía
-                        </label>
-                    </div>
                     <div class="form-check m-2">
                         <input class="form-check-input" type="checkbox" onchange="showMacro(this)" id="centroOriente">
                         <label class="form-check-label" for="flexCheckDefault">
@@ -497,33 +466,6 @@
                         </label>
                     </div>
 
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerMacroT">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Macro territorio Comisión de la Verdad
-                        </label>
-                    </div>
-
-                    <div class="label text-success">Territorios</div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerResguardos">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Resguardos
-                        </label>
-                    </div>
-
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerReservas">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Reservas campesinas
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerPdet">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Municipios PDET 2017
-                        </label>
-                    </div>
                     <!--Menu de economias ilegales-->
                     <div class="label text-success">Economias ilegales</div>
 
@@ -580,20 +522,6 @@
                         </label>
                     </div>
 
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerAAPuntos">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Actores Armados Puntos (Pares 2022)
-                        </label>
-                    </div>
-                    <!--Menu información grupos armados-->
-                    <div class="label text-success">Información de victimización</div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerCluster2024">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Cluster ODPI ONIC 2016-2024
-                        </label>
-                    </div>
                     <div class="form-check m-2" onchange="showLayer(this)">
                         <input class="form-check-input" type="checkbox" value="" id="LayerIRV">
                         <label class="form-check-label" for="flexCheckDefault">
@@ -734,7 +662,7 @@
     </div>
 
 
-    <!-- Panel de marcadores-->
+    <!-- Panel de marcadores new-->
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
         id="offcanvasMarcador" aria-labelledby="offcanvasMarcadorLabel">
         <div class="offcanvas-header bg-success text-white">
@@ -1445,6 +1373,7 @@
         </ul>
     </div>
 </div>
+<!--New panel consolo log-->
 <div class="offcanvas offcanvas-bottom shadow" tabindex="-1" id="offcanvasConsola" data-bs-scroll="true"
     data-bs-backdrop="false">
     <div class="offcanvas-header bg-dark" style="font-size: 10px; height: 20px;">
@@ -1462,7 +1391,6 @@
 </div>
 
 <!-- llama a los eventos .js para esta página -->
-
 <script>
     const TileLayerA = {
         openstreetmap: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -1535,6 +1463,7 @@
 
     }
 </script>
+<!-- new panel canvas to list layers -->
 <div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offCapas" data-bs-scroll="true"
     data-bs-backdrop="false">
     <div class="offcanvas-header bg-primary">
@@ -1557,5 +1486,6 @@
         </div>
 
     </div>
+</div>
 
 </html>

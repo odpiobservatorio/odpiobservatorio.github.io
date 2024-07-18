@@ -259,93 +259,7 @@ function colorMap(casos, max = 794) {
 
 //Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
-    "LayerPlano": () => {
-        Layers["LayerPlano"] = new L.geoJSON(LayerPlano, {
-            style: {
-                color: formatoPlano["bordercolor"],
-                weight: formatoPlano["weight"],
-                fillColor: formatoPlano["color"],
-                fillOpacity: formatoPlano["opacidad"],
-                pane: 'mapPane' //Orden en la capa              
-            }
-        }).addTo(map)
-    },
-
-    "LayerFondo": () => {
-        Layers["LayerFondo"] = new L.geoJSON(FondoLayer, {
-            style: {
-                color: formatoDesktop["color"],
-                weight: 0,
-                fillColor: formatoDesktop["color"],
-                fillOpacity: 1,
-            }
-        }).addTo(map);
-    },
-    "LayerFondoDark": () => {
-        Layers["LayerFondoDark"] = new L.geoJSON(FondoLayer, {
-            style: {
-                color: "#ffffff",
-                weight: 0,
-                fillColor: "black",
-                fillOpacity: 1,
-            }
-        }).addTo(map);
-    },
-    "LayerDepartamentos": () => {
-        Layers["LayerDepartamentos"] = new L.geoJSON(capaDepartamentos,
-            {
-                style: {
-                    color: formatoPlano["bordercolor"],
-                    weight: 1,
-                    pane: 'mapLayers',
-                    fillOpacity: 0,
-
-                },
-                filter: function (feature, layer) {
-                    if (Datafilter == 1) {
-                        return feature.properties.nombre_dpt == "CESAR" || feature.properties.nombre_dpt == "CHOCÓ";
-                    }
-                    else {
-                        return feature.properties;
-                    };
-                }
-            }
-        ).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return "Nombre: " + layer.feature.properties.nombre_dpt
-                }
-            )
-
-        ).addTo(map);
-    },
-
-    "LayerMunicipios": () => {
-        Layers["LayerMunicipios"] = new L.geoJSON(capaMunicipios,
-            {
-                style: {
-                    color: formatoPlano["bordercolor"],
-                    weight: 1,
-                    pane: 'mapLayers',
-                    fillOpacity: 0,
-                },
-                filter: function (feature, layer) {
-                    if (Datafilter == 1) {
-                        //return feature.properties.nombre_dpt == "CESAR" || feature.properties.nombre_dpt == "CHOCÓ";
-                    }
-                    else {
-                        return feature.properties;
-                    };
-                }
-            }
-        ).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return "Nombre: " + layer.feature.properties.nombre_mpi
-                }
-            )
-        ).addTo(map);
-    },
+  
 
     "LayerMacroT": () => {
         Layers["LayerMacroT"] = new L.geoJSON(MacroTcv, {
@@ -370,67 +284,7 @@ const allLayers = {
         ).addTo(map);
     },
 
-    "LayerResguardos": () => {
-        Layers["LayerResguardos"] = new L.geoJSON(resguardos,
-            {
-                style: {
-                    color: "#76D7C4",
-                    weight: 0,
-                    fillColor: "red",
-                    fillOpacity: 5,
-                    pane: 'mapLayers'
-                },
-                filter: function (feature, layer) {
-                    if (Datafilter == 1) {
-                        return feature.properties.DEPARTAMENTO == "CESAR";
-                    }
-                    else {
-                        return feature.properties;
-                    };
-                }
-            }
-        ).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return `${layer.feature.properties.NOMBRE} ETNIA: ${layer.feature.properties.PUEBLO} MUNICIPIO: ${layer.feature.properties.MUNICIPIO}`
-                }
-            )
-        ).addTo(map);
-    },
-    "LayerReservas": () => {
-        Layers["LayerReservas"] = new L.geoJSON(reservasCap, {
-            style: {
-                color: "orange",
-                fillColor: "orange",
-                fillOpacity: 3,
-                pane: 'mapLayers'
-            }
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return layer.feature.properties.NOMBRE_ZONA_RESERVA_CAMPESINA
-                }
-            )
-        ).addTo(map);
-    },
 
-    "LayerPdet": () => {
-        Layers["LayerPdet"] = new L.geoJSON(cpaPdet, {
-            style: {
-                color: "white",
-                weight: 1,
-                fillColor: "#873600",
-                pane: 'mapLayers',
-                fillOpacity: 0.5
-            }
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return layer.feature.properties.MpNombre;
-                }
-            )
-        ).addTo(map);
-    },
 
     "LayerRutaMigrantes": () => {
         Layers["LayerRutaMigrantes"] = new L.geoJSON(capaRutaMigrantes, {
@@ -587,39 +441,6 @@ const allLayers = {
         ).addTo(map);
     },
 
-    "LayerAAPuntos": () => {
-        Layers["LayerAAPuntos"] = new L.geoJSON(AAPuntosPares2022, {
-            style: (feature) => {
-                return {
-                    color: feature.properties.backcolor,
-                    fillColor: feature.properties.backcolor,
-                    weight: 6,
-                    fillOpacity: 1,
-                    pane: 'polygonsPane',
-                }
-            },
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return layer.feature.properties.NombreAA
-                }
-            )
-        ).addTo(map);
-    },
-
-    "LayerCluster2024": () => {
-        Layers["LayerCluster2024"] = new L.geoJSON(ClusterODPI2024, {
-            style: (feature) => {
-                return {
-                    color: "white",
-                    fillColor: "gray",
-                    weight: 1,
-                    fillOpacity: 1,
-                    pane: 'mapLayers'
-                }
-            },
-        }).bindPopup("Cluster de afectaciones a los DPI OBSERVATORIO ODPI ONIC 2016-2023").addTo(map);
-    },
 
     "LayerPIR": () => {
         PlanPIR.forEach(elemento => {
