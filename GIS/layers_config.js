@@ -425,7 +425,7 @@ function config_format(layer_name, controlname) {
     const cCollapseBody = document.getElementById(controlname)
     cCollapseBody.innerHTML = ""
 
-    console.log(cCollapseBody)
+
     const btngroup = document.createElement("div")
     btngroup.role = "group"
     btngroup.className = "btn-group border-1 border border-info p-2"
