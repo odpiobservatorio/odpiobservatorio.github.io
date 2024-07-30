@@ -839,7 +839,7 @@ const lugares = [
     { 'departamento': 'Vaupés', 'lugar': 'Mitu', 'lat': '1.1983', 'lng': '-70.1733', 'latlng': '1.1983,-70.1733', 'key': 'VaupésMitu' },
     { 'departamento': 'Vichada', 'lugar': 'Cumaribo', 'lat': '4.4333', 'lng': '-69.8', 'latlng': '4.4333,-69.8', 'key': 'VichadaCumaribo' },
     { 'departamento': 'Vichada', 'lugar': 'La Primavera', 'lat': '5.4906', 'lng': '-70.4092', 'latlng': '5.4906,-70.4092', 'key': 'VichadaLa Primavera' },
-    { 'departamento': 'Vichada', 'lugar': 'Puerto Carreno', 'lat': '6.1833', 'lng': '-67.4667', 'latlng': '6.1833,-67.4667', 'key': 'VichadaPuerto Carreno' },
+    { 'departamento': 'Vichada', 'lugar': 'Puerto Carreño', 'lat': '6.1833', 'lng': '-67.4667', 'latlng': '6.1833,-67.4667', 'key': 'VichadaPuerto Carreño' },
     { 'departamento': 'Vichada', 'lugar': 'Santa Rosalía', 'lat': '5.1405', 'lng': '-71.203', 'latlng': '5.1405,-71.203', 'key': 'VichadaSanta Rosalía' },
     { 'departamento': 'Vichada ', 'lugar': 'Puerto Carreño', 'lat': '6.1833', 'lng': '-67.4667', 'latlng': '6.1833,-67.4667', 'key': 'Vichada Puerto Carreño' },
 ]

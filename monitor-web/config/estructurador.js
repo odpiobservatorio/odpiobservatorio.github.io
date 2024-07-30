@@ -264,7 +264,7 @@ class Caso {
         }
         intDetalleLugar.value = this.detalleLugar
 
-        //}fecha del evento
+        //fecha del evento
         const intFecha = document.getElementById("intFecha")
         intFecha.oninput = () => {
             this.fecha = intFecha.value
@@ -1384,14 +1384,17 @@ async function gotoBackNext(option) {
         if (option == 0 && activeIndex > 0) {
             newIndex = activeIndex - 1
             activeIndex = newIndex
-
+            ActiveDB.clsCasos[activeIndex].makerHTMLCaso()
         } else if (option == 1 && activeIndex < ActiveDB.clsCasos.length) {
             newIndex = activeIndex + 1
             activeIndex = newIndex
+            ActiveDB.clsCasos[activeIndex].makerHTMLCaso()
         }
-        ActiveDB.clsCasos[activeIndex].makerHTMLCaso()
+        
     } catch (error) {
         console.log("Error en movimento registro")
+        activeIndex=0
+        ActiveDB.clsCasos[0].makerHTMLCaso()
     }
 }
 function pastetab() {
@@ -1400,6 +1403,7 @@ function pastetab() {
             let lineasTab = text.split("\n")
             let nl = 1
             lineasTab.forEach(linea => {
+                
                 nl = nl + 1
                 let parteTab = linea.split("\t")
                 let fecha = new Date((parteTab[1]))
@@ -1449,6 +1453,7 @@ function pastetab() {
                     pueblo.parent = caso
                     pueblo.makerHTMLPueblo()
                 })
+                //======================================================================
                 const contenedorLugares = document.getElementById("contenedor-lugares")
                 contenedorLugares.innerHTML = ""
                 let lugaresNew = parteTab[5].split("|")
@@ -1471,6 +1476,7 @@ function pastetab() {
                     lugar.parent = caso
                     lugar.makerHTMLLugar()
                 })
+                //======================================================================
                 const contenedorTipos = document.getElementById("contenedor-tipos")
                 contenedorTipos.innerHTML = ""
                 let tipos = parteTab[0].split("|")
@@ -1484,6 +1490,7 @@ function pastetab() {
                     tipo.parent = caso
                     tipo.makerHTMLTipo()
                 })
+                //======================================================================
                 const divActores = document.getElementById("contenedor-actores")
                 divActores.innerHTML = ""
                 let actores = parteTab[22].split("|")
@@ -1496,30 +1503,38 @@ function pastetab() {
                     actor.parent = caso
                     actor.makerActores()
                 })
-
+                //======================================================================
                 const contenedorDesplazamiento = document.getElementById("contenedor-desplazamiento")
                 contenedorDesplazamiento.innerHTML = ""
-                if (parteTab[23] !== "No aplica") {
+                if (parteTab[23] !== "") {
                     caso.addDesplazamiento(new Desplazamientos(0, parteTab[23], parteTab[24], parteTab[25], parteTab[26], parteTab[27], parteTab[28], parteTab[29], caso))
+                    let d = 0
+                    caso.clsDesplazamiento.forEach(hecho => {
+                        hecho.id = d++
+                        hecho.parent = caso
+                        hecho.makerHTMLDesplazamiento()
+                    })
+                }else{
+                    
                 }
 
-                let d = 0
-                caso.clsDesplazamiento.forEach(hecho => {
-                    hecho.id = d++
-                    hecho.parent = caso
-                    hecho.makerHTMLDesplazamiento()
-                })
+
+                //======================================================================
 
                 const contenedorMedidas = document.getElementById("contenedor-medidas")
                 contenedorMedidas.innerHTML = ""
-                caso.addMedidas(new Medidas(0, parteTab[30], parteTab[31], parteTab[32], caso))
+                if (parteTab[30] !== "") {
+                    caso.addMedidas(new Medidas(0, parteTab[30], parteTab[31], parteTab[32], caso))
 
-                let m = 0
-                caso.clsAccJuridica.forEach(medida => {
-                    medida.id = m++
-                    medida.parent = caso
-                    medida.makerHTMLMedidas()
-                })
+                    let m = 0
+                    caso.clsAccJuridica.forEach(medida => {
+                        medida.id = m++
+                        medida.parent = caso
+                        medida.makerHTMLMedidas()
+                    })
+
+                }
+
 
                 const contenedorPersonas = document.getElementById("contenedor-personas")
                 contenedorPersonas.innerHTML = ""
