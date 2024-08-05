@@ -99,7 +99,20 @@ onSnapshot(coleccionProyectos, (querySnapshot) => {
         });
     });
     GLOBAL.state.proyectos = proyectos;
-    Active_data_monitor=GLOBAL.state.proyectos[0];
+
+    let MultiCasos = {
+        "clsCasos":[]
+    }
+
+    proyectos.forEach(proyecto => {
+        proyecto.clsCasos.forEach(caso => {
+            MultiCasos.clsCasos.push(caso)
+        })
+
+    })
+
+    Active_data_monitor = MultiCasos;
+
 
 });
 
@@ -164,7 +177,7 @@ GLOBAL.firestore = {
     loadfile,
     readFile,
     ListFilesFirebase,
-    
+
 }
 
 //Función que escucha el cambio en inicio o cerrar sesión
@@ -228,10 +241,10 @@ async function readFile(path, name) {
     const res = await fetch(link);
     const data = await res.json();
     //Evoca una función en GlobalMapGrafics y lo coloca en el mapa
-    if(path.includes(".json")){
-        InterPretarData(data,name,"json")
-    }else if(path.includes(".geojson")){
-       InterPretarData(data, name, "geojson") 
+    if (path.includes(".json")) {
+        InterPretarData(data, name, "json")
+    } else if (path.includes(".geojson")) {
+        InterPretarData(data, name, "geojson")
     }
 }
 
@@ -253,7 +266,7 @@ async function ListFilesFirebase() {
                 // All the prefixes under listRef.
                 // You may call listAll() recursively on them.
             });
-            let i=0
+            let i = 0
             res.items.forEach((itemRef) => {
 
                 // All the items under listRef.
@@ -271,11 +284,11 @@ async function ListFilesFirebase() {
                 cListFiles.appendChild(itemLista)
 
                 const ItemCheck = document.getElementById(`${i}checkLayerJson`)
-                ItemCheck.onchange=()=>{
-                    if (ItemCheck.checked==true){
-                        LoadFileSelected(itemRef._location.path_,(itemRef._location.path_).replace('plain-text/json/', ''))
-                    } else{
-                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''),"json")
+                ItemCheck.onchange = () => {
+                    if (ItemCheck.checked == true) {
+                        LoadFileSelected(itemRef._location.path_, (itemRef._location.path_).replace('plain-text/json/', ''))
+                    } else {
+                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''), "json")
                     }
                 }
 
@@ -311,11 +324,11 @@ async function ListFilesFirebase() {
                 cListFiles.appendChild(itemLista)
 
                 const ItemCheck = document.getElementById(`${i}checkLayer`)
-                ItemCheck.onchange=()=>{
-                    if (ItemCheck.checked==true){
-                        LoadFileSelected(itemRef._location.path_,(itemRef._location.path_).replace('plain-text/geojson/', ''))
-                    } else{
-                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''),"geojson")
+                ItemCheck.onchange = () => {
+                    if (ItemCheck.checked == true) {
+                        LoadFileSelected(itemRef._location.path_, (itemRef._location.path_).replace('plain-text/geojson/', ''))
+                    } else {
+                        hideLayer((itemRef._location.path_).replace('plain-text/geojson/', ''), "geojson")
                     }
                 }
 

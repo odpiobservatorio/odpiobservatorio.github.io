@@ -6,6 +6,7 @@ let criteria_items = []
 //Será la variable global que administra 
 let Active_data_monitor
 function cinfigIni_data() {
+
     //Inicia la lista con ese criterio
     crear_listas("clsCasos_macroregion")
     document.getElementById("btnConsulta").value = 1
@@ -89,11 +90,16 @@ const makerList = {
         //Aquí obtengo la clase y el campo, deriva la acción si es la clase Padre o Hija
         let newCriteria = [] //Esta variable guarda la lista según la clase
         if (criterio[0] == "clsCasos") {
-            Active_data_monitor.clsCasos.forEach(caso => {
-                if (newCriteria.includes(caso[criterio[1]]) == false) {
-                    newCriteria.push(caso[criterio[1]])
-                }
-            })
+            try {
+                Active_data_monitor.clsCasos.forEach(caso => {
+                    if (newCriteria.includes(caso[criterio[1]]) == false) {
+                        newCriteria.push(caso[criterio[1]])
+                    }
+                })
+            } catch (error) {
+                mensajes("Aún no se cargan los datos", "orange")
+
+            }
         } else {
             //Aquí es la derivación en caso de que la clase no sea CASOS (Padre)
             //Busca en la clase hija.
@@ -183,7 +189,7 @@ const makerList = {
                 "operador": document.getElementById("lstOperadores").value,
                 "value": document.getElementById("intOpentCriterio").value
             }
-            filterList=[]
+            filterList = []
             filterList.push(criterios)
         }
 
@@ -261,8 +267,8 @@ function add_criterio_extendido() {
         })
         criteria_items.push([filterList[0].clase, cadena])
     }
-    document.getElementById("intOpentCriterio").value=""
-    fromOpenText=""
+    document.getElementById("intOpentCriterio").value = ""
+    fromOpenText = ""
 
 }
 
@@ -274,8 +280,8 @@ function LimpiarConsulta() {
     contenedorlistas.innerHTML = ""
     const btnCriterios = document.getElementById("btnCriterios")
     btnCriterios.textContent = "Criterios"
-    document.getElementById("intOpentCriterio").value=""
-    fromOpenText=""
+    document.getElementById("intOpentCriterio").value = ""
+    fromOpenText = ""
 
 }
 

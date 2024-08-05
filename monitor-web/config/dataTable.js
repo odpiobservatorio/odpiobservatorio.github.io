@@ -1,11 +1,17 @@
+
 let filterList = []
 
 let criteria_items = []
 let dataWfilter=[]
 
+function loadProyectoTabla(value){
+    iniTables(value)
+
+}
 
 
-function iniTables() {
+function iniTables(value) {
+    document.getElementById("sel_vigencia_tabla").hidden
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('element-to-print').hidden = true;
@@ -14,7 +20,7 @@ function iniTables() {
 
     //Cargamos la base de datos actual
     const proyectos = GLOBAL.state.proyectos;
-    ActiveDB = clsObservatorio.loadAsInstance(proyectos[0]);
+    ActiveDB = clsObservatorio.loadAsInstance(proyectos[value]);
 
     crear_listas("clsCasos_macroregion")
 
@@ -64,9 +70,6 @@ function makerTable(data) {
         ["clsCasos", "fechafuente", "FECHA FUENTE"],
         ["clsCasos", "enlace", "ENLACE"],
         ["clsCasos", "detalle", "DETALLE"],
-
-
-
     ]
 
     const thscope = document.createElement("th")
@@ -246,7 +249,8 @@ function makerTable(data) {
         td_scope.appendChild(td_btn)
 
         td_scope.onclick = () => {
-            loadProyecto()
+            loadProyecto(document.getElementById("sel_vigencia_tabla").value)
+
             gotoCaso(caso.id)
         }
         tr.appendChild(td_scope)

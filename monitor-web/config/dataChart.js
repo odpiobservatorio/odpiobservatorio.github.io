@@ -7,18 +7,23 @@ let consolidados = []
 function ini_chat() {
     //Cargamos la base de datos actual
     const proyectos = GLOBAL.state.proyectos;
-    data = clsObservatorio.loadAsInstance(proyectos[0]);
-    ActiveDBchart = data.clsCasos
+    let MultiCasos = []
+    proyectos.forEach(proyecto => {
+        proyecto.clsCasos.forEach(caso=>{
+            MultiCasos.push(caso)
+        })
+    })
+    ActiveDBchart = MultiCasos
     mostrar_consolidados(ActiveDBchart)
 }
 
-function add_consulta(){
+function add_consulta() {
     data2chart.push(dataWfilter)
-    
+
 }
 function mostrar_consolidados(data) {
     const tbody = document.getElementById("tbodyconsolidados")
-    document.getElementById("lstbuscarpor").value="sininfo"
+    document.getElementById("lstbuscarpor").value = "sininfo"
     tbody.innerHTML = ""
 
     document.getElementById("nCasos").textContent = data.length
@@ -113,7 +118,7 @@ function crear_consolidados() {
         tbody.appendChild(tr)
 
     })
-    crear_grafico(consolidados,"bar")
+    crear_grafico(consolidados, "bar")
 }
 function sort_consolidado(tipo, orden) {
 
@@ -152,13 +157,13 @@ function sort_consolidado(tipo, orden) {
         tbody.appendChild(tr)
 
     })
-    crear_grafico(newDataOrdenado,"bar")
+    crear_grafico(newDataOrdenado, "bar")
 
 
 }
 
-function tipo_grafico(tipo){
-    crear_grafico(consolidados,tipo)
+function tipo_grafico(tipo) {
+    crear_grafico(consolidados, tipo)
 }
 function getColor(color = false) {
     if (color) {
@@ -182,23 +187,23 @@ function getColor(color = false) {
     }
 }
 
-function crear_grafico(data,tipo) {
+function crear_grafico(data, tipo) {
     const div = document.getElementById('divChart');
-    div.innerHTML=""
-    const ctx= document.createElement("canvas")
+    div.innerHTML = ""
+    const ctx = document.createElement("canvas")
     div.appendChild(ctx)
-    ctx.id="myChart"
+    ctx.id = "myChart"
 
-    let newLabels=[]
-    let newCasos=[]
-    let newVictimas=[]
-    let newColors=[]
-    let newColors2=[]
-    data.forEach(label=>{
+    let newLabels = []
+    let newCasos = []
+    let newVictimas = []
+    let newColors = []
+    let newColors2 = []
+    data.forEach(label => {
         newLabels.push(label[0])
         newVictimas.push(label[2])
         newCasos.push(label[1])
-        
+
         newColors.push(getColor());
     })
 
