@@ -84,7 +84,7 @@
                             </li>
                             <li>
                                 <a class="dropdown-item " href="#" onclick="clearMarkers()" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasResultados" aria-controls="offcanvasResultados">
+                                    data-bs-target="#offcanvasResultados">
                                     <i class="bi bi-pencil-fill me-3"></i>Ver lista de casos
                                 </a>
                             </li>
@@ -645,9 +645,7 @@
                             </button>
                         </div>
                     </form>
-
                 </div>
-
                 <hr>
                 <div>
                     <button class="btn btn-outline-success text-black" type="button" onclick="clearLayers()">
@@ -656,7 +654,6 @@
                             title=""></i>
                     </button>
                 </div>
-
             </div>
         </div>
     </div>
@@ -1199,7 +1196,7 @@
     </div>
 </body>
 
-<!-- Modal de caso -->
+<!-- Modal new de caso -->
 <div class="modal shadow rounded" tabindex="-1" id="ModalCaseOnMap" data-bs-backdrop="static" style="z-index: 1900">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -1273,7 +1270,6 @@
                             onclick="ListColors('color-mark-consulta','ulColorMarcaConsulta')" id="btnColor_consulta">
                             <i class="bi bi-brush" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-custom-class="tooltip" data-bs-title="Color marca"></i>
-
                         </button>
                         <ul class="dropdown-menu">
                             <div id="ulColorMarcaConsulta" class="container-fluid"></div>
@@ -1287,8 +1283,8 @@
                             data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas">
                             <i class="bi bi-list-ul"></i>
                         </button>
-                        <button id="btnConsulta" type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
-                            data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Buscar">
+                        <button id="btnConsulta" type="button" class="btn btn-secondary" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasResultadosNew">
                             <i class="bi bi-binoculars"></i>
                         </button>
                     </div>
@@ -1485,6 +1481,30 @@
 
         </div>
 
+    </div>
+</div>
+<!-- New Panel de resultados -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasResultadosNew">
+    <div class="offcanvas-header bg-success text-white">
+        <div class="row">
+            <h5 class="offcanvas-title" id="tlResultados">Resultados</h5>
+        </div>
+        <form class="row align-items-center">
+            <div class="col-1" data-bs-toggle="modal" data-bs-target="#TableAModal" onclick="DocumentReport()">
+                <i class="bi-file-bar-graph text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="tooltip" data-bs-title="Ver reporte" onclick=""></i>
+            </div>
+        </form>
+        <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            <div class="list-group" id="lstResGisNew">
+
+
+            </div>
+        </div>
     </div>
 </div>
 

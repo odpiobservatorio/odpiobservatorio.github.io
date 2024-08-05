@@ -325,8 +325,13 @@ function consola_command() {
 
 }
 function mostrar_resultados(data) {
+    const cont_Resultados = document.getElementById("lstResGisNew")
     //Leer todos los cass primero
     data.forEach(caso => {
+        const p = document.createElement("p")
+        p.textContent=caso.id
+        console.log(caso)
+        cont_Resultados.appendChild(p)
         //Por cada caso listo los lugares
         caso.clsLugares.forEach(lugar => {
 
