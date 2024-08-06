@@ -579,7 +579,6 @@ const layers = {
                             propiedades.push(property)
                         }
                     }
-                    console.log(eval(format_layer[layer_name].format.color_fondo))
                     return {
                         color: eval(format_layer[layer_name].format.color_linea),
                         fillColor: eval(format_layer[layer_name].format.color_fondo),
