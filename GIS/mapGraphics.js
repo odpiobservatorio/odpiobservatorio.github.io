@@ -259,7 +259,6 @@ function colorMap(casos, max = 794) {
 
 //Funciones q se llaman dependiendo de la capa q se quiera mostrar
 const allLayers = {
-  
 
     "LayerMacroT": () => {
         Layers["LayerMacroT"] = new L.geoJSON(MacroTcv, {
@@ -284,116 +283,6 @@ const allLayers = {
         ).addTo(map);
     },
 
-
-
-    "LayerRutaMigrantes": () => {
-        Layers["LayerRutaMigrantes"] = new L.geoJSON(capaRutaMigrantes, {
-            style: {
-                color: "red",
-                weight: 3,
-                fillColor: "#873600",
-                fillOpacity: 0.5,
-                pane: 'mapLayers'
-            }
-
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return layer.feature.properties.TIPO;
-                }
-            )
-        ).addTo(map);
-    },
-
-    "LayerNarcotrafico": () => {
-
-
-        Layers["LayerNarcotrafico"] = new L.geoJSON(capaPuntosNarcotrafico, {
-            pointToLayer: function (feature, latlng)
-            //
-            {
-                return PutMarkCicle(true, 'blue', 1, 10, latlng.lat, latlng.lng);
-            }
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return `Nombre: ${layer.feature.properties.Nombre}, Lugar: ${layer.feature.properties.NMunicipio}`;
-                }
-            )).addTo(map);
-    },
-
-    "LayerContrabando": () => {
-        Layers["LayerContrabando"] = new L.geoJSON(capaContrabando, {
-            pointToLayer: function (feature, latlng) {
-                return PutMarkCicle(true, 'black', 1, 10, latlng.lat, latlng.lng);
-            }
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return `Tipo: ${layer.feature.properties.CONTRABAND}, Lugar: ${layer.feature.properties.NOM_CPOB}`;
-                }
-            )
-        ).addTo(map);
-    },
-
-    "LayerFluvialIlegal": () => {
-        Layers["LayerFluvialIlegal"] = new L.geoJSON(capaFluvialIlegal, {
-            style: {
-                color: "#2E86C1",
-                weight: 1,
-                fillColor: "#2E86C1",
-                pane: 'mapLayers',
-                fillOpacity: 0.5
-            }
-
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return `Nombre: ${layer.feature.properties.NOM_RIO}, Tipo: ${layer.feature.properties.TIPO_RUTA}, Descripción: ${layer.feature.properties.DESCRIP}`;
-
-                }
-            )).addTo(map);
-    },
-
-    "LayerRutaArmas": () => {
-        Layers["LayerRutaArmas"] = new L.geoJSON(capaRutaArmas, {
-            style: {
-                color: "purple",
-                weight: 3,
-                fillColor: "#873600",
-                pane: 'mapLayers',
-                fillOpacity: 0.5
-            }
-        }).bindPopup(
-            PutPopUpZ(
-                (layer) => {
-                    return `Nombre: ${layer.feature.properties.NOMBRE}, Tipo: ${layer.feature.properties.TIPO}, Ruta: ${layer.feature.properties.RUTA}`;
-
-                }
-            )
-        ).addTo(map);
-    },
-    "LayerDensidadCoca": () => {
-        Layers["LayerDensidadCoca"] = new L.geoJSON(densidadCoca,
-            {
-                style: (feature) => {
-                    return {
-                        color: "white",
-                        weight: 1,
-                        fillColor: "green",
-                        pane: 'mapLayers',
-                        fillOpacity: feature.properties.Procentaje,
-                    }
-                },
-
-            }).bindPopup(
-                PutPopUpZ(
-                    (layer) => {
-                        return "Departamento:" + layer.feature.properties.DeNombre + ` Hectareas ${layer.feature.properties.Hectareas}`
-                    }
-                )
-            ).addTo(map);
-    },
 
     //Grupos armados ilegales
     "LayerELN": () => {

@@ -89,6 +89,14 @@ background-color: #DF013A;
 td-wrap{
     text-wrap:nowrap;
 }
+.label-hand{
+    cursor:crosshair;
+}
+
+.label-hand:hover{
+    cursor:crosshair;
+    font-weight: bold;
+}
 
 
 

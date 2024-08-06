@@ -2,6 +2,7 @@
     width: 100%;
     height: 1000px;
 }
+
 #maps {
     width: 100%;
     height: 100%;
@@ -58,121 +59,152 @@
     inline-size: 150px;
     overflow-wrap: break-word;
 }
+
 .tLeyendaMin {
     font-size: 10px;
     inline-size: 150px;
     overflow-wrap: break-word;
 }
+
 .wrap {
     text-wrap: wrap;
-  }
+}
 
 .pDot {
     font-size: 12px;
 }
 
-.list-group-scroll{
-    overflow:scroll;
-    height: 100px;  
+.list-group-scroll {
+    overflow: scroll;
+    height: 100px;
 }
+
 .bg-org-red {
     background-color: #DF013A;
-    }
-    .border-org-1{
-        border-bottom: solid;
-        border-bottom-width:0.5rem ;
-        border-color: white;
-        opacity: 0.3;
-    }
-    .border-org-2 {
-        border-bottom: solid;
-        border-bottom-width:1rem ;
-        border-color: white;
-        opacity: 0.3;
-    
-    }
-    .list-group-scroll{
-        max-height: 300px;
-        margin-bottom: 10px;
-        overflow-y: scroll; /* Show vertical scrollbar */
-        
-    }
-    
-    .menu-group-scroll{
-        max-height: 300px;
-        margin-bottom: 10px;
-        overflow-y: auto; /* Show vertical scrollbar */ 
-        overflow-x:hidden
-    }
-    
-    .label-org-warning-light{
-        width: 100%;
-        background-color:bisque;
-        color:dimgray;
-        padding: 8px;
-        padding-left: 10px;
-        margin-bottom:8px;
-        margin-top:8px;
-        font-weight:lighter;
-        border-radius: 8px;
-    }
-    .label-org-warning{
-        background-color:orange;
-        color:white;
-        padding: 8px;
-        padding: 10px;
-        margin:6px;
-        border-radius: 8px;
-    }
-    .label-org-green-light{
-        background-color:#58D68D;
-        color:white;
-        padding: 8px;
-        padding: 10px;
-        margin:6px;
-        border-radius: 8px;
-    }
-    
-    .label-org-gray-light{
-        background-color:#99A3A4;
-        color:white;
-        padding: 10px;
-        margin:6px;
-        border-radius: 8px;
-    }
-    .label-cell-gray-light{
-        background-color:#C0392B;
-        border-color: black;
-        padding: 10px;
-        border-radius: 8px;
-        border-width: 1rem solid;
-    }
-    .label-org-pink{
-        background-color:#FDEDEC;
-        color:dimgray;
-        padding: 8px;
-        padding: 10px;
-        margin:6px;
-        border-radius: 8px;
-    }
-    .label-org-rojod-dark{
-        background-color:#C0392B;
-        color:white;
-        padding: 8px;
-        padding: 10px;
-        margin:6px;
-        border-radius: 8px;
-    }
-    .label-org-yellow-light{
-        background-color:#daef8d;
-        margin:5px;
-        font-size: 11pt;
-        border-radius: 8px;
-    }
+}
 
+.border-org-1 {
+    border-bottom: solid;
+    border-bottom-width: 0.5rem;
+    border-color: white;
+    opacity: 0.3;
+}
+
+.border-org-2 {
+    border-bottom: solid;
+    border-bottom-width: 1rem;
+    border-color: white;
+    opacity: 0.3;
+
+}
+
+.list-group-scroll {
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    /* Show vertical scrollbar */
+
+}
+
+.menu-group-scroll {
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    /* Show vertical scrollbar */
+    overflow-x: hidden
+}
+
+.label-org-warning-light {
+    width: 100%;
+    background-color: bisque;
+    color: dimgray;
+    padding: 8px;
+    padding-left: 10px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    font-weight: lighter;
+    border-radius: 8px;
+}
+
+.label-org-warning {
+    background-color: orange;
+    color: white;
+    padding: 8px;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 8px;
+}
+
+.label-org-green-light {
+    background-color: #58D68D;
+    color: white;
+    padding: 8px;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 8px;
+}
+
+.label-org-gray-light {
+    background-color: #99A3A4;
+    color: white;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 8px;
+}
+
+.label-cell-gray-light {
+    background-color: #C0392B;
+    border-color: black;
+    padding: 10px;
+    border-radius: 8px;
+    border-width: 1rem solid;
+}
+
+.label-org-pink {
+    background-color: #FDEDEC;
+    color: dimgray;
+    padding: 8px;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 8px;
+}
+
+.label-org-rojod-dark {
+    background-color: #C0392B;
+    color: white;
+    padding: 8px;
+    padding: 10px;
+    margin: 6px;
+    border-radius: 8px;
+}
+
+.label-org-yellow-light {
+    background-color: #daef8d;
+    margin: 5px;
+    font-size: 11pt;
+    border-radius: 8px;
+}
+
+.label-hand:hover {
+    cursor: pointer;
+    color: green;
+}
+
+.btn_label {
+    border-radius: 10px;
+    border: solid 1px;
+    border-color: black;
+    padding: 5px;
+    color: rgb(16, 16, 16);
+    text-align: center;
+}
+
+.btn_label:hover {
+    background-color: rgb(69, 68, 68);
+    color: white;
+    border-color:white;
+    cursor: pointer;
     
-    
-    
-    
-    
-    
+
+
+}

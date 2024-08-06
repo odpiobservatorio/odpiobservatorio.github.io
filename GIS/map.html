@@ -466,45 +466,7 @@
                         </label>
                     </div>
 
-                    <!--Menu de economias ilegales-->
-                    <div class="label text-success">Economias ilegales</div>
 
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerRutaMigrantes">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Rutas migrantes
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerRutaArmas">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ruta ingreso armas
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerFluvialIlegal">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ruta fluvial ilegal
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerNarcotrafico">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Puntos Narcotrafico
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerContrabando">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Puntos Contrabando
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerDensidadCoca">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Densidad Coca 2021
-                        </label>
-                    </div>
 
                     <!--Menu información grupos armados-->
                     <div class="label text-success">Grupos armados ilegales</div>
@@ -1279,8 +1241,8 @@
                             data-bs-title="Limpiar marcas">
                             <i class="bi bi-x-circle"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary" onclick="ver_todo()" data-bs-toggle="tooltip"
-                            data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas">
+                        <button type="button" class="btn btn-secondary" onclick="ver_todo()" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasResultadosNew">
                             <i class="bi bi-list-ul"></i>
                         </button>
                         <button id="btnConsulta" type="button" class="btn btn-secondary" data-bs-toggle="offcanvas"
@@ -1489,18 +1451,12 @@
         <div class="row">
             <h5 class="offcanvas-title" id="tlResultados">Resultados</h5>
         </div>
-        <form class="row align-items-center">
-            <div class="col-1" data-bs-toggle="modal" data-bs-target="#TableAModal" onclick="DocumentReport()">
-                <i class="bi-file-bar-graph text-white" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="tooltip" data-bs-title="Ver reporte" onclick=""></i>
-            </div>
-        </form>
         <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
     </div>
     <div class="offcanvas-body">
         <div>
-            <div class="list-group" id="lstResGisNew">
+            <div class="list-group list-group-numbered" id="lstResGisNew">
 
 
             </div>

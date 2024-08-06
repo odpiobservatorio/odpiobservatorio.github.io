@@ -12,8 +12,12 @@ function cinfigIni_data() {
     document.getElementById("btnConsulta").value = 1
 }
 function ver_todo() {
+    const cont_Resultados = document.getElementById("lstResGisNew")
+    cont_Resultados.innerHTML = ""
+ 
     //Leer todos los cass primero
     Active_data_monitor.clsCasos.forEach(caso => {
+        make_label_resultados(caso, cont_Resultados)
         //Por cada caso listo los lugares
         caso.clsLugares.forEach(lugar => {
 
@@ -272,8 +276,6 @@ function add_criterio_extendido() {
 
 }
 
-
-
 function LimpiarConsulta() {
     criteria_items = []
     const contenedorlistas = document.getElementById("listconsultaextendida")
@@ -324,14 +326,80 @@ function consola_command() {
     }
 
 }
+function make_label_resultados(caso, contenedor) {
+
+    const li = document.createElement("li")
+    li.className = "list-group-item d-flex justify-content-between align-items-start"
+
+    const div = document.createElement("div")
+    div.className = "ms-2 me-auto"
+    div.innerHTML = `
+    <div class="ms-2 me-auto">
+        <div class="label-hand fw-bold" 
+            data-bs-toggle="collapse" 
+            href="#collapse${caso.id}">${caso.macrotipo}
+        </div>
+    </div>
+    <div class="collapse ms-2" id="collapse${caso.id}">
+        <div class="row mt-1">
+            <div class="col text-secondary me-2">
+                Macroregión
+            </div>
+            <div class="col">
+                ${caso.macroregion}
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col text-secondary me-2">
+                Departamento
+            </div>
+            <div class="col">
+                ${caso.departamento}
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col text-secondary me-2">
+                Macroactor
+            </div>
+            <div class="col">
+                ${caso.macroactor}
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col text-secondary me-2">
+                Víctimas
+            </div>
+            <div class="col">
+                ${caso.npersonas}
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col">
+                <div class="btn_label" onclick="mostrar_caso(${caso.id})" >
+                    Ver caso
+                </div>
+            </div>
+        </div>
+
+    </div>
+    `
+
+    li.appendChild(div)
+    const span = document.createElement("span")
+    span.className = "badge bg-primary rounded-pill"
+    span.textContent=caso.vigencia
+    li.appendChild(span)
+
+    contenedor.appendChild(li)
+
+}
 function mostrar_resultados(data) {
     const cont_Resultados = document.getElementById("lstResGisNew")
+    cont_Resultados.innerHTML = ""
     //Leer todos los cass primero
     data.forEach(caso => {
-        const p = document.createElement("p")
-        p.textContent=caso.id
-        console.log(caso)
-        cont_Resultados.appendChild(p)
+        make_label_resultados(caso, cont_Resultados)
+
         //Por cada caso listo los lugares
         caso.clsLugares.forEach(lugar => {
 

@@ -68,7 +68,7 @@ let format_layer = {
         },
         "label": [
             {
-                "clase": "fw-bold text-info",
+                "clase": "fw-bold text-success",
                 "contenido": "Departamento",
                 "campo": "DPTO_CNMBR"
             }
@@ -88,7 +88,7 @@ let format_layer = {
         },
         "label": [
             {
-                "clase": "fw-bold text-info",
+                "clase": "fw-bold text-success",
                 "contenido": "Municipio",
                 "campo": "nombre_mpi"
             },
@@ -127,7 +127,7 @@ let format_layer = {
         "format": {
             color_linea: "'white'",
             color_fondo: "feature.properties.backColor",
-            opacidad: 1,
+            opacidad: "",
             ancho_linea: 1,
             pane: "'3'"
         },
@@ -160,12 +160,12 @@ let format_layer = {
         },
         "label": [
             {
-                "clase": "fw-bold",
+                "clase": "fw-bold text-success",
                 "contenido": "Nombre",
                 "campo": "NOMBRE"
             },
             {
-                "clase": "fw-bold",
+                "clase": "fw-bold text-success",
                 "contenido": "Pueblo",
                 "campo": "PUEBLO"
             }
@@ -206,12 +206,12 @@ let format_layer = {
         },
         "label": [
             {
-                "clase": "fw-bold",
+                "clase": "fw-bold text-success",
                 "contenido": "Nombre",
                 "campo": "MpNombre"
             },
             {
-                "clase": "fw-bold",
+                "clase": "fw-bold text-success",
                 "contenido": "Departamento",
                 "campo": "Depto"
             },
@@ -231,12 +231,12 @@ let format_layer = {
         },
         "label": [
             {
-                "clase": "fw-bold",
+                "clase": "fw-bold text-success",
                 "contenido": "Nombre",
                 "campo": "NombreAA"
             },
             {
-                "clase": "fw-bold",
+                "clase": "fw-bold text-success",
                 "contenido": "Zona",
                 "campo": "Zona"
             },
@@ -256,7 +256,7 @@ let format_layer = {
         },
         "label": [
             {
-                "clase": "fw-bold",
+                "clase": "fw-bold text-success",
                 "contenido": "Cluster de afectaciones a los DPI OBSERVATORIO ODPI ONIC 2016-2023",
                 "campo": ""
             },
@@ -265,8 +265,198 @@ let format_layer = {
             "local": "nolocal",
         },
         "atributes": []
+    },
+    "layer_dencoca": {
+        "format": {
+            color_linea: "'white'",
+            color_fondo: "'green'",
+            opacidad: "feature.properties.Procentaje",
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Departamento",
+                "campo": "DeNombre"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Porcentaje",
+                "campo": "Procentaje"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Cantidad (Ha)",
+                "campo": "Hectareas"
+            }
+
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
+    "layer_ilegalrios": {
+        "format": {
+            color_linea: "'blue'",
+            color_fondo: "'blue'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Nombre",
+                "campo": "NOM_RIO"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Tipo",
+                "campo": "TIPO_RUTA"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Descripción",
+                "campo": "DESCRIP"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Observación",
+                "campo": "OBSERVACIO"
+            }
+
+            
+
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
+    "layer_ingresoarmas": {
+        "format": {
+            color_linea: "'red'",
+            color_fondo: "'red'",
+            opacidad: 1,
+            ancho_linea: 2,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Nombre",
+                "campo": "NOMBRE"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Tipo",
+                "campo": "TIPO"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Ruta",
+                "campo": "RUTA"
+            },
+
+
+            
+
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
+    "layer_contrabando": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'red'",
+            opacidad: 1,
+            ancho_linea: 2,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Lugar",
+                "campo": "NOM_CPOB"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Tipo",
+                "campo": "CONTRABAND"
+            }
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
+    "layer_migrantes": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'orange'",
+            opacidad: 1,
+            ancho_linea: 2,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Departamento",
+                "campo": "NOM_DEPTO"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Tipo",
+                "campo": "TIPO"
+            }
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
+    "layer_anh": {
+        "format": {
+            color_linea: "'red'",
+            color_fondo: "'pink'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Clasificación",
+                "campo": "CLASIFICAC"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Tipo",
+                "campo": "TIPO_CONTR"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Estado",
+                "campo": "ESTAD_AREA"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Operador",
+                "campo": "OPERADOR"
+            }
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
     }
 }
+
+
 
 function loadlayers() {
     const jslayers = [
@@ -283,10 +473,19 @@ function loadlayers() {
         ["004resguardos", "resguardos", "Resguardos"],
         ["006reservacampesina", "reservasc", "Reservas campecinas"],
         ["007pdet", "pdet", "Municipios PDET"],
+        ["nolayer", "Rutas o Economías Ilegales"],//=================
+        ["011densidadcoca", "dencoca", "Cultivos Coca (Ha)"],
+        ["012fluvialesilegal", "ilegalrios", "Rutas fluviales"],
+        ["013ingresoarmas", "ingresoarmas", "Ruta Ingreso Armas"],
+        ["014contrabando", "contrabando", "Ruta/Punto Contrabando"],
+        ["015migrantes", "migrantes", "Ruta Migrantes"],
         ["nolayer", "Grupos Armados no Estatales"],//=================
         ["009ganepares", "ganepares", "Presencia GANE (Pares)"],
         ["nolayer", "Información víctimas"],//=================
         ["010clusterodpi2024", "clusterodpi2024", "Cluster ODPI ONIC 2024"],
+        ["nolayer", "Información ambiental"],//=================
+        ["016agenciahid", "anh", "ANH"],
+
     ]
 
     const panel_control_layers = document.getElementById("panel_control_layers")
