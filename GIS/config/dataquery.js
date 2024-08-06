@@ -14,7 +14,7 @@ function cinfigIni_data() {
 function ver_todo() {
     const cont_Resultados = document.getElementById("lstResGisNew")
     cont_Resultados.innerHTML = ""
- 
+
     //Leer todos los cass primero
     Active_data_monitor.clsCasos.forEach(caso => {
         make_label_resultados(caso, cont_Resultados)
@@ -29,42 +29,7 @@ function ver_todo() {
                 lugar.lat,
                 lugar.lng
             )
-                .bindPopup(PutPopUpZ(
-                    //Contenido del popup cuanod se hace click
-                    `
-                    <div style="width: 200px;">
-                        <div class="row">
-                            <div class="col fw-bold">${lugar.municipio}</div>
-                            <div class="col-auto"><span class="badge bg-warning rounded-pill">${new Date(caso.fecha).getFullYear()}</span></div>
-                        </div>
-                        <div class="fst-italic fw-bold text-primary">${caso.macrotipo}</div>
-                        <div class="row">
-                            <div class="col">Victimas</div>
-                            <div class="col-auto">${caso.npersonas}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col">Mujeres</div>
-                            <div class="col-auto">${caso.nmujeres}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col">Hombres</div>
-                            <div class="col-auto">${caso.nhombres}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col">Menores</div>
-                            <div class="col-auto">${caso.nmenores}</div>
-                        </div>
-                        <div class="text-end text-success">${caso.fecha}</div>
-                        <a class="mt-2 nav-link 
-                            border border-1 bg-success 
-                            text-white text-center
-                            rounded-pill" 
-                            href="#"
-                            id="btncaso${caso.id}"
-                            onclick="mostrar_caso(${caso.id})"
-                            >Ver</a>
-                    </div>
-                        `)
+                .bindPopup(PutPopUpZ(put_label_resultado(caso,lugar))
                 )
             marcas_consulta.push(marca)
 
@@ -387,7 +352,7 @@ function make_label_resultados(caso, contenedor) {
     li.appendChild(div)
     const span = document.createElement("span")
     span.className = "badge bg-primary rounded-pill"
-    span.textContent=caso.vigencia
+    span.textContent = caso.vigencia
     li.appendChild(span)
 
     contenedor.appendChild(li)
@@ -411,44 +376,7 @@ function mostrar_resultados(data) {
                 lugar.lat,
                 lugar.lng
             )
-                .bindPopup(PutPopUpZ(
-                    //Contenido del popup cuanod se hace click
-                    `
-                <div style="width: 200px;">
-                    <div class="row">
-                        <div class="col fw-bold">${lugar.municipio}</div>
-                        <div class="col-auto"><span class="badge bg-warning rounded-pill">${new Date(caso.fecha).getFullYear()}</span></div>
-                    </div>
-                    <div class="fst-italic fw-bold text-primary">${caso.macrotipo}</div>
-                    <div class="row">
-                        <div class="col">Victimas</div>
-                        <div class="col-auto">${caso.npersonas}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Mujeres</div>
-                        <div class="col-auto">${caso.nmujeres}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Hombres</div>
-                        <div class="col-auto">${caso.nhombres}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">Menores</div>
-                        <div class="col-auto">${caso.nmenores}</div>
-                    </div>
-                    <div class="text-end text-success">${caso.fecha}</div>
-                    <a class="mt-2 nav-link 
-                        border border-1 bg-success 
-                        text-white text-center
-                        rounded-pill" 
-                        href="#"
-                        id="btncaso${caso.id}"
-                        onclick="mostrar_caso(${caso.id})"
-                        >Ver</a>
-                </div>
-                    `
-
-                )
+                .bindPopup(PutPopUpZ(put_label_resultado(caso,lugar))
 
                 )
             marcas_consulta.push(marca)
@@ -457,9 +385,8 @@ function mostrar_resultados(data) {
     });
 }
 
-function mostrar_caso(id) {
+function mostrar_caso(caso) {
     const contenedor = document.getElementById("body_consolta_caso")
-    const caso = Active_data_monitor.clsCasos[id]
 
     try {
         document.getElementById("tl_index_caso").textContent = "Caso número " + (caso.id + 1)
@@ -510,5 +437,49 @@ function mostrar_caso(id) {
 
 
     bootstrap.Modal.getOrCreateInstance(document.getElementById("modalconsultacaso")).show();
+}
+function put_label_resultado(caso,lugar) {
+    const div = document.createElement("div")
+    div.style.width = "200px"
+    div.innerHTML = `
+    <div class="row">
+        <div class="col fw-bold">${lugar.municipio}</div>
+            <div class="col-auto"><span class="badge bg-warning rounded-pill">${new Date(caso.fecha).getFullYear()}</span></div>
+        </div>
+        <div class="fst-italic fw-bold text-primary">${caso.macrotipo}</div>
+        <div class="row">
+            <div class="col">Victimas</div>
+            <div class="col-auto">${caso.npersonas}</div>
+        </div>
+        <div class="row">
+            <div class="col">Mujeres</div>
+            <div class="col-auto">${caso.nmujeres}</div>
+        </div>
+        <div class="row">
+            <div class="col">Hombres</div>
+            <div class="col-auto">${caso.nhombres}</div>
+        </div>
+        <div class="row">
+            <div class="col">Menores</div>
+            <div class="col-auto">${caso.nmenores}</div>
+        </div>
+        <div class="row">
+            <div class="col">Caso</div>
+            <div class="col-auto">${caso.id}</div>
+        </div>
+        <div class="text-end text-success">${caso.fecha}</div>
+    `
+
+    const btn = document.createElement("a")
+    btn.className="mt-2 nav-link border border-1 bg-success text-white text-center rounded-pill"
+    btn.textContent="Ver"
+    btn.onclick=()=>{
+        mostrar_caso(caso)
+    }
+    div.appendChild(btn)
+    
+
+    return div
+
 }
 

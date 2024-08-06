@@ -49,17 +49,6 @@ Promise.all(fetchAmbiente()).then(res => {
 })
 
 
-// Cargar datos de capas
-function fetchLayer(layerName, layerPath) {
-    const link = `https://raw.githubusercontent.com/odpiobservatorio/odpiobservatorio.github.io/main/GIS${layerPath}`;
-
-    fetch(link).then(response => response.json())
-        .then(data => {
-            window[layerName] = data;
-        }).catch(error => {
-            console.log(error);
-        });
-}
 
 const layersToLoad = {
     CapaBloquePetrolero: '/layers/BloquePetrolero.json',
@@ -92,6 +81,4 @@ const layersToLoad = {
     
 };
 
-for (const layerName in layersToLoad) {
-    fetchLayer(layerName, layersToLoad[layerName]);
-}
+

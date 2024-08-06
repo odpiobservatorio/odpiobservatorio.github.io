@@ -4,7 +4,7 @@
 
 
 //Importa las instanacias de firebase y administración de base de datos
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { initializeApp} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 
 //importa las acciones para almacenar en la nube
@@ -40,6 +40,8 @@ import {
 
 
 
+
+
 // Utiliza las claves y credenciales de mi base de datos de 
 const firebaseConfig = {
     apiKey: "AIzaSyAi1ZdkKtKktSKVk_afvPQ9IkkCNbmghFQ",
@@ -51,10 +53,12 @@ const firebaseConfig = {
 };
 
 
+
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const db = getFirestore(app);
+
 
 
 // Referencia a las colecciones de datos del observatorio
@@ -101,7 +105,7 @@ onSnapshot(coleccionProyectos, (querySnapshot) => {
     GLOBAL.state.proyectos = proyectos;
 
     let MultiCasos = {
-        "clsCasos":[]
+        "clsCasos": []
     }
 
     proyectos.forEach(proyecto => {
