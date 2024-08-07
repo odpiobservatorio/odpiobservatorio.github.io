@@ -105,11 +105,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasCapas" aria-controls="offcanvasCapas">Visor de capas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#offCapas" aria-controls="offcanvasCapas">Capas</a>
+                            data-bs-target="#offCapas" aria-controls="offcanvasCapas">Visor Capas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" onclick="showPivotArea()">Consolidados</a>
@@ -184,7 +180,7 @@
 </header>
 
 
-<body onload="IniProgram(openstreetmap)">
+<body onload="IniProgram()">
 
     <!-- Panel de busqueda-->
     <div class="offcanvas offcanvas-start shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -398,223 +394,6 @@
         <div class="offcanvas-body">
             <div>
                 <div class="list-group" id="lstResGis">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Panel de capas-->
-    <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasCapas"
-        aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header text-white" style="background-color: #16A085;">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Selección de capas</h5>
-            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div>
-
-                <!--Menu configuración gráfica-->
-                <div class="label text-success">Configuracion del mapa</div>
-
-
-                <div class="label text-success">Mapa geográfico</div>
-                <div class="form-check m-2" onchange="showTile(this)" id="openstreetmap">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Open Street Map
-                    </label>
-                </div>
-                <div class="form-check m-2" onchange="showTile(this)" id="stadiamaps">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Escala de grices
-                    </label>
-                </div>
-                <div class="form-check m-2" onchange="showTile(this)" id="opentopomap">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault">
-                    <label class="form-check-label" for="flexRadioDefault3">
-                        Topográfico
-                    </label>
-                </div>
-
-                <hr>
-                <div class="label text-success">Unidades territoriales</div>
-                <div class="list-group" id="lstLayers">
-
-                    <div class="form-check m-2">
-                        <input class="form-check-input" type="checkbox" onchange="showMacro(this)" id="centroOriente">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Macro Centro Oriente
-                        </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input" type="checkbox" onchange="showMacro(this)" id="norte">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Macro Norte
-                        </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input" type="checkbox" onchange="showMacro(this)" id="occidente">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Macro Occidente
-                        </label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input class="form-check-input" type="checkbox" onchange="showMacro(this)" id="orinoquia">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Macro Orinoquia
-                        </label>
-                    </div>
-
-
-
-                    <!--Menu información grupos armados-->
-                    <div class="label text-success">Grupos armados ilegales</div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerELN">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Presencia ELN 2022 (Pares)
-                        </label>
-                    </div>
-
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerGentilDuarte">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Presencia Gentil Duarte 2022 (Pares)
-                        </label>
-                    </div>
-
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerIRV">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            IRV U. Victimas 2022
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showOverLay(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerPIR">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Estado PIR U.V
-                        </label>
-                    </div>
-
-                    <!--Menu información ambiental-->
-                    <div class="label text-success">Informacion ambiental</div>
-
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerTitulos">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Titulos mineros
-                        </label>
-                    </div>
-                    <div class="form-check ms-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerBloquePretrolero">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Mapa de Tierras ANH
-                        </label>
-                    </div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerAmbiental">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Información ambiental
-                        </label>
-                    </div>
-                    <hr>
-                    <!--Menu configuración tendencia-->
-                    <div class="label text-success">Mapas des calor</div>
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerColorMap">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Coloreado por casos
-                        </label>
-                    </div>
-
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerMapaCalor">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Aplicar mapa de calor
-                        </label>
-                    </div>
-
-
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerColorVictimas">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Coloreado por casos segun victimas
-                        </label>
-                    </div>
-
-                    <div class="form-check m-2" onchange="showLayer(this)">
-                        <input class="form-check-input" type="checkbox" value="" id="LayerColorVictimasFiltrado">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Coloreado por casos segun victimas filtrado
-                        </label>
-                    </div>
-
-                    <hr>
-
-                    <form class="row g-2 align-items-center mb-2">
-                        <div class="col-md-9">
-                            <div class="form-floating">
-                                <select id="lstDeps" class="form-select">
-                                    <option value="ANTIOQUIA">ANTIOQUIA</option>
-                                    <option value="ATLANTICO">ATLANTICO</option>
-                                    <option value="SANTAFE DE BOGOTA D.C">SANTAFE DE BOGOTA D.C</option>
-                                    <option value="BOLIVAR">BOLIVAR</option>
-                                    <option value="BOYACA">BOYACA</option>
-                                    <option value="CALDAS">CALDAS</option>
-                                    <option value="CAQUETA">CAQUETA</option>
-                                    <option value="CAUCA">CAUCA</option>
-                                    <option value="CESAR">CESAR</option>
-                                    <option value="CORDOBA">CORDOBA</option>
-                                    <option value="CUNDINAMARCA">CUNDINAMARCA</option>
-                                    <option value="CHOCO">CHOCO</option>
-                                    <option value="HUILA">HUILA</option>
-                                    <option value="LA GUAJIRA">LA GUAJIRA</option>
-                                    <option value="MAGDALENA">MAGDALENA</option>
-                                    <option value="META">META</option>
-                                    <option value="NARIÑO">NARIÑO</option>
-                                    <option value="NORTE DE SANTANDER">NORTE DE SANTANDER</option>
-                                    <option value="QUINDIO">QUINDIO</option>
-                                    <option value="RISARALDA">RISARALDA</option>
-                                    <option value="SANTANDER">SANTANDER</option>
-                                    <option value="SUCRE">SUCRE</option>
-                                    <option value="TOLIMA">TOLIMA</option>
-                                    <option value="VALLE DEL CAUCA">VALLE DEL CAUCA</option>
-                                    <option value="ARAUCA">ARAUCA</option>
-                                    <option value="CASANARE">CASANARE</option>
-                                    <option value="PUTUMAYO">PUTUMAYO</option>
-                                    <option value="AMAZONAS">AMAZONAS</option>
-                                    <option value="GUAINIA">GUAINIA</option>
-                                    <option value="GUAVIARE">GUAVIARE</option>
-                                    <option value="VAUPES">VAUPES</option>
-                                    <option value="VICHADA">VICHADA</option>
-                                    <option value="ARCHIPIELAGO DE SAN ANDRES PROVIDENCIA Y SANTA CATALINA">ARCHIPIELAGO
-                                        DE SAN ANDRES PROVIDENCIA Y SANTA CATALINA</option>
-                                </select>
-                                <label for="floatingSelect">Selecccionar dep</label>
-
-                            </div>
-
-                            <button class="btn btn-outline-success" type="button" onclick="showDep()">
-                                <i class="bi bi-binoculars"></i>
-                            </button>
-
-
-                            <button class="btn btn-outline-success text-black" type="button" onclick="clearDep()">
-                                <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="tooltip" data-bs-title="Borrar capas"
-                                    data-bs-original-title="" title=""></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <hr>
-                <div>
-                    <button class="btn btn-outline-success text-black" type="button" onclick="clearLayers()">
-                        <i class="bi bi-trash3" data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-custom-class="tooltip" data-bs-title="Borrar capas" data-bs-original-title=""
-                            title=""></i>
-                    </button>
                 </div>
             </div>
         </div>
@@ -1180,7 +959,7 @@
         </div>
     </div>
 </div>
-<!-- Modal resultado consulta NEW -->
+<!-- Modal resultado consulta New -->
 <div class="modal shadow rounded" tabindex="-1" id="modalconsultacaso" data-bs-backdrop="static" style="z-index: 1900">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -1216,7 +995,7 @@
 
 <!--New panel consultas-->
 <div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasConsulta" data-bs-scroll="true"
-    data-bs-backdrop="false">
+    data-bs-backdrop="false" style="width: 450px;">
     <div class="offcanvas-header bg-success">
         <h5 class="offcanvas-title text-white" id="offcanvasConsultaLabel">Panel de consultas</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -1233,20 +1012,55 @@
                             <i class="bi bi-brush" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-custom-class="tooltip" data-bs-title="Color marca"></i>
                         </button>
+                        <button class="btn dropdown-toggle bg-secondary text-white type="button" data-bs-toggle="dropdown"
+                        onclick="ListColors('colorline-mark-consulta','ulColorMarcaConsulta')">
+                        <i class="bi bi-circle" data-bs-toggle="tooltip" data-bs-placement="top" id="btnColorlinea_consulta"
+                            data-bs-custom-class="tooltip" data-bs-title="Color linea" style="color: white;"></i>
+                        </button>
                         <ul class="dropdown-menu">
                             <div id="ulColorMarcaConsulta" class="container-fluid"></div>
                         </ul>
+                        <select class="btn btn-secondary text-white text-start" style="width: 85px;"
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                            data-bs-title="Opacidad marca" onchange="opacidad_marca_busqueda=this.value">
+                            <option value="1">100%</option>
+                            <option value="0.9">90%</option>
+                            <option value="0.8">80%</option>
+                            <option value="0.7">70%</option>
+                            <option value="0.6">60%</option>
+                            <option value="0.5">50%</option>
+                            <option value="0.4">40%</option>
+                            <option value="0.3">30%</option>
+                            <option value="0.2">20%</option>
+                            <option value="0.1">10%</option>
+                        </select>
+                        <select class="btn btn-secondary text-white text-start" style="width: 85px;"
+                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                            data-bs-title="Tamaño marca" onchange="size_marca_busqueda=this.value">
+                            <option value="1">1pt</option>
+                            <option value="2">2pt</option>
+                            <option value="3">3pt</option>
+                            <option value="4">4pt</option>
+                            <option value="5">5pt</option>
+                            <option value="5">6pt</option>
+                            <option value="7">7pt</option>
+                            <option value="8">8pt</option>
+                            <option value="9">9pt</option>
+                            <option value="10">10pt</option>
+                            <option value="15">15pt</option>
+                        </select>
                         <button type="button" class="btn btn-secondary" onclick="limpiar_todo_marcas()"
                             data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
                             data-bs-title="Limpiar marcas">
                             <i class="bi bi-x-circle"></i>
                         </button>
                         <button type="button" class="btn btn-secondary" onclick="ver_todo()" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasResultadosNew">
-                            <i class="bi bi-list-ul"></i>
+                            data-bs-target="#offcanvasResultadosNew">
+                            <i class="bi bi-list-ul" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Ver todas las marcas"></i>
                         </button>
                         <button id="btnConsulta" type="button" class="btn btn-secondary" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasResultadosNew">
+                            data-bs-target="#offcanvasResultadosNew">
                             <i class="bi bi-binoculars"></i>
                         </button>
                     </div>
@@ -1349,7 +1163,7 @@
 </div>
 
 <!-- llama a los eventos .js para esta página -->
- 
+
 <script>
     const TileLayerA = {
         openstreetmap: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -1364,11 +1178,10 @@
 
     let ActiveTile;
 
-    async function IniProgram(object) {
+    async function IniProgram() {
         loadlayers()
-
         try {
-            tileMLayer = L.tileLayer(TileLayerA[object.id], {
+            L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                 // Y un mapa con un límite de zoom.
                 maxZoom: 19,
                 //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
@@ -1396,7 +1209,6 @@
         map.getPane('mapPopUps').style.zIndex = 900;
 
         map.createPane('1');
-
         //New panes to layer
         map.getPane('1').style.zIndex = 400;
         //Crea una capa en el mapa para colocar el mapa croquis.
@@ -1414,6 +1226,9 @@
 
         map.createPane('6');
         map.getPane('6').style.zIndex = 1300;
+
+        map.createPane('7');
+        map.getPane('7').style.zIndex = 1500;
 
         map.createPane('labels');
         map.getPane('labels').style.zIndex = 2000;

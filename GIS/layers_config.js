@@ -10,6 +10,7 @@ const ColorLayer = [
     "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
 ]
 let lis_layers = []
+let lis_points = []
 let lis_layers_open = []
 let format_layer = {
     "layer_tablero": {
@@ -160,6 +161,11 @@ let format_layer = {
         },
         "label": [
             {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Resguardos",
+                "campo": ""
+            },
+            {
                 "clase": "fw-bold text-success",
                 "contenido": "Nombre",
                 "campo": "NOMBRE"
@@ -176,7 +182,7 @@ let format_layer = {
         },
         "atributes": []
     },
-    "layer_reservac": {
+    "layer_reservasc": {
         "format": {
             color_linea: "'white'",
             color_fondo: "'lime'",
@@ -185,6 +191,11 @@ let format_layer = {
             pane: "'3'"
         },
         "label": [
+            {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Reserva Campesina",
+                "campo": ""
+            },
             {
                 "clase": "fw-bold",
                 "contenido": "Nombre",
@@ -206,6 +217,11 @@ let format_layer = {
         },
         "label": [
             {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Territorios PDET",
+                "campo": ""
+            },
+            {
                 "clase": "fw-bold text-success",
                 "contenido": "Nombre",
                 "campo": "MpNombre"
@@ -220,7 +236,7 @@ let format_layer = {
             "local": "nolocal",
         },
         "atributes": []
-    },    
+    },
     "layer_ganepares": {
         "format": {
             color_linea: "feature.properties.backcolor",
@@ -230,6 +246,11 @@ let format_layer = {
             pane: "'3'"
         },
         "label": [
+            {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Grupos Armados Ilegales",
+                "campo": ""
+            },
             {
                 "clase": "fw-bold text-success",
                 "contenido": "Nombre",
@@ -276,6 +297,11 @@ let format_layer = {
         },
         "label": [
             {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Densidad Coca *Ha",
+                "campo": ""
+            },
+            {
                 "clase": "fw-bold text-success",
                 "contenido": "Departamento",
                 "campo": "DeNombre"
@@ -307,6 +333,11 @@ let format_layer = {
         },
         "label": [
             {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Rutas acceso rios",
+                "campo": ""
+            },
+            {
                 "clase": "fw-bold text-success",
                 "contenido": "Nombre",
                 "campo": "NOM_RIO"
@@ -327,7 +358,7 @@ let format_layer = {
                 "campo": "OBSERVACIO"
             }
 
-            
+
 
         ],
         "target": {
@@ -345,6 +376,11 @@ let format_layer = {
         },
         "label": [
             {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Ingreso Armas",
+                "campo": ""
+            },
+            {
                 "clase": "fw-bold text-success",
                 "contenido": "Nombre",
                 "campo": "NOMBRE"
@@ -361,7 +397,7 @@ let format_layer = {
             },
 
 
-            
+
 
         ],
         "target": {
@@ -375,9 +411,15 @@ let format_layer = {
             color_fondo: "'red'",
             opacidad: 1,
             ancho_linea: 2,
-            pane: "'3'"
+            pane: "'3'",
+            radius: 5
         },
         "label": [
+            {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Puntos Contrabando",
+                "campo": ""
+            },
             {
                 "clase": "fw-bold text-success",
                 "contenido": "Lugar",
@@ -453,41 +495,87 @@ let format_layer = {
             "local": "nolocal",
         },
         "atributes": []
+    },
+    "layer_titulominero": {
+        "format": {
+            color_linea: "'red'",
+            color_fondo: "'orange'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Modalidad",
+                "campo": "MODALIDAD"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Estado",
+                "campo": "TITULO_EST"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Etapa",
+                "campo": "ETAPA"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Solicitante",
+                "campo": "SOLICITANT"
+            }
+            ,
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Lugar",
+                "campo": "PAR"
+            }
+            ,
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Area",
+                "campo": "AREA"
+            }
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
     }
-}
 
+}
+const jslayers = [
+    ["nolayer", "Mapa general"],//=================
+    ["001tablero", "tablero", "Tablero", "polygon"],
+    ["002basemap", "basemap", "Mapa base", "polygon"],
+    ["nolayer", "Unidades Territoriales"],//=================
+    ["003departamentos", "departamentos", "Departamentos", "polygon"],
+    ["004municipios", "municipios", "Municipios", "polygon"],
+    ["nolayer", "Macroregiones"],//=================
+    ["008macroterritorioscv", "macroterritorioscv", "Macroregiones CV", "polygon"],
+    ["005mamazonia", "amazonia", "Macro amazonía", "polygon"],
+    ["nolayer", "Territorios"],//=================
+    ["004resguardos", "resguardos", "Resguardos", "polygon"],
+    ["006reservacampesina", "reservasc", "Reservas campecinas", "polygon"],
+    ["007pdet", "pdet", "Municipios PDET", "polygon"],
+    ["nolayer", "Rutas o Economías Ilegales"],//=================
+    ["011densidadcoca", "dencoca", "Cultivos Coca (Ha)", "polygon"],
+    ["012fluvialesilegal", "ilegalrios", "Rutas fluviales", "polygon"],
+    ["013ingresoarmas", "ingresoarmas", "Ruta Ingreso Armas", "polygon"],
+    ["014contrabando", "contrabando", "Ruta/Punto Contrabando", "mark"],
+    ["015migrantes", "migrantes", "Ruta Migrantes", "polygon"],
+    ["nolayer", "Grupos Armados no Estatales"],//=================
+    ["009ganepares", "ganepares", "Presencia GANE (Pares)", "polygon"],
+    ["nolayer", "Información víctimas"],//=================
+    ["010clusterodpi2024", "clusterodpi2024", "Cluster ODPI ONIC 2024", "polygon"],
+    ["nolayer", "Información ambiental"],//=================
+    ["016agenciahid", "anh", "Bloque Petrolero", "polygon"],
+    ["017titulominero", "titulominero", "Títulos Mineros", "polygon"],
+]
 
 
 function loadlayers() {
-    const jslayers = [
-        ["nolayer", "Mapa general"],//=================
-        ["001tablero", "tablero", "Tablero"],
-        ["002basemap", "basemap", "Mapa base"],
-        ["nolayer", "Unidades Territoriales"],//=================
-        ["003departamentos", "departamentos", "Departamentos"],
-        ["004municipios", "municipios", "Municipios"],
-        ["nolayer", "Macroregiones"],//=================
-        ["008macroterritorioscv", "macroterritorioscv", "Macroregiones CV"],
-        ["005mamazonia", "amazonia", "Macro amazonía"],
-        ["nolayer", "Territorios"],//=================
-        ["004resguardos", "resguardos", "Resguardos"],
-        ["006reservacampesina", "reservasc", "Reservas campecinas"],
-        ["007pdet", "pdet", "Municipios PDET"],
-        ["nolayer", "Rutas o Economías Ilegales"],//=================
-        ["011densidadcoca", "dencoca", "Cultivos Coca (Ha)"],
-        ["012fluvialesilegal", "ilegalrios", "Rutas fluviales"],
-        ["013ingresoarmas", "ingresoarmas", "Ruta Ingreso Armas"],
-        ["014contrabando", "contrabando", "Ruta/Punto Contrabando"],
-        ["015migrantes", "migrantes", "Ruta Migrantes"],
-        ["nolayer", "Grupos Armados no Estatales"],//=================
-        ["009ganepares", "ganepares", "Presencia GANE (Pares)"],
-        ["nolayer", "Información víctimas"],//=================
-        ["010clusterodpi2024", "clusterodpi2024", "Cluster ODPI ONIC 2024"],
-        ["nolayer", "Información ambiental"],//=================
-        ["016agenciahid", "anh", "ANH"],
-
-    ]
-
     const panel_control_layers = document.getElementById("panel_control_layers")
     panel_control_layers.innerHTML = ""
 
@@ -498,16 +586,16 @@ function loadlayers() {
             script.type = 'text/javascript';
             script.src = `/GIS/newLayers/${item[0]}.js`;
             document.getElementById("layerjsdiv").appendChild(script);
-            maker_coltrol_layer(item[1], item[2])
-        }else{
+            maker_coltrol_layer(item[1], item[2], item[3])
+        } else {
             const sm = document.createElement("small")
-            sm.className="text-info fw-bold"
-            sm.textContent=item[1]
+            sm.className = "text-info fw-bold"
+            sm.textContent = item[1]
             document.getElementById("panel_control_layers").appendChild(sm)
         }
     })
 
-    function maker_coltrol_layer(name, title) {
+    function maker_coltrol_layer(name, title, type) {
         const accordion_item = document.createElement("div")
         accordion_item.className = "accordion-item border border-1 p-1 mb-1"
 
@@ -528,7 +616,7 @@ function loadlayers() {
         input.className = "form-check-input"
         input.type = "checkbox"
         input.id = "checklayer_" + name
-        input.onchange = () => layers['put_layer'](input, 'layer_' + name)
+        input.onchange = () => layers['put_layer'](input, 'layer_' + name, type)
         form_check.appendChild(input)
 
         const label = document.createElement("label")
@@ -554,7 +642,7 @@ function loadlayers() {
         panel_control_layers.appendChild(accordion_item)
 
         const btnConfigLayer = document.getElementById("btnConfigLayer" + name)
-        btnConfigLayer.onclick = () => config_format("layer_" + name, "bodyCollapse" + name)
+        btnConfigLayer.onclick = () => config_format("layer_" + name, "bodyCollapse" + name, type)
 
     }
 
@@ -562,63 +650,115 @@ function loadlayers() {
 
 const layers = {
     //función que obtiene desde el control el nombre del control y nombre de la capa
-    "put_layer"(control, layer_name) {
+    "put_layer"(control, layer_name, type) {
         const format = format_layer[layer_name]
 
         //Verifica si el contro check su estado
         let propiedades = []
+        let ifMarks = []
         if (control.checked == true) {
             //Si es activado crea uan capa con base al archivo local
-            //..eval(layer_name)...usa el texto, lo convierte en uan variable que evoca la capa
+            if (type == "mark") {
+                //..eval(layer_name)...usa el texto, lo convierte en uan variable que evoca la capa
+                const layer = L.geoJSON(eval(layer_name));
+                let points = []
 
-            const layer = L.geoJSON(eval(layer_name), {
-                style: function (feature) {
-                    //Identifica las propiedades de la capa
-                    for (const property in feature.properties) {
-                        if (propiedades.includes(property) !== true) {
-                            propiedades.push(property)
-                        }
-                    }
-                    return {
-                        color: eval(format_layer[layer_name].format.color_linea),
-                        fillColor: eval(format_layer[layer_name].format.color_fondo),
-                        fillOpacity: eval(format_layer[layer_name].format.opacidad),
-                        weight: eval(format_layer[layer_name].format.ancho_linea),
-                        pane: eval(format_layer[layer_name].format.pane),
+                for (item in layer._layers) {
+                    const coord = layer._layers[item]._latlng
+                    const itemlayer = layer._layers[item]
+                    let circle = new L.circleMarker([coord.lat, coord.lng],
+                        {
+                            color: eval(format_layer[layer_name].format.color_linea),
+                            fillColor: eval(format_layer[layer_name].format.color_fondo),
+                            fillOpacity: eval(format_layer[layer_name].format.opacidad),
+                            weight: eval(format_layer[layer_name].format.ancho_linea),
+                            pane: eval(format_layer[layer_name].format.pane),
+                            radius:eval(format_layer[layer_name].format.radius),
+                        }).bindPopup(function (layer) {
+                            const contenido = document.createElement("div")
+                            format_layer[layer_name].label.forEach(elemento => {
+                                const label = document.createElement("div")
+                                label.className = elemento.clase
+                                label.textContent = elemento.contenido
+                                contenido.appendChild(label)
 
-                        
-                    };
+                                const div = document.createElement("div")
+                                div.textContent = itemlayer.feature.properties[elemento.campo]
+                                contenido.appendChild(div)
+                            })
+                            return contenido.innerHTML;
+                        }, { pane: "labels" }
+                        )
+
+                    map.addLayer(circle)
+                    points.push(circle)
                 }
-            }).bindPopup(function (layer) {
-                const contenido = document.createElement("div")
-                format_layer[layer_name].label.forEach(elemento => {
-                    const label = document.createElement("div")
-                    label.className = elemento.clase
-                    label.textContent = elemento.contenido
-                    contenido.appendChild(label)
 
-                    const div = document.createElement("div")
-                    div.textContent = layer.feature.properties[elemento.campo]
-                    contenido.appendChild(div)
-                })
-                return contenido.innerHTML;
-            }, { pane: "labels" }
-            ).addTo(map);
+                //Agrega esta capa a la lista de capas para activar o desactivar
+                lis_points.push([layer_name, points])
 
-            //Agrega esta capa a la lista de capas para activar o desactivar
-            lis_layers.push([layer_name, layer])
+            } else {
+                //..eval(layer_name)...usa el texto, lo convierte en uan variable que evoca la capa
+                const layer = L.geoJSON(eval(layer_name), {
+                    style: function (feature) {
+                        //Identifica las propiedades de la capa
+                        for (const property in feature.properties) {
+                            if (propiedades.includes(property) !== true) {
+                                propiedades.push(property)
+                            }
+                        }
+                        return {
+                            color: eval(format_layer[layer_name].format.color_linea),
+                            fillColor: eval(format_layer[layer_name].format.color_fondo),
+                            fillOpacity: eval(format_layer[layer_name].format.opacidad),
+                            weight: eval(format_layer[layer_name].format.ancho_linea),
+                            pane: eval(format_layer[layer_name].format.pane),
+                        };
+                    }
+                }).bindPopup(function (layer) {
+                    const contenido = document.createElement("div")
+                    format_layer[layer_name].label.forEach(elemento => {
+                        const label = document.createElement("div")
+                        label.className = elemento.clase
+                        label.textContent = elemento.contenido
+                        contenido.appendChild(label)
+
+                        const div = document.createElement("div")
+                        div.textContent = layer.feature.properties[elemento.campo]
+                        contenido.appendChild(div)
+                    })
+                    return contenido.innerHTML;
+                }, { pane: "labels" }
+                ).addTo(map);
+
+                //Agrega esta capa a la lista de capas para activar o desactivar
+                lis_layers.push([layer_name, layer])
+            }
+
         } else {
+            if (type == "mark") {
             //Crear dos filtros para mostrar o quitar la capa
+            //Solo para capas locales fijas, que siempre se presentarán en el programa
+            let layer_remove = lis_points.filter(value => value[0] == layer_name)
+            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+            layer_remove[0][1].forEach(mark=>{
+                map.removeLayer(mark)
+            })
+            lis_points = layer_noremove
+
+            }else{
+                            //Crear dos filtros para mostrar o quitar la capa
             //Solo para capas locales fijas, que siempre se presentarán en el programa
             let layer_remove = lis_layers.filter(value => value[0] == layer_name)
             let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
             map.removeLayer(layer_remove[0][1])
             lis_layers = layer_noremove
+            }
         }
 
     }
 }
-function config_format(layer_name, controlname) {
+function config_format(layer_name, controlname, type) {
 
     const cCollapseBody = document.getElementById(controlname)
     cCollapseBody.innerHTML = ""
@@ -634,8 +774,13 @@ function config_format(layer_name, controlname) {
     maker_control_backcolor()
     maker_control_linecolor()
     maker_control_lineWeight()
+    if (type=="mark"){
+        maker_control_radius()
+    }
     maker_control_opacity()
     maker_control_pane()
+
+
     function maker_control_backcolor() {
         //Crearemos un control desplegable de color personalizado
         const dropdown = document.createElement("div")
@@ -643,7 +788,7 @@ function config_format(layer_name, controlname) {
         dropdown.innerHTML =
             `
         <button class="dropdown-toggle border-0 
-        border-0 btn-outline-secondary p-1" 
+        border-0 btn-outline-secondary p-1 tooltip-container" 
             type="button" 
             data-bs-toggle="dropdown"
             id="btnColor${layer_name}">
@@ -665,6 +810,7 @@ function config_format(layer_name, controlname) {
             btnColor.hidden = true
         }
         btnColor.appendChild(i)
+        tooltip(btnColor,"Color polígono","gray")
 
         //Colocamos los colores en el ul control
 
@@ -684,11 +830,28 @@ function config_format(layer_name, controlname) {
                     //Solo para capas locales fijas, que siempre se presentarán en el programa
 
                     if (format_layer[layer_name].target.local == "nolocal") {
-                        let layer_remove = lis_layers.filter(value => value[0] == layer_name)
-                        let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
-                        map.removeLayer(layer_remove[0][1])
-                        lis_layers = layer_noremove
-                        layers.put_layer(checkLayer, layer_name)
+
+                        if(type=="mark"){
+                            let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                            layer_remove[0][1].forEach(mark=>{
+                                map.removeLayer(mark)
+                            })
+                            lis_points = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+
+                        }else{
+                            let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                            map.removeLayer(layer_remove[0][1])
+                            lis_layers = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        }
+
+
+
+
+
                     } else if (format_layer[layer_name].target.local == "local") {
                         let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
                         map.removeLayer(layer_remove[0][1])
@@ -713,7 +876,7 @@ function config_format(layer_name, controlname) {
         dropdown.innerHTML =
             `
         <button class="border-0 btn-outline-secondary p-1
-            dropdown-toggle" 
+            dropdown-toggle tooltip-container" 
             type="button" 
             data-bs-toggle="dropdown"
             id="btnLineColor${layer_name}">
@@ -734,8 +897,9 @@ function config_format(layer_name, controlname) {
         } catch (error) {
             btnLineColor.hidden = true
         }
-        
+
         btnLineColor.appendChild(i)
+        tooltip(btnLineColor,"Color línea","gray")
 
         //Colocamos los colores en el ul control
 
@@ -751,15 +915,23 @@ function config_format(layer_name, controlname) {
                 const checkLayer = document.getElementById("check" + layer_name)
 
                 if (checkLayer.checked == true) {
-
                     if (format_layer[layer_name].target.local == "nolocal") {
-                        //Crear dos filtros para mostrar o quitar la capa
-                        //Solo para capas locales fijas, que siempre se presentarán en el programa
-                        let layer_remove = lis_layers.filter(value => value[0] == layer_name)
-                        let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
-                        map.removeLayer(layer_remove[0][1])
-                        lis_layers = layer_noremove
-                        layers.put_layer(checkLayer, layer_name)
+                        if(type=="mark"){
+                            let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                            layer_remove[0][1].forEach(mark=>{
+                                map.removeLayer(mark)
+                            })
+                            lis_points = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+
+                        }else{
+                            let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                            map.removeLayer(layer_remove[0][1])
+                            lis_layers = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        }
                     } else if (format_layer[layer_name].target.local == "local") {
                         let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
                         map.removeLayer(layer_remove[0][1])
@@ -786,7 +958,7 @@ function config_format(layer_name, controlname) {
         dropdown.innerHTML =
             `
         <button class="border-0 btn-outline-secondary p-1
-            dropdown-toggle" 
+            dropdown-toggle tooltip-container" 
             type="button" 
             data-bs-toggle="dropdown"
             id="btnLineWeight${layer_name}">
@@ -806,6 +978,7 @@ function config_format(layer_name, controlname) {
 
         const btnLineColor = document.getElementById("btnLineWeight" + layer_name)
         btnLineColor.appendChild(i)
+        tooltip(btnLineColor,"Grueso línea","gray")
 
         //Colocamos los colores en el ul control
         const lineWight = [
@@ -834,11 +1007,22 @@ function config_format(layer_name, controlname) {
 
                 if (checkLayer.checked == true) {
                     if (format_layer[layer_name].target.local == "nolocal") {
-                        let layer_remove = lis_layers.filter(value => value[0] == layer_name)
-                        let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
-                        map.removeLayer(layer_remove[0][1])
-                        lis_layers = layer_noremove
-                        layers.put_layer(checkLayer, layer_name)
+                        if(type=="mark"){
+                            let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                            layer_remove[0][1].forEach(mark=>{
+                                map.removeLayer(mark)
+                            })
+                            lis_points = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+
+                        }else{
+                            let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                            map.removeLayer(layer_remove[0][1])
+                            lis_layers = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        }
                     } else if (format_layer[layer_name].target.local == "local") {
                         let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
                         map.removeLayer(layer_remove[0][1])
@@ -862,7 +1046,7 @@ function config_format(layer_name, controlname) {
         dropdown.innerHTML =
             `
         <button class="border-0 btn-outline-secondary p-1
-            dropdown-toggle" 
+            dropdown-toggle tooltip-container" 
             type="button" 
             data-bs-toggle="dropdown"
             id="btnOpacity${layer_name}">
@@ -873,6 +1057,7 @@ function config_format(layer_name, controlname) {
         dropdown.appendChild(ul)
         btngroup.appendChild(dropdown)
 
+
         //Colocamos un icono que cambiará de color cuando cambie la selección
         const i = document.createElement("i")
         i.className = ""
@@ -882,6 +1067,8 @@ function config_format(layer_name, controlname) {
 
         const btnOpacity = document.getElementById("btnOpacity" + layer_name)
         btnOpacity.appendChild(i)
+        tooltip(btnOpacity,"Opacidad","gray")
+        
 
         //Colocamos los colores en el ul control
         const Opacity = [
@@ -916,11 +1103,21 @@ function config_format(layer_name, controlname) {
 
                 if (checkLayer.checked == true) {
                     if (format_layer[layer_name].target.local == "nolocal") {
-                        let layer_remove = lis_layers.filter(value => value[0] == layer_name)
-                        let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
-                        map.removeLayer(layer_remove[0][1])
-                        lis_layers = layer_noremove
-                        layers.put_layer(checkLayer, layer_name)
+                        if(type=="mark"){
+                            let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                            layer_remove[0][1].forEach(mark=>{
+                                map.removeLayer(mark)
+                            })
+                            lis_points = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        }else{
+                            let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                            map.removeLayer(layer_remove[0][1])
+                            lis_layers = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        }
                     } else if (format_layer[layer_name].target.local == "local") {
                         let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
                         map.removeLayer(layer_remove[0][1])
@@ -946,7 +1143,7 @@ function config_format(layer_name, controlname) {
         dropdown.innerHTML =
             `
         <button class="border-0 btn-outline-secondary p-1
-            dropdown-toggle" 
+            dropdown-toggle tooltip-container" 
             type="button" 
             data-bs-toggle="dropdown"
             id="btnPane${layer_name}">
@@ -964,8 +1161,9 @@ function config_format(layer_name, controlname) {
         i.style.color = "black"
 
 
-        const btnOpacity = document.getElementById("btnPane" + layer_name)
-        btnOpacity.appendChild(i)
+        const btnPane = document.getElementById("btnPane" + layer_name)
+        btnPane.appendChild(i)
+        tooltip(btnPane,"Posición capa","gray")
 
         //Colocamos los colores en el ul control
         const Pane = ["1", "2", "3", "4", "5", "6"]
@@ -992,7 +1190,7 @@ function config_format(layer_name, controlname) {
                         let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
                         map.removeLayer(layer_remove[0][1])
                         lis_layers = layer_noremove
-                        layers.put_layer(checkLayer, layer_name)
+                        layers.put_layer(checkLayer, layer_name, type)
                     } else if (format_layer[layer_name].target.local == "local") {
                         let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
                         map.removeLayer(layer_remove[0][1])
@@ -1010,5 +1208,99 @@ function config_format(layer_name, controlname) {
             }
         })
 
+    }
+    function maker_control_radius(){
+         //Crearemos un control desplegable de color linea personalizado
+         const dropdown = document.createElement("div")
+         dropdown.className = "dropdown me-1"
+         dropdown.innerHTML =
+             `
+         <button class="border-0 btn-outline-secondary p-1
+             dropdown-toggle tooltip-container" 
+             type="button" 
+             data-bs-toggle="dropdown"
+             id="btnRadius${layer_name}">
+         </button>
+         `
+         const ul = document.createElement("ul")
+         ul.className = "dropdown-menu container-fluid p-1"
+         dropdown.appendChild(ul)
+         btngroup.appendChild(dropdown)
+ 
+         //Colocamos un icono que cambiará de color cuando cambie la selección
+         const i = document.createElement("i")
+         i.className = "ms-1"
+         i.textContent = format_layer[layer_name].format.radius
+         i.style.color = "black"
+ 
+ 
+         const btnRadius= document.getElementById("btnRadius" + layer_name)
+         btnRadius.appendChild(i)
+         tooltip(btnRadius,"Tamaño marca","gray")
+ 
+         //Colocamos los colores en el ul control
+         const radius = [
+            [1, 1],
+            [2, 2],
+            [3, 3],
+            [4, 4],
+            [5, 5],
+            [6, 6],
+            [7, 7],
+            [8, 8],
+            [9, 9],
+            [10, 10],
+ 
+         ]
+ 
+         radius.forEach(value => {
+             const li = document.createElement("li")
+             li.className = "ms-2"
+ 
+             const a = document.createElement("a")
+             a.className = "dropdown-item"
+             a.href = "#"
+             a.textContent = value[1]
+             li.appendChild(a)
+ 
+             ul.appendChild(li)
+             a.onclick = () => {
+                 format_layer[layer_name].format.radius = value[0]
+                 const checkLayer = document.getElementById("check" + layer_name)
+                 i.textContent = "" + value[1]
+ 
+                 if (checkLayer.checked == true) {
+                     if (format_layer[layer_name].target.local == "nolocal") {
+                         if(type=="mark"){
+                             let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                             let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                             layer_remove[0][1].forEach(mark=>{
+                                 map.removeLayer(mark)
+                             })
+                             lis_points = layer_noremove
+                             layers.put_layer(checkLayer, layer_name, type)
+                         }else{
+                             let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                             let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                             map.removeLayer(layer_remove[0][1])
+                             lis_layers = layer_noremove
+                             layers.put_layer(checkLayer, layer_name, type)
+                         }
+                     } else if (format_layer[layer_name].target.local == "local") {
+                         let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
+                         map.removeLayer(layer_remove[0][1])
+                         //lis_layers_open["layer_name"][1]= newLayer(layer_remove)
+                         let capa = lis_layers_open.filter(value => value[0] == layer_name)
+                         let layers = capa[0][1]._layers
+                         for (const property in layers) {
+                             capa[0][1]._layers[property].options.radius = format_layer[layer_name].format.radius
+                         }
+                         capa[0][1].addTo(map)
+                     }
+                 }
+ 
+ 
+             }
+         })
     }
 }

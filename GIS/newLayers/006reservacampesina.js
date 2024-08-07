@@ -1,4 +1,4 @@
-const layer_reservac={
+const layer_reservasc={
     "type": "FeatureCollection",
     "name": "Zonas_de_Reserva_Campesina",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },

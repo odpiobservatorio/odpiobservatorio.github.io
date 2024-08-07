@@ -23,13 +23,15 @@ function ver_todo() {
 
             const marca = PutMarkCicle(
                 true, //Indica si el marcador es fijo
-                color_marca_busqueda, //Define el color de la marca en ese momento 
-                1, //Define el nivel de opacidad
-                10, //Define el tamaño del marcador  
+                color_marca_busqueda, //Define el color de la marca en ese momento
+                colorline_marca_busqueda, //Define el color de la linea en ese momento 
+                opacidad_marca_busqueda, //Define el nivel de opacidad
+                size_marca_busqueda, //Define el tamaño del marcador  
                 lugar.lat,
                 lugar.lng
             )
-                .bindPopup(PutPopUpZ(put_label_resultado(caso,lugar))
+                .bindPopup(PutPopUpZ(put_label_resultado(caso, lugar)),
+                    { pane: "labels" }
                 )
             marcas_consulta.push(marca)
 
@@ -349,6 +351,7 @@ function make_label_resultados(caso, contenedor) {
     </div>
     `
 
+
     li.appendChild(div)
     const span = document.createElement("span")
     span.className = "badge bg-primary rounded-pill"
@@ -371,13 +374,15 @@ function mostrar_resultados(data) {
             const marca = PutMarkCicle(
                 true, //Indica si el marcador es fijo
                 color_marca_busqueda, //Define el color de la marca en ese momento 
-                1, //Define el nivel de opacidad
-                10, //Define el tamaño del marcador  
+                colorline_marca_busqueda, //Define el color de la linea en ese momento 
+                opacidad_marca_busqueda, //Define el nivel de opacidad
+                size_marca_busqueda, //Define el tamaño del marcador  
                 lugar.lat,
-                lugar.lng
+                lugar.lng,
+                7 //Define lugar de la capa en pane
             )
-                .bindPopup(PutPopUpZ(put_label_resultado(caso,lugar))
-
+                .bindPopup(PutPopUpZ(put_label_resultado(caso, lugar)),
+                    { pane: "labels" }
                 )
             marcas_consulta.push(marca)
         })
@@ -389,7 +394,7 @@ function mostrar_caso(caso) {
     const contenedor = document.getElementById("body_consolta_caso")
 
     try {
-        document.getElementById("tl_index_caso").textContent = "Caso número " + (caso.id + 1)
+        document.getElementById("tl_index_caso").textContent = "Caso número " + (caso.id)
         document.getElementById("spanvigencia").textContent = new Date(caso.fecha).getFullYear()
 
         document.getElementById("consulta_macrotipo").textContent = caso.macrotipo
@@ -438,7 +443,7 @@ function mostrar_caso(caso) {
 
     bootstrap.Modal.getOrCreateInstance(document.getElementById("modalconsultacaso")).show();
 }
-function put_label_resultado(caso,lugar) {
+function put_label_resultado(caso, lugar) {
     const div = document.createElement("div")
     div.style.width = "200px"
     div.innerHTML = `
@@ -471,13 +476,13 @@ function put_label_resultado(caso,lugar) {
     `
 
     const btn = document.createElement("a")
-    btn.className="mt-2 nav-link border border-1 bg-success text-white text-center rounded-pill"
-    btn.textContent="Ver"
-    btn.onclick=()=>{
+    btn.className = "mt-2 nav-link border border-1 bg-success text-white text-center rounded-pill"
+    btn.textContent = "Ver"
+    btn.onclick = () => {
         mostrar_caso(caso)
     }
     div.appendChild(btn)
-    
+
 
     return div
 

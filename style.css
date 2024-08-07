@@ -197,6 +197,7 @@
     padding: 5px;
     color: rgb(16, 16, 16);
     text-align: center;
+    cursor: pointer;
 }
 
 .btn_label:hover {
@@ -205,6 +206,31 @@
     border-color:white;
     cursor: pointer;
     
+}
+.tooltip-container {
+    position: relative;
+    /*relative: los elementos se posicionan de forma relativa a su posición normal.*/
+    display: inline-block;
+}
 
+.tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    /* Posiciona el tooltip bajo del elemento */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
 
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }

@@ -18,6 +18,9 @@ let markCopy;
 let Marcadores_Personalizados = []
 //Esta variable aplica para el módulo mapData, showBusqueda
 let color_marca_busqueda = "green"
+let colorline_marca_busqueda = "white"
+let opacidad_marca_busqueda = 1
+let size_marca_busqueda=10
 
 //Guarda los marcadores libres
 let MarkFreePoligon = [];
@@ -115,6 +118,11 @@ function ListColors(type, control) {
                 color_marca_busqueda = color
                 document.getElementById("btnColor_consulta").style.background = color
             }
+        }else if (type == "colorline-mark-consulta") {
+            liC.onclick = () => {
+                colorline_marca_busqueda = color
+                document.getElementById("btnColorlinea_consulta").style.color = color
+            }
         }
 
         cUl.appendChild(liC)
@@ -134,10 +142,12 @@ function PutMarkCicle(
     //Propiedasdes del marcador por defecto
     static = false,
     colorB = 'black',
+    colorL = 'white',
     fillOpacity = 1,
     radius = 10,
     LatB = 4.797,
     LngB = -74.030,
+    pane="7",
     Onlabel = false,
     Content = '',
     key = '',
@@ -160,18 +170,18 @@ function PutMarkCicle(
         {
             Type: 'Mark',
             draggable: draggable,
-            color: 'white',
             fillColor: colorB,
+            color: colorL,
             fillOpacity: fillOpacity,
             radius: radius,
             weight: 1,
             //Para colocar las marcas arriba de otras capas.
-            pane: 'polygonsPane',//Se encuentra configurado al inicio de map.html
+            pane: pane,//Se encuentra configurado al inicio de map.html
             Onlabel: Onlabel,
             Content: Content,
             key: key
-
         })
+        
 
 
     if (static == false) {
@@ -1149,4 +1159,13 @@ function list_marcas_custom() {
 
 
     })
+}
+function tooltip(control, texto, color) {
+    const tooltip = document.createElement("span")
+    tooltip.className = "tooltip-text"
+    tooltip.textContent = (texto)
+    tooltip.style.background = color
+    control.appendChild(tooltip)
+
+
 }
