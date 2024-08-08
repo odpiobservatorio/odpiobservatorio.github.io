@@ -10671,7 +10671,7 @@ const layer_avancepir=[
      "CODCOOR": "vichadacumaribo",
      "LAT": 4.4333,
      "LNG": -69.8,
-     "EstadoFase": "Alistamiento",
+     "EstadoFase": "ALISTAMIENTO",
      "DT": "DT Meta y Llanos Orientales",
      "PDET": "No PDET",
      "SujetoColectivo": "RESGUARDO ALTO UNUMA - SIKUANI",

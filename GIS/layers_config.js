@@ -582,14 +582,14 @@ let format_layer = {
                     "IMPLEMENTACIÓN": {
                         "atributo": {
                             fillColor:"orange",
-                            radius:8,
+                            radius:11,
                         },
 
                     },
                     "IDENTIFICACIÓN": {
                         "atributo": {
                             fillColor:"pink",
-                            radius:8,
+                            radius:10,
                         },
                     },
                     "ALISTAMIENTO": {
@@ -601,19 +601,19 @@ let format_layer = {
                     "CARACTERIZACIÓN DEL DAÑO": {
                         "atributo": {
                             fillColor:"lime",
-                            radius:8,
+                            radius:14,
                         },
                     },
                     "DISEÑO Y FORMULACIÓN": {
                         "atributo": {
                             fillColor:"purple",
-                            radius:8,
+                            radius:10,
                         },
                     },
                     "IMPLEMENTADO": {
                         "atributo": {
                             fillColor:"green",
-                            radius:12,
+                            radius:18,
                         },
                     },
                 }
@@ -751,7 +751,6 @@ const layers = {
                             fillOpacity: eval(format_layer[layer_name].format.opacidad),
                             weight: eval(format_layer[layer_name].format.ancho_linea),
                             pane: eval(format_layer[layer_name].format.pane),
-                            radius: eval(format_layer[layer_name].format.radius),
                         }).bindPopup(function (layer) {
                             const contenido = document.createElement("div")
                             format_layer[layer_name].label.forEach(elemento => {
