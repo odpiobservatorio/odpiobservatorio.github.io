@@ -301,14 +301,16 @@ function make_label_resultados(caso, contenedor) {
     const div = document.createElement("div")
     div.className = "ms-2 me-auto"
     div.innerHTML = `
-    <div class="ms-2 me-auto">
         <div class="label-hand fw-bold" 
             data-bs-toggle="collapse" 
             href="#collapse${caso.id}">${caso.macrotipo}
         </div>
-    </div>
-    <div class="collapse ms-2" id="collapse${caso.id}">
-        <div class="row mt-1">
+    `
+    const collapse = document.createElement("div")
+    collapse.id=`collapse${caso.id}`
+    collapse.className = "collapse ms-2"
+    collapse.innerHTML=`
+    <div class="row mt-1">
             <div class="col text-secondary me-2">
                 Macroregión
             </div>
@@ -339,17 +341,18 @@ function make_label_resultados(caso, contenedor) {
             <div class="col">
                 ${caso.npersonas}
             </div>
-        </div>
-        <div class="row mt-1">
-            <div class="col">
-                <div class="btn_label" onclick="mostrar_caso(${caso.id})" >
-                    Ver caso
-                </div>
-            </div>
-        </div>
+        </div>`
 
-    </div>
-    `
+    const btnVer = document.createElement("div")
+    btnVer.className = "btn_label"
+    btnVer.textContent="Ver caso"
+    collapse.appendChild(btnVer)
+    btnVer.onclick=()=>{
+        mostrar_caso(caso)
+    }
+
+    div.appendChild(collapse)
+
 
 
     li.appendChild(div)
@@ -394,7 +397,7 @@ function mostrar_caso(caso) {
     const contenedor = document.getElementById("body_consolta_caso")
 
     try {
-        document.getElementById("tl_index_caso").textContent = "Caso número " + (caso.id)
+        document.getElementById("tl_index_caso").textContent = "Caso número " + (caso.id + 1)
         document.getElementById("spanvigencia").textContent = new Date(caso.fecha).getFullYear()
 
         document.getElementById("consulta_macrotipo").textContent = caso.macrotipo

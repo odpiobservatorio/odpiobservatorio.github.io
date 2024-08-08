@@ -1,0 +1,5 @@
+<div class="collapse ms-2" id="collapse${caso.id}">
+        
+
+
+    </div>
