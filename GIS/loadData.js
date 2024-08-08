@@ -50,35 +50,6 @@ Promise.all(fetchAmbiente()).then(res => {
 
 
 
-const layersToLoad = {
-    CapaBloquePetrolero: '/layers/BloquePetrolero.json',
-    LayerPlano: '/layers/Croquis.json',
-    FondoLayer: '/layers/Fondo.json',
-    capaDepartamentos: '/layers/Departamentos.json',
 
-    cpaPdet: '/layers/MunicipiosPDET.json',
-    PozosPretoleros: '/layers/PozosPet.json',
-    reservasCap: '/layers/ReservasCap.json',
-    resguardos: '/layers/Resguardos.json',
-    TitulosMineros: '/layers/TitulosMin.json',
-
-    densidadCoca: '/layers/ECOIlegal/desidadCoca.json',
-    capaFluvialIlegal: '/layers/ECOIlegal/FluvilesIlegal.json',
-    capaRutaArmas: '/layers/ECOIlegal/IngArmas.json',
-    capaContrabando: '/layers/ECOIlegal/PuntosContrabando.json',
-    capaPuntosNarcotrafico: '/layers/ECOIlegal/PuntosNarcotrafico.json',
-    capaRutaMigrantes: '/layers/ECOIlegal/RutaMigrantes.json',
-    ELN2022Pares: '/layers/ELN2022Pares.json',
-    GentilDuarte2022Pares: '/layers/GentilDuarte2022Pares.json',
-    AAPuntosPares2022: '/layers/AAPuntos.json',
-    MacroTcv: '/layers/MacroTcv.json',
-    capaMunicipios: '/layers/Municipio.json',
-    ClusterODPI2024: '/layers/ClusterODPI2024.json',
-    capaIRV: '/layers/Municipio.json',
-    capaText: '/layers/text.json'
-    
-
-    
-};
 
 

@@ -1,4 +1,4 @@
-const PlanPIR=[
+const layer_avancepir=[
     {
      "Departamento": "Amazonas",
      "Municipio": "Leticia",

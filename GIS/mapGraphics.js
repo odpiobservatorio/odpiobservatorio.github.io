@@ -7,7 +7,6 @@ const LayersDep = []
 
 let TextoLabel = "";
 let ActiveLabels;
-let LayersPIR = [];
 
 let ColorAA;
 

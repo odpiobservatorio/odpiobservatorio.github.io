@@ -542,7 +542,85 @@ let format_layer = {
             "local": "nolocal",
         },
         "atributes": []
-    }
+    },
+    "layer_avancepir": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'pink'",
+            opacidad: 1,
+            ancho_linea: 2,
+            pane: "'3'",
+            radius: 8
+        },
+        "label": [
+            {
+                "clase": "fw-bold text-black fs-6",
+                "contenido": "Avance PIR",
+                "campo": ""
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Departamento",
+                "campo": "Departamento"
+            },
+            {
+                "clase": "fw-bold text-success",
+                "contenido": "Estado Fase",
+                "campo": "EstadoFase"
+            }
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": {
+            "coordenadas": {
+                "lat": "LAT",
+                "lng": "LNG"
+            },
+            "condiciones": {
+                "EstadoFase": {
+                    "IMPLEMENTACIÓN": {
+                        "atributo": {
+                            fillColor:"orange",
+                            radius:8,
+                        },
+
+                    },
+                    "IDENTIFICACIÓN": {
+                        "atributo": {
+                            fillColor:"pink",
+                            radius:8,
+                        },
+                    },
+                    "ALISTAMIENTO": {
+                        "atributo": {
+                            fillColor:"blue",
+                            radius:8,
+                        },
+                    },
+                    "CARACTERIZACIÓN DEL DAÑO": {
+                        "atributo": {
+                            fillColor:"lime",
+                            radius:8,
+                        },
+                    },
+                    "DISEÑO Y FORMULACIÓN": {
+                        "atributo": {
+                            fillColor:"purple",
+                            radius:8,
+                        },
+                    },
+                    "IMPLEMENTADO": {
+                        "atributo": {
+                            fillColor:"green",
+                            radius:12,
+                        },
+                    },
+                }
+
+            }
+        }
+    },
 
 }
 const jslayers = [
@@ -569,11 +647,11 @@ const jslayers = [
     ["009ganepares", "ganepares", "Presencia GANE (Pares)", "polygon"],
     ["nolayer", "Información víctimas"],//=================
     ["010clusterodpi2024", "clusterodpi2024", "Cluster ODPI ONIC 2024", "polygon"],
+    ["018avancepir", "avancepir", "Avencer PIR", "list"],
     ["nolayer", "Información ambiental"],//=================
     ["016agenciahid", "anh", "Bloque Petrolero", "polygon"],
     ["017titulominero", "titulominero", "Títulos Mineros", "polygon"],
 ]
-
 
 function loadlayers() {
     const panel_control_layers = document.getElementById("panel_control_layers")
@@ -673,7 +751,7 @@ const layers = {
                             fillOpacity: eval(format_layer[layer_name].format.opacidad),
                             weight: eval(format_layer[layer_name].format.ancho_linea),
                             pane: eval(format_layer[layer_name].format.pane),
-                            radius:eval(format_layer[layer_name].format.radius),
+                            radius: eval(format_layer[layer_name].format.radius),
                         }).bindPopup(function (layer) {
                             const contenido = document.createElement("div")
                             format_layer[layer_name].label.forEach(elemento => {
@@ -697,7 +775,7 @@ const layers = {
                 //Agrega esta capa a la lista de capas para activar o desactivar
                 lis_points.push([layer_name, points])
 
-            } else {
+            } else if (type == "polygon") {
                 //..eval(layer_name)...usa el texto, lo convierte en uan variable que evoca la capa
                 const layer = L.geoJSON(eval(layer_name), {
                     style: function (feature) {
@@ -733,26 +811,117 @@ const layers = {
 
                 //Agrega esta capa a la lista de capas para activar o desactivar
                 lis_layers.push([layer_name, layer])
+            } else if (type == "list") {
+                const layer = (eval(layer_name));
+                let points = []
+                const condiciones = format_layer[layer_name].atributes.condiciones
+
+                let nCondiciones = 0
+                for (condicion in condiciones) {
+                    nCondiciones++
+                }
+
+
+                layer.forEach(item => {
+                    const lat = format_layer[layer_name].atributes.coordenadas.lat
+                    const lng = format_layer[layer_name].atributes.coordenadas.lng
+                    let circle = new L.circleMarker([item[lat], item[lng]],{draggable:'false'}
+                    ).bindPopup(function (layer) {
+                        const contenido = document.createElement("div")
+                        format_layer[layer_name].label.forEach(elemento => {
+                            const label = document.createElement("div")
+                            label.className = elemento.clase
+                            label.textContent = elemento.contenido
+                            contenido.appendChild(label)
+
+                            const div = document.createElement("div")
+                            div.textContent = item[elemento.campo]
+                            contenido.appendChild(div)
+                        })
+                        return contenido.innerHTML;
+                    }, { pane: "labels" }
+                    )
+
+                    if (nCondiciones !== 0) {
+
+                        for (cond in condiciones) {
+                            
+                            for (il in condiciones[cond]) {
+                                let nVariable= il
+                                if (nVariable == item[cond]) {
+
+                                    const formatCond = format_layer[layer_name].atributes.condiciones[cond][nVariable]
+                                    circle.setStyle(
+                                        {
+                                            color: eval(format_layer[layer_name].format.color_linea),
+                                            fillOpacity: eval(format_layer[layer_name].format.opacidad),
+                                            weight: eval(format_layer[layer_name].format.ancho_linea),
+                                            pane: eval(format_layer[layer_name].format.pane),
+                                        }
+                                    )
+    
+                                    circle.setStyle(
+                                        formatCond.atributo
+                                    )
+    
+
+                                }
+    
+                            }
+
+
+
+                        }
+
+                    } else {
+
+                        circle.setStyle(
+                            {
+                                color: eval(format_layer[layer_name].format.color_linea),
+                                fillColor: eval(format_layer[layer_name].format.color_fondo),
+                                fillOpacity: eval(format_layer[layer_name].format.opacidad),
+                                weight: eval(format_layer[layer_name].format.ancho_linea),
+                                pane: eval(format_layer[layer_name].format.pane),
+                                radius: eval(format_layer[layer_name].format.radius),
+                            }
+                        )
+
+                    }
+
+
+                    map.addLayer(circle)
+                    points.push(circle)
+                })
+                lis_points.push([layer_name, points])
             }
 
         } else {
             if (type == "mark") {
-            //Crear dos filtros para mostrar o quitar la capa
-            //Solo para capas locales fijas, que siempre se presentarán en el programa
-            let layer_remove = lis_points.filter(value => value[0] == layer_name)
-            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
-            layer_remove[0][1].forEach(mark=>{
-                map.removeLayer(mark)
-            })
-            lis_points = layer_noremove
+                //Crear dos filtros para mostrar o quitar la capa
+                //Solo para capas locales fijas, que siempre se presentarán en el programa
+                let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                layer_remove[0][1].forEach(mark => {
+                    map.removeLayer(mark)
+                })
+                lis_points = layer_noremove
 
-            }else{
-                            //Crear dos filtros para mostrar o quitar la capa
-            //Solo para capas locales fijas, que siempre se presentarán en el programa
-            let layer_remove = lis_layers.filter(value => value[0] == layer_name)
-            let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
-            map.removeLayer(layer_remove[0][1])
-            lis_layers = layer_noremove
+            } else if (type == "polygon") {
+                //Crear dos filtros para mostrar o quitar la capa
+                //Solo para capas locales fijas, que siempre se presentarán en el programa
+                let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                map.removeLayer(layer_remove[0][1])
+                lis_layers = layer_noremove
+            } else if (type == "list") {
+                //Crear dos filtros para mostrar o quitar la capa
+                //Solo para capas locales fijas, que siempre se presentarán en el programa
+                let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                layer_remove[0][1].forEach(mark => {
+                    map.removeLayer(mark)
+                })
+                lis_points = layer_noremove
             }
         }
 
@@ -774,7 +943,7 @@ function config_format(layer_name, controlname, type) {
     maker_control_backcolor()
     maker_control_linecolor()
     maker_control_lineWeight()
-    if (type=="mark"){
+    if (type == "mark" || type == "list") {
         maker_control_radius()
     }
     maker_control_opacity()
@@ -810,7 +979,7 @@ function config_format(layer_name, controlname, type) {
             btnColor.hidden = true
         }
         btnColor.appendChild(i)
-        tooltip(btnColor,"Color polígono","gray")
+        tooltip(btnColor, "Color polígono", "gray")
 
         //Colocamos los colores en el ul control
 
@@ -831,16 +1000,16 @@ function config_format(layer_name, controlname, type) {
 
                     if (format_layer[layer_name].target.local == "nolocal") {
 
-                        if(type=="mark"){
+                        if (type == "mark" || type == "list") {
                             let layer_remove = lis_points.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
-                            layer_remove[0][1].forEach(mark=>{
+                            layer_remove[0][1].forEach(mark => {
                                 map.removeLayer(mark)
                             })
                             lis_points = layer_noremove
                             layers.put_layer(checkLayer, layer_name, type)
 
-                        }else{
+                        } else {
                             let layer_remove = lis_layers.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
                             map.removeLayer(layer_remove[0][1])
@@ -899,7 +1068,7 @@ function config_format(layer_name, controlname, type) {
         }
 
         btnLineColor.appendChild(i)
-        tooltip(btnLineColor,"Color línea","gray")
+        tooltip(btnLineColor, "Color línea", "gray")
 
         //Colocamos los colores en el ul control
 
@@ -916,16 +1085,16 @@ function config_format(layer_name, controlname, type) {
 
                 if (checkLayer.checked == true) {
                     if (format_layer[layer_name].target.local == "nolocal") {
-                        if(type=="mark"){
+                        if (type == "mark" || type == "list") {
                             let layer_remove = lis_points.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
-                            layer_remove[0][1].forEach(mark=>{
+                            layer_remove[0][1].forEach(mark => {
                                 map.removeLayer(mark)
                             })
                             lis_points = layer_noremove
                             layers.put_layer(checkLayer, layer_name, type)
 
-                        }else{
+                        } else {
                             let layer_remove = lis_layers.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
                             map.removeLayer(layer_remove[0][1])
@@ -978,7 +1147,7 @@ function config_format(layer_name, controlname, type) {
 
         const btnLineColor = document.getElementById("btnLineWeight" + layer_name)
         btnLineColor.appendChild(i)
-        tooltip(btnLineColor,"Grueso línea","gray")
+        tooltip(btnLineColor, "Grueso línea", "gray")
 
         //Colocamos los colores en el ul control
         const lineWight = [
@@ -1007,16 +1176,16 @@ function config_format(layer_name, controlname, type) {
 
                 if (checkLayer.checked == true) {
                     if (format_layer[layer_name].target.local == "nolocal") {
-                        if(type=="mark"){
+                        if (type == "mark" || type == "list") {
                             let layer_remove = lis_points.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
-                            layer_remove[0][1].forEach(mark=>{
+                            layer_remove[0][1].forEach(mark => {
                                 map.removeLayer(mark)
                             })
                             lis_points = layer_noremove
                             layers.put_layer(checkLayer, layer_name, type)
 
-                        }else{
+                        } else {
                             let layer_remove = lis_layers.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
                             map.removeLayer(layer_remove[0][1])
@@ -1067,8 +1236,8 @@ function config_format(layer_name, controlname, type) {
 
         const btnOpacity = document.getElementById("btnOpacity" + layer_name)
         btnOpacity.appendChild(i)
-        tooltip(btnOpacity,"Opacidad","gray")
-        
+        tooltip(btnOpacity, "Opacidad", "gray")
+
 
         //Colocamos los colores en el ul control
         const Opacity = [
@@ -1103,15 +1272,15 @@ function config_format(layer_name, controlname, type) {
 
                 if (checkLayer.checked == true) {
                     if (format_layer[layer_name].target.local == "nolocal") {
-                        if(type=="mark"){
+                        if (type == "mark" || type == "list") {
                             let layer_remove = lis_points.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
-                            layer_remove[0][1].forEach(mark=>{
+                            layer_remove[0][1].forEach(mark => {
                                 map.removeLayer(mark)
                             })
                             lis_points = layer_noremove
                             layers.put_layer(checkLayer, layer_name, type)
-                        }else{
+                        } else {
                             let layer_remove = lis_layers.filter(value => value[0] == layer_name)
                             let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
                             map.removeLayer(layer_remove[0][1])
@@ -1163,7 +1332,7 @@ function config_format(layer_name, controlname, type) {
 
         const btnPane = document.getElementById("btnPane" + layer_name)
         btnPane.appendChild(i)
-        tooltip(btnPane,"Posición capa","gray")
+        tooltip(btnPane, "Posición capa", "gray")
 
         //Colocamos los colores en el ul control
         const Pane = ["1", "2", "3", "4", "5", "6"]
@@ -1209,12 +1378,12 @@ function config_format(layer_name, controlname, type) {
         })
 
     }
-    function maker_control_radius(){
-         //Crearemos un control desplegable de color linea personalizado
-         const dropdown = document.createElement("div")
-         dropdown.className = "dropdown me-1"
-         dropdown.innerHTML =
-             `
+    function maker_control_radius() {
+        //Crearemos un control desplegable de color linea personalizado
+        const dropdown = document.createElement("div")
+        dropdown.className = "dropdown me-1"
+        dropdown.innerHTML =
+            `
          <button class="border-0 btn-outline-secondary p-1
              dropdown-toggle tooltip-container" 
              type="button" 
@@ -1222,24 +1391,24 @@ function config_format(layer_name, controlname, type) {
              id="btnRadius${layer_name}">
          </button>
          `
-         const ul = document.createElement("ul")
-         ul.className = "dropdown-menu container-fluid p-1"
-         dropdown.appendChild(ul)
-         btngroup.appendChild(dropdown)
- 
-         //Colocamos un icono que cambiará de color cuando cambie la selección
-         const i = document.createElement("i")
-         i.className = "ms-1"
-         i.textContent = format_layer[layer_name].format.radius
-         i.style.color = "black"
- 
- 
-         const btnRadius= document.getElementById("btnRadius" + layer_name)
-         btnRadius.appendChild(i)
-         tooltip(btnRadius,"Tamaño marca","gray")
- 
-         //Colocamos los colores en el ul control
-         const radius = [
+        const ul = document.createElement("ul")
+        ul.className = "dropdown-menu container-fluid p-1"
+        dropdown.appendChild(ul)
+        btngroup.appendChild(dropdown)
+
+        //Colocamos un icono que cambiará de color cuando cambie la selección
+        const i = document.createElement("i")
+        i.className = "ms-1"
+        i.textContent = format_layer[layer_name].format.radius
+        i.style.color = "black"
+
+
+        const btnRadius = document.getElementById("btnRadius" + layer_name)
+        btnRadius.appendChild(i)
+        tooltip(btnRadius, "Tamaño marca", "gray")
+
+        //Colocamos los colores en el ul control
+        const radius = [
             [1, 1],
             [2, 2],
             [3, 3],
@@ -1250,57 +1419,57 @@ function config_format(layer_name, controlname, type) {
             [8, 8],
             [9, 9],
             [10, 10],
- 
-         ]
- 
-         radius.forEach(value => {
-             const li = document.createElement("li")
-             li.className = "ms-2"
- 
-             const a = document.createElement("a")
-             a.className = "dropdown-item"
-             a.href = "#"
-             a.textContent = value[1]
-             li.appendChild(a)
- 
-             ul.appendChild(li)
-             a.onclick = () => {
-                 format_layer[layer_name].format.radius = value[0]
-                 const checkLayer = document.getElementById("check" + layer_name)
-                 i.textContent = "" + value[1]
- 
-                 if (checkLayer.checked == true) {
-                     if (format_layer[layer_name].target.local == "nolocal") {
-                         if(type=="mark"){
-                             let layer_remove = lis_points.filter(value => value[0] == layer_name)
-                             let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
-                             layer_remove[0][1].forEach(mark=>{
-                                 map.removeLayer(mark)
-                             })
-                             lis_points = layer_noremove
-                             layers.put_layer(checkLayer, layer_name, type)
-                         }else{
-                             let layer_remove = lis_layers.filter(value => value[0] == layer_name)
-                             let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
-                             map.removeLayer(layer_remove[0][1])
-                             lis_layers = layer_noremove
-                             layers.put_layer(checkLayer, layer_name, type)
-                         }
-                     } else if (format_layer[layer_name].target.local == "local") {
-                         let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
-                         map.removeLayer(layer_remove[0][1])
-                         //lis_layers_open["layer_name"][1]= newLayer(layer_remove)
-                         let capa = lis_layers_open.filter(value => value[0] == layer_name)
-                         let layers = capa[0][1]._layers
-                         for (const property in layers) {
-                             capa[0][1]._layers[property].options.radius = format_layer[layer_name].format.radius
-                         }
-                         capa[0][1].addTo(map)
-                     }
-                 }
- 
- 
-             }
-         })
+
+        ]
+
+        radius.forEach(value => {
+            const li = document.createElement("li")
+            li.className = "ms-2"
+
+            const a = document.createElement("a")
+            a.className = "dropdown-item"
+            a.href = "#"
+            a.textContent = value[1]
+            li.appendChild(a)
+
+            ul.appendChild(li)
+            a.onclick = () => {
+                format_layer[layer_name].format.radius = value[0]
+                const checkLayer = document.getElementById("check" + layer_name)
+                i.textContent = "" + value[1]
+
+                if (checkLayer.checked == true) {
+                    if (format_layer[layer_name].target.local == "nolocal") {
+                        if (type == "mark" || type == "list") {
+                            let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                            layer_remove[0][1].forEach(mark => {
+                                map.removeLayer(mark)
+                            })
+                            lis_points = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        } else {
+                            let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                            map.removeLayer(layer_remove[0][1])
+                            lis_layers = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        }
+                    } else if (format_layer[layer_name].target.local == "local") {
+                        let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
+                        map.removeLayer(layer_remove[0][1])
+                        //lis_layers_open["layer_name"][1]= newLayer(layer_remove)
+                        let capa = lis_layers_open.filter(value => value[0] == layer_name)
+                        let layers = capa[0][1]._layers
+                        for (const property in layers) {
+                            capa[0][1]._layers[property].options.radius = format_layer[layer_name].format.radius
+                        }
+                        capa[0][1].addTo(map)
+                    }
+                }
+
+
+            }
+        })
     }
 }
