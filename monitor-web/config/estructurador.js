@@ -23,12 +23,8 @@ class clsObservatorio {
 
         //Esta acción carga las actividades que están en firebase y la sube convierte en 
         //un objeto que llena la lista de areas
-        try {
 
-        } catch (error) {
-
-        }
-        const loadCasos = (fromclsCasos) => {
+        const loadCasos = (fromclsCasos, parent) => {
             return fromclsCasos.map(casos => {
                 const casoNew = new Caso(
                     casos.id,
@@ -47,7 +43,7 @@ class clsObservatorio {
                     casos.fuente,
                     casos.fechafuente,
                     casos.enlace,
-                    casos.parent,
+                    parent,
                 );
                 casoNew.clsTipos = loadTipos(casos.clsTipos);
                 casoNew.clsLugares = loadLugares(casos.clsLugares);
@@ -157,14 +153,11 @@ class clsObservatorio {
         GLOBAL.state.proyecto = dataODPI;
         //Identifica el marcador único ID
         dataODPI.id = objDatosODPI.id;
-        dataODPI.clsCasos = loadCasos(objDatosODPI.clsCasos);
-        try {
 
-        } catch (error) {
 
-        }
+        dataODPI.clsCasos = loadCasos(objDatosODPI.clsCasos, objDatosODPI?.id);
 
-        mensajes("Se ha cargado la base de datos", "green")
+        //mensajes("Se ha cargado la base de datos", "green")
         return dataODPI;
     }
     GuardarDataODPI() {
@@ -255,8 +248,7 @@ class Caso {
     }
 
     makerHTMLCaso() {
-
-        document.getElementById("colnRegistro").textContent = this.id + 1
+        document.getElementById("colnRegistro").textContent = this.id + 1 + " de " + ActiveDB.clsCasos.length
         const intDetalle = document.getElementById("intDetalle")
         intDetalle.value = this.detalle
         intDetalle.oninput = () => {
@@ -1224,10 +1216,10 @@ class Medidas {
 function show_listPrj() {
     document.getElementById("panel-escritorio").hidden = false
     document.getElementById("sel_vigencia").value = 0
-    
+
     loadProyecto(0)
     gotoCaso(0)
-    
+
 
 }
 function loadProyecto(value) {
@@ -1328,7 +1320,7 @@ async function AgregarCaso(estado) {
         ListarCasos()
         gotoEnd()
         mensajes("Elemento creado", "Green")
-    }else{
+    } else {
 
     }
 
@@ -1504,7 +1496,7 @@ function pastetab() {
                         caso.addLugar(new Lugar(0, filterDep[0].lugar, filterDep[0].latlng, latlgnParse[0], latlgnParse[1]))
                     } catch (error) {
                         console.log("log en lugares:", parteTab[5], "Linea:", ActiveDB.clsCasos.length)
-                        document.getElementById("intDetalleLugar").value=  document.getElementById("intDetalleLugar").value + "//Residuo:" + parteTab[5] + "//"
+                        document.getElementById("intDetalleLugar").value = document.getElementById("intDetalleLugar").value + "//Residuo:" + parteTab[5] + "//"
 
                         return
                     }
