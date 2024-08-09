@@ -20,23 +20,24 @@ function ver_todo() {
         make_label_resultados(caso, cont_Resultados)
         //Por cada caso listo los lugares
         caso.clsLugares.forEach(lugar => {
-
-            const marca = PutMarkCicle(
-                true, //Indica si el marcador es fijo
-                color_marca_busqueda, //Define el color de la marca en ese momento
-                colorline_marca_busqueda, //Define el color de la linea en ese momento 
-                opacidad_marca_busqueda, //Define el nivel de opacidad
-                size_marca_busqueda, //Define el tamaño del marcador  
-                lugar.lat,
-                lugar.lng
-            )
-                .bindPopup(PutPopUpZ(put_label_resultado(caso, lugar)),
-                    { pane: "labels" }
+            try {
+                const marca = PutMarkCicle(
+                    true, //Indica si el marcador es fijo
+                    color_marca_busqueda, //Define el color de la marca en ese momento
+                    colorline_marca_busqueda, //Define el color de la linea en ese momento 
+                    opacidad_marca_busqueda, //Define el nivel de opacidad
+                    size_marca_busqueda, //Define el tamaño del marcador  
+                    lugar.lat,
+                    lugar.lng
                 )
-            marcas_consulta.push(marca)
-
+                    .bindPopup(PutPopUpZ(put_label_resultado(caso, lugar)),
+                        { pane: "labels" }
+                    )
+                marcas_consulta.push(marca)
+            } catch (error) {
+                console.log(caso)
+            }
         })
-
     });
 }
 
@@ -307,9 +308,9 @@ function make_label_resultados(caso, contenedor) {
         </div>
     `
     const collapse = document.createElement("div")
-    collapse.id=`collapse${caso.id}`
+    collapse.id = `collapse${caso.id}`
     collapse.className = "collapse ms-2"
-    collapse.innerHTML=`
+    collapse.innerHTML = `
     <div class="row mt-1">
             <div class="col text-secondary me-2">
                 Macroregión
@@ -345,9 +346,9 @@ function make_label_resultados(caso, contenedor) {
 
     const btnVer = document.createElement("div")
     btnVer.className = "btn_label"
-    btnVer.textContent="Ver caso"
+    btnVer.textContent = "Ver caso"
     collapse.appendChild(btnVer)
-    btnVer.onclick=()=>{
+    btnVer.onclick = () => {
         mostrar_caso(caso)
     }
 
