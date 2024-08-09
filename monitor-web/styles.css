@@ -97,7 +97,10 @@ td-wrap{
     cursor:crosshair;
     font-weight: bold;
 }
-
+.hchange-gray:hover{
+    background-color: gray;
+    color: white;
+}
 
 
 

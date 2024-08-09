@@ -2,15 +2,43 @@
 let filterList = []
 
 let criteria_items = []
-let dataWfilter=[]
+let dataWfilter = []
 
-function loadProyectoTabla(value){
-    iniTables(value)
+const campos = [
+    ["clsCasos", "macroregion", "MACROREGIÓN", "1"],
+    ["clsCasos", "departamento", "DEPARTAMENTO", "1"],
+    ["clsLugares", "municipio", "LUGARES", "1"],
+    ["clsPueblos", "nombre", "PUEBLO/ÉTNIA", "1"],
+    ["clsCasos", "macrotipo", "MACROTIPO", "1"],
+    ["clsTipos", "nombre", "SUBTIPOS", "1"],
+    ["clsCasos", "fecha", "FECHA", "1"],
+    ["clsCasos", "vigencia", "AÑO", "1"],
+    ["clsCasos", "macroactor", "MACROACTOR", "1"],
+    ["clsActores", "nombre", "ACTORES", "1"],
+    ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO", "1"],
+    ["clsPersonas", "nombres", "NOMBRES", "1"],
+    ["clsCasos", "npersonas", "VICTIMAS", "1"],
+    ["clsCasos", "nmujeres", "MUJERES", "1"],
+    ["clsCasos", "nhombres", "HOMBRES", "1"],
+    ["clsCasos", "nmenores", "MENORES DE EDAD", "1"],
+    ["clsAccJuridica", "accion", "ACCIONES", "1"],
+    ["clsCasos", "fuente", "FUENTE", "1"],
+    ["clsCasos", "fechafuente", "FECHA FUENTE", "1"],
+    ["clsCasos", "enlace", "ENLACE", "1"],
+    ["clsCasos", "detalle", "DETALLE", "1"],
+]
 
+
+function loadProyectoTabla(value) {
+    if (PublicID !== 0) {
+        iniTables(PublicID, 1)
+    } else {
+        iniTables(0, 1)
+
+    }
 }
 
-
-function iniTables(value) {
+function iniTables(value, ini) {
     document.getElementById("sel_vigencia_tabla").hidden
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('panel-escritorio').hidden = true;
@@ -18,19 +46,69 @@ function iniTables(value) {
     document.getElementById('panel-graficos').hidden = true;
     document.getElementById('panel-Tablas-inicio').hidden = false;
 
+
+    //Creamos y cargamos la lista de campos para hacerlos visibles
+    const contenedorUl = document.getElementById("ulCampos")
+    contenedorUl.innerHTML = ""
+
+
+    campos.forEach(campo => {
+        const elemento = document.createElement("div")
+        elemento.className = "ms-3 me-3 hchange-gray"
+        elemento.style.fontWeight = "normal"
+
+        elemento.innerHTML =
+            `
+        <input class="fst-normal form-check-input ms-1" type="checkbox" value="${campo[1]}" id="check${campo[2]}">
+         ${campo[2]}
+        `
+        contenedorUl.appendChild(elemento)
+        const check = document.getElementById("check" + campo[2])
+        if (campo[3] == 1) {
+            check.checked = true
+        } else {
+            check.checked = false
+        }
+
+        check.onchange = () => {
+            if (check.checked == false) {
+                campo[3] = 0
+            } else {
+                campo[3] = 1
+            }
+            makerTable(ActiveDB.clsCasos)
+            console.log(campos)
+        }
+
+    })
+
+
     //Cargamos la base de datos actual
     const proyectos = GLOBAL.state.proyectos;
     ActiveDB = clsObservatorio.loadAsInstance(proyectos[value]);
 
+    //
+    document.getElementById("sel_vigencia").value = value
+    PublicID = value
+    //
+
+
     crear_listas("clsCasos_macroregion")
 
-    if (dataWfilter.length!==0){
-        makerTable(dataWfilter)
-        
-    }else{
+    if (ini == 0) {
+        dataWfilter = []
         makerTable(ActiveDB.clsCasos)
+    } else {
+        if (dataWfilter.length !== 0) {
+            makerTable(dataWfilter)
+
+        } else {
+            makerTable(ActiveDB.clsCasos)
+        }
     }
-    
+
+
+
 
 }
 let activeHeadfilter = []
@@ -49,35 +127,14 @@ function makerTable(data) {
     const trHead = document.createElement("tr")
     thead.appendChild(trHead)
 
-    const visibles = [
-        ["clsCasos", "macroregion", "MACROREGIÓN"],
-        ["clsCasos", "departamento", "DEPARTAMENTO"],
-        ["clsLugares", "municipio", "LUGARES"],
-        ["clsPueblos", "nombre", "PUEBLO/ÉTNIA"],
-        ["clsCasos", "macrotipo", "MACROTIPO"],
-        ["clsTipos", "nombre", "SUBTIPOS"],
-        ["clsCasos", "fecha", "FECHA"],
-        ["clsCasos", "vigencia", "AÑO"],
-        ["clsCasos", "macroactor", "MACROACTOR"],
-        ["clsActores", "nombre", "ACTORES"],
-        ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO"],
-        ["clsCasos", "npersonas", "VICTIMAS"],
-        ["clsCasos", "nmujeres", "MUJERES"],
-        ["clsCasos", "nhombres", "HOMBRES"],
-        ["clsCasos", "nmenores", "MENORES DE EDAD"],
-        ["clsAccJuridica", "accion", "ACCIONES"],
-        ["clsCasos", "fuente", "FUENTE"],
-        ["clsCasos", "fechafuente", "FECHA FUENTE"],
-        ["clsCasos", "enlace", "ENLACE"],
-        ["clsCasos", "detalle", "DETALLE"],
-    ]
 
     const thscope = document.createElement("th")
     thscope.scope = "col"
     trHead.appendChild(thscope)
 
     //Toma cada elemento de visibles y crea un encabezado
-    visibles.forEach(campo => {
+    campos.forEach(campo => {
+
         const th = document.createElement("th")
         th.className = "bg-secondary text-white"
         trHead.appendChild(th)
@@ -107,15 +164,13 @@ function makerTable(data) {
             //Creamos cadena de criterios
             let criterios = ""
             activeHeadfilter.forEach(filtro => {
-
                 criterios = criterios + `value["${campo[1]}"] == '${filtro}' || `
             })
             criterios = criterios + `value["${campo[1]}"]  ==""`
 
             if (campo[0] == "clsCasos") {
                 let filtered = data.filter(value => eval(criterios));
-                dataWfilter=filtered
-                mostrar_consolidados(dataWfilter)
+                dataWfilter = filtered
                 makerTable(filtered)
 
             } else {
@@ -128,8 +183,7 @@ function makerTable(data) {
                         }
                     }
                 })
-                dataWfilter=datafiltered
-                mostrar_consolidados(dataWfilter)
+                dataWfilter = datafiltered
                 makerTable(datafiltered)
             }
             activeHeadfilter = []
@@ -140,15 +194,15 @@ function makerTable(data) {
         lifilternull.innerHTML = `                
             <a class="dropdown-item" href="#">
                 <i class="bi bi-funnel me-2"></i>
-                    Vertodo
+                    Ver todo
              </a>
              <hr>
              `
         ul.appendChild(lifilternull)
         lifilternull.onclick = () => {
-            dataWfilter=ActiveDB.clsCasos
-            mostrar_consolidados(dataWfilter)
-            makerTable(ActiveDB.clsCasos)
+            dataWfilter = ActiveDB.clsCasos
+
+            iniTables(PublicID, 0)
             activeHeadfilter = []
         }
 
@@ -220,6 +274,12 @@ function makerTable(data) {
         })
 
         th.appendChild(div)
+        if (campo[3] == 1) {
+            th.hidden = false
+        } else {
+            th.hidden = true
+        }
+
         //console.log(campo[0])
     })
 
@@ -239,13 +299,15 @@ function makerTable(data) {
         //             Se crea el boton de fila para acceder al registro en formulario
         const td_scope = document.createElement("td")
         td_scope.style.verticalAlign = "middle"
+        td_scope.style.width="50px"
         td_scope.className = "bg-secondary text-center text-white"
         td_scope.scope = "row"
 
         const td_btn = document.createElement("a")
         td_btn.className = "nav-link active"
+        td_btn.style.width="50px"
         td_btn.href = "#"
-        td_btn.innerHTML = `<i class="bi bi-link-45deg"></i>`
+        td_btn.innerHTML = `<i class="me-2 bi bi-link-45deg"></i>${caso.id + 1} `
         td_scope.appendChild(td_btn)
 
         td_scope.onclick = () => {
@@ -258,7 +320,7 @@ function makerTable(data) {
 
 
 
-        visibles.forEach(campo => {
+        campos.forEach(campo => {
             if (campo[0] == "clsCasos") {
                 try {
                     let longitud = caso[campo[1]].length
@@ -296,14 +358,22 @@ function makerTable(data) {
                         acordeon.appendChild(collapse)
                         const td = document.createElement("td")
                         td.appendChild(acordeon)
-                        tr.appendChild(td)
+                        if (campo[3] == 1) {
+                            tr.appendChild(td)
+                        }
+
 
                     } else {
-                        const td = document.createElement("td")
-                        td.className = "td-wrap"
-                        td.style.verticalAlign = "middle"
-                        td.textContent = caso[campo[1]]
-                        tr.appendChild(td)
+
+                        if (campo[3] == 1) {
+
+                            const td = document.createElement("td")
+                            td.className = "td-wrap"
+                            td.style.verticalAlign = "middle"
+                            td.textContent = caso[campo[1]]
+                            tr.appendChild(td)
+                        }
+
                     }
                 } catch (error) {
 
@@ -350,11 +420,16 @@ function makerTable(data) {
                 })
                 const td = document.createElement("td")
                 td.className = "td-wrap"
-                if (caso[campo[0]].length != 0) {
-                    td.appendChild(acordeon)
-                }
 
-                tr.appendChild(td)
+                if (campo[3] == 1) {
+
+                    if (caso[campo[0]].length != 0) {
+                        td.appendChild(acordeon)
+                    }
+                    tr.appendChild(td)
+                } else {
+
+                }
 
             }
 
@@ -368,6 +443,47 @@ function makerTable(data) {
     //Agregamos la tabla al contenedor
     contenedor.appendChild(tableParent)
 
+}
+function show_campos(value){
+    campos.forEach(campo => {
+        campo[3]=value      
+    })
+
+    const contenedorUl = document.getElementById("ulCampos")
+    contenedorUl.innerHTML = ""
+
+
+    campos.forEach(campo => {
+        const elemento = document.createElement("div")
+        elemento.className = "ms-3 me-3 hchange-gray"
+        elemento.style.fontWeight = "normal"
+
+        elemento.innerHTML =
+            `
+        <input class="fst-normal form-check-input ms-1" type="checkbox" value="${campo[1]}" id="check${campo[2]}">
+         ${campo[2]}
+        `
+        contenedorUl.appendChild(elemento)
+        const check = document.getElementById("check" + campo[2])
+        if (campo[3] == 1) {
+            check.checked = true
+        } else {
+            check.checked = false
+        }
+
+        check.onchange = () => {
+            if (check.checked == false) {
+                campo[3] = 0
+            } else {
+                campo[3] = 1
+            }
+            makerTable(ActiveDB.clsCasos)
+        }
+
+    })
+
+
+    makerTable(ActiveDB.clsCasos)
 }
 
 
@@ -442,7 +558,7 @@ const makerList = {
                 `
             <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
              ${item}
-        `
+            `
             //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
             contenedor.appendChild(elemento)
             const checkers = document.getElementById(`check${item}${criterio[1]}`)
@@ -570,9 +686,9 @@ function add_criterio_extendido() {
 
 }
 
-function quitar_filtro(){
+function quitar_filtro() {
     makerTable(ActiveDB.clsCasos)
-    dataWfilter=[]
+    dataWfilter = []
     add_consulta(ActiveDB.clsCasos)
 }
 
@@ -613,9 +729,7 @@ function filter_extend() {
 
 
     makerTable(datafilter)
-    dataWfilter=datafilter
-    mostrar_consolidados(dataWfilter)
-    //mostrar_resultados(datafilter)
+    dataWfilter = datafilter
 
 }
 

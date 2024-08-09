@@ -1,5 +1,6 @@
 //Esta variable guarda el proyecto activo como clase
 let ActiveDB;
+let PublicID=0
 class clsObservatorio {
     constructor(id) {
         this.id = id
@@ -1214,15 +1215,22 @@ class Medidas {
     }
 }
 function show_listPrj() {
-    document.getElementById("panel-escritorio").hidden = false
-    document.getElementById("sel_vigencia").value = 0
 
-    loadProyecto(0)
-    gotoCaso(0)
-
+    if (PublicID!==0){
+        document.getElementById("panel-escritorio").hidden = false
+        document.getElementById("sel_vigencia").value = PublicID
+        loadProyecto(PublicID)
+        gotoCaso(0)
+    }else{
+        document.getElementById("panel-escritorio").hidden = false
+        document.getElementById("sel_vigencia").value = 0
+        loadProyecto(0)
+        gotoCaso(0)
+    }
 
 }
 function loadProyecto(value) {
+    
     if (Registrado == 1) {
         const proyectos = GLOBAL.state.proyectos;
         ActiveDB = clsObservatorio.loadAsInstance(proyectos[value]);
@@ -1231,6 +1239,12 @@ function loadProyecto(value) {
         document.getElementById("panel-Tablas-inicio").hidden = true
         ListarCasos()
         gotoFirst()
+
+        //
+        document.getElementById("sel_vigencia_tabla").value=value
+        PublicID=value
+        //
+
 
         //Cargar macrotipos y tipos
         const lstMacrotipos = document.getElementById("intMacrotipo")
@@ -1342,6 +1356,13 @@ async function BorrarCaso() {
     )
 
 }
+function BorrarTodo(){
+    ActiveDB.clsCasos=[]
+    document.getElementById("colnRegistro").textContent="0 de 0"
+    GuardarDatos()
+    
+}
+
 async function ListarCasos() {
     const lstCasos = document.getElementById("lstCasos")
     //Lo limpiamos
@@ -1424,7 +1445,8 @@ async function gotoBackNext(option) {
     } catch (error) {
         console.log("Error en movimento registro")
         activeIndex = 0
-        ActiveDB.clsCasos[0].makerHTMLCaso()
+        document.getElementById("colnRegistro").textContent="0 de 0"
+        //ActiveDB.clsCasos[0].makerHTMLCaso()
     }
 }
 function pastetab() {
