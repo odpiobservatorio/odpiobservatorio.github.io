@@ -67,39 +67,15 @@
                 <i class="bi bi-list text-white"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Casos
+                    <li class="nav-item" onclick="cinfigIni_data()">
+                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasConsulta" aria-controls="offcanvasConsulta">
+                            <i class="bi bi-binoculars-fill me-2"></i>
+                            Consultas
                         </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item " href="#" onclick="" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasBuscar" aria-controls="offcanvasBuscar">
-                                    <i class="bi bi-binoculars me-3"></i>Buscador de casos
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item " href="#" onclick="clearMarkers()" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasResultados">
-                                    <i class="bi bi-pencil-fill me-3"></i>Ver lista de casos
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item " href="#" onclick="CargarTodoMarcas()">
-                                    <i class="bi bi-geo-alt-fill me-3"></i>Ver todas las marcas de casos
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item " href="#" onclick="clearMarkers()">
-                                    <i class="bi bi-trash3-fill me-3"></i>Limpiar marcas del mapa
-                                </a>
-                            </li>
-
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
@@ -108,11 +84,6 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" onclick="showPivotArea()">Consolidados</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasGrafico" aria-controls="offcanvasGrafico">Configuración</a>
-                    </li>
-
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasMarcador" aria-controls="offcanvasMarcador"><i
@@ -161,13 +132,6 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item" onclick="cinfigIni_data()">
-                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasConsulta" aria-controls="offcanvasConsulta">
-                            <i class="bi bi-binoculars-fill me-2"></i>
-                            Consultas
-                        </a>
-                    </li>
                 </ul>
                 <form class="d-flex m-1">
                     <button class="btn bg-success text-white" onclick="SignOut()">Salir</button>
@@ -627,180 +591,6 @@
 
     </div>
 
-    <!-- Panel de formato-->
-    <div class="offcanvas offcanvas-start shadow rounded" tabindex="-1" id="offcanvasGrafico"
-        aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header text-white" style="background-color: #16A085;">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Formato</h5>
-            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-        <div class="offcanvas-body">
-            <div>
-                <div class="list-group">
-
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"
-                            onclick="ListColors('Desktop','ulColorListDesktop')">
-                            Color tablero
-                        </button>
-                        <ul class="dropdown-menu">
-                            <div id="ulColorListDesktop" class="container-fluid"></div>
-                        </ul>
-                    </div>
-                    <hr>
-                    <!--Menú que despliega lista de colores mapa base-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"
-                            onclick="ListColors('Layers','ulColorListLayers')">
-                            Color mapa base
-                        </button>
-                        <ul class="dropdown-menu">
-                            <div id="ulColorListLayers" class="container-fluid"></div>
-                        </ul>
-                    </div>
-
-                    <!--Menú que despliega lista de colores mapa base-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"
-                            onclick="ListColors('CroquisBorde','ulColorListBorde')">
-                            Color borde mapa base
-                        </button>
-                        <ul class="dropdown-menu">
-                            <div id="ulColorListBorde" class="container-fluid"></div>
-                        </ul>
-                    </div>
-                    <!--Lista de opciones de grosor borde-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="width: 230px;">
-                            Grosor borde mapa base
-                        </button>
-                        <ul id="" class="dropdown-menu" style="width: 50px;">
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(1)">Fino</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(2)">Normal</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(3)">3</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(4)">4</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(5)">Mediano</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(6)">6</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(7)">7</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(8)">8</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(9)">9</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateBorderAncho(10)">Extra</a></li>
-                        </ul>
-                    </div>
-                    <!--Lista de opciones de opacidad del croquis-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="width: 230px;">
-                            Opacidad del mapa base
-                        </button>
-                        <ul id="" class="dropdown-menu" style="width: 50px;">
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(1)">100%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.9)">90%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.8)">80%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.7)">70%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.6)">60%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.5)">50%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.4)">40%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.3)">30%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.2)">20%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityLayer(0.1)">10%</a></li>
-                        </ul>
-                    </div>
-                    <hr>
-                    <!--Lista de tamaño del marcador-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="width: 230px;">
-                            Tamaño del marcador
-                        </button>
-                        <ul class="dropdown-menu" style="width: 50px;">
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(5)">0.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(10)">1x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(15)">1.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(20)">2x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(25)">2.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(30)">3x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(35)">3.5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(40)">4x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(50)">5x</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateRadiusMark(60)">6x</a></li>
-                        </ul>
-                    </div>
-                    <!--Menú que despliega lista de colores marcador-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"
-                            onclick="ListColors('Marks','ulColorListMarks')">
-                            Color de marcador
-                        </button>
-                        <ul class="dropdown-menu">
-                            <div id="ulColorListMarks" class="container-fluid"></div>
-                        </ul>
-                    </div>
-                    <!--Menú que despliega lista de colores marcador-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" style="width: 230px;" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false"
-                            onclick="ListColors('BorderMarksColor','ulColorBorderMarks')">
-                            Color borde marcador
-                        </button>
-                        <ul class="dropdown-menu">
-                            <div id="ulColorBorderMarks" class="container-fluid"></div>
-                        </ul>
-                    </div>
-                    <!--Lista de opciones de opacidad del marcador-->
-                    <div class="dropdown mb-2">
-                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="width: 230px;">
-                            Opacidad del marcador
-                        </button>
-                        <ul id="" class="dropdown-menu" style="width: 50px;">
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(1)">100%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.9)">90%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.8)">80%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.7)">70%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.6)">60%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.5)">50%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.4)">40%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.3)">30%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.2)">20%</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="UpdateOpacityMark(0.1)">10%</a></li>
-                        </ul>
-                    </div>
-                    <hr>
-                    <!-- Contenedor cargar y descargar configuracion -->
-                    <div>
-                        <!-- Informacion -->
-                        <p class="label text-success">Importar / Exportar configuracion</p>
-
-                        <div class="row">
-                            <!-- Importar -->
-                            <div class="col-4">
-                                <label for="configFileInput" class="btn btn-outline-success">
-                                    <i class="bi bi-upload"></i>
-                                    Importar
-                                </label>
-                                <input id="configFileInput" style="visibility:hidden;" type="file">
-                            </div>
-
-                            <!-- Exportar -->
-                            <div class="col-4">
-                                <button class="btn btn-outline-success" type="button" onclick="saveMapConfig()">
-                                    <i class="bi bi-download"></i> Exportar
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Panel de infografias-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasInfografia" aria-labelledby="offcanvasInfografia">
         <div class="offcanvas-header bg-success text-white">
