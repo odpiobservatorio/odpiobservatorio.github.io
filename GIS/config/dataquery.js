@@ -1,15 +1,31 @@
 
 let marcas_consulta = []
 let filterList = []
+let now_data_filter
 
 let criteria_items = []
 //Será la variable global que administra 
 let Active_data_monitor
 function cinfigIni_data() {
 
+    let MultiCasos = {
+        "clsCasos": []
+    }
+
+    GLOBAL.state.proyectos.forEach(proyecto => {
+        proyecto.clsCasos.forEach(caso => {
+            MultiCasos.clsCasos.push(caso)
+        })
+    })
+
+    Active_data_monitor = MultiCasos;
+
     //Inicia la lista con ese criterio
     crear_listas("clsCasos_macroregion")
     document.getElementById("btnConsulta").value = 1
+
+
+
 }
 function ver_todo() {
     const cont_Resultados = document.getElementById("lstResGisNew")
@@ -28,7 +44,8 @@ function ver_todo() {
                     opacidad_marca_busqueda, //Define el nivel de opacidad
                     size_marca_busqueda, //Define el tamaño del marcador  
                     lugar.lat,
-                    lugar.lng
+                    lugar.lng,
+                    "7" //Pane
                 )
                     .bindPopup(PutPopUpZ(put_label_resultado(caso, lugar)),
                         { pane: "labels" }
@@ -39,6 +56,9 @@ function ver_todo() {
             }
         })
     });
+
+    //Carga los datos en un DB para el mapa calor y posiblemente para las estadisticas
+    now_data_filter = Active_data_monitor.clsCasos
 }
 
 function limpiar_todo_marcas() {
@@ -46,6 +66,7 @@ function limpiar_todo_marcas() {
         map.removeLayer(marca)
     })
     marcas_consulta = []
+    now_data_filter = Active_data_monitor
 }
 function crear_listas(opcion) {
     filterList = []
@@ -255,7 +276,6 @@ function LimpiarConsulta() {
 
 }
 
-
 function filter_extend() {
     const registros = Active_data_monitor.clsCasos
     /* CODIGO DE PARTIDA DE INICIO */
@@ -265,7 +285,6 @@ function filter_extend() {
         let condiciones = []
 
         criteria_items.forEach(criterio => {
-            //console.log(eval(criterio[1]))
             condiciones.push(eval(criterio[1]))
         })
 
@@ -280,18 +299,13 @@ function filter_extend() {
         score = []
     });
 
+    now_data_filter = datafilter
     mostrar_resultados(datafilter)
 
 }
 
 function consola_command() {
-    try {
-        const criterios = document.getElementById("txtconsola").value
-        let filtered = eval(criterios)
-        mostrar_resultados(filtered)
-    } catch (error) {
 
-    }
 
 }
 function make_label_resultados(caso, contenedor) {
@@ -374,24 +388,30 @@ function mostrar_resultados(data) {
 
         //Por cada caso listo los lugares
         caso.clsLugares.forEach(lugar => {
-
-            const marca = PutMarkCicle(
-                true, //Indica si el marcador es fijo
-                color_marca_busqueda, //Define el color de la marca en ese momento 
-                colorline_marca_busqueda, //Define el color de la linea en ese momento 
-                opacidad_marca_busqueda, //Define el nivel de opacidad
-                size_marca_busqueda, //Define el tamaño del marcador  
-                lugar.lat,
-                lugar.lng,
-                7 //Define lugar de la capa en pane
-            )
-                .bindPopup(PutPopUpZ(put_label_resultado(caso, lugar)),
-                    { pane: "labels" }
+            try {
+                const marca = PutMarkCicle(
+                    true, //Indica si el marcador es fijo
+                    color_marca_busqueda, //Define el color de la marca en ese momento 
+                    colorline_marca_busqueda, //Define el color de la linea en ese momento 
+                    opacidad_marca_busqueda, //Define el nivel de opacidad
+                    size_marca_busqueda, //Define el tamaño del marcador  
+                    lugar.lat,
+                    lugar.lng,
+                    "7" //Define lugar de la capa en pane
                 )
-            marcas_consulta.push(marca)
+                    .bindPopup(PutPopUpZ(put_label_resultado(caso, lugar)),
+                        { pane: "labels" }
+                    )
+                marcas_consulta.push(marca)
+            } catch (error) {
+                console.log(caso, lugar)
+            }
+
         })
 
     });
+
+
 }
 
 function mostrar_caso(caso) {
@@ -491,4 +511,243 @@ function put_label_resultado(caso, lugar) {
     return div
 
 }
+
+function ver_calor_dep(value) {
+    marcas_consulta.forEach(marca => {
+        map.removeLayer(marca)
+    })
+
+    let data
+
+    //VErificamos si hay datos abiertos
+    if (now_data_filter == null) {
+        data = Active_data_monitor
+        mensajes("sin datos")
+    } else {
+
+    }
+    data = now_data_filter
+
+    if (value == true) {
+        let cont_departamentos = []
+        let consolidados = {}
+        const casoItem = data
+        let nCasos = 0
+        //Encontramos los departamentos y contamos cada uno de sus registros
+        //Genera uan data de consolidados por departamento
+        for (caso in data) {
+            if (cont_departamentos.includes(casoItem[caso].departamento.toLowerCase()) !== true) {
+                cont_departamentos.push(casoItem[caso].departamento.toLowerCase())
+                consolidados[casoItem[caso].departamento.toLowerCase()] = {
+                    "lugar": casoItem[caso].departamento.toLowerCase(),
+                    "valor": 1,
+                    "porcentajeT": "0%",
+                    "porcentajeV": 0,
+                    "victimas": casoItem[caso].npersonas,
+                }
+            } else {
+                const cont = consolidados[casoItem[caso].departamento.toLowerCase()].valor + 1
+                consolidados[casoItem[caso].departamento.toLowerCase()].valor = cont
+                consolidados[casoItem[caso].departamento.toLowerCase()].victimas = consolidados[casoItem[caso].departamento.toLowerCase()].victimas + casoItem[caso].npersonas
+            }
+            nCasos++
+        }
+
+        //Ahora comparamos ese valor frente al valor tototal
+        //Esto para crear los porcentajes
+        for (dep in consolidados) {
+            const PorcentajV = (parseInt(consolidados[dep].valor) / parseInt(nCasos)).toFixed(2)
+            const PorcentajT = parseInt(consolidados[dep].valor) / parseInt(nCasos) * 100
+            consolidados[dep].porcentajeV = PorcentajV
+            consolidados[dep].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
+        }
+
+        //Preparamso el mapa base
+        const layer = L.geoJSON(layer_departamentos, {
+            style: function (feature) {
+                let opacidad = 0
+                let linea = 0
+                try {
+                    let o = consolidados[feature.properties.DPTO_CNMBR.toLowerCase()].porcentajeV
+                    opacidad = o * 5
+                    linea = 1
+                } catch (error) {
+                    linea = 0
+                    //console.log(error)
+                }
+                return {
+                    color: "black",
+                    fillColor: "orange",
+                    fillOpacity: opacidad,
+                    weight: linea,
+                    pane: "3",
+                };
+            }
+        }).bindPopup(function (layer) {
+            const contenido = document.createElement("div")
+            contenido.innerHTML = `
+            <div class="fs-6 text-info">Porcentajes * departamento</div>
+                <div class="row">
+                    <div class="col fw-bold">Departamento</div>
+                    <div class="col text-end">${layer.feature.properties.DPTO_CNMBR}</div>
+                </div>
+                <div class="row">
+                    <div class="col fw-bold">Casos</div>
+                    <div class="col text-end">${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].porcentajeT}</div>
+                </div>
+                <div class="row">
+                    <div class="col fw-bold">Victimas</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].victimas}
+                    </div>
+                 </div>
+            `
+            return contenido.innerHTML;
+        }, { pane: "labels" }
+        ).addTo(map);
+
+        //Agrega esta capa a la lista de capas para activar o desactivar
+        lis_layers.push(["calor_departamentos", layer])
+    } else {
+        //Crear dos filtros para mostrar o quitar la capa
+        //Solo para capas locales fijas, que siempre se presentarán en el programa
+        let layer_remove = lis_layers.filter(value => value[0] == "calor_departamentos")
+        let layer_noremove = lis_layers.filter(value => value[0] !== "calor_departamentos")
+        map.removeLayer(layer_remove[0][1])
+        lis_layers = layer_noremove
+    }
+
+
+
+
+}
+function ver_calor_mun(value) {
+    marcas_consulta.forEach(marca => {
+        map.removeLayer(marca)
+    })
+
+    let data
+
+    //VErificamos si hay datos abiertos
+    if (now_data_filter == null) {
+        data = Active_data_monitor
+    } else {
+        data = now_data_filter
+    }
+
+
+
+    if (value == true) {
+        let cont_lugares = []
+        let consolidados = {}
+
+        let nCasos = 0
+        //Encontramos los departamentos y contamos cada uno de sus registros
+        //Genera uan data de consolidados por departamento
+        for (caso in data) {
+
+            for (lugar in data[caso].clsLugares) {
+                const LugarItem = data[caso].clsLugares[lugar]
+                if (cont_lugares.includes(LugarItem.municipio.toLowerCase()) !== true) {
+                    cont_lugares.push(LugarItem.municipio.toLowerCase())
+                    consolidados[LugarItem.municipio.toLowerCase()] = {
+                        "lugar": LugarItem.municipio.toLowerCase(),
+                        "valor": 1,
+                        "porcentajeT": "0%",
+                        "porcentajeV": 0,
+                        "victimas": data[caso].npersonas,
+                    }
+
+                } else {
+                    const cont = consolidados[LugarItem.municipio.toLowerCase()].valor + 1
+                    consolidados[LugarItem.municipio.toLowerCase()].valor = cont
+                    consolidados[LugarItem.municipio.toLowerCase()].victimas = consolidados[LugarItem.municipio.toLowerCase()].victimas + data[caso].npersonas
+
+                }
+                nCasos++
+            }
+            
+
+        }
+
+                //Ahora comparamos ese valor frente al valor tototal
+        //Esto para crear los porcentajes
+        for (mun in consolidados) {
+            const PorcentajV = (parseInt(consolidados[mun].valor) / parseInt(nCasos)).toFixed(2)
+            const PorcentajT = parseInt(consolidados[mun].valor) / parseInt(nCasos) * 100
+            consolidados[mun].porcentajeV = PorcentajV
+            consolidados[mun].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
+        }
+        console.log(consolidados)
+
+        //Preparamso el mapa base
+        const layer = L.geoJSON(layer_municipios, {
+            style: function (feature) {
+                let opacidad = 0
+                let linea = 0
+                try {
+                    let o = consolidados[feature.properties.nombre_mpi.toLowerCase()].porcentajeV
+                    opacidad = o * 20
+                    linea = 1
+                } catch (error) {
+                    opacidad = 0
+                    linea = 0
+
+                 }
+                return {
+                    color: "black",
+                    fillColor: "purple",
+                    fillOpacity: opacidad,
+                    weight: linea,
+                    pane: "4",
+                };
+            }
+        }).bindPopup(function (layer) {
+            const contenido = document.createElement("div")
+            contenido.width="300px"
+            contenido.innerHTML = `
+                <div class="fs-6 text-info">Porcentajes * departamento</div>
+                    <div class="row">
+                        <div class="col fw-bold">Departamento</div>
+                        <div class="col text-end">${layer.feature.properties.nombre_dpt}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col fw-bold">Municipio</div>
+                        <div class="col text-end">${layer.feature.properties.nombre_mpi}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col fw-bold">Casos</div>
+                        <div class="col text-end">${consolidados[layer.feature.properties.nombre_mpi.toLowerCase()].porcentajeT}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col fw-bold">Victimas</div>
+                        <div class="col fw-bold text-end">
+                        ${consolidados[layer.feature.properties.nombre_mpi.toLowerCase()].victimas}
+                        </div>
+                     </div>
+                `
+            return contenido.innerHTML;
+        }, { pane: "labels" }
+        ).addTo(map);
+
+        //Agrega esta capa a la lista de capas para activar o desactivar
+        lis_layers.push(["calor_municipios", layer])
+
+
+    } else {
+        //Crear dos filtros para mostrar o quitar la capa
+        //Solo para capas locales fijas, que siempre se presentarán en el programa
+        let layer_remove = lis_layers.filter(value => value[0] == "calor_municipios")
+        let layer_noremove = lis_layers.filter(value => value[0] !== "calor_municipios")
+        map.removeLayer(layer_remove[0][1])
+        lis_layers = layer_noremove
+    }
+
+
+
+
+
+
+}
+
 

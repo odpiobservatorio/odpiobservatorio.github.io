@@ -805,7 +805,7 @@ const layers = {
                         contenido.appendChild(div)
                     })
                     return contenido.innerHTML;
-                }, { pane: "labels" }
+                }, { pane: "labels"}
                 ).addTo(map);
 
                 //Agrega esta capa a la lista de capas para activar o desactivar

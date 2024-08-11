@@ -1,5 +1,46 @@
-<div class="collapse ms-2" id="collapse${caso.id}">
-        
 
 
-    </div>
+
+        //Preparamso el mapa base
+        const layer = L.geoJSON(layer_municipios, {
+            style: function (feature) {
+                let opacidad = 0
+                try {
+                    let o = consolidados[feature.properties.nombre_mpi.toLowerCase()].porcentajeV
+                    opacidad = o * 5
+                } catch (error) {
+                    //console.log(error)
+                }
+                return {
+                    color: "black",
+                    fillColor: "orange",
+                    fillOpacity: opacidad,
+                    weight: 1,
+                    pane: "3",
+                };
+            }
+        }).bindPopup(function (layer) {
+            const contenido = document.createElement("div")
+            contenido.innerHTML = `
+            <div class="fs-6 text-info">Porcentajes * departamento</div>
+                <div class="row">
+                    <div class="col fw-bold">Departamento</div>
+                    <div class="col text-end">${layer.feature.properties.nombre_mpi}</div>
+                </div>
+                <div class="row">
+                    <div class="col fw-bold">Casos</div>
+                    <div class="col text-end">${consolidados[layer.feature.properties.nombre_mpi.toLowerCase()].porcentajeT}</div>
+                </div>
+                <div class="row">
+                    <div class="col fw-bold">Victimas</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.nombre_mpi.toLowerCase()].victimas}
+                    </div>
+                 </div>
+            `
+            return contenido.innerHTML;
+        }, { pane: "labels" }
+        ).addTo(map);
+
+        //Agrega esta capa a la lista de capas para activar o desactivar
+        lis_layers.push(["calor_municipios", layer])

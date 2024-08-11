@@ -1,7 +1,48 @@
 
 //VARIABLES PARA MARCADORES PERSONALIZADOS
 //COLOR ACTIVO
-
+const color_porcentaje = (valor) => {
+    if (valor <= 0.01) {
+        const color = "yellow"
+        return color
+    }else if (valor> 0.02 && valor <=0.03 ){
+        const color = "#f9ebea"
+        return color
+    }else if (valor> 0.03 && valor <=0.04 ){
+        const color = "#f2d7d5"
+        return color
+    }else if (valor> 0.04 && valor <=0.05){
+        const color = "#e6b0aa"
+        return color
+    }else if (valor> 0.05 && valor <=0.06){
+        const color = "#d98880"
+        return color
+    }else if (valor> 0.06 && valor <=0.07 ){
+        const color = "#cd6155"
+        return color
+    }else if (valor> 0.07 && valor <=0.08 ){
+        const color = "#c0392b"
+        return color
+    }
+    else if (valor> 0.08 && valor <=0.09 ){
+        const color = "#a93226"
+        return color
+    }
+    else if (valor> 0.1 && valor <=0.15 ){
+        const color = "#922b21"
+        return color
+    }
+    else if (valor> 0.15 && valor <=0.2 ){
+        const color = "#a93226"
+        return color
+    }else if (valor> 0.2 && valor <=0.25 ){
+        const color = "#a93226"
+        return color}
+    else{
+        const color = "yellow"
+        return color
+    }
+}
 
 let mark_selected;
 let coordenada_activa = "4.797, -74.030";
@@ -20,7 +61,7 @@ let Marcadores_Personalizados = []
 let color_marca_busqueda = "green"
 let colorline_marca_busqueda = "white"
 let opacidad_marca_busqueda = 1
-let size_marca_busqueda=10
+let size_marca_busqueda = 10
 
 //Guarda los marcadores libres
 let MarkFreePoligon = [];
@@ -118,7 +159,7 @@ function ListColors(type, control) {
                 color_marca_busqueda = color
                 document.getElementById("btnColor_consulta").style.background = color
             }
-        }else if (type == "colorline-mark-consulta") {
+        } else if (type == "colorline-mark-consulta") {
             liC.onclick = () => {
                 colorline_marca_busqueda = color
                 document.getElementById("btnColorlinea_consulta").style.color = color
@@ -147,7 +188,7 @@ function PutMarkCicle(
     radius = 10,
     LatB = 4.797,
     LngB = -74.030,
-    pane="7",
+    pane = "7",
     Onlabel = false,
     Content = '',
     key = '',
@@ -181,7 +222,7 @@ function PutMarkCicle(
             Content: Content,
             key: key
         })
-        
+
 
 
     if (static == false) {
@@ -717,7 +758,7 @@ function copy_format_custom() {
     //mark_selected
     markCopy = Marcadores_Personalizados[mark_selected]
     console.log("copiar de:", mark_selected)
-    mensajes("se ha copiado el formato","orange")
+    mensajes("se ha copiado el formato", "orange")
 
 
 }
@@ -755,7 +796,7 @@ function paste_format_custom() {
     })
 
     list_marcas_custom()
-    mensajes("se ha actualizado el marcador","orange")
+    mensajes("se ha actualizado el marcador", "orange")
 }
 
 
@@ -981,61 +1022,65 @@ function delete_all_custom_marks(option) {
 
 //Carga las marcas de un archivo local
 const fileSelector = document.getElementById('file-input-marks');
-fileSelector.addEventListener('change', (event) => {
-    const archivo = event.target.files[0];
+try {//Lector de archivos
+    fileSelector.addEventListener('change', (event) => {
+        const archivo = event.target.files[0];
 
-    if (!archivo) {
-        return;
-    }
-    var lector = new FileReader();
-    lector.onload = function (e) {
-        var contenido = e.target.result;
-        var Parse = JSON.parse(contenido)
-        let i = 0
-        Parse.forEach(marca => {
-            formatActivo.texto = marca.info
-            if (marca.Type == "circle") {
-                Marca_Personalizada_Circulo(
-                    marca.draggable,
-                    marca.fillColor,
-                    marca.fillOpacity,
-                    marca.radius,
-                    marca.lat,
-                    marca.lng,
-                    marca.color,
-                    marca.weight,
-                    marca.pane
-                )
+        if (!archivo) {
+            return;
+        }
+        var lector = new FileReader();
+        lector.onload = function (e) {
+            var contenido = e.target.result;
+            var Parse = JSON.parse(contenido)
+            let i = 0
+            Parse.forEach(marca => {
+                formatActivo.texto = marca.info
+                if (marca.Type == "circle") {
+                    Marca_Personalizada_Circulo(
+                        marca.draggable,
+                        marca.fillColor,
+                        marca.fillOpacity,
+                        marca.radius,
+                        marca.lat,
+                        marca.lng,
+                        marca.color,
+                        marca.weight,
+                        marca.pane
+                    )
 
-            } else {
-                Marca_Personalizada_Cuadrado(
-                    marca.draggable,
-                    marca.fillColor,
-                    marca.fillOpacity,
-                    marca.radius,
-                    marca.lat,
-                    marca.lng,
-                    marca.color,
-                    marca.weight,
-                    marca.pane
-                )
+                } else {
+                    Marca_Personalizada_Cuadrado(
+                        marca.draggable,
+                        marca.fillColor,
+                        marca.fillOpacity,
+                        marca.radius,
+                        marca.lat,
+                        marca.lng,
+                        marca.color,
+                        marca.weight,
+                        marca.pane
+                    )
 
-            }
+                }
 
-            Marcadores_Personalizados[i].options.index = i
-            i = i + 1
-            list_marcas_custom()
-        })
+                Marcadores_Personalizados[i].options.index = i
+                i = i + 1
+                list_marcas_custom()
+            })
 
-    };
+        };
 
-    lector.readAsText(archivo);
-    //Limpiamos el contenedor archivo para que permita recargas
-    document.getElementById('file-input-marks').value = ''
-    //Lista las marcas en el contenedor de marcas
+        lector.readAsText(archivo);
+        //Limpiamos el contenedor archivo para que permita recargas
+        document.getElementById('file-input-marks').value = ''
+        //Lista las marcas en el contenedor de marcas
 
 
-});
+    });
+} catch (error) {
+
+}
 
 
 function save_load_custom_marks(value) {

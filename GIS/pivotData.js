@@ -11,7 +11,5 @@ function showPivotArea() {
         document.getElementById("pivot").hidden = false;
     }
 
-    //TablaReportII()
-    PivotElementos()
 }
 
