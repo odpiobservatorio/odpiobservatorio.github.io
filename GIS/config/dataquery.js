@@ -635,8 +635,6 @@ function ver_calor_mun(value) {
         data = now_data_filter
     }
 
-
-
     if (value == true) {
         let cont_lugares = []
         let consolidados = {}
