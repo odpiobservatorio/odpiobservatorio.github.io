@@ -623,7 +623,7 @@ function ver_calor_dep(value) {
 }
 function ver_calor_mun(value) {
     marcas_consulta.forEach(marca => {
-        map.removeLayer(marca)
+        //map.removeLayer(marca)
     })
 
     let data

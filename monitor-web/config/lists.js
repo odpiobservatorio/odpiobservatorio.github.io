@@ -31554,6 +31554,17 @@ const lugares = [{
     "latlng": "-77.3695553298,6.35152265844",
     "key": "chocóplayita pote"
    },
+   ,
+   {
+    "departamento": "Chocó",
+    "entidad": "BAHÍA SOLANO",
+    "lugar": "BAHÍA SOLANO",
+    "lat": "-77.3695553298",
+    "lng": "6.35152265844",
+    "tipo": "MUNICIPIO",
+    "latlng": "-77.3695553298,6.35152265844",
+    "key": "chocóbahía solano"
+   },
    {
     "departamento": "Chocó",
     "entidad": "BOJAYÁ",
