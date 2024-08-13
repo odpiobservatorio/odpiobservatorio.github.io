@@ -660,7 +660,7 @@ class Lugar {
         //Creo el contenedor a
         const a = document.createElement("a")
         a.className = "nav-link label-org-green-light"
-        a.href = "#"
+        //a.href = "#"
         a.innerHTML = `
         ${this.municipio} (${this.lat}, ${this.lng})
         <i class="bi bi-trash3 ms-2" id="btnborrarLugar${this.id}"></i>
@@ -725,8 +725,6 @@ class Persona {
         this.genero = genero;
         this.edad = parseInt(edad);
         this.cargo = cargo;
-
-
         this.parent = dominio;
     }
     makerHTMLPersona() {

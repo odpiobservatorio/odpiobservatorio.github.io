@@ -585,6 +585,7 @@ function ver_calor_dep(value) {
             }
         }).bindPopup(function (layer) {
             const contenido = document.createElement("div")
+            contenido.style.width = "300px"
             contenido.innerHTML = `
             <div class="fs-6 text-info">Porcentajes * departamento</div>
                 <div class="row">
@@ -592,13 +593,19 @@ function ver_calor_dep(value) {
                     <div class="col text-end">${layer.feature.properties.DPTO_CNMBR}</div>
                 </div>
                 <div class="row">
-                    <div class="col fw-bold">Casos</div>
+                    <div class="col fw-bold">Porcentaje</div>
                     <div class="col text-end">${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].porcentajeT}</div>
                 </div>
                 <div class="row">
                     <div class="col fw-bold">Victimas</div>
                     <div class="col fw-bold text-end">
                     ${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].victimas}
+                    </div>
+                 </div>
+                                 <div class="row">
+                    <div class="col fw-bold">Casos</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].valor}
                     </div>
                  </div>
             `
@@ -637,13 +644,13 @@ function ver_calor_mun(value) {
 
     if (value == true) {
         let cont_lugares = []
-        let consolidados = {}
+        let consolidados = []
 
         let nCasos = 0
         //Encontramos los departamentos y contamos cada uno de sus registros
         //Genera uan data de consolidados por departamento
         for (caso in data) {
-
+            nCasos++
             for (lugar in data[caso].clsLugares) {
                 const LugarItem = data[caso].clsLugares[lugar]
                 if (cont_lugares.includes(LugarItem.municipio.toLowerCase()) !== true) {
@@ -656,24 +663,50 @@ function ver_calor_mun(value) {
                         "victimas": data[caso].npersonas,
                         "departamento": data[caso].departamento,
                     }
-
                 } else {
                     const cont = consolidados[LugarItem.municipio.toLowerCase()].valor + 1
                     consolidados[LugarItem.municipio.toLowerCase()].valor = cont
                     consolidados[LugarItem.municipio.toLowerCase()].victimas = consolidados[LugarItem.municipio.toLowerCase()].victimas + data[caso].npersonas
-
+                  
                 }
-                nCasos++
+
             }
-            
 
         }
+        let ppp = []
 
-                //Ahora comparamos ese valor frente al valor tototal
+        for (lugar in consolidados) {
+            ppp.push([consolidados[lugar].lugar, parseInt(consolidados[lugar].valor)])
+        }
+
+        function compareByAge(a, b) {
+            if (a[1] < b[1]) {
+                return -1;
+            }
+            if (a[1] > b[1]) {
+                return 1;
+            }
+            return 0;
+        }
+        let g = ppp.sort(compareByAge);
+
+
+        g.forEach(lugar => {
+            txtconsola.textContent = txtconsola.textContent + "\n" + `${lugar[0]}:${lugar[1]}`
+        })
+
+
+        txtconsola.textContent = txtconsola.textContent + "\n" + "Total Casos:" + nCasos
+
+        //Ahora comparamos ese valor frente al valor tototal
         //Esto para crear los porcentajes
         for (mun in consolidados) {
             const PorcentajV = (parseInt(consolidados[mun].valor) / parseInt(nCasos)).toFixed(2)
             const PorcentajT = parseInt(consolidados[mun].valor) / parseInt(nCasos) * 100
+
+            console.log(`${consolidados[mun].lugar}: ${consolidados[mun].valor} - %${PorcentajV}`)
+            txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].valor} - %${(PorcentajV * 10).toFixed(1)}`
+
             consolidados[mun].porcentajeV = PorcentajV
             consolidados[mun].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
         }
@@ -683,18 +716,27 @@ function ver_calor_mun(value) {
             style: function (feature) {
                 let opacidad = 0
                 let linea = 0
-                let pane = "4"
+                let pane = "3"
                 try {
-                    let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
-                    opacidad = o * 20
-                    linea = 1
-                    pane = "4"
+                    let featureDep = feature.properties.DEPTO.toLowerCase()
+                    let consDep=consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].departamento
+
+                    if (featureDep==consDep) {
+                        let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
+                        opacidad = o * 10
+                        linea = 1
+                        pane = "3"
+                    }else{
+                        opacidad = 0
+                        linea = 0
+                        pane = "1"
+                    }
                 } catch (error) {
                     opacidad = 0
                     linea = 0
                     pane = "1"
 
-                 }
+                }
                 return {
                     color: "black",
                     fillColor: "purple",
@@ -705,7 +747,7 @@ function ver_calor_mun(value) {
             }
         }).bindPopup(function (layer) {
             const contenido = document.createElement("div")
-            contenido.width="300px"
+            contenido.width = "300px"
             contenido.innerHTML = `
                 <div class="fs-6 text-info">Porcentajes * departamento</div>
                     <div class="row">

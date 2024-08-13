@@ -190,7 +190,7 @@ function makerTable(data) {
         }
 
         const lifilternull = document.createElement("li")
-        lifilternull.className = "sticky-top bg-white"
+        lifilternull.className = "bg-white"
         lifilternull.innerHTML = `                
             <a class="dropdown-item" href="#">
                 <i class="bi bi-funnel me-2"></i>

@@ -130,7 +130,8 @@
                         </a>
                         <ul class="dropdown-menu">
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#" >Consola</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasConsola">Consola</a></li>
                         </ul>
                       </li>
                 </ul>
@@ -414,7 +415,7 @@
 </div>
 <!--New panel consolo log-->
 <div class="offcanvas offcanvas-bottom shadow" tabindex="-1" id="offcanvasConsola" data-bs-scroll="true"
-    data-bs-backdrop="false">
+    data-bs-backdrop="false" style="height: 250px;">
     <div class="offcanvas-header bg-dark" style="font-size: 10px; height: 20px;">
         <div class="row">
             <div class="col text-end">
@@ -426,7 +427,7 @@
             </div>
         </div>
     </div>
-    <textarea class="form-control text-white bg-dark" id="txtconsola" rows="4"></textarea>
+    <textarea class="form-control text-white bg-dark" id="txtconsola" rows="4" style="height: 100%;"></textarea>
 
 </div>
 <!-- Panel de marcadores new-->
