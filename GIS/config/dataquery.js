@@ -702,9 +702,8 @@ function ver_calor_mun(value) {
         //Esto para crear los porcentajes
         for (mun in consolidados) {
             const PorcentajV = (parseInt(consolidados[mun].valor) / parseInt(nCasos)).toFixed(2)
-            const PorcentajT = parseInt(consolidados[mun].valor) / parseInt(nCasos) * 100
+            const PorcentajT = parseInt(consolidados[mun].valor) / parseInt(nCasos)
 
-            console.log(`${consolidados[mun].lugar}: ${consolidados[mun].valor} - %${PorcentajV}`)
             txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].valor} - %${(PorcentajV * 10).toFixed(1)}`
 
             consolidados[mun].porcentajeV = PorcentajV
@@ -716,16 +715,16 @@ function ver_calor_mun(value) {
             style: function (feature) {
                 let opacidad = 0
                 let linea = 0
-                let pane = "3"
+                let pane = "4"
                 try {
                     let featureDep = feature.properties.DEPTO.toLowerCase()
-                    let consDep=consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].departamento
+                    let consDep=consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].departamento.toLowerCase()
 
                     if (featureDep==consDep) {
                         let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
                         opacidad = o * 10
                         linea = 1
-                        pane = "3"
+                        pane = "4"
                     }else{
                         opacidad = 0
                         linea = 0
@@ -747,7 +746,7 @@ function ver_calor_mun(value) {
             }
         }).bindPopup(function (layer) {
             const contenido = document.createElement("div")
-            contenido.width = "300px"
+            contenido.width = "350px"
             contenido.innerHTML = `
                 <div class="fs-6 text-info">Porcentajes * departamento</div>
                     <div class="row">
@@ -759,15 +758,21 @@ function ver_calor_mun(value) {
                         <div class="col text-end">${layer.feature.properties.MPIO_CNMBR}</div>
                     </div>
                     <div class="row">
-                        <div class="col fw-bold">Casos</div>
+                        <div class="col fw-bold">Porcentaje</div>
                         <div class="col text-end">${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeT}</div>
                     </div>
+                <div class="row">
+                    <div class="col fw-bold">Victimas</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].victimas}
+                    </div>
+                 </div>
                     <div class="row">
-                        <div class="col fw-bold">Victimas</div>
-                        <div class="col fw-bold text-end">
-                        ${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].victimas}
-                        </div>
-                     </div>
+                    <div class="col fw-bold">Casos</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].valor}
+                    </div>
+                 </div>
                 `
             return contenido.innerHTML;
         }, { pane: "labels" }
