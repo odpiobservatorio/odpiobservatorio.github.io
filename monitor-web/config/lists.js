@@ -36,7 +36,7 @@ const departamentos = [
     { 'departamento': 'Antioquia', 'macroregion': 'Occidente' },
     { 'departamento': 'Arauca', 'macroregion': 'Orinoquía' },
     { 'departamento': 'Atlántico', 'macroregion': 'Norte' },
-    { 'departamento': 'Bogotá D.C', 'macroregion': 'Centro Oriente' },
+    { 'departamento': 'Bogotá', 'macroregion': 'Centro Oriente' },
     { 'departamento': 'Bolivar', 'macroregion': 'Norte' },
     { 'departamento': 'Boyacá', 'macroregion': 'Centro Oriente' },
     { 'departamento': 'Caldas', 'macroregion': 'Occidente' },
@@ -10225,134 +10225,134 @@ const lugares = [{
     "key": "atlánticovillas de palmarito"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "Bogotá",
+    "entidad": "BOGOTÁ",
     "lugar": "Betania",
     "lat": "-74.1460134971",
     "lng": "4.21805906928",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1460134971,4.21805906928",
-    "key": "bogotá, d. c.betania"
+    "key": "BOGOTÁbetania"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
-    "lugar": "Bogotá, Distrito Capital",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
+    "lugar": "BOGOTÁ Distrito Capital",
     "lat": "-74.106715324",
     "lng": "4.64993705899",
     "tipo": "MUNICIPIO",
     "latlng": "-74.106715324,4.64993705899",
-    "key": "bogotá, d. c.bogotá, distrito capital"
+    "key": "BOGOTÁBOGOTÁ distrito capital"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Chorrillos",
     "lat": "-74.095358366",
     "lng": "4.78125759",
     "tipo": "MUNICIPIO",
     "latlng": "-74.095358366,4.78125759",
-    "key": "bogotá, d. c.chorrillos"
+    "key": "BOGOTÁchorrillos"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "El Destino",
     "lat": "-74.1383483672",
     "lng": "4.40900287933",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1383483672,4.40900287933",
-    "key": "bogotá, d. c.el destino"
+    "key": "BOGOTÁel destino"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "La Unión",
     "lat": "-74.3635175813",
     "lng": "3.98536908281",
     "tipo": "MUNICIPIO",
     "latlng": "-74.3635175813,3.98536908281",
-    "key": "bogotá, d. c.la unión"
+    "key": "BOGOTÁla unión"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Mochuelo Alto",
     "lat": "-74.1482728336",
     "lng": "4.4889963766",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1482728336,4.4889963766",
-    "key": "bogotá, d. c.mochuelo alto"
+    "key": "BOGOTÁmochuelo alto"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Nazareth",
     "lat": "-74.1471707915",
     "lng": "4.17249684919",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1471707915,4.17249684919",
-    "key": "bogotá, d. c.nazareth"
+    "key": "BOGOTÁnazareth"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Nueva Granada",
     "lat": "-74.3593709895",
     "lng": "3.89043793369",
     "tipo": "MUNICIPIO",
     "latlng": "-74.3593709895,3.89043793369",
-    "key": "bogotá, d. c.nueva granada"
+    "key": "BOGOTÁnueva granada"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Pasquilla",
     "lat": "-74.1562517922",
     "lng": "4.44434951324",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1562517922,4.44434951324",
-    "key": "bogotá, d. c.pasquilla"
+    "key": "BOGOTÁpasquilla"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Quiba Bajo",
     "lat": "-74.1675577523",
     "lng": "4.52731985385",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1675577523,4.52731985385",
-    "key": "bogotá, d. c.quiba bajo"
+    "key": "BOGOTÁquiba bajo"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "San Juan",
     "lat": "-74.3168452791",
     "lng": "4.0280805918",
     "tipo": "MUNICIPIO",
     "latlng": "-74.3168452791,4.0280805918",
-    "key": "bogotá, d. c.san juan"
+    "key": "BOGOTÁsan juan"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Santo Domingo",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "bogotá, d. c.santo domingo"
+    "key": "BOGOTÁsanto domingo"
    },
    {
-    "departamento": "Bogotá, D. C.",
-    "entidad": "BOGOTÁ, D.C.",
+    "departamento": "BOGOTÁ",
+    "entidad": "BOGOTÁ",
     "lugar": "Tierra Nueva",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "bogotá, d. c.tierra nueva"
+    "key": "BOGOTÁtierra nueva"
    },
    {
     "departamento": "Bolívar",
@@ -58742,7 +58742,7 @@ const lugares = [{
     "lng": "1.80712244418",
     "tipo": "MUNICIPIO",
     "latlng": "-78.7638397247,1.80712244418",
-    "key": "nariñotumaco"
+    "key": "nariñosan andrés de tumaco"
    },
    {
     "departamento": "Nariño",
