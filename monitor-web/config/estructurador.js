@@ -385,7 +385,7 @@ class Caso {
             this.macroregion = intMacroregion.value
             GuardarDatos()
             //Según sea el departamento, se debe filtrar los lugares
-            filtrarLugares(this.departamento)
+            filtrarLugares(this.departamento.toLowerCase())
         }
 
         //Configuramos las acciones del listado de lugares
@@ -1396,7 +1396,7 @@ function filtrarLugares(dep) {
     const lstLugares = document.getElementById("lstLugar")
     lstLugares.innerHTML = ""
 
-    const filterDep = lugares.filter(lugares => lugares.departamento == dep)
+    const filterDep = lugares.filter(lugares => lugares.departamento.toLowerCase() == dep.toLowerCase())
     filterDep.forEach(lugar => {
         const item = document.createElement("option")
         item.value = lugar.lugar

@@ -59,7 +59,7 @@ const departamentos = [
     { 'departamento': 'Santander', 'macroregion': 'Centro Oriente' },
     { 'departamento': 'Sucre', 'macroregion': 'Norte' },
     { 'departamento': 'Tolima', 'macroregion': 'Centro Oriente' },
-    { 'departamento': 'Valle del Cauca', 'macroregion': 'Occidente' },
+    { 'departamento': 'Valle del cauca', 'macroregion': 'Occidente' },
     { 'departamento': 'Vichada', 'macroregion': 'Orinoquía' },
     { 'departamento': 'Sin determinar', 'macroregion': 'Sin determinar' }
 ]
@@ -10231,17 +10231,17 @@ const lugares = [{
     "lng": "4.21805906928",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1460134971,4.21805906928",
-    "key": "BOGOTÁbetania"
+    "key": "bogotábetania"
    },
    {
     "departamento": "BOGOTÁ",
     "entidad": "BOGOTÁ",
-    "lugar": "BOGOTÁ Distrito Capital",
+    "lugar": "Bogotá",
     "lat": "-74.106715324",
     "lng": "4.64993705899",
     "tipo": "MUNICIPIO",
     "latlng": "-74.106715324,4.64993705899",
-    "key": "BOGOTÁBOGOTÁ distrito capital"
+    "key": "bogotábogotá"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10251,7 +10251,7 @@ const lugares = [{
     "lng": "4.78125759",
     "tipo": "MUNICIPIO",
     "latlng": "-74.095358366,4.78125759",
-    "key": "BOGOTÁchorrillos"
+    "key": "bogotáchorrillos"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10261,7 +10261,7 @@ const lugares = [{
     "lng": "4.40900287933",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1383483672,4.40900287933",
-    "key": "BOGOTÁel destino"
+    "key": "bogotáel destino"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10271,7 +10271,7 @@ const lugares = [{
     "lng": "3.98536908281",
     "tipo": "MUNICIPIO",
     "latlng": "-74.3635175813,3.98536908281",
-    "key": "BOGOTÁla unión"
+    "key": "bogotála unión"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10281,7 +10281,7 @@ const lugares = [{
     "lng": "4.4889963766",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1482728336,4.4889963766",
-    "key": "BOGOTÁmochuelo alto"
+    "key": "bogotámochuelo alto"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10291,7 +10291,7 @@ const lugares = [{
     "lng": "4.17249684919",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1471707915,4.17249684919",
-    "key": "BOGOTÁnazareth"
+    "key": "bogotánazareth"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10301,7 +10301,7 @@ const lugares = [{
     "lng": "3.89043793369",
     "tipo": "MUNICIPIO",
     "latlng": "-74.3593709895,3.89043793369",
-    "key": "BOGOTÁnueva granada"
+    "key": "bogotánueva granada"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10311,7 +10311,7 @@ const lugares = [{
     "lng": "4.44434951324",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1562517922,4.44434951324",
-    "key": "BOGOTÁpasquilla"
+    "key": "bogotápasquilla"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10321,7 +10321,7 @@ const lugares = [{
     "lng": "4.52731985385",
     "tipo": "MUNICIPIO",
     "latlng": "-74.1675577523,4.52731985385",
-    "key": "BOGOTÁquiba bajo"
+    "key": "bogotáquiba bajo"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10331,7 +10331,7 @@ const lugares = [{
     "lng": "4.0280805918",
     "tipo": "MUNICIPIO",
     "latlng": "-74.3168452791,4.0280805918",
-    "key": "BOGOTÁsan juan"
+    "key": "bogotásan juan"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10341,7 +10341,7 @@ const lugares = [{
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "BOGOTÁsanto domingo"
+    "key": "bogotásanto domingo"
    },
    {
     "departamento": "BOGOTÁ",
@@ -10351,7 +10351,7 @@ const lugares = [{
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "BOGOTÁtierra nueva"
+    "key": "bogotátierra nueva"
    },
    {
     "departamento": "Bolívar",
@@ -28932,6 +28932,17 @@ const lugares = [{
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
     "key": "chocóapartadó buena vista"
+   },
+   
+   {
+    "departamento": "Chocó",
+    "entidad": "CARMEN DEL DARIÉN",
+    "lugar": "Carmen del darién",
+    "lat": "7.1577777777778",
+    "lng": "-76.970833333333",
+    "tipo": "MUNICIPIO",
+    "latlng": "7.1577777777778, -76.970833333333",
+    "key": "chocócarmen del darién"
    },
    {
     "departamento": "Chocó",
@@ -74791,5727 +74802,5727 @@ const lugares = [{
     "lng": "3.67304771464",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9481458599,3.67304771464",
-    "key": "valle del caucaaguaclara"
+    "key": "Valle del caucaaguaclara"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Aguaclara",
     "lat": "-76.2371187406",
     "lng": "3.502872756",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2371187406,3.502872756",
-    "key": "valle del caucaaguaclara"
+    "key": "Valle del caucaaguaclara"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Aguaclara",
     "lat": "-76.1936312363",
     "lng": "4.11080298918",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1936312363,4.11080298918",
-    "key": "valle del caucaaguaclara"
+    "key": "Valle del caucaaguaclara"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Aguamansa",
     "lat": "-77.3872998625",
     "lng": "3.21205963613",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3872998625,3.21205963613",
-    "key": "valle del caucaaguamansa"
+    "key": "Valle del caucaaguamansa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Aguas Lindas",
     "lat": "-76.3248083935",
     "lng": "4.41243950314",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3248083935,4.41243950314",
-    "key": "valle del caucaaguas lindas"
+    "key": "Valle del caucaaguas lindas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "Alaska",
     "lat": "-76.1816808311",
     "lng": "3.89198179253",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1816808311,3.89198179253",
-    "key": "valle del caucaalaska"
+    "key": "Valle del caucaalaska"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CAIRO",
     "lugar": "Albán",
     "lat": "-76.1731770804",
     "lng": "4.78250990887",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1731770804,4.78250990887",
-    "key": "valle del caucaalbán"
+    "key": "Valle del caucaalbán"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ALCALÁ",
     "lugar": "Alcalá",
     "lat": "-75.779812612",
     "lng": "4.67498960531",
     "tipo": "MUNICIPIO",
     "latlng": "-75.779812612,4.67498960531",
-    "key": "valle del caucaalcalá"
+    "key": "Valle del caucaalcalá"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Alto De Guacas",
     "lat": "-76.2481051483",
     "lng": "3.82943800947",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2481051483,3.82943800947",
-    "key": "valle del caucaalto de guacas"
+    "key": "Valle del caucaalto de guacas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Alto Zaragoza",
     "lat": "-76.8558308337",
     "lng": "3.87007913682",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8558308337,3.87007913682",
-    "key": "valle del caucaalto zaragoza"
+    "key": "Valle del caucaalto zaragoza"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Amaime",
     "lat": "-76.2736010338",
     "lng": "3.60639518896",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2736010338,3.60639518896",
-    "key": "valle del caucaamaime"
+    "key": "Valle del caucaamaime"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Ampudia",
     "lat": "-76.6318415745",
     "lng": "3.18762964085",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6318415745,3.18762964085",
-    "key": "valle del caucaampudia"
+    "key": "Valle del caucaampudia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANSERMANUEVO",
     "lugar": "Anacaro",
     "lat": "-75.9706033489",
     "lng": "4.78640241015",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9706033489,4.78640241015",
-    "key": "valle del caucaanacaro"
+    "key": "Valle del caucaanacaro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "Andalucía",
     "lat": "-76.1679219749",
     "lng": "4.17172541604",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1679219749,4.17172541604",
-    "key": "valle del caucaandalucía"
+    "key": "Valle del caucaandalucía"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TRUJILLO",
     "lugar": "Andinápolis",
     "lat": "-76.386323611",
     "lng": "4.16687581236",
     "tipo": "MUNICIPIO",
     "latlng": "-76.386323611,4.16687581236",
-    "key": "valle del caucaandinápolis"
+    "key": "Valle del caucaandinápolis"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANSERMANUEVO",
     "lugar": "Ansermanuevo",
     "lat": "-75.9919821845",
     "lng": "4.79492075239",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9919821845,4.79492075239",
-    "key": "valle del caucaansermanuevo"
+    "key": "Valle del caucaansermanuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Arboledas",
     "lat": "-76.5762304442",
     "lng": "3.65962972672",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5762304442,3.65962972672",
-    "key": "valle del caucaarboledas"
+    "key": "Valle del caucaarboledas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ARGELIA",
     "lugar": "Argelia",
     "lat": "-76.1199028275",
     "lng": "4.72695251407",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1199028275,4.72695251407",
-    "key": "valle del caucaargelia"
+    "key": "Valle del caucaargelia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Arroyohondo",
     "lat": "-76.519515704",
     "lng": "3.51218007173",
     "tipo": "MUNICIPIO",
     "latlng": "-76.519515704,3.51218007173",
-    "key": "valle del caucaarroyohondo"
+    "key": "Valle del caucaarroyohondo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Atuncela",
     "lat": "-76.6758303813",
     "lng": "3.73634202458",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6758303813,3.73634202458",
-    "key": "valle del caucaatuncela"
+    "key": "Valle del caucaatuncela"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Bajo Calima",
     "lat": "-76.9751920276",
     "lng": "3.99836062612",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9751920276,3.99836062612",
-    "key": "valle del caucabajo calima"
+    "key": "Valle del caucabajo calima"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Barco",
     "lat": "-77.1323306634",
     "lng": "3.38070948755",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1323306634,3.38070948755",
-    "key": "valle del caucabarco"
+    "key": "Valle del caucabarco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CAICEDONIA",
     "lugar": "Barragán",
     "lat": "-75.7935633472",
     "lng": "4.33687442124",
     "tipo": "MUNICIPIO",
     "latlng": "-75.7935633472,4.33687442124",
-    "key": "valle del caucabarragán"
+    "key": "Valle del caucabarragán"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Barragán",
     "lat": "-75.8854155653",
     "lng": "4.03269777707",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8854155653,4.03269777707",
-    "key": "valle del caucabarragán"
+    "key": "Valle del caucabarragán"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Barrancas",
     "lat": "-76.2420083025",
     "lng": "3.5425471664",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2420083025,3.5425471664",
-    "key": "valle del caucabarrancas"
+    "key": "Valle del caucabarrancas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Barrio Buenos Aires",
     "lat": "-77.0035235252",
     "lng": "3.83153226925",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0035235252,3.83153226925",
-    "key": "valle del caucabarrio buenos aires"
+    "key": "Valle del caucabarrio buenos aires"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RESTREPO",
     "lugar": "Barrio La Independencia",
     "lat": "-76.5219393291",
     "lng": "3.83925078601",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5219393291,3.83925078601",
-    "key": "valle del caucabarrio la independencia"
+    "key": "Valle del caucabarrio la independencia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Bartola",
     "lat": "-77.2673510488",
     "lng": "3.13424724136",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2673510488,3.13424724136",
-    "key": "valle del caucabartola"
+    "key": "Valle del caucabartola"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Bendiciones",
     "lat": "-76.817998648",
     "lng": "3.867479767",
     "tipo": "MUNICIPIO",
     "latlng": "-76.817998648,3.867479767",
-    "key": "valle del caucabendiciones"
+    "key": "Valle del caucabendiciones"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Betania",
     "lat": "-76.309316066",
     "lng": "4.43713144297",
     "tipo": "MUNICIPIO",
     "latlng": "-76.309316066,4.43713144297",
-    "key": "valle del caucabetania"
+    "key": "Valle del caucabetania"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Betania",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucabetania"
+    "key": "Valle del caucabetania"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL DOVIO",
     "lugar": "Bitaco",
     "lat": "-76.3504973588",
     "lng": "4.49522295382",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3504973588,4.49522295382",
-    "key": "valle del caucabitaco"
+    "key": "Valle del caucabitaco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Bitaco",
     "lat": "-76.5990365173",
     "lng": "3.60995886822",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5990365173,3.60995886822",
-    "key": "valle del caucabitaco"
+    "key": "Valle del caucabitaco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Bocas De Mayorquin",
     "lat": "-77.1958963198",
     "lng": "3.60440787773",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1958963198,3.60440787773",
-    "key": "valle del caucabocas de mayorquin"
+    "key": "Valle del caucabocas de mayorquin"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Bocas De Tuluá",
     "lat": "-76.2320229548",
     "lng": "4.15600181528",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2320229548,4.15600181528",
-    "key": "valle del caucabocas de tuluá"
+    "key": "Valle del caucabocas de tuluá"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Bocas Del Palo",
     "lat": "-76.4664896728",
     "lng": "3.2678273277",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4664896728,3.2678273277",
-    "key": "valle del caucabocas del palo"
+    "key": "Valle del caucabocas del palo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TORO",
     "lugar": "Bohío",
     "lat": "-76.0605181212",
     "lng": "4.61713198067",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0605181212,4.61713198067",
-    "key": "valle del caucabohío"
+    "key": "Valle del caucabohío"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Bolívar",
     "lat": "-76.1835731619",
     "lng": "4.33784247096",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1835731619,4.33784247096",
-    "key": "valle del caucabolívar"
+    "key": "Valle del caucabolívar"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Bolo Alizal",
     "lat": "-76.3455604553",
     "lng": "3.4638603124",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3455604553,3.4638603124",
-    "key": "valle del caucabolo alizal"
+    "key": "Valle del caucabolo alizal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Bolo Barrio Nuevo",
     "lat": "-76.3947368486",
     "lng": "3.4770752128",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3947368486,3.4770752128",
-    "key": "valle del caucabolo barrio nuevo"
+    "key": "Valle del caucabolo barrio nuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Bolo Italia 1",
     "lat": "-76.3176207558",
     "lng": "3.46801576456",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3176207558,3.46801576456",
-    "key": "valle del caucabolo italia 1"
+    "key": "Valle del caucabolo italia 1"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Bolo Italia 2",
     "lat": "-76.3167721948",
     "lng": "3.47794661626",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3167721948,3.47794661626",
-    "key": "valle del caucabolo italia 2"
+    "key": "Valle del caucabolo italia 2"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Bolo La Italia",
     "lat": "-76.323586452",
     "lng": "3.46804423",
     "tipo": "MUNICIPIO",
     "latlng": "-76.323586452,3.46804423",
-    "key": "valle del caucabolo la italia"
+    "key": "Valle del caucabolo la italia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Bolo San Isidro",
     "lat": "-76.334606662",
     "lng": "3.461748583",
     "tipo": "MUNICIPIO",
     "latlng": "-76.334606662,3.461748583",
-    "key": "valle del caucabolo san isidro"
+    "key": "Valle del caucabolo san isidro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Bolomadre Vieja",
     "lat": "-76.2970682595",
     "lng": "3.47337768231",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2970682595,3.47337768231",
-    "key": "valle del caucabolomadre vieja"
+    "key": "Valle del caucabolomadre vieja"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Borrero Ayerbe",
     "lat": "-76.6464963892",
     "lng": "3.57229472034",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6464963892,3.57229472034",
-    "key": "valle del caucaborrero ayerbe"
+    "key": "Valle del caucaborrero ayerbe"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Boyacá",
     "lat": "-76.2492168472",
     "lng": "3.60411234121",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2492168472,3.60411234121",
-    "key": "valle del caucaboyacá"
+    "key": "Valle del caucaboyacá"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Brisas",
     "lat": "-76.9935302513",
     "lng": "3.95728078135",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9935302513,3.95728078135",
-    "key": "valle del caucabrisas"
+    "key": "Valle del caucabrisas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Brisas De Montebello",
     "lat": "-76.5449312143",
     "lng": "3.48562981161",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5449312143,3.48562981161",
-    "key": "valle del caucabrisas de montebello"
+    "key": "Valle del caucabrisas de montebello"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Brisas Del Fraile",
     "lat": "-76.34618983",
     "lng": "3.379193961",
     "tipo": "MUNICIPIO",
     "latlng": "-76.34618983,3.379193961",
-    "key": "valle del caucabrisas del fraile"
+    "key": "Valle del caucabrisas del fraile"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Buchitolo",
     "lat": "-76.378537776",
     "lng": "3.38086498309",
     "tipo": "MUNICIPIO",
     "latlng": "-76.378537776,3.38086498309",
-    "key": "valle del caucabuchitolo"
+    "key": "Valle del caucabuchitolo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Buenaventura",
     "lat": "-77.0117477782",
     "lng": "3.87580334574",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0117477782,3.87580334574",
-    "key": "valle del caucabuenaventura"
+    "key": "Valle del caucabuenaventura"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SAN PEDRO",
     "lugar": "Buenos Aires",
     "lat": "-76.1737901013",
     "lng": "3.92960034766",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1737901013,3.92960034766",
-    "key": "valle del caucabuenos aires"
+    "key": "Valle del caucabuenos aires"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SEVILLA",
     "lugar": "Buenos Aires",
     "lat": "-75.891243915",
     "lng": "4.408326238",
     "tipo": "MUNICIPIO",
     "latlng": "-75.891243915,4.408326238",
-    "key": "valle del caucabuenos aires"
+    "key": "Valle del caucabuenos aires"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "Bugalagrande",
     "lat": "-76.1568083286",
     "lng": "4.20833111175",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1568083286,4.20833111175",
-    "key": "valle del caucabugalagrande"
+    "key": "Valle del caucabugalagrande"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VIJES",
     "lugar": "Cachimbal",
     "lat": "-76.4674030261",
     "lng": "3.77969721607",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4674030261,3.77969721607",
-    "key": "valle del caucacachimbal"
+    "key": "Valle del caucacachimbal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CAICEDONIA",
     "lugar": "Caicedonia",
     "lat": "-75.8303183393",
     "lng": "4.33460564018",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8303183393,4.33460564018",
-    "key": "valle del caucacaicedonia"
+    "key": "Valle del caucacaicedonia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "Cajamarca",
     "lat": "-76.214614029",
     "lng": "4.480126827",
     "tipo": "MUNICIPIO",
     "latlng": "-76.214614029,4.480126827",
-    "key": "valle del caucacajamarca"
+    "key": "Valle del caucacajamarca"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Calle Larga",
     "lat": "-77.3129095191",
     "lng": "3.17302031827",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3129095191,3.17302031827",
-    "key": "valle del caucacalle larga"
+    "key": "Valle del caucacalle larga"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Calle Larga-Aeropuerto",
     "lat": "-76.9839993401",
     "lng": "3.82139350466",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9839993401,3.82139350466",
-    "key": "valle del caucacalle larga-aeropuerto"
+    "key": "Valle del caucacalle larga-aeropuerto"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Calle Larga-Rio Mayorquin",
     "lat": "-77.1740019361",
     "lng": "3.57886510977",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1740019361,3.57886510977",
-    "key": "valle del caucacalle larga-rio mayorquin"
+    "key": "Valle del caucacalle larga-rio mayorquin"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Callejon Tabares",
     "lat": "-76.5718842213",
     "lng": "3.38143923079",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5718842213,3.38143923079",
-    "key": "valle del caucacallejon tabares"
+    "key": "Valle del caucacallejon tabares"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Caluce-Plan De Vivienda Los Guayabos",
     "lat": "-76.1881122447",
     "lng": "3.54031810077",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1881122447,3.54031810077",
-    "key": "valle del caucacaluce-plan de vivienda los guayabos"
+    "key": "Valle del caucacaluce-plan de vivienda los guayabos"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Camino Viejo-Km 40",
     "lat": "-76.8287858887",
     "lng": "3.86533869322",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8287858887,3.86533869322",
-    "key": "valle del caucacamino viejo-km 40"
+    "key": "Valle del caucacamino viejo-km 40"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Campo Alegre",
     "lat": "-76.5548166713",
     "lng": "3.4714939502",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5548166713,3.4714939502",
-    "key": "valle del caucacampo alegre"
+    "key": "Valle del caucacampo alegre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "Campo Alegre",
     "lat": "-76.108759725",
     "lng": "4.528411035",
     "tipo": "MUNICIPIO",
     "latlng": "-76.108759725,4.528411035",
-    "key": "valle del caucacampo alegre"
+    "key": "Valle del caucacampo alegre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Campo Hermoso",
     "lat": "-77.032610754",
     "lng": "3.818481192",
     "tipo": "MUNICIPIO",
     "latlng": "-77.032610754,3.818481192",
-    "key": "valle del caucacampo hermoso"
+    "key": "Valle del caucacampo hermoso"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "Campoalegre",
     "lat": "-76.2072538772",
     "lng": "4.17836829626",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2072538772,4.17836829626",
-    "key": "valle del caucacampoalegre"
+    "key": "Valle del caucacampoalegre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "Campoalegre",
     "lat": "-76.244790259",
     "lng": "3.64410394411",
     "tipo": "MUNICIPIO",
     "latlng": "-76.244790259,3.64410394411",
-    "key": "valle del caucacampoalegre"
+    "key": "Valle del caucacampoalegre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Campoalegre",
     "lat": "-76.216606759",
     "lng": "4.07064847",
     "tipo": "MUNICIPIO",
     "latlng": "-76.216606759,4.07064847",
-    "key": "valle del caucacampoalegre"
+    "key": "Valle del caucacampoalegre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "Campoalegre",
     "lat": "-76.153640872",
     "lng": "4.619000626",
     "tipo": "MUNICIPIO",
     "latlng": "-76.153640872,4.619000626",
-    "key": "valle del caucacampoalegre"
+    "key": "Valle del caucacampoalegre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Campoalegre",
     "lat": "-76.3632932341",
     "lng": "3.99665800399",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3632932341,3.99665800399",
-    "key": "valle del caucacampoalegre"
+    "key": "Valle del caucacampoalegre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Cananguá",
     "lat": "-76.3540434854",
     "lng": "3.78487457139",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3540434854,3.78487457139",
-    "key": "valle del caucacananguá"
+    "key": "Valle del caucacananguá"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Candelaria",
     "lat": "-76.3464295384",
     "lng": "3.4077643196",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3464295384,3.4077643196",
-    "key": "valle del caucacandelaria"
+    "key": "Valle del caucacandelaria"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Cantalomota",
     "lat": "-76.4243177455",
     "lng": "3.39777056088",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4243177455,3.39777056088",
-    "key": "valle del caucacantalomota"
+    "key": "Valle del caucacantalomota"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL ÁGUILA",
     "lugar": "Cañaveral - Villanueva",
     "lat": "-76.0382764544",
     "lng": "4.96999131439",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0382764544,4.96999131439",
-    "key": "valle del caucacañaveral - villanueva"
+    "key": "Valle del caucacañaveral - villanueva"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CARTAGO",
     "lugar": "Cartago",
     "lat": "-75.942264044",
     "lng": "4.758755097",
     "tipo": "MUNICIPIO",
     "latlng": "-75.942264044,4.758755097",
-    "key": "valle del caucacartago"
+    "key": "Valle del caucacartago"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Cascajal I",
     "lat": "-76.5099932396",
     "lng": "3.31655198964",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5099932396,3.31655198964",
-    "key": "valle del caucacascajal i"
+    "key": "Valle del caucacascajal i"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Cascajal Ii",
     "lat": "-76.5039772861",
     "lng": "3.31585916143",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5039772861,3.31585916143",
-    "key": "valle del caucacascajal ii"
+    "key": "Valle del caucacascajal ii"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Cascajal Iii",
     "lat": "-76.4931389855",
     "lng": "3.3169556984",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4931389855,3.3169556984",
-    "key": "valle del caucacascajal iii"
+    "key": "Valle del caucacascajal iii"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Cascajita",
     "lat": "-77.1366680498",
     "lng": "3.17074798369",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1366680498,3.17074798369",
-    "key": "valle del caucacascajita"
+    "key": "Valle del caucacascajita"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Cascarillal",
     "lat": "-76.6308949745",
     "lng": "3.20661064147",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6308949745,3.20661064147",
-    "key": "valle del caucacascarillal"
+    "key": "Valle del caucacascarillal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Cauca Viejo",
     "lat": "-76.4841509953",
     "lng": "3.30699833184",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4841509953,3.30699833184",
-    "key": "valle del caucacauca viejo"
+    "key": "Valle del caucacauca viejo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Caucaseco",
     "lat": "-76.457886298",
     "lng": "3.43833254989",
     "tipo": "MUNICIPIO",
     "latlng": "-76.457886298,3.43833254989",
-    "key": "valle del caucacaucaseco"
+    "key": "Valle del caucacaucaseco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Caucaseco",
     "lat": "-76.4726459923",
     "lng": "3.48915788529",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4726459923,3.48915788529",
-    "key": "valle del caucacaucaseco"
+    "key": "Valle del caucacaucaseco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "Ceilán",
     "lat": "-76.0413397288",
     "lng": "4.11211589286",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0413397288,4.11211589286",
-    "key": "valle del caucaceilán"
+    "key": "Valle del caucaceilán"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Cerro Azul",
     "lat": "-76.2826624684",
     "lng": "4.2774287752",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2826624684,4.2774287752",
-    "key": "valle del caucacerro azul"
+    "key": "Valle del caucacerro azul"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Chamuscado",
     "lat": "-77.4234916345",
     "lng": "3.34213222665",
     "tipo": "MUNICIPIO",
     "latlng": "-77.4234916345,3.34213222665",
-    "key": "valle del caucachamuscado"
+    "key": "Valle del caucachamuscado"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "Chococito",
     "lat": "-76.3010076986",
     "lng": "3.28733612407",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3010076986,3.28733612407",
-    "key": "valle del caucachococito"
+    "key": "Valle del caucachococito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Chontaduro",
     "lat": "-76.2076148556",
     "lng": "3.49205214668",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2076148556,3.49205214668",
-    "key": "valle del caucachontaduro"
+    "key": "Valle del caucachontaduro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Chorro De Plata",
     "lat": "-76.5942864673",
     "lng": "3.34535619555",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5942864673,3.34535619555",
-    "key": "valle del caucachorro de plata"
+    "key": "Valle del caucachorro de plata"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Cienegueta",
     "lat": "-76.179113362",
     "lng": "4.056900752",
     "tipo": "MUNICIPIO",
     "latlng": "-76.179113362,4.056900752",
-    "key": "valle del caucacienegueta"
+    "key": "Valle del caucacienegueta"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Cisneros",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucacisneros"
+    "key": "Valle del caucacisneros"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Cisneros",
     "lat": "-76.7601923174",
     "lng": "3.78114600668",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7601923174,3.78114600668",
-    "key": "valle del caucacisneros"
+    "key": "Valle del caucacisneros"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Combia",
     "lat": "-76.0341335341",
     "lng": "3.68778150397",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0341335341,3.68778150397",
-    "key": "valle del caucacombia"
+    "key": "Valle del caucacombia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Concepción",
     "lat": "-77.1343089134",
     "lng": "3.16636340344",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1343089134,3.16636340344",
-    "key": "valle del caucaconcepción"
+    "key": "Valle del caucaconcepción"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Condominio",
     "lat": "-76.5396933018",
     "lng": "3.23196157554",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5396933018,3.23196157554",
-    "key": "valle del caucacondominio"
+    "key": "Valle del caucacondominio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Condominio Campestre La Gonzalez",
     "lat": "-76.2202981852",
     "lng": "3.48366786369",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2202981852,3.48366786369",
-    "key": "valle del caucacondominio campestre la gonzalez"
+    "key": "Valle del caucacondominio campestre la gonzalez"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Condominio Marañon",
     "lat": "-76.5100818992",
     "lng": "3.32929366463",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5100818992,3.32929366463",
-    "key": "valle del caucacondominio marañon"
+    "key": "Valle del caucacondominio marañon"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Córdoba",
     "lat": "-76.927142478",
     "lng": "3.874686793",
     "tipo": "MUNICIPIO",
     "latlng": "-76.927142478,3.874686793",
-    "key": "valle del caucacórdoba"
+    "key": "Valle del caucacórdoba"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SEVILLA",
     "lugar": "Corozal",
     "lat": "-75.9185405844",
     "lng": "4.39880727744",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9185405844,4.39880727744",
-    "key": "valle del caucacorozal"
+    "key": "Valle del caucacorozal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GINEBRA",
     "lugar": "Costa Rica",
     "lat": "-76.2341788648",
     "lng": "3.75174883379",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2341788648,3.75174883379",
-    "key": "valle del caucacosta rica"
+    "key": "Valle del caucacosta rica"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Cristales",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucacristales"
+    "key": "Valle del caucacristales"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Crucero Alto De Los Mangos",
     "lat": "-76.5777409745",
     "lng": "3.39986616746",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5777409745,3.39986616746",
-    "key": "valle del caucacrucero alto de los mangos"
+    "key": "Valle del caucacrucero alto de los mangos"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "Cruces",
     "lat": "-75.9213983032",
     "lng": "4.64372443548",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9213983032,4.64372443548",
-    "key": "valle del caucacruces"
+    "key": "Valle del caucacruces"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SEVILLA",
     "lugar": "Cumbarco",
     "lat": "-75.8327091761",
     "lng": "4.19534965716",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8327091761,4.19534965716",
-    "key": "valle del caucacumbarco"
+    "key": "Valle del caucacumbarco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Dagua",
     "lat": "-76.6889953357",
     "lng": "3.65666318922",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6889953357,3.65666318922",
-    "key": "valle del caucadagua"
+    "key": "Valle del caucadagua"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Dapa El Rincón",
     "lat": "-76.5676008519",
     "lng": "3.56432765387",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5676008519,3.56432765387",
-    "key": "valle del caucadapa el rincón"
+    "key": "Valle del caucadapa el rincón"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Dapa La Vega",
     "lat": "-76.5691606865",
     "lng": "3.55858157732",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5691606865,3.55858157732",
-    "key": "valle del caucadapa la vega"
+    "key": "Valle del caucadapa la vega"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALIMA",
     "lugar": "Darién",
     "lat": "-76.4843909802",
     "lng": "3.93352588351",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4843909802,3.93352588351",
-    "key": "valle del caucadarién"
+    "key": "Valle del caucadarién"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ULLOA",
     "lugar": "Dinamarca",
     "lat": "-75.794116755",
     "lng": "4.70808047117",
     "tipo": "MUNICIPIO",
     "latlng": "-75.794116755,4.70808047117",
-    "key": "valle del caucadinamarca"
+    "key": "Valle del caucadinamarca"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Domingo Largo",
     "lat": "-76.4593185989",
     "lng": "3.42424498426",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4593185989,3.42424498426",
-    "key": "valle del caucadomingo largo"
+    "key": "Valle del caucadomingo largo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Dosquebradas",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucadosquebradas"
+    "key": "Valle del caucadosquebradas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Duquelandia",
     "lat": "-76.5682123445",
     "lng": "3.37567853339",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5682123445,3.37567853339",
-    "key": "valle del caucaduquelandia"
+    "key": "Valle del caucaduquelandia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL ÁGUILA",
     "lugar": "El Águila",
     "lat": "-76.0427931347",
     "lng": "4.90602658761",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0427931347,4.90602658761",
-    "key": "valle del caucael águila"
+    "key": "Valle del caucael águila"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Arenal",
     "lat": "-76.3558957065",
     "lng": "3.3873182212",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3558957065,3.3873182212",
-    "key": "valle del caucael arenal"
+    "key": "Valle del caucael arenal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "El Balsal",
     "lat": "-76.2299374161",
     "lng": "4.66697537468",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2299374161,4.66697537468",
-    "key": "valle del caucael balsal"
+    "key": "Valle del caucael balsal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Barranco",
     "lat": "-77.3566079479",
     "lng": "3.36668737877",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3566079479,3.36668737877",
-    "key": "valle del caucael barranco"
+    "key": "Valle del caucael barranco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANSERMANUEVO",
     "lugar": "El Billar",
     "lat": "-76.090765491",
     "lng": "4.818637245",
     "tipo": "MUNICIPIO",
     "latlng": "-76.090765491,4.818637245",
-    "key": "valle del caucael billar"
+    "key": "Valle del caucael billar"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Cabuyal",
     "lat": "-76.3492146627",
     "lng": "3.3249581292",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3492146627,3.3249581292",
-    "key": "valle del caucael cabuyal"
+    "key": "Valle del caucael cabuyal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Cacao",
     "lat": "-77.1536161136",
     "lng": "3.64164194589",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1536161136,3.64164194589",
-    "key": "valle del caucael cacao"
+    "key": "Valle del caucael cacao"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CAIRO",
     "lugar": "El Cairo",
     "lat": "-76.2216047795",
     "lng": "4.76088330419",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2216047795,4.76088330419",
-    "key": "valle del caucael cairo"
+    "key": "Valle del caucael cairo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "El Caney",
     "lat": "-76.426993594",
     "lng": "3.932251756",
     "tipo": "MUNICIPIO",
     "latlng": "-76.426993594,3.932251756",
-    "key": "valle del caucael caney"
+    "key": "Valle del caucael caney"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Carmelo",
     "lat": "-76.4163243664",
     "lng": "3.40263715442",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4163243664,3.40263715442",
-    "key": "valle del caucael carmelo"
+    "key": "Valle del caucael carmelo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Carmen",
     "lat": "-76.6519625661",
     "lng": "3.55270264647",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6519625661,3.55270264647",
-    "key": "valle del caucael carmen"
+    "key": "Valle del caucael carmen"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "El Castillo",
     "lat": "-76.192280801",
     "lng": "3.665086498",
     "tipo": "MUNICIPIO",
     "latlng": "-76.192280801,3.665086498",
-    "key": "valle del caucael castillo"
+    "key": "Valle del caucael castillo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Cedro",
     "lat": "-76.763607472",
     "lng": "3.786729586",
     "tipo": "MUNICIPIO",
     "latlng": "-76.763607472,3.786729586",
-    "key": "valle del caucael cedro"
+    "key": "Valle del caucael cedro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "El Cerrito",
     "lat": "-76.3117262705",
     "lng": "3.68425970818",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3117262705,3.68425970818",
-    "key": "valle del caucael cerrito"
+    "key": "Valle del caucael cerrito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Chilcal",
     "lat": "-76.7124983855",
     "lng": "3.58082018357",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7124983855,3.58082018357",
-    "key": "valle del caucael chilcal"
+    "key": "Valle del caucael chilcal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "El Chocho",
     "lat": "-76.5199964228",
     "lng": "3.62348986285",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5199964228,3.62348986285",
-    "key": "valle del caucael chocho"
+    "key": "Valle del caucael chocho"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "El Chuzo",
     "lat": "-75.924365957",
     "lng": "4.560638249",
     "tipo": "MUNICIPIO",
     "latlng": "-75.924365957,4.560638249",
-    "key": "valle del caucael chuzo"
+    "key": "Valle del caucael chuzo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Credo",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucael credo"
+    "key": "Valle del caucael credo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Crucero",
     "lat": "-76.9795120133",
     "lng": "3.93614629438",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9795120133,3.93614629438",
-    "key": "valle del caucael crucero"
+    "key": "Valle del caucael crucero"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL DOVIO",
     "lugar": "El Dovio",
     "lat": "-76.2370824654",
     "lng": "4.51045798809",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2370824654,4.51045798809",
-    "key": "valle del caucael dovio"
+    "key": "Valle del caucael dovio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Eden",
     "lat": "-76.7793773695",
     "lng": "3.81433891594",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7793773695,3.81433891594",
-    "key": "valle del caucael eden"
+    "key": "Valle del caucael eden"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Encanto",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucael encanto"
+    "key": "Valle del caucael encanto"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "El Estero",
     "lat": "-76.4830459272",
     "lng": "3.36059502424",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4830459272,3.36059502424",
-    "key": "valle del caucael estero"
+    "key": "Valle del caucael estero"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "El Filo",
     "lat": "-76.5477599821",
     "lng": "3.49945752415",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5477599821,3.49945752415",
-    "key": "valle del caucael filo"
+    "key": "Valle del caucael filo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Galpón",
     "lat": "-76.6530397754",
     "lng": "3.56195404237",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6530397754,3.56195404237",
-    "key": "valle del caucael galpón"
+    "key": "Valle del caucael galpón"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Gualí",
     "lat": "-76.37714156",
     "lng": "3.434041599",
     "tipo": "MUNICIPIO",
     "latlng": "-76.37714156,3.434041599",
-    "key": "valle del caucael gualí"
+    "key": "Valle del caucael gualí"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "El Guasimo",
     "lat": "-76.100772495",
     "lng": "4.52197247259",
     "tipo": "MUNICIPIO",
     "latlng": "-76.100772495,4.52197247259",
-    "key": "valle del caucael guasimo"
+    "key": "Valle del caucael guasimo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "El Guaval",
     "lat": "-76.5146430123",
     "lng": "3.25204318379",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5146430123,3.25204318379",
-    "key": "valle del caucael guaval"
+    "key": "Valle del caucael guaval"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL ÁGUILA",
     "lugar": "El Guayabo",
     "lat": "-76.0479408296",
     "lng": "4.93134568211",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0479408296,4.93134568211",
-    "key": "valle del caucael guayabo"
+    "key": "Valle del caucael guayabo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "El Hormiguero",
     "lat": "-76.477157455",
     "lng": "3.311386651",
     "tipo": "MUNICIPIO",
     "latlng": "-76.477157455,3.311386651",
-    "key": "valle del caucael hormiguero"
+    "key": "Valle del caucael hormiguero"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "El Ingenio",
     "lat": "-76.3188326127",
     "lng": "3.28279201018",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3188326127,3.28279201018",
-    "key": "valle del caucael ingenio"
+    "key": "Valle del caucael ingenio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "El Jagual",
     "lat": "-76.2770407614",
     "lng": "4.1414657672",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2770407614,4.1414657672",
-    "key": "valle del caucael jagual"
+    "key": "Valle del caucael jagual"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Lauro",
     "lat": "-76.3424237457",
     "lng": "3.44654936452",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3424237457,3.44654936452",
-    "key": "valle del caucael lauro"
+    "key": "Valle del caucael lauro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Limonar",
     "lat": "-76.7099858704",
     "lng": "3.60894072202",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7099858704,3.60894072202",
-    "key": "valle del caucael limonar"
+    "key": "Valle del caucael limonar"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Limones",
     "lat": "-76.9647074565",
     "lng": "3.73522197005",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9647074565,3.73522197005",
-    "key": "valle del caucael limones"
+    "key": "Valle del caucael limones"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Llano",
     "lat": "-77.0062335916",
     "lng": "3.73181592982",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0062335916,3.73181592982",
-    "key": "valle del caucael llano"
+    "key": "Valle del caucael llano"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "El Lucero",
     "lat": "-76.104913444",
     "lng": "4.522143656",
     "tipo": "MUNICIPIO",
     "latlng": "-76.104913444,4.522143656",
-    "key": "valle del caucael lucero"
+    "key": "Valle del caucael lucero"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "El Manantial",
     "lat": "-76.2918006577",
     "lng": "3.86407194",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2918006577,3.86407194",
-    "key": "valle del caucael manantial"
+    "key": "Valle del caucael manantial"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Naranjo",
     "lat": "-76.7169342528",
     "lng": "3.78052501071",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7169342528,3.78052501071",
-    "key": "valle del caucael naranjo"
+    "key": "Valle del caucael naranjo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Otoño",
     "lat": "-76.3175814317",
     "lng": "3.40281092998",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3175814317,3.40281092998",
-    "key": "valle del caucael otoño"
+    "key": "Valle del caucael otoño"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "El Overo (Sector La María)",
     "lat": "-76.126191082",
     "lng": "4.24525276106",
     "tipo": "MUNICIPIO",
     "latlng": "-76.126191082,4.24525276106",
-    "key": "valle del caucael overo (sector la maría)"
+    "key": "Valle del caucael overo (sector la maría)"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "El Overo (Sector Poblado)",
     "lat": "-76.1335749864",
     "lng": "4.24329047547",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1335749864,4.24329047547",
-    "key": "valle del caucael overo (sector poblado)"
+    "key": "Valle del caucael overo (sector poblado)"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Palito",
     "lat": "-76.839660918",
     "lng": "3.86258081081",
     "tipo": "MUNICIPIO",
     "latlng": "-76.839660918,3.86258081081",
-    "key": "valle del caucael palito"
+    "key": "Valle del caucael palito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Palmar",
     "lat": "-76.648107178",
     "lng": "3.60228867",
     "tipo": "MUNICIPIO",
     "latlng": "-76.648107178,3.60228867",
-    "key": "valle del caucael palmar"
+    "key": "Valle del caucael palmar"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "El Pedregal",
     "lat": "-76.2170898273",
     "lng": "3.31338484765",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2170898273,3.31338484765",
-    "key": "valle del caucael pedregal"
+    "key": "Valle del caucael pedregal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "El Pedregal",
     "lat": "-76.542966327",
     "lng": "3.504848679",
     "tipo": "MUNICIPIO",
     "latlng": "-76.542966327,3.504848679",
-    "key": "valle del caucael pedregal"
+    "key": "Valle del caucael pedregal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "El Picacho",
     "lat": "-76.1490089046",
     "lng": "4.04975959297",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1490089046,4.04975959297",
-    "key": "valle del caucael picacho"
+    "key": "Valle del caucael picacho"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Piñal",
     "lat": "-76.6599515193",
     "lng": "3.68835260938",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6599515193,3.68835260938",
-    "key": "valle del caucael piñal"
+    "key": "Valle del caucael piñal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "El Placer",
     "lat": "-76.0986844332",
     "lng": "3.87963502",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0986844332,3.87963502",
-    "key": "valle del caucael placer"
+    "key": "Valle del caucael placer"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "El Placer",
     "lat": "-76.2715113547",
     "lng": "3.61300789324",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2715113547,3.61300789324",
-    "key": "valle del caucael placer"
+    "key": "Valle del caucael placer"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "El Placer",
     "lat": "-76.2824493764",
     "lng": "3.77163948687",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2824493764,3.77163948687",
-    "key": "valle del caucael placer"
+    "key": "Valle del caucael placer"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Poblado Campestre",
     "lat": "-76.4581358012",
     "lng": "3.41089387693",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4581358012,3.41089387693",
-    "key": "valle del caucael poblado campestre"
+    "key": "Valle del caucael poblado campestre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "El Pomo",
     "lat": "-76.1853250907",
     "lng": "3.63888195011",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1853250907,3.63888195011",
-    "key": "valle del caucael pomo"
+    "key": "Valle del caucael pomo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "El Portento",
     "lat": "-76.561619105",
     "lng": "3.37045978305",
     "tipo": "MUNICIPIO",
     "latlng": "-76.561619105,3.37045978305",
-    "key": "valle del caucael portento"
+    "key": "Valle del caucael portento"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "El Porvenir",
     "lat": "-76.3427637717",
     "lng": "3.89146383695",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3427637717,3.89146383695",
-    "key": "valle del caucael porvenir"
+    "key": "Valle del caucael porvenir"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VIJES",
     "lugar": "El Porvenir",
     "lat": "-76.4689325172",
     "lng": "3.8078637417",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4689325172,3.8078637417",
-    "key": "valle del caucael porvenir"
+    "key": "Valle del caucael porvenir"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Queremal",
     "lat": "-76.7121370121",
     "lng": "3.52845350991",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7121370121,3.52845350991",
-    "key": "valle del caucael queremal"
+    "key": "Valle del caucael queremal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ARGELIA",
     "lugar": "El Raizal",
     "lat": "-76.1472995117",
     "lng": "4.73385811406",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1472995117,4.73385811406",
-    "key": "valle del caucael raizal"
+    "key": "Valle del caucael raizal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "El Recreo",
     "lat": "-76.2026315966",
     "lng": "3.39834750916",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2026315966,3.39834750916",
-    "key": "valle del caucael recreo"
+    "key": "Valle del caucael recreo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "El Retiro",
     "lat": "-76.235592045",
     "lng": "4.396155312",
     "tipo": "MUNICIPIO",
     "latlng": "-76.235592045,4.396155312",
-    "key": "valle del caucael retiro"
+    "key": "Valle del caucael retiro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Rodeo",
     "lat": "-76.707478841",
     "lng": "3.594870614",
     "tipo": "MUNICIPIO",
     "latlng": "-76.707478841,3.594870614",
-    "key": "valle del caucael rodeo"
+    "key": "Valle del caucael rodeo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "El Saladito",
     "lat": "-76.606098237",
     "lng": "3.482231759",
     "tipo": "MUNICIPIO",
     "latlng": "-76.606098237,3.482231759",
-    "key": "valle del caucael saladito"
+    "key": "Valle del caucael saladito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "El Salado",
     "lat": "-76.7144649205",
     "lng": "3.56020769655",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7144649205,3.56020769655",
-    "key": "valle del caucael salado"
+    "key": "Valle del caucael salado"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "El Salto",
     "lat": "-76.234012589",
     "lng": "4.163615024",
     "tipo": "MUNICIPIO",
     "latlng": "-76.234012589,4.163615024",
-    "key": "valle del caucael salto"
+    "key": "Valle del caucael salto"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "El Salto",
     "lat": "-76.7932194071",
     "lng": "3.83784289987",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7932194071,3.83784289987",
-    "key": "valle del caucael salto"
+    "key": "Valle del caucael salto"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Silencio",
     "lat": "-76.4562253497",
     "lng": "3.45030195774",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4562253497,3.45030195774",
-    "key": "valle del caucael silencio"
+    "key": "Valle del caucael silencio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VIJES",
     "lugar": "El Tambor",
     "lat": "-76.4862010515",
     "lng": "3.76335482556",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4862010515,3.76335482556",
-    "key": "valle del caucael tambor"
+    "key": "Valle del caucael tambor"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "El Tamboral",
     "lat": "-76.2205911924",
     "lng": "3.27291141661",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2205911924,3.27291141661",
-    "key": "valle del caucael tamboral"
+    "key": "Valle del caucael tamboral"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "El Tiple",
     "lat": "-76.4262091025",
     "lng": "3.35018711692",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4262091025,3.35018711692",
-    "key": "valle del caucael tiple"
+    "key": "Valle del caucael tiple"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "El Triunfo",
     "lat": "-76.3215097834",
     "lng": "3.71030419682",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3215097834,3.71030419682",
-    "key": "valle del caucael triunfo"
+    "key": "Valle del caucael triunfo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "El Triunfo",
     "lat": "-76.5156196308",
     "lng": "3.23418093456",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5156196308,3.23418093456",
-    "key": "valle del caucael triunfo"
+    "key": "Valle del caucael triunfo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANSERMANUEVO",
     "lugar": "El Vergel",
     "lat": "-75.998603466",
     "lng": "4.86181274",
     "tipo": "MUNICIPIO",
     "latlng": "-75.998603466,4.86181274",
-    "key": "valle del caucael vergel"
+    "key": "Valle del caucael vergel"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "El Vinculo",
     "lat": "-76.3061485612",
     "lng": "3.81627107718",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3061485612,3.81627107718",
-    "key": "valle del caucael vinculo"
+    "key": "Valle del caucael vinculo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ZARZAL",
     "lugar": "Estación Caicedonia",
     "lat": "-75.8812240784",
     "lng": "4.41060326954",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8812240784,4.41060326954",
-    "key": "valle del caucaestación caicedonia"
+    "key": "Valle del caucaestación caicedonia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Felidia",
     "lat": "-76.6305827166",
     "lng": "3.4684834456",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6305827166,3.4684834456",
-    "key": "valle del caucafelidia"
+    "key": "Valle del caucafelidia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Fenicia",
     "lat": "-76.3887597929",
     "lng": "4.07038576156",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3887597929,4.07038576156",
-    "key": "valle del caucafenicia"
+    "key": "Valle del caucafenicia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "Florida",
     "lat": "-76.234503193",
     "lng": "3.3239196011",
     "tipo": "MUNICIPIO",
     "latlng": "-76.234503193,3.3239196011",
-    "key": "valle del caucaflorida"
+    "key": "Valle del caucaflorida"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "Galicia",
     "lat": "-76.0576622213",
     "lng": "4.17304265836",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0576622213,4.17304265836",
-    "key": "valle del caucagalicia"
+    "key": "Valle del caucagalicia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Gato De Monte",
     "lat": "-76.5913182347",
     "lng": "3.22008225178",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5913182347,3.22008225178",
-    "key": "valle del caucagato de monte"
+    "key": "Valle del caucagato de monte"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Gato Negro",
     "lat": "-76.2187955991",
     "lng": "4.12761715516",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2187955991,4.12761715516",
-    "key": "valle del caucagato negro"
+    "key": "Valle del caucagato negro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GINEBRA",
     "lugar": "Ginebra",
     "lat": "-76.2680666157",
     "lng": "3.72418135814",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2680666157,3.72418135814",
-    "key": "valle del caucaginebra"
+    "key": "Valle del caucaginebra"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Golondrinas",
     "lat": "-76.5502505961",
     "lng": "3.49816198029",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5502505961,3.49816198029",
-    "key": "valle del caucagolondrinas"
+    "key": "Valle del caucagolondrinas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANSERMANUEVO",
     "lugar": "Gramalote",
     "lat": "-75.987810347",
     "lng": "4.784333395",
     "tipo": "MUNICIPIO",
     "latlng": "-75.987810347,4.784333395",
-    "key": "valle del caucagramalote"
+    "key": "Valle del caucagramalote"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Guabas",
     "lat": "-76.3674565754",
     "lng": "3.76410205745",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3674565754,3.76410205745",
-    "key": "valle del caucaguabas"
+    "key": "Valle del caucaguabas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Guabitas",
     "lat": "-76.317286503",
     "lng": "3.759773399",
     "tipo": "MUNICIPIO",
     "latlng": "-76.317286503,3.759773399",
-    "key": "valle del caucaguabitas"
+    "key": "Valle del caucaguabitas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Guacarí",
     "lat": "-76.3313674083",
     "lng": "3.76290954608",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3313674083,3.76290954608",
-    "key": "valle del caucaguacarí"
+    "key": "Valle del caucaguacarí"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Guacas",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucaguacas"
+    "key": "Valle del caucaguacas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Guachinte",
     "lat": "-76.5927285244",
     "lng": "3.17039721342",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5927285244,3.17039721342",
-    "key": "valle del caucaguachinte"
+    "key": "Valle del caucaguachinte"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "Guadalajara De Buga",
     "lat": "-76.2989614887",
     "lng": "3.90082284434",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2989614887,3.90082284434",
-    "key": "valle del caucaguadalajara de buga"
+    "key": "Valle del caucaguadalajara de buga"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "Guadualejo",
     "lat": "-76.2665614582",
     "lng": "3.88800722624",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2665614582,3.88800722624",
-    "key": "valle del caucaguadualejo"
+    "key": "Valle del caucaguadualejo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Guadualito",
     "lat": "-77.0815293698",
     "lng": "3.69351268941",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0815293698,3.69351268941",
-    "key": "valle del caucaguadualito"
+    "key": "Valle del caucaguadualito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Guaimia",
     "lat": "-76.9605365686",
     "lng": "3.7279405899",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9605365686,3.7279405899",
-    "key": "valle del caucaguaimia"
+    "key": "Valle del caucaguaimia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Guanabanal",
     "lat": "-76.4245106754",
     "lng": "3.48379201893",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4245106754,3.48379201893",
-    "key": "valle del caucaguanabanal"
+    "key": "Valle del caucaguanabanal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CARTAGO",
     "lugar": "Guanabano",
     "lat": "-75.968466115",
     "lng": "4.763250398",
     "tipo": "MUNICIPIO",
     "latlng": "-75.968466115,4.763250398",
-    "key": "valle del caucaguanabano"
+    "key": "Valle del caucaguanabano"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Guayabal",
     "lat": "-76.2668287597",
     "lng": "3.54506955458",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2668287597,3.54506955458",
-    "key": "valle del caucaguayabal"
+    "key": "Valle del caucaguayabal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SAN PEDRO",
     "lugar": "Guayabal",
     "lat": "-76.2319270125",
     "lng": "4.00528687312",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2319270125,4.00528687312",
-    "key": "valle del caucaguayabal"
+    "key": "Valle del caucaguayabal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CARTAGO",
     "lugar": "Guayabito",
     "lat": "-75.989276332",
     "lng": "4.721247775",
     "tipo": "MUNICIPIO",
     "latlng": "-75.989276332,4.721247775",
-    "key": "valle del caucaguayabito"
+    "key": "Valle del caucaguayabito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "Higueroncito",
     "lat": "-76.1021355197",
     "lng": "4.49602885468",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1021355197,4.49602885468",
-    "key": "valle del caucahigueroncito"
+    "key": "Valle del caucahigueroncito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA VICTORIA",
     "lugar": "Holguín",
     "lat": "-75.9869128135",
     "lng": "4.50628356045",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9869128135,4.50628356045",
-    "key": "valle del caucaholguín"
+    "key": "Valle del caucaholguín"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Horizonte",
     "lat": "-77.1471577135",
     "lng": "3.7144439083",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1471577135,3.7144439083",
-    "key": "valle del caucahorizonte"
+    "key": "Valle del caucahorizonte"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TRUJILLO",
     "lugar": "Huasanó",
     "lat": "-76.2443439215",
     "lng": "4.2452032925",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2443439215,4.2452032925",
-    "key": "valle del caucahuasanó"
+    "key": "Valle del caucahuasanó"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Jamundí",
     "lat": "-76.5391224672",
     "lng": "3.25932906918",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5391224672,3.25932906918",
-    "key": "valle del caucajamundí"
+    "key": "Valle del caucajamundí"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALIMA",
     "lugar": "Jiguales",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucajiguales"
+    "key": "Valle del caucajiguales"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Jiguales",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucajiguales"
+    "key": "Valle del caucajiguales"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Jiguales",
     "lat": "-76.3908097276567",
     "lng": "3.9041236733238",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3908097276567,3.9041236733238",
-    "key": "valle del caucajiguales"
+    "key": "Valle del caucajiguales"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Joaquincito Resguardo Indigena",
     "lat": "-77.4061563514",
     "lng": "3.29851461148",
     "tipo": "MUNICIPIO",
     "latlng": "-77.4061563514,3.29851461148",
-    "key": "valle del caucajoaquincito resguardo indigena"
+    "key": "Valle del caucajoaquincito resguardo indigena"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "Juan Díaz",
     "lat": "-76.0214432103",
     "lng": "4.65023530383",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0214432103,4.65023530383",
-    "key": "valle del caucajuan díaz"
+    "key": "Valle del caucajuan díaz"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Juanchaco",
     "lat": "-77.3563910979",
     "lng": "3.92979550518",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3563910979,3.92979550518",
-    "key": "valle del caucajuanchaco"
+    "key": "Valle del caucajuanchaco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Juanchito",
     "lat": "-76.4725550374",
     "lng": "3.4477045689",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4725550374,3.4477045689",
-    "key": "valle del caucajuanchito"
+    "key": "Valle del caucajuanchito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Juanchito",
     "lat": "-76.4680121723",
     "lng": "3.45698841192",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4680121723,3.45698841192",
-    "key": "valle del caucajuanchito"
+    "key": "Valle del caucajuanchito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Juaquincito",
     "lat": "-77.404342836",
     "lng": "3.28966928076",
     "tipo": "MUNICIPIO",
     "latlng": "-77.404342836,3.28966928076",
-    "key": "valle del caucajuaquincito"
+    "key": "Valle del caucajuaquincito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Juntas",
     "lat": "-77.1102026203",
     "lng": "3.24990945826",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1102026203,3.24990945826",
-    "key": "valle del caucajuntas"
+    "key": "Valle del caucajuntas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Juntas",
     "lat": "-76.7613579957",
     "lng": "3.77896173399",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7613579957,3.77896173399",
-    "key": "valle del caucajuntas"
+    "key": "Valle del caucajuntas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Katanga",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucakatanga"
+    "key": "Valle del caucakatanga"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Katanga",
     "lat": "-76.7989805608",
     "lng": "3.85289637513",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7989805608,3.85289637513",
-    "key": "valle del caucakatanga"
+    "key": "Valle del caucakatanga"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Kilómetro 26",
     "lat": "-76.610885055",
     "lng": "3.561690145",
     "tipo": "MUNICIPIO",
     "latlng": "-76.610885055,3.561690145",
-    "key": "valle del caucakilómetro 26"
+    "key": "Valle del caucakilómetro 26"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Acequia",
     "lat": "-76.396836218",
     "lng": "3.636802433",
     "tipo": "MUNICIPIO",
     "latlng": "-76.396836218,3.636802433",
-    "key": "valle del caucala acequia"
+    "key": "Valle del caucala acequia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "La Albania",
     "lat": "-76.3453373708",
     "lng": "3.31856519513",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3453373708,3.31856519513",
-    "key": "valle del caucala albania"
+    "key": "Valle del caucala albania"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ARGELIA",
     "lugar": "La Aurora",
     "lat": "-76.1542875088",
     "lng": "4.72552090458",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1542875088,4.72552090458",
-    "key": "valle del caucala aurora"
+    "key": "Valle del caucala aurora"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Balastrera",
     "lat": "-76.9951614326",
     "lng": "3.8167289785",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9951614326,3.8167289785",
-    "key": "valle del caucala balastrera"
+    "key": "Valle del caucala balastrera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Barra",
     "lat": "-77.3778194256",
     "lng": "3.96223460282",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3778194256,3.96223460282",
-    "key": "valle del caucala barra"
+    "key": "Valle del caucala barra"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Bocana",
     "lat": "-77.181999687",
     "lng": "3.83323745689",
     "tipo": "MUNICIPIO",
     "latlng": "-77.181999687,3.83323745689",
-    "key": "valle del caucala bocana"
+    "key": "Valle del caucala bocana"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Bocana (Vista Hermosa)",
     "lat": "-77.1915659803",
     "lng": "3.83735093542",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1915659803,3.83735093542",
-    "key": "valle del caucala bocana (vista hermosa)"
+    "key": "Valle del caucala bocana (vista hermosa)"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Bolsa",
     "lat": "-76.2362648193",
     "lng": "3.55628525823",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2362648193,3.55628525823",
-    "key": "valle del caucala bolsa"
+    "key": "Valle del caucala bolsa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Brea",
     "lat": "-76.9649926443",
     "lng": "3.9252439675",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9649926443,3.9252439675",
-    "key": "valle del caucala brea"
+    "key": "Valle del caucala brea"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Buitrera",
     "lat": "-76.5615103188",
     "lng": "3.36486741933",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5615103188,3.36486741933",
-    "key": "valle del caucala buitrera"
+    "key": "Valle del caucala buitrera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Buitrera",
     "lat": "-76.208809892",
     "lng": "3.4845841844",
     "tipo": "MUNICIPIO",
     "latlng": "-76.208809892,3.4845841844",
-    "key": "valle del caucala buitrera"
+    "key": "Valle del caucala buitrera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Buitrera 1",
     "lat": "-76.2078560237",
     "lng": "3.4783950231",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2078560237,3.4783950231",
-    "key": "valle del caucala buitrera 1"
+    "key": "Valle del caucala buitrera 1"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL DOVIO",
     "lugar": "La Cabaña",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala cabaña"
+    "key": "Valle del caucala cabaña"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "La Cabaña",
     "lat": "-76.2002786437",
     "lng": "4.53508297442",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2002786437,4.53508297442",
-    "key": "valle del caucala cabaña"
+    "key": "Valle del caucala cabaña"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "La Campesina",
     "lat": "-76.1046474501",
     "lng": "4.543930858",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1046474501,4.543930858",
-    "key": "valle del caucala campesina"
+    "key": "Valle del caucala campesina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "La Campiña",
     "lat": "-76.2822923783",
     "lng": "3.94508656668",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2822923783,3.94508656668",
-    "key": "valle del caucala campiña"
+    "key": "Valle del caucala campiña"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "La Cárcel",
     "lat": "-76.5035138728",
     "lng": "3.25387815864",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5035138728,3.25387815864",
-    "key": "valle del caucala cárcel"
+    "key": "Valle del caucala cárcel"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Cascada",
     "lat": "-76.2284720322",
     "lng": "3.56455537417",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2284720322,3.56455537417",
-    "key": "valle del caucala cascada"
+    "key": "Valle del caucala cascada"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Castilla",
     "lat": "-76.5766801786",
     "lng": "3.49436833548",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5766801786,3.49436833548",
-    "key": "valle del caucala castilla"
+    "key": "Valle del caucala castilla"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Caucana",
     "lat": "-76.9608204022",
     "lng": "3.88460031071",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9608204022,3.88460031071",
-    "key": "valle del caucala caucana"
+    "key": "Valle del caucala caucana"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Colina",
     "lat": "-76.5721863497",
     "lng": "3.38366045115",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5721863497,3.38366045115",
-    "key": "valle del caucala colina"
+    "key": "Valle del caucala colina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "La Colina",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala colina"
+    "key": "Valle del caucala colina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Comba",
     "lat": "-77.1608780837",
     "lng": "3.64401211471",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1608780837,3.64401211471",
-    "key": "valle del caucala comba"
+    "key": "Valle del caucala comba"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Contra",
     "lat": "-77.1465959693",
     "lng": "3.77529990285",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1465959693,3.77529990285",
-    "key": "valle del caucala contra"
+    "key": "Valle del caucala contra"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "La Cruz",
     "lat": "-76.2982074904",
     "lng": "3.40393424696",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2982074904,3.40393424696",
-    "key": "valle del caucala cruz"
+    "key": "Valle del caucala cruz"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SEVILLA",
     "lugar": "La Cuchilla",
     "lat": "-75.9309120853",
     "lng": "4.35869724145",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9309120853,4.35869724145",
-    "key": "valle del caucala cuchilla"
+    "key": "Valle del caucala cuchilla"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "La Cumbre",
     "lat": "-76.5679334087",
     "lng": "3.64944411346",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5679334087,3.64944411346",
-    "key": "valle del caucala cumbre"
+    "key": "Valle del caucala cumbre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Delfina",
     "lat": "-76.781437716",
     "lng": "3.816812099",
     "tipo": "MUNICIPIO",
     "latlng": "-76.781437716,3.816812099",
-    "key": "valle del caucala delfina"
+    "key": "Valle del caucala delfina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "La Diana",
     "lat": "-76.178908506",
     "lng": "3.32289846701",
     "tipo": "MUNICIPIO",
     "latlng": "-76.178908506,3.32289846701",
-    "key": "valle del caucala diana"
+    "key": "Valle del caucala diana"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Dolores",
     "lat": "-76.4760324067",
     "lng": "3.49772141136",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4760324067,3.49772141136",
-    "key": "valle del caucala dolores"
+    "key": "Valle del caucala dolores"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Elvira",
     "lat": "-76.6062249013",
     "lng": "3.51877157497",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6062249013,3.51877157497",
-    "key": "valle del caucala elvira"
+    "key": "Valle del caucala elvira"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL ÁGUILA",
     "lugar": "La Esparta",
     "lat": "-75.9886581677",
     "lng": "4.91153018903",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9886581677,4.91153018903",
-    "key": "valle del caucala esparta"
+    "key": "Valle del caucala esparta"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "La Estrella",
     "lat": "-76.616795969",
     "lng": "3.2713591556",
     "tipo": "MUNICIPIO",
     "latlng": "-76.616795969,3.2713591556",
-    "key": "valle del caucala estrella"
+    "key": "Valle del caucala estrella"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "La Feria",
     "lat": "-76.154299824",
     "lng": "3.425160237",
     "tipo": "MUNICIPIO",
     "latlng": "-76.154299824,3.425160237",
-    "key": "valle del caucala feria"
+    "key": "Valle del caucala feria"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ALCALÁ",
     "lugar": "La Floresta",
     "lat": "-75.763862881",
     "lng": "4.680218799",
     "tipo": "MUNICIPIO",
     "latlng": "-75.763862881,4.680218799",
-    "key": "valle del caucala floresta"
+    "key": "Valle del caucala floresta"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GINEBRA",
     "lugar": "La Floresta",
     "lat": "-76.2419259774",
     "lng": "3.72789215358",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2419259774,3.72789215358",
-    "key": "valle del caucala floresta"
+    "key": "Valle del caucala floresta"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "La Florida",
     "lat": "-76.138304177",
     "lng": "4.648871641",
     "tipo": "MUNICIPIO",
     "latlng": "-76.138304177,4.648871641",
-    "key": "valle del caucala florida"
+    "key": "Valle del caucala florida"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Fonda",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala fonda"
+    "key": "Valle del caucala fonda"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Fragua",
     "lat": "-76.5502334358",
     "lng": "3.50117499921",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5502334358,3.50117499921",
-    "key": "valle del caucala fragua"
+    "key": "Valle del caucala fragua"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Fragua",
     "lat": "-77.2285749076",
     "lng": "3.49272697253",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2285749076,3.49272697253",
-    "key": "valle del caucala fragua"
+    "key": "Valle del caucala fragua"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VIJES",
     "lugar": "La Fresneda",
     "lat": "-76.4743586055",
     "lng": "3.75963304586",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4743586055,3.75963304586",
-    "key": "valle del caucala fresneda"
+    "key": "Valle del caucala fresneda"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALIMA",
     "lugar": "La Gaviota",
     "lat": "-76.4348929736",
     "lng": "3.97739076839",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4348929736,3.97739076839",
-    "key": "valle del caucala gaviota"
+    "key": "Valle del caucala gaviota"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "La Gloria",
     "lat": "-76.4162966216",
     "lng": "3.3930960906",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4162966216,3.3930960906",
-    "key": "valle del caucala gloria"
+    "key": "Valle del caucala gloria"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "La Granja",
     "lat": "-76.2382635421",
     "lng": "3.39972363529",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2382635421,3.39972363529",
-    "key": "valle del caucala granja"
+    "key": "Valle del caucala granja"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "La Granjita",
     "lat": "-76.2741879026",
     "lng": "3.88815653884",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2741879026,3.88815653884",
-    "key": "valle del caucala granjita"
+    "key": "Valle del caucala granjita"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "La Habana",
     "lat": "-76.1923277636",
     "lng": "3.88067297158",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1923277636,3.88067297158",
-    "key": "valle del caucala habana"
+    "key": "Valle del caucala habana"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "La Herradura",
     "lat": "-76.2146043402",
     "lng": "4.2769571589",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2146043402,4.2769571589",
-    "key": "valle del caucala herradura"
+    "key": "Valle del caucala herradura"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Herradura",
     "lat": "-76.351226168",
     "lng": "3.537441966",
     "tipo": "MUNICIPIO",
     "latlng": "-76.351226168,3.537441966",
-    "key": "valle del caucala herradura"
+    "key": "Valle del caucala herradura"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "La Honda",
     "lat": "-76.1956978626",
     "lng": "3.65781813122",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1956978626,3.65781813122",
-    "key": "valle del caucala honda"
+    "key": "Valle del caucala honda"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "La Iberia",
     "lat": "-76.109213171",
     "lng": "4.064027721",
     "tipo": "MUNICIPIO",
     "latlng": "-76.109213171,4.064027721",
-    "key": "valle del caucala iberia"
+    "key": "Valle del caucala iberia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Laguna",
     "lat": "-76.833433525",
     "lng": "3.860083935",
     "tipo": "MUNICIPIO",
     "latlng": "-76.833433525,3.860083935",
-    "key": "valle del caucala laguna"
+    "key": "Valle del caucala laguna"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Leonera",
     "lat": "-76.636136281",
     "lng": "3.45516439427",
     "tipo": "MUNICIPIO",
     "latlng": "-76.636136281,3.45516439427",
-    "key": "valle del caucala leonera"
+    "key": "Valle del caucala leonera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "La Liberia",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala liberia"
+    "key": "Valle del caucala liberia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Luisa",
     "lat": "-76.5690869033",
     "lng": "3.4004505673",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5690869033,3.4004505673",
-    "key": "valle del caucala luisa"
+    "key": "Valle del caucala luisa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "La Magdalena",
     "lat": "-76.2035233716",
     "lng": "3.88125957465",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2035233716,3.88125957465",
-    "key": "valle del caucala magdalena"
+    "key": "Valle del caucala magdalena"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "La María",
     "lat": "-76.2123780182",
     "lng": "3.90069627946",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2123780182,3.90069627946",
-    "key": "valle del caucala maría"
+    "key": "Valle del caucala maría"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "La María",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala maría"
+    "key": "Valle del caucala maría"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL ÁGUILA",
     "lugar": "La María - Quebradagrande",
     "lat": "-76.0821488714",
     "lng": "4.86839891084",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0821488714,4.86839891084",
-    "key": "valle del caucala maría - quebradagrande"
+    "key": "Valle del caucala maría - quebradagrande"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "La Marina",
     "lat": "-76.1130988897",
     "lng": "4.04525950438",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1130988897,4.04525950438",
-    "key": "valle del caucala marina"
+    "key": "Valle del caucala marina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "La Meseta",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala meseta"
+    "key": "Valle del caucala meseta"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "La Moralia",
     "lat": "-76.0890268744",
     "lng": "4.03873246558",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0890268744,4.03873246558",
-    "key": "valle del caucala moralia"
+    "key": "Valle del caucala moralia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ZARZAL",
     "lugar": "La Paila",
     "lat": "-76.0722260844",
     "lng": "4.31879833871",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0722260844,4.31879833871",
-    "key": "valle del caucala paila"
+    "key": "Valle del caucala paila"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "La Palmera",
     "lat": "-76.24381999",
     "lng": "4.124341931",
     "tipo": "MUNICIPIO",
     "latlng": "-76.24381999,4.124341931",
-    "key": "valle del caucala palmera"
+    "key": "Valle del caucala palmera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "La Palomera",
     "lat": "-76.3384865583",
     "lng": "3.89779506822",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3384865583,3.89779506822",
-    "key": "valle del caucala palomera"
+    "key": "Valle del caucala palomera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Pampa",
     "lat": "-76.260438558",
     "lng": "3.585439674",
     "tipo": "MUNICIPIO",
     "latlng": "-76.260438558,3.585439674",
-    "key": "valle del caucala pampa"
+    "key": "Valle del caucala pampa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Paz",
     "lat": "-76.5699098153",
     "lng": "3.51889630738",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5699098153,3.51889630738",
-    "key": "valle del caucala paz"
+    "key": "Valle del caucala paz"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "La Paz",
     "lat": "-76.1757267762",
     "lng": "4.17687122029",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1757267762,4.17687122029",
-    "key": "valle del caucala paz"
+    "key": "Valle del caucala paz"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Plata",
     "lat": "-77.228830865",
     "lng": "4.03593177",
     "tipo": "MUNICIPIO",
     "latlng": "-77.228830865,4.03593177",
-    "key": "valle del caucala plata"
+    "key": "Valle del caucala plata"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALIMA",
     "lugar": "La Playa",
     "lat": "-76.4560345773",
     "lng": "3.96402997554",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4560345773,3.96402997554",
-    "key": "valle del caucala playa"
+    "key": "Valle del caucala playa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "La Playa",
     "lat": "-76.165456366",
     "lng": "4.552405672",
     "tipo": "MUNICIPIO",
     "latlng": "-76.165456366,4.552405672",
-    "key": "valle del caucala playa"
+    "key": "Valle del caucala playa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ALCALÁ",
     "lugar": "La Polonia",
     "lat": "-75.7445903673",
     "lng": "4.66839208093",
     "tipo": "MUNICIPIO",
     "latlng": "-75.7445903673,4.66839208093",
-    "key": "valle del caucala polonia"
+    "key": "Valle del caucala polonia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL DOVIO",
     "lugar": "La Pradera",
     "lat": "-76.2925035983",
     "lng": "4.59945052451",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2925035983,4.59945052451",
-    "key": "valle del caucala pradera"
+    "key": "Valle del caucala pradera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TORO",
     "lugar": "La Pradera",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala pradera"
+    "key": "Valle del caucala pradera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TORO",
     "lugar": "La Quiebra",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala quiebra"
+    "key": "Valle del caucala quiebra"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL ÁGUILA",
     "lugar": "La Quiebra De San Pablo",
     "lat": "-76.0606166907",
     "lng": "4.8597603494",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0606166907,4.8597603494",
-    "key": "valle del caucala quiebra de san pablo"
+    "key": "Valle del caucala quiebra de san pablo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Quisquina",
     "lat": "-76.1851440799",
     "lng": "3.57276632966",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1851440799,3.57276632966",
-    "key": "valle del caucala quisquina"
+    "key": "Valle del caucala quisquina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "La Regina",
     "lat": "-76.3273335245",
     "lng": "3.37734828024",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3273335245,3.37734828024",
-    "key": "valle del caucala regina"
+    "key": "Valle del caucala regina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "La Rivera",
     "lat": "-76.1765513114",
     "lng": "4.07074017491",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1765513114,4.07074017491",
-    "key": "valle del caucala rivera"
+    "key": "Valle del caucala rivera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VIJES",
     "lugar": "La Rivera",
     "lat": "-76.4840453843",
     "lng": "3.74685638924",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4840453843,3.74685638924",
-    "key": "valle del caucala rivera"
+    "key": "Valle del caucala rivera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Sirena",
     "lat": "-76.5751305662",
     "lng": "3.40608902869",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5751305662,3.40608902869",
-    "key": "valle del caucala sirena"
+    "key": "Valle del caucala sirena"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TRUJILLO",
     "lugar": "La Sonora",
     "lat": "-76.389806809",
     "lng": "4.231675622",
     "tipo": "MUNICIPIO",
     "latlng": "-76.389806809,4.231675622",
-    "key": "valle del caucala sonora"
+    "key": "Valle del caucala sonora"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "La Sultana",
     "lat": "-76.2980925955",
     "lng": "4.11652711518",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2980925955,4.11652711518",
-    "key": "valle del caucala sultana"
+    "key": "Valle del caucala sultana"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Torre",
     "lat": "-76.4154679637",
     "lng": "3.61949013709",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4154679637,3.61949013709",
-    "key": "valle del caucala torre"
+    "key": "Valle del caucala torre"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "La Tulia",
     "lat": "-76.24405503",
     "lng": "4.38418295418",
     "tipo": "MUNICIPIO",
     "latlng": "-76.24405503,4.38418295418",
-    "key": "valle del caucala tulia"
+    "key": "Valle del caucala tulia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "La Tupia",
     "lat": "-76.3098687085",
     "lng": "3.40310770617",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3098687085,3.40310770617",
-    "key": "valle del caucala tupia"
+    "key": "Valle del caucala tupia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "La Unidad",
     "lat": "-76.295582191",
     "lng": "3.85341429561",
     "tipo": "MUNICIPIO",
     "latlng": "-76.295582191,3.85341429561",
-    "key": "valle del caucala unidad"
+    "key": "Valle del caucala unidad"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "La Union",
     "lat": "-76.4181773053",
     "lng": "3.50547720045",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4181773053,3.50547720045",
-    "key": "valle del caucala union"
+    "key": "Valle del caucala union"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "La Unión",
     "lat": "-76.0996048731",
     "lng": "4.53378338837",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0996048731,4.53378338837",
-    "key": "valle del caucala unión"
+    "key": "Valle del caucala unión"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "La Ventura",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucala ventura"
+    "key": "Valle del caucala ventura"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "La Ventura",
     "lat": "-76.5810103835",
     "lng": "3.6369695094",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5810103835,3.6369695094",
-    "key": "valle del caucala ventura"
+    "key": "Valle del caucala ventura"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA VICTORIA",
     "lugar": "La Victoria",
     "lat": "-76.0365293203",
     "lng": "4.52360126987",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0365293203,4.52360126987",
-    "key": "valle del caucala victoria"
+    "key": "Valle del caucala victoria"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "La Virgen",
     "lat": "-76.6389117059",
     "lng": "3.59012495241",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6389117059,3.59012495241",
-    "key": "valle del caucala virgen"
+    "key": "Valle del caucala virgen"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "La Vorágine",
     "lat": "-76.5920192712",
     "lng": "3.34326896112",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5920192712,3.34326896112",
-    "key": "valle del caucala vorágine"
+    "key": "Valle del caucala vorágine"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "La Vuelta",
     "lat": "-77.4522807",
     "lng": "3.24380907",
     "tipo": "MUNICIPIO",
     "latlng": "-77.4522807,3.24380907",
-    "key": "valle del caucala vuelta"
+    "key": "Valle del caucala vuelta"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "La Zulia",
     "lat": "-76.416188135",
     "lng": "4.09372460603",
     "tipo": "MUNICIPIO",
     "latlng": "-76.416188135,4.09372460603",
-    "key": "valle del caucala zulia"
+    "key": "Valle del caucala zulia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Ladrilleros",
     "lat": "-77.3642582923",
     "lng": "3.93946870903",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3642582923,3.93946870903",
-    "key": "valle del caucaladrilleros"
+    "key": "Valle del caucaladrilleros"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Las Brisas",
     "lat": "-76.389166854",
     "lng": "4.12125361761",
     "tipo": "MUNICIPIO",
     "latlng": "-76.389166854,4.12125361761",
-    "key": "valle del caucalas brisas"
+    "key": "Valle del caucalas brisas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Las Camelias",
     "lat": "-76.714308781",
     "lng": "3.54344331985",
     "tipo": "MUNICIPIO",
     "latlng": "-76.714308781,3.54344331985",
-    "key": "valle del caucalas camelias"
+    "key": "Valle del caucalas camelias"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CAICEDONIA",
     "lugar": "Las Delicias",
     "lat": "-75.8251457236",
     "lng": "4.31797991865",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8251457236,4.31797991865",
-    "key": "valle del caucalas delicias"
+    "key": "Valle del caucalas delicias"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Las Delicias",
     "lat": "-76.4028144884",
     "lng": "3.94985604714",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4028144884,3.94985604714",
-    "key": "valle del caucalas delicias"
+    "key": "Valle del caucalas delicias"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "Las Guacas",
     "lat": "-76.1669240109",
     "lng": "3.29672314507",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1669240109,3.29672314507",
-    "key": "valle del caucalas guacas"
+    "key": "Valle del caucalas guacas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Las Palmas",
     "lat": "-76.5644063118",
     "lng": "3.37053280003",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5644063118,3.37053280003",
-    "key": "valle del caucalas palmas"
+    "key": "Valle del caucalas palmas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Las Palmas",
     "lat": "-77.164033593",
     "lng": "3.737757898",
     "tipo": "MUNICIPIO",
     "latlng": "-77.164033593,3.737757898",
-    "key": "valle del caucalas palmas"
+    "key": "Valle del caucalas palmas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Las Palmas-La Castilla",
     "lat": "-76.5562577997",
     "lng": "3.47757586305",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5562577997,3.47757586305",
-    "key": "valle del caucalas palmas-la castilla"
+    "key": "Valle del caucalas palmas-la castilla"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ZARZAL",
     "lugar": "Limones",
     "lat": "-76.0469743041",
     "lng": "4.38783304323",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0469743041,4.38783304323",
-    "key": "valle del caucalimones"
+    "key": "Valle del caucalimones"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL DOVIO",
     "lugar": "Lituania",
     "lat": "-76.3522393143",
     "lng": "4.51303091297",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3522393143,4.51303091297",
-    "key": "valle del caucalituania"
+    "key": "Valle del caucalituania"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Llano Bajo",
     "lat": "-76.9567003732",
     "lng": "3.69942577335",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9567003732,3.69942577335",
-    "key": "valle del caucallano bajo"
+    "key": "Valle del caucallano bajo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Lobo Guerrero",
     "lat": "-76.6665166154",
     "lng": "3.76181458579",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6665166154,3.76181458579",
-    "key": "valle del caucalobo guerrero"
+    "key": "Valle del caucalobo guerrero"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Lomitas",
     "lat": "-76.6414194165",
     "lng": "3.63618893432",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6414194165,3.63618893432",
-    "key": "valle del caucalomitas"
+    "key": "Valle del caucalomitas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "Lomitas",
     "lat": "-76.2037130114",
     "lng": "3.40838284309",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2037130114,3.40838284309",
-    "key": "valle del caucalomitas"
+    "key": "Valle del caucalomitas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Los Alpes",
     "lat": "-76.3984569998",
     "lng": "4.09769873436",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3984569998,4.09769873436",
-    "key": "valle del caucalos alpes"
+    "key": "Valle del caucalos alpes"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Los Andes",
     "lat": "-76.5839847996",
     "lng": "3.41097153951",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5839847996,3.41097153951",
-    "key": "valle del caucalos andes"
+    "key": "Valle del caucalos andes"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "Los Caleños",
     "lat": "-76.1513486135",
     "lng": "3.34593456907",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1513486135,3.34593456907",
-    "key": "valle del caucalos caleños"
+    "key": "Valle del caucalos caleños"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Los Cerros",
     "lat": "-76.5651011234",
     "lng": "3.36836844446",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5651011234,3.36836844446",
-    "key": "valle del caucalos cerros"
+    "key": "Valle del caucalos cerros"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Los Estrechos",
     "lat": "-76.313164088",
     "lng": "4.0959413528",
     "tipo": "MUNICIPIO",
     "latlng": "-76.313164088,4.0959413528",
-    "key": "valle del caucalos estrechos"
+    "key": "Valle del caucalos estrechos"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Los Girasoles",
     "lat": "-76.566179017",
     "lng": "3.37907162546",
     "tipo": "MUNICIPIO",
     "latlng": "-76.566179017,3.37907162546",
-    "key": "valle del caucalos girasoles"
+    "key": "Valle del caucalos girasoles"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Los Limones",
     "lat": "-76.5601663817",
     "lng": "3.47036044079",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5601663817,3.47036044079",
-    "key": "valle del caucalos limones"
+    "key": "Valle del caucalos limones"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Los Planes",
     "lat": "-76.378931437",
     "lng": "3.918653033",
     "tipo": "MUNICIPIO",
     "latlng": "-76.378931437,3.918653033",
-    "key": "valle del caucalos planes"
+    "key": "Valle del caucalos planes"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "Madre Vieja",
     "lat": "-76.214742591",
     "lng": "4.188913319",
     "tipo": "MUNICIPIO",
     "latlng": "-76.214742591,4.188913319",
-    "key": "valle del caucamadre vieja"
+    "key": "Valle del caucamadre vieja"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Madre Vieja",
     "lat": "-76.2993756803",
     "lng": "3.46596195583",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2993756803,3.46596195583",
-    "key": "valle del caucamadre vieja"
+    "key": "Valle del caucamadre vieja"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Madrigal",
     "lat": "-76.25896352",
     "lng": "4.178942554",
     "tipo": "MUNICIPIO",
     "latlng": "-76.25896352,4.178942554",
-    "key": "valle del caucamadrigal"
+    "key": "Valle del caucamadrigal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Manga Vieja",
     "lat": "-76.4710851656",
     "lng": "3.66307710086",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4710851656,3.66307710086",
-    "key": "valle del caucamanga vieja"
+    "key": "Valle del caucamanga vieja"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Matapalo",
     "lat": "-76.4254058961",
     "lng": "3.58527197786",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4254058961,3.58527197786",
-    "key": "valle del caucamatapalo"
+    "key": "Valle del caucamatapalo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL DOVIO",
     "lugar": "Matecaña",
     "lat": "-76.2228952289",
     "lng": "4.50046882413",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2228952289,4.50046882413",
-    "key": "valle del caucamatecaña"
+    "key": "Valle del caucamatecaña"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Mediacanoa",
     "lat": "-76.3728334143",
     "lng": "3.89760213053",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3728334143,3.89760213053",
-    "key": "valle del caucamediacanoa"
+    "key": "Valle del caucamediacanoa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "Mestizal",
     "lat": "-76.1621925611",
     "lng": "4.22900273053",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1621925611,4.22900273053",
-    "key": "valle del caucamestizal"
+    "key": "Valle del caucamestizal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Miravalle",
     "lat": "-76.382788558",
     "lng": "3.97657856505",
     "tipo": "MUNICIPIO",
     "latlng": "-76.382788558,3.97657856505",
-    "key": "valle del caucamiravalle"
+    "key": "Valle del caucamiravalle"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Miravalle Dapa",
     "lat": "-76.5539442144",
     "lng": "3.55965538655",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5539442144,3.55965538655",
-    "key": "valle del caucamiravalle dapa"
+    "key": "Valle del caucamiravalle dapa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Miravalle Norte",
     "lat": "-76.4739101281",
     "lng": "3.69333357683",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4739101281,3.69333357683",
-    "key": "valle del caucamiravalle norte"
+    "key": "Valle del caucamiravalle norte"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA VICTORIA",
     "lugar": "Miravalles",
     "lat": "-75.9171241467",
     "lng": "4.5175510449",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9171241467,4.5175510449",
-    "key": "valle del caucamiravalles"
+    "key": "Valle del caucamiravalles"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ULLOA",
     "lugar": "Moctezuma",
     "lat": "-75.766261578",
     "lng": "4.71102998631",
     "tipo": "MUNICIPIO",
     "latlng": "-75.766261578,4.71102998631",
-    "key": "valle del caucamoctezuma"
+    "key": "Valle del caucamoctezuma"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CARTAGO",
     "lugar": "Modín",
     "lat": "-75.8894081282",
     "lng": "4.68122507769",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8894081282,4.68122507769",
-    "key": "valle del caucamodín"
+    "key": "Valle del caucamodín"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Montañitas",
     "lat": "-76.5777267886",
     "lng": "3.45998286549",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5777267886,3.45998286549",
-    "key": "valle del caucamontañitas"
+    "key": "Valle del caucamontañitas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Montañitas",
     "lat": "-76.5268049764",
     "lng": "3.66101410347",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5268049764,3.66101410347",
-    "key": "valle del caucamontañitas"
+    "key": "Valle del caucamontañitas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SAN PEDRO",
     "lugar": "Monte Grande",
     "lat": "-76.2382346853",
     "lng": "3.99131676447",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2382346853,3.99131676447",
-    "key": "valle del caucamonte grande"
+    "key": "Valle del caucamonte grande"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "Monte Hermoso",
     "lat": "-76.196249533",
     "lng": "4.17114015489",
     "tipo": "MUNICIPIO",
     "latlng": "-76.196249533,4.17114015489",
-    "key": "valle del caucamonte hermoso"
+    "key": "Valle del caucamonte hermoso"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Montebello",
     "lat": "-76.5496062654",
     "lng": "3.48593101553",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5496062654,3.48593101553",
-    "key": "valle del caucamontebello"
+    "key": "Valle del caucamontebello"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Monteloro",
     "lat": "-76.0603379321",
     "lng": "3.9647242335",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0603379321,3.9647242335",
-    "key": "valle del caucamonteloro"
+    "key": "Valle del caucamonteloro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "Morelia",
     "lat": "-76.1168909016",
     "lng": "4.47804170763",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1168909016,4.47804170763",
-    "key": "valle del caucamorelia"
+    "key": "Valle del caucamorelia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Morgan",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucamorgan"
+    "key": "Valle del caucamorgan"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Mulaló",
     "lat": "-76.4821518312",
     "lng": "3.63639120381",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4821518312,3.63639120381",
-    "key": "valle del caucamulaló"
+    "key": "Valle del caucamulaló"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "Murrapal",
     "lat": "-76.1586763898",
     "lng": "4.65470884439",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1586763898,4.65470884439",
-    "key": "valle del caucamurrapal"
+    "key": "Valle del caucamurrapal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Naranjal",
     "lat": "-76.3543436538",
     "lng": "4.35737543761",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3543436538,4.35737543761",
-    "key": "valle del caucanaranjal"
+    "key": "Valle del caucanaranjal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Nariño",
     "lat": "-76.2336009138",
     "lng": "4.09235316403",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2336009138,4.09235316403",
-    "key": "valle del caucanariño"
+    "key": "Valle del caucanariño"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Navarro",
     "lat": "-76.468191186",
     "lng": "3.380607538",
     "tipo": "MUNICIPIO",
     "latlng": "-76.468191186,3.380607538",
-    "key": "valle del caucanavarro"
+    "key": "Valle del caucanavarro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "Obando",
     "lat": "-75.9746885479",
     "lng": "4.57572205449",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9746885479,4.57572205449",
-    "key": "valle del caucaobando"
+    "key": "Valle del caucaobando"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Obando",
     "lat": "-76.404723009",
     "lng": "3.575532243",
     "tipo": "MUNICIPIO",
     "latlng": "-76.404723009,3.575532243",
-    "key": "valle del caucaobando"
+    "key": "Valle del caucaobando"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "Paila Arriba",
     "lat": "-76.038113549",
     "lng": "4.236152787",
     "tipo": "MUNICIPIO",
     "latlng": "-76.038113549,4.236152787",
-    "key": "valle del caucapaila arriba"
+    "key": "Valle del caucapaila arriba"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "Pájaro De Oro",
     "lat": "-76.116269773",
     "lng": "4.529972826",
     "tipo": "MUNICIPIO",
     "latlng": "-76.116269773,4.529972826",
-    "key": "valle del caucapájaro de oro"
+    "key": "Valle del caucapájaro de oro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Palma - La Cuchilla",
     "lat": "-76.3524465548",
     "lng": "4.11242087563",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3524465548,4.11242087563",
-    "key": "valle del caucapalma - la cuchilla"
+    "key": "Valle del caucapalma - la cuchilla"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "Palmar Guayabal",
     "lat": "-76.1120458836",
     "lng": "4.4065352449",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1120458836,4.4065352449",
-    "key": "valle del caucapalmar guayabal"
+    "key": "Valle del caucapalmar guayabal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Palmaseca",
     "lat": "-76.4346824831",
     "lng": "3.5101392445",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4346824831,3.5101392445",
-    "key": "valle del caucapalmaseca"
+    "key": "Valle del caucapalmaseca"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Palmira",
     "lat": "-76.2985815873",
     "lng": "3.53234954501",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2985815873,3.53234954501",
-    "key": "valle del caucapalmira"
+    "key": "Valle del caucapalmira"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Palomestizo",
     "lat": "-76.2313624019",
     "lng": "4.0850147977",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2313624019,4.0850147977",
-    "key": "valle del caucapalomestizo"
+    "key": "Valle del caucapalomestizo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Pance",
     "lat": "-76.6336518847",
     "lng": "3.32852517538",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6336518847,3.32852517538",
-    "key": "valle del caucapance"
+    "key": "Valle del caucapance"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Papayal",
     "lat": "-77.18266944",
     "lng": "3.631694768",
     "tipo": "MUNICIPIO",
     "latlng": "-77.18266944,3.631694768",
-    "key": "valle del caucapapayal"
+    "key": "Valle del caucapapayal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Papayal 2",
     "lat": "-77.180262598",
     "lng": "3.63345639398",
     "tipo": "MUNICIPIO",
     "latlng": "-77.180262598,3.63345639398",
-    "key": "valle del caucapapayal 2"
+    "key": "Valle del caucapapayal 2"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Parcelacion Cantaclaro 1",
     "lat": "-76.5844820087",
     "lng": "3.3891135487",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5844820087,3.3891135487",
-    "key": "valle del caucaparcelacion cantaclaro 1"
+    "key": "Valle del caucaparcelacion cantaclaro 1"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Parcelacion Cantaclaro 2",
     "lat": "-76.5842559728",
     "lng": "3.39386252908",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5842559728,3.39386252908",
-    "key": "valle del caucaparcelacion cantaclaro 2"
+    "key": "Valle del caucaparcelacion cantaclaro 2"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Parcelacion La Trinidad",
     "lat": "-76.56982912",
     "lng": "3.39566836468",
     "tipo": "MUNICIPIO",
     "latlng": "-76.56982912,3.39566836468",
-    "key": "valle del caucaparcelacion la trinidad"
+    "key": "Valle del caucaparcelacion la trinidad"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Paso De La Bolsa",
     "lat": "-76.500073106",
     "lng": "3.201448133",
     "tipo": "MUNICIPIO",
     "latlng": "-76.500073106,3.201448133",
-    "key": "valle del caucapaso de la bolsa"
+    "key": "Valle del caucapaso de la bolsa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Patio Bonito",
     "lat": "-76.4129207599",
     "lng": "3.38151726555",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4129207599,3.38151726555",
-    "key": "valle del caucapatio bonito"
+    "key": "Valle del caucapatio bonito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Pavas",
     "lat": "-76.5852402522",
     "lng": "3.67638565202",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5852402522,3.67638565202",
-    "key": "valle del caucapavas"
+    "key": "Valle del caucapavas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Pavitas",
     "lat": "-76.5571234997",
     "lng": "3.65947730347",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5571234997,3.65947730347",
-    "key": "valle del caucapavitas"
+    "key": "Valle del caucapavitas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Piamonte",
     "lat": "-76.5533058389",
     "lng": "3.47800124645",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5533058389,3.47800124645",
-    "key": "valle del caucapiamonte"
+    "key": "Valle del caucapiamonte"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Pianguita",
     "lat": "-77.1979276895",
     "lng": "3.83979665746",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1979276895,3.83979665746",
-    "key": "valle del caucapianguita"
+    "key": "Valle del caucapianguita"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Pichichí",
     "lat": "-76.2771379455",
     "lng": "3.7737142982",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2771379455,3.7737142982",
-    "key": "valle del caucapichichí"
+    "key": "Valle del caucapichichí"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Pichinde",
     "lat": "-76.6154969738",
     "lng": "3.43818996913",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6154969738,3.43818996913",
-    "key": "valle del caucapichinde"
+    "key": "Valle del caucapichinde"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CARTAGO",
     "lugar": "Piedra De Moler",
     "lat": "-75.8578909601",
     "lng": "4.70997585163",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8578909601,4.70997585163",
-    "key": "valle del caucapiedra de moler"
+    "key": "Valle del caucapiedra de moler"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Pilas De Dapa",
     "lat": "-76.5286123436",
     "lng": "3.52959790045",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5286123436,3.52959790045",
-    "key": "valle del caucapilas de dapa"
+    "key": "Valle del caucapilas de dapa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Pilas Del Cabuyal",
     "lat": "-76.573732568",
     "lng": "3.446693094",
     "tipo": "MUNICIPIO",
     "latlng": "-76.573732568,3.446693094",
-    "key": "valle del caucapilas del cabuyal"
+    "key": "Valle del caucapilas del cabuyal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Piles",
     "lat": "-76.478914208",
     "lng": "3.5459928898",
     "tipo": "MUNICIPIO",
     "latlng": "-76.478914208,3.5459928898",
-    "key": "valle del caucapiles"
+    "key": "Valle del caucapiles"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Pital",
     "lat": "-77.2298519685",
     "lng": "3.57352760975",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2298519685,3.57352760975",
-    "key": "valle del caucapital"
+    "key": "Valle del caucapital"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Pital",
     "lat": "-77.2361123995",
     "lng": "3.57406642967",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2361123995,3.57406642967",
-    "key": "valle del caucapital"
+    "key": "Valle del caucapital"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Pizamos",
     "lat": "-76.4882917976",
     "lng": "3.31472258403",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4882917976,3.31472258403",
-    "key": "valle del caucapizamos"
+    "key": "Valle del caucapizamos"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Playa Larga",
     "lat": "-76.7790679974",
     "lng": "3.81107482817",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7790679974,3.81107482817",
-    "key": "valle del caucaplaya larga"
+    "key": "Valle del caucaplaya larga"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL DOVIO",
     "lugar": "Playa Rica",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucaplaya rica"
+    "key": "Valle del caucaplaya rica"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Portugal De Piedras",
     "lat": "-76.3585681532",
     "lng": "4.05194454814",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3585681532,4.05194454814",
-    "key": "valle del caucaportugal de piedras"
+    "key": "Valle del caucaportugal de piedras"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Potrerillo",
     "lat": "-76.2007087103",
     "lng": "3.55494898805",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2007087103,3.55494898805",
-    "key": "valle del caucapotrerillo"
+    "key": "Valle del caucapotrerillo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Potrerito",
     "lat": "-76.5826584122",
     "lng": "3.22861673703",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5826584122,3.22861673703",
-    "key": "valle del caucapotrerito"
+    "key": "Valle del caucapotrerito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "Potrerito",
     "lat": "-76.189130779",
     "lng": "3.419294015",
     "tipo": "MUNICIPIO",
     "latlng": "-76.189130779,3.419294015",
-    "key": "valle del caucapotrerito"
+    "key": "Valle del caucapotrerito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "Pradera",
     "lat": "-76.2418197435",
     "lng": "3.41982721892",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2418197435,3.41982721892",
-    "key": "valle del caucapradera"
+    "key": "Valle del caucapradera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SAN PEDRO",
     "lugar": "Presidente",
     "lat": "-76.2628870393",
     "lng": "3.96173983054",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2628870393,3.96173983054",
-    "key": "valle del caucapresidente"
+    "key": "Valle del caucapresidente"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Primavera",
     "lat": "-76.2648855678",
     "lng": "4.35282383535",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2648855678,4.35282383535",
-    "key": "valle del caucaprimavera"
+    "key": "Valle del caucaprimavera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Primavera",
     "lat": "-77.4029208471",
     "lng": "3.21662671357",
     "tipo": "MUNICIPIO",
     "latlng": "-77.4029208471,3.21662671357",
-    "key": "valle del caucaprimavera"
+    "key": "Valle del caucaprimavera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Pueblo Nuevo",
     "lat": "-76.5771612508",
     "lng": "3.38138741176",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5771612508,3.38138741176",
-    "key": "valle del caucapueblo nuevo"
+    "key": "Valle del caucapueblo nuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "Pueblo Nuevo",
     "lat": "-76.259232082",
     "lng": "3.95919021869",
     "tipo": "MUNICIPIO",
     "latlng": "-76.259232082,3.95919021869",
-    "key": "valle del caucapueblo nuevo"
+    "key": "Valle del caucapueblo nuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Pueblo Nuevo",
     "lat": "-76.628322598",
     "lng": "3.58125985133",
     "tipo": "MUNICIPIO",
     "latlng": "-76.628322598,3.58125985133",
-    "key": "valle del caucapueblo nuevo"
+    "key": "Valle del caucapueblo nuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Pueblo Nuevo",
     "lat": "-76.6276559012",
     "lng": "3.26742885516",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6276559012,3.26742885516",
-    "key": "valle del caucapueblo nuevo"
+    "key": "Valle del caucapueblo nuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Pueblo Nuevo",
     "lat": "-76.2315932568",
     "lng": "3.49952656457",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2315932568,3.49952656457",
-    "key": "valle del caucapueblo nuevo"
+    "key": "Valle del caucapueblo nuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Puente Palo",
     "lat": "-76.6096885836",
     "lng": "3.64554053183",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6096885836,3.64554053183",
-    "key": "valle del caucapuente palo"
+    "key": "Valle del caucapuente palo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Puente Rojo",
     "lat": "-76.2297914969",
     "lng": "3.76775110235",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2297914969,3.76775110235",
-    "key": "valle del caucapuente rojo"
+    "key": "Valle del caucapuente rojo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALIMA",
     "lugar": "Puente Tierra",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucapuente tierra"
+    "key": "Valle del caucapuente tierra"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Puente Vélez",
     "lat": "-76.6289347254",
     "lng": "3.22253386905",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6289347254,3.22253386905",
-    "key": "valle del caucapuente vélez"
+    "key": "Valle del caucapuente vélez"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Puentetierra",
     "lat": "-76.4586995703",
     "lng": "3.8735439446",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4586995703,3.8735439446",
-    "key": "valle del caucapuentetierra"
+    "key": "Valle del caucapuentetierra"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "Puerto Bertin",
     "lat": "-76.349486409",
     "lng": "3.88897320006",
     "tipo": "MUNICIPIO",
     "latlng": "-76.349486409,3.88897320006",
-    "key": "valle del caucapuerto bertin"
+    "key": "Valle del caucapuerto bertin"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Puerto Fenicia",
     "lat": "-76.369701069",
     "lng": "4.080693127",
     "tipo": "MUNICIPIO",
     "latlng": "-76.369701069,4.080693127",
-    "key": "valle del caucapuerto fenicia"
+    "key": "Valle del caucapuerto fenicia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Puerto Frazadas",
     "lat": "-75.9977554979",
     "lng": "4.05286718865",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9977554979,4.05286718865",
-    "key": "valle del caucapuerto frazadas"
+    "key": "Valle del caucapuerto frazadas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Puerto Merizalde",
     "lat": "-77.4186662164",
     "lng": "3.25358142797",
     "tipo": "MUNICIPIO",
     "latlng": "-77.4186662164,3.25358142797",
-    "key": "valle del caucapuerto merizalde"
+    "key": "Valle del caucapuerto merizalde"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "Puerto Molina",
     "lat": "-76.0285439549",
     "lng": "4.62229609557",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0285439549,4.62229609557",
-    "key": "valle del caucapuerto molina"
+    "key": "Valle del caucapuerto molina"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "Puerto Nuevo",
     "lat": "-76.2730223923",
     "lng": "4.58704282746",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2730223923,4.58704282746",
-    "key": "valle del caucapuerto nuevo"
+    "key": "Valle del caucapuerto nuevo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "Puerto Samaria",
     "lat": "-75.8765915404",
     "lng": "4.55310050945",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8765915404,4.55310050945",
-    "key": "valle del caucapuerto samaria"
+    "key": "Valle del caucapuerto samaria"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Punta Bonita",
     "lat": "-77.2966718153",
     "lng": "3.56217255706",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2966718153,3.56217255706",
-    "key": "valle del caucapunta bonita"
+    "key": "Valle del caucapunta bonita"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Punta Brava",
     "lat": "-76.3513633247",
     "lng": "3.89174043739",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3513633247,3.89174043739",
-    "key": "valle del caucapunta brava"
+    "key": "Valle del caucapunta brava"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Punta Soldado",
     "lat": "-77.1700824905",
     "lng": "3.77063259958",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1700824905,3.77063259958",
-    "key": "valle del caucapunta soldado"
+    "key": "Valle del caucapunta soldado"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "Quebrada Grande",
     "lat": "-76.167645353",
     "lng": "4.549499373",
     "tipo": "MUNICIPIO",
     "latlng": "-76.167645353,4.549499373",
-    "key": "valle del caucaquebrada grande"
+    "key": "Valle del caucaquebrada grande"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SEVILLA",
     "lugar": "Quebradanueva",
     "lat": "-75.9495434607",
     "lng": "4.37221083198",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9495434607,4.37221083198",
-    "key": "valle del caucaquebradanueva"
+    "key": "Valle del caucaquebradanueva"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ZARZAL",
     "lugar": "Quebradanueva",
     "lat": "-75.9514157604",
     "lng": "4.37232691545",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9514157604,4.37232691545",
-    "key": "valle del caucaquebradanueva"
+    "key": "Valle del caucaquebradanueva"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "Quebradaseca",
     "lat": "-76.2948694452",
     "lng": "3.86398432485",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2948694452,3.86398432485",
-    "key": "valle del caucaquebradaseca"
+    "key": "Valle del caucaquebradaseca"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Quinamayo",
     "lat": "-76.556877503",
     "lng": "3.1284739541",
     "tipo": "MUNICIPIO",
     "latlng": "-76.556877503,3.1284739541",
-    "key": "valle del caucaquinamayo"
+    "key": "Valle del caucaquinamayo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Rayito",
     "lat": "-76.3697264517",
     "lng": "3.99841303617",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3697264517,3.99841303617",
-    "key": "valle del caucarayito"
+    "key": "Valle del caucarayito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "Remolino",
     "lat": "-76.2918620844",
     "lng": "3.30519351326",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2918620844,3.30519351326",
-    "key": "valle del caucaremolino"
+    "key": "Valle del caucaremolino"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RESTREPO",
     "lugar": "Restrepo",
     "lat": "-76.5231163453",
     "lng": "3.82134249406",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5231163453,3.82134249406",
-    "key": "valle del caucarestrepo"
+    "key": "Valle del caucarestrepo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "Ricaurte",
     "lat": "-76.2074755212",
     "lng": "4.30860814066",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2074755212,4.30860814066",
-    "key": "valle del caucaricaurte"
+    "key": "Valle del caucaricaurte"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Riofrío",
     "lat": "-76.2883093841",
     "lng": "4.15690638946",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2883093841,4.15690638946",
-    "key": "valle del caucariofrío"
+    "key": "Valle del caucariofrío"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA VICTORIA",
     "lugar": "Riveralta",
     "lat": "-75.8853755331",
     "lng": "4.50984754507",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8853755331,4.50984754507",
-    "key": "valle del caucariveralta"
+    "key": "Valle del caucariveralta"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TRUJILLO",
     "lugar": "Robledo",
     "lat": "-76.2264596764",
     "lng": "4.2534407405",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2264596764,4.2534407405",
-    "key": "valle del caucarobledo"
+    "key": "Valle del caucarobledo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Robles",
     "lat": "-76.5930553848",
     "lng": "3.12799535604",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5930553848,3.12799535604",
-    "key": "valle del caucarobles"
+    "key": "Valle del caucarobles"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "Roldanillo",
     "lat": "-76.1522876963",
     "lng": "4.41359519174",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1522876963,4.41359519174",
-    "key": "valle del caucaroldanillo"
+    "key": "Valle del caucaroldanillo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Rozo",
     "lat": "-76.3861195414",
     "lng": "3.61248918517",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3861195414,3.61248918517",
-    "key": "valle del caucarozo"
+    "key": "Valle del caucarozo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Sabaletas",
     "lat": "-76.9658698901",
     "lng": "3.74237309224",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9658698901,3.74237309224",
-    "key": "valle del caucasabaletas"
+    "key": "Valle del caucasabaletas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GINEBRA",
     "lugar": "Sabaletas",
     "lat": "-76.3203373196",
     "lng": "3.71224779972",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3203373196,3.71224779972",
-    "key": "valle del caucasabaletas"
+    "key": "Valle del caucasabaletas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "Sabanazo",
     "lat": "-76.1508960894",
     "lng": "4.54395893166",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1508960894,4.54395893166",
-    "key": "valle del caucasabanazo"
+    "key": "Valle del caucasabanazo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Sagrada Familia",
     "lat": "-77.3657679147",
     "lng": "3.15422673309",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3657679147,3.15422673309",
-    "key": "valle del caucasagrada familia"
+    "key": "Valle del caucasagrada familia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANSERMANUEVO",
     "lugar": "Salazar",
     "lat": "-75.997274566",
     "lng": "4.790874988",
     "tipo": "MUNICIPIO",
     "latlng": "-75.997274566,4.790874988",
-    "key": "valle del caucasalazar"
+    "key": "Valle del caucasalazar"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RIOFRÍO",
     "lugar": "Salónica",
     "lat": "-76.370153754",
     "lng": "4.1282635441",
     "tipo": "MUNICIPIO",
     "latlng": "-76.370153754,4.1282635441",
-    "key": "valle del caucasalónica"
+    "key": "Valle del caucasalónica"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CAICEDONIA",
     "lugar": "Samaria",
     "lat": "-75.876110527",
     "lng": "4.26991121976",
     "tipo": "MUNICIPIO",
     "latlng": "-75.876110527,4.26991121976",
-    "key": "valle del caucasamaria"
+    "key": "Valle del caucasamaria"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "San Andresito",
     "lat": "-76.4593485143",
     "lng": "3.45477495588",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4593485143,3.45477495588",
-    "key": "valle del caucasan andresito"
+    "key": "Valle del caucasan andresito"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Antonio",
     "lat": "-77.2951366938",
     "lng": "3.16004937053",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2951366938,3.16004937053",
-    "key": "valle del caucasan antonio"
+    "key": "Valle del caucasan antonio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "San Antonio",
     "lat": "-76.2721257822",
     "lng": "3.95782820456",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2721257822,3.95782820456",
-    "key": "valle del caucasan antonio"
+    "key": "Valle del caucasan antonio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "San Antonio",
     "lat": "-76.3518202741",
     "lng": "3.68636306259",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3518202741,3.68636306259",
-    "key": "valle del caucasan antonio"
+    "key": "Valle del caucasan antonio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "San Antonio",
     "lat": "-76.6541135658",
     "lng": "3.2098303929",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6541135658,3.2098303929",
-    "key": "valle del caucasan antonio"
+    "key": "Valle del caucasan antonio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SEVILLA",
     "lugar": "San Antonio",
     "lat": "-75.9401198343",
     "lng": "4.21560566042",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9401198343,4.21560566042",
-    "key": "valle del caucasan antonio"
+    "key": "Valle del caucasan antonio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TORO",
     "lugar": "San Antonio",
     "lat": "-76.062038041",
     "lng": "4.59412603251",
     "tipo": "MUNICIPIO",
     "latlng": "-76.062038041,4.59412603251",
-    "key": "valle del caucasan antonio"
+    "key": "Valle del caucasan antonio"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Antonio 1",
     "lat": "-77.0048345258",
     "lng": "3.84725343939",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0048345258,3.84725343939",
-    "key": "valle del caucasan antonio 1"
+    "key": "Valle del caucasan antonio 1"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Antonio 2",
     "lat": "-77.0052695939",
     "lng": "3.84272990771",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0052695939,3.84272990771",
-    "key": "valle del caucasan antonio 2"
+    "key": "Valle del caucasan antonio 2"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "San Antonio De Las Palmas",
     "lat": "-76.4206305703",
     "lng": "3.59487301683",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4206305703,3.59487301683",
-    "key": "valle del caucasan antonio de las palmas"
+    "key": "Valle del caucasan antonio de las palmas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "San Antonio De Los Caballeros",
     "lat": "-76.2979763363",
     "lng": "3.35330929789",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2979763363,3.35330929789",
-    "key": "valle del caucasan antonio de los caballeros"
+    "key": "Valle del caucasan antonio de los caballeros"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "San Antonio De Piedras",
     "lat": "-76.322846085",
     "lng": "4.0556574",
     "tipo": "MUNICIPIO",
     "latlng": "-76.322846085,4.0556574",
-    "key": "valle del caucasan antonio de piedras"
+    "key": "Valle del caucasan antonio de piedras"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Antonio(Yurumanguí)",
     "lat": "-77.2591808622",
     "lng": "3.26103773798",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2591808622,3.26103773798",
-    "key": "valle del caucasan antonio(yurumanguí)"
+    "key": "Valle del caucasan antonio(yurumanguí)"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Antoñito(Yurumangui)",
     "lat": "-77.1552793482",
     "lng": "3.26387332871",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1552793482,3.26387332871",
-    "key": "valle del caucasan antoñito(yurumangui)"
+    "key": "Valle del caucasan antoñito(yurumangui)"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "San Bernardo",
     "lat": "-76.6510266856",
     "lng": "3.48926322233",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6510266856,3.48926322233",
-    "key": "valle del caucasan bernardo"
+    "key": "Valle del caucasan bernardo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Cipriano",
     "lat": "-76.8987305938",
     "lng": "3.83989680936",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8987305938,3.83989680936",
-    "key": "valle del caucasan cipriano"
+    "key": "Valle del caucasan cipriano"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BOLÍVAR",
     "lugar": "San Fernando",
     "lat": "-76.1675225371",
     "lng": "4.33977045887",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1675225371,4.33977045887",
-    "key": "valle del caucasan fernando"
+    "key": "Valle del caucasan fernando"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "San Francisco",
     "lat": "-76.618691206",
     "lng": "3.326633344",
     "tipo": "MUNICIPIO",
     "latlng": "-76.618691206,3.326633344",
-    "key": "valle del caucasan francisco"
+    "key": "Valle del caucasan francisco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TORO",
     "lugar": "San Francisco",
     "lat": "-76.0351198392",
     "lng": "4.68254502677",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0351198392,4.68254502677",
-    "key": "valle del caucasan francisco"
+    "key": "Valle del caucasan francisco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "San Francisco (El Llanito)",
     "lat": "-76.2233300265",
     "lng": "3.28421268577",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2233300265,3.28421268577",
-    "key": "valle del caucasan francisco (el llanito)"
+    "key": "Valle del caucasan francisco (el llanito)"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Francisco De Naya",
     "lat": "-77.2861146062",
     "lng": "3.13882697434",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2861146062,3.13882697434",
-    "key": "valle del caucasan francisco de naya"
+    "key": "Valle del caucasan francisco de naya"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Francisco Javier",
     "lat": "-77.024967996",
     "lng": "3.66365955839",
     "tipo": "MUNICIPIO",
     "latlng": "-77.024967996,3.66365955839",
-    "key": "valle del caucasan francisco javier"
+    "key": "Valle del caucasan francisco javier"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "San Isidro",
     "lat": "-76.5486486992",
     "lng": "3.50184608068",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5486486992,3.50184608068",
-    "key": "valle del caucasan isidro"
+    "key": "Valle del caucasan isidro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Isidro",
     "lat": "-77.0632846776",
     "lng": "4.04875933274",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0632846776,4.04875933274",
-    "key": "valle del caucasan isidro"
+    "key": "Valle del caucasan isidro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "San Isidro",
     "lat": "-76.516309681",
     "lng": "3.236351839",
     "tipo": "MUNICIPIO",
     "latlng": "-76.516309681,3.236351839",
-    "key": "valle del caucasan isidro"
+    "key": "Valle del caucasan isidro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "San Isidro",
     "lat": "-75.8985490155",
     "lng": "4.56190389146",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8985490155,4.56190389146",
-    "key": "valle del caucasan isidro"
+    "key": "Valle del caucasan isidro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PRADERA",
     "lugar": "San Isidro",
     "lat": "-76.1877239797",
     "lng": "3.39879474543",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1877239797,3.39879474543",
-    "key": "valle del caucasan isidro"
+    "key": "Valle del caucasan isidro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TRUJILLO",
     "lugar": "San Isidro",
     "lat": "-76.3058130925",
     "lng": "4.28630437018",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3058130925,4.28630437018",
-    "key": "valle del caucasan isidro"
+    "key": "Valle del caucasan isidro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Isidro(Cajambre)",
     "lat": "-77.1698830642",
     "lng": "3.43439122907",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1698830642,3.43439122907",
-    "key": "valle del caucasan isidro(cajambre)"
+    "key": "Valle del caucasan isidro(cajambre)"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Joaquín",
     "lat": "-77.3971688383",
     "lng": "3.30617057141",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3971688383,3.30617057141",
-    "key": "valle del caucasan joaquín"
+    "key": "Valle del caucasan joaquín"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "San Joaquín",
     "lat": "-76.4137374666",
     "lng": "3.38422357251",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4137374666,3.38422357251",
-    "key": "valle del caucasan joaquín"
+    "key": "Valle del caucasan joaquín"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San José",
     "lat": "-77.207376148",
     "lng": "3.27993904495",
     "tipo": "MUNICIPIO",
     "latlng": "-77.207376148,3.27993904495",
-    "key": "valle del caucasan josé"
+    "key": "Valle del caucasan josé"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL ÁGUILA",
     "lugar": "San José",
     "lat": "-76.047702316",
     "lng": "4.951017038",
     "tipo": "MUNICIPIO",
     "latlng": "-76.047702316,4.951017038",
-    "key": "valle del caucasan josé"
+    "key": "Valle del caucasan josé"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA VICTORIA",
     "lugar": "San José",
     "lat": "-76.0053845564",
     "lng": "4.50753199536",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0053845564,4.50753199536",
-    "key": "valle del caucasan josé"
+    "key": "Valle del caucasan josé"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SAN PEDRO",
     "lugar": "San José",
     "lat": "-76.268289162",
     "lng": "4.029063641",
     "tipo": "MUNICIPIO",
     "latlng": "-76.268289162,4.029063641",
-    "key": "valle del caucasan josé"
+    "key": "Valle del caucasan josé"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San José De Naya",
     "lat": "-77.4125271327",
     "lng": "3.27954948355",
     "tipo": "MUNICIPIO",
     "latlng": "-77.4125271327,3.27954948355",
-    "key": "valle del caucasan josé de naya"
+    "key": "Valle del caucasan josé de naya"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Lorenzo",
     "lat": "-77.1837359213",
     "lng": "3.15075002662",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1837359213,3.15075002662",
-    "key": "valle del caucasan lorenzo"
+    "key": "Valle del caucasan lorenzo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA UNIÓN",
     "lugar": "San Luis",
     "lat": "-76.0855554429",
     "lng": "4.55508074658",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0855554429,4.55508074658",
-    "key": "valle del caucasan luis"
+    "key": "Valle del caucasan luis"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Marcos",
     "lat": "-76.961384882",
     "lng": "3.714171867",
     "tipo": "MUNICIPIO",
     "latlng": "-76.961384882,3.714171867",
-    "key": "valle del caucasan marcos"
+    "key": "Valle del caucasan marcos"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "San Marcos",
     "lat": "-76.4580691387",
     "lng": "3.65454163893",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4580691387,3.65454163893",
-    "key": "valle del caucasan marcos"
+    "key": "Valle del caucasan marcos"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "San Pedro",
     "lat": "-77.442749204",
     "lng": "3.24954565319",
     "tipo": "MUNICIPIO",
     "latlng": "-77.442749204,3.24954565319",
-    "key": "valle del caucasan pedro"
+    "key": "Valle del caucasan pedro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA VICTORIA",
     "lugar": "San Pedro",
     "lat": "-76.0462621391",
     "lng": "4.51009823342",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0462621391,4.51009823342",
-    "key": "valle del caucasan pedro"
+    "key": "Valle del caucasan pedro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SAN PEDRO",
     "lugar": "San Pedro",
     "lat": "-76.2285395519",
     "lng": "3.99499221389",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2285395519,3.99499221389",
-    "key": "valle del caucasan pedro"
+    "key": "Valle del caucasan pedro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "RESTREPO",
     "lugar": "San Salvador",
     "lat": "-76.5958791079",
     "lng": "3.79291319178",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5958791079,3.79291319178",
-    "key": "valle del caucasan salvador"
+    "key": "Valle del caucasan salvador"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "San Vicente",
     "lat": "-76.6760552829",
     "lng": "3.65465738224",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6760552829,3.65465738224",
-    "key": "valle del caucasan vicente"
+    "key": "Valle del caucasan vicente"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "San Vicente",
     "lat": "-76.6256383517",
     "lng": "3.26873612165",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6256383517,3.26873612165",
-    "key": "valle del caucasan vicente"
+    "key": "Valle del caucasan vicente"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Santa Cruz",
     "lat": "-77.396055804",
     "lng": "3.331146612",
     "tipo": "MUNICIPIO",
     "latlng": "-77.396055804,3.331146612",
-    "key": "valle del caucasanta cruz"
+    "key": "Valle del caucasanta cruz"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "Santa Elena",
     "lat": "-76.2386868489",
     "lng": "3.65440438541",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2386868489,3.65440438541",
-    "key": "valle del caucasanta elena"
+    "key": "Valle del caucasanta elena"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Santa Inés",
     "lat": "-76.5386407869",
     "lng": "3.62623835637",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5386407869,3.62623835637",
-    "key": "valle del caucasanta inés"
+    "key": "Valle del caucasanta inés"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Santa Lucía",
     "lat": "-75.9389403495",
     "lng": "3.93105213023",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9389403495,3.93105213023",
-    "key": "valle del caucasanta lucía"
+    "key": "Valle del caucasanta lucía"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "Santa Luisa",
     "lat": "-76.0895471125",
     "lng": "3.62215936038",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0895471125,3.62215936038",
-    "key": "valle del caucasanta luisa"
+    "key": "Valle del caucasanta luisa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Santa María",
     "lat": "-77.3610125438",
     "lng": "3.14549677672",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3610125438,3.14549677672",
-    "key": "valle del caucasanta maría"
+    "key": "Valle del caucasanta maría"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Santa María",
     "lat": "-76.7157778331",
     "lng": "3.63292082157",
     "tipo": "MUNICIPIO",
     "latlng": "-76.7157778331,3.63292082157",
-    "key": "valle del caucasanta maría"
+    "key": "Valle del caucasanta maría"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "Santa Rita",
     "lat": "-76.1393370489",
     "lng": "4.44731486688",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1393370489,4.44731486688",
-    "key": "valle del caucasanta rita"
+    "key": "Valle del caucasanta rita"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Santa Rosa De Tapias",
     "lat": "-76.2415191034",
     "lng": "3.82032046229",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2415191034,3.82032046229",
-    "key": "valle del caucasanta rosa de tapias"
+    "key": "Valle del caucasanta rosa de tapias"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Santiago De Cali",
     "lat": "-76.5215601611",
     "lng": "3.4144187719",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5215601611,3.4144187719",
-    "key": "valle del caucasantiago de cali"
+    "key": "Valle del caucasantiago de cali"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Secadero",
     "lat": "-77.1644623428",
     "lng": "3.64434748437",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1644623428,3.64434748437",
-    "key": "valle del caucasecadero"
+    "key": "Valle del caucasecadero"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SEVILLA",
     "lugar": "Sevilla",
     "lat": "-75.9316229697",
     "lng": "4.27071412891",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9316229697,4.27071412891",
-    "key": "valle del caucasevilla"
+    "key": "Valle del caucasevilla"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Siloe",
     "lat": "-76.6359226364",
     "lng": "3.33272457931",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6359226364,3.33272457931",
-    "key": "valle del caucasiloe"
+    "key": "Valle del caucasiloe"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Silva",
     "lat": "-77.2082559493",
     "lng": "3.47992345885",
     "tipo": "MUNICIPIO",
     "latlng": "-77.2082559493,3.47992345885",
-    "key": "valle del caucasilva"
+    "key": "Valle del caucasilva"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "Simón Bolívar",
     "lat": "-76.2171237247",
     "lng": "3.28308318734",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2171237247,3.28308318734",
-    "key": "valle del caucasimón bolívar"
+    "key": "Valle del caucasimón bolívar"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUACARÍ",
     "lugar": "Sonso",
     "lat": "-76.3063833416",
     "lng": "3.7995997831",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3063833416,3.7995997831",
-    "key": "valle del caucasonso"
+    "key": "Valle del caucasonso"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Tablones",
     "lat": "-76.19862628",
     "lng": "3.594745727",
     "tipo": "MUNICIPIO",
     "latlng": "-76.19862628,3.594745727",
-    "key": "valle del caucatablones"
+    "key": "Valle del caucatablones"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA VICTORIA",
     "lugar": "Taguales",
     "lat": "-75.916306434",
     "lng": "4.459684136",
     "tipo": "MUNICIPIO",
     "latlng": "-75.916306434,4.459684136",
-    "key": "valle del caucataguales"
+    "key": "Valle del caucataguales"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "Tamboral",
     "lat": "-76.1860678786",
     "lng": "4.16814495739",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1860678786,4.16814495739",
-    "key": "valle del caucatamboral"
+    "key": "Valle del caucatamboral"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Taparal",
     "lat": "-77.0899816222",
     "lng": "3.77410916859",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0899816222,3.77410916859",
-    "key": "valle del caucataparal"
+    "key": "Valle del caucataparal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "FLORIDA",
     "lugar": "Tarragona",
     "lat": "-76.3344689039",
     "lng": "3.28453441539",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3344689039,3.28453441539",
-    "key": "valle del caucatarragona"
+    "key": "Valle del caucatarragona"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "EL CERRITO",
     "lugar": "Tenerife",
     "lat": "-76.076262709",
     "lng": "3.72771362115",
     "tipo": "MUNICIPIO",
     "latlng": "-76.076262709,3.72771362115",
-    "key": "valle del caucatenerife"
+    "key": "Valle del caucatenerife"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Tenjo",
     "lat": "-76.1707212761",
     "lng": "3.52051776873",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1707212761,3.52051776873",
-    "key": "valle del caucatenjo"
+    "key": "Valle del caucatenjo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Tienda Nueva",
     "lat": "-76.2206520743",
     "lng": "3.57244515386",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2206520743,3.57244515386",
-    "key": "valle del caucatienda nueva"
+    "key": "Valle del caucatienda nueva"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ROLDANILLO",
     "lugar": "Tierra Blanca",
     "lat": "-76.1299215814",
     "lng": "4.41014733998",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1299215814,4.41014733998",
-    "key": "valle del caucatierra blanca"
+    "key": "Valle del caucatierra blanca"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Timba",
     "lat": "-76.6239618277",
     "lng": "3.1231812666",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6239618277,3.1231812666",
-    "key": "valle del caucatimba"
+    "key": "Valle del caucatimba"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Tocotá",
     "lat": "-76.6476069882",
     "lng": "3.50726891744",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6476069882,3.50726891744",
-    "key": "valle del caucatocotá"
+    "key": "Valle del caucatocotá"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "SAN PEDRO",
     "lugar": "Todos Los Santos",
     "lat": "-76.237020492",
     "lng": "3.982180408",
     "tipo": "MUNICIPIO",
     "latlng": "-76.237020492,3.982180408",
-    "key": "valle del caucatodos los santos"
+    "key": "Valle del caucatodos los santos"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TORO",
     "lugar": "Toro",
     "lat": "-76.0768506524",
     "lng": "4.60808704867",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0768506524,4.60808704867",
-    "key": "valle del caucatoro"
+    "key": "Valle del caucatoro"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "LA CUMBRE",
     "lugar": "Tres Esquinas",
     "lat": "-76.5819138764",
     "lng": "3.66826935778",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5819138764,3.66826935778",
-    "key": "valle del caucatres esquinas"
+    "key": "Valle del caucatres esquinas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Tres Esquinas",
     "lat": "-76.221284046",
     "lng": "4.113552787",
     "tipo": "MUNICIPIO",
     "latlng": "-76.221284046,4.113552787",
-    "key": "valle del caucatres esquinas"
+    "key": "Valle del caucatres esquinas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Tres Tusas",
     "lat": "-76.3456902115",
     "lng": "3.33130665859",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3456902115,3.33130665859",
-    "key": "valle del caucatres tusas"
+    "key": "Valle del caucatres tusas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "PALMIRA",
     "lugar": "Tres Tusas",
     "lat": "-76.2183130473",
     "lng": "3.56119869658",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2183130473,3.56119869658",
-    "key": "valle del caucatres tusas"
+    "key": "Valle del caucatres tusas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Triana",
     "lat": "-76.8057871348",
     "lng": "3.85817868675",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8057871348,3.85817868675",
-    "key": "valle del caucatriana"
+    "key": "Valle del caucatriana"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TRUJILLO",
     "lugar": "Trujillo",
     "lat": "-76.3188096264",
     "lng": "4.21205460862",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3188096264,4.21205460862",
-    "key": "valle del caucatrujillo"
+    "key": "Valle del caucatrujillo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TULUÁ",
     "lugar": "Tuluá",
     "lat": "-76.1977002572",
     "lng": "4.08526067539",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1977002572,4.08526067539",
-    "key": "valle del caucatuluá"
+    "key": "Valle del caucatuluá"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ULLOA",
     "lugar": "Ulloa",
     "lat": "-75.7378129291",
     "lng": "4.7036280475",
     "tipo": "MUNICIPIO",
     "latlng": "-75.7378129291,4.7036280475",
-    "key": "valle del caucaulloa"
+    "key": "Valle del caucaulloa"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Umane",
     "lat": "-77.1665344327",
     "lng": "3.74341400834",
     "tipo": "MUNICIPIO",
     "latlng": "-77.1665344327,3.74341400834",
-    "key": "valle del caucaumane"
+    "key": "Valle del caucaumane"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUGALAGRANDE",
     "lugar": "Uríbe Uríbe",
     "lat": "-76.1164542808",
     "lng": "4.256742524",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1164542808,4.256742524",
-    "key": "valle del caucauríbe uríbe"
+    "key": "Valle del caucauríbe uríbe"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ZARZAL",
     "lugar": "Vallejuelo",
     "lat": "-75.9960424775",
     "lng": "4.36954311797",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9960424775,4.36954311797",
-    "key": "valle del caucavallejuelo"
+    "key": "Valle del caucavallejuelo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "TRUJILLO",
     "lugar": "Venecia",
     "lat": "-76.391077543",
     "lng": "4.19456370995",
     "tipo": "MUNICIPIO",
     "latlng": "-76.391077543,4.19456370995",
-    "key": "valle del caucavenecia"
+    "key": "Valle del caucavenecia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Veneral",
     "lat": "-77.3297164116",
     "lng": "3.318821951",
     "tipo": "MUNICIPIO",
     "latlng": "-77.3297164116,3.318821951",
-    "key": "valle del caucaveneral"
+    "key": "Valle del caucaveneral"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Vergel",
     "lat": "-76.619894742",
     "lng": "3.576637882",
     "tipo": "MUNICIPIO",
     "latlng": "-76.619894742,3.576637882",
-    "key": "valle del caucavergel"
+    "key": "Valle del caucavergel"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VERSALLES",
     "lugar": "Versalles",
     "lat": "-76.1992067017",
     "lng": "4.57502307699",
     "tipo": "MUNICIPIO",
     "latlng": "-76.1992067017,4.57502307699",
-    "key": "valle del caucaversalles"
+    "key": "Valle del caucaversalles"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VIJES",
     "lugar": "Vidal",
     "lat": "-76.408583659",
     "lng": "3.732883826",
     "tipo": "MUNICIPIO",
     "latlng": "-76.408583659,3.732883826",
-    "key": "valle del caucavidal"
+    "key": "Valle del caucavidal"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "VIJES",
     "lugar": "Vijes",
     "lat": "-76.4419648892",
     "lng": "3.69858937984",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4419648892,3.69858937984",
-    "key": "valle del caucavijes"
+    "key": "Valle del caucavijes"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CAICEDONIA",
     "lugar": "Villa Aures",
     "lat": "-75.8314242691",
     "lng": "4.2373266786",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8314242691,4.2373266786",
-    "key": "valle del caucavilla aures"
+    "key": "Valle del caucavilla aures"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Villa Colombia",
     "lat": "-76.6733982984",
     "lng": "3.18587479554",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6733982984,3.18587479554",
-    "key": "valle del caucavilla colombia"
+    "key": "Valle del caucavilla colombia"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Villa Del Rosario",
     "lat": "-76.5635971221",
     "lng": "3.50916453481",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5635971221,3.50916453481",
-    "key": "valle del caucavilla del rosario"
+    "key": "Valle del caucavilla del rosario"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Villa Estela",
     "lat": "-76.9568751777",
     "lng": "3.89693747985",
     "tipo": "MUNICIPIO",
     "latlng": "-76.9568751777,3.89693747985",
-    "key": "valle del caucavilla estela"
+    "key": "Valle del caucavilla estela"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Villa Flamenco",
     "lat": "-76.4997104924",
     "lng": "3.31698281677",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4997104924,3.31698281677",
-    "key": "valle del caucavilla flamenco"
+    "key": "Valle del caucavilla flamenco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Villa Gorgona",
     "lat": "-76.3874398927",
     "lng": "3.39658318404",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3874398927,3.39658318404",
-    "key": "valle del caucavilla gorgona"
+    "key": "Valle del caucavilla gorgona"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "OBANDO",
     "lugar": "Villa Rodas",
     "lat": "-75.8835155658",
     "lng": "4.6145801118",
     "tipo": "MUNICIPIO",
     "latlng": "-75.8835155658,4.6145801118",
-    "key": "valle del caucavilla rodas"
+    "key": "Valle del caucavilla rodas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GINEBRA",
     "lugar": "Villa Vanegas",
     "lat": "-76.2539111061",
     "lng": "3.71987066549",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2539111061,3.71987066549",
-    "key": "valle del caucavilla vanegas"
+    "key": "Valle del caucavilla vanegas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CALI",
     "lugar": "Villacarmelo",
     "lat": "-76.6160971868",
     "lng": "3.3787356667",
     "tipo": "MUNICIPIO",
     "latlng": "-76.6160971868,3.3787356667",
-    "key": "valle del caucavillacarmelo"
+    "key": "Valle del caucavillacarmelo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "JAMUNDÍ",
     "lugar": "Villapaz",
     "lat": "-76.5430923359",
     "lng": "3.13389118301",
     "tipo": "MUNICIPIO",
     "latlng": "-76.5430923359,3.13389118301",
-    "key": "valle del caucavillapaz"
+    "key": "Valle del caucavillapaz"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Vuelta De San Diego",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucavuelta de san diego"
+    "key": "Valle del caucavuelta de san diego"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YOTOCO",
     "lugar": "Yotoco",
     "lat": "-76.3824738774",
     "lng": "3.8612150819",
     "tipo": "MUNICIPIO",
     "latlng": "-76.3824738774,3.8612150819",
-    "key": "valle del caucayotoco"
+    "key": "Valle del caucayotoco"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "YUMBO",
     "lugar": "Yumbo",
     "lat": "-76.4992290977",
     "lng": "3.54003276229",
     "tipo": "MUNICIPIO",
     "latlng": "-76.4992290977,3.54003276229",
-    "key": "valle del caucayumbo"
+    "key": "Valle del caucayumbo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "DAGUA",
     "lugar": "Zabaletas",
     "lat": "-76.622862122",
     "lng": "3.808840421",
     "tipo": "MUNICIPIO",
     "latlng": "-76.622862122,3.808840421",
-    "key": "valle del caucazabaletas"
+    "key": "Valle del caucazabaletas"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Zacarías",
     "lat": "-77.0014789034",
     "lng": "3.8173416858",
     "tipo": "MUNICIPIO",
     "latlng": "-77.0014789034,3.8173416858",
-    "key": "valle del caucazacarías"
+    "key": "Valle del caucazacarías"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CANDELARIA",
     "lugar": "Zainera",
     "lat": 0,
     "lng": 0,
     "tipo": "MUNICIPIO",
     "latlng": "0,0",
-    "key": "valle del caucazainera"
+    "key": "Valle del caucazainera"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "CARTAGO",
     "lugar": "Zanjón Cauca",
     "lat": "-75.9971759241",
     "lng": "4.72081422338",
     "tipo": "MUNICIPIO",
     "latlng": "-75.9971759241,4.72081422338",
-    "key": "valle del caucazanjón cauca"
+    "key": "Valle del caucazanjón cauca"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ANDALUCÍA",
     "lugar": "Zanjón De Piedra",
     "lat": "-76.2190971231",
     "lng": "4.16646853095",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2190971231,4.16646853095",
-    "key": "valle del caucazanjón de piedra"
+    "key": "Valle del caucazanjón de piedra"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "GUADALAJARA DE BUGA",
     "lugar": "Zanjón Hondo",
     "lat": "-76.2959011565",
     "lng": "3.84715724035",
     "tipo": "MUNICIPIO",
     "latlng": "-76.2959011565,3.84715724035",
-    "key": "valle del caucazanjón hondo"
+    "key": "Valle del caucazanjón hondo"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Zaragoza",
     "lat": "-76.8555522246",
     "lng": "3.86052977672",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8555522246,3.86052977672",
-    "key": "valle del caucazaragoza"
+    "key": "Valle del caucazaragoza"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Zaragoza Alto 1",
     "lat": "-76.8578995455",
     "lng": "3.87396879317",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8578995455,3.87396879317",
-    "key": "valle del caucazaragoza alto 1"
+    "key": "Valle del caucazaragoza alto 1"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Zaragoza Puente San Martin 1",
     "lat": "-76.8508391398",
     "lng": "3.85659337764",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8508391398,3.85659337764",
-    "key": "valle del caucazaragoza puente san martin 1"
+    "key": "Valle del caucazaragoza puente san martin 1"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Zaragoza Puente San Martin 2",
     "lat": "-76.8522833208",
     "lng": "3.85797955978",
     "tipo": "MUNICIPIO",
     "latlng": "-76.8522833208,3.85797955978",
-    "key": "valle del caucazaragoza puente san martin 2"
+    "key": "Valle del caucazaragoza puente san martin 2"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "ZARZAL",
     "lugar": "Zarzal",
     "lat": "-76.0708484414",
     "lng": "4.39262199427",
     "tipo": "MUNICIPIO",
     "latlng": "-76.0708484414,4.39262199427",
-    "key": "valle del caucazarzal"
+    "key": "Valle del caucazarzal"
    },
    {
     "departamento": "Vaupés",
