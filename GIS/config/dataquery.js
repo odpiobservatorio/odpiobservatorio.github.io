@@ -654,6 +654,7 @@ function ver_calor_mun(value) {
                         "porcentajeT": "0%",
                         "porcentajeV": 0,
                         "victimas": data[caso].npersonas,
+                        "departamento": data[caso].departamento,
                     }
 
                 } else {
@@ -676,7 +677,6 @@ function ver_calor_mun(value) {
             consolidados[mun].porcentajeV = PorcentajV
             consolidados[mun].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
         }
-        console.log(consolidados)
 
         //Preparamso el mapa base
         const layer = L.geoJSON(layer_municipios, {
@@ -684,7 +684,7 @@ function ver_calor_mun(value) {
                 let opacidad = 0
                 let linea = 0
                 try {
-                    let o = consolidados[feature.properties.nombre_mpi.toLowerCase()].porcentajeV
+                    let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
                     opacidad = o * 20
                     linea = 1
                 } catch (error) {
@@ -707,20 +707,20 @@ function ver_calor_mun(value) {
                 <div class="fs-6 text-info">Porcentajes * departamento</div>
                     <div class="row">
                         <div class="col fw-bold">Departamento</div>
-                        <div class="col text-end">${layer.feature.properties.nombre_dpt}</div>
+                        <div class="col text-end">${layer.feature.properties.DEPTO}</div>
                     </div>
                     <div class="row">
                         <div class="col fw-bold">Municipio</div>
-                        <div class="col text-end">${layer.feature.properties.nombre_mpi}</div>
+                        <div class="col text-end">${layer.feature.properties.MPIO_CNMBR}</div>
                     </div>
                     <div class="row">
                         <div class="col fw-bold">Casos</div>
-                        <div class="col text-end">${consolidados[layer.feature.properties.nombre_mpi.toLowerCase()].porcentajeT}</div>
+                        <div class="col text-end">${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeT}</div>
                     </div>
                     <div class="row">
                         <div class="col fw-bold">Victimas</div>
                         <div class="col fw-bold text-end">
-                        ${consolidados[layer.feature.properties.nombre_mpi.toLowerCase()].victimas}
+                        ${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].victimas}
                         </div>
                      </div>
                 `
