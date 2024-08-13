@@ -65,7 +65,7 @@ let format_layer = {
             color_fondo: "'blue'",
             opacidad: 1,
             ancho_linea: 1,
-            pane: "'3'"
+            pane: "'4'"
         },
         "target": {
             "local": "nolocal",
@@ -81,7 +81,7 @@ let format_layer = {
             color_fondo: "'purple'",
             opacidad: 1,
             ancho_linea: 1,
-            pane: "'3'"
+            pane: "'4'"
         },
         "target": {
             "local": "nolocal",

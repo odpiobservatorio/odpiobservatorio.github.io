@@ -1084,7 +1084,7 @@ function config_formatcalor(id) {
 
     const btngroup = document.createElement("div")
     btngroup.role = "group"
-    btngroup.className = "btn-group border-1 border border-info p-2"
+    btngroup.className = "btn-group border-1 border border-info p-2 ms-4"
 
 
     cCollapseBody.appendChild(btngroup)
