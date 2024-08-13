@@ -302,6 +302,7 @@
             <option value="clsCasos_vigencia">Año</option>
             <option value="clsPersonas_genero">Género</option>
             <option value="clsCasos_detalle">Detalle</option>
+            <option value="clsPersonas_nombres">Personas</option>
             <option value="clsCasos_macroactor">Macro actor</option>
             <option value="clsActores_nombre">Otros actores</option>
             <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
@@ -371,44 +372,78 @@
             <div class="row align-items-center">
                 <div class="col-auto ms-3">
                     <i class="bi bi-gear-fill" style="color:#CEECF5;" data-bs-toggle="collapse"
-                        data-bs-target="#collapseMapCalor" aria-expanded="true"></i>
+                        data-bs-target="#collapsedepcasoscalor" aria-expanded="true" onclick="config_formatcalor('depcasoscalor')"></i>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="inVerCalor"
-                            onchange="ver_calor_dep(this.checked)">
+                        <input class="form-check-input" type="checkbox" value="" id="depcasoscalor"
+                            onchange="ver_calor_dep(this.checked,this.id)">
                         <label class="form-check-label" for="flexCheckDefault">
                             Porcentaje casos por departamentos
                         </label>
                     </div>
                 </div>
             </div>
-            <div id="collapseMapCalor" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    Configuración
-                </div>
+            <div id="collapsedepcasoscalor" class="accordion-collapse collapse">
             </div>
         </div>
         <div class="mt-3">
             <div class="row align-items-center">
                 <div class="col-auto ms-3">
                     <i class="bi bi-gear-fill" style="color:#CEECF5;" data-bs-toggle="collapse"
-                        data-bs-target="#collapseMapCalorMun" aria-expanded="true"></i>
+                        data-bs-target="#collapsedepvictimascalor" aria-expanded="true" onclick="config_formatcalor('depvictimascalor')"></i>
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="inVerCalorMun"
-                            onchange="ver_calor_mun(this.checked)">
+                        <input class="form-check-input" type="checkbox" value="" id="depvictimascalor"
+                            onchange="ver_calor_dep_victimas(this.checked,this.id)">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Porcentaje victimas por departamentos
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapsedepvictimascalor" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="row align-items-center">
+                <div class="col-auto ms-3">
+                    <i class="bi bi-gear-fill" style="color:#CEECF5;" data-bs-toggle="collapse" 
+                        data-bs-target="#collapsemuncasoscalor" aria-expanded="true" onclick="config_formatcalor('muncasoscalor')"></i>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="muncasoscalor"
+                            onchange="ver_calor_mun(this.checked,this.id)">
                         <label class="form-check-label" for="flexCheckDefault">
                             Porcentaje casos por municipios
                         </label>
                     </div>
                 </div>
             </div>
-            <div id="collapseMapCalorMun" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Configuración
+            <div id="collapsemuncasoscalor" class="accordion-collapse collapse">
+
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="row align-items-center">
+                <div class="col-auto ms-3">
+                    <i class="bi bi-gear-fill" style="color:#CEECF5;" data-bs-toggle="collapse"
+                        data-bs-target="#collapsemunvictimascalor" aria-expanded="true" onclick="config_formatcalor('munvictimascalor')"></i>
                 </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="munvictimascalor"
+                            onchange="ver_calor_mun_victimas(this.checked,this.id)">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Porcentaje víctimas por municipios
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="collapsemunvictimascalor" class="accordion-collapse collapse">
+
             </div>
         </div>
     </div>
