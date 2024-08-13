@@ -521,12 +521,11 @@ function ver_calor_dep(value) {
 
     //VErificamos si hay datos abiertos
     if (now_data_filter == null) {
-        data = Active_data_monitor
-        mensajes("sin datos")
-    } else {
-
+        data = Active_data_monitor.clsCasos
+         } else {
+        data = now_data_filter
     }
-    data = now_data_filter
+    
 
     if (value == true) {
         let cont_departamentos = []
@@ -637,7 +636,7 @@ function ver_calor_mun(value) {
 
     //VErificamos si hay datos abiertos
     if (now_data_filter == null) {
-        data = Active_data_monitor
+        data = Active_data_monitor.clsCasos
     } else {
         data = now_data_filter
     }
@@ -702,7 +701,7 @@ function ver_calor_mun(value) {
         //Esto para crear los porcentajes
         for (mun in consolidados) {
             const PorcentajV = (parseInt(consolidados[mun].valor) / parseInt(nCasos)).toFixed(2)
-            const PorcentajT = parseInt(consolidados[mun].valor) / parseInt(nCasos)
+            const PorcentajT = parseInt(consolidados[mun].valor) / parseInt(nCasos) * 100
 
             txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].valor} - %${(PorcentajV * 10).toFixed(1)}`
 
