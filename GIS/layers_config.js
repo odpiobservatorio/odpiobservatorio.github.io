@@ -91,12 +91,12 @@ let format_layer = {
             {
                 "clase": "fw-bold text-success",
                 "contenido": "Municipio",
-                "campo": "nombre_mpi"
+                "campo": "MPIO_CNMBR"
             },
             {
                 "clase": "fw-bold",
                 "contenido": "Departamento",
-                "campo": "nombre_dpt"
+                "campo": "DEPTO"
             }
         ],
         "target": {
