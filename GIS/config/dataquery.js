@@ -683,13 +683,16 @@ function ver_calor_mun(value) {
             style: function (feature) {
                 let opacidad = 0
                 let linea = 0
+                let pane = "4"
                 try {
                     let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
                     opacidad = o * 20
                     linea = 1
+                    pane = "4"
                 } catch (error) {
                     opacidad = 0
                     linea = 0
+                    pane = "1"
 
                  }
                 return {
