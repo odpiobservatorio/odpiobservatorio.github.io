@@ -43,7 +43,6 @@ const departamentos = [
     { 'departamento': 'Caquetá', 'macroregion': 'Amazonía' },
     { 'departamento': 'Casanare', 'macroregion': 'Orinoquía' },
     { 'departamento': 'Cauca', 'macroregion': 'Occidente' },
-    { 'departamento': 'Cauca y Valle del Cauca', 'macroregion': 'Occidente' },
     { 'departamento': 'Cesar', 'macroregion': 'Norte' },
     { 'departamento': 'Chocó', 'macroregion': 'Occidente' },
     { 'departamento': 'Córdoba', 'macroregion': 'Norte' },
@@ -74785,7 +74784,7 @@ const lugares = [{
     "key": "tolimavindi"
    },
    {
-    "departamento": "Valle Del Cauca",
+    "departamento": "Valle del cauca",
     "entidad": "BUENAVENTURA",
     "lugar": "Aguaclara",
     "lat": "-76.9481458599",
