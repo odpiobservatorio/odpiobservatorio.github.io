@@ -698,10 +698,22 @@
         stadiamaps: "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
     }
     let map;
+
+
     map = L.map("map", {
         zoomDelta: 0.25,
         zoomSnap: 0
     }).setView([5.1, -75.55], 5);
+
+    var firstpolyline = new L.Polyline([[ -80.404030674610567, 6.801616411324627 ], [ -73.412200341879711, 3.41036936371265 ]],{
+    color: 'red',
+    weight: 3,
+    opacity: 0.5,
+    smoothFactor: 1
+    });
+
+    map.addLayer(firstpolyline);
+
 
     let ActiveTile;
 
