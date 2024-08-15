@@ -125,15 +125,18 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown text-white">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Configuración
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Configuración
                         </a>
                         <ul class="dropdown-menu">
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasConsola">Consola</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasConsola">Consola</a></li>
                         </ul>
-                      </li>
+                    </li>
                 </ul>
                 <form class="d-flex m-1">
                     <button class="btn bg-success text-white" onclick="SignOut()">Salir</button>
@@ -705,14 +708,8 @@
         zoomSnap: 0
     }).setView([5.1, -75.55], 5);
 
-    var firstpolyline = new L.Polyline([[ -80.404030674610567, 6.801616411324627 ], [ -73.412200341879711, 3.41036936371265 ]],{
-    color: 'red',
-    weight: 3,
-    opacity: 0.5,
-    smoothFactor: 1
-    });
 
-    map.addLayer(firstpolyline);
+
 
 
     let ActiveTile;
@@ -804,6 +801,22 @@
 
             </div>
         </div>
+    </div>
+</div>
+<!-- new panel graficos -->
+<div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offGraficos" data-bs-scroll="true"
+    data-bs-backdrop="false">
+    <div class="offcanvas-header bg-secondary">
+        <h5 class="offcanvas-title text-white" id="offcanvasCapasLabel">Panel gráficos</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <small>Departamento</small>
+        
+        <div id="panel_lista_elementos">
+
+        </div>
+
     </div>
 </div>
 
