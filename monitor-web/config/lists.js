@@ -38,7 +38,7 @@ const departamentos = [
     { 'departamento': 'Arauca', 'macroregion': 'Orinoquía' },
     { 'departamento': 'Atlántico', 'macroregion': 'Norte' },
     { 'departamento': 'Bogotá', 'macroregion': 'Centro Oriente' },
-    { 'departamento': 'Bolivar', 'macroregion': 'Norte' },
+    { 'departamento': 'Bolívar', 'macroregion': 'Norte' },
     { 'departamento': 'Boyacá', 'macroregion': 'Centro Oriente' },
     { 'departamento': 'Caldas', 'macroregion': 'Occidente' },
     { 'departamento': 'Caquetá', 'macroregion': 'Amazonía' },
@@ -30114,6 +30114,17 @@ const lugares = [{
     "tipo": "MUNICIPIO",
     "latlng": "-76.3385558178,5.39574769511",
     "key": "chocóel salto"
+   },
+   
+   {
+    "departamento": "Chocó",
+    "entidad": "ALTO BAUDÓ",
+    "lugar": "Alto baudó",
+    "lat": "-76.974722222222",
+    "lng": "5.5152777777778",
+    "tipo": "MUNICIPIO",
+    "latlng": "-76.974722222222,5.5152777777778",
+    "key": "chocóaltobaudó"
    },
    {
     "departamento": "Chocó",

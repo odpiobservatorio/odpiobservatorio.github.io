@@ -21,3 +21,62 @@ const layer_tablero = {
       }
     ]
   }
+
+  //Seccion que administra el boton de agregar linea y demas acciones
+  //=================================================================
+  const btn_insertline = document.getElementById("insert_line")
+  btn_insertline.onclick = () => {
+
+      var pointA = new L.LatLng(latlng_line.ini.lat, latlng_line.ini.lng);
+      var pointB = new L.LatLng(latlng_line.end.lat, latlng_line.end.lng);
+      var pointList = [pointA, pointB];
+
+      var line = new L.Polyline(pointList, {
+          color: eval(format_grafico["layer_line"].format.color_linea),
+          weight: eval(format_grafico["layer_line"].format.ancho_linea),
+          opacity: eval(format_grafico["layer_line"].format.opacidad),
+          pane: eval(format_grafico["layer_line"].format.pane),
+
+      });
+      line.bindPopup(function () {
+          return `Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento}) 
+          \n hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})`;
+      }, { pane: "labels" }
+      )
+      map.addLayer(line);
+
+      maker_index_line()
+
+      function maker_index_line() {
+          let index = Math.random().toString(36).slice(2) + "line"
+          line_marks_temp[index] = {
+              "data": {
+                  "layer": line,
+                  "coord": {
+                      ini_lat: latlng_line.ini.lat,
+                      ini_lng: latlng_line.ini.lng,
+                      end_lat: latlng_line.end.lat,
+                      end_lng: latlng_line.end.lng
+                  },
+              },
+              "places": {
+                  ini_mun: latlng_line.ini.lugar,
+                  ini_dep: latlng_line.ini.departamento,
+                  end_mun: latlng_line.end.lugar,
+                  end_dep: latlng_line.end.departamento,
+              },
+              "format_line": {
+                  "color": format_grafico["layer_line"].format.color_linea,
+                  "weight": format_grafico["layer_line"].format.ancho_linea,
+                  "opacity": format_grafico["layer_line"].format.opacidad,
+                  "pane": format_grafico["layer_line"].format.pane,
+              }
+          }
+
+
+
+
+
+      }
+
+  }

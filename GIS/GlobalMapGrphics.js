@@ -5,44 +5,47 @@ const color_porcentaje = (valor) => {
     if (valor <= 0.01) {
         const color = "yellow"
         return color
-    }else if (valor> 0.02 && valor <=0.03 ){
+    } else if (valor > 0.02 && valor <= 0.03) {
         const color = "#f9ebea"
         return color
-    }else if (valor> 0.03 && valor <=0.04 ){
+    } else if (valor > 0.03 && valor <= 0.04) {
         const color = "#f2d7d5"
         return color
-    }else if (valor> 0.04 && valor <=0.05){
+    } else if (valor > 0.04 && valor <= 0.05) {
         const color = "#e6b0aa"
         return color
-    }else if (valor> 0.05 && valor <=0.06){
+    } else if (valor > 0.05 && valor <= 0.06) {
         const color = "#d98880"
         return color
-    }else if (valor> 0.06 && valor <=0.07 ){
+    } else if (valor > 0.06 && valor <= 0.07) {
         const color = "#cd6155"
         return color
-    }else if (valor> 0.07 && valor <=0.08 ){
+    } else if (valor > 0.07 && valor <= 0.08) {
         const color = "#c0392b"
         return color
     }
-    else if (valor> 0.08 && valor <=0.09 ){
+    else if (valor > 0.08 && valor <= 0.09) {
         const color = "#a93226"
         return color
     }
-    else if (valor> 0.1 && valor <=0.15 ){
+    else if (valor > 0.1 && valor <= 0.15) {
         const color = "#922b21"
         return color
     }
-    else if (valor> 0.15 && valor <=0.2 ){
+    else if (valor > 0.15 && valor <= 0.2) {
         const color = "#a93226"
         return color
-    }else if (valor> 0.2 && valor <=0.25 ){
+    } else if (valor > 0.2 && valor <= 0.25) {
         const color = "#a93226"
-        return color}
-    else{
+        return color
+    }
+    else {
         const color = "yellow"
         return color
     }
 }
+
+
 
 let mark_selected;
 let coordenada_activa = "4.797, -74.030";
@@ -607,16 +610,10 @@ try {
     console.log("Evento file-load")
 }
 
-function HideMark() {
-
-
-}
 
 function LoadFileSelected(file, name) {
     const ListFiles = document.getElementById('selPathFiles')
     GLOBAL.firestore.readFile(file, name)
-
-
 }
 
 function InterPretarData(Data, name, type) {

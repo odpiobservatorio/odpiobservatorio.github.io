@@ -40,6 +40,8 @@
 
     <!--Versiones nuevs d eadministración de capas-->
     <script src="/GIS/layers_config.js" async></script>
+    <script src="/monitor-web/config/lists.js" async></script>
+    <script src="/GIS/mod_graphics.js" async></script>
 
     <!--Veriones optimizdas de los procesos-->
     <script src="./GlobalMapGrphics.js" async></script>
@@ -70,6 +72,7 @@
                             Consultas
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
                             data-bs-target="#offCapas" aria-controls="offcanvasCapas">Visor Capas</a>
@@ -123,6 +126,12 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item" onclick="ini_menu_graficos()">
+                        <a class="nav-link active text-white" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#offGraficos">
+                            Gráficos
+                        </a>
                     </li>
                     <li class="nav-item dropdown text-white">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
@@ -209,7 +218,7 @@
                     <div class="col-auto fw-bold" style="width: 100px;">Porcentaje</div>
                     <div class="col-auto fw-bold" style="width: 100px;">Víctimas</div>
                     <div class="col-auto fw-bold" style="width: 100px;">Porcentaje</div>
-                    
+
                 </div>
                 <div class="ms-5 mb-2" id="pivot_lis_municipios">
 
@@ -235,7 +244,7 @@
                     <div class="col-auto fw-bold" style="width: 100px;">Porcentaje</div>
                     <div class="col-auto fw-bold" style="width: 100px;">Víctimas</div>
                     <div class="col-auto fw-bold" style="width: 100px;">Porcentaje</div>
-                    
+
                 </div>
                 <div class="ms-5 mb-2" id="pivot_lis_macrotipo">
 
@@ -946,7 +955,83 @@
     </div>
     <div class="offcanvas-body">
         <small>Departamento</small>
-        
+        <select class="form-select form-select-sm ms-1" id="lisDep_graficos">
+        </select>
+        <small>Municipio</small>
+        <select class="form-select form-select-sm ms-1" id="lisMun_graficos">
+        </select>
+        <small>Coordenadas</small>
+        <input type="text" class="form-control" placeholder="0.0,0.0" id="intCoordGrafico">
+        <small>Lineas</small>
+        <div>
+            <div class="btn-group mt-1" role="group" aria-label="Basic example">
+                <button id="btnColorLine_graficos" class="btn dropdown-toggle bg-secondary text-white" type=" button"
+                    data-bs-toggle="dropdown">
+                    <i id="iclg" class="bi bi-circle" data-bs-toggle="tooltip" data-bs-placement="top"
+                        id="btnColorlinea_consulta" data-bs-custom-class="tooltip" data-bs-title="Color linea"
+                        style="color: black;"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <div id="ulColorLinea_graficos" class="container-fluid">
+
+                    </div>
+                </ul>
+                <select id="selOpacityLine_graficos" class="btn btn-secondary text-white text-start" style="width: 85px;" data-bs-toggle="tooltip"
+                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Opacidad linea">
+                    <option value="1">100%</option>
+                    <option value="0.9">90%</option>
+                    <option value="0.8">80%</option>
+                    <option value="0.7">70%</option>
+                    <option value="0.6">60%</option>
+                    <option value="0.5">50%</option>
+                    <option value="0.4">40%</option>
+                    <option value="0.3">30%</option>
+                    <option value="0.2">20%</option>
+                    <option value="0.1">10%</option>
+                </select>
+                <select id="selGrosorLine_graficos" class="btn btn-secondary text-white text-start" style="width: 85px;" data-bs-toggle="tooltip"
+                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Grosor linea"
+                    onchange="size_marca_busqueda=this.value">
+                    <option value="1">1pt</option>
+                    <option value="2">2pt</option>
+                    <option value="3">3pt</option>
+                    <option value="4">4pt</option>
+                    <option value="5">5pt</option>
+                    <option value="5">6pt</option>
+                    <option value="7">7pt</option>
+                    <option value="8">8pt</option>
+                    <option value="9">9pt</option>
+                    <option value="10">10pt</option>
+                    <option value="15">15pt</option>
+                </select>
+                
+            </div>
+            <div class="btn-group mt-1" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" id="line_ini_point">
+                    <i class="bi bi-align-start"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" id="line_end_point">
+                    <i class="bi bi-align-end"></i>
+                </button>
+
+                <button type="button" class="btn btn-secondary" onclick="clear_line()">
+                    Limpiar
+                </button>
+                <button type="button" class="btn btn-secondary" id="btnSave_line">
+                    <i class="bi bi-download"></i>
+                </button>
+                <button for="file-input-marks" type="button" class="btn btn-secondary" id="btnLoad_line">
+                    <label for="file-input-lines" href="">
+                        <i class="bi bi-upload"></i>
+                    </label>
+                </button>
+            </div>
+            <input id="file-input-lines" style="visibility:hidden; width: 50px;" type="file" accept=".json">
+            </div>
+        </div>
+
+
+
         <div id="panel_lista_elementos">
 
         </div>
