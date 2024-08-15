@@ -3,13 +3,16 @@ let latlng_line = {
         "lat": "",
         "lng": "",
         "lugar": "",
-        "departamento": ""
+        "departamento": "",
     },
     "end": {
         "lat": "",
         "lng": "",
         "lugar": "",
         "departamento": ""
+    },
+    "info":{
+        "detalle":""
     }
 }
 let format_grafico = {
@@ -139,7 +142,8 @@ function ini_menu_graficos() {
             });
             lineNew.bindPopup(function () {
                 return `Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento}) 
-            \n hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})`;
+            \n hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})
+            \n ${document.getElementById("intInfoLine").value}`;
             }, { pane: "labels" }
             )
             map.addLayer(lineNew);
@@ -170,6 +174,9 @@ function ini_menu_graficos() {
                             "weight": format_grafico["layer_line"].format.ancho_linea,
                             "opacity": format_grafico["layer_line"].format.opacidad,
                             "pane": format_grafico["layer_line"].format.pane,
+                        },
+                        "info":{
+                            "detalle":document.getElementById("intInfoLine").value
                         }
                     }
 
@@ -261,7 +268,7 @@ function clear_line() {
         try {
             map.removeLayer(line_marks_temp[ind].layer.data)
         } catch (error) {
-            
+            console.log(line_marks_temp[ind].layer.data)
         }
     }
 }
@@ -368,7 +375,8 @@ function upload_lines(data) {
             });
             lineLoad.bindPopup(function () {
                 return `Desplazamiento desde (${data.places.ini_mun},${data.places.ini_dep }) 
-            \n hasta (${data.places.end_mun },${data.places.end_dep})`;
+            \n hasta (${data.places.end_mun },${data.places.end_dep})
+            \n ${data.info.detalle}`;
             }, { pane: "labels" }
             )
             map.addLayer(lineLoad);
@@ -399,6 +407,9 @@ function upload_lines(data) {
                             "weight": format_grafico["layer_line"].format.ancho_linea,
                             "opacity": format_grafico["layer_line"].format.opacidad,
                             "pane": format_grafico["layer_line"].format.pane,
+                        },
+                        "info":{
+                            "detalle":data.info.detalle
                         }
                     }
 
