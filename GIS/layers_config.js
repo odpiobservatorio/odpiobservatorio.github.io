@@ -59,6 +59,70 @@ let format_layer = {
         ]
 
     },
+    "layer_munvictimascalor": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'blue'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'4'"
+        },
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": [
+
+        ]
+
+    },
+    "layer_muncasoscalor": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'purple'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'4'"
+        },
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": [
+
+        ]
+
+    },
+    "layer_depcasoscalor": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'orange'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": [
+
+        ]
+
+    },
+    "layer_depvictimascalor": {
+        "format": {
+            color_linea: "'black'",
+            color_fondo: "'gray'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": [
+
+        ]
+
+    },
     "layer_departamentos": {
         "format": {
             color_linea: "'blue'",
@@ -1015,9 +1079,6 @@ function config_format(layer_name, controlname, type) {
                             lis_layers = layer_noremove
                             layers.put_layer(checkLayer, layer_name, type)
                         }
-
-
-
 
 
                     } else if (format_layer[layer_name].target.local == "local") {

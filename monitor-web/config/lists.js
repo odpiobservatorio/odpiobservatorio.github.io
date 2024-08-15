@@ -16,6 +16,7 @@ const macrotipos = [
     'Estigmatización',
     'Extorsión',
     'Falso positivo',
+    'Feminicidio',
     'Hostigamiento',
     'Hostigamientos',
     'Hurto',

@@ -512,7 +512,7 @@ function put_label_resultado(caso, lugar) {
 
 }
 
-function ver_calor_dep(value) {
+function ver_calor_dep(value, id) {
     marcas_consulta.forEach(marca => {
         map.removeLayer(marca)
     })
@@ -522,10 +522,10 @@ function ver_calor_dep(value) {
     //VErificamos si hay datos abiertos
     if (now_data_filter == null) {
         data = Active_data_monitor.clsCasos
-         } else {
+    } else {
         data = now_data_filter
     }
-    
+
 
     if (value == true) {
         let cont_departamentos = []
@@ -569,17 +569,17 @@ function ver_calor_dep(value) {
                 try {
                     let o = consolidados[feature.properties.DPTO_CNMBR.toLowerCase()].porcentajeV
                     opacidad = o * 5
-                    linea = 1
+                    linea = eval(format_layer["layer_" + id].format.ancho_linea)
                 } catch (error) {
                     linea = 0
                     //console.log(error)
                 }
                 return {
-                    color: "black",
-                    fillColor: "orange",
+                    color: eval(format_layer["layer_" + id].format.color_linea),
+                    fillColor: eval(format_layer['layer_' + id].format.color_fondo),
                     fillOpacity: opacidad,
                     weight: linea,
-                    pane: "3",
+                    pane: eval(format_layer["layer_"+id].format.pane),
                 };
             }
         }).bindPopup(function (layer) {
@@ -613,12 +613,12 @@ function ver_calor_dep(value) {
         ).addTo(map);
 
         //Agrega esta capa a la lista de capas para activar o desactivar
-        lis_layers.push(["calor_departamentos", layer])
+        lis_layers.push(["layer_" + id, layer])
     } else {
         //Crear dos filtros para mostrar o quitar la capa
         //Solo para capas locales fijas, que siempre se presentarán en el programa
-        let layer_remove = lis_layers.filter(value => value[0] == "calor_departamentos")
-        let layer_noremove = lis_layers.filter(value => value[0] !== "calor_departamentos")
+        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
         map.removeLayer(layer_remove[0][1])
         lis_layers = layer_noremove
     }
@@ -627,7 +627,119 @@ function ver_calor_dep(value) {
 
 
 }
-function ver_calor_mun(value) {
+function ver_calor_dep_victimas(value, id) {
+    marcas_consulta.forEach(marca => {
+        map.removeLayer(marca)
+    })
+
+    let data
+
+    //VErificamos si hay datos abiertos
+    if (now_data_filter == null) {
+        data = Active_data_monitor.clsCasos
+    } else {
+        data = now_data_filter
+    }
+
+
+    if (value == true) {
+        let cont_departamentos = []
+        let consolidados = {}
+        const casoItem = data
+        let nCasos = 0
+        //Encontramos los departamentos y contamos cada uno de sus registros
+        //Genera uan data de consolidados por departamento
+        for (caso in data) {
+            if (cont_departamentos.includes(casoItem[caso].departamento.toLowerCase()) !== true) {
+                cont_departamentos.push(casoItem[caso].departamento.toLowerCase())
+                consolidados[casoItem[caso].departamento.toLowerCase()] = {
+                    "lugar": casoItem[caso].departamento.toLowerCase(),
+                    "valor": 1,
+                    "porcentajeT": "0%",
+                    "porcentajeV": 0,
+                    "victimas": casoItem[caso].npersonas,
+                }
+            } else {
+                const cont = consolidados[casoItem[caso].departamento.toLowerCase()].valor + 1
+                consolidados[casoItem[caso].departamento.toLowerCase()].valor = cont
+                consolidados[casoItem[caso].departamento.toLowerCase()].victimas = consolidados[casoItem[caso].departamento.toLowerCase()].victimas + casoItem[caso].npersonas
+            }
+            nCasos = nCasos + casoItem[caso].npersonas
+        }
+
+        //Ahora comparamos ese valor frente al valor tototal
+        //Esto para crear los porcentajes
+        for (dep in consolidados) {
+            const PorcentajV = (parseInt(consolidados[dep].victimas) / parseInt(nCasos)).toFixed(2)
+            const PorcentajT = parseInt(consolidados[dep].victimas) / parseInt(nCasos) * 100
+            consolidados[dep].porcentajeV = PorcentajV
+            consolidados[dep].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
+        }
+
+        //Preparamso el mapa base
+        const layer = L.geoJSON(layer_departamentos, {
+            style: function (feature) {
+                let opacidad = 0
+                let linea = 0
+                try {
+                    let o = consolidados[feature.properties.DPTO_CNMBR.toLowerCase()].porcentajeV
+                    opacidad = o * 5
+                    linea = eval(format_layer["layer_" + id].format.ancho_linea)
+                } catch (error) {
+                    linea = 0
+                    //console.log(error)
+                }
+                return {
+                    color: eval(format_layer["layer_" + id].format.color_linea),
+                    fillColor: eval(format_layer['layer_' + id].format.color_fondo),
+                    fillOpacity: opacidad,
+                    weight: linea,
+                    pane: eval(format_layer["layer_"+id].format.pane),
+                };
+            }
+        }).bindPopup(function (layer) {
+            const contenido = document.createElement("div")
+            contenido.style.width = "300px"
+            contenido.innerHTML = `
+            <div class="fs-6 text-info">Porcentajes * departamento</div>
+                <div class="row">
+                    <div class="col fw-bold">Departamento</div>
+                    <div class="col text-end">${layer.feature.properties.DPTO_CNMBR}</div>
+                </div>
+                <div class="row">
+                    <div class="col fw-bold">Porcentaje</div>
+                    <div class="col text-end">${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].porcentajeT}</div>
+                </div>
+                <div class="row">
+                    <div class="col fw-bold">Victimas</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].victimas}
+                    </div>
+                 </div>
+                                 <div class="row">
+                    <div class="col fw-bold">Casos</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.DPTO_CNMBR.toLowerCase()].valor}
+                    </div>
+                 </div>
+            `
+            return contenido.innerHTML;
+        }, { pane: "labels" }
+        ).addTo(map);
+
+        //Agrega esta capa a la lista de capas para activar o desactivar
+        lis_layers.push(["layer_" + id, layer])
+
+    } else {
+        //Crear dos filtros para mostrar o quitar la capa
+        //Solo para capas locales fijas, que siempre se presentarán en el programa
+        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
+        map.removeLayer(layer_remove[0][1])
+        lis_layers = layer_noremove
+    }
+}
+function ver_calor_mun(value, id) {
     marcas_consulta.forEach(marca => {
         //map.removeLayer(marca)
     })
@@ -666,7 +778,7 @@ function ver_calor_mun(value) {
                     const cont = consolidados[LugarItem.municipio.toLowerCase()].valor + 1
                     consolidados[LugarItem.municipio.toLowerCase()].valor = cont
                     consolidados[LugarItem.municipio.toLowerCase()].victimas = consolidados[LugarItem.municipio.toLowerCase()].victimas + data[caso].npersonas
-                  
+
                 }
 
             }
@@ -717,14 +829,14 @@ function ver_calor_mun(value) {
                 let pane = "4"
                 try {
                     let featureDep = feature.properties.DEPTO.toLowerCase()
-                    let consDep=consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].departamento.toLowerCase()
+                    let consDep = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].departamento.toLowerCase()
 
-                    if (featureDep==consDep) {
+                    if (featureDep == consDep) {
                         let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
                         opacidad = o * 10
-                        linea = 1
-                        pane = "4"
-                    }else{
+                        linea = eval(format_layer["layer_" + id].format.ancho_linea)
+                        pane = eval(format_layer["layer_"+id].format.pane)
+                    } else {
                         opacidad = 0
                         linea = 0
                         pane = "1"
@@ -736,11 +848,11 @@ function ver_calor_mun(value) {
 
                 }
                 return {
-                    color: "black",
-                    fillColor: "purple",
+                    color: eval(format_layer["layer_" + id].format.color_linea),
+                    fillColor: eval(format_layer["layer_" + id].format.color_fondo),
                     fillOpacity: opacidad,
                     weight: linea,
-                    pane: "4",
+                    pane: pane,
                 };
             }
         }).bindPopup(function (layer) {
@@ -778,14 +890,183 @@ function ver_calor_mun(value) {
         ).addTo(map);
 
         //Agrega esta capa a la lista de capas para activar o desactivar
-        lis_layers.push(["calor_municipios", layer])
+        lis_layers.push(["layer_" + id, layer])
 
 
     } else {
         //Crear dos filtros para mostrar o quitar la capa
         //Solo para capas locales fijas, que siempre se presentarán en el programa
-        let layer_remove = lis_layers.filter(value => value[0] == "calor_municipios")
-        let layer_noremove = lis_layers.filter(value => value[0] !== "calor_municipios")
+        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
+        map.removeLayer(layer_remove[0][1])
+        lis_layers = layer_noremove
+
+    }
+
+
+
+
+
+
+}
+function ver_calor_mun_victimas(value, id) {
+    marcas_consulta.forEach(marca => {
+        //map.removeLayer(marca)
+    })
+
+    let data
+
+    //VErificamos si hay datos abiertos
+    if (now_data_filter == null) {
+        data = Active_data_monitor.clsCasos
+    } else {
+        data = now_data_filter
+    }
+
+    if (value == true) {
+        let cont_lugares = []
+        let consolidados = []
+
+        let nCasos = 0
+        //Encontramos los departamentos y contamos cada uno de sus registros
+        //Genera uan data de consolidados por departamento
+        for (caso in data) {
+
+            for (lugar in data[caso].clsLugares) {
+                const LugarItem = data[caso].clsLugares[lugar]
+                if (cont_lugares.includes(LugarItem.municipio.toLowerCase()) !== true) {
+                    cont_lugares.push(LugarItem.municipio.toLowerCase())
+                    consolidados[LugarItem.municipio.toLowerCase()] = {
+                        "lugar": LugarItem.municipio.toLowerCase(),
+                        "valor": 1,
+                        "porcentajeT": "0%",
+                        "porcentajeV": 0,
+                        "victimas": data[caso].npersonas,
+                        "departamento": data[caso].departamento,
+                    }
+                } else {
+                    const cont = consolidados[LugarItem.municipio.toLowerCase()].valor + 1
+                    consolidados[LugarItem.municipio.toLowerCase()].valor = cont
+                    consolidados[LugarItem.municipio.toLowerCase()].victimas = consolidados[LugarItem.municipio.toLowerCase()].victimas + data[caso].npersonas
+                }
+            }
+            nCasos = nCasos + data[caso].npersonas
+        }
+        let ppp = []
+
+        for (lugar in consolidados) {
+            ppp.push([consolidados[lugar].lugar, parseInt(consolidados[lugar].valor)])
+        }
+
+        function compareByAge(a, b) {
+            if (a[1] < b[1]) {
+                return -1;
+            }
+            if (a[1] > b[1]) {
+                return 1;
+            }
+            return 0;
+        }
+        let g = ppp.sort(compareByAge);
+
+
+        g.forEach(lugar => {
+            txtconsola.textContent = txtconsola.textContent + "\n" + `${lugar[0]}:${lugar[1]}`
+        })
+
+
+        txtconsola.textContent = txtconsola.textContent + "\n" + "Total Casos:" + nCasos
+
+        //Ahora comparamos ese valor frente al valor tototal
+        //Esto para crear los porcentajes
+        for (mun in consolidados) {
+            const PorcentajV = (parseInt(consolidados[mun].victimas) / parseInt(nCasos)).toFixed(2)
+            const PorcentajT = parseInt(consolidados[mun].victimas) / parseInt(nCasos) * 100
+
+            txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].victimas} - %${(PorcentajV * 10).toFixed(1)}`
+
+            consolidados[mun].porcentajeV = PorcentajV
+            consolidados[mun].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
+        }
+
+        //Preparamso el mapa base
+        const layer = L.geoJSON(layer_municipios, {
+            style: function (feature) {
+                let opacidad = 0
+                let linea = 0
+                let pane = "4"
+                try {
+                    let featureDep = feature.properties.DEPTO.toLowerCase()
+                    let consDep = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].departamento.toLowerCase()
+
+                    if (featureDep == consDep) {
+                        let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
+                        opacidad = o * 10
+                        linea = eval(format_layer["layer_" + id].format.ancho_linea)
+                        pane = eval(format_layer["layer_"+id].format.pane)
+                    } else {
+                        opacidad = 0
+                        linea = 0
+                        pane = "1"
+                    }
+                } catch (error) {
+                    opacidad = 0
+                    linea = 0
+                    pane = "1"
+
+                }
+                return {
+                    color: eval(format_layer["layer_" + id].format.color_linea),
+                    fillColor: eval(format_layer['layer_' + id].format.color_fondo),
+                    fillOpacity: opacidad,
+                    weight: linea,
+                    pane: pane,
+                };
+            }
+        }).bindPopup(function (layer) {
+            const contenido = document.createElement("div")
+            contenido.width = "350px"
+            contenido.innerHTML = `
+                <div class="fs-6 text-info">Porcentajes * departamento</div>
+                    <div class="row">
+                        <div class="col fw-bold">Departamento</div>
+                        <div class="col text-end">${layer.feature.properties.DEPTO}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col fw-bold">Municipio</div>
+                        <div class="col text-end">${layer.feature.properties.MPIO_CNMBR}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col fw-bold">Porcentaje</div>
+                        <div class="col text-end">${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeT}</div>
+                    </div>
+                <div class="row">
+                    <div class="col fw-bold">Victimas</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].victimas}
+                    </div>
+                 </div>
+                    <div class="row">
+                    <div class="col fw-bold">Casos</div>
+                    <div class="col fw-bold text-end">
+                    ${consolidados[layer.feature.properties.MPIO_CNMBR.toLowerCase()].valor}
+                    </div>
+                 </div>
+                `
+            return contenido.innerHTML;
+        }, { pane: "labels" }
+        ).addTo(map);
+
+        //Agrega esta capa a la lista de capas para activar o desactivar
+        lis_layers.push(["layer_" + id, layer])
+
+
+
+    } else {
+        //Crear dos filtros para mostrar o quitar la capa
+        //Solo para capas locales fijas, que siempre se presentarán en el programa
+        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
         map.removeLayer(layer_remove[0][1])
         lis_layers = layer_noremove
     }
@@ -794,6 +1075,318 @@ function ver_calor_mun(value) {
 
 
 
+
+}
+function config_formatcalor(id) {
+    const cCollapseBody = document.getElementById("collapse" + id)
+    cCollapseBody.innerHTML = ""
+
+
+    const btngroup = document.createElement("div")
+    btngroup.role = "group"
+    btngroup.className = "btn-group border-1 border border-info p-2 ms-4"
+
+
+    cCollapseBody.appendChild(btngroup)
+    maker_control_backcolor()
+    maker_control_linecolor()
+    maker_control_lineWeight()
+    maker_control_pane()
+    function maker_control_backcolor() {
+        //Crearemos un control desplegable de color personalizado
+        const dropdown = document.createElement("div")
+        dropdown.className = "dropdown me-1"
+        dropdown.innerHTML =
+            `
+        <button class="dropdown-toggle border-0 
+        border-0 btn-outline-secondary p-1 tooltip-container" 
+            type="button" 
+            data-bs-toggle="dropdown"
+            id="btnColor${id}">
+        </button>
+        `
+        const ul = document.createElement("ul")
+        ul.className = "dropdown-menu container-fluid p-1 shadow"
+        ul.style.width = "300px"
+        dropdown.appendChild(ul)
+        btngroup.appendChild(dropdown)
+
+        const btnColor = document.getElementById("btnColor" + id)
+        //Colocamos un icono que cambiará de color cuando cambie la selección
+        const i = document.createElement("i")
+        i.className = "bi bi-square-fill rounded"
+        i.style.color = eval(format_layer["layer_" + id].format.color_fondo)
+        btnColor.appendChild(i)
+        tooltip(btnColor, "Color polígono", "gray")
+
+        //Colocamos los colores en el ul control
+
+        ColorList.forEach(color => {
+            const iColor = document.createElement("i")
+            iColor.className = "bi bi-square-fill fs-3"
+            iColor.style.color = color
+            iColor.style.margin = "2px"
+            ul.appendChild(iColor)
+            iColor.onclick = () => {
+                i.style.color = color
+                format_layer["layer_" + id].format.color_fondo = `'${color}'`
+                const checkLayer = document.getElementById(id)
+
+                if (checkLayer.checked == true) {
+                    //Crear dos filtros para mostrar o quitar la capa
+                    //Solo para capas locales fijas, que siempre se presentarán en el programa
+
+                    if (format_layer["layer_" + id].target.local == "nolocal") {
+                        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+
+                        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
+                        map.removeLayer(layer_remove[0][1])
+                        lis_layers = layer_noremove
+                        if (id == "munvictimascalor") {
+                            ver_calor_mun_victimas(true, id)
+                        } else if (id == "muncasoscalor") {
+                            ver_calor_mun(true, id)
+                        }else if (id == "depcasoscalor") {
+                            ver_calor_dep(true, id)
+                        }else if (id == "depvictimascalor") {
+                            ver_calor_dep_victimas(true, id)
+                        }
+                    }
+
+                }
+            }
+        })
+
+    }
+    function maker_control_linecolor() {
+        //Crearemos un control desplegable de color linea personalizado
+        const dropdown = document.createElement("div")
+        dropdown.className = "dropdown me-1"
+        dropdown.innerHTML =
+            `
+        <button class="border-0 btn-outline-secondary p-1
+            dropdown-toggle tooltip-container" 
+            type="button" 
+            data-bs-toggle="dropdown"
+            id="btnLineColor${id}">
+        </button>
+        `
+        const ul = document.createElement("ul")
+        ul.className = "dropdown-menu container-fluid p-1"
+        ul.style.width = "300px"
+        dropdown.appendChild(ul)
+        btngroup.appendChild(dropdown)
+
+        //Colocamos un icono que cambiará de color cuando cambie la selección
+        const i = document.createElement("i")
+        i.className = "bi bi-square fw-bold"
+        const btnLineColor = document.getElementById("btnLineColor" + id)
+        try {
+            i.style.color = eval(format_layer["layer_" + id].format.color_linea)
+        } catch (error) {
+            btnLineColor.hidden = true
+        }
+
+        btnLineColor.appendChild(i)
+        tooltip(btnLineColor, "Color línea", "gray")
+
+        //Colocamos los colores en el ul control
+
+        ColorList.forEach(color => {
+            const iColor = document.createElement("i")
+            iColor.className = "bi bi-square-fill fs-3"
+            iColor.style.color = color
+            iColor.style.margin = "2px"
+            ul.appendChild(iColor)
+            iColor.onclick = () => {
+                i.style.color = color
+                format_layer["layer_" + id].format.color_linea = `'${color}'`
+                const checkLayer = document.getElementById(id)
+
+                if (checkLayer.checked == true) {
+                    //Crear dos filtros para mostrar o quitar la capa
+                    //Solo para capas locales fijas, que siempre se presentarán en el programa
+
+                    if (format_layer["layer_" + id].target.local == "nolocal") {
+                        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+
+                        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
+                        map.removeLayer(layer_remove[0][1])
+                        lis_layers = layer_noremove
+                        if (id == "munvictimascalor") {
+                            ver_calor_mun_victimas(true, id)
+                        } else if (id == "muncasoscalor") {
+                            ver_calor_mun(true, id)
+                        }else if (id == "depcasoscalor") {
+                            ver_calor_dep(true, id)
+                        }else if (id == "depvictimascalor") {
+                            ver_calor_dep_victimas(true, id)
+                        }
+                    }
+
+                }
+
+
+            }
+        })
+
+    }
+    function maker_control_lineWeight() {
+        //Crearemos un control desplegable de color linea personalizado
+        const dropdown = document.createElement("div")
+        dropdown.className = "dropdown me-1"
+        dropdown.innerHTML =
+            `
+        <button class="border-0 btn-outline-secondary p-1
+            dropdown-toggle tooltip-container" 
+            type="button" 
+            data-bs-toggle="dropdown"
+            id="btnLineWeight${id}">
+        </button>
+        `
+        const ul = document.createElement("ul")
+        ul.className = "dropdown-menu container-fluid p-1"
+        dropdown.appendChild(ul)
+        btngroup.appendChild(dropdown)
+
+        //Colocamos un icono que cambiará de color cuando cambie la selección
+        const i = document.createElement("i")
+        i.className = "bi-arrows-collapse-vertical"
+        i.textContent = " " + format_layer["layer_" + id].format.ancho_linea + "px"
+        i.style.color = "black"
+
+
+        const btnLineColor = document.getElementById("btnLineWeight" + id)
+        btnLineColor.appendChild(i)
+        tooltip(btnLineColor, "Grueso línea", "gray")
+
+        //Colocamos los colores en el ul control
+        const lineWight = [
+            [0, "0px"],
+            [1, "1px"],
+            [2, "2px"],
+            [3, "3px"],
+            [4, "4px"],
+        ]
+
+        lineWight.forEach(value => {
+            const li = document.createElement("li")
+            li.className = "ms-2"
+
+            const a = document.createElement("a")
+            a.className = "dropdown-item"
+            a.href = "#"
+            a.textContent = value[1]
+            li.appendChild(a)
+
+            ul.appendChild(li)
+            a.onclick = () => {
+                format_layer["layer_" + id].format.ancho_linea = value[0]
+                const checkLayer = document.getElementById(id)
+                i.textContent = " " + value[0] + "px"
+
+                if (checkLayer.checked == true) {
+                    //Crear dos filtros para mostrar o quitar la capa
+                    //Solo para capas locales fijas, que siempre se presentarán en el programa
+
+                    if (format_layer["layer_" + id].target.local == "nolocal") {
+                        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+
+                        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
+                        map.removeLayer(layer_remove[0][1])
+                        lis_layers = layer_noremove
+                        if (id == "munvictimascalor") {
+                            ver_calor_mun_victimas(true, id)
+                        } else if (id == "muncasoscalor") {
+                            ver_calor_mun(true, id)
+                        }else if (id == "depcasoscalor") {
+                            ver_calor_dep(true, id)
+                        }else if (id == "depvictimascalor") {
+                            ver_calor_dep_victimas(true, id)
+                        }
+                    }
+
+                }
+            }
+        })
+
+    }
+    function maker_control_pane() {
+        //Crearemos un control desplegable de color linea personalizado
+        const dropdown = document.createElement("div")
+        dropdown.className = "dropdown me-1"
+        dropdown.innerHTML =
+            `
+        <button class="border-0 btn-outline-secondary p-1
+            dropdown-toggle tooltip-container" 
+            type="button" 
+            data-bs-toggle="dropdown"
+            id="btnPane${id}">
+        </button>
+        `
+        const ul = document.createElement("ul")
+        ul.className = "dropdown-menu container-fluid p-1"
+        dropdown.appendChild(ul)
+        btngroup.appendChild(dropdown)
+
+        //Colocamos un icono que cambiará de color cuando cambie la selección
+        const i = document.createElement("i")
+        i.className = "bi-intersect"
+        i.textContent = eval(format_layer["layer_"+id].format.pane)
+        i.style.color = "black"
+
+
+        const btnPane = document.getElementById("btnPane" + id)
+        btnPane.appendChild(i)
+        tooltip(btnPane, "Posición capa", "gray")
+
+        //Colocamos los colores en el ul control
+        const Pane = ["1", "2", "3", "4", "5", "6"]
+
+        Pane.forEach(value => {
+            const li = document.createElement("li")
+            li.className = "ms-2"
+
+            const a = document.createElement("a")
+            a.className = "dropdown-item"
+            a.href = "#"
+            a.textContent = value
+            li.appendChild(a)
+
+            ul.appendChild(li)
+            a.onclick = () => {
+                format_layer["layer_"+id].format.pane = `'${value}'`
+                const checkLayer = document.getElementById(id)
+                i.textContent = " " + value
+
+                if (checkLayer.checked == true) {
+                    //Crear dos filtros para mostrar o quitar la capa
+                    //Solo para capas locales fijas, que siempre se presentarán en el programa
+
+                    if (format_layer["layer_" + id].target.local == "nolocal") {
+                        let layer_remove = lis_layers.filter(value => value[0] == "layer_" + id)
+
+                        let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + id)
+                        map.removeLayer(layer_remove[0][1])
+                        lis_layers = layer_noremove
+                        if (id == "munvictimascalor") {
+                            ver_calor_mun_victimas(true, id)
+                        } else if (id == "muncasoscalor") {
+                            ver_calor_mun(true, id)
+                        }else if (id == "depcasoscalor") {
+                            ver_calor_dep(true, id)
+                        }else if (id == "depvictimascalor") {
+                            ver_calor_dep_victimas(true, id)
+                        }
+                    }
+
+                }
+
+
+            }
+        })
+
+    }
 
 }
 
