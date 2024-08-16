@@ -80,7 +80,7 @@ function ini_menu_graficos() {
         }
         
         latlng_line.ini.departamento = clistaDep.options[clistaDep.selectedIndex].text;
-        document.getElementById("intOtroLugar").value==""
+
 
         let marcaA = L.circleMarker([latlng_line.ini.lat, latlng_line.ini.lng],
             {
@@ -101,7 +101,6 @@ function ini_menu_graficos() {
         maker_index()
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
-            inda = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaA,
@@ -157,16 +156,20 @@ function ini_menu_graficos() {
                 weight: eval(format_grafico["layer_line"].format.ancho_linea),
                 opacity: eval(format_grafico["layer_line"].format.opacidad),
                 pane: eval(format_grafico["layer_line"].format.pane),
-                dashArray: eval(format_grafico["layer_line"].format.dashArray),
-            });
 
+            });
+            lineNew.bindPopup(function () {
+                return `Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento}) 
+            \n hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})
+            \n ${document.getElementById("intInfoLine").value}`;
+            }, { pane: "labels" }
+            )
             map.addLayer(lineNew);
 
             maker_index_line()
 
             function maker_index_line() {
                 let index = Math.random().toString(36).slice(2) + "line"
-                indc = index
                 line_marks_temp[index] = {
                     "layer": {
                         "data": lineNew,
@@ -212,7 +215,6 @@ function ini_menu_graficos() {
         }
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
-            indb = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaB,
@@ -305,24 +307,9 @@ function clear_line() {
         try {
             map.removeLayer(line_marks_temp[ind].layer.data)
         } catch (error) {
-            console.log(ind)
+            console.log(line_marks_temp[ind].layer.data)
         }
     }
-    line_marks_temp = {}
-
-
-}
-function delete_unique_line(inda, indb, indc) {
-    //Borra todos los elementos de una linea 
-    map.removeLayer(line_marks_temp[inda].layer.data)
-    delete line_marks_temp[inda];
-    map.removeLayer(line_marks_temp[indb].layer.data)
-    delete line_marks_temp[indb];
-    map.removeLayer(line_marks_temp[indc].layer.data)
-    delete line_marks_temp[indc];
-    console.log(line_marks_temp)
-
-
 }
 
 async function download(data, filename, type) {
@@ -352,6 +339,8 @@ let ind1
 let ind2
 let ind3
 function upload_lines(data) {
+    clear_line()
+    line_marks_temp = {}
     for (ind in data) {
         if (data[ind].line != null) {
             //Procedemos a crear el primer punto
@@ -359,7 +348,7 @@ function upload_lines(data) {
             end_place(data[ind].line)
         }
     }
-    //Estos son los indices locales de los componentes de una línea    
+
     function ini_place(data) {
         latlng_line.ini.lat = data.coord.ini_lat
         latlng_line.ini.lng = data.coord.ini_lng
@@ -385,7 +374,6 @@ function upload_lines(data) {
         maker_index()
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
-            ind1 = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaA,
@@ -449,7 +437,6 @@ function upload_lines(data) {
 
             function maker_index_line() {
                 let index = Math.random().toString(36).slice(2) + "line"
-                ind3 = index
                 line_marks_temp[index] = {
                     "layer": {
                         "data": lineLoad,
@@ -486,7 +473,6 @@ function upload_lines(data) {
         }
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
-            ind2 = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaB,
