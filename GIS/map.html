@@ -852,9 +852,6 @@
     }).setView([5.1, -75.55], 5);
 
 
-
-
-
     let ActiveTile;
 
     async function IniProgram() {
@@ -954,14 +951,29 @@
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <small>Departamento</small>
-        <select class="form-select form-select-sm ms-1" id="lisDep_graficos">
-        </select>
-        <small>Municipio</small>
-        <select class="form-select form-select-sm ms-1" id="lisMun_graficos">
-        </select>
-        <small>Coordenadas</small>
-        <input type="text" class="form-control ms-1" placeholder="0.0,0.0" id="intCoordGrafico">
+        <div class="row">
+            <div class="col"><small>Departamento</small>
+                <select class="form-select form-select-sm ms-1" id="lisDep_graficos">
+                </select>
+            </div>
+            <div class="col">
+                <small>Municipio</small>
+                <select class="form-select form-select-sm ms-1" id="lisMun_graficos">
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <small>Otro lugar</small>
+                <input type="text" class="form-control ms-1" placeholder="" id="intOtroLugar">
+            </div>
+            <div class="col">
+                <small>Coordenadas</small>
+                <input type="text" class="form-control ms-1" placeholder="0.0,0.0" id="intCoordGrafico">
+            </div>
+        </div>
+
         <small>Informaciòn</small>
         <textarea class="form-control" aria-label="With textarea" id="intInfoLine" rows="2"></textarea>
         <small>Lineas</small>
@@ -969,17 +981,18 @@
             <div class="btn-group mt-1" role="group" aria-label="Basic example">
                 <button id="btnColorLine_graficos" class="btn dropdown-toggle bg-secondary text-white" type=" button"
                     data-bs-toggle="dropdown">
-                    <i id="iclg" class="bi bi-circle" data-bs-toggle="tooltip" data-bs-placement="top"
+                    <i id="iclg" class="bi bg-white p-1 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top"
                         id="btnColorlinea_consulta" data-bs-custom-class="tooltip" data-bs-title="Color linea"
-                        style="color: black;"></i>
+                        style="color: black;">——</i>
                 </button>
                 <ul class="dropdown-menu">
                     <div id="ulColorLinea_graficos" class="container-fluid">
 
                     </div>
                 </ul>
-                <select id="selOpacityLine_graficos" class="btn btn-secondary text-white text-start" style="width: 85px;" data-bs-toggle="tooltip"
-                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Opacidad linea">
+                <select id="selOpacityLine_graficos" class="btn btn-secondary text-white text-start"
+                    style="width: 85px;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Opacidad linea">
                     <option value="1">100%</option>
                     <option value="0.9">90%</option>
                     <option value="0.8">80%</option>
@@ -991,9 +1004,9 @@
                     <option value="0.2">20%</option>
                     <option value="0.1">10%</option>
                 </select>
-                <select id="selGrosorLine_graficos" class="btn btn-secondary text-white text-start" style="width: 85px;" data-bs-toggle="tooltip"
-                    data-bs-placement="top" data-bs-custom-class="tooltip" data-bs-title="Grosor linea"
-                    onchange="size_marca_busqueda=this.value">
+                <select id="selGrosorLine_graficos" class="btn btn-secondary text-white text-start" style="width: 70px;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Grosor linea">
                     <option value="1">1pt</option>
                     <option value="2">2pt</option>
                     <option value="3">3pt</option>
@@ -1006,7 +1019,16 @@
                     <option value="10">10pt</option>
                     <option value="15">15pt</option>
                 </select>
-                
+                <select id="selTipoLine_graficos" class="btn btn-secondary text-white text-start" style="width:90px;"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
+                    data-bs-title="Tipo de linea">
+
+                    <option value=0> —— </option>
+                    <option value=5,5> ------ </option>
+                    <option value=5,10> - - - - </option>
+                    <option value=10,5> – – – </option>
+                    <option value=1> ∙ ∙ ∙ ∙ ∙ </option>
+                </select>
             </div>
             <div class="btn-group mt-1" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-secondary" id="line_ini_point">
@@ -1029,16 +1051,16 @@
                 </button>
             </div>
             <input id="file-input-lines" style="visibility:hidden; width: 50px;" type="file" accept=".json">
-            </div>
         </div>
+    </div>
 
 
 
-        <div id="panel_lista_elementos">
-
-        </div>
+    <div id="panel_lista_elementos">
 
     </div>
+
+</div>
 </div>
 
 </html>

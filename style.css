@@ -235,3 +235,17 @@
     visibility: visible;
     opacity: 1;
 }
+
+.btn-mini{
+    width: 30px;
+    height: 30px;
+    background-color: #C0392B;
+    text-align: center;
+    vertical-align:bottom;
+    padding-top: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.btn-mini:hover{
+    background-color: #642018;
+}

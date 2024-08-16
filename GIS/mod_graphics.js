@@ -11,8 +11,8 @@ let latlng_line = {
         "lugar": "",
         "departamento": ""
     },
-    "info":{
-        "detalle":""
+    "info": {
+        "detalle": ""
     }
 }
 let format_grafico = {
@@ -21,7 +21,8 @@ let format_grafico = {
             color_linea: "'black'",
             opacidad: 1,
             ancho_linea: 3,
-            pane: "'4'"
+            pane: "'4'",
+            dashArray: "''"
         }
     }
 }
@@ -55,22 +56,31 @@ function ini_menu_graficos() {
         })
     }
     clistaDep.value = "bogotá"
-    clistaMun.value = "bogotá"
-
+    clistaDep.onchange()
+    clistaMun.value = "4.64993705899,-74.106715324"
     const inCoordenadas = document.getElementById("intCoordGrafico")
     clistaMun.onchange = () => {
         inCoordenadas.value = clistaMun.value
     }
 
     //Administra el inicio de la ruta
+    let inda
+    let indb
+    let indc
+
     const btn_lne_ini = document.getElementById("line_ini_point")
     btn_lne_ini.onclick = () => {
         const latlng = inCoordenadas.value.split(",")
         latlng_line.ini.lat = latlng[0]
         latlng_line.ini.lng = latlng[1]
-        latlng_line.ini.lugar = clistaMun.options[clistaMun.selectedIndex].text;
+        if(document.getElementById("intOtroLugar").value==""){
+            latlng_line.ini.lugar = clistaMun.options[clistaMun.selectedIndex].text;
+        }else{
+            latlng_line.ini.lugar = document.getElementById("intOtroLugar").value 
+        }
+        
         latlng_line.ini.departamento = clistaDep.options[clistaDep.selectedIndex].text;
-
+        document.getElementById("intOtroLugar").value==""
 
         let marcaA = L.circleMarker([latlng_line.ini.lat, latlng_line.ini.lng],
             {
@@ -91,6 +101,7 @@ function ini_menu_graficos() {
         maker_index()
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            inda = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaA,
@@ -106,7 +117,13 @@ function ini_menu_graficos() {
         const latlng = inCoordenadas.value.split(",")
         latlng_line.end.lat = latlng[0]
         latlng_line.end.lng = latlng[1]
-        latlng_line.end.lugar = clistaMun.options[clistaMun.selectedIndex].text;
+        if(document.getElementById("intOtroLugar").value==""){
+            latlng_line.end.lugar = clistaMun.options[clistaMun.selectedIndex].text;
+            
+        }else{
+            latlng_line.end.lugar = document.getElementById("intOtroLugar").value;
+        }
+        document.getElementById("intOtroLugar").value=""
         latlng_line.end.departamento = clistaDep.options[clistaDep.selectedIndex].text;
 
         let marcaB = L.circleMarker([latlng_line.end.lat, latlng_line.end.lng],
@@ -128,6 +145,8 @@ function ini_menu_graficos() {
         marcaB.addTo(map);
         maker_index()
         make_line()
+
+
         function make_line() {
             var pointA = new L.LatLng(latlng_line.ini.lat, latlng_line.ini.lng);
             var pointB = new L.LatLng(latlng_line.end.lat, latlng_line.end.lng);
@@ -138,20 +157,16 @@ function ini_menu_graficos() {
                 weight: eval(format_grafico["layer_line"].format.ancho_linea),
                 opacity: eval(format_grafico["layer_line"].format.opacidad),
                 pane: eval(format_grafico["layer_line"].format.pane),
-
+                dashArray: eval(format_grafico["layer_line"].format.dashArray),
             });
-            lineNew.bindPopup(function () {
-                return `Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento}) 
-            \n hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})
-            \n ${document.getElementById("intInfoLine").value}`;
-            }, { pane: "labels" }
-            )
+
             map.addLayer(lineNew);
 
             maker_index_line()
 
             function maker_index_line() {
                 let index = Math.random().toString(36).slice(2) + "line"
+                indc = index
                 line_marks_temp[index] = {
                     "layer": {
                         "data": lineNew,
@@ -174,19 +189,30 @@ function ini_menu_graficos() {
                             "weight": format_grafico["layer_line"].format.ancho_linea,
                             "opacity": format_grafico["layer_line"].format.opacidad,
                             "pane": format_grafico["layer_line"].format.pane,
+                            "dashArray": format_grafico["layer_line"].format.dashArray,
                         },
-                        "info":{
-                            "detalle":document.getElementById("intInfoLine").value
+                        "info": {
+                            "detalle": document.getElementById("intInfoLine").value
                         }
                     }
-
                 }
-
+                lineNew.bindPopup(function () {
+                    return `
+                </div>Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento})
+                <div>hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})</div>
+                <div>${document.getElementById("intInfoLine").value}</div>
+                <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${inda}','${indb}','${indc}')">
+                    <i class="bi bi-trash"></i>
+                </div>                                
+                `;
+                }, { pane: "labels" }
+                )
             }
 
         }
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            indb = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaB,
@@ -197,6 +223,44 @@ function ini_menu_graficos() {
 
     maker_format_line()
     //==================================================================
+    //Acciones para leer la línea
+    const fileSelector = document.getElementById('file-input-lines');
+    fileSelector.addEventListener('change', (event) => {
+        const archivo = event.target.files[0];
+
+        if (!archivo) {
+            return;
+        }
+        var lector = new FileReader();
+        lector.onload = function (e) {
+            var contenido = e.target.result;
+            var data = JSON.parse(contenido)
+
+            upload_lines(data)
+
+        };
+
+        lector.readAsText(archivo);
+        //Limpiamos el contenedor archivo para que permita recargas
+        document.getElementById('file-input-lines').value = ''
+        //Lista las marcas en el contenedor de marcas
+    });
+
+    const btnSave_line = document.getElementById("btnSave_line")
+    btnSave_line.onclick = () => {
+        let tempLayer = {}
+
+        for (ind in line_marks_temp) {
+            tempLayer[ind] = { "data": line_marks_temp[ind].layer.data }
+            line_marks_temp[ind].layer.data = ""
+        }
+
+        download(JSON.stringify(line_marks_temp), 'layer_line.json', 'txt')
+
+        for (ind in line_marks_temp) {
+            line_marks_temp[ind].layer.data = tempLayer[ind].data
+        }
+    }
 
     function maker_format_line() {
         //Boton color línea
@@ -225,41 +289,14 @@ function ini_menu_graficos() {
         selGrosorLine_graficos.onchange = () => {
             format_grafico["layer_line"].format.ancho_linea = selGrosorLine_graficos.value
         }
-    }
-
-    //Acciones para guardar la línea
-    const btnSave_line = document.getElementById("btnSave_line")
-    btnSave_line.onclick = () => {
-
-        for (ind in line_marks_temp) {
-            line_marks_temp[ind].layer.data = ""
+        const selTipoLine_graficos = document.getElementById("selTipoLine_graficos")
+        selTipoLine_graficos.onchange = () => {
+            format_grafico["layer_line"].format.dashArray = selTipoLine_graficos.value
         }
 
-        download(JSON.stringify(line_marks_temp), 'layer_line.json', 'txt')
+
     }
-
-    const fileSelector = document.getElementById('file-input-lines');
-    fileSelector.addEventListener('change', (event) => {
-        const archivo = event.target.files[0];
-
-        if (!archivo) {
-            return;
-        }
-        var lector = new FileReader();
-        lector.onload = function (e) {
-            var contenido = e.target.result;
-            var data = JSON.parse(contenido)
-
-            upload_lines(data)
-
-
-        };
-
-        lector.readAsText(archivo);
-        //Limpiamos el contenedor archivo para que permita recargas
-        document.getElementById('file-input-lines').value = ''
-        //Lista las marcas en el contenedor de marcas
-    });
+    //================================================
 
 
 }
@@ -268,29 +305,52 @@ function clear_line() {
         try {
             map.removeLayer(line_marks_temp[ind].layer.data)
         } catch (error) {
-            console.log(line_marks_temp[ind].layer.data)
+            console.log(ind)
         }
     }
+    line_marks_temp = {}
+
+
+}
+function delete_unique_line(inda, indb, indc) {
+    //Borra todos los elementos de una linea 
+    map.removeLayer(line_marks_temp[inda].layer.data)
+    delete line_marks_temp[inda];
+    map.removeLayer(line_marks_temp[indb].layer.data)
+    delete line_marks_temp[indb];
+    map.removeLayer(line_marks_temp[indc].layer.data)
+    delete line_marks_temp[indc];
+    console.log(line_marks_temp)
+
+
 }
 
-function download(data, filename, type) {
-    var file = new Blob([data], { type: type });
-    if (window.navigator.msSaveOrOpenBlob) // IE10+
-        window.navigator.msSaveOrOpenBlob(file, filename);
-    else { // Others
-        var a = document.createElement("a"),
-            url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function () {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }, 0);
-    }
+async function download(data, filename, type) {
+    const blob = new Blob([data], { type: type });
+
+    const newHandle = await window.showSaveFilePicker({
+        types: [{
+            description: 'Text Files',
+            accept: {
+                'text/plain': ['.json'],
+            },
+        }],
+        id: "save-json-file-picker",
+        excludeAcceptAllOption: true,
+    });
+
+    const writableStream = await newHandle.createWritable();
+    await writableStream.write(blob);
+    await writableStream.close();
+
+
+
+
 }
 
+let ind1
+let ind2
+let ind3
 function upload_lines(data) {
     for (ind in data) {
         if (data[ind].line != null) {
@@ -299,9 +359,8 @@ function upload_lines(data) {
             end_place(data[ind].line)
         }
     }
-
+    //Estos son los indices locales de los componentes de una línea    
     function ini_place(data) {
-        
         latlng_line.ini.lat = data.coord.ini_lat
         latlng_line.ini.lng = data.coord.ini_lng
         latlng_line.ini.lugar = data.places.ini_mun
@@ -326,16 +385,16 @@ function upload_lines(data) {
         maker_index()
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            ind1 = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaA,
                 },
             }
         }
-        
+
     }
     function end_place(data) {
-
         latlng_line.end.lat = data.coord.end_lat
         latlng_line.end.lng = data.coord.end_lng
         latlng_line.end.lugar = data.places.end_mun
@@ -374,9 +433,14 @@ function upload_lines(data) {
 
             });
             lineLoad.bindPopup(function () {
-                return `Desplazamiento desde (${data.places.ini_mun},${data.places.ini_dep }) 
-            \n hasta (${data.places.end_mun },${data.places.end_dep})
-            \n ${data.info.detalle}`;
+                return ` 
+                    <div>Desplazamiento desde (${data.places.ini_mun},${data.places.ini_dep})</div>
+                    <div>hasta (${data.places.end_mun},${data.places.end_dep})</div>
+                    <div>${data.info.detalle}</div>
+                    <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${ind1}','${ind2}','${ind3}')">
+                        <i class="bi bi-trash"></i>
+                    </div>
+            `;
             }, { pane: "labels" }
             )
             map.addLayer(lineLoad);
@@ -385,6 +449,7 @@ function upload_lines(data) {
 
             function maker_index_line() {
                 let index = Math.random().toString(36).slice(2) + "line"
+                ind3 = index
                 line_marks_temp[index] = {
                     "layer": {
                         "data": lineLoad,
@@ -407,9 +472,10 @@ function upload_lines(data) {
                             "weight": format_grafico["layer_line"].format.ancho_linea,
                             "opacity": format_grafico["layer_line"].format.opacidad,
                             "pane": format_grafico["layer_line"].format.pane,
+                            "dashArray": format_grafico["layer_line"].format.dashArray,
                         },
-                        "info":{
-                            "detalle":data.info.detalle
+                        "info": {
+                            "detalle": data.info.detalle
                         }
                     }
 
@@ -420,6 +486,7 @@ function upload_lines(data) {
         }
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            ind2 = index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaB,
