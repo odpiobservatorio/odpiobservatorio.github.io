@@ -101,6 +101,7 @@ function ini_menu_graficos() {
         maker_index()
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            inda=index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaA,
@@ -170,6 +171,7 @@ function ini_menu_graficos() {
 
             function maker_index_line() {
                 let index = Math.random().toString(36).slice(2) + "line"
+                indc=index
                 line_marks_temp[index] = {
                     "layer": {
                         "data": lineNew,
@@ -200,11 +202,12 @@ function ini_menu_graficos() {
                     }
                 }
                 lineNew.bindPopup(function () {
+                    let indices=[inda,indb,indc]
                     return `
                 </div>Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento})
                 <div>hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})</div>
                 <div>${document.getElementById("intInfoLine").value}</div>
-                <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${inda}','${indb}','${indc}')">
+                <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${indices}')">
                     <i class="bi bi-trash"></i>
                 </div>                                
                 `;
@@ -215,6 +218,7 @@ function ini_menu_graficos() {
         }
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            indb=index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaB,
@@ -339,8 +343,8 @@ let ind1
 let ind2
 let ind3
 function upload_lines(data) {
-    clear_line()
-    line_marks_temp = {}
+
+
     for (ind in data) {
         if (data[ind].line != null) {
             //Procedemos a crear el primer punto
@@ -374,6 +378,7 @@ function upload_lines(data) {
         maker_index()
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            ind1=index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaA,
@@ -421,11 +426,12 @@ function upload_lines(data) {
 
             });
             lineLoad.bindPopup(function () {
+                let indices=[ind1,ind2,ind3]
                 return ` 
                     <div>Desplazamiento desde (${data.places.ini_mun},${data.places.ini_dep})</div>
                     <div>hasta (${data.places.end_mun},${data.places.end_dep})</div>
                     <div>${data.info.detalle}</div>
-                    <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${ind1}','${ind2}','${ind3}')">
+                    <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${indices}')">
                         <i class="bi bi-trash"></i>
                     </div>
             `;
@@ -437,6 +443,7 @@ function upload_lines(data) {
 
             function maker_index_line() {
                 let index = Math.random().toString(36).slice(2) + "line"
+                ind3=index
                 line_marks_temp[index] = {
                     "layer": {
                         "data": lineLoad,
@@ -473,6 +480,7 @@ function upload_lines(data) {
         }
         function maker_index() {
             let index = Math.random().toString(36).slice(2) + "mark"
+            ind2=index
             line_marks_temp[index] = {
                 "layer": {
                     "data": marcaB,
@@ -480,4 +488,13 @@ function upload_lines(data) {
             }
         }
     }
+}
+function delete_unique_line(indAll){
+
+    indAll.split(",").forEach(ind=>{
+        map.removeLayer(line_marks_temp[ind].layer.data)
+        delete line_marks_temp[ind];
+    })
+
+
 }
