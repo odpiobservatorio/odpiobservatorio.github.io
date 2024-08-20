@@ -69,7 +69,6 @@ function ini_menu_graficos() {
         inCoordenadas.value = clistaMun.value
     }
 
-
     const btn_lne_ini = document.getElementById("line_ini_point")
     btn_lne_ini.onclick = () => {
         ini_line_point()
@@ -81,7 +80,6 @@ function ini_menu_graficos() {
     btn_lne_end.onclick = () => {
         end_line_point()
     }
-
 
     //==================================================================
     //Acciones para leer la línea
@@ -96,9 +94,7 @@ function ini_menu_graficos() {
         lector.onload = function (e) {
             var contenido = e.target.result;
             var data = JSON.parse(contenido)
-
             upload_lines(data)
-
         };
 
         lector.readAsText(archivo);
@@ -112,14 +108,22 @@ function ini_menu_graficos() {
         let tempLayer = {}
 
         for (ind in line_marks_temp) {
-            tempLayer[ind] = { "data": line_marks_temp[ind].layer.data }
-            line_marks_temp[ind].layer.data = ""
+            tempLayer[ind] = {
+                "pointA": line_marks_temp[ind].layer.pointA,
+                "pointB": line_marks_temp[ind].layer.pointB,
+                "pointC": line_marks_temp[ind].layer.pointC
+            }
+
+            line_marks_temp[ind].layer.pointA = ""
+            line_marks_temp[ind].layer.pointB = ""
+            line_marks_temp[ind].layer.pointC = ""
         }
 
         download(JSON.stringify(line_marks_temp), 'layer_line.json', 'txt')
-
         for (ind in line_marks_temp) {
-            line_marks_temp[ind].layer.data = tempLayer[ind].data
+            line_marks_temp[ind].layer.pointA = tempLayer[ind].pointA
+            line_marks_temp[ind].layer.pointB = tempLayer[ind].pointB
+            line_marks_temp[ind].layer.pointC = tempLayer[ind].pointC
         }
     }
     //================================================
@@ -197,7 +201,7 @@ function end_line_point() {
 
     intOtroLugar.value = ""
     intCoordenadas.value = ""
-    intInfoLine.value = ""
+    //intInfoLine.value = ""
 
     //Creamos el punto en el mapa
     let marcaB = L.circleMarker([latlng_line.end.lat, latlng_line.end.lng],
@@ -238,7 +242,6 @@ function maker_line() {
             `<div>Desplazamiento desde (${latlng_line.ini.lugar}, ${latlng_line.ini.departamento})</div>
             <div>Hasta (${latlng_line.end.lugar}, ${latlng_line.end.departamento})</div>
             <div>${document.getElementById("intInfoLine").value}</div>
-            <div>${document.getElementById("intInfoLine").value}</div>
             `
         const btnBorrar = document.createElement("button")
         btnBorrar.className = "btn btn-secondary mt-1"
@@ -257,6 +260,7 @@ function maker_line() {
     )
     map.addLayer(lineNew);
     latlng_line.layer.pointC = lineNew
+
     maker_object_line(index)
 }
 function maker_object_line(index) {
@@ -339,7 +343,6 @@ function maker_lista_lines() {
     }
 }
 
-
 function maker_format_line() {
     //Boton color línea
     const btnColorLine_graficos = document.getElementById("btnColorLine_graficos")
@@ -385,6 +388,7 @@ function clear_line() {
 }
 
 async function download(data, type) {
+    console.log(line_marks_temp,"save")
     const blob = new Blob([data], { type: type });
 
     const newHandle = await window.showSaveFilePicker({
@@ -408,10 +412,119 @@ async function download(data, type) {
 }
 
 
-function upload_lines() {
+function upload_lines(loadadata) {
+    
+    for (i in loadadata) {
+        const data = loadadata[i]
 
-}
+        //Creamos el punto en el mapa
+        let marcaA = L.circleMarker([data.line.coord.ini_lat, data.line.coord.ini_lng],
+            {
+                color: "white",
+                fillColor: "purple",
+                fillOpacity: 1,
+                weight: 1,
+                radius: 5,
+                pane: "3"
+            }
+        )
+        marcaA.bindPopup(function () {
+            return "Origen: " + data.line.places.ini_mun + ", " + data.line.places.ini_dep;
+        }, { pane: "labels" }
+        )
+        marcaA.addTo(map);
+        //========================================================================================
+        //Creamos el punto en el mapa
+        let marcaB = L.circleMarker([data.line.coord.end_lat, data.line.coord.end_lng],
+            {
+                color: "white",
+                fillColor: "purple",
+                fillOpacity: 1,
+                weight: 1,
+                radius: 5,
+                pane: "3"
+            }
+        )
+        marcaB.bindPopup(function () {
+            return "Destino: " + data.line.places.end_mun + ", " + data.line.places.end_dep;
+        }, { pane: "labels" }
+        )
+        marcaB.addTo(map);
 
-function delete_unique_line() {
+        //=============================================================================================
+        var pointA = new L.LatLng(data.line.coord.ini_lat, data.line.coord.ini_lng);
+        var pointB = new L.LatLng(data.line.coord.end_lat, data.line.coord.end_lng);
+        var pointList = [pointA, pointB];
+
+        var lineNew = new L.Polyline(pointList, {
+            color: eval(data.line.format_line.color),
+            weight: eval(data.line.format_line.weight),
+            opacity: eval(data.line.format_line.opacity),
+            pane: eval(data.line.format_line.pane),
+            dashArray: eval(data.line.format_line.dashArray),
+
+        });
+        let divLabel = document.createElement("div")
+        lineNew.bindPopup(function () {
+            divLabel.innerHTML =
+                `<div>Desplazamiento desde (${data.line.places.ini_mun}, ${data.line.places.ini_dep})</div>
+            <div>Hasta (${data.line.places.end_mun}, ${data.line.places.end_dep})</div>
+            <div>${data.line.info.detalle}</div>
+            `
+            const btnBorrar = document.createElement("button")
+            btnBorrar.className = "btn btn-secondary mt-1"
+            btnBorrar.type = "button"
+            btnBorrar.innerHTML = `<i class="bi bi-trash" style="font-size: 10pt;"></i>`
+            divLabel.appendChild(btnBorrar)
+            btnBorrar.onclick = () => {
+                map.removeLayer(line_marks_temp[i].layer.pointA)
+                map.removeLayer(line_marks_temp[i].layer.pointB)
+                map.removeLayer(line_marks_temp[i].layer.pointC)
+                delete line_marks_temp[i];
+                maker_lista_lines()
+            }
+            return divLabel
+        }, { pane: "labels" }
+        )
+        map.addLayer(lineNew);
+
+        //===========================================================================================
+        line_marks_temp[i] = {
+            "layer": {
+                "pointA": marcaA,
+                "pointB": marcaB,
+                "pointC": lineNew,
+            },
+            "line": {
+                "coord": {
+                    ini_lat: data.line.coord.ini_lat,
+                    ini_lng: data.line.coord.ini_lng,
+                    end_lat: data.line.coord.end_lat,
+                    end_lng: data.line.coord.end_lng
+                },
+                "places": {
+                    ini_mun: data.line.places.ini_mun,
+                    ini_dep: data.line.places.ini_dep,
+                    end_mun: data.line.places.end_mun,
+                    end_dep: data.line.places.end_dep,
+                },
+                "format_line": {
+                    "color": data.line.format_line.color,
+                    "weight": data.line.format_line.weight,
+                    "opacity": data.line.format_line.opacity,
+                    "pane": data.line.format_line.pane,
+                    "dashArray": data.line.format_line.dashArray,
+                },
+                "info": {
+                    "detalle": data.line.info.detalle
+                }
+            }
+        }
+
+
+
+    }
+    console.log(line_marks_temp,"open")
+    maker_lista_lines()
 
 }
