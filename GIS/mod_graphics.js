@@ -162,7 +162,7 @@ function ini_line_point() {
     let marcaA = L.circleMarker([latlng_line.ini.lat, latlng_line.ini.lng],
         {
             color: "white",
-            fillColor: "purple",
+            fillColor: "red",
             fillOpacity: 1,
             weight: 1,
             radius: 5,
@@ -207,7 +207,7 @@ function end_line_point() {
     let marcaB = L.circleMarker([latlng_line.end.lat, latlng_line.end.lng],
         {
             color: "white",
-            fillColor: "purple",
+            fillColor: "lime",
             fillOpacity: 1,
             weight: 1,
             radius: 5,
@@ -421,7 +421,7 @@ function upload_lines(loadadata) {
         let marcaA = L.circleMarker([data.line.coord.ini_lat, data.line.coord.ini_lng],
             {
                 color: "white",
-                fillColor: "purple",
+                fillColor: "red",
                 fillOpacity: 1,
                 weight: 1,
                 radius: 5,
@@ -438,7 +438,7 @@ function upload_lines(loadadata) {
         let marcaB = L.circleMarker([data.line.coord.end_lat, data.line.coord.end_lng],
             {
                 color: "white",
-                fillColor: "purple",
+                fillColor: "lime",
                 fillOpacity: 1,
                 weight: 1,
                 radius: 5,
