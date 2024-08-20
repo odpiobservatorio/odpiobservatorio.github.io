@@ -13,7 +13,13 @@ let latlng_line = {
     },
     "info": {
         "detalle": ""
+    },
+    "layer": {
+        "pointA": "",
+        "pointB": "",
+        "pointC": ""
     }
+
 }
 let format_grafico = {
     "layer_line": {
@@ -63,171 +69,20 @@ function ini_menu_graficos() {
         inCoordenadas.value = clistaMun.value
     }
 
-    //Administra el inicio de la ruta
-    let inda
-    let indb
-    let indc
 
     const btn_lne_ini = document.getElementById("line_ini_point")
     btn_lne_ini.onclick = () => {
-        const latlng = inCoordenadas.value.split(",")
-        latlng_line.ini.lat = latlng[0]
-        latlng_line.ini.lng = latlng[1]
-        if(document.getElementById("intOtroLugar").value==""){
-            latlng_line.ini.lugar = clistaMun.options[clistaMun.selectedIndex].text;
-        }else{
-            latlng_line.ini.lugar = document.getElementById("intOtroLugar").value 
-        }
-        
-        latlng_line.ini.departamento = clistaDep.options[clistaDep.selectedIndex].text;
-
-
-        let marcaA = L.circleMarker([latlng_line.ini.lat, latlng_line.ini.lng],
-            {
-                color: "white",
-                fillColor: "purple",
-                fillOpacity: 1,
-                weight: 1,
-                radius: 5,
-                pane: "3"
-            }
-
-        )
-        marcaA.bindPopup(function () {
-            return "Origen: " + latlng_line.ini.lugar + ", " + latlng_line.ini.departamento;
-        }, { pane: "labels" }
-        )
-        marcaA.addTo(map);
-        maker_index()
-        function maker_index() {
-            let index = Math.random().toString(36).slice(2) + "mark"
-            inda=index
-            line_marks_temp[index] = {
-                "layer": {
-                    "data": marcaA,
-                },
-            }
-        }
+        ini_line_point()
     }
 
     //===========================================================
     //Boton que administra marca final de la ruta
     const btn_lne_end = document.getElementById("line_end_point")
     btn_lne_end.onclick = () => {
-        const latlng = inCoordenadas.value.split(",")
-        latlng_line.end.lat = latlng[0]
-        latlng_line.end.lng = latlng[1]
-        if(document.getElementById("intOtroLugar").value==""){
-            latlng_line.end.lugar = clistaMun.options[clistaMun.selectedIndex].text;
-            
-        }else{
-            latlng_line.end.lugar = document.getElementById("intOtroLugar").value;
-        }
-        document.getElementById("intOtroLugar").value=""
-        latlng_line.end.departamento = clistaDep.options[clistaDep.selectedIndex].text;
-
-        let marcaB = L.circleMarker([latlng_line.end.lat, latlng_line.end.lng],
-            {
-                color: "white",
-                fillColor: "purple",
-                fillOpacity: 1,
-                weight: 1,
-                radius: 5,
-                pane: "3"
-            }
-        )
-
-        marcaB.bindPopup(function () {
-            return "Destino: " + latlng_line.end.lugar + ", " + latlng_line.end.departamento;
-        }, { pane: "labels" }
-        )
-
-        marcaB.addTo(map);
-        maker_index()
-        make_line()
-
-
-        function make_line() {
-            var pointA = new L.LatLng(latlng_line.ini.lat, latlng_line.ini.lng);
-            var pointB = new L.LatLng(latlng_line.end.lat, latlng_line.end.lng);
-            var pointList = [pointA, pointB];
-
-            var lineNew = new L.Polyline(pointList, {
-                color: eval(format_grafico["layer_line"].format.color_linea),
-                weight: eval(format_grafico["layer_line"].format.ancho_linea),
-                opacity: eval(format_grafico["layer_line"].format.opacidad),
-                pane: eval(format_grafico["layer_line"].format.pane),
-
-            });
-            lineNew.bindPopup(function () {
-                return `Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento}) 
-            \n hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})
-            \n ${document.getElementById("intInfoLine").value}`;
-            }, { pane: "labels" }
-            )
-            map.addLayer(lineNew);
-
-            maker_index_line()
-
-            function maker_index_line() {
-                let index = Math.random().toString(36).slice(2) + "line"
-                indc=index
-                line_marks_temp[index] = {
-                    "layer": {
-                        "data": lineNew,
-                    },
-                    "line": {
-                        "coord": {
-                            ini_lat: latlng_line.ini.lat,
-                            ini_lng: latlng_line.ini.lng,
-                            end_lat: latlng_line.end.lat,
-                            end_lng: latlng_line.end.lng
-                        },
-                        "places": {
-                            ini_mun: latlng_line.ini.lugar,
-                            ini_dep: latlng_line.ini.departamento,
-                            end_mun: latlng_line.end.lugar,
-                            end_dep: latlng_line.end.departamento,
-                        },
-                        "format_line": {
-                            "color": format_grafico["layer_line"].format.color_linea,
-                            "weight": format_grafico["layer_line"].format.ancho_linea,
-                            "opacity": format_grafico["layer_line"].format.opacidad,
-                            "pane": format_grafico["layer_line"].format.pane,
-                            "dashArray": format_grafico["layer_line"].format.dashArray,
-                        },
-                        "info": {
-                            "detalle": document.getElementById("intInfoLine").value
-                        }
-                    }
-                }
-                lineNew.bindPopup(function () {
-                    let indices=[inda,indb,indc]
-                    return `
-                </div>Desplazamiento desde (${latlng_line.ini.lugar},${latlng_line.ini.departamento})
-                <div>hasta (${latlng_line.end.lugar},${latlng_line.end.departamento})</div>
-                <div>${document.getElementById("intInfoLine").value}</div>
-                <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${indices}')">
-                    <i class="bi bi-trash"></i>
-                </div>                                
-                `;
-                }, { pane: "labels" }
-                )
-            }
-
-        }
-        function maker_index() {
-            let index = Math.random().toString(36).slice(2) + "mark"
-            indb=index
-            line_marks_temp[index] = {
-                "layer": {
-                    "data": marcaB,
-                },
-            }
-        }
+        end_line_point()
     }
 
-    maker_format_line()
+
     //==================================================================
     //Acciones para leer la línea
     const fileSelector = document.getElementById('file-input-lines');
@@ -267,56 +122,269 @@ function ini_menu_graficos() {
             line_marks_temp[ind].layer.data = tempLayer[ind].data
         }
     }
-
-    function maker_format_line() {
-        //Boton color línea
-        const btnColorLine_graficos = document.getElementById("btnColorLine_graficos")
-        const ul = document.getElementById("ulColorLinea_graficos")
-        const icl = document.getElementById("iclg")
-
-        btnColorLine_graficos.onclick = () => {
-            ColorList.forEach(color => {
-                const iColor = document.createElement("i")
-                iColor.className = "bi bi-square-fill fs-3 m-1"
-                iColor.style.color = color
-                ul.appendChild(iColor)
-                iColor.onclick = () => {
-                    icl.style.color = color
-                    format_grafico["layer_line"].format.color_linea = `'${color}'`
-                }
-            })
-        }
-        const selOpacityLine_graficos = document.getElementById("selOpacityLine_graficos")
-        selOpacityLine_graficos.onchange = () => {
-            format_grafico["layer_line"].format.opacidad = selOpacityLine_graficos.value
-        }
-
-        const selGrosorLine_graficos = document.getElementById("selGrosorLine_graficos")
-        selGrosorLine_graficos.onchange = () => {
-            format_grafico["layer_line"].format.ancho_linea = selGrosorLine_graficos.value
-        }
-        const selTipoLine_graficos = document.getElementById("selTipoLine_graficos")
-        selTipoLine_graficos.onchange = () => {
-            format_grafico["layer_line"].format.dashArray = selTipoLine_graficos.value
-        }
-
-
-    }
     //================================================
+
+    maker_format_line()
+
+}
+
+function ini_line_point() {
+    const clistaDep = document.getElementById("lisDep_graficos")
+    const clistaMun = document.getElementById("lisMun_graficos")
+    const intOtroLugar = document.getElementById("intOtroLugar")
+    const intCoordenadas = document.getElementById("intCoordGrafico")
+    const intInfoLine = document.getElementById("intInfoLine")
+
+
+    //Optiene las coordeandas del primer punto
+    const latlng = intCoordenadas.value.split(",")
+    //Guardo la primera coordenada
+    latlng_line.ini.lat = latlng[0]
+    latlng_line.ini.lng = latlng[1]
+    latlng_line.ini.departamento = clistaDep.options[clistaDep.selectedIndex].text;
+
+    if (intOtroLugar.value == "") {
+        latlng_line.ini.lugar = clistaMun.options[clistaMun.selectedIndex].text;
+    } else {
+        latlng_line.ini.lugar = intOtroLugar.value
+    }
+    latlng_line.info.detalle = intInfoLine.value
+
+
+    intOtroLugar.value = ""
+    intCoordenadas.value = ""
+
+    //Creamos el punto en el mapa
+    let marcaA = L.circleMarker([latlng_line.ini.lat, latlng_line.ini.lng],
+        {
+            color: "white",
+            fillColor: "purple",
+            fillOpacity: 1,
+            weight: 1,
+            radius: 5,
+            pane: "3"
+        }
+    )
+    marcaA.bindPopup(function () {
+        return "Origen: " + latlng_line.ini.lugar + ", " + latlng_line.ini.departamento;
+    }, { pane: "labels" }
+    )
+    marcaA.addTo(map);
+    latlng_line.layer.pointA = marcaA
+}
+function end_line_point() {
+    const clistaDep = document.getElementById("lisDep_graficos")
+    const clistaMun = document.getElementById("lisMun_graficos")
+    const intOtroLugar = document.getElementById("intOtroLugar")
+    const intCoordenadas = document.getElementById("intCoordGrafico")
+    const intInfoLine = document.getElementById("intInfoLine")
+
+
+    //Optiene las coordeandas del primer punto
+    const latlng = intCoordenadas.value.split(",")
+    //Guardo la primera coordenada
+    latlng_line.end.lat = latlng[0]
+    latlng_line.end.lng = latlng[1]
+    latlng_line.end.departamento = clistaDep.options[clistaDep.selectedIndex].text;
+
+    if (intOtroLugar.value == "") {
+        latlng_line.end.lugar = clistaMun.options[clistaMun.selectedIndex].text;
+    } else {
+        latlng_line.end.lugar = intOtroLugar.value
+    }
+    latlng_line.info.detalle = intInfoLine.value
+
+
+    intOtroLugar.value = ""
+    intCoordenadas.value = ""
+    intInfoLine.value = ""
+
+    //Creamos el punto en el mapa
+    let marcaB = L.circleMarker([latlng_line.end.lat, latlng_line.end.lng],
+        {
+            color: "white",
+            fillColor: "purple",
+            fillOpacity: 1,
+            weight: 1,
+            radius: 5,
+            pane: "3"
+        }
+    )
+    marcaB.bindPopup(function () {
+        return "Destino: " + latlng_line.end.lugar + ", " + latlng_line.end.departamento;
+    }, { pane: "labels" }
+    )
+    marcaB.addTo(map);
+    latlng_line.layer.pointB = marcaB
+    maker_line()
+}
+function maker_line() {
+    var pointA = new L.LatLng(latlng_line.ini.lat, latlng_line.ini.lng);
+    var pointB = new L.LatLng(latlng_line.end.lat, latlng_line.end.lng);
+    var pointList = [pointA, pointB];
+
+    var lineNew = new L.Polyline(pointList, {
+        color: eval(format_grafico["layer_line"].format.color_linea),
+        weight: eval(format_grafico["layer_line"].format.ancho_linea),
+        opacity: eval(format_grafico["layer_line"].format.opacidad),
+        pane: eval(format_grafico["layer_line"].format.pane),
+
+    });
+    let divLabel = document.createElement("div")
+    const index = Math.random().toString(36).slice(2) + "mark"
+    lineNew.bindPopup(function () {
+
+        divLabel.innerHTML =
+            `<div>Desplazamiento desde (${latlng_line.ini.lugar}, ${latlng_line.ini.departamento})</div>
+            <div>Hasta (${latlng_line.end.lugar}, ${latlng_line.end.departamento})</div>
+            <div>${document.getElementById("intInfoLine").value}</div>
+            <div>${document.getElementById("intInfoLine").value}</div>
+            `
+        const btnBorrar = document.createElement("button")
+        btnBorrar.className = "btn btn-secondary mt-1"
+        btnBorrar.type = "button"
+        btnBorrar.innerHTML = `<i class="bi bi-trash" style="font-size: 10pt;"></i>`
+        divLabel.appendChild(btnBorrar)
+        btnBorrar.onclick = () => {
+            map.removeLayer(line_marks_temp[index].layer.pointA)
+            map.removeLayer(line_marks_temp[index].layer.pointB)
+            map.removeLayer(line_marks_temp[index].layer.pointC)
+            delete line_marks_temp[index];
+            maker_lista_lines()
+        }
+        return divLabel
+    }, { pane: "labels" }
+    )
+    map.addLayer(lineNew);
+    latlng_line.layer.pointC = lineNew
+    maker_object_line(index)
+}
+function maker_object_line(index) {
+    //Creamos el objeto completo para despues guardar
+    line_marks_temp[index] = {
+        "layer": {
+            "pointA": latlng_line.layer.pointA,
+            "pointB": latlng_line.layer.pointB,
+            "pointC": latlng_line.layer.pointC,
+        },
+        "line": {
+            "coord": {
+                ini_lat: latlng_line.ini.lat,
+                ini_lng: latlng_line.ini.lng,
+                end_lat: latlng_line.end.lat,
+                end_lng: latlng_line.end.lng
+            },
+            "places": {
+                ini_mun: latlng_line.ini.lugar,
+                ini_dep: latlng_line.ini.departamento,
+                end_mun: latlng_line.end.lugar,
+                end_dep: latlng_line.end.departamento,
+            },
+            "format_line": {
+                "color": format_grafico["layer_line"].format.color_linea,
+                "weight": format_grafico["layer_line"].format.ancho_linea,
+                "opacity": format_grafico["layer_line"].format.opacidad,
+                "pane": format_grafico["layer_line"].format.pane,
+                "dashArray": format_grafico["layer_line"].format.dashArray,
+            },
+            "info": {
+                "detalle": document.getElementById("intInfoLine").value
+            }
+        }
+    }
+    maker_lista_lines()
+}
+function maker_lista_lines() {
+    const panel_lista_lines = document.getElementById("panel_lista_lines")
+    panel_lista_lines.innerHTML = ""
+
+    let cont = 1
+
+    for (i in line_marks_temp) {
+        const info = line_marks_temp[i].line.places
+        const row = document.createElement("div")
+        row.className = "row align-items-center m-1"
+        panel_lista_lines.appendChild(row)
+
+        const col0 = document.createElement("div")
+        col0.className = "col-auto"
+        col0.textContent = cont++
+        row.appendChild(col0)
+
+        const col1 = document.createElement("div")
+        col1.className = "col"
+        col1.innerHTML = `
+        <div>${info.ini_mun}</div>
+        <div>${info.end_mun}</div>
+         `
+        row.appendChild(col1)
+
+        const col2 = document.createElement("div")
+        col2.className = "col-auto text-end"
+        row.appendChild(col2)
+
+
+        const btnBorrar = document.createElement("button")
+        btnBorrar.className = "btn btn-secondary"
+        btnBorrar.type = "button"
+        btnBorrar.innerHTML = `<i class="bi bi-trash" style="font-size: 10pt;"></i>`
+        col2.appendChild(btnBorrar)
+        btnBorrar.onclick = () => {
+            map.removeLayer(line_marks_temp[i].layer.pointA)
+            map.removeLayer(line_marks_temp[i].layer.pointB)
+            map.removeLayer(line_marks_temp[i].layer.pointC)
+            delete line_marks_temp[i];
+            maker_lista_lines()
+        }
+    }
+}
+
+
+function maker_format_line() {
+    //Boton color línea
+    const btnColorLine_graficos = document.getElementById("btnColorLine_graficos")
+    const ul = document.getElementById("ulColorLinea_graficos")
+    const icl = document.getElementById("iclg")
+
+    btnColorLine_graficos.onclick = () => {
+        ColorList.forEach(color => {
+            const iColor = document.createElement("i")
+            iColor.className = "bi bi-square-fill fs-3 m-1"
+            iColor.style.color = color
+            ul.appendChild(iColor)
+            iColor.onclick = () => {
+                icl.style.color = color
+                format_grafico["layer_line"].format.color_linea = `'${color}'`
+            }
+        })
+    }
+    const selOpacityLine_graficos = document.getElementById("selOpacityLine_graficos")
+    selOpacityLine_graficos.onchange = () => {
+        format_grafico["layer_line"].format.opacidad = selOpacityLine_graficos.value
+    }
+
+    const selGrosorLine_graficos = document.getElementById("selGrosorLine_graficos")
+    selGrosorLine_graficos.onchange = () => {
+        format_grafico["layer_line"].format.ancho_linea = selGrosorLine_graficos.value
+    }
+    const selTipoLine_graficos = document.getElementById("selTipoLine_graficos")
+    selTipoLine_graficos.onchange = () => {
+        format_grafico["layer_line"].format.dashArray = selTipoLine_graficos.value
+    }
 
 
 }
 function clear_line() {
-    for (ind in line_marks_temp) {
-        try {
-            map.removeLayer(line_marks_temp[ind].layer.data)
-        } catch (error) {
-            console.log(line_marks_temp[ind].layer.data)
-        }
+    for (i in line_marks_temp) {
+        map.removeLayer(line_marks_temp[i].layer.pointA)
+        map.removeLayer(line_marks_temp[i].layer.pointB)
+        map.removeLayer(line_marks_temp[i].layer.pointC)
+        delete line_marks_temp[i];
     }
+    maker_lista_lines()
 }
 
-async function download(data, filename, type) {
+async function download(data, type) {
     const blob = new Blob([data], { type: type });
 
     const newHandle = await window.showSaveFilePicker({
@@ -339,162 +407,11 @@ async function download(data, filename, type) {
 
 }
 
-let ind1
-let ind2
-let ind3
-function upload_lines(data) {
 
+function upload_lines() {
 
-    for (ind in data) {
-        if (data[ind].line != null) {
-            //Procedemos a crear el primer punto
-            ini_place(data[ind].line)
-            end_place(data[ind].line)
-        }
-    }
-
-    function ini_place(data) {
-        latlng_line.ini.lat = data.coord.ini_lat
-        latlng_line.ini.lng = data.coord.ini_lng
-        latlng_line.ini.lugar = data.places.ini_mun
-        latlng_line.ini.departamento = data.places.ini_dep
-
-        let marcaA = L.circleMarker([latlng_line.ini.lat, latlng_line.ini.lng],
-            {
-                color: "white",
-                fillColor: "purple",
-                fillOpacity: 1,
-                weight: 1,
-                radius: 5,
-                pane: "3"
-            }
-
-        )
-        marcaA.bindPopup(function () {
-            return "Origen: " + data.places.ini_mun + ", " + data.places.ini_dep;
-        }, { pane: "labels" }
-        )
-        marcaA.addTo(map);
-        maker_index()
-        function maker_index() {
-            let index = Math.random().toString(36).slice(2) + "mark"
-            ind1=index
-            line_marks_temp[index] = {
-                "layer": {
-                    "data": marcaA,
-                },
-            }
-        }
-
-    }
-    function end_place(data) {
-        latlng_line.end.lat = data.coord.end_lat
-        latlng_line.end.lng = data.coord.end_lng
-        latlng_line.end.lugar = data.places.end_mun
-        latlng_line.end.departamento = data.places.end_dep
-
-
-        let marcaB = L.circleMarker([latlng_line.end.lat, latlng_line.end.lng],
-            {
-                color: "white",
-                fillColor: "purple",
-                fillOpacity: 1,
-                weight: 1,
-                radius: 5,
-                pane: "3"
-            }
-        )
-
-        marcaB.bindPopup(function () {
-            return "Destino: " + data.places.end_mun + ", " + data.places.end_dep;;
-        }, { pane: "labels" }
-        )
-
-        marcaB.addTo(map);
-        maker_index()
-        make_line()
-        function make_line() {
-            var pointA = new L.LatLng(latlng_line.ini.lat, latlng_line.ini.lng);
-            var pointB = new L.LatLng(latlng_line.end.lat, latlng_line.end.lng);
-            var pointList = [pointA, pointB];
-
-            var lineLoad = new L.Polyline(pointList, {
-                color: eval(data.format_line.color),
-                weight: eval(data.format_line.weight),
-                opacity: eval(data.format_line.opacity),
-                pane: eval(data.format_line.pane),
-
-            });
-            lineLoad.bindPopup(function () {
-                let indices=[ind1,ind2,ind3]
-                return ` 
-                    <div>Desplazamiento desde (${data.places.ini_mun},${data.places.ini_dep})</div>
-                    <div>hasta (${data.places.end_mun},${data.places.end_dep})</div>
-                    <div>${data.info.detalle}</div>
-                    <div type="button" class="btn-mini text-white" onclick="delete_unique_line('${indices}')">
-                        <i class="bi bi-trash"></i>
-                    </div>
-            `;
-            }, { pane: "labels" }
-            )
-            map.addLayer(lineLoad);
-
-            maker_index_line()
-
-            function maker_index_line() {
-                let index = Math.random().toString(36).slice(2) + "line"
-                ind3=index
-                line_marks_temp[index] = {
-                    "layer": {
-                        "data": lineLoad,
-                    },
-                    "line": {
-                        "coord": {
-                            ini_lat: latlng_line.ini.lat,
-                            ini_lng: latlng_line.ini.lng,
-                            end_lat: latlng_line.end.lat,
-                            end_lng: latlng_line.end.lng
-                        },
-                        "places": {
-                            ini_mun: latlng_line.ini.lugar,
-                            ini_dep: latlng_line.ini.departamento,
-                            end_mun: latlng_line.end.lugar,
-                            end_dep: latlng_line.end.departamento,
-                        },
-                        "format_line": {
-                            "color": format_grafico["layer_line"].format.color_linea,
-                            "weight": format_grafico["layer_line"].format.ancho_linea,
-                            "opacity": format_grafico["layer_line"].format.opacidad,
-                            "pane": format_grafico["layer_line"].format.pane,
-                            "dashArray": format_grafico["layer_line"].format.dashArray,
-                        },
-                        "info": {
-                            "detalle": data.info.detalle
-                        }
-                    }
-
-                }
-
-            }
-
-        }
-        function maker_index() {
-            let index = Math.random().toString(36).slice(2) + "mark"
-            ind2=index
-            line_marks_temp[index] = {
-                "layer": {
-                    "data": marcaB,
-                },
-            }
-        }
-    }
 }
-function delete_unique_line(indAll){
 
-    indAll.split(",").forEach(ind=>{
-        map.removeLayer(line_marks_temp[ind].layer.data)
-        delete line_marks_temp[ind];
-    })
-
+function delete_unique_line() {
 
 }
