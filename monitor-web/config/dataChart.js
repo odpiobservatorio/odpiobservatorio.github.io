@@ -2,6 +2,20 @@ let data2chart = []
 let ActiveDBchart;
 let consolidados = []
 let criteria_items = []
+let Color_Text_Chart = "black"
+let Color_Line_Chart="white"
+const ColorList = [
+    //rojos
+    "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
+    "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
+    "#FF7F50", "#6495ED", "#FFF8DC", "#DC143C", "#00FFFF", "#00008B", "#008B8B",
+    "#B8860B", "#006400", "#A9A9A9", "#BDB76B", "#8B008B", "#556B2F", "#FF8C00",
+    "#9932CC", "#8B0000", "#E9967A", "#8FBC8F", "#483D8B", "#2F4F4F", "#00CED1",
+    "#FF1493", "#00BFFF", "#696969", "#1E90FF", "#B22222", "#FFFAF0", "#228B22",
+    "#FF00FF", "#FFD700", "#DAA520", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C",
+    "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
+    "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
+]
 
 
 
@@ -20,6 +34,68 @@ function ini_chat() {
 
     //Nos preparamso para busquedas/consultas
     crear_listas("clsCasos_macroregion")
+
+    const ulFondo = document.getElementById("ulColorFondoChart")
+    const ulTexto = document.getElementById("ulColorLetraChart")
+    const ulLinea = document.getElementById("ulColorLineaChart")
+
+
+
+    const i = document.getElementById("i_fondo")
+    i.className = "bi bi-square-fill rounded"
+    i.style.color = "black"
+
+
+    ColorList.forEach(color => {
+        const iColor = document.createElement("i")
+        iColor.className = "bi bi-square-fill fs-3"
+        iColor.style.color = color
+        iColor.style.margin = "2px"
+        ulFondo.appendChild(iColor)
+        iColor.onclick = () => {
+            i.style.color = color
+            document.getElementById("divChart").style.background = color
+        }
+
+    })
+
+    const i2 = document.getElementById("i_texto")
+    i2.className = "bi bi-square-fill rounded"
+    i2.style.color = "black"
+
+    ColorList.forEach(color => {
+        const iColor = document.createElement("i")
+        iColor.className = "bi bi-square-fill fs-3"
+        iColor.style.color = color
+        iColor.style.margin = "2px"
+        ulTexto.appendChild(iColor)
+        iColor.onclick = () => {
+            i2.style.color = color
+            Color_Text_Chart = color
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
+
+    })
+
+    const i3 = document.getElementById("i_linea")
+    i3.className = "bi bi-square-fill rounded"
+    i3.style.color = "black"
+
+    ColorList.forEach(color => {
+        const iColor = document.createElement("i")
+        iColor.className = "bi bi-square-fill fs-3"
+        iColor.style.color = color
+        iColor.style.margin = "2px"
+        ulLinea.appendChild(iColor)
+        iColor.onclick = () => {
+            i3.style.color = color
+            Color_Line_Chart = color
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
+
+    })
+
+    //ulFondo
 
 
 }
@@ -203,7 +279,7 @@ function add_criterio_extendido() {
             }
         })
         criteria_items.push([filterList[0].clase, cadena])
-        console.log(criteria_items)
+
 
         //
     } else {
@@ -437,14 +513,13 @@ function getColor(color = false) {
     }
 }
 
-let rango=0
-function cambio_rango(value){
-    rango=value
-    crear_grafico(consolidados, "bar")
+let rango = 0
+function cambio_rango(value) {
+    rango = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
 
 function crear_grafico(data, tipo) {
-    console.log(data)
     const div = document.getElementById('divChart');
     div.innerHTML = ""
     const ctx = document.createElement("canvas")
@@ -457,7 +532,7 @@ function crear_grafico(data, tipo) {
     let newColors = []
     let newColors2 = []
     data.forEach(label => {
-        if(label[2]>=rango){
+        if (label[2] >= rango) {
             newLabels.push(label[0])
             newVictimas.push(label[2])
             newCasos.push(label[1])
@@ -472,8 +547,10 @@ function crear_grafico(data, tipo) {
             labels: newLabels,
             datasets: [{
                 label: '# de Victimas',
+                borderColor: '#36A2EB',
                 data: newVictimas,
                 borderWidth: 1,
+                borderColor: Color_Text_Chart,
                 backgroundColor: newColors,
             }],
 
@@ -483,13 +560,27 @@ function crear_grafico(data, tipo) {
             indexAxis: 'y',
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: Color_Text_Chart
+                    },
+                    grid: {
+                        color: Color_Line_Chart
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: Color_Text_Chart
+                    },
+                    grid: {
+                        color: Color_Line_Chart
+                    }
                 }
             }
         }
     });
 
-
+    Chart.defaults.color = Color_Text_Chart
 
 }
 

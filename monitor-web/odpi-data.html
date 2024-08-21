@@ -378,7 +378,6 @@
                                 <div class="col">
                                     <small class="fw-medium">Fuente</small>
                                     <input type="text" class="form-control" placeholder="Fuente" id="intFuente">
-
                                 </div>
                                 <div class="col">
                                     <small class="fw-medium">Fecha fuente</small>
@@ -392,7 +391,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <hr class="mt-5">
                     </div>
@@ -425,7 +423,6 @@
                                     <i class="bi bi-database-add"></i>
                                 </button>
                             </div>
-
                         </div>
                     </div>
                     <div class="row row align-items-center mt-3">
@@ -512,7 +509,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <small>Tipo de gráfico</small>
-                                    <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)">
+                                    <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)" id="listTipo_chart">
                                         <option value="bar">Barras</option>
                                         <option value="line">Líneas</option>
                                         <option value="doughnut">Anillo</option>
@@ -545,6 +542,42 @@
                                         <option value=1000>1000</option>
                                     </select>
                                 </div>
+                                <div class="col-auto">
+                                    <small class="text-white">Superior</small>
+                                    <div class="dropdown mb-2  mt-2 border border-1">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorFondo">
+                                            Fondo
+                                            <i id="i_fondo"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" style="width: 300px;">
+                                            <div id="ulColorFondoChart" class="container-fluid"></div>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <small class="text-white">Superior</small>
+                                    <div class="dropdown mb-2  mt-2 border border-1">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLetra">
+                                            Leyendas
+                                            <i id="i_texto"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" style="width: 300px;">
+                                            <div id="ulColorLetraChart" class="container-fluid"></div>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <small class="text-white">Superior</small>
+                                    <div class="dropdown mb-2  mt-2 border border-1">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLinea">
+                                            Líneas
+                                            <i id="i_linea"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" style="width: 300px;">
+                                            <div id="ulColorLineaChart" class="container-fluid"></div>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div id="divChart" class="border border-2 border-secondary p-3 m-3" style="width:auto;">
 
@@ -571,7 +604,6 @@
                         <option value="6">2022</option>
                         <option value="7">2023</option>
                         <option value="8">2024</option>
-
                     </select>
                     <div class="">
                         <div class="row align-items-start mt-3">
@@ -610,6 +642,7 @@
                                     <option value="clsCasos_fecha">Fecha</option>
                                     <option value="clsCasos_vigencia">Año</option>
                                     <option value="clsPersonas_genero">Género</option>
+                                    <option value="clsPersonas_nombres">Nombres</option>
                                     <option value="clsCasos_detalle">Detalle</option>
                                     <option value="clsCasos_macroactor">Macro actor</option>
                                     <option value="clsActores_nombre">Otros actores</option>
@@ -632,9 +665,10 @@
                             <div class="col-auto">
                                 <small class="text-white">Aplicar</small>
                                 <div>
-                                    <button type="button" class="btn btn-secondary" onclick="bulk_replace()">Remplazar</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        onclick="bulk_replace()">Remplazar</button>
                                 </div>
-                             </div>
+                            </div>
 
                         </div>
                     </div>
@@ -797,7 +831,6 @@
             </button>
             <ul class="dropdown-menu menu-group-scroll border border-1 border-success shadow" style="width: 100%;"
                 id="contenedor_criterios">
-
             </ul>
         </div>
 
