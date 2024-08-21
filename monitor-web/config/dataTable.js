@@ -1,7 +1,7 @@
 
 let filterList = []
 
-let criteria_items = []
+
 let dataWfilter = []
 
 const campos = [
@@ -17,6 +17,7 @@ const campos = [
     ["clsActores", "nombre", "ACTORES", "1"],
     ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO", "1"],
     ["clsPersonas", "nombres", "NOMBRES", "1"],
+    ["clsPersonas", "genero", "GÉNERO", "1"],
     ["clsCasos", "npersonas", "VICTIMAS", "1"],
     ["clsCasos", "nmujeres", "MUJERES", "1"],
     ["clsCasos", "nhombres", "HOMBRES", "1"],
@@ -93,7 +94,7 @@ function iniTables(value, ini) {
     //
 
 
-    crear_listas("clsCasos_macroregion")
+
 
     if (ini == 0) {
         dataWfilter = []
@@ -299,13 +300,13 @@ function makerTable(data) {
         //             Se crea el boton de fila para acceder al registro en formulario
         const td_scope = document.createElement("td")
         td_scope.style.verticalAlign = "middle"
-        td_scope.style.width="50px"
+        td_scope.style.width = "50px"
         td_scope.className = "bg-secondary text-center text-white"
         td_scope.scope = "row"
 
         const td_btn = document.createElement("a")
         td_btn.className = "nav-link active"
-        td_btn.style.width="50px"
+        td_btn.style.width = "50px"
         td_btn.href = "#"
         td_btn.innerHTML = `<i class="me-2 bi bi-link-45deg"></i>${caso.id + 1} `
         td_scope.appendChild(td_btn)
@@ -444,9 +445,9 @@ function makerTable(data) {
     contenedor.appendChild(tableParent)
 
 }
-function show_campos(value){
+function show_campos(value) {
     campos.forEach(campo => {
-        campo[3]=value      
+        campo[3] = value
     })
 
     const contenedorUl = document.getElementById("ulCampos")
@@ -490,201 +491,8 @@ function show_campos(value){
 
 
 
-//Aquí todo para las listas y búsquedas
-function crear_listas(opcion) {
-    filterList = []
-    makerList["newOpen_list"](opcion)
-}
-//Guarda en esta variable las cadenas de criterios de filto js
-const makerList = {
-    "newOpen_list": (opcion) => {
-        //Contenedor delas listas
-        const contenedor = document.getElementById("contenedor_criterios")
-        contenedor.innerHTML = ""
-        //Toma el criterio y los divide por _ para obtener el campo y la clase
-        const criterio = opcion.split("_")
-        //Aquí obtengo la clase y el campo, deriva la acción si es la clase Padre o Hija
-        let newCriteria = [] //Esta variable guarda la lista según la clase
-        if (criterio[0] == "clsCasos") {
-            ActiveDB.clsCasos.forEach(caso => {
-                if (newCriteria.includes(caso[criterio[1]]) == false) {
-                    newCriteria.push(caso[criterio[1]])
-                }
-            })
-        } else {
-            //Aquí es la derivación en caso de que la clase no sea CASOS (Padre)
-            //Busca en la clase hija.
-            ActiveDB.clsCasos.forEach(caso => {
-                caso[criterio[0]].forEach(item => {
-                    if (newCriteria.includes(item[criterio[1]]) == false) {
-                        newCriteria.push(item[criterio[1]])
-                    }
-                })
-            })
-        }
 
 
-        //Ordenamos la lsita de AZ
-        let newDataOrdenado;
-        try {
-            function porDato(a, b) {
-                return a.localeCompare(b);
-            }
-            newDataOrdenado = newCriteria.sort(porDato);
-
-
-        } catch (error) {
-            //Esto en el caso que los valores sean solo numérico, entonces se ordena por número
-            newDataOrdenado = newCriteria.sort();
-            newDataOrdenado.sort(function (a, b) {
-                return a - b;
-            });
-            //Al identificar esta variacón, indica que es un valor tipo número, entonces
-
-        }
-
-        //Con base a essa lista creamos una lista de selección on check
-        newDataOrdenado.forEach(item => {
-            let realvalue;
-            if (typeof item === "number") {
-                realvalue = parseInt(item)
-            } else {
-                realvalue = (item)
-            }
-            const elemento = document.createElement("div")
-            elemento.className = "ms-3 me-3"
-            elemento.style.fontWeight = "normal"
-            elemento.innerHTML =
-                `
-            <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
-             ${item}
-            `
-            //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
-            contenedor.appendChild(elemento)
-            const checkers = document.getElementById(`check${item}${criterio[1]}`)
-            //Miramos si el valor viene de la lista o viene de el campo abirto
-
-            //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
-            checkers.onchange = () => {
-                //Validamos si la clase es mayor o menor
-
-
-                if (checkers.checked == true) {
-
-                    const criterios = {
-                        "clase": criterio[0],
-                        "field": criterio[1],
-                        "operador": document.getElementById("lstOperadores").value,
-                        "value": checkers.value
-                    }
-                    filterList.push(criterios)
-                } else {
-                    const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
-                    filterList = eliminados
-                }
-
-                let tituloboton = ""
-                filterList.forEach(palabra => {
-                    tituloboton = tituloboton + "[" + palabra.value + "]"
-
-                })
-                const btnCriterios = document.getElementById("btnCriterios")
-                btnCriterios.textContent = tituloboton
-            }
-        })
-
-        document.getElementById("intOpentCriterio").oninput = () => {
-            const criterios = {
-                "clase": criterio[0],
-                "field": criterio[1],
-                "operador": document.getElementById("lstOperadores").value,
-                "value": document.getElementById("intOpentCriterio").value
-            }
-            filterList = []
-            filterList.push(criterios)
-        }
-
-
-        //Ahora trabajamos con los filtros
-        const filtrador = document.getElementById("btnConsulta")
-        //Debemos construir las cadenas de filtro según las listas en filterlist
-        filtrador.onclick = () => {
-            add_criterio_extendido()
-            filter_extend()
-            LimpiarConsulta()
-            document.getElementById("intOpentCriterio").value = ""
-        }
-
-    }
-}
-function add_criterio_extendido() {
-    const contenedorlistas = document.getElementById("listconsultaextendida")
-
-    if (filterList.length == 0) {
-        operador_link = ""
-    }
-    //Miramos todos los elementos de filtros creados
-    let i = 0
-    let line = []
-    filterList.forEach(texto => {
-        const item = document.createElement("li")
-        item.className = "list-group-item"
-        item.textContent = texto.clase + " " + texto.operador + " " + texto.value
-        contenedorlistas.appendChild(item)
-        if (i == filterList.length - 1) {
-            operador_link = ""
-        }
-        if (i < filterList.length - 1) {
-            operador_link = "||"
-        }
-        i = i + 1
-
-        const newItemCriterio =
-        {
-            "clase": texto.clase,
-            "field": texto.field,
-            "operador": texto.operador,
-            "value": texto.value,
-            "link": operador_link
-        }
-
-
-        line.push(newItemCriterio)
-
-    })
-
-    let cadena = ""
-    try {
-        if (filterList[0].clase !== "clsCasos") {
-            const registros = ActiveDB.clsCasos[0]
-            line.forEach(item => {
-                if (typeof registros[item.clase][0][item.field] === "number") {
-                    cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}(${item.value}) ${item.link})`
-                    //alert(typeof registros[item.clase][0].edad)
-                } else {
-                    cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}("${item.value}") ${item.link})`
-                }
-            })
-            criteria_items.push([filterList[0].clase, cadena])
-        } else {
-            const registros = ActiveDB.clsCasos[0]
-            line.forEach(item => {
-                if (typeof registros[item.field] === "number") {
-                    cadena = cadena + `registro["${item.field}"]${item.operador}(${item.value}) ${item.link}`
-                } else {
-                    cadena = cadena + `registro["${item.field}"]${item.operador}("${item.value}") ${item.link}`
-                }
-            })
-            criteria_items.push([filterList[0].clase, cadena])
-        }
-        document.getElementById("intOpentCriterio").value = ""
-        fromOpenText = ""
-    } catch (error) {
-
-    }
-
-
-}
 
 function quitar_filtro() {
     makerTable(ActiveDB.clsCasos)
@@ -692,46 +500,42 @@ function quitar_filtro() {
     add_consulta(ActiveDB.clsCasos)
 }
 
-function LimpiarConsulta() {
-    criteria_items = []
-    const contenedorlistas = document.getElementById("listconsultaextendida")
-    contenedorlistas.innerHTML = ""
-    const btnCriterios = document.getElementById("btnCriterios")
-    btnCriterios.textContent = "Criterios"
-    document.getElementById("intOpentCriterio").value = ""
-    fromOpenText = ""
+function bulk_replace() {
+    
+    const clase = document.getElementById("lstCampos_replace").value.split("_")
+    const intOriginal=document.getElementById("intOriginal").value
+    const intNuevo=document.getElementById("intNuevoValor").value
+    
+    let i=0
+    if (clase[0] == "clsCasos") {
+        const data = ActiveDB
+    } else {
+        const data = ActiveDB.clsCasos
+        
+        data.forEach(caso=>{
+            try {
+                const valOriginal=caso[clase[0]][0][clase[1]]
+                
+                if(intOriginal==valOriginal){
+                    caso[clase[0]][0][clase[1]]=intNuevo
+                    GuardarDatos()
+                    
+                    i++
+                }else{
+                    //console.log(valOriginal)
+                }
+            } catch (error) {
+                
+            }
+        })
+    }
+    mensajes("Se han realizado " + i + " cambios")
+    makerTable(ActiveDB.clsCasos)
+
 }
 
 
-function filter_extend() {
-    const registros = ActiveDB.clsCasos
-    /* CODIGO DE PARTIDA DE INICIO */
 
-    let datafilter = []
-    const filtrados = registros.filter((registro) => {
-        let condiciones = []
-
-        criteria_items.forEach(criterio => {
-            //console.log(eval(criterio[1]))
-            condiciones.push(eval(criterio[1]))
-        })
-
-        let score = 0
-        condiciones.forEach(valor => {
-            score = score + valor
-        })
-
-        if (score == condiciones.length) {
-            datafilter.push(registro)
-        }
-        score = []
-    });
-
-
-    makerTable(datafilter)
-    dataWfilter = datafilter
-
-}
 
 
 

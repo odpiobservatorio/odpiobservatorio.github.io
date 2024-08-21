@@ -687,7 +687,7 @@ class Lugar {
 class Pueblo {
     constructor(id, nombre, dominio) {
         this.id = id;
-        this.nombre = nombre;
+        this.nombre = nombre.trim();
         this.parent = dominio;
     }
     makerHTMLPueblo() {
@@ -695,12 +695,14 @@ class Pueblo {
         //Creo el contenedor a
         const a = document.createElement("a")
         a.className = "nav-link label-org-gray-light"
-        a.href = "#"
+        //a.href = "#"
         a.innerHTML = `
             ${this.nombre}
             <i class="bi bi-trash3 ms-2" id="btnborrarPueblo${this.id}"></i>
             `
         contenedorPueblos.appendChild(a)
+
+
         const btnBorrarPueblo = document.getElementById(`btnborrarPueblo${this.id}`)
         btnBorrarPueblo.onclick = () => {
             this.parent.deletePueblo(this.id)

@@ -441,6 +441,8 @@
                                 <option value="clsTipos_nombre">Tipos</option>
                                 <option value="clsCasos_macroactor">Macro actores</option>
                                 <option value="clsActores_nombre">Actores</option>
+                                <option value="clsPueblos_nombre">Pueblo</option>
+                                <option value="clsPersonas_genero">Género</option>
                             </select>
                         </div>
                     </div>
@@ -517,15 +519,22 @@
                                         <option value="pie">Torta</option>
                                         <option value="polarArea">Area</option>
                                         <option value="scatter">Puntos</option>
-
-
-
-
+                                    </select>
+                                </div>
+                                <div class="col-auto">
+                                    <small>Altura</small>
+                                    <select class="ms-2 form-select mt-2 mb-2" onchange="altura_chart(this.value)">
+                                        <option value="auto">Auto</option>
+                                        <option value="300px">300px</option>
+                                        <option value="400px">400px</option>
+                                        <option value="500px">500px</option>
+                                        <option value="600px">600px</option>
+                                        <option value="800px">800px</option>
+                                        <option value="1000px">1000px</option>
                                     </select>
                                 </div>
                             </div>
-                            <div id="divChart" class="border border-2 border-secondary p-3 m-3"
-                                style="width:auto; height: auto">
+                            <div id="divChart" class="border border-2 border-secondary p-3 m-3" style="width:auto;">
 
                             </div>
                         </div>
@@ -553,27 +562,64 @@
 
                     </select>
                     <div class="">
-                        <div class="row align-items-center mt-3">
+                        <div class="row align-items-start mt-3">
                             <div class="col-auto">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button id="btnOpenConsulta" type="button" class="btn btn-secondary"
-                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasConsulta">
-                                        <i class="bi bi-binoculars"></i>
-                                    </button>
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Campos
-                                    </button>
-                                    <ul class="dropdown-menu shadow" style="width: 250px;">
-                                        <li><a class="dropdown-item hchange-gray ms-2" href="#" onclick="show_campos(0)">Ocultar todos</a></li>
-                                        <li><a class="dropdown-item hchange-gray ms-2" href="#" onclick="show_campos(1)">Ver todos</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <div  id="ulCampos">
+                                <small>Ver campos</small>
+                                <div>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Campos
+                                        </button>
+                                        <ul class="dropdown-menu shadow" style="width: 250px;">
+                                            <li><a class="dropdown-item hchange-gray ms-2" href="#"
+                                                    onclick="show_campos(0)">Ocultar todos</a></li>
+                                            <li><a class="dropdown-item hchange-gray ms-2" href="#"
+                                                    onclick="show_campos(1)">Ver todos</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <div id="ulCampos">
 
-                                        </div>
-                                    </ul>
+                                            </div>
+                                        </ul>
+                                    </div>
                                 </div>
-
+                            </div>
+                            <div class="col-auto">
+                                <small>Campo para remplazar</small>
+                                <select id="lstCampos_replace" class="form-select mb-2">
+                                    <option value="clsCasos_macroregion">Macroregion</option>
+                                    <option value="clsCasos_departamento">Departamento</option>
+                                    <option value="clsLugares_municipio">Lugar</option>
+                                    <option value="clsPueblos_nombre">Pueblo, Etnia</option>
+                                    <option value="clsCasos_macrotipo">Macrotipo</option>
+                                    <option value="clsTipos_nombre">Subtipo</option>
+                                    <option value="clsCasos_fecha">Fecha</option>
+                                    <option value="clsCasos_vigencia">Año</option>
+                                    <option value="clsPersonas_genero">Género</option>
+                                    <option value="clsCasos_detalle">Detalle</option>
+                                    <option value="clsCasos_macroactor">Macro actor</option>
+                                    <option value="clsActores_nombre">Otros actores</option>
+                                    <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
+                                    <option value="clsCasos_npersonas">Numero Personas</option>
+                                    <option value="clsCasos_nmujeres">Numero Mujeres</option>
+                                    <option value="clsCasos_nhombres">Numero Hombres</option>
+                                    <option value="clsCasos_nmenores">Numero Menores</option>
+                                    <option value="clsPersonas_edad">Edad</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <small>Campo para remplazar</small>
+                                <input id="intOriginal" type="text" class="form-control" placeholder="buscar">
+                            </div>
+                            <div class="col-auto">
+                                <small>Nuevo valor</small>
+                                <input id="intNuevoValor" type="text" class="form-control" placeholder="remplazar">
+                            </div>
+                            <div class="col-auto">
+                                <small>Ejecutar</small>
+                                <button type="button" class="btn btn-secondary" onclick="bulk_replace()">Remplazar</button>
                             </div>
 
                         </div>
@@ -720,7 +766,7 @@
         <!--Lista de operadores-->
         <small>Lista de operadores</small>
         <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
-            <option value="===">Igual a</option>
+            <option value="==">Igual a</option>
             <option value="!==">Diferente a</option>
             <option value=".includes">Similar a</option>
             <option value=">">Mayor a</option>
