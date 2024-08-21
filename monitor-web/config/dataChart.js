@@ -294,7 +294,6 @@ function mostrar_consolidados(data) {
         } else {
             //Aquí es la derivación en caso de que la clase no sea CASOS (Padre)
             //Busca en la clase hija.
-            console.log(criterio[0])
             data.forEach(caso => {
                 caso[criterio[0]].forEach(item => {
                     if (newCriteria.includes(item[criterio[1]]) == false) {
@@ -438,7 +437,14 @@ function getColor(color = false) {
     }
 }
 
+let rango=0
+function cambio_rango(value){
+    rango=value
+    crear_grafico(consolidados, "bar")
+}
+
 function crear_grafico(data, tipo) {
+    console.log(data)
     const div = document.getElementById('divChart');
     div.innerHTML = ""
     const ctx = document.createElement("canvas")
@@ -451,13 +457,14 @@ function crear_grafico(data, tipo) {
     let newColors = []
     let newColors2 = []
     data.forEach(label => {
-        newLabels.push(label[0])
-        newVictimas.push(label[2])
-        newCasos.push(label[1])
+        if(label[2]>=rango){
+            newLabels.push(label[0])
+            newVictimas.push(label[2])
+            newCasos.push(label[1])
+            newColors.push(getColor());
+        }
 
-        newColors.push(getColor());
     })
-
 
     new Chart(ctx, {
         type: tipo,
