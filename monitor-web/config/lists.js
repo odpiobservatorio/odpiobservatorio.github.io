@@ -18,7 +18,6 @@ const macrotipos = [
     'Falso positivo',
     'Feminicidio',
     'Hostigamiento',
-    'Hostigamientos',
     'Hurto',
     'Infracción D.I.H',
     'Intimidación',
