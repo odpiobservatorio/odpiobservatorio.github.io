@@ -564,7 +564,7 @@
                     <div class="">
                         <div class="row align-items-start mt-3">
                             <div class="col-auto">
-                                <small>Ver campos</small>
+                                <small class="text-white">Ver campos</small>
                                 <div>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -587,7 +587,7 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <small>Campo para remplazar</small>
+                                <small class="text-warning fw-bold">Campo para remplazar</small>
                                 <select id="lstCampos_replace" class="form-select mb-2">
                                     <option value="clsCasos_macroregion">Macroregion</option>
                                     <option value="clsCasos_departamento">Departamento</option>
@@ -610,17 +610,19 @@
                                 </select>
                             </div>
                             <div class="col-auto">
-                                <small>Campo para remplazar</small>
+                                <small class="text-warning fw-bold">Valor a buscar</small>
                                 <input id="intOriginal" type="text" class="form-control" placeholder="buscar">
                             </div>
                             <div class="col-auto">
-                                <small>Nuevo valor</small>
+                                <small class="text-warning fw-bold">Nuevo valor</small>
                                 <input id="intNuevoValor" type="text" class="form-control" placeholder="remplazar">
                             </div>
                             <div class="col-auto">
-                                <small>Ejecutar</small>
-                                <button type="button" class="btn btn-secondary" onclick="bulk_replace()">Remplazar</button>
-                            </div>
+                                <small class="text-white">Aplicar</small>
+                                <div>
+                                    <button type="button" class="btn btn-secondary" onclick="bulk_replace()">Remplazar</button>
+                                </div>
+                             </div>
 
                         </div>
                     </div>

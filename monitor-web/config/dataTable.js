@@ -500,26 +500,23 @@ function quitar_filtro() {
     add_consulta(ActiveDB.clsCasos)
 }
 
-function bulk_replace() {
-    
+async function bulk_replace() {
     const clase = document.getElementById("lstCampos_replace").value.split("_")
     const intOriginal=document.getElementById("intOriginal").value
     const intNuevo=document.getElementById("intNuevoValor").value
     
     let i=0
     if (clase[0] == "clsCasos") {
-        const data = ActiveDB
-    } else {
+        i=0
         const data = ActiveDB.clsCasos
-        
         data.forEach(caso=>{
             try {
-                const valOriginal=caso[clase[0]][0][clase[1]]
-                
+                const valOriginal=caso[clase[1]]
+
                 if(intOriginal==valOriginal){
-                    caso[clase[0]][0][clase[1]]=intNuevo
+                    console.log(valOriginal)
+                    caso[clase[1]]=intNuevo
                     GuardarDatos()
-                    
                     i++
                 }else{
                     //console.log(valOriginal)
@@ -528,7 +525,28 @@ function bulk_replace() {
                 
             }
         })
+
+
+    } else {
+        const data = ActiveDB.clsCasos
+        i=0
+        data.forEach(caso=>{
+            caso[clase[0]].forEach(subclase=>{
+                const valOriginal=subclase[clase[1]]
+                
+                if(intOriginal==valOriginal){
+                    
+                    subclase[clase[1]]=intNuevo
+                    GuardarDatos()
+                    i++
+                }else{
+                    //console.log(valOriginal)
+                }
+
+            })
+        })
     }
+    GuardarDatos()
     mensajes("Se han realizado " + i + " cambios")
     makerTable(ActiveDB.clsCasos)
 
