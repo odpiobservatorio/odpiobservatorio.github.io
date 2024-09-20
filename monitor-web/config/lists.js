@@ -2,7 +2,7 @@ const macrotipos = [
     'Sin macrotipo',
     'Abuso de Autoridad',
     'Abuso sexual',
-    'Acoso labora',
+    'Acoso laboral',
     'Acoso sexual',
     'Afectación territorial',
     'Agresión física',
