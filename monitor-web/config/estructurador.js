@@ -819,6 +819,7 @@ class Persona {
 
         const intEdad = document.getElementById(`intEdad${this.id}`)
         intEdad.oninput = () => {
+
             this.edad = parseInt(intEdad.value)
             GuardarDatos()
         }
@@ -1618,4 +1619,29 @@ function newDataProyecto() {
     const id = new clsObservatorio()
 
     GLOBAL.firestore.addProyecto(id)
+}
+
+function backupData() {
+    let MultiCasos = []
+    //Cargamos la base de datos actual
+    const proyectos = GLOBAL.state.proyectos;
+    proyectos.forEach(proyecto => {
+        proyecto.clsCasos.forEach(caso => {
+            MultiCasos.push(caso)
+        })
+    })
+
+
+
+    const a = document.createElement("a");
+    const archivo = new Blob([JSON.stringify(MultiCasos)], { type: 'text/plain' });
+    const url = URL.createObjectURL(archivo);
+    a.href = url;
+
+    const date = new Date();
+
+    let day = date.getDate()
+    a.download = 'ClusterODPI' + date.getDate() + ".json";
+    a.click();
+    URL.revokeObjectURL(url);
 }

@@ -80,6 +80,7 @@
                             <ul class="collapse hide nav flex-column ms-2" id="" data-bs-parent="#menu">
                             </ul>
                         </li>
+
                         <li onclick="verTexto()" id="btndocumentos" hidden="true">
                             <a href="#mn-documento" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi-file-earmark-text text-white"></i> <span
@@ -128,6 +129,21 @@
                                     class="ms-1 d-none d-sm-inline text-white">Gráficos</span> </a>
                             <ul class="collapse hide nav flex-column ms-2" id="mn-graficos" data-bs-parent="#menu"
                                 hidden="true">
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#panel-config" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-3 fw-bold bi bi-gear-fill text-white"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Configuración</span> </a>
+                            <ul class="collapse hide nav flex-column ms-2" id="panel-config" data-bs-parent="#menu">
+                                <li class="w-100" onclick="backupData()">
+                                    <a href="#" class="nav-link px-0 text-white">
+                                        <i class="bi-cloud-download text-white"></i>
+                                        <span class="d-none d-sm-inline text-white">
+                                            Backup data
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li onclick="SignOut()" id="">
@@ -440,6 +456,7 @@
                                 <option value="clsActores_nombre">Actores</option>
                                 <option value="clsPueblos_nombre">Pueblo</option>
                                 <option value="clsPersonas_genero">Género</option>
+                                <option value="clsPersonas_edad">Edad</option>
                             </select>
                         </div>
                     </div>
@@ -531,6 +548,18 @@
                                     </select>
                                 </div>
                                 <div class="col-auto">
+                                    <small>Tamaño</small>
+                                    <select class="ms-2 form-select mt-2 mb-2" onchange="fontSize_chart(this.value)">
+                                        <option value="8">8pt</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                        <option value="14">14</option>
+                                        <option value="16">16</option>
+                                        <option value="18">18</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                                <div class="col-auto">
                                     <small>Superior</small>
                                     <select class="ms-2 form-select mt-2 mb-2" onchange="cambio_rango(this.value)">
                                         <option value=0>Auto</option>
@@ -555,6 +584,8 @@
                                         <option value=700>700</option>
                                         <option value=800>800</option>
                                         <option value=1000>1000</option>
+                                        <option value=1500>1500</option>
+                                        <option value=2000>2000</option>
                                     </select>
                                 </div>
                                 <div class="col-auto">

@@ -39,6 +39,7 @@ function ini_chat() {
     const ulTexto = document.getElementById("ulColorLetraChart")
     const ulLinea = document.getElementById("ulColorLineaChart")
 
+    
 
 
     const i = document.getElementById("i_fondo")
@@ -518,6 +519,12 @@ function cambio_rango(value) {
     rango = value
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
+let fsize = 12
+function fontSize_chart(value){
+    fsize = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
+
 
 function crear_grafico(data, tipo) {
     const div = document.getElementById('divChart');
@@ -562,7 +569,10 @@ function crear_grafico(data, tipo) {
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        color: Color_Text_Chart
+                        color: Color_Text_Chart,
+                        font: {
+                            size: fsize,
+                        }
                     },
                     grid: {
                         color: Color_Line_Chart
@@ -570,7 +580,8 @@ function crear_grafico(data, tipo) {
                 },
                 x: {
                     ticks: {
-                        color: Color_Text_Chart
+                        color: Color_Text_Chart,
+
                     },
                     grid: {
                         color: Color_Line_Chart

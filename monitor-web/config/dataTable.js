@@ -18,6 +18,7 @@ const campos = [
     ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO", "1"],
     ["clsPersonas", "nombres", "NOMBRES", "1"],
     ["clsPersonas", "genero", "GÉNERO", "1"],
+    ["clsPersonas", "edad", "EDAD", "1"],
     ["clsCasos", "npersonas", "VICTIMAS", "1"],
     ["clsCasos", "nmujeres", "MUJERES", "1"],
     ["clsCasos", "nhombres", "HOMBRES", "1"],
@@ -502,46 +503,65 @@ function quitar_filtro() {
 
 async function bulk_replace() {
     const clase = document.getElementById("lstCampos_replace").value.split("_")
-    const intOriginal=document.getElementById("intOriginal").value
-    const intNuevo=document.getElementById("intNuevoValor").value
-    
-    let i=0
-    if (clase[0] == "clsCasos") {
-        i=0
-        const data = ActiveDB.clsCasos
-        data.forEach(caso=>{
-            try {
-                const valOriginal=caso[clase[1]]
+    const intOriginal = document.getElementById("intOriginal").value
+    const intNuevo = document.getElementById("intNuevoValor").value
 
-                if(intOriginal==valOriginal){
-                    console.log(valOriginal)
-                    caso[clase[1]]=intNuevo
-                    GuardarDatos()
-                    i++
-                }else{
-                    //console.log(valOriginal)
+    let i = 0
+    if (clase[0] == "clsCasos") {
+        i = 0
+        const data = ActiveDB.clsCasos
+        data.forEach(caso => {
+            try {
+                const valOriginal = caso[clase[1]]
+                if (intOriginal == "*null*"){
+                    if (valOriginal >=0){
+
+                    }else{
+                        caso[clase[1]] = intNuevo
+                        GuardarDatos()
+                        i++
+                    }
+
+
+                } else{
+                    if (intOriginal == valOriginal) {
+                        caso[clase[1]] = intNuevo
+                        GuardarDatos()
+                        i++
+                    } 
+
                 }
+
+
             } catch (error) {
-                
+
             }
         })
 
 
     } else {
         const data = ActiveDB.clsCasos
-        i=0
-        data.forEach(caso=>{
-            caso[clase[0]].forEach(subclase=>{
-                const valOriginal=subclase[clase[1]]
-                
-                if(intOriginal==valOriginal){
-                    
-                    subclase[clase[1]]=intNuevo
-                    GuardarDatos()
-                    i++
-                }else{
-                    //console.log(valOriginal)
+        i = 0
+        data.forEach(caso => {
+            caso[clase[0]].forEach(subclase => {
+                const valOriginal = subclase[clase[1]]
+                if (intOriginal == "*null*") {
+                    if (valOriginal >=0) {
+                    } else {
+                        subclase[clase[1]] = intNuevo
+                        GuardarDatos()
+                        i++
+                    }
+                } else {
+                    if (intOriginal == valOriginal) {
+
+                        subclase[clase[1]] = intNuevo
+                        GuardarDatos()
+                        i++
+                    } 
                 }
+
+
 
             })
         })
