@@ -798,12 +798,12 @@
 <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasGraficos" data-bs-scroll="true"
     data-bs-backdrop="false">
     <div class="offcanvas-header" style="background-color: #DC143C;">
-        <h5 class="offcanvas-title text-white" id="offcanvasConsultaLabel">Panel de gráficos</h5>
+        <h5 class="offcanvas-title text-white">Panel de gráficos</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <small>Tipo de gráfico</small>
-        <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)" id="listTipo_chart">
+        <select class="form-select mb-2" onchange="tipo_grafico(this.value)" id="listTipo_chart">
             <option value="bar">Barras</option>
             <option value="line">Líneas</option>
             <option value="doughnut">Anillo</option>
@@ -811,8 +811,17 @@
             <option value="polarArea">Area</option>
             <option value="scatter">Puntos</option>
         </select>
+        <small>Eje del gráfico</small>
+        <select class="form-select mb-2" onchange="Change_eje_grafico(this.value)">
+            <option value="y">Y</option>
+            <option value="x">X</option>
+        </select>
+        <small>Mìnimo Rango</small>
+        <input type="number" class="form-control" placeholder="Mínimo" onchange="cambio_rango(this.value)">
+        <small>Máximo Rango</small>
+        <input type="number" class="form-control" placeholder="Máximo" onchange="cambio_rangoMax(this.value)">
         <small>Altura</small>
-        <select class="ms-2 form-select mt-2 mb-2" onchange="altura_chart(this.value)">
+        <select class="form-select mb-2" onchange="altura_chart(this.value)">
             <option value="auto">Auto</option>
             <option value="300px">300px</option>
             <option value="400px">400px</option>
@@ -821,8 +830,9 @@
             <option value="800px">800px</option>
             <option value="1000px">1000px</option>
         </select>
-        <small>Tamaño letra leyendas</small>
-        <select class="ms-2 form-select mt-2 mb-2" onchange="fontSize_chart(this.value)">
+        <small>Tamaño letra etiquetas Y</small>
+        <select class="form-select mb-2" onchange="fontSize_chart(this.value)">
+            <option value="0">0pt</option>
             <option value="8">8pt</option>
             <option value="10">10</option>
             <option value="12">12</option>
@@ -831,8 +841,18 @@
             <option value="18">18</option>
             <option value="20">20</option>
         </select>
-        <small class="text-white">Superior</small>
-        <div class="dropdown mb-2  mt-2 border border-1">
+        <small>Tamaño letra etiquetas X</small>
+        <select class="form-select mb-2" onchange="fontSize_chartX(this.value)">
+            <option value="0">0pt</option>
+            <option value="8">8pt</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+        </select>
+        <div class="dropdown mb-2 border border-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorFondo">
                 Fondo
                 <i id="i_fondo"></i>
@@ -841,20 +861,47 @@
                 <div id="ulColorFondoChart" class="container-fluid"></div>
             </ul>
         </div>
-        <small class="text-white">Superior</small>
-        <div class="dropdown mb-2  mt-2 border border-1">
-            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLetra">
-                Leyendas
-                <i id="i_texto"></i>
+        <div class="dropdown mb-2  border border-1">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLetraY">
+                Etiquetas Y
+                <i id="i_textoY"></i>
             </button>
             <ul class="dropdown-menu" style="width: 300px;">
-                <div id="ulColorLetraChart" class="container-fluid"></div>
+                <div id="ulColorLetraChartY" class="container-fluid"></div>
             </ul>
         </div>
-        <small class="text-white">Superior a</small>
-        <div class="dropdown mb-2  mt-2 border border-1">
+        <div class="dropdown mb-2  border border-1">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLetraX">
+                Etiquetas X
+                <i id="i_textoX"></i>
+            </button>
+            <ul class="dropdown-menu" style="width: 300px;">
+                <div id="ulColorLetraChartX" class="container-fluid"></div>
+            </ul>
+        </div>
+        <div class="dropdown mb-2  border border-1">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLeyendas">
+                Leyendas
+                <i id="i_textoLeg"></i>
+            </button>
+            <ul class="dropdown-menu" style="width: 300px;">
+                <div id="ulColorLetraLeg" class="container-fluid"></div>
+            </ul>
+        </div>
+        <small>Tamaño letra etiquetas X</small>
+        <select class="form-select mb-2" onchange="fontSize_Leg(this.value)">
+            <option value="0">0pt</option>
+            <option value="8">8pt</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+        </select>
+        <div class="dropdown mb-2  border border-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLinea">
-                Líneas
+                Color Líneas
                 <i id="i_linea"></i>
             </button>
             <ul class="dropdown-menu" style="width: 300px;">

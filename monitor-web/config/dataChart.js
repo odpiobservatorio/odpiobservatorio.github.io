@@ -2,8 +2,10 @@ let data2chart = []
 let ActiveDBchart;
 let consolidados = []
 let criteria_items = []
-let Color_Text_Chart = "black"
-let Color_Line_Chart="white"
+let Color_Text_ChartY = "black"
+let Color_Text_ChartX = "black"
+let Color_Text_Leg = "black"
+let Color_Line_Chart = "white"
 const ColorList = [
     //rojos
     "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
@@ -36,10 +38,12 @@ function ini_chat() {
     crear_listas("clsCasos_macroregion")
 
     const ulFondo = document.getElementById("ulColorFondoChart")
-    const ulTexto = document.getElementById("ulColorLetraChart")
+    const ulTextoY = document.getElementById("ulColorLetraChartY")
+    const ulTextoX = document.getElementById("ulColorLetraChartX")
+    const ulTextoLeg = document.getElementById("ulColorLetraLeg")
     const ulLinea = document.getElementById("ulColorLineaChart")
 
-    
+
 
 
     const i = document.getElementById("i_fondo")
@@ -60,7 +64,7 @@ function ini_chat() {
 
     })
 
-    const i2 = document.getElementById("i_texto")
+    const i2 = document.getElementById("i_textoY")
     i2.className = "bi bi-square-fill rounded"
     i2.style.color = "black"
 
@@ -69,10 +73,46 @@ function ini_chat() {
         iColor.className = "bi bi-square-fill fs-3"
         iColor.style.color = color
         iColor.style.margin = "2px"
-        ulTexto.appendChild(iColor)
+        ulTextoY.appendChild(iColor)
         iColor.onclick = () => {
             i2.style.color = color
-            Color_Text_Chart = color
+            Color_Text_ChartY = color
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
+
+    })
+
+    const i2X = document.getElementById("i_textoX")
+    i2X.className = "bi bi-square-fill rounded"
+    i2X.style.color = "black"
+
+    ColorList.forEach(color => {
+        const iColor = document.createElement("i")
+        iColor.className = "bi bi-square-fill fs-3"
+        iColor.style.color = color
+        iColor.style.margin = "2px"
+        ulTextoX.appendChild(iColor)
+        iColor.onclick = () => {
+            i2X.style.color = color
+            Color_Text_ChartX = color
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
+
+    })
+
+    const ileg = document.getElementById("i_textoLeg")
+    ileg.className = "bi bi-square-fill rounded"
+    ileg.style.color = "black"
+
+    ColorList.forEach(color => {
+        const iColor = document.createElement("i")
+        iColor.className = "bi bi-square-fill fs-3"
+        iColor.style.color = color
+        iColor.style.margin = "2px"
+        ulTextoLeg.appendChild(iColor)
+        iColor.onclick = () => {
+            ileg.style.color = color
+            Color_Text_Leg = color
             crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
         }
 
@@ -519,9 +559,29 @@ function cambio_rango(value) {
     rango = value
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
+let rangoMax = 1000000
+function cambio_rangoMax(value) {
+    rangoMax = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
 let fsize = 12
-function fontSize_chart(value){
+function fontSize_chart(value) {
     fsize = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
+let fsizeX = 12
+function fontSize_chartX(value) {
+    fsizeX = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
+let fsizeLeg = 12
+function fontSize_Leg(value) {
+    fsizeLeg = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
+let ValEje = "y"
+function Change_eje_grafico(value) {
+    ValEje = value
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
 
@@ -539,13 +599,12 @@ function crear_grafico(data, tipo) {
     let newColors = []
     let newColors2 = []
     data.forEach(label => {
-        if (label[2] >= rango) {
+        if (label[2] >= rango && label[2] <= rangoMax) {
             newLabels.push(label[0])
             newVictimas.push(label[2])
             newCasos.push(label[1])
             newColors.push(getColor());
         }
-
     })
 
     new Chart(ctx, {
@@ -554,22 +613,32 @@ function crear_grafico(data, tipo) {
             labels: newLabels,
             datasets: [{
                 label: '# de Victimas',
-                borderColor: '#36A2EB',
                 data: newVictimas,
                 borderWidth: 1,
-                borderColor: Color_Text_Chart,
+                fontColor: "red",
                 backgroundColor: newColors,
             }],
 
         },
         options: {
             responsive: true,
-            indexAxis: 'y',
+            indexAxis: ValEje,
+            plugins: {
+                // changin the lagend colour
+                legend: {
+                    labels: {
+                        color: Color_Text_Leg,
+                        font: {
+                            size: fsizeLeg,
+                        }
+                    },
+                },
+            },
             scales: {
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        color: Color_Text_Chart,
+                        color: Color_Text_ChartY,
                         font: {
                             size: fsize,
                         }
@@ -580,7 +649,10 @@ function crear_grafico(data, tipo) {
                 },
                 x: {
                     ticks: {
-                        color: Color_Text_Chart,
+                        color: Color_Text_ChartX,
+                        font: {
+                            size: fsizeX,
+                        }
                     },
                     grid: {
                         color: Color_Line_Chart
@@ -590,7 +662,7 @@ function crear_grafico(data, tipo) {
         }
     });
 
-    Chart.defaults.color = Color_Text_Chart
+
 
 }
 
