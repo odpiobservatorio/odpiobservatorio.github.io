@@ -80,32 +80,6 @@
                             <ul class="collapse hide nav flex-column ms-2" id="" data-bs-parent="#menu">
                             </ul>
                         </li>
-
-                        <li onclick="verTexto()" id="btndocumentos" hidden="true">
-                            <a href="#mn-documento" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-3 fw-bold bi-file-earmark-text text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Documentos</span> </a>
-                            <ul class="collapse hide nav flex-column ms-2" id="mn-documento" data-bs-parent="#menu">
-                                <li class="w-100" onclick="crearTexto('element-to-print')">
-                                    <a href="#" class="nav-link px-0 text-white">
-                                        <i class="bi-file-earmark-pdf-fill text-white"></i>
-                                        <span class="d-none d-sm-inline text-white">
-
-                                        </span>
-                                        Exportar
-                                    </a>
-                                </li>
-                                <li class="w-100" onclick="">
-                                    <a href="#" class="nav-link px-0 text-white">
-                                        <i class="bi-cloud-download text-white"></i>
-                                        <span class="d-none d-sm-inline text-white">
-
-                                        </span>
-                                        Backup
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li onclick="loadProyectoTabla(PublicID)" id="btntablas" hidden="true">
                             <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi-table text-white"></i> <span
@@ -131,7 +105,7 @@
                                 hidden="true">
                             </ul>
                         </li>
-                        <li>
+                        <li id="btndocumentos" hidden="true">
                             <a href="#panel-config" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi bi-gear-fill text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Configuración</span> </a>
@@ -148,13 +122,12 @@
                                     <button for="file-input-marks" type="button" class="btn btn-secondary"
                                         id="btnLoad_line">
                                         <label for="file-input-lines" href="">
-                                            <i class="bi bi-upload"></i>
+                                            <i class="bi bi-upload">Restore Data</i>
                                         </label>
                                     </button>
                                 </li>
-                                <input id="file-input-lines" style="visibility:hidden; width: 50px;" type="file" accept=".json">
-
-
+                                <input id="file-input-lines" style="visibility:hidden; width: 50px;" type="file"
+                                    accept=".json">
 
                             </ul>
                         </li>
@@ -445,10 +418,9 @@
                                     <i class="bi bi-binoculars"></i>
                                 </button>
                                 <button type="button" class="btn btn-secondary" onclick="ver_todo()">TODO</button>
-                                <button type="button" class="btn btn-secondary fw-bold" onclick="add_consulta()"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip"
-                                    data-bs-title="Agregar criterio" id="btnAddCriterio">
-                                    <i class="bi bi-database-add"></i>
+                                <button type="button" class="btn btn-secondary fw-bold" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasGraficos">
+                                    <i class="bi bi-gear-fill"></i>
                                 </button>
                             </div>
                         </div>
@@ -535,112 +507,6 @@
 
                         </div>
                         <div class="col">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <small>Tipo de gráfico</small>
-                                    <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)"
-                                        id="listTipo_chart">
-                                        <option value="bar">Barras</option>
-                                        <option value="line">Líneas</option>
-                                        <option value="doughnut">Anillo</option>
-                                        <option value="pie">Torta</option>
-                                        <option value="polarArea">Area</option>
-                                        <option value="scatter">Puntos</option>
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <small>Altura</small>
-                                    <select class="ms-2 form-select mt-2 mb-2" onchange="altura_chart(this.value)">
-                                        <option value="auto">Auto</option>
-                                        <option value="300px">300px</option>
-                                        <option value="400px">400px</option>
-                                        <option value="500px">500px</option>
-                                        <option value="600px">600px</option>
-                                        <option value="800px">800px</option>
-                                        <option value="1000px">1000px</option>
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <small>Tamaño</small>
-                                    <select class="ms-2 form-select mt-2 mb-2" onchange="fontSize_chart(this.value)">
-                                        <option value="8">8pt</option>
-                                        <option value="10">10</option>
-                                        <option value="12">12</option>
-                                        <option value="14">14</option>
-                                        <option value="16">16</option>
-                                        <option value="18">18</option>
-                                        <option value="20">20</option>
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <small>Superior</small>
-                                    <select class="ms-2 form-select mt-2 mb-2" onchange="cambio_rango(this.value)">
-                                        <option value=0>Auto</option>
-                                        <option value=5>5</option>
-                                        <option value=10>10</option>
-                                        <option value=20>20</option>
-                                        <option value=30>30</option>
-                                        <option value=40>40</option>
-                                        <option value=50>50</option>
-                                        <option value=60>60</option>
-                                        <option value=70>70</option>
-                                        <option value=80>80</option>
-                                        <option value=90>90</option>
-                                        <option value=100>100</option>
-                                        <option value=150>150</option>
-                                        <option value=200>200</option>
-                                        <option value=250>250</option>
-                                        <option value=300>300</option>
-                                        <option value=400>400</option>
-                                        <option value=500>500</option>
-                                        <option value=600>600</option>
-                                        <option value=700>700</option>
-                                        <option value=800>800</option>
-                                        <option value=1000>1000</option>
-                                        <option value=1500>1500</option>
-                                        <option value=2000>2000</option>
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <small class="text-white">Superior</small>
-                                    <div class="dropdown mb-2  mt-2 border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            id="btnColorFondo">
-                                            Fondo
-                                            <i id="i_fondo"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" style="width: 300px;">
-                                            <div id="ulColorFondoChart" class="container-fluid"></div>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <small class="text-white">Superior</small>
-                                    <div class="dropdown mb-2  mt-2 border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            id="btnColorLetra">
-                                            Leyendas
-                                            <i id="i_texto"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" style="width: 300px;">
-                                            <div id="ulColorLetraChart" class="container-fluid"></div>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <small class="text-white">Superior</small>
-                                    <div class="dropdown mb-2  mt-2 border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            id="btnColorLinea">
-                                            Líneas
-                                            <i id="i_linea"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" style="width: 300px;">
-                                            <div id="ulColorLineaChart" class="container-fluid"></div>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                             <div id="divChart" class="border border-2 border-secondary p-3 m-3" style="width:auto;">
 
                             </div>
@@ -927,6 +793,74 @@
         <ul class="list-group" id="listconsultaextendida">
 
         </ul>
+    </div>
+</div>
+<div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasGraficos" data-bs-scroll="true"
+    data-bs-backdrop="false">
+    <div class="offcanvas-header" style="background-color: #DC143C;">
+        <h5 class="offcanvas-title text-white" id="offcanvasConsultaLabel">Panel de gráficos</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <small>Tipo de gráfico</small>
+        <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)" id="listTipo_chart">
+            <option value="bar">Barras</option>
+            <option value="line">Líneas</option>
+            <option value="doughnut">Anillo</option>
+            <option value="pie">Torta</option>
+            <option value="polarArea">Area</option>
+            <option value="scatter">Puntos</option>
+        </select>
+        <small>Altura</small>
+        <select class="ms-2 form-select mt-2 mb-2" onchange="altura_chart(this.value)">
+            <option value="auto">Auto</option>
+            <option value="300px">300px</option>
+            <option value="400px">400px</option>
+            <option value="500px">500px</option>
+            <option value="600px">600px</option>
+            <option value="800px">800px</option>
+            <option value="1000px">1000px</option>
+        </select>
+        <small>Tamaño letra leyendas</small>
+        <select class="ms-2 form-select mt-2 mb-2" onchange="fontSize_chart(this.value)">
+            <option value="8">8pt</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+        </select>
+        <small class="text-white">Superior</small>
+        <div class="dropdown mb-2  mt-2 border border-1">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorFondo">
+                Fondo
+                <i id="i_fondo"></i>
+            </button>
+            <ul class="dropdown-menu" style="width: 300px;">
+                <div id="ulColorFondoChart" class="container-fluid"></div>
+            </ul>
+        </div>
+        <small class="text-white">Superior</small>
+        <div class="dropdown mb-2  mt-2 border border-1">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLetra">
+                Leyendas
+                <i id="i_texto"></i>
+            </button>
+            <ul class="dropdown-menu" style="width: 300px;">
+                <div id="ulColorLetraChart" class="container-fluid"></div>
+            </ul>
+        </div>
+        <small class="text-white">Superior a</small>
+        <div class="dropdown mb-2  mt-2 border border-1">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLinea">
+                Líneas
+                <i id="i_linea"></i>
+            </button>
+            <ul class="dropdown-menu" style="width: 300px;">
+                <div id="ulColorLineaChart" class="container-fluid"></div>
+            </ul>
+        </div>
     </div>
 </div>
 
