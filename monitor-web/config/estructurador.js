@@ -1,6 +1,6 @@
 //Esta variable guarda el proyecto activo como clase
 let ActiveDB;
-let PublicID=0
+let PublicID = 2016
 class clsObservatorio {
     constructor(id) {
         this.id = id
@@ -819,7 +819,6 @@ class Persona {
 
         const intEdad = document.getElementById(`intEdad${this.id}`)
         intEdad.oninput = () => {
-
             this.edad = parseInt(intEdad.value)
             GuardarDatos()
         }
@@ -1217,12 +1216,12 @@ class Medidas {
 }
 function show_listPrj() {
 
-    if (PublicID!==0){
+    if (PublicID !== 2016) {
         document.getElementById("panel-escritorio").hidden = false
         document.getElementById("sel_vigencia").value = PublicID
         loadProyecto(PublicID)
         gotoCaso(0)
-    }else{
+    } else {
         document.getElementById("panel-escritorio").hidden = false
         document.getElementById("sel_vigencia").value = 0
         loadProyecto(0)
@@ -1231,10 +1230,20 @@ function show_listPrj() {
 
 }
 function loadProyecto(value) {
-    
+
     if (Registrado == 1) {
         const proyectos = GLOBAL.state.proyectos;
-        ActiveDB = clsObservatorio.loadAsInstance(proyectos[value]);
+
+        for (id in proyectos) {
+            if (proyectos[id].id == value) {
+                ActiveDB = clsObservatorio.loadAsInstance(proyectos[id]);
+                console.log(ActiveDB.id, value, ActiveDB.clsCasos.length)
+            }
+        }
+
+
+
+
         document.getElementById("panel-escritorio").hidden = false
         document.getElementById("element-to-print").hidden = true
         document.getElementById("panel-Tablas-inicio").hidden = true
@@ -1242,8 +1251,8 @@ function loadProyecto(value) {
         gotoFirst()
 
         //
-        document.getElementById("sel_vigencia_tabla").value=value
-        PublicID=value
+        document.getElementById("sel_vigencia_tabla").value = value
+        PublicID = value
         //
 
 
@@ -1315,6 +1324,7 @@ function loadProyecto(value) {
         mensajes("Aun no se ha registrado en el sistema", "orange")
         document.getElementById("panel-escritorio").hidden = true
     }
+    inibtnLoad()
 }
 
 async function GuardarDatos() {
@@ -1357,11 +1367,11 @@ async function BorrarCaso() {
     )
 
 }
-function BorrarTodo(){
-    ActiveDB.clsCasos=[]
-    document.getElementById("colnRegistro").textContent="0 de 0"
+function BorrarTodo() {
+    ActiveDB.clsCasos = []
+    document.getElementById("colnRegistro").textContent = "0 de 0"
     GuardarDatos()
-    
+
 }
 
 async function ListarCasos() {
@@ -1446,7 +1456,7 @@ async function gotoBackNext(option) {
     } catch (error) {
         console.log("Error en movimento registro")
         activeIndex = 0
-        document.getElementById("colnRegistro").textContent="0 de 0"
+        document.getElementById("colnRegistro").textContent = "0 de 0"
         //ActiveDB.clsCasos[0].makerHTMLCaso()
     }
 }
@@ -1604,8 +1614,6 @@ function pastetab() {
                 })
             })
 
-
-
             ListarCasos()
             gotoEnd()
             GuardarDatos()
@@ -1631,10 +1639,11 @@ function backupData() {
         })
     })
 
+    ActiveDBchart = MultiCasos
 
 
     const a = document.createElement("a");
-    const archivo = new Blob([JSON.stringify(MultiCasos)], { type: 'text/plain' });
+    const archivo = new Blob([ActiveDB.convertToJSON()], { type: 'text/plain' });
     const url = URL.createObjectURL(archivo);
     a.href = url;
 
@@ -1644,4 +1653,45 @@ function backupData() {
     a.download = 'ClusterODPI' + date.getDate() + ".json";
     a.click();
     URL.revokeObjectURL(url);
+}
+function restoreData() {
+
+}
+function inibtnLoad() {
+
+    //==================================================================
+    //Acciones para leer la línea
+    const fileSelector = document.getElementById('file-input-lines');
+
+    fileSelector.addEventListener('change', (event) => {
+
+        const archivo = event.target.files[0];
+
+        if (!archivo) {
+            return;
+        }
+        var lector = new FileReader();
+        lector.onload = function (e) {
+            var contenido = e.target.result;
+            var data = JSON.parse(contenido)
+            upload_casos(data.clsCasos)
+        };
+
+        lector.readAsText(archivo);
+        //Limpiamos el contenedor archivo para que permita recargas
+        document.getElementById('file-input-lines').value = ''
+        //Lista las marcas en el contenedor de marcas
+    });
+}
+function upload_casos(data) {
+
+
+    let r = 0
+    for (id in data) {
+        r++
+        ActiveDB.addCaso(data[id])
+    }
+    GuardarDatos()
+    console.log(ActiveDB)
+    mensajes(`Se cargaron ${r} registros`)
 }

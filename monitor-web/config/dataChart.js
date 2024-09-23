@@ -581,7 +581,6 @@ function crear_grafico(data, tipo) {
                 x: {
                     ticks: {
                         color: Color_Text_Chart,
-
                     },
                     grid: {
                         color: Color_Line_Chart

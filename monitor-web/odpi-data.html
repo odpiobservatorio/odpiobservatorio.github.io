@@ -144,6 +144,18 @@
                                         </span>
                                     </a>
                                 </li>
+                                <li>
+                                    <button for="file-input-marks" type="button" class="btn btn-secondary"
+                                        id="btnLoad_line">
+                                        <label for="file-input-lines" href="">
+                                            <i class="bi bi-upload"></i>
+                                        </label>
+                                    </button>
+                                </li>
+                                <input id="file-input-lines" style="visibility:hidden; width: 50px;" type="file" accept=".json">
+
+
+
                             </ul>
                         </li>
                         <li onclick="SignOut()" id="">
@@ -171,16 +183,16 @@
                 <small class="fw-bold text-info mt-3">Vigencia</small>
                 <select class="form-select" aria-label="Default select example" onchange="loadProyecto(this.value)"
                     id="sel_vigencia">
-                    <option value="0">2016</option>
-                    <option value="1">2017</option>
-                    <option value="2">2018</option>
-                    <option value="3">2019</option>
-                    <option value="4">2020</option>
-                    <option value="5">2021</option>
-                    <option value="9">2021 II</option>
-                    <option value="6">2022</option>
-                    <option value="7">2023</option>
-                    <option value="8">2024</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2021II">2021 II</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
 
                 </select>
                 <div class="btn-group sticky-top">
@@ -526,7 +538,8 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <small>Tipo de gráfico</small>
-                                    <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)" id="listTipo_chart">
+                                    <select class="ms-2 form-select mt-2 mb-2" onchange="tipo_grafico(this.value)"
+                                        id="listTipo_chart">
                                         <option value="bar">Barras</option>
                                         <option value="line">Líneas</option>
                                         <option value="doughnut">Anillo</option>
@@ -591,7 +604,8 @@
                                 <div class="col-auto">
                                     <small class="text-white">Superior</small>
                                     <div class="dropdown mb-2  mt-2 border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorFondo">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            id="btnColorFondo">
                                             Fondo
                                             <i id="i_fondo"></i>
                                         </button>
@@ -603,7 +617,8 @@
                                 <div class="col-auto">
                                     <small class="text-white">Superior</small>
                                     <div class="dropdown mb-2  mt-2 border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLetra">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            id="btnColorLetra">
                                             Leyendas
                                             <i id="i_texto"></i>
                                         </button>
@@ -615,7 +630,8 @@
                                 <div class="col-auto">
                                     <small class="text-white">Superior</small>
                                     <div class="dropdown mb-2  mt-2 border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLinea">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            id="btnColorLinea">
                                             Líneas
                                             <i id="i_linea"></i>
                                         </button>
@@ -640,16 +656,16 @@
                     <small class="fw-bold text-info mt-3">Vigencia</small>
                     <select class="form-select ms-1 mb-2 mt-1" aria-label="Default select example"
                         onchange="iniTables(this.value,0)" id="sel_vigencia_tabla" style="width: 300px;">
-                        <option value="0">2016</option>
-                        <option value="1">2017</option>
-                        <option value="2">2018</option>
-                        <option value="3">2019</option>
-                        <option value="4">2020</option>
-                        <option value="9">2021 II</option>
-                        <option value="5">2021</option>
-                        <option value="6">2022</option>
-                        <option value="7">2023</option>
-                        <option value="8">2024</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2021II">2021 II</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
                     </select>
                     <div class="">
                         <div class="row align-items-start mt-3">

@@ -32,7 +32,7 @@ const campos = [
 
 
 function loadProyectoTabla(value) {
-    if (PublicID !== 0) {
+    if (PublicID !== 2016) {
         iniTables(PublicID, 1)
     } else {
         iniTables(0, 1)
@@ -87,8 +87,13 @@ function iniTables(value, ini) {
 
     //Cargamos la base de datos actual
     const proyectos = GLOBAL.state.proyectos;
-    ActiveDB = clsObservatorio.loadAsInstance(proyectos[value]);
 
+    for(id in proyectos){
+        if(proyectos[id].id==value){
+            ActiveDB = clsObservatorio.loadAsInstance(proyectos[id]);
+            console.log(ActiveDB.id,value,ActiveDB.clsCasos.length)
+        }
+    }
     //
     document.getElementById("sel_vigencia").value = value
     PublicID = value
@@ -204,7 +209,7 @@ function makerTable(data) {
         lifilternull.onclick = () => {
             dataWfilter = ActiveDB.clsCasos
 
-            iniTables(PublicID, 0)
+            iniTables(PublicID, 2016)
             activeHeadfilter = []
         }
 
