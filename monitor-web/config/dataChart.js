@@ -19,6 +19,15 @@ const ColorList = [
     "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
 ]
 
+const ColorList2={
+    Rojos1:["#3B0B17","#610B21","#8A0829","#B40431","#DF013A","#FF0040","#FE2E64","#FA5882","#F5A9BC",
+            "#610B38","#8A084B","#B4045F","#FF0080","#FE2E9A","#FA58AC","#F781BE","#F5A9D0","#F6CEE3",
+            "#3B0B2E","#610B4B","#8A0868"
+    ]
+}
+
+
+
 
 
 function ini_chat() {
@@ -615,8 +624,7 @@ function crear_grafico(data, tipo) {
                 label: '# de Victimas',
                 data: newVictimas,
                 borderWidth: 1,
-                fontColor: "red",
-                backgroundColor: newColors,
+                backgroundColor: ColorList2.Rojos1,
             }],
 
         },
