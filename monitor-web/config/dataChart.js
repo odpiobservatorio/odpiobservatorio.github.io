@@ -23,7 +23,11 @@ const ColorList2={
     Rojos1:["#3B0B17","#610B21","#8A0829","#B40431","#DF013A","#FF0040","#FE2E64","#FA5882","#F5A9BC",
             "#610B38","#8A084B","#B4045F","#FF0080","#FE2E9A","#FA58AC","#F781BE","#F5A9D0","#F6CEE3",
             "#3B0B2E","#610B4B","#8A0868"
-    ]
+    ],
+    Verdes1:["#225500ff","#338000ff","#44aa00ff","#55d400ff","#66ff00ff","#99ff55ff","#ccffaaff","#2ca02cff","#37c837ff",
+        "#5fd35fff","#00aa44ff","#00d455ff","#FF0080","#FE2E9A","#FA58AC","#F781BE","#F5A9D0","#F6CEE3",
+        "#3B0B2E","#610B4B","#8A0868"
+]
 }
 
 
@@ -594,6 +598,11 @@ function Change_eje_grafico(value) {
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
 
+let ColorDatos="gray"
+function data_color_change(value){
+    ColorDatos=ColorList2[value]
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
 
 function crear_grafico(data, tipo) {
     const div = document.getElementById('divChart');
