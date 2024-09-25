@@ -1613,14 +1613,10 @@ function pastetab() {
                     per++
                 })
             })
-
             ListarCasos()
             gotoEnd()
             GuardarDatos()
-
         })
-
-
 }
 
 function newDataProyecto() {
@@ -1643,7 +1639,7 @@ function backupData() {
 
 
     const a = document.createElement("a");
-    const archivo = new Blob([ActiveDB.convertToJSON()], { type: 'text/plain' });
+    const archivo = new Blob(MultiCasos, { type: 'text/plain' });
     const url = URL.createObjectURL(archivo);
     a.href = url;
 

@@ -19,20 +19,34 @@ const ColorList = [
     "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
 ]
 
-const ColorList2={
-    Rojos1:["#3B0B17","#610B21","#8A0829","#B40431","#DF013A","#FF0040","#FE2E64","#FA5882","#F5A9BC",
-            "#610B38","#8A084B","#B4045F","#FF0080","#FE2E9A","#FA58AC","#F781BE","#F5A9D0","#F6CEE3",
-            "#3B0B2E","#610B4B","#8A0868"
+const ColorList2 = {
+    Rojos1: ["#150101", "#360303", "#570505", "#780707", "#9f0b0b", "#c21010", "#df1414", "#df1414", "#f52f2f", "#f73f3f",
+        "#e33a3a", "#cc3737", "#b13131", "#992828", "#802121", "#651919", "#481313", "#4e1b1b", "#742d2d", "#a54c4c",
+        "#d27070", "#e39494"
     ],
-    Verdes1:["#225500ff","#338000ff","#44aa00ff","#55d400ff","#66ff00ff","#99ff55ff","#ccffaaff","#2ca02cff","#37c837ff",
-        "#5fd35fff","#00aa44ff","#00d455ff","#FF0080","#FE2E9A","#FA58AC","#F781BE","#F5A9D0","#F6CEE3",
-        "#3B0B2E","#610B4B","#8A0868"
-]
+    Rojos2: ["#230102", "#3e0204", "#550406", "#6f0609", "#86080c", "#9b0b10", "#b50f14", "#d01319", "#eb171e", "#f12b31",
+        "#cc3035", "#b53034", "#a12f33", "#862528", "#7a2c2e", "#672c2e", "#673335", "#673d3f", "#805557", "#9d7274",
+        "#c2989a", "#e1babc"],
+
+    Verdes1: ["#011102", "#033606", "#064e0a", "#09650e", "#0b7411", "#0f8815", "#129f19", "#15b51d", "#1ad023", "#1feb29",
+        "#46ef4e", "#43d049", "#3bad3f", "#328e35", "#2a742d", "#235f26", "#1c461e", "#132714", "#F6CEE3", "#29482b",
+        "#597c5b", "#789f7a"],
+    Azules1: ["#011512", "#03342c", "#054a3f", "#086758", "#0b8471", "#0fa38c", "#13c2a7", "#19ddbe", "#20fcd9", "#31e7ca",
+        "#45d9c1", "#48beab", "#51ad9e", "#3e9083", "#2a786b", "#5f8c85", "#78b399", "#83d2af", "#7ce7b8", "#5ed29f",
+        "#4db387", "#368c67"],
+    Multicolor1:[
+            //rojos
+            "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
+            "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
+            "#FF7F50", "#6495ED", "#FFF8DC", "#DC143C", "#00FFFF", "#00008B", "#008B8B",
+            "#B8860B", "#006400", "#A9A9A9", "#BDB76B", "#8B008B", "#556B2F", "#FF8C00",
+            "#9932CC", "#8B0000", "#E9967A", "#8FBC8F", "#483D8B", "#2F4F4F", "#00CED1",
+            "#FF1493", "#00BFFF", "#696969", "#1E90FF", "#B22222", "#FFFAF0", "#228B22",
+            "#FF00FF", "#FFD700", "#DAA520", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C",
+            "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
+            "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
+        ]
 }
-
-
-
-
 
 function ini_chat() {
     let MultiCasos = []
@@ -498,7 +512,7 @@ function crear_consolidados() {
         tbody.appendChild(tr)
 
     })
-    crear_grafico(consolidados, "bar")
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
 function sort_consolidado(tipo, orden) {
 
@@ -537,7 +551,7 @@ function sort_consolidado(tipo, orden) {
         tbody.appendChild(tr)
 
     })
-    crear_grafico(newDataOrdenado, "bar")
+    crear_grafico(newDataOrdenado, document.getElementById("listTipo_chart").value)
 
 
 }
@@ -598,13 +612,14 @@ function Change_eje_grafico(value) {
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
 
-let ColorDatos="gray"
-function data_color_change(value){
-    ColorDatos=ColorList2[value]
+let ColorDatos = "gray"
+function data_color_change(value) {
+    ColorDatos = ColorList2[value]
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
 
 function crear_grafico(data, tipo) {
+    console.log(data)
     const div = document.getElementById('divChart');
     div.innerHTML = ""
     const ctx = document.createElement("canvas")
@@ -633,7 +648,7 @@ function crear_grafico(data, tipo) {
                 label: '# de Victimas',
                 data: newVictimas,
                 borderWidth: 1,
-                backgroundColor: ColorList2.Rojos1,
+                backgroundColor: ColorDatos,
             }],
 
         },

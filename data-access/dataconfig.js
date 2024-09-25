@@ -38,11 +38,11 @@ loadDataBase("1ZhaiG1Fz3NUrlQpQtNhH8lgNUpQ97ETqnhaKFNmrTrg", "EVENTOS").then(obj
 
 
 //Importa las instanacias de firebase y administración de base de datos
-import { initializeApp} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { initializeApp} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 
 
 //importa las acciones para almacenar en la nube
-import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-storage.js";
 
 import {
     getFirestore,
@@ -56,7 +56,7 @@ import {
     deleteDoc,
     updateDoc,
     deleteField,
-} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 //Importa las instanacias de firebase para autenticación
 import {
@@ -70,7 +70,7 @@ import {
     browserSessionPersistence,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
 
 
 

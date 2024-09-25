@@ -21,7 +21,14 @@ function IniCredential() {
     GLOBAL.firestore.CredentialIn(email, password)
 
 }
+function IniCredentialOpen() {
+    //Lee la información del form,ulario de ingreso en index.html
+    const email = "wilson.largo.s@gmail.com"
+    const password = "Pr1nc3sa"
+    //Evoca la función global de ingreso, en archivo (cinfirdata.js) 
+    GLOBAL.firestore.CredentialIn2(email, password)
 
+}
 function SignOut() {
     location.href = "../index.html"
     //GLOBAL.firestore.CredentialOut()
@@ -52,19 +59,14 @@ function mensajes(text, color) {
 
 }
 const modal = {
-
     modalDelete(comando) {
         const modal = new bootstrap.Modal(document.getElementById('ModalDelete'));
         const texto = document.getElementById("textoModalDel")
         texto.textContent = "¿Está seguro de eliminar este elemento?"
-
         modal.show();
         const btn = document.getElementById('btnBorrarConfirm')
         btn.onclick = comando
-
     }
-
-
 }
 //Esta función llama a la librería para crear texto desdd html
 function crearTexto(control) {
