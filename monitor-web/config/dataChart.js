@@ -20,32 +20,39 @@ const ColorList = [
 ]
 
 const ColorList2 = {
-    Rojos1: ["#150101", "#360303", "#570505", "#780707", "#9f0b0b", "#c21010", "#df1414", "#df1414", "#f52f2f", "#f73f3f",
-        "#e33a3a", "#cc3737", "#b13131", "#992828", "#802121", "#651919", "#481313", "#4e1b1b", "#742d2d", "#a54c4c",
+    Rojos1: ["#3b0202", "#800505", "#b30707", "#e80909", "#bd3a3a", "#994b4b", "#d46e6e", "#852d04", "#ad3f0c", "#eb692d",
+        "#9c4a08", "#c40c37", "#db1d49", "#f03c66", "#802121", "#651919", "#481313", "#4e1b1b", "#742d2d", "#a54c4c",
         "#d27070", "#e39494"
     ],
-    Rojos2: ["#230102", "#3e0204", "#550406", "#6f0609", "#86080c", "#9b0b10", "#b50f14", "#d01319", "#eb171e", "#f12b31",
-        "#cc3035", "#b53034", "#a12f33", "#862528", "#7a2c2e", "#672c2e", "#673335", "#673d3f", "#805557", "#9d7274",
+    Rojos2: ["#990033", "#e6004c", "#ff3377", "#ff80aa", "#800040", "#cc0066", "#ff3399", "#ff99cc", "#73264d", "#cc6699",
+        "#99003d", "#e6005c", "#ff66a3", "#862528", "#7a2c2e", "#672c2e", "#673335", "#673d3f", "#805557", "#9d7274",
         "#c2989a", "#e1babc"],
 
     Verdes1: ["#011102", "#033606", "#064e0a", "#09650e", "#0b7411", "#0f8815", "#129f19", "#15b51d", "#1ad023", "#1feb29",
         "#46ef4e", "#43d049", "#3bad3f", "#328e35", "#2a742d", "#235f26", "#1c461e", "#132714", "#F6CEE3", "#29482b",
         "#597c5b", "#789f7a"],
-    Azules1: ["#011512", "#03342c", "#054a3f", "#086758", "#0b8471", "#0fa38c", "#13c2a7", "#19ddbe", "#20fcd9", "#31e7ca",
-        "#45d9c1", "#48beab", "#51ad9e", "#3e9083", "#2a786b", "#5f8c85", "#78b399", "#83d2af", "#7ce7b8", "#5ed29f",
+    Verdes2: ["#006400", "#00FA9A", "#008000", "#2E8B57", "#32CD32", "#3CB371", "#2E8B57", "#556B2F", "#6B8E23", "#7FFF00",
+        "#90EE90", "#ADFF2F"],
+    Azules1: ["#00264d", "#004d99", "#0073e6", "#4da6ff", "#80bfff", "#cce6ff", "#1f3d7a", "#5c85d6", "#99b3e6", "#2d2d86",
+        "#45d9c1", "#6666cc", "#0099ff", "#80ccff", "#2a786b", "#5f8c85", "#78b399", "#83d2af", "#7ce7b8", "#5ed29f",
         "#4db387", "#368c67"],
-    Multicolor1:[
-            //rojos
-            "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
-            "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
-            "#FF7F50", "#6495ED", "#FFF8DC", "#DC143C", "#00FFFF", "#00008B", "#008B8B",
-            "#B8860B", "#006400", "#A9A9A9", "#BDB76B", "#8B008B", "#556B2F", "#FF8C00",
-            "#9932CC", "#8B0000", "#E9967A", "#8FBC8F", "#483D8B", "#2F4F4F", "#00CED1",
-            "#FF1493", "#00BFFF", "#696969", "#1E90FF", "#B22222", "#FFFAF0", "#228B22",
-            "#FF00FF", "#FFD700", "#DAA520", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C",
-            "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
-            "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
-        ]
+
+    Multicolor1: [
+        //rojos
+        "#F0F8FF", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#D2691E",
+        "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
+        "#FF7F50", "#6495ED", "#FFF8DC", "#DC143C", "#00FFFF", "#00008B", "#008B8B",
+        "#B8860B", "#006400", "#A9A9A9", "#BDB76B", "#8B008B", "#556B2F", "#FF8C00",
+        "#9932CC", "#8B0000", "#E9967A", "#8FBC8F", "#483D8B", "#2F4F4F", "#00CED1",
+        "#FF1493", "#00BFFF", "#696969", "#1E90FF", "#B22222", "#FFFAF0", "#228B22",
+        "#FF00FF", "#FFD700", "#DAA520", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C",
+        "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
+        "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
+    ],
+    Observatorio1: ["#A52A2A", "#CD5C5C", "#BC8F8F", "#C71585", "#D2B48C", "#DB7093", "#DC143C", "#DB7093", "#E9967A", "#F08080",
+        "#F4A460", "#F5DEB3", "#FF1493", "#FF7F50", "#FF6347"],
+    Observatorio2: ["#696969", "#708090", "#8FBC8F", "#A52A2A", "#A9A9A9", "#B22222", "#BC8F8F", "#BDB76B", "#CD853F", "#DAA520",
+        "#DC143C", "#DB7093", "#E9967A", "#F0E68C", "#FF8C00","#DC143C", "#FFD700"],
 }
 
 function ini_chat() {
@@ -617,9 +624,13 @@ function data_color_change(value) {
     ColorDatos = ColorList2[value]
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
+let fromCampo = 0
+function data_from_change(value) {
+    fromCampo = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
 
 function crear_grafico(data, tipo) {
-    console.log(data)
     const div = document.getElementById('divChart');
     div.innerHTML = ""
     const ctx = document.createElement("canvas")
@@ -630,9 +641,19 @@ function crear_grafico(data, tipo) {
     let newCasos = []
     let newVictimas = []
     let newColors = []
-    let newColors2 = []
+
+    let labelA = "Víctimas"
+    let indexA = 2
+
+
+    if (fromCampo == 0) {
+        indexA = 2
+    } else {
+        indexA = 1
+    }
+
     data.forEach(label => {
-        if (label[2] >= rango && label[2] <= rangoMax) {
+        if (label[indexA] >= rango && label[indexA] <= rangoMax) {
             newLabels.push(label[0])
             newVictimas.push(label[2])
             newCasos.push(label[1])
@@ -640,13 +661,23 @@ function crear_grafico(data, tipo) {
         }
     })
 
+    if (fromCampo == 0) {
+        data_from = newVictimas
+        labelA = "Víctimas"
+    } else {
+        data_from = newCasos
+        labelA = "Casos"
+    }
+
+
+
     new Chart(ctx, {
         type: tipo,
         data: {
             labels: newLabels,
             datasets: [{
-                label: '# de Victimas',
-                data: newVictimas,
+                label: "# de " + labelA,
+                data: data_from,
                 borderWidth: 1,
                 backgroundColor: ColorDatos,
             }],
@@ -693,7 +724,6 @@ function crear_grafico(data, tipo) {
             }
         }
     });
-
 
 
 }

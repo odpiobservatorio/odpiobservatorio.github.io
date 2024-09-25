@@ -1637,9 +1637,8 @@ function backupData() {
 
     ActiveDBchart = MultiCasos
 
-
     const a = document.createElement("a");
-    const archivo = new Blob(MultiCasos, { type: 'text/plain' });
+    const archivo = new Blob([JSON.stringify(MultiCasos)], { type: 'text/plain' });
     const url = URL.createObjectURL(archivo);
     a.href = url;
 

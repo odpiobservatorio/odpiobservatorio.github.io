@@ -9,7 +9,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/fireba
 
 
 //importa las acciones para almacenar en la nube
-import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-storage.js";
 
 import {
     getFirestore,
@@ -84,6 +84,10 @@ onAuthStateChanged(auth, async (user) => {
     }
 
 })
+
+const storage = getStorage();
+
+
 //Función para autorizar ingreso a la base de datos
 async function CredentialIn(email, password) {
     try {

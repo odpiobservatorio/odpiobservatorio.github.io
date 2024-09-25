@@ -797,8 +797,15 @@
             <option value="clsPersonas_genero">Género</option>
             <option value="clsPersonas_edad">Edad</option>
         </select>
+        <small>Mostrar cifras de:</small>
+        <select class="ms-2 form-select mt-2 mb-2"
+            onchange="data_from_change(this.value)" style="width: 200px;">
+            <option value="0">Víctimas</option>
+            <option value="1">Casos</option>
+
+        </select>
         <small>Tipo de gráfico</small>
-        <select class="form-select mb-2" onchange="tipo_grafico(this.value)" id="listTipo_chart">
+        <select class="form-select mb-2" onchange="data_from_change(this.value)" id="listTipo_chart">
             <option value="bar">Barras</option>
             <option value="line">Líneas</option>
             <option value="doughnut">Anillo</option>
@@ -891,13 +898,14 @@
         <div class="fw-bold">OTROS</div>
         <small>Color datos</small>
         <select class="ms-1 form-select mb-2" onchange="data_color_change(this.value)">
+            <option value="Observatorio1">Obsevatorio 1</option>
+            <option value="Observatorio2">Obsevatorio 2</option>
             <option value="Rojos1">Rojos 1</option>
             <option value="Rojos2">Rojos 2</option>
             <option value="Verdes1">Verdes 1</option>
+            <option value="Verdes2">Verdes 2</option>
             <option value="Azules1">Azules 1</option>
-            <option value="Multicolor1">Multicolor 1</option>
-
-            
+            <option value="Multicolor1">Multicolor 1</option>           
         </select>
         <div class="dropdown mb-2 border border-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorFondo">
