@@ -783,8 +783,8 @@
     </div>
     <div class="offcanvas-body">
         <small>Buscar por:</small>
-        <select id="lstbuscarpor" class="ms-2 form-select mt-2 mb-2"
-            onchange="crear_listas(this.value)" style="width: 200px;">
+        <select id="lstbuscarpor" class="ms-2 form-select mt-2 mb-2" onchange="crear_listas(this.value)"
+            style="width: 200px;">
             <option value="sininfo">Sin información</option>
             <option value="clsCasos_vigencia">Año</option>
             <option value="clsCasos_macroregion">Macro region</option>
@@ -798,8 +798,7 @@
             <option value="clsPersonas_edad">Edad</option>
         </select>
         <small>Mostrar cifras de:</small>
-        <select class="ms-2 form-select mt-2 mb-2"
-            onchange="data_from_change(this.value)" style="width: 200px;">
+        <select class="ms-2 form-select mt-2 mb-2" onchange="data_from_change(this.value)" style="width: 200px;">
             <option value="0">Víctimas</option>
             <option value="1">Casos</option>
 
@@ -833,6 +832,11 @@
             <option value="1000px">1000px</option>
         </select>
         <div class="fw-bold">EJE Y</div>
+        <small>Ver etiquetas</small>
+        <select class="ms-1 form-select mb-2" onchange="change_displayY(this.value)">
+            <option value="1">Mostrar</option>
+            <option value="0">Ocultar</option>
+        </select>
         <small>Tamaño letra etiquetas</small>
         <select class="ms-1 form-select mb-2" onchange="fontSize_chart(this.value)">
             <option value="0">0pt</option>
@@ -854,6 +858,11 @@
             </ul>
         </div>
         <div class="fw-bold">EJE X</div>
+        <small>Ver etiquetas</small>
+        <select class="ms-1 form-select mb-2" onchange="change_displayX(this.value)">
+            <option value="1">Mostrar</option>
+            <option value="0">Ocultar</option>
+        </select>
         <small>Tamaño letra etiquetas X</small>
         <select class="ms-1 form-select mb-2" onchange="fontSize_chartX(this.value)">
             <option value="0">0pt</option>
@@ -907,7 +916,7 @@
             <option value="Verdes2">Verdes 2</option>
             <option value="Azules1">Azules 1</option>
             <option value="Grises">Grices</option>
-            <option value="Multicolor1">Multicolor 1</option>           
+            <option value="Multicolor1">Multicolor 1</option>
         </select>
         <small>Color datos único</small>
         <div class="ms-1 dropdown mb-2 border border-1">
@@ -927,7 +936,7 @@
             <ul class="dropdown-menu" style="width: 300px;">
                 <div id="ulColorBorde" class="container-fluid"></div>
             </ul>
-        </div> 
+        </div>
         <div class="dropdown mb-2 border border-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorFondo">
                 Color Fondo
@@ -936,7 +945,7 @@
             <ul class="dropdown-menu" style="width: 300px;">
                 <div id="ulColorFondoChart" class="container-fluid"></div>
             </ul>
-        </div>        
+        </div>
         <div class="dropdown mb-2  border border-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLinea">
                 Color Grilla

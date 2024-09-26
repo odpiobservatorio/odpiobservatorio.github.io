@@ -6,6 +6,7 @@ let Color_Text_ChartY = "black"
 let Color_Text_ChartX = "black"
 let Color_Text_Leg = "black"
 let Color_Line_Chart = "white"
+let customColors=[]
 const ColorList3 = [
     //rojos
     "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
@@ -151,22 +152,35 @@ function ini_chat() {
 
     for (id in ulControls) {
         const hexinput= document.createElement("input")
+        const inputColor= document.createElement("input")
+        
         const ul = ulControls[id]
         const i = document.getElementById(ul.i)
         i.className = "bi bi-square-fill rounded"
         i.style.color = "black"
         const ulDiv = document.getElementById(ul.nombre)
         ulDiv.innerHTML=""
+        
         ColorList.forEach(color => {
             const iColor = document.createElement("i")
             iColor.className = "bi bi-square-fill fs-5"
             iColor.style.color = color
             iColor.style.margin = "2px"
             ulDiv.appendChild(iColor)
-            iColor.onclick = () => {
+            iColor.onclick = (e) => {
+                e.stopPropagation();
                 hexinput.value=color
                 i.style.color = color
                 ul.funcion(color)
+                crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+            }
+            
+            iColor.ondblclick = (e) => {
+                e.stopPropagation();
+                customColors.push(color)
+                hexinput.value=  customColors
+                i.style.color = color
+                ul.funcion(customColors)
                 crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
             }
 
@@ -178,11 +192,24 @@ function ini_chat() {
         ulDiv.appendChild(hexinput)
         
         hexinput.onchange=()=>{
-            ul.funcion(hexinput.value)
+            customColors=hexinput.value.split(",")
+            ul.funcion(customColors)
             i.style.color = hexinput.value
             crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
         }
 
+        inputColor.className="form-control"
+        inputColor.type="color"
+        inputColor.value="black"
+        ulDiv.appendChild(inputColor)
+        inputColor.onchange=(e)=>{
+            //e.stopPropagation();
+            customColors.push(inputColor.value)
+            hexinput.value=  customColors
+            i.style.color = inputColor.value
+            ul.funcion(customColors)
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
 
     }
 
@@ -666,6 +693,16 @@ function change_borde_color(value) {
     bordeColor = value
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
+let displayY = 1
+function change_displayY(value) {
+    displayY = parseInt(value)
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
+let displayX = 1
+function change_displayX(value) {
+    displayX = parseInt(value)
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
 
 function crear_grafico(data, tipo) {
     const div = document.getElementById('divChart');
@@ -737,6 +774,7 @@ function crear_grafico(data, tipo) {
             },
             scales: {
                 y: {
+                    display: displayY,
                     beginAtZero: true,
                     ticks: {
                         color: Color_Text_ChartY,
@@ -746,10 +784,12 @@ function crear_grafico(data, tipo) {
                         }
                     },
                     grid: {
+                        display: false,
                         color: Color_Line_Chart
                     }
                 },
                 x: {
+                    display: displayX,
                     ticks: {
                         color: Color_Text_ChartX,
                         font: {
@@ -757,6 +797,7 @@ function crear_grafico(data, tipo) {
                         }
                     },
                     grid: {
+                        display: false,
                         color: Color_Line_Chart
                     }
                 }
