@@ -6,7 +6,7 @@ let Color_Text_ChartY = "black"
 let Color_Text_ChartX = "black"
 let Color_Text_Leg = "black"
 let Color_Line_Chart = "white"
-const ColorList = [
+const ColorList3 = [
     //rojos
     "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
     "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
@@ -18,6 +18,26 @@ const ColorList = [
     "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
     "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
 ]
+const ColorList = [
+    '#000000', '#000080', '#00008B', '#0000CD', '#0000FF', '#006400', '#008000', '#008080',
+    '#008B8B', '#00BFFF', '#00CED1', '#00FA9A', '#00FF00', '#00FF7F', '#00FFFF', '#00FFFF',
+    '#191970', '#1E90FF', '#20B2AA', '#228B22', '#2E8B57', '#2F4F4F', '#2F4F4F', '#32CD32',
+    '#3CB371', '#40E0D0', '#4169E1', '#4682B4', '#483D8B', '#48D1CC', '#4B0082', '#556B2F',
+    '#5F9EA0', '#6495ED', '#663399', '#66CDAA', '#696969', '#696969', '#6A5ACD', '#6B8E23',
+    '#708090', '#708090', '#778899', '#778899', '#7B68EE', '#7CFC00', '#7FFF00', '#7FFFD4',
+    '#800000', '#800080', '#808000', '#808080', '#808080', '#87CEEB', '#87CEFA', '#8A2BE2',
+    '#8B0000', '#8B008B', '#8B4513', '#8FBC8F', '#90EE90', '#9370DB', '#9400D3', '#98FB98',
+    '#9932CC', '#9ACD32', '#A0522D', '#A52A2A', '#A9A9A9', '#A9A9A9', '#ADD8E6', '#ADFF2F',
+    '#AFEEEE', '#B0C4DE', '#B0E0E6', '#B22222', '#B8860B', '#BA55D3', '#BC8F8F', '#BDB76B',
+    '#C0C0C0', '#C71585', '#CD5C5C', '#CD853F', '#D2691E', '#D2B48C', '#D3D3D3', '#D3D3D3',
+    '#D8BFD8', '#DA70D6', '#DAA520', '#DB7093', '#DC143C', '#DCDCDC', '#DDA0DD', '#DEB887',
+    '#E0FFFF', '#E6E6FA', '#E9967A', '#EE82EE', '#EEE8AA', '#F08080', '#F0E68C', '#F0F8FF',
+    '#F0FFF0', '#F0FFFF', '#F4A460', '#F5DEB3', '#F5F5DC', '#F5F5F5', '#F5FFFA', '#F8F8FF',
+    '#FA8072', '#FAEBD7', '#FAF0E6', '#FAFAD2', '#FDF5E6', '#FF0000', '#FF00FF', '#FF00FF',
+    '#FF1493', '#FF4500', '#FF6347', '#FF69B4', '#FF7F50', '#FF8C00', '#FFA07A', '#FFA500',
+    '#FFB6C1', '#FFC0CB', '#FFD700', '#FFDAB9', '#FFDEAD', '#FFE4B5', '#FFE4C4', '#FFE4E1',
+    '#FFEBCD', '#FFEFD5', '#FFF0F5', '#FFF5EE', '#FFF8DC', '#FFFACD', '#FFFAF0', '#FFFAFA',
+    '#FFFF00', '#FFFFE0', '#FFFFF0',]
 
 const ColorList2 = {
     Rojos1: ["#3b0202", "#800505", "#b30707", "#e80909", "#bd3a3a", "#994b4b", "#d46e6e", "#852d04", "#ad3f0c", "#eb692d",
@@ -28,7 +48,7 @@ const ColorList2 = {
         "#99003d", "#e6005c", "#ff66a3", "#862528", "#7a2c2e", "#672c2e", "#673335", "#673d3f", "#805557", "#9d7274",
         "#c2989a", "#e1babc"],
 
-    Verdes1: ["#011102", "#033606", "#064e0a", "#09650e", "#0b7411", "#0f8815", "#129f19", "#15b51d", "#1ad023", "#1feb29",
+    Verdes1: ["#033606", "#064e0a", "#0b7411", "#0f8815", "#129f19", "#15b51d", "#1ad023", "#1feb29",
         "#46ef4e", "#43d049", "#3bad3f", "#328e35", "#2a742d", "#235f26", "#1c461e", "#132714", "#F6CEE3", "#29482b",
         "#597c5b", "#789f7a"],
     Verdes2: ["#006400", "#00FA9A", "#008000", "#2E8B57", "#32CD32", "#3CB371", "#2E8B57", "#556B2F", "#6B8E23", "#7FFF00",
@@ -37,6 +57,7 @@ const ColorList2 = {
         "#45d9c1", "#6666cc", "#0099ff", "#80ccff", "#2a786b", "#5f8c85", "#78b399", "#83d2af", "#7ce7b8", "#5ed29f",
         "#4db387", "#368c67"],
 
+    Grises: ["#484848", "#686868", "#808080", "#989898", "#B0B0B0", "#C8C8C8", "#D8D8D8", "#E8E8E8", "#F5F5F5"],
     Multicolor1: [
         //rojos
         "#F0F8FF", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#D2691E",
@@ -52,7 +73,10 @@ const ColorList2 = {
     Observatorio1: ["#A52A2A", "#CD5C5C", "#BC8F8F", "#C71585", "#D2B48C", "#DB7093", "#DC143C", "#DB7093", "#E9967A", "#F08080",
         "#F4A460", "#F5DEB3", "#FF1493", "#FF7F50", "#FF6347"],
     Observatorio2: ["#696969", "#708090", "#8FBC8F", "#A52A2A", "#A9A9A9", "#B22222", "#BC8F8F", "#BDB76B", "#CD853F", "#DAA520",
-        "#DC143C", "#DB7093", "#E9967A", "#F0E68C", "#FF8C00","#DC143C", "#FFD700"],
+        "#DC143C", "#DB7093", "#E9967A", "#F0E68C", "#FF8C00", "#DC143C", "#FFD700"],
+    Observatorio3: ["#2F4F4F", "#5F9EA0", "#696969", "#708090", "#808080", "#8FBC8F", "#B0C4DE", "#C0C0C0", "#D3D3D3", "#DCDCDC",
+        "E6E6FA"
+    ],
 }
 
 function ini_chat() {
@@ -87,7 +111,7 @@ function ini_chat() {
 
     ColorList.forEach(color => {
         const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-3"
+        iColor.className = "bi bi-square-fill fs-5"
         iColor.style.color = color
         iColor.style.margin = "2px"
         ulFondo.appendChild(iColor)
@@ -104,9 +128,9 @@ function ini_chat() {
 
     ColorList.forEach(color => {
         const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-3"
+        iColor.className = "bi bi-square-fill fs-5"
         iColor.style.color = color
-        iColor.style.margin = "2px"
+        iColor.style.margin = "1px"
         ulTextoY.appendChild(iColor)
         iColor.onclick = () => {
             i2.style.color = color
@@ -122,9 +146,9 @@ function ini_chat() {
 
     ColorList.forEach(color => {
         const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-3"
+        iColor.className = "bi bi-square-fill fs-5"
         iColor.style.color = color
-        iColor.style.margin = "2px"
+        iColor.style.margin = "1px"
         ulTextoX.appendChild(iColor)
         iColor.onclick = () => {
             i2X.style.color = color
@@ -140,9 +164,9 @@ function ini_chat() {
 
     ColorList.forEach(color => {
         const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-3"
+        iColor.className = "bi bi-square-fill fs-5"
         iColor.style.color = color
-        iColor.style.margin = "2px"
+        iColor.style.margin = "1px"
         ulTextoLeg.appendChild(iColor)
         iColor.onclick = () => {
             ileg.style.color = color
@@ -158,9 +182,9 @@ function ini_chat() {
 
     ColorList.forEach(color => {
         const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-3"
+        iColor.className = "bi bi-square-fill fs-4"
         iColor.style.color = color
-        iColor.style.margin = "2px"
+        iColor.style.margin = "1px"
         ulLinea.appendChild(iColor)
         iColor.onclick = () => {
             i3.style.color = color
@@ -241,9 +265,9 @@ const makerList = {
             elemento.style.fontWeight = "normal"
             elemento.innerHTML =
                 `
-            <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
-             ${item}
-            `
+    <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
+     ${item}
+    `
             //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
             contenedor.appendChild(elemento)
             const checkers = document.getElementById(`check${item}${criterio[1]}`)
