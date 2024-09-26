@@ -96,6 +96,7 @@ function ini_chat() {
     crear_listas("clsCasos_macroregion")
 
     const ulFondo = document.getElementById("ulColorFondoChart")
+    const ulDataColor = document.getElementById("ulDataColor")
     const ulTextoY = document.getElementById("ulColorLetraChartY")
     const ulTextoX = document.getElementById("ulColorLetraChartX")
     const ulTextoLeg = document.getElementById("ulColorLetraLeg")
@@ -182,13 +183,31 @@ function ini_chat() {
 
     ColorList.forEach(color => {
         const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-4"
+        iColor.className = "bi bi-square-fill fs-5"
         iColor.style.color = color
         iColor.style.margin = "1px"
         ulLinea.appendChild(iColor)
         iColor.onclick = () => {
             i3.style.color = color
             Color_Line_Chart = color
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
+
+    })
+
+    const iDataColor = document.getElementById("i_DataColor")
+    iDataColor.className = "bi bi-square-fill rounded"
+    iDataColor.style.color = "black"
+
+    ColorList.forEach(color => {
+        const iColor = document.createElement("i")
+        iColor.className = "bi bi-square-fill fs-5"
+        iColor.style.color = color
+        iColor.style.margin = "1px"
+        ulDataColor.appendChild(iColor)
+        iColor.onclick = () => {
+            iDataColor.style.color = color
+            ColorDatos = color
             crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
         }
 
@@ -702,6 +721,7 @@ function crear_grafico(data, tipo) {
             datasets: [{
                 label: "# de " + labelA,
                 data: data_from,
+                borderColor:"black",
                 borderWidth: 1,
                 backgroundColor: ColorDatos,
             }],

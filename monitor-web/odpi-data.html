@@ -896,7 +896,7 @@
             </ul>
         </div>
         <div class="fw-bold">OTROS</div>
-        <small>Color datos</small>
+        <small>Color datos por estilo</small>
         <select class="ms-1 form-select mb-2" onchange="data_color_change(this.value)">
             <option value="Observatorio1">Obsevatorio 1</option>
             <option value="Observatorio2">Obsevatorio 2</option>
@@ -909,9 +909,19 @@
             <option value="Grises">Grices</option>
             <option value="Multicolor1">Multicolor 1</option>           
         </select>
+        <small>Color datos único</small>
+        <div class="ms-1 dropdown mb-2 border border-1">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorUnico">
+                Color data
+                <i id="i_DataColor"></i>
+            </button>
+            <ul class="dropdown-menu" style="width: 300px;">
+                <div id="ulDataColor" class="container-fluid"></div>
+            </ul>
+        </div>  
         <div class="dropdown mb-2 border border-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorFondo">
-                Fondo
+                Color Fondo
                 <i id="i_fondo"></i>
             </button>
             <ul class="dropdown-menu" style="width: 300px;">
@@ -920,7 +930,7 @@
         </div>        
         <div class="dropdown mb-2  border border-1">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" id="btnColorLinea">
-                Color Líneas
+                Color Grilla
                 <i id="i_linea"></i>
             </button>
             <ul class="dropdown-menu" style="width: 300px;">

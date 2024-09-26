@@ -127,7 +127,7 @@ function ListColors(type, control) {
         let liC = document.createElement("svg")
 
         liC.innerHTML = `
-                    <svg width="40" height="20" 
+                    <svg width="30" height="15" 
                     style="background-color:${color};
                     opacity: 1"></svg>
             `
