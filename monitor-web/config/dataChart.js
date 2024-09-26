@@ -95,144 +95,112 @@ function ini_chat() {
     //Nos preparamso para busquedas/consultas
     crear_listas("clsCasos_macroregion")
 
-    const ulFondo = document.getElementById("ulColorFondoChart")
-    const ulDataColor = document.getElementById("ulDataColor")
-    const ulTextoY = document.getElementById("ulColorLetraChartY")
-    const ulTextoX = document.getElementById("ulColorLetraChartX")
-    const ulTextoLeg = document.getElementById("ulColorLetraLeg")
-    const ulLinea = document.getElementById("ulColorLineaChart")
-    const ulColorBorde = document.getElementById("ulColorBorde")
+
+    const ulControls = {
+        "1": {
+            "nombre": "ulColorFondoChart",
+            "i": "i_fondo",
+            "funcion":(color)=>{
+                document.getElementById("divChart").style.background = color
+            }
+        },
+        "2": {
+            "nombre": "ulDataColor",
+            "i": "i_DataColor",
+            "funcion":(color)=>{
+                ColorDatos = color
+            }
+        },
+        "3": {
+            "nombre": "ulColorLetraChartY",
+            "i": "i_textoY",
+            "funcion":(color)=>{
+                Color_Text_ChartY = color
+            }
+        },
+        "4": {
+            "nombre": "ulColorLetraChartX",
+            "i": "i_textoX",
+            "funcion":(color)=>{
+                Color_Text_ChartX = color
+            }
+        },
+        "5": {
+            "nombre": "ulColorLetraLeg",
+            "i": "i_textoLeg",
+            "funcion":(color)=>{
+                Color_Text_Leg = color
+            }
+        },
+        "6": {
+            "nombre": "ulColorLineaChart",
+            "i": "i_linea",
+            "funcion":(color)=>{
+                Color_Line_Chart = color
+            }
+        },
+        "7": {
+            "nombre": "ulColorBorde",
+            "i": "i_borde",
+            "funcion":(color)=>{
+                bordeColor = color
+            }
+        }
+    }
+
+
+    for (id in ulControls) {
+        const hexinput= document.createElement("input")
+        const ul = ulControls[id]
+        const i = document.getElementById(ul.i)
+        i.className = "bi bi-square-fill rounded"
+        i.style.color = "black"
+        const ulDiv = document.getElementById(ul.nombre)
+        ulDiv.innerHTML=""
+        ColorList.forEach(color => {
+            const iColor = document.createElement("i")
+            iColor.className = "bi bi-square-fill fs-5"
+            iColor.style.color = color
+            iColor.style.margin = "2px"
+            ulDiv.appendChild(iColor)
+            iColor.onclick = () => {
+                hexinput.value=color
+                i.style.color = color
+                ul.funcion(color)
+                crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+            }
+
+        })
+        
+        hexinput.className="form-control"
+        hexinput.type="text"
+        hexinput.placeholder="HEX Color"
+        ulDiv.appendChild(hexinput)
+        
+        hexinput.onchange=()=>{
+            ul.funcion(hexinput.value)
+            i.style.color = hexinput.value
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
+
+
+    }
+
+
+
+
+
+
+   
 
     
 
 
 
 
-    const i = document.getElementById("i_fondo")
-    i.className = "bi bi-square-fill rounded"
-    i.style.color = "black"
 
 
-    ColorList.forEach(color => {
-        const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-5"
-        iColor.style.color = color
-        iColor.style.margin = "2px"
-        ulFondo.appendChild(iColor)
-        iColor.onclick = () => {
-            i.style.color = color
-            document.getElementById("divChart").style.background = color
-        }
 
-    })
-
-    const i2 = document.getElementById("i_textoY")
-    i2.className = "bi bi-square-fill rounded"
-    i2.style.color = "black"
-
-    ColorList.forEach(color => {
-        const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-5"
-        iColor.style.color = color
-        iColor.style.margin = "1px"
-        ulTextoY.appendChild(iColor)
-        iColor.onclick = () => {
-            i2.style.color = color
-            Color_Text_ChartY = color
-            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
-        }
-
-    })
-
-    const i2X = document.getElementById("i_textoX")
-    i2X.className = "bi bi-square-fill rounded"
-    i2X.style.color = "black"
-
-    ColorList.forEach(color => {
-        const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-5"
-        iColor.style.color = color
-        iColor.style.margin = "1px"
-        ulTextoX.appendChild(iColor)
-        iColor.onclick = () => {
-            i2X.style.color = color
-            Color_Text_ChartX = color
-            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
-        }
-
-    })
-
-    const ileg = document.getElementById("i_textoLeg")
-    ileg.className = "bi bi-square-fill rounded"
-    ileg.style.color = "black"
-
-    ColorList.forEach(color => {
-        const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-5"
-        iColor.style.color = color
-        iColor.style.margin = "1px"
-        ulTextoLeg.appendChild(iColor)
-        iColor.onclick = () => {
-            ileg.style.color = color
-            Color_Text_Leg = color
-            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
-        }
-
-    })
-
-    const i3 = document.getElementById("i_linea")
-    i3.className = "bi bi-square-fill rounded"
-    i3.style.color = "black"
-
-    ColorList.forEach(color => {
-        const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-5"
-        iColor.style.color = color
-        iColor.style.margin = "1px"
-        ulLinea.appendChild(iColor)
-        iColor.onclick = () => {
-            i3.style.color = color
-            Color_Line_Chart = color
-            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
-        }
-
-    })
-
-    const iDataColor = document.getElementById("i_DataColor")
-    iDataColor.className = "bi bi-square-fill rounded"
-    iDataColor.style.color = "black"
-
-    ColorList.forEach(color => {
-        const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-5"
-        iColor.style.color = color
-        iColor.style.margin = "1px"
-        ulDataColor.appendChild(iColor)
-        iColor.onclick = () => {
-            iDataColor.style.color = color
-            ColorDatos = color
-            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
-        }
-
-    })
-
-    const i_borde = document.getElementById("i_borde")
-    i_borde.className = "bi bi-square-fill rounded"
-    i_borde.style.color = "black"
-
-    ColorList.forEach(color => {
-        const iColor = document.createElement("i")
-        iColor.className = "bi bi-square-fill fs-5"
-        iColor.style.color = color
-        iColor.style.margin = "1px"
-        ulColorBorde.appendChild(iColor)
-        iColor.onclick = () => {
-            i_borde.style.color = color
-            bordeColor = color
-            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
-        }
-
-    })
 
     //ulFondo
 
@@ -693,7 +661,7 @@ function data_from_change(value) {
     fromCampo = value
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
-let bordeColor="black"
+let bordeColor = "black"
 function change_borde_color(value) {
     bordeColor = value
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
@@ -747,7 +715,7 @@ function crear_grafico(data, tipo) {
             datasets: [{
                 label: "# de " + labelA,
                 data: data_from,
-                borderColor:bordeColor,
+                borderColor: bordeColor,
                 borderWidth: 1,
                 backgroundColor: ColorDatos,
             }],
