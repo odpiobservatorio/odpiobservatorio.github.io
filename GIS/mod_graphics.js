@@ -352,7 +352,7 @@ function maker_format_line() {
     btnColorLine_graficos.onclick = () => {
         ColorList.forEach(color => {
             const iColor = document.createElement("i")
-            iColor.className = "bi bi-square-fill fs-3 m-1"
+            iColor.className = "bi bi-square-fill fs-5 m-1"
             iColor.style.color = color
             ul.appendChild(iColor)
             iColor.onclick = () => {

@@ -101,6 +101,9 @@ function ini_chat() {
     const ulTextoX = document.getElementById("ulColorLetraChartX")
     const ulTextoLeg = document.getElementById("ulColorLetraLeg")
     const ulLinea = document.getElementById("ulColorLineaChart")
+    const ulColorBorde = document.getElementById("ulColorBorde")
+
+    
 
 
 
@@ -208,6 +211,24 @@ function ini_chat() {
         iColor.onclick = () => {
             iDataColor.style.color = color
             ColorDatos = color
+            crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+        }
+
+    })
+
+    const i_borde = document.getElementById("i_borde")
+    i_borde.className = "bi bi-square-fill rounded"
+    i_borde.style.color = "black"
+
+    ColorList.forEach(color => {
+        const iColor = document.createElement("i")
+        iColor.className = "bi bi-square-fill fs-5"
+        iColor.style.color = color
+        iColor.style.margin = "1px"
+        ulColorBorde.appendChild(iColor)
+        iColor.onclick = () => {
+            i_borde.style.color = color
+            bordeColor = color
             crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
         }
 
@@ -672,6 +693,11 @@ function data_from_change(value) {
     fromCampo = value
     crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
 }
+let bordeColor="black"
+function change_borde_color(value) {
+    bordeColor = value
+    crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
+}
 
 function crear_grafico(data, tipo) {
     const div = document.getElementById('divChart');
@@ -721,7 +747,7 @@ function crear_grafico(data, tipo) {
             datasets: [{
                 label: "# de " + labelA,
                 data: data_from,
-                borderColor:"black",
+                borderColor:bordeColor,
                 borderWidth: 1,
                 backgroundColor: ColorDatos,
             }],

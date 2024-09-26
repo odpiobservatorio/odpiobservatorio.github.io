@@ -1048,9 +1048,9 @@ function config_format(layer_name, controlname, type) {
 
         ColorList.forEach(color => {
             const iColor = document.createElement("i")
-            iColor.className = "bi bi-square-fill fs-3"
+            iColor.className = "bi bi-square-fill fs-5"
             iColor.style.color = color
-            iColor.style.margin = "2px"
+            iColor.style.margin = "1px"
             ul.appendChild(iColor)
             iColor.onclick = () => {
                 i.style.color = color
@@ -1134,9 +1134,9 @@ function config_format(layer_name, controlname, type) {
 
         ColorList.forEach(color => {
             const iColor = document.createElement("i")
-            iColor.className = "bi bi-square-fill fs-3"
+            iColor.className = "bi bi-square-fill fs-5"
             iColor.style.color = color
-            iColor.style.margin = "2px"
+            iColor.style.margin = "1px"
             ul.appendChild(iColor)
             iColor.onclick = () => {
                 i.style.color = color

@@ -78,10 +78,10 @@ let LeyendasMap = []
 //Lista de colores para usar
 
 const ColorList = [
-    '#000000', '#000080', '#00008B', '#0000CD', '#0000FF', '#006400', '#008000', '#008080',
-    '#008B8B', '#00BFFF', '#00CED1', '#00FA9A', '#00FF00', '#00FF7F', '#00FFFF', '#00FFFF',
+    '#000000', '#000080', 'white', '#0000CD', '#0000FF', '#006400', '#008000',
+    '#008B8B', '#00BFFF', '#00CED1', '#00FA9A', '#00FF00', '#00FF7F', '#white', '#00FFFF',
     '#191970', '#1E90FF', '#20B2AA', '#228B22', '#2E8B57', '#2F4F4F', '#2F4F4F', '#32CD32',
-    '#3CB371', '#40E0D0', '#4169E1', '#4682B4', '#483D8B', '#48D1CC', '#4B0082', '#556B2F',
+    '#3CB371', '#40E0D0', '#4169E1', '#4682B4', '#48D1CC', '#4B0082', '#556B2F',
     '#5F9EA0', '#6495ED', '#663399', '#66CDAA', '#696969', '#696969', '#6A5ACD', '#6B8E23',
     '#708090', '#708090', '#778899', '#778899', '#7B68EE', '#7CFC00', '#7FFF00', '#7FFFD4',
     '#800000', '#800080', '#808000', '#808080', '#808080', '#87CEEB', '#87CEFA', '#8A2BE2',
@@ -95,8 +95,7 @@ const ColorList = [
     '#FA8072', '#FAEBD7', '#FAF0E6', '#FAFAD2', '#FDF5E6', '#FF0000', '#FF00FF', '#FF00FF',
     '#FF1493', '#FF4500', '#FF6347', '#FF69B4', '#FF7F50', '#FF8C00', '#FFA07A', '#FFA500',
     '#FFB6C1', '#FFC0CB', '#FFD700', '#FFDAB9', '#FFDEAD', '#FFE4B5', '#FFE4C4', '#FFE4E1',
-    '#FFEBCD', '#FFEFD5', '#FFF0F5', '#FFF5EE', '#FFF8DC', '#FFFACD', '#FFFAF0', '#FFFAFA',
-    '#FFFF00', '#FFFFE0', '#FFFFF0',]
+    '#FFEBCD', '#FFEFD5', '#FFF0F5', '#FFF5EE', '#FFF8DC', '#FFFACD', '#FFFAF0', '#FFFAFA']
 
 
 //Función para crear menú de colores
@@ -127,7 +126,7 @@ function ListColors(type, control) {
         let liC = document.createElement("svg")
 
         liC.innerHTML = `
-                    <svg width="30" height="15" 
+                    <svg width="25" height="17" 
                     style="background-color:${color};
                     opacity: 1"></svg>
             `
