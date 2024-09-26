@@ -742,6 +742,7 @@ function crear_grafico(data, tipo) {
                         color: Color_Text_ChartY,
                         font: {
                             size: fsize,
+                            weight: "bold"
                         }
                     },
                     grid: {
