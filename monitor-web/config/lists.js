@@ -61066,7 +61066,7 @@ const lugares = [{
     "lng": "8.63899279345",
     "tipo": "MUNICIPIO",
     "latlng": "-72.7342132578,8.63899279345",
-    "key": "norte de santandertibú"
+    "key": "norte de santandertibu"
    },
    {
     "departamento": "Norte De Santander",
