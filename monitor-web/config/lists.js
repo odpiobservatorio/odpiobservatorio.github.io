@@ -59129,7 +59129,7 @@ const lugares = [{
     "key": "nariñozapotal"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "7 De Agosto",
     "lat": "-72.5654847822",
@@ -59139,7 +59139,7 @@ const lugares = [{
     "key": "norte de santander7 de agosto"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "ÁBREGO",
     "lugar": "Ábrego",
     "lat": "-73.2217345921",
@@ -59149,7 +59149,7 @@ const lugares = [{
     "key": "norte de santanderábrego"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Agua Blanca",
     "lat": "-72.4870962038",
@@ -59159,7 +59159,7 @@ const lugares = [{
     "key": "norte de santanderagua blanca"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Agua Clara",
     "lat": "-72.4266940066",
@@ -59169,7 +59169,7 @@ const lugares = [{
     "key": "norte de santanderagua clara"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Agua Linda",
     "lat": "-72.5132440925",
@@ -59179,7 +59179,7 @@ const lugares = [{
     "key": "norte de santanderagua linda"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "Aguasclaras",
     "lat": "-73.3588536682",
@@ -59189,7 +59189,7 @@ const lugares = [{
     "key": "norte de santanderaguasclaras"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "Algodonal",
     "lat": "-73.3133536833",
@@ -59199,7 +59199,7 @@ const lugares = [{
     "key": "norte de santanderalgodonal"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Alto Viento",
     "lat": "-72.4445273556",
@@ -59209,7 +59209,7 @@ const lugares = [{
     "key": "norte de santanderalto viento"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "ARBOLEDAS",
     "lugar": "Arboledas",
     "lat": "-72.7988785326",
@@ -59219,7 +59219,7 @@ const lugares = [{
     "key": "norte de santanderarboledas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Arrayán",
     "lat": "-72.3844788264",
@@ -59229,7 +59229,7 @@ const lugares = [{
     "key": "norte de santanderarrayán"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA PLAYA",
     "lugar": "Aspásica",
     "lat": "-73.1962736208",
@@ -59239,7 +59239,7 @@ const lugares = [{
     "key": "norte de santanderaspásica"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "Astilleros La Ye",
     "lat": "-72.5706551464",
@@ -59249,7 +59249,7 @@ const lugares = [{
     "key": "norte de santanderastilleros la ye"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SILOS",
     "lugar": "Babega",
     "lat": "-72.6998899082",
@@ -59259,7 +59259,7 @@ const lugares = [{
     "key": "norte de santanderbabega"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Banco De Arenas",
     "lat": "-72.4790601426",
@@ -59269,7 +59269,7 @@ const lugares = [{
     "key": "norte de santanderbanco de arenas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Barco La Silla",
     "lat": 0,
@@ -59279,7 +59279,7 @@ const lugares = [{
     "key": "norte de santanderbarco la silla"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Bella Vista",
     "lat": "-72.4593861113",
@@ -59289,7 +59289,7 @@ const lugares = [{
     "key": "norte de santanderbella vista"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "Bella Vista",
     "lat": 0,
@@ -59299,7 +59299,7 @@ const lugares = [{
     "key": "norte de santanderbella vista"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "BOCHALEMA",
     "lugar": "Bochalema",
     "lat": "-72.6470372457",
@@ -59309,7 +59309,7 @@ const lugares = [{
     "key": "norte de santanderbochalema"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "BUCARASICA",
     "lugar": "Bucarasica",
     "lat": "-72.8679545898",
@@ -59319,7 +59319,7 @@ const lugares = [{
     "key": "norte de santanderbucarasica"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Buena Esperanza",
     "lat": "-72.4946311205",
@@ -59329,7 +59329,7 @@ const lugares = [{
     "key": "norte de santanderbuena esperanza"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "Buenavista",
     "lat": "-73.3460820428",
@@ -59339,7 +59339,7 @@ const lugares = [{
     "key": "norte de santanderbuenavista"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÁCHIRA",
     "lugar": "Cáchira",
     "lat": "-73.0487542769",
@@ -59349,7 +59349,7 @@ const lugares = [{
     "key": "norte de santandercáchira"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÁCOTA",
     "lugar": "Cácota",
     "lat": "-72.6420639099",
@@ -59359,7 +59359,7 @@ const lugares = [{
     "key": "norte de santandercácota"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "RAGONVALIA",
     "lugar": "Caliches",
     "lat": "-72.5327633976",
@@ -59369,7 +59369,7 @@ const lugares = [{
     "key": "norte de santandercaliches"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "Camilandia",
     "lat": "-72.6027602611",
@@ -59379,7 +59379,7 @@ const lugares = [{
     "key": "norte de santandercamilandia"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "Campo Alegre",
     "lat": "-73.437718563",
@@ -59389,7 +59389,7 @@ const lugares = [{
     "key": "norte de santandercampo alegre"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Campo Dos",
     "lat": "-72.6409851711",
@@ -59399,7 +59399,7 @@ const lugares = [{
     "key": "norte de santandercampo dos"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Campo Giles",
     "lat": "-72.6657663813",
@@ -59409,7 +59409,7 @@ const lugares = [{
     "key": "norte de santandercampo giles"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Carmen De Tonchalá",
     "lat": "-72.5687246542",
@@ -59419,7 +59419,7 @@ const lugares = [{
     "key": "norte de santandercarmen de tonchalá"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHITAGÁ",
     "lugar": "Carrillo",
     "lat": 0,
@@ -59429,7 +59429,7 @@ const lugares = [{
     "key": "norte de santandercarrillo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "Cartagenita",
     "lat": 0,
@@ -59439,7 +59439,7 @@ const lugares = [{
     "key": "norte de santandercartagenita"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "ÁBREGO",
     "lugar": "Casitas",
     "lat": "-73.1134397962",
@@ -59449,7 +59449,7 @@ const lugares = [{
     "key": "norte de santandercasitas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "ARBOLEDAS",
     "lugar": "Castro",
     "lat": "-72.8574856334",
@@ -59459,7 +59459,7 @@ const lugares = [{
     "key": "norte de santandercastro"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHINÁCOTA",
     "lugar": "Chinácota",
     "lat": "-72.601158456",
@@ -59469,7 +59469,7 @@ const lugares = [{
     "key": "norte de santanderchinácota"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHINÁCOTA",
     "lugar": "Chitacomar",
     "lat": "-72.5923732147",
@@ -59479,7 +59479,7 @@ const lugares = [{
     "key": "norte de santanderchitacomar"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHITAGÁ",
     "lugar": "Chitagá",
     "lat": "-72.665435191",
@@ -59489,7 +59489,7 @@ const lugares = [{
     "key": "norte de santanderchitagá"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "Club All Star",
     "lat": "-73.3219023594",
@@ -59499,7 +59499,7 @@ const lugares = [{
     "key": "norte de santanderclub all star"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "Convención",
     "lat": "-73.3372098547",
@@ -59509,7 +59509,7 @@ const lugares = [{
     "key": "norte de santanderconvención"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CAYETANO",
     "lugar": "Cornejo",
     "lat": "-72.639909799",
@@ -59519,7 +59519,7 @@ const lugares = [{
     "key": "norte de santandercornejo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Corozal Vereda California",
     "lat": "-72.572114276",
@@ -59529,7 +59529,7 @@ const lugares = [{
     "key": "norte de santandercorozal vereda california"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "Cristo Rey",
     "lat": "-72.5983508474",
@@ -59539,7 +59539,7 @@ const lugares = [{
     "key": "norte de santandercristo rey"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CUCUTILLA",
     "lugar": "Cucutilla",
     "lat": "-72.7725742725",
@@ -59549,7 +59549,7 @@ const lugares = [{
     "key": "norte de santandercucutilla"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "DURANIA",
     "lugar": "Durania",
     "lat": "-72.6586018005",
@@ -59559,7 +59559,7 @@ const lugares = [{
     "key": "norte de santanderdurania"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TEORAMA",
     "lugar": "El Aserrío",
     "lat": "-73.2292956576",
@@ -59569,7 +59569,7 @@ const lugares = [{
     "key": "norte de santanderel aserrío"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL CARMEN",
     "lugar": "El Carmen",
     "lat": "-73.4467003188",
@@ -59579,7 +59579,7 @@ const lugares = [{
     "key": "norte de santanderel carmen"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SARDINATA",
     "lugar": "El Carmen",
     "lat": "-72.8106880782",
@@ -59589,7 +59589,7 @@ const lugares = [{
     "key": "norte de santanderel carmen"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SALAZAR",
     "lugar": "El Carmen De Nazareth",
     "lat": "-72.8885167068",
@@ -59599,7 +59599,7 @@ const lugares = [{
     "key": "norte de santanderel carmen de nazareth"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "PAMPLONITA",
     "lugar": "El Diamante",
     "lat": "-72.6327849279",
@@ -59609,7 +59609,7 @@ const lugares = [{
     "key": "norte de santanderel diamante"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "PUERTO SANTANDER",
     "lugar": "El Diamante",
     "lat": "-72.4181222118",
@@ -59619,7 +59619,7 @@ const lugares = [{
     "key": "norte de santanderel diamante"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "El Guamal",
     "lat": "-73.3860192485",
@@ -59629,7 +59629,7 @@ const lugares = [{
     "key": "norte de santanderel guamal"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHINÁCOTA",
     "lugar": "El Nuevo Diamante",
     "lat": "-72.6340302769",
@@ -59639,7 +59639,7 @@ const lugares = [{
     "key": "norte de santanderel nuevo diamante"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "El Paso",
     "lat": 0,
@@ -59649,7 +59649,7 @@ const lugares = [{
     "key": "norte de santanderel paso"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "El Plomo",
     "lat": "-72.5037105319",
@@ -59659,7 +59659,7 @@ const lugares = [{
     "key": "norte de santanderel plomo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "El Prado",
     "lat": "-72.5075167752",
@@ -59669,7 +59669,7 @@ const lugares = [{
     "key": "norte de santanderel prado"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SALAZAR",
     "lugar": "El Salado",
     "lat": "-72.7639444767",
@@ -59679,7 +59679,7 @@ const lugares = [{
     "key": "norte de santanderel salado"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "El Suspiro",
     "lat": "-72.5235660385",
@@ -59689,7 +59689,7 @@ const lugares = [{
     "key": "norte de santanderel suspiro"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "El Tablazo",
     "lat": "-72.5614808793",
@@ -59699,7 +59699,7 @@ const lugares = [{
     "key": "norte de santanderel tablazo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "El Tarra",
     "lat": "-73.0948482229",
@@ -59709,7 +59709,7 @@ const lugares = [{
     "key": "norte de santanderel tarra"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "El Trapiche",
     "lat": "-72.5497540899",
@@ -59719,7 +59719,7 @@ const lugares = [{
     "key": "norte de santanderel trapiche"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "PAMPLONITA",
     "lugar": "El Trevejo",
     "lat": "-72.6365234529",
@@ -59729,7 +59729,7 @@ const lugares = [{
     "key": "norte de santanderel trevejo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "El Tropezón",
     "lat": "-73.5175090804",
@@ -59739,7 +59739,7 @@ const lugares = [{
     "key": "norte de santanderel tropezón"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "El Zulia",
     "lat": "-72.6046120661",
@@ -59749,7 +59749,7 @@ const lugares = [{
     "key": "norte de santanderel zulia"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "Filo Gringo",
     "lat": "-72.9559346842",
@@ -59759,7 +59759,7 @@ const lugares = [{
     "key": "norte de santanderfilo gringo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "GRAMALOTE",
     "lugar": "Gramalote",
     "lat": 0,
@@ -59769,7 +59769,7 @@ const lugares = [{
     "key": "norte de santandergramalote"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL CARMEN",
     "lugar": "Guamalito",
     "lat": "-73.4663616976",
@@ -59779,7 +59779,7 @@ const lugares = [{
     "key": "norte de santanderguamalito"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Guaramito",
     "lat": "-72.3783542579",
@@ -59789,7 +59789,7 @@ const lugares = [{
     "key": "norte de santanderguaramito"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "HACARÍ",
     "lugar": "Hacarí",
     "lat": "-73.1459704225",
@@ -59799,7 +59799,7 @@ const lugares = [{
     "key": "norte de santanderhacarí"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "DURANIA",
     "lugar": "Hatoviejo",
     "lat": "-72.6920934175",
@@ -59809,7 +59809,7 @@ const lugares = [{
     "key": "norte de santanderhatoviejo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "HERRÁN",
     "lugar": "Herrán",
     "lat": "-72.4835192832",
@@ -59819,7 +59819,7 @@ const lugares = [{
     "key": "norte de santanderherrán"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "Honduras La Motilona",
     "lat": 0,
@@ -59829,7 +59829,7 @@ const lugares = [{
     "key": "norte de santanderhonduras la motilona"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "VILLA DEL ROSARIO",
     "lugar": "Juan Frío",
     "lat": "-72.473646509",
@@ -59839,7 +59839,7 @@ const lugares = [{
     "key": "norte de santanderjuan frío"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "MUTISCUA",
     "lugar": "La Caldera",
     "lat": "-72.7266074048",
@@ -59849,7 +59849,7 @@ const lugares = [{
     "key": "norte de santanderla caldera"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "La Campana",
     "lat": 0,
@@ -59859,7 +59859,7 @@ const lugares = [{
     "key": "norte de santanderla campana"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "La Cancha",
     "lat": "-73.5204799592",
@@ -59869,7 +59869,7 @@ const lugares = [{
     "key": "norte de santanderla cancha"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÁCHIRA",
     "lugar": "La Carrera",
     "lat": "-73.0417514461",
@@ -59879,7 +59879,7 @@ const lugares = [{
     "key": "norte de santanderla carrera"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TEORAMA",
     "lugar": "La Cecilia",
     "lat": 0,
@@ -59889,7 +59889,7 @@ const lugares = [{
     "key": "norte de santanderla cecilia"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "La Cuatro",
     "lat": "-72.6937570708",
@@ -59899,7 +59899,7 @@ const lugares = [{
     "key": "norte de santanderla cuatro"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "DURANIA",
     "lugar": "La Cuchilla",
     "lat": "-72.635926496",
@@ -59909,7 +59909,7 @@ const lugares = [{
     "key": "norte de santanderla cuchilla"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL CARMEN",
     "lugar": "La Culebrita",
     "lat": 0,
@@ -59919,7 +59919,7 @@ const lugares = [{
     "key": "norte de santanderla culebrita"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "BUCARASICA",
     "lugar": "La Curva",
     "lat": "-72.9597351777",
@@ -59929,7 +59929,7 @@ const lugares = [{
     "key": "norte de santanderla curva"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "BOCHALEMA",
     "lugar": "La Donjuana",
     "lat": "-72.6071251743",
@@ -59939,7 +59939,7 @@ const lugares = [{
     "key": "norte de santanderla donjuana"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "La Ermita",
     "lat": "-73.313622378",
@@ -59949,7 +59949,7 @@ const lugares = [{
     "key": "norte de santanderla ermita"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "BOCHALEMA",
     "lugar": "La Esmeralda",
     "lat": "-72.6481921242",
@@ -59959,7 +59959,7 @@ const lugares = [{
     "key": "norte de santanderla esmeralda"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "La Esperanza",
     "lat": "-73.3278977166",
@@ -59969,7 +59969,7 @@ const lugares = [{
     "key": "norte de santanderla esperanza"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "HACARÍ",
     "lugar": "La Estacion O Mesitas",
     "lat": "-73.090239753",
@@ -59979,7 +59979,7 @@ const lugares = [{
     "key": "norte de santanderla estacion o mesitas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "GRAMALOTE",
     "lugar": "La Estrella",
     "lat": 0,
@@ -59989,7 +59989,7 @@ const lugares = [{
     "key": "norte de santanderla estrella"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "La Floresta",
     "lat": "-72.476977091",
@@ -59999,7 +59999,7 @@ const lugares = [{
     "key": "norte de santanderla floresta"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "La Floresta",
     "lat": "-73.3465645825",
@@ -60009,7 +60009,7 @@ const lugares = [{
     "key": "norte de santanderla floresta"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "La Gabarra",
     "lat": "-72.8988175446",
@@ -60019,7 +60019,7 @@ const lugares = [{
     "key": "norte de santanderla gabarra"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "La Garita",
     "lat": "-72.5452541096",
@@ -60029,7 +60029,7 @@ const lugares = [{
     "key": "norte de santanderla garita"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "La Jarra",
     "lat": "-72.4264618335",
@@ -60039,7 +60039,7 @@ const lugares = [{
     "key": "norte de santanderla jarra"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "MUTISCUA",
     "lugar": "La Laguna",
     "lat": "-72.7617402188",
@@ -60049,7 +60049,7 @@ const lugares = [{
     "key": "norte de santanderla laguna"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SALAZAR",
     "lugar": "La Laguna",
     "lat": "-72.7713845962",
@@ -60059,7 +60059,7 @@ const lugares = [{
     "key": "norte de santanderla laguna"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SILOS",
     "lugar": "La Laguna",
     "lat": "-72.7607477158",
@@ -60069,7 +60069,7 @@ const lugares = [{
     "key": "norte de santanderla laguna"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "La Libertad",
     "lat": 0,
@@ -60079,7 +60079,7 @@ const lugares = [{
     "key": "norte de santanderla libertad"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "La Llana",
     "lat": 0,
@@ -60089,7 +60089,7 @@ const lugares = [{
     "key": "norte de santanderla llana"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "GRAMALOTE",
     "lugar": "La Lomita",
     "lat": 0,
@@ -60099,7 +60099,7 @@ const lugares = [{
     "key": "norte de santanderla lomita"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "DURANIA",
     "lugar": "La Montuosa",
     "lat": "-72.641803336",
@@ -60109,7 +60109,7 @@ const lugares = [{
     "key": "norte de santanderla montuosa"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "La Motilandia",
     "lat": 0,
@@ -60119,7 +60119,7 @@ const lugares = [{
     "key": "norte de santanderla motilandia"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHINÁCOTA",
     "lugar": "La Nueva Donjuana",
     "lat": "-72.603019552",
@@ -60129,7 +60129,7 @@ const lugares = [{
     "key": "norte de santanderla nueva donjuana"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "La Pedregosa",
     "lat": "-73.3865783461",
@@ -60139,7 +60139,7 @@ const lugares = [{
     "key": "norte de santanderla pedregosa"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA PLAYA",
     "lugar": "La Playa",
     "lat": "-73.2386418368",
@@ -60149,7 +60149,7 @@ const lugares = [{
     "key": "norte de santanderla playa"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "La Punta",
     "lat": "-72.4846967866",
@@ -60159,7 +60159,7 @@ const lugares = [{
     "key": "norte de santanderla punta"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CALIXTO",
     "lugar": "La Quina",
     "lat": "-73.2362718478",
@@ -60169,7 +60169,7 @@ const lugares = [{
     "key": "norte de santanderla quina"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "La Sabana",
     "lat": "-72.3912516613",
@@ -60179,7 +60179,7 @@ const lugares = [{
     "key": "norte de santanderla sabana"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "BUCARASICA",
     "lugar": "La Sanjuana",
     "lat": "-72.8393260322",
@@ -60189,7 +60189,7 @@ const lugares = [{
     "key": "norte de santanderla sanjuana"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "La Trinidad",
     "lat": 0,
@@ -60199,7 +60199,7 @@ const lugares = [{
     "key": "norte de santanderla trinidad"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÁCHIRA",
     "lugar": "La Vega",
     "lat": "-73.1746372571",
@@ -60209,7 +60209,7 @@ const lugares = [{
     "key": "norte de santanderla vega"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "La Vega",
     "lat": "-73.3609249398",
@@ -60219,7 +60219,7 @@ const lugares = [{
     "key": "norte de santanderla vega"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA PLAYA",
     "lugar": "La Vega De San Antonio",
     "lat": "-73.0524790435",
@@ -60229,7 +60229,7 @@ const lugares = [{
     "key": "norte de santanderla vega de san antonio"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SARDINATA",
     "lugar": "La Victoria",
     "lat": "-72.850976353",
@@ -60239,7 +60239,7 @@ const lugares = [{
     "key": "norte de santanderla victoria"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LABATECA",
     "lugar": "Labateca",
     "lat": "-72.4958768009",
@@ -60249,7 +60249,7 @@ const lugares = [{
     "key": "norte de santanderlabateca"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Lagos De Palujan",
     "lat": "-72.5664802739",
@@ -60259,7 +60259,7 @@ const lugares = [{
     "key": "norte de santanderlagos de palujan"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CALIXTO",
     "lugar": "Lagunitas",
     "lat": "-73.2168672438",
@@ -60269,7 +60269,7 @@ const lugares = [{
     "key": "norte de santanderlagunitas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "DURANIA",
     "lugar": "Las Aguadas",
     "lat": "-72.6676342056",
@@ -60279,7 +60279,7 @@ const lugares = [{
     "key": "norte de santanderlas aguadas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "Las Brisas",
     "lat": "-72.5639988617",
@@ -60289,7 +60289,7 @@ const lugares = [{
     "key": "norte de santanderlas brisas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "HACARÍ",
     "lugar": "Las Juntas",
     "lat": "-73.0704382969",
@@ -60299,7 +60299,7 @@ const lugares = [{
     "key": "norte de santanderlas juntas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CALIXTO",
     "lugar": "Las Juntas",
     "lat": 0,
@@ -60309,7 +60309,7 @@ const lugares = [{
     "key": "norte de santanderlas juntas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "Las Mercedes",
     "lat": "-73.3397314276",
@@ -60319,7 +60319,7 @@ const lugares = [{
     "key": "norte de santanderlas mercedes"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SARDINATA",
     "lugar": "Las Mercedes",
     "lat": 0,
@@ -60329,7 +60329,7 @@ const lugares = [{
     "key": "norte de santanderlas mercedes"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "Las Piedras",
     "lat": "-72.6146216763",
@@ -60339,7 +60339,7 @@ const lugares = [{
     "key": "norte de santanderlas piedras"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "Las Torres",
     "lat": 0,
@@ -60349,7 +60349,7 @@ const lugares = [{
     "key": "norte de santanderlas torres"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Las Vacas",
     "lat": "-72.5160799869",
@@ -60359,7 +60359,7 @@ const lugares = [{
     "key": "norte de santanderlas vacas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "León Xiii",
     "lat": "-73.2264176509",
@@ -60369,7 +60369,7 @@ const lugares = [{
     "key": "norte de santanderleón xiii"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHITAGÁ",
     "lugar": "Llano Grande",
     "lat": "-72.653357137",
@@ -60379,7 +60379,7 @@ const lugares = [{
     "key": "norte de santanderllano grande"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Londres",
     "lat": "-72.4886406536037",
@@ -60389,7 +60389,7 @@ const lugares = [{
     "key": "norte de santanderlondres"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "Los Cedros",
     "lat": "-73.3129560332",
@@ -60399,7 +60399,7 @@ const lugares = [{
     "key": "norte de santanderlos cedros"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÁCHIRA",
     "lugar": "Los Mangos",
     "lat": "-73.0847568403",
@@ -60409,7 +60409,7 @@ const lugares = [{
     "key": "norte de santanderlos mangos"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Los Negros",
     "lat": "-72.3495893398",
@@ -60419,7 +60419,7 @@ const lugares = [{
     "key": "norte de santanderlos negros"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Los Patios",
     "lat": "-72.5057141873",
@@ -60429,7 +60429,7 @@ const lugares = [{
     "key": "norte de santanderlos patios"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SILOS",
     "lugar": "Los Rincón",
     "lat": "-72.7124585839",
@@ -60439,7 +60439,7 @@ const lugares = [{
     "key": "norte de santanderlos rincón"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Los Vados",
     "lat": "-72.5244718856",
@@ -60449,7 +60449,7 @@ const lugares = [{
     "key": "norte de santanderlos vados"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOURDES",
     "lugar": "Lourdes",
     "lat": "-72.8323786178",
@@ -60459,7 +60459,7 @@ const lugares = [{
     "key": "norte de santanderlourdes"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SARDINATA",
     "lugar": "Luis Vero",
     "lat": 0,
@@ -60469,7 +60469,7 @@ const lugares = [{
     "key": "norte de santanderluis vero"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "HACARÍ",
     "lugar": "Maracaibo",
     "lat": "-73.1388570156",
@@ -60479,7 +60479,7 @@ const lugares = [{
     "key": "norte de santandermaracaibo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "Miraflores",
     "lat": "-73.3362594233",
@@ -60489,7 +60489,7 @@ const lugares = [{
     "key": "norte de santandermiraflores"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "BOCHALEMA",
     "lugar": "Monterredondo",
     "lat": 0,
@@ -60499,7 +60499,7 @@ const lugares = [{
     "key": "norte de santandermonterredondo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "MUTISCUA",
     "lugar": "Mutiscua",
     "lat": "-72.7471428991",
@@ -60509,7 +60509,7 @@ const lugares = [{
     "key": "norte de santandermutiscua"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Nuevo Madrid",
     "lat": "-72.4683355604",
@@ -60519,7 +60519,7 @@ const lugares = [{
     "key": "norte de santandernuevo madrid"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "Ocaña",
     "lat": "-73.355814925",
@@ -60529,7 +60529,7 @@ const lugares = [{
     "key": "norte de santanderocaña"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Oripaya",
     "lat": "-72.4861229893",
@@ -60539,7 +60539,7 @@ const lugares = [{
     "key": "norte de santanderoripaya"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL TARRA",
     "lugar": "Orú",
     "lat": "-72.9186865543",
@@ -60549,7 +60549,7 @@ const lugares = [{
     "key": "norte de santanderorú"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "Otaré",
     "lat": "-73.424746635",
@@ -60559,7 +60559,7 @@ const lugares = [{
     "key": "norte de santanderotaré"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Paccelly",
     "lat": "-72.9349488157",
@@ -60569,7 +60569,7 @@ const lugares = [{
     "key": "norte de santanderpaccelly"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SILOS",
     "lugar": "Pachagual",
     "lat": "-72.7831138098",
@@ -60579,7 +60579,7 @@ const lugares = [{
     "key": "norte de santanderpachagual"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Palmarito",
     "lat": "-72.4864012326",
@@ -60589,7 +60589,7 @@ const lugares = [{
     "key": "norte de santanderpalmarito"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CALIXTO",
     "lugar": "Palmarito",
     "lat": "-73.2608392789",
@@ -60599,7 +60599,7 @@ const lugares = [{
     "key": "norte de santanderpalmarito"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "VILLA DEL ROSARIO",
     "lugar": "Palogordo Norte",
     "lat": "-72.5048155041",
@@ -60609,7 +60609,7 @@ const lugares = [{
     "key": "norte de santanderpalogordo norte"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "PAMPLONA",
     "lugar": "Pamplona",
     "lat": "-72.64768472",
@@ -60619,7 +60619,7 @@ const lugares = [{
     "key": "norte de santanderpamplona"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "PAMPLONITA",
     "lugar": "Pamplonita",
     "lat": "-72.6392033235",
@@ -60629,7 +60629,7 @@ const lugares = [{
     "key": "norte de santanderpamplonita"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Patillales",
     "lat": "-72.5043855266",
@@ -60639,7 +60639,7 @@ const lugares = [{
     "key": "norte de santanderpatillales"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Petrólea",
     "lat": "-72.5754752315",
@@ -60649,7 +60649,7 @@ const lugares = [{
     "key": "norte de santanderpetrólea"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "Piedecuesta",
     "lat": "-73.3968221095",
@@ -60659,7 +60659,7 @@ const lugares = [{
     "key": "norte de santanderpiedecuesta"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Pórtico",
     "lat": "-72.52094951",
@@ -60669,7 +60669,7 @@ const lugares = [{
     "key": "norte de santanderpórtico"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHITAGÁ",
     "lugar": "Presidente",
     "lat": "-72.6822473605",
@@ -60679,7 +60679,7 @@ const lugares = [{
     "key": "norte de santanderpresidente"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "Pueblo Nuevo",
     "lat": "-73.2788909437",
@@ -60689,7 +60689,7 @@ const lugares = [{
     "key": "norte de santanderpueblo nuevo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "OCAÑA",
     "lugar": "Pueblo Nuevo",
     "lat": "-73.3915748757",
@@ -60699,7 +60699,7 @@ const lugares = [{
     "key": "norte de santanderpueblo nuevo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Puerto León",
     "lat": "-72.4422759633",
@@ -60709,7 +60709,7 @@ const lugares = [{
     "key": "norte de santanderpuerto león"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Puerto Lleras",
     "lat": "-72.4621405443",
@@ -60719,7 +60719,7 @@ const lugares = [{
     "key": "norte de santanderpuerto lleras"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Puerto Nuevo",
     "lat": "-72.4613051955",
@@ -60729,7 +60729,7 @@ const lugares = [{
     "key": "norte de santanderpuerto nuevo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "PUERTO SANTANDER",
     "lugar": "Puerto Santander",
     "lat": "-72.4103128587",
@@ -60739,7 +60739,7 @@ const lugares = [{
     "key": "norte de santanderpuerto santander"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Puerto Villamizar",
     "lat": "-72.4414684202",
@@ -60749,7 +60749,7 @@ const lugares = [{
     "key": "norte de santanderpuerto villamizar"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TEORAMA",
     "lugar": "Quince Letras",
     "lat": "-73.24511938",
@@ -60759,7 +60759,7 @@ const lugares = [{
     "key": "norte de santanderquince letras"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "RAGONVALIA",
     "lugar": "Ragonvalia",
     "lat": "-72.4767028257",
@@ -60769,7 +60769,7 @@ const lugares = [{
     "key": "norte de santanderragonvalia"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Recta Corozal",
     "lat": "-72.5668769366",
@@ -60779,7 +60779,7 @@ const lugares = [{
     "key": "norte de santanderrecta corozal"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHINÁCOTA",
     "lugar": "Recta Los Alamos",
     "lat": "-72.596258991",
@@ -60789,7 +60789,7 @@ const lugares = [{
     "key": "norte de santanderrecta los alamos"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Ricaurte",
     "lat": "-72.3544036464",
@@ -60799,7 +60799,7 @@ const lugares = [{
     "key": "norte de santanderricaurte"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SALAZAR",
     "lugar": "Salazar De Las Palmas",
     "lat": "-72.8131235511",
@@ -60809,7 +60809,7 @@ const lugares = [{
     "key": "norte de santandersalazar de las palmas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TOLEDO",
     "lugar": "Samore",
     "lat": "-72.2306016814",
@@ -60819,7 +60819,7 @@ const lugares = [{
     "key": "norte de santandersamore"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "San Agustín De Los Pozos",
     "lat": "-72.464237762",
@@ -60829,7 +60829,7 @@ const lugares = [{
     "key": "norte de santandersan agustín de los pozos"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TOLEDO",
     "lugar": "San Bernardo De Bata",
     "lat": "-72.4428776893",
@@ -60839,7 +60839,7 @@ const lugares = [{
     "key": "norte de santandersan bernardo de bata"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CALIXTO",
     "lugar": "San Calixto",
     "lat": "-73.2085273768",
@@ -60849,7 +60849,7 @@ const lugares = [{
     "key": "norte de santandersan calixto"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CAYETANO",
     "lugar": "San Cayetano",
     "lat": "-72.6254110291",
@@ -60859,7 +60859,7 @@ const lugares = [{
     "key": "norte de santandersan cayetano"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "San Faustino",
     "lat": "-72.4053224433",
@@ -60869,7 +60869,7 @@ const lugares = [{
     "key": "norte de santandersan faustino"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CAYETANO",
     "lugar": "San Isidro",
     "lat": "-72.5480759797",
@@ -60879,7 +60879,7 @@ const lugares = [{
     "key": "norte de santandersan isidro"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "San José De Cúcuta",
     "lat": "-72.5080651202",
@@ -60889,7 +60889,7 @@ const lugares = [{
     "key": "norte de santandersan josé de cúcuta"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CUCUTILLA",
     "lugar": "San José De La Montaña",
     "lat": "-72.745611556",
@@ -60899,7 +60899,7 @@ const lugares = [{
     "key": "norte de santandersan josé de la montaña"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SALAZAR",
     "lugar": "San José Del Avila",
     "lat": "-72.8796530161",
@@ -60909,7 +60909,7 @@ const lugares = [{
     "key": "norte de santandersan josé del avila"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÁCHIRA",
     "lugar": "San José Del Llano",
     "lat": "-73.0653682692",
@@ -60919,7 +60919,7 @@ const lugares = [{
     "key": "norte de santandersan josé del llano"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "HACARÍ",
     "lugar": "San José Del Tarra",
     "lat": "-73.0771313866",
@@ -60929,7 +60929,7 @@ const lugares = [{
     "key": "norte de santandersan josé del tarra"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHITAGÁ",
     "lugar": "San Luis De Chucarima",
     "lat": "-72.5014517276",
@@ -60939,7 +60939,7 @@ const lugares = [{
     "key": "norte de santandersan luis de chucarima"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SARDINATA",
     "lugar": "San Martín De Loba",
     "lat": "-72.6985111631",
@@ -60949,7 +60949,7 @@ const lugares = [{
     "key": "norte de santandersan martín de loba"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TEORAMA",
     "lugar": "San Pablo",
     "lat": "-73.236752651",
@@ -60959,7 +60959,7 @@ const lugares = [{
     "key": "norte de santandersan pablo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "San Pedro",
     "lat": "-72.5252988361",
@@ -60969,7 +60969,7 @@ const lugares = [{
     "key": "norte de santandersan pedro"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SARDINATA",
     "lugar": "San Roque",
     "lat": "-72.740220668",
@@ -60979,7 +60979,7 @@ const lugares = [{
     "key": "norte de santandersan roque"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Santa Cecilia",
     "lat": "-72.4469252369",
@@ -60989,7 +60989,7 @@ const lugares = [{
     "key": "norte de santandersanta cecilia"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "EL ZULIA",
     "lugar": "Santa Rosa",
     "lat": "-72.5656451066",
@@ -60999,7 +60999,7 @@ const lugares = [{
     "key": "norte de santandersanta rosa"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SANTIAGO",
     "lugar": "Santiago",
     "lat": "-72.7162440314",
@@ -61009,7 +61009,7 @@ const lugares = [{
     "key": "norte de santandersantiago"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SARDINATA",
     "lugar": "Sardinata",
     "lat": "-72.8007580493",
@@ -61019,7 +61019,7 @@ const lugares = [{
     "key": "norte de santandersardinata"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SILOS",
     "lugar": "Silos",
     "lat": "-72.7570633326",
@@ -61029,7 +61029,7 @@ const lugares = [{
     "key": "norte de santandersilos"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CONVENCIÓN",
     "lugar": "Soledad",
     "lat": 0,
@@ -61039,7 +61039,7 @@ const lugares = [{
     "key": "norte de santandersoledad"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CHINÁCOTA",
     "lugar": "Teneria",
     "lat": "-72.5964660473",
@@ -61049,7 +61049,7 @@ const lugares = [{
     "key": "norte de santanderteneria"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TEORAMA",
     "lugar": "Teorama",
     "lat": "-73.287073938",
@@ -61059,7 +61059,7 @@ const lugares = [{
     "key": "norte de santanderteorama"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Tibu",
     "lat": "-72.7342132578",
@@ -61069,7 +61069,7 @@ const lugares = [{
     "key": "norte de santandertibu"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CUCUTILLA",
     "lugar": "Tierra Grata",
     "lat": "-72.7785945062",
@@ -61079,7 +61079,7 @@ const lugares = [{
     "key": "norte de santandertierra grata"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TOLEDO",
     "lugar": "Toledo",
     "lat": "-72.4819073532",
@@ -61089,7 +61089,7 @@ const lugares = [{
     "key": "norte de santandertoledo"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Tres Bocas",
     "lat": "-72.65738568",
@@ -61099,7 +61099,7 @@ const lugares = [{
     "key": "norte de santandertres bocas"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CAYETANO",
     "lugar": "Urimaco",
     "lat": "-72.5897846706",
@@ -61109,7 +61109,7 @@ const lugares = [{
     "key": "norte de santanderurimaco"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Versalles",
     "lat": "-72.9109739963",
@@ -61119,7 +61119,7 @@ const lugares = [{
     "key": "norte de santanderversalles"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "TIBU",
     "lugar": "Vetas De Oriente",
     "lat": "-72.8486733068",
@@ -61129,7 +61129,7 @@ const lugares = [{
     "key": "norte de santandervetas de oriente"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "CÚCUTA",
     "lugar": "Viigilancia",
     "lat": "-72.458189231",
@@ -61139,7 +61139,7 @@ const lugares = [{
     "key": "norte de santanderviigilancia"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "VILLA CARO",
     "lugar": "Villa Caro",
     "lat": "-72.9736512466",
@@ -61149,7 +61149,7 @@ const lugares = [{
     "key": "norte de santandervilla caro"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "VILLA DEL ROSARIO",
     "lugar": "Villa Del Rosario",
     "lat": "-72.4700680064",
@@ -61159,7 +61159,7 @@ const lugares = [{
     "key": "norte de santandervilla del rosario"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Villa Katherine",
     "lat": "-72.5561124632",
@@ -61169,7 +61169,7 @@ const lugares = [{
     "key": "norte de santandervilla katherine"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "ARBOLEDAS",
     "lugar": "Villa Sucre",
     "lat": "-72.7344370274",
@@ -61179,7 +61179,7 @@ const lugares = [{
     "key": "norte de santandervilla sucre"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LA ESPERANZA",
     "lugar": "Villamaría",
     "lat": "-73.318322844",
@@ -61189,7 +61189,7 @@ const lugares = [{
     "key": "norte de santandervillamaría"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "LOS PATIOS",
     "lugar": "Villas De Corozal",
     "lat": "-72.5524736828",
@@ -61199,7 +61199,7 @@ const lugares = [{
     "key": "norte de santandervillas de corozal"
    },
    {
-    "departamento": "Norte De Santander",
+    "departamento": "Norte de Santander",
     "entidad": "SAN CALIXTO",
     "lugar": "Vista Hermosa",
     "lat": "-73.2791231364",
