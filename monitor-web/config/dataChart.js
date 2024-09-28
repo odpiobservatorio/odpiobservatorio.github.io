@@ -6,7 +6,7 @@ let Color_Text_ChartY = "black"
 let Color_Text_ChartX = "black"
 let Color_Text_Leg = "black"
 let Color_Line_Chart = "white"
-let customColors=[]
+let customColors = []
 const ColorList3 = [
     //rojos
     "#F0F8FF", "white", "#FAEBD7", "#00FFFF", "#7FFFD4", "#F5F5DC", "#000000", "#D2691E",
@@ -101,49 +101,49 @@ function ini_chat() {
         "1": {
             "nombre": "ulColorFondoChart",
             "i": "i_fondo",
-            "funcion":(color)=>{
+            "funcion": (color) => {
                 document.getElementById("divChart").style.background = color
             }
         },
         "2": {
             "nombre": "ulDataColor",
             "i": "i_DataColor",
-            "funcion":(color)=>{
+            "funcion": (color) => {
                 ColorDatos = color
             }
         },
         "3": {
             "nombre": "ulColorLetraChartY",
             "i": "i_textoY",
-            "funcion":(color)=>{
+            "funcion": (color) => {
                 Color_Text_ChartY = color
             }
         },
         "4": {
             "nombre": "ulColorLetraChartX",
             "i": "i_textoX",
-            "funcion":(color)=>{
+            "funcion": (color) => {
                 Color_Text_ChartX = color
             }
         },
         "5": {
             "nombre": "ulColorLetraLeg",
             "i": "i_textoLeg",
-            "funcion":(color)=>{
+            "funcion": (color) => {
                 Color_Text_Leg = color
             }
         },
         "6": {
             "nombre": "ulColorLineaChart",
             "i": "i_linea",
-            "funcion":(color)=>{
+            "funcion": (color) => {
                 Color_Line_Chart = color
             }
         },
         "7": {
             "nombre": "ulColorBorde",
             "i": "i_borde",
-            "funcion":(color)=>{
+            "funcion": (color) => {
                 bordeColor = color
             }
         }
@@ -151,16 +151,16 @@ function ini_chat() {
 
 
     for (id in ulControls) {
-        const hexinput= document.createElement("input")
-        const inputColor= document.createElement("input")
-        
+        const hexinput = document.createElement("input")
+        const inputColor = document.createElement("input")
+
         const ul = ulControls[id]
         const i = document.getElementById(ul.i)
         i.className = "bi bi-square-fill rounded"
         i.style.color = "black"
         const ulDiv = document.getElementById(ul.nombre)
-        ulDiv.innerHTML=""
-        
+        ulDiv.innerHTML = ""
+
         ColorList.forEach(color => {
             const iColor = document.createElement("i")
             iColor.className = "bi bi-square-fill fs-5"
@@ -169,43 +169,43 @@ function ini_chat() {
             ulDiv.appendChild(iColor)
             iColor.onclick = (e) => {
                 e.stopPropagation();
-                hexinput.value=color
+                hexinput.value = color
                 i.style.color = color
                 ul.funcion(color)
                 crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
             }
-            
+
             iColor.ondblclick = (e) => {
                 e.stopPropagation();
                 customColors.push(color)
-                hexinput.value=  customColors
+                hexinput.value = customColors
                 i.style.color = color
                 ul.funcion(customColors)
                 crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
             }
 
         })
-        
-        hexinput.className="form-control"
-        hexinput.type="text"
-        hexinput.placeholder="HEX Color"
+
+        hexinput.className = "form-control"
+        hexinput.type = "text"
+        hexinput.placeholder = "HEX Color"
         ulDiv.appendChild(hexinput)
-        
-        hexinput.onchange=()=>{
-            customColors=hexinput.value.split(",")
+
+        hexinput.onchange = () => {
+            customColors = hexinput.value.split(",")
             ul.funcion(customColors)
             i.style.color = hexinput.value
             crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
         }
 
-        inputColor.className="form-control"
-        inputColor.type="color"
-        inputColor.value="black"
+        inputColor.className = "form-control"
+        inputColor.type = "color"
+        inputColor.value = "black"
         ulDiv.appendChild(inputColor)
-        inputColor.onchange=(e)=>{
+        inputColor.onchange = (e) => {
             //e.stopPropagation();
             customColors.push(inputColor.value)
-            hexinput.value=  customColors
+            hexinput.value = customColors
             i.style.color = inputColor.value
             ul.funcion(customColors)
             crear_grafico(consolidados, document.getElementById("listTipo_chart").value)
@@ -218,9 +218,9 @@ function ini_chat() {
 
 
 
-   
 
-    
+
+
 
 
 
@@ -760,6 +760,7 @@ function crear_grafico(data, tipo) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             indexAxis: ValEje,
             plugins: {
                 // changin the lagend colour
@@ -780,7 +781,7 @@ function crear_grafico(data, tipo) {
                         color: Color_Text_ChartY,
                         font: {
                             size: fsize,
-                            weight: "bold"
+                            //weight: "bolder"
                         }
                     },
                     grid: {
@@ -813,10 +814,12 @@ function ver_todo() {
 }
 
 function altura_chart(value) {
-
-    document.getElementById("divChart").style.width = value
+    document.getElementById("divChart").style.height = value
     var ctx = document.getElementById("myChart")
     ctx.style.height = value;
-
-
+}
+function ancho_chart(value) {
+    document.getElementById("divChart").style.width = value
+    var ctx = document.getElementById("myChart")
+    ctx.style.width = value;
 }

@@ -59270,7 +59270,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Barco La Silla",
     "lat": 0,
     "lng": 0,
@@ -59390,7 +59390,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Campo Dos",
     "lat": "-72.6409851711",
     "lng": "8.49036647341",
@@ -59400,7 +59400,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Campo Giles",
     "lat": "-72.6657663813",
     "lng": "8.44085741845",
@@ -59890,7 +59890,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "La Cuatro",
     "lat": "-72.6937570708",
     "lng": "8.63569735167",
@@ -60010,7 +60010,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "La Gabarra",
     "lat": "-72.8988175446",
     "lng": "8.99807447115",
@@ -60080,7 +60080,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "La Llana",
     "lat": 0,
     "lng": 0,
@@ -60560,7 +60560,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Paccelly",
     "lat": "-72.9349488157",
     "lng": "8.55286559251",
@@ -60640,7 +60640,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Petrólea",
     "lat": "-72.5754752315",
     "lng": "8.46916493204",
@@ -61060,8 +61060,8 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
-    "lugar": "Tibú",
+    "entidad": "TIBU",
+    "lugar": "Tibu",
     "lat": "-72.7342132578",
     "lng": "8.63899279345",
     "tipo": "MUNICIPIO",
@@ -61090,7 +61090,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Tres Bocas",
     "lat": "-72.65738568",
     "lng": "8.62181776629",
@@ -61110,7 +61110,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Versalles",
     "lat": "-72.9109739963",
     "lng": "8.64133884011",
@@ -61120,7 +61120,7 @@ const lugares = [{
    },
    {
     "departamento": "Norte De Santander",
-    "entidad": "TIBÚ",
+    "entidad": "TIBU",
     "lugar": "Vetas De Oriente",
     "lat": "-72.8486733068",
     "lng": "8.89118889221",
