@@ -228,6 +228,46 @@ let format_layer = {
         },
         "atributes": []
     },
+    "layer_orinoquia": {
+        "format": {
+            color_linea: "'white'",
+            color_fondo: "'gray'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold",
+                "contenido": "Departamento",
+                "campo": "Departamen"
+            }
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
+    "layer_norte": {
+        "format": {
+            color_linea: "'white'",
+            color_fondo: "'pink'",
+            opacidad: 1,
+            ancho_linea: 1,
+            pane: "'3'"
+        },
+        "label": [
+            {
+                "clase": "fw-bold",
+                "contenido": "Departamento",
+                "campo": "Departamen"
+            }
+        ],
+        "target": {
+            "local": "nolocal",
+        },
+        "atributes": []
+    },
     "layer_macroterritorioscv": {
         "format": {
             color_linea: "'white'",
@@ -739,6 +779,8 @@ const jslayers = [
     ["005mamazonia", "amazonia", "Macro amazonía", "polygon"],
     ["005Boccidente", "occidente", "Macro occidente", "polygon"],
     ["005Ccentrooriente", "centrooriente", "Macro centro oriente", "polygon"],
+    ["005Dorinoquia", "orinoquia", "Macro orinoquía", "polygon"],
+    ["005Enorte", "norte", "Macro norte", "polygon"],
     ["nolayer", "Territorios"],//=================
     ["004resguardos", "resguardos", "Resguardos", "polygon"],
     ["006reservacampesina", "reservasc", "Reservas campecinas", "polygon"],
