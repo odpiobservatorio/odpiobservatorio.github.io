@@ -299,13 +299,31 @@ function filter_extend() {
         score = []
     });
 
+
+
     now_data_filter = datafilter
     mostrar_resultados(datafilter)
+    crear_consolidado_resultado(datafilter,criteria_items)
 
+   
 }
 
-function consola_command() {
+function crear_consolidado_resultado(datafilter,criteria_items) {
+    let casos=0
+    let victimas=0
+    for(id in datafilter){
+        casos++
+        victimas= victimas + datafilter[id].npersonas
+    }
 
+    //Para mostrar consolidados
+    const capo_contexto= document.getElementById("col_contexto")
+    const capo_casos= document.getElementById("col_res_casos")
+    const capo_victimas= document.getElementById("col_res_victimas")
+    const control_criterio=criteria_items[0][1]
+    capo_contexto.textContent= `${control_criterio.toUpperCase()}`
+    capo_casos.textContent=casos
+    capo_victimas.textContent=victimas
 
 }
 function make_label_resultados(caso, contenedor) {
