@@ -303,27 +303,35 @@ function filter_extend() {
 
     now_data_filter = datafilter
     mostrar_resultados(datafilter)
-    crear_consolidado_resultado(datafilter,criteria_items)
+    crear_consolidado_resultado(datafilter, criteria_items)
 
-   
+
 }
 
-function crear_consolidado_resultado(datafilter,criteria_items) {
-    let casos=0
-    let victimas=0
-    for(id in datafilter){
+function crear_consolidado_resultado(datafilter, criteria_items) {
+    let casos = 0
+    let victimas = 0
+    let nombres = []
+    for (id in datafilter) {
         casos++
-        victimas= victimas + datafilter[id].npersonas
+        victimas = victimas + datafilter[id].npersonas
+        const personas = datafilter[id].clsPersonas
+        for (id in personas) {
+            nombres.push(personas[id].nombres)
+        }
     }
 
     //Para mostrar consolidados
-    const capo_contexto= document.getElementById("col_contexto")
-    const capo_casos= document.getElementById("col_res_casos")
-    const capo_victimas= document.getElementById("col_res_victimas")
-    const control_criterio=criteria_items[0][1]
-    capo_contexto.textContent= `${control_criterio.toUpperCase()}`
-    capo_casos.textContent=casos
-    capo_victimas.textContent=victimas
+    const capo_contexto = document.getElementById("col_contexto")
+    const capo_casos = document.getElementById("col_res_casos")
+    const capo_victimas = document.getElementById("col_res_victimas")
+    const control_criterio = criteria_items[0][1]
+    capo_contexto.textContent = `${control_criterio.toUpperCase()}`
+    capo_casos.textContent = casos
+    capo_victimas.textContent = victimas
+
+    const div_resultados_nombre = document.getElementById("pivot_lis_resultados")
+    div_resultados_nombre.textContent=nombres
 
 }
 function make_label_resultados(caso, contenedor) {
@@ -597,7 +605,7 @@ function ver_calor_dep(value, id) {
                     fillColor: eval(format_layer['layer_' + id].format.color_fondo),
                     fillOpacity: opacidad,
                     weight: linea,
-                    pane: eval(format_layer["layer_"+id].format.pane),
+                    pane: eval(format_layer["layer_" + id].format.pane),
                 };
             }
         }).bindPopup(function (layer) {
@@ -712,7 +720,7 @@ function ver_calor_dep_victimas(value, id) {
                     fillColor: eval(format_layer['layer_' + id].format.color_fondo),
                     fillOpacity: opacidad,
                     weight: linea,
-                    pane: eval(format_layer["layer_"+id].format.pane),
+                    pane: eval(format_layer["layer_" + id].format.pane),
                 };
             }
         }).bindPopup(function (layer) {
@@ -853,7 +861,7 @@ function ver_calor_mun(value, id) {
                         let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
                         opacidad = o * 10
                         linea = eval(format_layer["layer_" + id].format.ancho_linea)
-                        pane = eval(format_layer["layer_"+id].format.pane)
+                        pane = eval(format_layer["layer_" + id].format.pane)
                     } else {
                         opacidad = 0
                         linea = 0
@@ -1021,7 +1029,7 @@ function ver_calor_mun_victimas(value, id) {
                         let o = consolidados[feature.properties.MPIO_CNMBR.toLowerCase()].porcentajeV
                         opacidad = o * 10
                         linea = eval(format_layer["layer_" + id].format.ancho_linea)
-                        pane = eval(format_layer["layer_"+id].format.pane)
+                        pane = eval(format_layer["layer_" + id].format.pane)
                     } else {
                         opacidad = 0
                         linea = 0
@@ -1164,9 +1172,9 @@ function config_formatcalor(id) {
                             ver_calor_mun_victimas(true, id)
                         } else if (id == "muncasoscalor") {
                             ver_calor_mun(true, id)
-                        }else if (id == "depcasoscalor") {
+                        } else if (id == "depcasoscalor") {
                             ver_calor_dep(true, id)
-                        }else if (id == "depvictimascalor") {
+                        } else if (id == "depvictimascalor") {
                             ver_calor_dep_victimas(true, id)
                         }
                     }
@@ -1235,9 +1243,9 @@ function config_formatcalor(id) {
                             ver_calor_mun_victimas(true, id)
                         } else if (id == "muncasoscalor") {
                             ver_calor_mun(true, id)
-                        }else if (id == "depcasoscalor") {
+                        } else if (id == "depcasoscalor") {
                             ver_calor_dep(true, id)
-                        }else if (id == "depvictimascalor") {
+                        } else if (id == "depvictimascalor") {
                             ver_calor_dep_victimas(true, id)
                         }
                     }
@@ -1317,9 +1325,9 @@ function config_formatcalor(id) {
                             ver_calor_mun_victimas(true, id)
                         } else if (id == "muncasoscalor") {
                             ver_calor_mun(true, id)
-                        }else if (id == "depcasoscalor") {
+                        } else if (id == "depcasoscalor") {
                             ver_calor_dep(true, id)
-                        }else if (id == "depvictimascalor") {
+                        } else if (id == "depvictimascalor") {
                             ver_calor_dep_victimas(true, id)
                         }
                     }
@@ -1350,7 +1358,7 @@ function config_formatcalor(id) {
         //Colocamos un icono que cambiará de color cuando cambie la selección
         const i = document.createElement("i")
         i.className = "bi-intersect"
-        i.textContent = eval(format_layer["layer_"+id].format.pane)
+        i.textContent = eval(format_layer["layer_" + id].format.pane)
         i.style.color = "black"
 
 
@@ -1373,7 +1381,7 @@ function config_formatcalor(id) {
 
             ul.appendChild(li)
             a.onclick = () => {
-                format_layer["layer_"+id].format.pane = `'${value}'`
+                format_layer["layer_" + id].format.pane = `'${value}'`
                 const checkLayer = document.getElementById(id)
                 i.textContent = " " + value
 
@@ -1391,9 +1399,9 @@ function config_formatcalor(id) {
                             ver_calor_mun_victimas(true, id)
                         } else if (id == "muncasoscalor") {
                             ver_calor_mun(true, id)
-                        }else if (id == "depcasoscalor") {
+                        } else if (id == "depcasoscalor") {
                             ver_calor_dep(true, id)
-                        }else if (id == "depvictimascalor") {
+                        } else if (id == "depvictimascalor") {
                             ver_calor_dep_victimas(true, id)
                         }
                     }
