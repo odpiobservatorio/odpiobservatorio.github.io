@@ -516,68 +516,73 @@
                     <div class="">
                         <div class="row align-items-start mt-3">
                             <div class="col-auto">
-                                <small class="text-white">Ver campos</small>
-                                <div>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Campos
-                                        </button>
-                                        <ul class="dropdown-menu shadow" style="width: 250px;">
-                                            <li><a class="dropdown-item hchange-gray ms-2" href="#"
-                                                    onclick="show_campos(0)">Ocultar todos</a></li>
-                                            <li><a class="dropdown-item hchange-gray ms-2" href="#"
-                                                    onclick="show_campos(1)">Ver todos</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <div id="ulCampos">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Campos
+                                    </button>
+                                    <ul class="dropdown-menu shadow" style="width: 250px;">
+                                        <li><a class="dropdown-item hchange-gray ms-2" href="#"
+                                                onclick="show_campos(0)">Ocultar todos</a></li>
+                                        <li><a class="dropdown-item hchange-gray ms-2" href="#"
+                                                onclick="show_campos(1)">Ver todos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <div id="ulCampos">
 
-                                            </div>
-                                        </ul>
-                                    </div>
+                                        </div>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <small class="text-warning fw-bold">Campo para remplazar</small>
-                                <select id="lstCampos_replace" class="form-select mb-2">
-                                    <option value="clsCasos_macroregion">Macroregion</option>
-                                    <option value="clsCasos_departamento">Departamento</option>
-                                    <option value="clsLugares_municipio">Lugar</option>
-                                    <option value="clsPueblos_nombre">Pueblo, Etnia</option>
-                                    <option value="clsCasos_macrotipo">Macrotipo</option>
-                                    <option value="clsTipos_nombre">Subtipo</option>
-                                    <option value="clsCasos_fecha">Fecha</option>
-                                    <option value="clsCasos_vigencia">Año</option>
-                                    <option value="clsPersonas_genero">Género</option>
-                                    <option value="clsPersonas_nombres">Nombres</option>
-                                    <option value="clsCasos_detalle">Detalle</option>
-                                    <option value="clsCasos_macroactor">Macro actor</option>
-                                    <option value="clsActores_nombre">Otros actores</option>
-                                    <option value="clsDesplazamiento_tipo">Tipo de desplazamiento</option>
-                                    <option value="clsCasos_npersonas">Numero Personas</option>
-                                    <option value="clsCasos_nmujeres">Numero Mujeres</option>
-                                    <option value="clsCasos_nhombres">Numero Hombres</option>
-                                    <option value="clsCasos_nmenores">Numero Menores</option>
-                                    <option value="clsPersonas_edad">Edad</option>
-                                </select>
-                            </div>
-                            <div class="col-auto">
-                                <small class="text-warning fw-bold">Valor a buscar</small>
-                                <input id="intOriginal" type="text" class="form-control" placeholder="buscar">
-                            </div>
-                            <div class="col-auto">
-                                <small class="text-warning fw-bold">Nuevo valor</small>
-                                <input id="intNuevoValor" type="text" class="form-control" placeholder="remplazar">
-                            </div>
-                            <div class="col-auto">
-                                <small class="text-white">Aplicar</small>
-                                <div>
-                                    <button type="button" class="btn btn-secondary"
-                                        onclick="bulk_replace()">Remplazar</button>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Remplazar
+                                    </button>
+                                    <ul class="dropdown-menu shadow" style="width: 250px;">
+                                        <div id="ulCampos" class="ms-2 p-2">
+                                            <small class="text-warning fw-bold">Campo para remplazar</small>
+                                            <select id="lstCampos_replace" class="form-select mb-2">
+                                                <option value="clsCasos_macroregion">Macroregion</option>
+                                                <option value="clsCasos_departamento">Departamento</option>
+                                                <option value="clsLugares_municipio">Lugar</option>
+                                                <option value="clsPueblos_nombre">Pueblo, Etnia</option>
+                                                <option value="clsCasos_macrotipo">Macrotipo</option>
+                                                <option value="clsTipos_nombre">Subtipo</option>
+                                                <option value="clsCasos_fecha">Fecha</option>
+                                                <option value="clsCasos_vigencia">Año</option>
+                                                <option value="clsPersonas_genero">Género</option>
+                                                <option value="clsPersonas_nombres">Nombres</option>
+                                                <option value="clsCasos_detalle">Detalle</option>
+                                                <option value="clsCasos_macroactor">Macro actor</option>
+                                                <option value="clsActores_nombre">Otros actores</option>
+                                                <option value="clsDesplazamiento_tipo">Tipo de desplazamiento
+                                                </option>
+                                                <option value="clsCasos_npersonas">Numero Personas</option>
+                                                <option value="clsCasos_nmujeres">Numero Mujeres</option>
+                                                <option value="clsCasos_nhombres">Numero Hombres</option>
+                                                <option value="clsCasos_nmenores">Numero Menores</option>
+                                                <option value="clsPersonas_edad">Edad</option>
+                                            </select>
+                                            <small class="text-warning fw-bold">Tipo de búsqueda</small>
+                                            <select id="lstTipo_replace" class="form-select mb-2">
+                                                <option value="igual">Igual a</option>
+                                                <option value="contiene">Similar a</option>
+                                            </select>
+                                            <small class="text-warning fw-bold">Valor a buscar</small>
+                                            <input id="intOriginal" type="text" class="form-control"
+                                                placeholder="buscar">
+                                            <small class="text-warning fw-bold">Nuevo valor</small>
+                                            <input id="intNuevoValor" type="text" class="form-control"
+                                                placeholder="remplazar">
+                                            <button type="button" class="btn btn-secondary mt-2"
+                                                onclick="bulk_replace()">Remplazar</button>
+                                        </div>
+                                    </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 

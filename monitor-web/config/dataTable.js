@@ -88,10 +88,10 @@ function iniTables(value, ini) {
     //Cargamos la base de datos actual
     const proyectos = GLOBAL.state.proyectos;
 
-    for(id in proyectos){
-        if(proyectos[id].id==value){
+    for (id in proyectos) {
+        if (proyectos[id].id == value) {
             ActiveDB = clsObservatorio.loadAsInstance(proyectos[id]);
-            console.log(ActiveDB.id,value,ActiveDB.clsCasos.length)
+            console.log(ActiveDB.id, value, ActiveDB.clsCasos.length)
         }
     }
     //
@@ -134,14 +134,12 @@ function makerTable(data) {
     const trHead = document.createElement("tr")
     thead.appendChild(trHead)
 
-
     const thscope = document.createElement("th")
     thscope.scope = "col"
     trHead.appendChild(thscope)
 
     //Toma cada elemento de visibles y crea un encabezado
     campos.forEach(campo => {
-
         const th = document.createElement("th")
         th.className = "bg-secondary text-white"
         trHead.appendChild(th)
@@ -153,8 +151,14 @@ function makerTable(data) {
             ${campo[2]}
         </a>
         `
+        div.onclick = (e) => {
+            e.stopPropagation();
+        }
+
         const ul = document.createElement("ul")
-        ul.className = "dropdown-menu menu-group-scroll shadow"
+        const div1ul = document.createElement("div")
+
+        ul.className = "dropdown-menu menu-group-scroll shadow p-1"
         div.appendChild(ul)
 
         //Este botón aplicará el filto según lo que se encuentre adentro
@@ -163,9 +167,9 @@ function makerTable(data) {
         lifilter.innerHTML = `                
                 <a class="dropdown-item" href="#">
                     <i class="bi bi-funnel-fill me-2"></i>
-                    Aplicar filtro
+                      Aplicar filtro
                 </a>`
-        ul.appendChild(lifilter)
+        div1ul.appendChild(lifilter)
 
         lifilter.onclick = () => {
             //Creamos cadena de criterios
@@ -205,13 +209,24 @@ function makerTable(data) {
              </a>
              <hr>
              `
-        ul.appendChild(lifilternull)
+        div1ul.appendChild(lifilternull)
         lifilternull.onclick = () => {
             dataWfilter = ActiveDB.clsCasos
 
             iniTables(PublicID, 2016)
             activeHeadfilter = []
         }
+
+        const smFilter = document.createElement("small")
+        smFilter.textContent = "Contiene"
+        smFilter.className = "fw-bold ms-2 me-2"
+        ul.appendChild(smFilter)
+
+        const infilter = document.createElement("input")
+        infilter.className = "form-control ms-2 me-2"
+        ul.appendChild(infilter)
+
+
 
         //Se extraen los elemento únicos para crear las listas del control
         let newData = []
@@ -279,6 +294,44 @@ function makerTable(data) {
             div.appendChild(label)
 
         })
+
+
+        //=============================================================
+        infilter.onchange = () => {
+            ul.innerHTML = ""
+            const mncontenedor = ul
+            newDataOrdenado.forEach(item => {
+                const div = document.createElement("div")
+                div.className = "ms-2 form-check"
+                mncontenedor.appendChild(div)
+
+                if (item.includes(infilter.value)) {
+                    const checkers = document.createElement("input")
+                    checkers.className = "form-check-input"
+                    checkers.type = "checkbox"
+                    checkers.value = item
+                    div.appendChild(checkers)
+
+                    checkers.onchange = () => {
+                        if (checkers.checked == true) {
+                            activeHeadfilter.push(checkers.value)
+                        } else {
+                            const eliminados = activeHeadfilter.filter(elemento => elemento != checkers.value);
+                            activeHeadfilter = eliminados
+                        }
+                    }
+
+                    const label = document.createElement("label")
+                    label.className = "form-check-label"
+                    label.style.fontSize = "12pt"
+                    label.style.fontWeight = "normal"
+                    label.textContent = item
+                    div.appendChild(label)
+                }
+
+            })
+        }
+        //============================================================
 
         th.appendChild(div)
         if (campo[3] == 1) {
@@ -493,13 +546,6 @@ function show_campos(value) {
     makerTable(ActiveDB.clsCasos)
 }
 
-
-
-
-
-
-
-
 function quitar_filtro() {
     makerTable(ActiveDB.clsCasos)
     dataWfilter = []
@@ -510,6 +556,7 @@ async function bulk_replace() {
     const clase = document.getElementById("lstCampos_replace").value.split("_")
     const intOriginal = document.getElementById("intOriginal").value
     const intNuevo = document.getElementById("intNuevoValor").value
+    const lstTipo_replace = document.getElementById("lstTipo_replace").value
 
     let i = 0
     if (clase[0] == "clsCasos") {
@@ -518,32 +565,31 @@ async function bulk_replace() {
         data.forEach(caso => {
             try {
                 const valOriginal = caso[clase[1]]
-                if (intOriginal == "*null*"){
-                    if (valOriginal >=0){
-
-                    }else{
+                if (intOriginal == "*null*") {
+                    if (valOriginal >= 0) {
+                    } else {
                         caso[clase[1]] = intNuevo
                         GuardarDatos()
                         i++
                     }
-
-
-                } else{
-                    if (intOriginal == valOriginal) {
-                        caso[clase[1]] = intNuevo
-                        GuardarDatos()
-                        i++
-                    } 
-
+                } else {
+                    if (lstTipo_replace == "igual") {
+                        if (intOriginal == valOriginal) {
+                            caso[clase[1]] = intNuevo
+                            GuardarDatos()
+                            i++
+                        }
+                    } else if (lstTipo_replace == "contiene") {
+                        if (valOriginal.includes(intOriginal)) {
+                            caso[clase[1]].replace(valOriginal, intNuevo)
+                            GuardarDatos()
+                            i++
+                        }
+                    }
                 }
-
-
             } catch (error) {
-
             }
         })
-
-
     } else {
         const data = ActiveDB.clsCasos
         i = 0
@@ -551,23 +597,27 @@ async function bulk_replace() {
             caso[clase[0]].forEach(subclase => {
                 const valOriginal = subclase[clase[1]]
                 if (intOriginal == "*null*") {
-                    if (valOriginal >=0) {
+                    if (valOriginal >= 0) {
                     } else {
                         subclase[clase[1]] = intNuevo
                         GuardarDatos()
                         i++
                     }
                 } else {
-                    if (intOriginal == valOriginal) {
-
-                        subclase[clase[1]] = intNuevo
-                        GuardarDatos()
-                        i++
-                    } 
+                    if (lstTipo_replace == "igual") {
+                        if (intOriginal == valOriginal) {
+                            subclase[clase[1]] = intNuevo
+                            GuardarDatos()
+                            i++
+                        }
+                    } else if (lstTipo_replace == "contiene") {
+                        if (valOriginal.includes(intOriginal)) {
+                            subclase[clase[1]].replace(valOriginal, intNuevo)
+                            GuardarDatos()
+                            i++
+                        }
+                    }
                 }
-
-
-
             })
         })
     }
