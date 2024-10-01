@@ -725,39 +725,39 @@ let format_layer = {
                 "EstadoFase": {
                     "IMPLEMENTACIÓN": {
                         "atributo": {
-                            fillColor:"orange",
-                            radius:11,
+                            fillColor: "orange",
+                            radius: 11,
                         },
 
                     },
                     "IDENTIFICACIÓN": {
                         "atributo": {
-                            fillColor:"pink",
-                            radius:10,
+                            fillColor: "pink",
+                            radius: 10,
                         },
                     },
                     "ALISTAMIENTO": {
                         "atributo": {
-                            fillColor:"blue",
-                            radius:8,
+                            fillColor: "blue",
+                            radius: 8,
                         },
                     },
                     "CARACTERIZACIÓN DEL DAÑO": {
                         "atributo": {
-                            fillColor:"lime",
-                            radius:14,
+                            fillColor: "lime",
+                            radius: 14,
                         },
                     },
                     "DISEÑO Y FORMULACIÓN": {
                         "atributo": {
-                            fillColor:"purple",
-                            radius:10,
+                            fillColor: "purple",
+                            radius: 10,
                         },
                     },
                     "IMPLEMENTADO": {
                         "atributo": {
-                            fillColor:"green",
-                            radius:18,
+                            fillColor: "green",
+                            radius: 18,
                         },
                     },
                 }
@@ -824,6 +824,8 @@ function loadlayers() {
     function maker_coltrol_layer(name, title, type) {
         const accordion_item = document.createElement("div")
         accordion_item.className = "accordion-item border border-1 p-1 mb-1"
+        accordion_item.id=`id${name}`
+
 
         const btn_group = document.createElement("div")
         btn_group.className = "btn-group"
@@ -862,17 +864,21 @@ function loadlayers() {
         </div>
         `
 
-
         accordion_item.appendChild(accordion_collapse)
 
         panel_control_layers.appendChild(accordion_item)
 
         const btnConfigLayer = document.getElementById("btnConfigLayer" + name)
         btnConfigLayer.onclick = () => config_format("layer_" + name, "bodyCollapse" + name, type)
-
     }
 
+    const divDepartamentos= document.createElement("div")
+    divDepartamentos.textContent=""
+
+    //panel_control_layers.appendChild(divDepartamentos)
+
 }
+
 
 const layers = {
     //función que obtiene desde el control el nombre del control y nombre de la capa
@@ -953,7 +959,7 @@ const layers = {
                         contenido.appendChild(div)
                     })
                     return contenido.innerHTML;
-                }, { pane: "labels"}
+                }, { pane: "labels" }
                 ).addTo(map);
 
                 //Agrega esta capa a la lista de capas para activar o desactivar
@@ -972,7 +978,7 @@ const layers = {
                 layer.forEach(item => {
                     const lat = format_layer[layer_name].atributes.coordenadas.lat
                     const lng = format_layer[layer_name].atributes.coordenadas.lng
-                    let circle = new L.circleMarker([item[lat], item[lng]],{draggable:'false'}
+                    let circle = new L.circleMarker([item[lat], item[lng]], { draggable: 'false' }
                     ).bindPopup(function (layer) {
                         const contenido = document.createElement("div")
                         format_layer[layer_name].label.forEach(elemento => {
@@ -992,9 +998,9 @@ const layers = {
                     if (nCondiciones !== 0) {
 
                         for (cond in condiciones) {
-                            
+
                             for (il in condiciones[cond]) {
-                                let nVariable= il
+                                let nVariable = il
                                 if (nVariable == item[cond]) {
 
                                     const formatCond = format_layer[layer_name].atributes.condiciones[cond][nVariable]
@@ -1006,14 +1012,14 @@ const layers = {
                                             pane: eval(format_layer[layer_name].format.pane),
                                         }
                                     )
-    
+
                                     circle.setStyle(
                                         formatCond.atributo
                                     )
-    
+
 
                                 }
-    
+
                             }
 
 
@@ -1084,7 +1090,6 @@ function config_format(layer_name, controlname, type) {
     btngroup.role = "group"
     btngroup.className = "btn-group border-1 border border-info p-2"
 
-
     cCollapseBody.appendChild(btngroup)
 
     maker_control_backcolor()
@@ -1095,7 +1100,6 @@ function config_format(layer_name, controlname, type) {
     }
     maker_control_opacity()
     maker_control_pane()
-
 
     function maker_control_backcolor() {
         //Crearemos un control desplegable de color personalizado
@@ -1181,6 +1185,54 @@ function config_format(layer_name, controlname, type) {
             }
         })
 
+        const hexColor = document.createElement("input")
+        hexColor.className = "m-1 form-control"
+        ul.appendChild(hexColor)
+        hexColor.onchange = () => {
+            let color= hexColor.value
+            i.style.color = color
+            format_layer[layer_name].format.color_fondo = `'${color}'`
+            const checkLayer = document.getElementById("check" + layer_name)
+
+            if (checkLayer.checked == true) {
+                //Crear dos filtros para mostrar o quitar la capa
+                //Solo para capas locales fijas, que siempre se presentarán en el programa
+
+                if (format_layer[layer_name].target.local == "nolocal") {
+
+                    if (type == "mark" || type == "list") {
+                        let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                        let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                        layer_remove[0][1].forEach(mark => {
+                            map.removeLayer(mark)
+                        })
+                        lis_points = layer_noremove
+                        layers.put_layer(checkLayer, layer_name, type)
+
+                    } else {
+                        let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                        let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                        map.removeLayer(layer_remove[0][1])
+                        lis_layers = layer_noremove
+                        layers.put_layer(checkLayer, layer_name, type)
+                    }
+
+
+                } else if (format_layer[layer_name].target.local == "local") {
+                    let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
+                    map.removeLayer(layer_remove[0][1])
+
+                    let capa = lis_layers_open.filter(value => value[0] == layer_name)
+                    let layers = capa[0][1]._layers
+                    for (const property in layers) {
+                        capa[0][1]._layers[property].options.fillColor = eval(format_layer[layer_name].format.color_fondo)
+                    }
+                    capa[0][1].addTo(map)
+                }
+
+            }
+        }
+
     }
     function maker_control_linecolor() {
         //Crearemos un control desplegable de color linea personalizado
@@ -1262,6 +1314,48 @@ function config_format(layer_name, controlname, type) {
 
             }
         })
+        const hexColor = document.createElement("input")
+        hexColor.className = "m-1 form-control"
+        ul.appendChild(hexColor)
+        hexColor.onchange = () => {
+            let color= hexColor.value
+            i.style.color = color
+                format_layer[layer_name].format.color_linea = `'${color}'`
+                const checkLayer = document.getElementById("check" + layer_name)
+
+                if (checkLayer.checked == true) {
+                    if (format_layer[layer_name].target.local == "nolocal") {
+                        if (type == "mark" || type == "list") {
+                            let layer_remove = lis_points.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_points.filter(value => value[0] !== layer_name)
+                            layer_remove[0][1].forEach(mark => {
+                                map.removeLayer(mark)
+                            })
+                            lis_points = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+
+                        } else {
+                            let layer_remove = lis_layers.filter(value => value[0] == layer_name)
+                            let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                            map.removeLayer(layer_remove[0][1])
+                            lis_layers = layer_noremove
+                            layers.put_layer(checkLayer, layer_name, type)
+                        }
+                    } else if (format_layer[layer_name].target.local == "local") {
+                        let layer_remove = lis_layers_open.filter(value => value[0] == layer_name)
+                        map.removeLayer(layer_remove[0][1])
+                        //lis_layers_open["layer_name"][1]= newLayer(layer_remove)
+                        let capa = lis_layers_open.filter(value => value[0] == layer_name)
+                        let layers = capa[0][1]._layers
+                        for (const property in layers) {
+                            capa[0][1]._layers[property].options.color = eval(format_layer[layer_name].format.color_linea)
+                        }
+                        capa[0][1].addTo(map)
+                    }
+
+                }
+            
+        }
 
     }
     function maker_control_lineWeight() {

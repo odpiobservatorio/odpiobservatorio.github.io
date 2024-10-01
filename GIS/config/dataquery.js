@@ -1149,7 +1149,7 @@ function config_formatcalor(id) {
 
         ColorList.forEach(color => {
             const iColor = document.createElement("i")
-            iColor.className = "bi bi-square-fill fs-3"
+            iColor.className = "bi bi-square-fill fs-5"
             iColor.style.color = color
             iColor.style.margin = "2px"
             ul.appendChild(iColor)
@@ -1220,7 +1220,7 @@ function config_formatcalor(id) {
 
         ColorList.forEach(color => {
             const iColor = document.createElement("i")
-            iColor.className = "bi bi-square-fill fs-3"
+            iColor.className = "bi bi-square-fill fs-5"
             iColor.style.color = color
             iColor.style.margin = "2px"
             ul.appendChild(iColor)
