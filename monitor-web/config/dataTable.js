@@ -157,6 +157,9 @@ function makerTable(data) {
 
         const ul = document.createElement("ul")
         const div1ul = document.createElement("div")
+        div1ul.className="p-2"
+        const div1u2 = document.createElement("div")
+        div1u2.className="p-2"
 
         ul.className = "dropdown-menu menu-group-scroll shadow p-1"
         div.appendChild(ul)
@@ -217,6 +220,8 @@ function makerTable(data) {
             activeHeadfilter = []
         }
 
+        
+        
         const smFilter = document.createElement("small")
         smFilter.textContent = "Contiene"
         smFilter.className = "fw-bold ms-2 me-2"
@@ -224,9 +229,10 @@ function makerTable(data) {
 
         const infilter = document.createElement("input")
         infilter.className = "form-control ms-2 me-2"
-        ul.appendChild(infilter)
+        div1ul.appendChild(infilter)
 
-
+        ul.appendChild(div1ul)
+        ul.appendChild(div1u2)
 
         //Se extraen los elemento únicos para crear las listas del control
         let newData = []
@@ -265,7 +271,7 @@ function makerTable(data) {
             //Al identificar esta variacón, indica que es un valor tipo número, entonces
         }
 
-        const mncontenedor = ul
+        const mncontenedor = div1u2
         newDataOrdenado.forEach(item => {
             const div = document.createElement("div")
             div.className = "ms-2 form-check"
@@ -298,14 +304,13 @@ function makerTable(data) {
 
         //=============================================================
         infilter.onchange = () => {
-            ul.innerHTML = ""
-            const mncontenedor = ul
+            div1u2.innerHTML = ""
+            const mncontenedor = div1u2
             newDataOrdenado.forEach(item => {
-                const div = document.createElement("div")
-                div.className = "ms-2 form-check"
-                mncontenedor.appendChild(div)
-
                 if (item.includes(infilter.value)) {
+                    const div = document.createElement("div")
+                    div.className = "ms-2 form-check"
+                    mncontenedor.appendChild(div)
                     const checkers = document.createElement("input")
                     checkers.className = "form-check-input"
                     checkers.type = "checkbox"
