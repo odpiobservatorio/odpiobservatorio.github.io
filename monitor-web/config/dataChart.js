@@ -216,19 +216,6 @@ function ini_chat() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     //ulFondo
 
 
@@ -439,7 +426,6 @@ function filter_extend() {
     Proyectos.forEach(proyecto => {
         const filtrados = proyecto.clsCasos.filter((registro) => {
             let condiciones = []
-
             criteria_items.forEach(criterio => {
                 condiciones.push(eval(criterio[1]))
             })
@@ -455,9 +441,6 @@ function filter_extend() {
             }
             score = []
         });
-
-
-
 
     })
     mostrar_consolidados(datafilter)

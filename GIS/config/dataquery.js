@@ -91,7 +91,6 @@ const makerList = {
                 })
             } catch (error) {
                 mensajes("Aún no se cargan los datos", "orange")
-
             }
         } else {
             //Aquí es la derivación en caso de que la clase no sea CASOS (Padre)
@@ -122,7 +121,7 @@ const makerList = {
                 return a - b;
             });
             //Al identificar esta variacón, indica que es un valor tipo número, entonces
-
+            mensajes("error en listas sub")
         }
 
         //Con base a essa lista creamos una lista de selección on check
@@ -133,6 +132,7 @@ const makerList = {
             } else {
                 realvalue = (item)
             }
+
             const elemento = document.createElement("div")
             elemento.className = "ms-3 me-3"
             elemento.style.fontWeight = "normal"
@@ -145,14 +145,10 @@ const makerList = {
             contenedor.appendChild(elemento)
             const checkers = document.getElementById(`check${item}${criterio[1]}`)
             //Miramos si el valor viene de la lista o viene de el campo abirto
-
             //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
             checkers.onchange = () => {
                 //Validamos si la clase es mayor o menor
-
-
                 if (checkers.checked == true) {
-
                     const criterios = {
                         "clase": criterio[0],
                         "field": criterio[1],
@@ -160,15 +156,15 @@ const makerList = {
                         "value": checkers.value
                     }
                     filterList.push(criterios)
+
                 } else {
                     const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
                     filterList = eliminados
-                }
 
+                }
                 let tituloboton = ""
                 filterList.forEach(palabra => {
                     tituloboton = tituloboton + "[" + palabra.value + "]"
-
                 })
                 const btnCriterios = document.getElementById("btnCriterios")
                 btnCriterios.textContent = tituloboton
@@ -285,7 +281,12 @@ function filter_extend() {
         let condiciones = []
 
         criteria_items.forEach(criterio => {
-            condiciones.push(eval(criterio[1]))
+            if (criterio[0] == "clsCasos") {
+                condiciones.push(eval(criterio[1]))
+                console.log(criterio[1])
+            }else{
+
+            }
         })
 
         let score = 0
@@ -331,7 +332,7 @@ function crear_consolidado_resultado(datafilter, criteria_items) {
     capo_victimas.textContent = victimas
 
     const div_resultados_nombre = document.getElementById("pivot_lis_resultados")
-    div_resultados_nombre.textContent=nombres
+    div_resultados_nombre.textContent = nombres
 
 }
 function make_label_resultados(caso, contenedor) {
