@@ -165,6 +165,8 @@ class clsObservatorio {
 
         const id = GLOBAL.firestore.updateProyecto(
             JSON.parse(ActiveDB.convertToJSON()))
+
+            make_public_data()
     }
     addCaso(Caso) {
         this.clsCasos.push(Caso);
@@ -1239,6 +1241,7 @@ function loadProyecto(value) {
     if (Registrado == 1) {
         const proyectos = GLOBAL.state.proyectos;
 
+
         for (id in proyectos) {
             if (proyectos[id].id == value) {
                 ActiveDB = clsObservatorio.loadAsInstance(proyectos[id]);
@@ -1324,12 +1327,13 @@ function loadProyecto(value) {
         })
         gotoFirst()
 
-
+        make_public_data()
     } else {
         mensajes("Aun no se ha registrado en el sistema", "orange")
         document.getElementById("panel-escritorio").hidden = true
     }
     inibtnLoad()
+
 }
 
 async function GuardarDatos() {
@@ -1692,6 +1696,24 @@ function upload_casos(data) {
         ActiveDB.addCaso(data[id])
     }
     GuardarDatos()
-    console.log(ActiveDB)
     mensajes(`Se cargaron ${r} registros`)
+}
+function make_public_data(){
+let casos=0
+let victimas=0
+    const proyectos = GLOBAL.state.proyectos;
+    proyectos.forEach(proyecto => {
+        proyecto.clsCasos.forEach(caso => {
+            casos++
+            victimas= victimas + caso.npersonas
+        })
+    })
+
+    //Actualiza el número de casos
+    data_public.consolidados[0].acumulados[0].casos=casos
+    data_public.consolidados[0].acumulados[0].victimas=victimas
+
+    const id = GLOBAL.firestore.updatePublico(data_public)
+
+
 }

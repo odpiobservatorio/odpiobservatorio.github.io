@@ -61,6 +61,8 @@ const db = getFirestore(app);
 const coleccionProyectos = collection(db, "observatorio");
 // Referencia a las colecciones de usuarios
 const coleccionUsuarios = collection(db, "usuarios");
+const coleccionPublicos = collection(db, "public");
+
 
 
 // Función para obtener todos los proyectos de la base de datos
@@ -74,6 +76,19 @@ async function getProyectos() {
         });
     });
     return proyectos;
+}
+
+async function getPublicos() {
+    const publicos = [];
+    const querySnapshot = await getDocs(coleccionPublicos)
+    querySnapshot.forEach((doc) => {
+        publicos.push({
+            ...doc.data(),
+            id: doc.id,
+        });
+    });
+   
+    return publicos;
 }
 
 //Verifica la lista de usuarios que hay /para filtrar administardores
@@ -115,10 +130,25 @@ async function getProyecto(id) {
     }) : null;
 }
 
+async function getPublico(id) {
+    const docRef = doc(db, "public", id);
+    const docSnap = await getDoc(docRef);
+
+    return docSnap.exists() ? ({
+        ...docSnap.data(),
+        id: docSnap.id,
+    }) : null;
+}
+
 // Función para actualizar un proyecto
 async function updateProyecto(proyecto) {
     const docRef = doc(db, "observatorio", proyecto.id);
     await setDoc(docRef, proyecto);
+}
+
+async function updatePublico(publico) {
+    const docRef = doc(db, "public", publico.id);
+    await setDoc(docRef, publico);
 }
 
 
@@ -134,6 +164,19 @@ onSnapshot(coleccionProyectos, (querySnapshot) => {
     GLOBAL.state.proyectos = proyectos;
 });
 
+onSnapshot(coleccionPublicos, (querySnapshot) => {
+    const publicos = [];
+    querySnapshot.forEach((doc) => {
+        publicos.push({
+            ...doc.data(),
+            id: doc.id,
+        });
+    });
+    
+    GLOBAL.state.publicos = publicos;
+    opendata()
+});
+
 onSnapshot(coleccionUsuarios, (querySnapshot) => {
     const usuarios = [];
     querySnapshot.forEach((doc) => {
@@ -146,7 +189,6 @@ onSnapshot(coleccionUsuarios, (querySnapshot) => {
 });
 
 
-
 // Función para agregar un objeto de proyecto a la base de datos
 async function addData(objData) {
     const docRef = await addDoc(coleccionDatos, objData);
@@ -155,10 +197,13 @@ async function addData(objData) {
 // Exponer las funciones globalmente
 GLOBAL.firestore = {
     getProyectos, //Carga todos los proyectos
+    getPublicos,
     addProyecto,
     borrarProyecto,
     getProyecto,
+    getPublico,
     updateProyecto,
+    updatePublico,
     CredentialIn, //para iniciar la aplicación, evoca la función en este módulo (CredentialIn(email,pass))
     CredentialIn2,
     CredentialOut, //para cerrar la aplicación
@@ -193,13 +238,11 @@ async function CredentialIn(email, password) {
 async function CredentialIn2(email, password) {
     try {
         const crearcredencial = await signInWithEmailAndPassword(auth, email, password)
-        mensajes("A ingresado exitosamente", "green")
         Registrado = 1
         openIni()
     } catch (error) {
         //location.href = "../index.html"
         Registrado = 0
-        mensajes("No está registrado correctamente", "red")
     }
 }
 //función para cerrar la sesión de la aplicación

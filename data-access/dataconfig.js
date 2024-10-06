@@ -136,10 +136,6 @@ onSnapshot(coleccionProyectos, (querySnapshot) => {
         });
     });
     GLOBAL.state.proyectos = proyectos;
-
-
-
-
 });
 
 
