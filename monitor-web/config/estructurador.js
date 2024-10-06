@@ -512,12 +512,16 @@ class Caso {
         const lstActores = document.getElementById("lstActores")
         const divActores = document.getElementById("contenedor-actores")
         divActores.innerHTML = ""
+        
         lstActores.onchange = () => {
+            
             divActores.innerHTML = ""
             this.addActor(new Actores(0, lstActores.value, this))
             GuardarDatos()
             let a = 0
+            
             this.clsActores.forEach(actor => {
+                
                 actor.id = a++
                 actor.parent = this
                 actor.makerActores()
@@ -525,6 +529,7 @@ class Caso {
         }
         let a = 0
         this.clsActores.forEach(actor => {
+
             actor.id = a++
             actor.parent = this
             actor.makerActores()

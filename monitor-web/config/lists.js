@@ -15,6 +15,7 @@ const macrotipos = [
     'Desalojo ilegal',
     'Desaparición',
     'Desplazamiento',
+    'Discriminación',
     'Estigmatización',
     'Extorsión',
     'Falso positivo',
@@ -24,6 +25,7 @@ const macrotipos = [
     'Infracción D.I.H',
     'Intimidación',
     'Omisión del Estado',
+    'Racismo',
     'Reclutamiento forzado',
     'Retención ilegal',
     'Secuestro',
@@ -81109,6 +81111,7 @@ const DataPueblos = [
     'Yukpa',
     'Zenú',
     'Zio Bain',
+    'Otro',
     'Sin determinar',
 ]
 const DataMacroActor = [
