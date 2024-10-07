@@ -281,12 +281,8 @@ function filter_extend() {
         let condiciones = []
 
         criteria_items.forEach(criterio => {
-            if (criterio[0] == "clsCasos") {
-                condiciones.push(eval(criterio[1]))
-                console.log(criterio[1])
-            }else{
-
-            }
+            condiciones.push(eval(criterio[1]))
+            console.log(criterio[1])
         })
 
         let score = 0

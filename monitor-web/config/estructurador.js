@@ -1727,15 +1727,18 @@ function make_public_data() {
 
     temp.forEach(vigencia=>{
         let casos2vigencia=1
+        let victimas2vigencia=1
         proyectos.forEach(proyecto => {
             proyecto.clsCasos.forEach(caso => {
                 if(vigencia==caso.vigencia){
-                    ListaVigencia[caso.vigencia]=casos2vigencia
+                    victimas2vigencia= victimas2vigencia + caso.npersonas
+                    ListaVigencia[vigencia]=[vigencia,casos2vigencia,victimas2vigencia]
                     casos2vigencia++
                 }
             })
         })
     })
+
 
 
 
@@ -1747,11 +1750,6 @@ function make_public_data() {
         casosHoy++
         victimasHoy = victimasHoy + caso.npersonas
     })
-
-
-
-
-
 
 
     data_public.consolidados[0].acumulados[0].casos = casos
