@@ -166,7 +166,7 @@ class clsObservatorio {
         const id = GLOBAL.firestore.updateProyecto(
             JSON.parse(ActiveDB.convertToJSON()))
 
-            make_public_data()
+        make_public_data()
     }
     addCaso(Caso) {
         this.clsCasos.push(Caso);
@@ -514,16 +514,16 @@ class Caso {
         const lstActores = document.getElementById("lstActores")
         const divActores = document.getElementById("contenedor-actores")
         divActores.innerHTML = ""
-        
+
         lstActores.onchange = () => {
-            
+
             divActores.innerHTML = ""
             this.addActor(new Actores(0, lstActores.value, this))
             GuardarDatos()
             let a = 0
-            
+
             this.clsActores.forEach(actor => {
-                
+
                 actor.id = a++
                 actor.parent = this
                 actor.makerActores()
@@ -1698,22 +1698,79 @@ function upload_casos(data) {
     GuardarDatos()
     mensajes(`Se cargaron ${r} registros`)
 }
-function make_public_data(){
-let casos=0
-let victimas=0
+function make_public_data() {
+    let casos = 0
+    let nproyectos = 0
+    let victimas = 0
+    let temp = []
+    let ListaVigencia = {}
+
+    let dataYear = {
+        "casos": 0
+    }
+
     const proyectos = GLOBAL.state.proyectos;
+
     proyectos.forEach(proyecto => {
+        nproyectos++
+        let nCasosYear = 0
+        let nVictimaYear = 0
         proyecto.clsCasos.forEach(caso => {
             casos++
-            victimas= victimas + caso.npersonas
+            victimas = victimas + caso.npersonas
+            if (temp.includes(caso.vigencia) !== true) {
+                temp.push(caso.vigencia)
+                ListaVigencia[caso.vigencia]=[]
+            } 
         })
     })
 
-    //Actualiza el número de casos
-    data_public.consolidados[0].acumulados[0].casos=casos
-    data_public.consolidados[0].acumulados[0].victimas=victimas
+    temp.forEach(vigencia=>{
+        let casos2vigencia=1
+        proyectos.forEach(proyecto => {
+            proyecto.clsCasos.forEach(caso => {
+                if(vigencia==caso.vigencia){
+                    ListaVigencia[caso.vigencia]=casos2vigencia
+                    casos2vigencia++
+                }
+            })
+        })
+    })
+
+
+
+    const proyectosActual = GLOBAL.state.proyectos[nproyectos - 1]
+
+    let casosHoy = 0
+    let victimasHoy = 0
+    proyectosActual.clsCasos.forEach(caso => {
+        casosHoy++
+        victimasHoy = victimasHoy + caso.npersonas
+    })
+
+
+
+
+
+
+
+    data_public.consolidados[0].acumulados[0].casos = casos
+    data_public.consolidados[0].acumulados[0].victimas = victimas
+
+    data_public.consolidados[0].actual[0].casos = casosHoy
+    data_public.consolidados[0].actual[0].victimas = victimasHoy
+    data_public.consolidados[1].tiempo = ListaVigencia
+
+
+    const fecha = new Date()
+    data_public.corte = fecha.toLocaleDateString()
+
+
+    //Crea la tabla tiempos
+
 
     const id = GLOBAL.firestore.updatePublico(data_public)
+
 
 
 }
