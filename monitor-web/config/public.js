@@ -1,5 +1,5 @@
 let data_public
-const ColorList2 = {
+const ColorListPublic = {
     Rojos1: ["#3b0202", "#800505", "#b30707", "#e80909", "#bd3a3a", "#994b4b", "#d46e6e", "#852d04", "#ad3f0c", "#eb692d",
         "#9c4a08", "#c40c37", "#db1d49", "#f03c66", "#802121", "#651919", "#481313", "#4e1b1b", "#742d2d", "#a54c4c",
         "#d27070", "#e39494"
@@ -79,7 +79,14 @@ async function opendata() {
     } catch (error) {
 
     }
+
+
     maker_years(data_public.consolidados[1].tiempo)
+
+    document.getElementById("inMaxDep").onchange=()=>{
+        maker_departamentos(data_public.consolidados[1].departamentos, document.getElementById("inMaxDep").value)
+    }
+    maker_departamentos(data_public.consolidados[1].departamentos,1000)
 
 }
 function maker_years(data) {
@@ -100,9 +107,9 @@ function maker_years(data) {
 
     ctx.id = "myChartVigencia"
     ctx.style.height = "400px";
-    ctx.style.width = "600px";
+    //ctx.style.width = "600px";
     div.style.height = "400px";
-    div.style.width = "600px";
+    //div.style.width = "600px";
 
     let newLabels = []
     let newCasos = []
@@ -127,14 +134,14 @@ function maker_years(data) {
                 data: newVictimas,
                 //borderColor: "gray",
                 borderWidth: 1,
-                backgroundColor: ColorList2.Rojos1,
+                backgroundColor: ColorListPublic.Rojos1,
             },
             {
                 label: "Casos por año",
                 data: newCasos,
                 //borderColor: "gray",
                 borderWidth: 1,
-                backgroundColor: ColorList2.Verdes1,
+                backgroundColor: ColorListPublic.Verdes1,
             }],
 
         },
@@ -187,3 +194,102 @@ function maker_years(data) {
     });
 
 }
+
+function maker_departamentos(data,min) {
+    const textVigencias = document.getElementById("textDepartamentos")
+    const MaxVictimas = maxValue(data, 2)
+    const MaxCasos = maxValue(data, 1)
+    textVigencias.innerHTML = `En el registro de información para la categoría departame, encontramos que el departamento con más número de víctimas fue el <b>${MaxVictimas[1]}</b> con una cifra de <b>${MaxVictimas[0]}</b>. 
+    En el caso de número de afectaciones se registra que para el departamento <b>${MaxCasos[1]}</b> se presentaron <b>${MaxCasos[0]}</b> casos (Clúster ODPI 2024).`
+
+
+
+    const div = document.getElementById('ChartDepartamentos');
+    div.innerHTML = ""
+    const ctx = document.createElement("canvas")
+    div.appendChild(ctx)
+
+    ctx.id = "myChartVigencia"
+    ctx.style.height = "400px";
+    //ctx.style.width = "600px";
+    div.style.height = "400px";
+    //div.style.width = "600px";
+
+    let newLabels = []
+    let newCasos = []
+    let newVictimas = []
+
+
+    for (id in data) {
+        if (data[id][2] >= min) {
+            const datos = data[id]
+            newLabels.push(datos[0])
+            newVictimas.push(datos[2])
+            newCasos.push(datos[1])
+        }
+
+    }
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: newLabels,
+            datasets: [{
+                label: "Víctimas por año",
+                data: newVictimas,
+                //borderColor: "gray",
+                borderWidth: 1,
+                backgroundColor: ColorListPublic.Rojos1,
+            }],
+
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: "y",
+            plugins: {
+                // changin the lagend colour
+                legend: {
+                    labels: {
+                        color: "black",
+                        font: {
+                            size: "14pt",
+                        }
+                    },
+                },
+            },
+            scales: {
+                y: {
+                    display: true,
+                    beginAtZero: true,
+                    ticks: {
+                        color: "black",
+                        font: {
+                            size: "14pt",
+                            //weight: "bolder"
+                        }
+                    },
+                    grid: {
+                        display: false,
+                        //color: Color_Line_Chart
+                    }
+                },
+                x: {
+                    display: true,
+                    ticks: {
+                        color: "black",
+                        font: {
+                            size: "12pt",
+                        }
+                    },
+                    grid: {
+                        display: false,
+                        //color: Color_Line_Chart
+                    }
+                }
+            }
+        }
+    });
+
+}
+

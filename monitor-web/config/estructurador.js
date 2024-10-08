@@ -1704,10 +1704,9 @@ function make_public_data() {
     let victimas = 0
     let temp = []
     let ListaVigencia = {}
+    let tempDepartamentos=[]
 
-    let dataYear = {
-        "casos": 0
-    }
+
 
     const proyectos = GLOBAL.state.proyectos;
 
@@ -1721,9 +1720,36 @@ function make_public_data() {
             if (temp.includes(caso.vigencia) !== true) {
                 temp.push(caso.vigencia)
                 ListaVigencia[caso.vigencia]=[]
-            } 
+            }
+            if (tempDepartamentos.includes(caso.departamento)!==true){
+                tempDepartamentos.push(caso.departamento)
+            }
+
         })
     })
+
+
+    _tabla_departamentos()
+
+    function _tabla_departamentos(lista,data){
+        let TablaDepartamentos={}
+        tempDepartamentos.forEach(dep=>{
+
+            let casos2dep=0
+            let victimas2dep=0
+            proyectos.forEach(proyecto=>{
+                proyecto.clsCasos.forEach(caso => {
+                    if(dep==caso.departamento){
+                        victimas2dep= victimas2dep + caso.npersonas
+                        casos2dep++
+                        TablaDepartamentos[dep]=[dep,casos2dep,victimas2dep]
+                    }
+                })
+            })
+        })
+        data_public.consolidados[1]["departamentos"] = TablaDepartamentos
+    }
+
 
     temp.forEach(vigencia=>{
         let casos2vigencia=1
