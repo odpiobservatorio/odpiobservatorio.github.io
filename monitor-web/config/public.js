@@ -199,8 +199,8 @@ function maker_departamentos(data,min) {
     const textVigencias = document.getElementById("textDepartamentos")
     const MaxVictimas = maxValue(data, 2)
     const MaxCasos = maxValue(data, 1)
-    textVigencias.innerHTML = `En el registro de información para la categoría departame, encontramos que el departamento con más número de víctimas fue el <b>${MaxVictimas[1]}</b> con una cifra de <b>${MaxVictimas[0]}</b>. 
-    En el caso de número de afectaciones se registra que para el departamento <b>${MaxCasos[1]}</b> se presentaron <b>${MaxCasos[0]}</b> casos (Clúster ODPI 2024).`
+    textVigencias.innerHTML = `En el registro de información para la categoría departamento, encontramos que el lugar con más número de víctimas es <b>${MaxVictimas[1]}</b> con una cifra de <b>${MaxVictimas[0]}</b>. 
+    En el caso de número de afectaciones se registra que el departamento de <b>${MaxCasos[1]}</b> se presentaron <b>${MaxCasos[0]}</b> casos (Clúster ODPI 2024).`
 
 
 

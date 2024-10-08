@@ -56,41 +56,47 @@
         </div>
     </div>
     <div>
-        <a class="nav-link bg-danger text-white fs-5 p-2" data-bs-toggle="collapse" href="#collapse2016" role="button" aria-expanded="false" aria-controls="collapse2016">
+        <a class="nav-link bg-danger text-white fs-5 p-2" data-bs-toggle="collapse" href="#collapse2016" role="button"
+            aria-expanded="false" aria-controls="collapse2016">
             + Ver más
         </a>
     </div>
-      <div class="collapse" id="collapse2016">
+    <div class="collapse" id="collapse2016">
         <div class="card card-body">
-          <div class="row align-items-center">
-            <div class="col">
-                <div id="ChartVigencias" class="border border-2 rounded-2 p-3 m-3" style="border-color: #ce2335;">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div id="ChartVigencias" class="border border-2 rounded-2 p-3 m-3" style="border-color: #ce2335;">
+
+                    </div>
+                </div>
+                <div class="col me-3" style="text-align: justify; text-indent: 1cm;" id="textVigencias">
 
                 </div>
             </div>
-            <div class="col me-3" style="text-align: justify; text-indent: 1cm;" id="textVigencias">
+            <div class="row align-items-center">
+                <div class="col me-3">
+                    <div class="text-center"><img src="/img/public/depcalor2016-24.png" width="500px">
+                        <div class="text-center mt-2 mb-2"> <small>Mapa calor victimas y casos por departamento
+                                (2016-2024)</small></div>
+                    </div>
+                    <div id="textDepartamentos" style="text-align: justify; text-indent: 1cm;"></div>
+                    <div>
+                        <small class="fw-bold">Valor mínimo</small>
+                        <input type="text" class="form-control" id="inMaxDep" value="1000" style="width: 300px;">
+                    </div>
 
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col me-3">
-                <div id="textDepartamentos" style="text-align: justify; text-indent: 1cm;"></div>
-                <div>
-                    <small class="fw-bold">Valor mínimo</small>
-                    <input type="text" class="form-control" id="inMaxDep" value="1000" style="width: 300px;">
+                </div>
+
+                <div class="col">
+                    <div id="ChartDepartamentos" class="border border-2 rounded-2 p-3 m-3"
+                        style="border-color: #ce2335;">
+
+                    </div>
                 </div>
 
             </div>
-
-            <div class="col">
-                <div id="ChartDepartamentos" class="border border-2 rounded-2 p-3 m-3" style="border-color: #ce2335;">
-
-                </div>
-            </div>
-
-          </div>
         </div>
-      </div>
+    </div>
     <div class="row p-2 text-white text-center" style="background-color:#f9485a;">
         <div class="col">
             <div id="nvictimasHoy" class="fw-bold" style="font-size: 40pt;">#</div>
@@ -102,7 +108,7 @@
         </div>
     </div>
     <div class="p-2 text-white text-end" style="background-color:#e7263a;" id="corteData">
-            Informe a corte de
+        Informe a corte de
     </div>
     <div id="panel-escritorio">
 
