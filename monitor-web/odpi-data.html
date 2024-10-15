@@ -34,6 +34,7 @@
     <script src="./config/dataTable.js"></script>
     <script src="./config/dataChart.js"></script>
     <script src="./config/public.js"></script>
+    <script src="./config/concordancia.js"></script>
 
     <!--Cargamos nuestra hoja de estilos personalziados-->
     <link rel="stylesheet" href="./styles.css">
@@ -106,6 +107,11 @@
                                 hidden="true">
                             </ul>
                         </li>
+                        <li onclick="verConcordancia()" id="btnconcord" hidden="true">
+                            <a href="#mn-tablas" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-3 fw-bold bi-body-text text-white"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Concordancia</span> </a>
+                        </li>
                         <li id="btndocumentos" hidden="true">
                             <a href="#panel-config" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-3 fw-bold bi bi-gear-fill text-white"></i> <span
@@ -151,6 +157,64 @@
                         </li>
 
                     </ul>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-12 py-3" id="panel-concordancia" hidden="true">
+                <div class="btn-group mb-2" role="group" aria-label="Basic example">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Buscar
+                    </button>
+                    <ul class="dropdown-menu shadow" style="width: 250px;">
+                        <div id="ulConcordancia" class="ms-2 p-2">
+                            <small class="text-warning fw-bold">Campo de búsqueda</small>
+                            <select id="lstCampos_concordancia" class="form-select mb-2">
+                                <option value="clsCasos_macroregion">Macroregion</option>
+                                <option value="clsCasos_departamento">Departamento</option>
+                                <option value="clsLugares_municipio">Lugar</option>
+                                <option value="clsPueblos_nombre">Pueblo, Etnia</option>
+                                <option value="clsCasos_macrotipo">Macrotipo</option>
+                                <option value="clsTipos_nombre">Subtipo</option>
+                                <option value="clsCasos_fecha">Fecha</option>
+                                <option value="clsCasos_vigencia">Año</option>
+                                <option value="clsPersonas_genero">Género</option>
+                                <option value="clsPersonas_nombres">Nombres</option>
+                                <option value="clsCasos_detalle">Detalle</option>
+                                <option value="clsCasos_macroactor">Macro actor</option>
+                                <option value="clsActores_nombre">Otros actores</option>
+                                <option value="clsDesplazamiento_tipo">Tipo de desplazamiento
+                                </option>
+                                <option value="clsCasos_npersonas">Numero Personas</option>
+                                <option value="clsCasos_nmujeres">Numero Mujeres</option>
+                                <option value="clsCasos_nhombres">Numero Hombres</option>
+                                <option value="clsCasos_nmenores">Numero Menores</option>
+                                <option value="clsPersonas_edad">Edad</option>
+                                <option value="clsPersonas_edad">Todo</option>
+                            </select>
+                            <small class="text-warning fw-bold">Tipo de búsqueda</small>
+                            <select id="lstTipo_concordancia" class="form-select mb-2">
+                                <option selected value="contiene">Similar a</option>
+                                <option value="igual">Igual a</option>
+                            </select>
+                            <small class="text-warning fw-bold">Valor a buscar</small>
+                            <input id="intConcordancia" type="text" class="form-control" placeholder="buscar">
+                            <button type="button" class="btn btn-secondary mt-2"
+                                onclick="bulk_concordancia()">Buscar</button>
+                        </div>
+                    </ul>
+                </div>
+                <div class="m-1 p-2 text-white bg-secondary border border-1" id="criterios_concordancia"></div>
+                <div class="row">
+                    <div class="col-auto fw-bold text-end" style="width:50px;">#</div>
+                    <div class="col-auto fw-bold" style="width:150px;">Caso</div>
+                    <div class="col-auto fw-bold">Vigencia</div>
+                    <div class="col-auto fw-bold">Fecha</div>
+                    <div class="col fw-bold">Departamento</div>
+                    <div class="col fw-bold">Macrotipo</div>
+                    <div class="col fw-bold">Macro actor</div>
+                </div>
+                <div id="panel_res_concordancia">
+
                 </div>
             </div>
             <div class="col-lg-10 col-md-9 col-sm-12 py-3" id="panel-escritorio" hidden="true">

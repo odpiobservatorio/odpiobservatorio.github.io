@@ -1225,11 +1225,13 @@ function show_listPrj() {
 
     if (PublicID !== 2016) {
         document.getElementById("panel-escritorio").hidden = false
+        document.getElementById("panel-concordancia").hidden = true
         document.getElementById("sel_vigencia").value = PublicID
         loadProyecto(PublicID)
         gotoCaso(0)
     } else {
         document.getElementById("panel-escritorio").hidden = false
+        document.getElementById("panel-concordancia").hidden = true
         document.getElementById("sel_vigencia").value = 0
         loadProyecto(0)
         gotoCaso(0)
@@ -1253,6 +1255,7 @@ function loadProyecto(value) {
 
 
         document.getElementById("panel-escritorio").hidden = false
+        document.getElementById("panel-concordancia").hidden = true
         document.getElementById("element-to-print").hidden = true
         document.getElementById("panel-Tablas-inicio").hidden = true
         ListarCasos()

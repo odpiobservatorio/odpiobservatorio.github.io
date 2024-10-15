@@ -41,8 +41,8 @@ function loadProyectoTabla(value) {
 }
 
 function iniTables(value, ini) {
-    document.getElementById("sel_vigencia_tabla").hidden
-    document.getElementById('panel-escritorio').hidden = true;
+    document.getElementById("sel_vigencia_tabla").hidden=false
+    document.getElementById("panel-concordancia").hidden = true
     document.getElementById('panel-escritorio').hidden = true;
     document.getElementById('element-to-print').hidden = true;
     document.getElementById('panel-graficos').hidden = true;
