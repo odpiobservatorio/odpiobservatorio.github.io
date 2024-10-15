@@ -50,7 +50,6 @@ function bulk_concordancia() {
         })
     }
 
-
     const criterios_concordancia = document.getElementById("criterios_concordancia")
     criterios_concordancia.textContent=""
     criterios_concordancia.innerHTML=`Concordancia por "<b>${campo[1]}</b>" [<i>${tipo}</i>] "<b>${valor}</b>", número de resultados (<b>${i}</b>)`
