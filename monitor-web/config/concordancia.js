@@ -25,15 +25,15 @@ function bulk_concordancia() {
             }else{
                 datoA = caso[campo[1]].toLowerCase()
             }
-            
+            //Buscar
             if (tipo == "igual") {
                 if (datoA == valor) {
-                    _put_data(caso, i)
+                    _put_data(caso, i,datoA,valor)
                     i++
                 }
             } else {
                 if (datoA.includes(valor) == true) {
-                    _put_data(caso, i)
+                    _put_data(caso, i,datoA,valor)
                     i++
                 }
             }
@@ -46,14 +46,15 @@ function bulk_concordancia() {
                 }else{
                     datoA = subcaso[campo[1]].toLowerCase()
                 }
+                //Buscar
                 if (tipo == "igual") {
                     if (datoA == valor) {
-                        _put_data(caso,i)
+                        _put_data(caso,i,datoA,valor)
                         i++
                     }
                 } else {
                     if (datoA.includes(valor) == true) {
-                        _put_data(caso,i)
+                        _put_data(caso,i,datoA,valor)
                         i++
                     }
                 }
@@ -65,7 +66,7 @@ function bulk_concordancia() {
     criterios_concordancia.textContent = ""
     criterios_concordancia.innerHTML = `Concordancia por "<b>${campo[1]}</b>" [<i>${tipo}</i>] "<b>${valor}</b>", número de resultados (<b>${i}</b>)`
 
-    function _put_data(caso,id) {
+    function _put_data(caso,id,campo,valor) {
 
         let personas = []
         let actores = []
@@ -87,6 +88,7 @@ function bulk_concordancia() {
             pueblos.push(dato.nombre)
         })
 
+        let resaltar = campo.replace(valor,`<b class="text-success">${valor}</b>`)
 
         const divresultados = document.getElementById("panel_res_concordancia")
         const item = document.createElement("div")
@@ -94,7 +96,8 @@ function bulk_concordancia() {
             <a class="nav-link active hchange-gray" data-bs-toggle="collapse" href="#collapse${id}" aria-expanded="false">
                 <div class="row">
                     <div class="col-auto fw-bold text-end" style="width:50px;">${id + 1}.</div>
-                    <div class="col-auto" style="width:150px;">CASO:${caso.id}-${caso.vigencia}</div>
+                    <div class="col-auto" style="width:150px;">CASO:${caso.id + 1}-${caso.vigencia}</div>
+                    <div class="col-auto" style="width:200px;">${resaltar}</div>
                     <div class="col-auto">${caso.vigencia}</div>
                     <div class="col-auto">${caso.fecha}</div>
                     <div class="col">${caso.departamento}</div>
