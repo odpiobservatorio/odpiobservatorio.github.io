@@ -1707,7 +1707,8 @@ function make_public_data() {
     let victimas = 0
     let temp = []
     let ListaVigencia = {}
-    let tempDepartamentos=[]
+    let tempDepartamentos = []
+    let tempPueblos = []
 
 
 
@@ -1722,46 +1723,73 @@ function make_public_data() {
             victimas = victimas + caso.npersonas
             if (temp.includes(caso.vigencia) !== true) {
                 temp.push(caso.vigencia)
-                ListaVigencia[caso.vigencia]=[]
+                ListaVigencia[caso.vigencia] = []
             }
-            if (tempDepartamentos.includes(caso.departamento)!==true){
+            if (tempDepartamentos.includes(caso.departamento) !== true) {
                 tempDepartamentos.push(caso.departamento)
             }
+
+            caso.clsPueblos.forEach(pueblo => {
+                if (tempPueblos.includes(pueblo.nombre) !== true) {
+                    tempPueblos.push(pueblo.nombre)
+                }
+            })
 
         })
     })
 
-
     _tabla_departamentos()
+    _tabla_pueblos()
 
-    function _tabla_departamentos(lista,data){
-        let TablaDepartamentos={}
-        tempDepartamentos.forEach(dep=>{
+    function _tabla_departamentos() {
+        let TablaDepartamentos = {}
+        tempDepartamentos.forEach(dep => {
 
-            let casos2dep=0
-            let victimas2dep=0
-            proyectos.forEach(proyecto=>{
+            let casos2dep = 0
+            let victimas2dep = 0
+            proyectos.forEach(proyecto => {
                 proyecto.clsCasos.forEach(caso => {
-                    if(dep==caso.departamento){
-                        victimas2dep= victimas2dep + caso.npersonas
+                    if (dep == caso.departamento) {
+                        victimas2dep = victimas2dep + caso.npersonas
                         casos2dep++
-                        TablaDepartamentos[dep]=[dep,casos2dep,victimas2dep]
+                        TablaDepartamentos[dep] = [dep, casos2dep, victimas2dep]
                     }
                 })
             })
         })
         data_public.consolidados[1]["departamentos"] = TablaDepartamentos
     }
+    function _tabla_pueblos(){
+        let Tabla = {}
+        tempPueblos.forEach(item => {
+            let casos = 0
+            let victimas = 0
+            proyectos.forEach(proyecto => {
+                proyecto.clsCasos.forEach(caso => {
+                    caso.clsPueblos.forEach(eleSub=>{
+                        if (item == eleSub.nombre) {
+                            victimas = victimas + caso.npersonas
+                            casos++
+                            Tabla[item] = [item, casos, victimas]
+                        }
+                    })
+
+                })
+            })
+
+        })
+        data_public.consolidados[1]["pueblos"] = Tabla
+    }
 
 
-    temp.forEach(vigencia=>{
-        let casos2vigencia=1
-        let victimas2vigencia=1
+    temp.forEach(vigencia => {
+        let casos2vigencia = 1
+        let victimas2vigencia = 1
         proyectos.forEach(proyecto => {
             proyecto.clsCasos.forEach(caso => {
-                if(vigencia==caso.vigencia){
-                    victimas2vigencia= victimas2vigencia + caso.npersonas
-                    ListaVigencia[vigencia]=[vigencia,casos2vigencia,victimas2vigencia]
+                if (vigencia == caso.vigencia) {
+                    victimas2vigencia = victimas2vigencia + caso.npersonas
+                    ListaVigencia[vigencia] = [vigencia, casos2vigencia, victimas2vigencia]
                     casos2vigencia++
                 }
             })

@@ -86,7 +86,11 @@ async function opendata() {
     document.getElementById("inMaxDep").onchange=()=>{
         maker_departamentos(data_public.consolidados[1].departamentos, document.getElementById("inMaxDep").value)
     }
+    document.getElementById("inMaxPub").onchange=()=>{
+        maker_pueblos(data_public.consolidados[1].pueblos, document.getElementById("inMaxPub").value)
+    }
     maker_departamentos(data_public.consolidados[1].departamentos,1000)
+    maker_pueblos(data_public.consolidados[1].pueblos,1000)
 
 }
 function maker_years(data) {
@@ -236,6 +240,102 @@ function maker_departamentos(data,min) {
             labels: newLabels,
             datasets: [{
                 label: "Víctimas por año",
+                data: newVictimas,
+                //borderColor: "gray",
+                borderWidth: 1,
+                backgroundColor: ColorListPublic.Rojos1,
+            }],
+
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: "y",
+            plugins: {
+                // changin the lagend colour
+                legend: {
+                    labels: {
+                        color: "black",
+                        font: {
+                            size: "14pt",
+                        }
+                    },
+                },
+            },
+            scales: {
+                y: {
+                    display: true,
+                    beginAtZero: true,
+                    ticks: {
+                        color: "black",
+                        font: {
+                            size: "14pt",
+                            //weight: "bolder"
+                        }
+                    },
+                    grid: {
+                        display: false,
+                        //color: Color_Line_Chart
+                    }
+                },
+                x: {
+                    display: true,
+                    ticks: {
+                        color: "black",
+                        font: {
+                            size: "12pt",
+                        }
+                    },
+                    grid: {
+                        display: false,
+                        //color: Color_Line_Chart
+                    }
+                }
+            }
+        }
+    });
+
+}
+function maker_pueblos(data,min) {
+    const textData = document.getElementById("textPueblos")
+    const MaxVictimas = maxValue(data, 2)
+    const MaxCasos = maxValue(data, 1)
+    textData.innerHTML = `En relación a la categoría Pueblo o Comunidad se evidencia que el pueblo <b>${MaxVictimas[1]}</b> presenta mayor número de víctimas con una cifra de <b>${MaxVictimas[0]}</b>. 
+    En el caso de número de afectaciones se registra que en el pueblo <b>${MaxCasos[1]}</b> se presentaron <b>${MaxCasos[0]}</b> casos.`
+
+
+    const div = document.getElementById('ChartPueblos');
+    div.innerHTML = ""
+    const ctx = document.createElement("canvas")
+    div.appendChild(ctx)
+
+    ctx.id = "myChart"
+    ctx.style.height = "400px";
+    //ctx.style.width = "600px";
+    div.style.height = "400px";
+    //div.style.width = "600px";
+
+    let newLabels = []
+    let newCasos = []
+    let newVictimas = []
+
+
+    for (id in data) {
+        if (data[id][2] >= min) {
+            const datos = data[id]
+            newLabels.push(datos[0])
+            newVictimas.push(datos[2])
+            newCasos.push(datos[1])
+        }
+
+    }
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: newLabels,
+            datasets: [{
+                label: "Víctimas por pueblo",
                 data: newVictimas,
                 //borderColor: "gray",
                 borderWidth: 1,
