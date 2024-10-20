@@ -249,3 +249,11 @@
 .btn-mini:hover{
     background-color: #642018;
 }
+.consola-scroll {
+    height: 400px;
+    line-height: 1em;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px solid;
+  }

@@ -590,21 +590,31 @@
 <!--New panel consolo log-->
 <div class="offcanvas offcanvas-bottom shadow" tabindex="-1" id="offcanvasConsola" data-bs-scroll="true"
     data-bs-backdrop="false" style="height: 250px;">
-    <div class="offcanvas-header bg-dark" style="font-size: 10px; height: 30px;">
-        <div class="row">
-            <div class="col p-1">
-                <button type="button" class="btn m-1 text-white" data-bs-dismiss="offcanvas">X</button>
-            </div>
-            <div class="col p-1">
-                <button type="button" class="btn m-1 text-white" onclick="consola_command()">Ejecutar</button>
-            </div>
-            <div class="col p-1">
-                <button type="button" class="btn m-1 text-white" onclick="consola_clear()">Limpiar</button>
-            </div>
+    <div class="row bg-dark align-items-center">
+        <div class="col-auto">
+            <button type="button" class="btn m-1 text-white" data-bs-dismiss="offcanvas">X</button>      </div>
+        <div class="col-auto">
+            <button type="button" class="btn m-1 text-white" onclick="consola_clear()">Limpiar</button>
         </div>
-    </div>
-    <textarea class="form-control text-white bg-dark" id="txtconsola" rows="4" style="height: 100%;"></textarea>
+        <div class="col-auto">
+            <button type="button" class="btn m-1 text-white" onclick="consola_newLine('=>')">+</button>
+        </div>
+        <div class="col-auto">
+            <select class="form-select form-select-sm" aria-label="Small select example"
+            onchange="consola_newLine(this.value)">
+            <option value="filter.clear">Filter clear</option>
+            <option value="filter=>[&#34;clsCasos&#34;,'item.macroregion==&#34;Norte&#34;']">Filter</option>
+            <option value="filter.plus=>[ [&#34;CLASE&#34;,&#34;item.CAMPO.includes('VALOR')&#34;] , [&#34;CLASE&#34;,&#34;item.CAMPO>'VALOR'&#34;] ]">Filter Plus</option>
+        </select>
+        </div>
 
+
+
+    </div>
+    <div class="bg-dark consola-scroll" id="console-lines">
+
+
+    </div>
 </div>
 <!-- Panel de marcadores new-->
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasMarcador"
@@ -885,7 +895,7 @@
     let ActiveTile;
 
     async function IniProgram() {
-        
+
 
         loadlayers()
         try {

@@ -374,15 +374,78 @@ function filter_extend() {
 
 }
 function consola_clear() {
-    document.getElementById("txtconsola").value = ""
+    document.getElementById("console-lines").innerHTML = ""
+    console_lnes=[]
 }
 
-function consola_command() {
+let console_lnes = []
+
+function consola_newLine(texto) {
+    const linea = document.createElement("div")
+    linea.className = "input-group bg-dark"
+    const inputLine = document.createElement("input")
+    inputLine.className = "form-control bg-dark text-white"
+    inputLine.type = "text"
+    inputLine.value=texto
+    inputLine.id = "int_comando" + (console_lnes.length + 1)
+
+    linea.appendChild(inputLine)
+
+    const btnRun = document.createElement("button")
+    btnRun.className = "btn btn-dark border border-1"
+    btnRun.type = "button"
+    btnRun.innerHTML = `<i class="bi bi-arrow-right-circle fs-5 text-info"></i>`
+    linea.appendChild(btnRun)
+
+    btnRun.onclick = () => {
+        consola_command(inputLine)
+    }
+
+    inputLine.onchange = () => {
+        consola_command(inputLine)
+        console_lnes.forEach(ele => {
+            if (ele[0] == inputLine.id) {
+                ele[1] = inputLine.value
+            }
+        })
+    }
+    inputLine.oninput = () => {
+        console_lnes.forEach(ele => {
+            if (ele[0] == inputLine.id) {
+                ele[1] = inputLine.value
+            }
+        })
+    }
+
+    const btnRemove = document.createElement("button")
+    btnRemove.className = "btn btn-dark border border-1"
+    btnRemove.type = "button"
+    btnRemove.innerHTML = `<i class="bi bi-file-earmark-x fs-5 text-danger"></i>`
+    //linea.appendChild(btnRemove)
+
+    btnRemove.onclick = () => {
+        
+        
+
+    }
+
+    document.getElementById("console-lines").appendChild(linea)
+    //Agregamos un alinea a la lista de comandos
+    console_lnes.push([inputLine.id,inputLine.value])
+
+
+
+}
+
+
+function consola_command(control_line) {
+
     cinfigIni_data()
-    const control = document.getElementById("txtconsola")
-    const line_run = control.value.split("\n")
+    const control = control_line
+    const line_run = control.value
     const line = line_run[line_run.length - 1]
-    const comando = line.split("=>")
+
+    const comando = control_line.value.split("=>")
     if (comando[0] == "filter") {
         const criterios_eval = eval(comando[1])
         filter_from_console(criterios_eval[0], criterios_eval[1])
@@ -429,22 +492,12 @@ function filter_from_console(clase, filter_comand) {
             })
         })
     }
-
-    now_data_filter = casos_filtered
     mostrar_resultados(casos_filtered)
     crear_consolidado_resultado(casos_filtered, criteria_items)
-
-
-
-
-
 }
 function filter_from_console_plus(filter_comand) {
     const casos = Active_data_monitor.clsCasos
     let casos_filtered = []
-    let c_criterios = filter_comand
-    //console.log(filter_comand[1])
-
     //Verifica si en la cadena hay una búsqueda por ClsCasos/ clase superior
     const filterCaso = filter_comand.filter(ele => ele[0] == "clsCasos")
     const filterNoCaso = filter_comand.filter(ele => ele[0] !== "clsCasos")
@@ -452,52 +505,31 @@ function filter_from_console_plus(filter_comand) {
     if (filterCaso !== null) {
         let dataA = []
         casos.forEach(item => {
-
             if (eval(filterCaso[0][1])) {
                 dataA.push(item)
-
             }
         })
         _filter_2(dataA)
     } else {
-
-
-
+        _filter_2(casos)
     }
 
     function _filter_2(data) {
-        let indices = []
-        let consolidados = {}
-
+        //Construimos primero la cadena del filtro
+        let cadenaA = ""
         filterNoCaso.forEach(filtro => {
-
-            data.forEach(caso => {
-
-                caso[filtro[0]].forEach(item => {
-                    if (eval(filtro[1])) {
-                        if (indices.includes(caso.id) !== true) {
-                            indices.push(caso.id)
-                            consolidados[caso.id] = [0, caso]
-                        } else {
-                            consolidados[caso.id] = [consolidados[caso.id][0] + 1, caso]
-                        }
-                    }
-                })
-
-            })
-
+            cadenaA = cadenaA + `registro.${filtro[0]}.some((item)=>${filtro[1]})&&`
         })
-
-        for (id in consolidados) {
-            if (consolidados[id][0] >= 1) {
-
-
-                casos_filtered.push(consolidados[id][1])
+        let cadenaB = cadenaA.substring(0, cadenaA.length - 2)
+        const filtrados = data.filter((registro) => {
+            let f = eval(cadenaB)
+            if (f == true) {
+                casos_filtered.push(registro)
             }
-        }
-    }
-    console.log(casos_filtered)
+        });
 
+
+    }
 
     mostrar_resultados(casos_filtered)
     crear_consolidado_resultado(casos_filtered, criteria_items)
