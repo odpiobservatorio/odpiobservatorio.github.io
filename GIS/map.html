@@ -590,17 +590,16 @@
 <!--New panel consolo log-->
 <div class="offcanvas offcanvas-bottom shadow" tabindex="-1" id="offcanvasConsola" data-bs-scroll="true"
     data-bs-backdrop="false" style="height: 250px;">
-    <div class="offcanvas-header bg-dark" style="font-size: 10px; height: 20px;">
+    <div class="offcanvas-header bg-dark" style="font-size: 10px; height: 30px;">
         <div class="row">
-            <div class="col text-end">
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
+            <div class="col p-1">
+                <button type="button" class="btn m-1 text-white" data-bs-dismiss="offcanvas">X</button>
             </div>
-            <div class="col text-white">
-                <button type="button" class="btn-close-white" onclick="consola_command()">Ejecutar</button>
+            <div class="col p-1">
+                <button type="button" class="btn m-1 text-white" onclick="consola_command()">Ejecutar</button>
             </div>
-            <div class="col text-white">
-                <button type="button" class="btn-close-white" onclick="consola_clear()">Limpiar</button>
+            <div class="col p-1">
+                <button type="button" class="btn m-1 text-white" onclick="consola_clear()">Limpiar</button>
             </div>
         </div>
     </div>
