@@ -20,12 +20,10 @@ function cinfigIni_data() {
 
     Active_data_monitor = MultiCasos;
 
-    //Inicia la lista con ese criterio
-    crear_listas("clsCasos_macroregion")
+    //Inicia la lista con el criterio activo en ese momento
+    const campo = document.getElementById("lstCampos")
+    crear_listas(campo.value)
     document.getElementById("btnConsulta").value = 1
-
-
-
 }
 function ver_todo() {
     const cont_Resultados = document.getElementById("lstResGisNew")
@@ -104,7 +102,6 @@ const makerList = {
             })
         }
 
-
         //Ordenamos la lsita de AZ
         let newDataOrdenado;
         try {
@@ -112,7 +109,6 @@ const makerList = {
                 return a.localeCompare(b);
             }
             newDataOrdenado = newCriteria.sort(porDato);
-
 
         } catch (error) {
             //Esto en el caso que los valores sean solo numérico, entonces se ordena por número
@@ -151,32 +147,86 @@ const makerList = {
                 if (checkers.checked == true) {
                     const criterios = {
                         "clase": criterio[0],
-                        "field": criterio[1],
+                        "campo": criterio[1],
                         "operador": document.getElementById("lstOperadores").value,
-                        "value": checkers.value
+                        "valor": checkers.value
                     }
                     filterList.push(criterios)
-
                 } else {
-                    const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
+                    const eliminados = filterList.filter(elemento => elemento.valor != checkers.value);
                     filterList = eliminados
-
                 }
                 let tituloboton = ""
                 filterList.forEach(palabra => {
-                    tituloboton = tituloboton + "[" + palabra.value + "]"
+                    tituloboton = tituloboton + "[" + palabra.valor + "]"
                 })
                 const btnCriterios = document.getElementById("btnCriterios")
                 btnCriterios.textContent = tituloboton
             }
         })
 
+        //Control entrada para filtrar listas dentro de los criterios
+        document.getElementById("intValor_buscar").onchange = () => {
+            document.getElementById("contenedor_criterios").innerHTML = ""
+            newDataOrdenado.forEach(item => {
+                let realvalue;
+                if (typeof item === "number") {
+                    realvalue = parseInt(item)
+                } else {
+                    realvalue = (item)
+                }
+                const ValorOri = realvalue.toLowerCase()
+                const ValorComp = document.getElementById("intValor_buscar").value
+
+                if (ValorOri.includes(ValorComp.toLowerCase()) == true) {
+
+                    const elemento = document.createElement("div")
+                    elemento.className = "ms-3 me-3"
+                    elemento.style.fontWeight = "normal"
+                    elemento.innerHTML =
+                        `
+                <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
+                 ${item}
+            `
+                    //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
+                    contenedor.appendChild(elemento)
+                    const checkers = document.getElementById(`check${item}${criterio[1]}`)
+                    //Miramos si el valor viene de la lista o viene de el campo abirto
+                    //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
+                    checkers.onchange = () => {
+                        //Validamos si la clase es mayor o menor
+                        if (checkers.checked == true) {
+                            const criterios = {
+                                "clase": criterio[0],
+                                "campo": criterio[1],
+                                "operador": document.getElementById("lstOperadores").value,
+                                "valor": checkers.value
+                            }
+                            filterList.push(criterios)
+
+                        } else {
+                            const eliminados = filterList.filter(elemento => elemento.valor != checkers.value);
+                            filterList = eliminados
+
+                        }
+                        let tituloboton = ""
+                        filterList.forEach(palabra => {
+                            tituloboton = tituloboton + "[" + palabra.valor + "]"
+                        })
+                        const btnCriterios = document.getElementById("btnCriterios")
+                        btnCriterios.textContent = tituloboton
+                    }
+                }
+            })
+        }
+        //=================================================================
+
         document.getElementById("intOpentCriterio").oninput = () => {
             const criterios = {
                 "clase": criterio[0],
-                "field": criterio[1],
+                "campo": criterio[1],
                 "operador": document.getElementById("lstOperadores").value,
-                "value": document.getElementById("intOpentCriterio").value
+                "valor": document.getElementById("intOpentCriterio").value
             }
             filterList = []
             filterList.push(criterios)
@@ -187,7 +237,7 @@ const makerList = {
         const filtrador = document.getElementById("btnConsulta")
         //Debemos construir las cadenas de filtro según las listas en filterlist
         filtrador.onclick = () => {
-            add_criterio_extendido()
+            //add_criterio_extendido()
             filter_extend()
             LimpiarConsulta()
             //document.getElementById("intOpentCriterio").value = ""
@@ -221,9 +271,9 @@ function add_criterio_extendido() {
         const newItemCriterio =
         {
             "clase": texto.clase,
-            "field": texto.field,
+            "campo": texto.field,
             "operador": texto.operador,
-            "value": texto.value,
+            "valor": texto.value,
             "link": operador_link
         }
 
@@ -262,7 +312,6 @@ function add_criterio_extendido() {
 }
 
 function LimpiarConsulta() {
-    criteria_items = []
     const contenedorlistas = document.getElementById("listconsultaextendida")
     contenedorlistas.innerHTML = ""
     const btnCriterios = document.getElementById("btnCriterios")
@@ -271,41 +320,192 @@ function LimpiarConsulta() {
     fromOpenText = ""
 
 }
-
 function filter_extend() {
-    const registros = Active_data_monitor.clsCasos
-    /* CODIGO DE PARTIDA DE INICIO */
+    const casos = Active_data_monitor.clsCasos
+    let casos_filtered = []
+    let c_criterios = ""
 
-    let datafilter = []
-    const filtrados = registros.filter((registro) => {
-        let condiciones = []
+    for (id in filterList) {
+        const criterio = filterList[id]
+        //verifico que tipo de operador es
+        if (criterio.clase == "clsCasos") {
+            if (criterio.operador !== ".includes") {
+                c_criterios = `item["${criterio.campo}"]${criterio.operador}("${criterio.valor}")`
+            } else {
+                c_criterios = `item["${criterio.campo}"].includes("${criterio.valor}")`
+            }
 
-        criteria_items.forEach(criterio => {
-            condiciones.push(eval(criterio[1]))
-            console.log(criterio[1])
-        })
-
-        let score = 0
-        condiciones.forEach(valor => {
-            score = score + valor
-        })
-
-        if (score == condiciones.length) {
-            datafilter.push(registro)
+            _run_filter_casos()
+        } else {
+            if (criterio.operador !== ".includes") {
+                c_criterios = `item["${criterio.campo}"]${criterio.operador}("${criterio.valor}")`
+            } else {
+                c_criterios = `item["${criterio.campo}"].includes("${criterio.valor}")`
+            }
+            _run_filter_Subcasos(criterio.clase)
         }
-        score = []
-    });
+    }
+
+    function _run_filter_casos() {
+        casos.forEach(item => {
+            if (eval(c_criterios)) {
+                casos_filtered.push(item)
+            }
+        })
+    }
+
+    function _run_filter_Subcasos(clase) {
+        casos.forEach(caso => {
+            caso[clase].forEach(item => {
+                if (eval(c_criterios)) {
+                    casos_filtered.push(caso)
+                }
+            })
+        })
+    }
+
+    now_data_filter = casos_filtered
+    mostrar_resultados(casos_filtered)
+    crear_consolidado_resultado(casos_filtered, criteria_items)
 
 
 
-    now_data_filter = datafilter
-    mostrar_resultados(datafilter)
-    crear_consolidado_resultado(datafilter, criteria_items)
 
 
 }
+function consola_clear() {
+    document.getElementById("txtconsola").value = ""
+}
 
-function crear_consolidado_resultado(datafilter, criteria_items) {
+function consola_command() {
+    cinfigIni_data()
+    const control = document.getElementById("txtconsola")
+    const line_run = control.value.split("\n")
+    const line = line_run[line_run.length - 1]
+    const comando = line.split("=>")
+    if (comando[0] == "filter") {
+        const criterios_eval = eval(comando[1])
+        filter_from_console(criterios_eval[0], criterios_eval[1])
+    } else if (comando[0] == "line") {
+
+    }
+    else if (comando[0] == "filter.clear") {
+        limpiar_todo_marcas()
+    } else if (comando[0] == "filter.plus") {
+        const criterios_eval = eval(comando)
+        filter_from_console_plus(eval(criterios_eval[1]))
+    }
+    else {
+
+    }
+
+}
+function filter_from_console(clase, filter_comand) {
+    const casos = Active_data_monitor.clsCasos
+    let casos_filtered = []
+    let c_criterios = filter_comand
+
+    //verifico que tipo de operador es
+    if (clase == "clsCasos") {
+        _run_filter_casos()
+    } else {
+        _run_filter_Subcasos(clase)
+    }
+
+    function _run_filter_casos() {
+        casos.forEach(item => {
+            if (eval(c_criterios)) {
+                casos_filtered.push(item)
+            }
+        })
+    }
+
+    function _run_filter_Subcasos(clase) {
+        casos.forEach(caso => {
+            caso[clase].forEach(item => {
+                if (eval(c_criterios)) {
+                    casos_filtered.push(caso)
+                }
+            })
+        })
+    }
+
+    now_data_filter = casos_filtered
+    mostrar_resultados(casos_filtered)
+    crear_consolidado_resultado(casos_filtered, criteria_items)
+
+
+
+
+
+}
+function filter_from_console_plus(filter_comand) {
+    const casos = Active_data_monitor.clsCasos
+    let casos_filtered = []
+    let c_criterios = filter_comand
+    //console.log(filter_comand[1])
+
+    //Verifica si en la cadena hay una búsqueda por ClsCasos/ clase superior
+    const filterCaso = filter_comand.filter(ele => ele[0] == "clsCasos")
+    const filterNoCaso = filter_comand.filter(ele => ele[0] !== "clsCasos")
+
+    if (filterCaso !== null) {
+        let dataA = []
+        casos.forEach(item => {
+
+            if (eval(filterCaso[0][1])) {
+                dataA.push(item)
+
+            }
+        })
+        _filter_2(dataA)
+    } else {
+
+
+
+    }
+
+    function _filter_2(data) {
+        let indices = []
+        let consolidados = {}
+
+        filterNoCaso.forEach(filtro => {
+
+            data.forEach(caso => {
+
+                caso[filtro[0]].forEach(item => {
+                    if (eval(filtro[1])) {
+                        if (indices.includes(caso.id) !== true) {
+                            indices.push(caso.id)
+                            consolidados[caso.id] = [0, caso]
+                        } else {
+                            consolidados[caso.id] = [consolidados[caso.id][0] + 1, caso]
+                        }
+                    }
+                })
+
+            })
+
+        })
+
+        for (id in consolidados) {
+            if (consolidados[id][0] >= 1) {
+
+
+                casos_filtered.push(consolidados[id][1])
+            }
+        }
+    }
+    console.log(casos_filtered)
+
+
+    mostrar_resultados(casos_filtered)
+    crear_consolidado_resultado(casos_filtered, criteria_items)
+
+}
+
+
+function crear_consolidado_resultado(datafilter) {
     let casos = 0
     let victimas = 0
     let nombres = []
@@ -322,7 +522,7 @@ function crear_consolidado_resultado(datafilter, criteria_items) {
     const capo_contexto = document.getElementById("col_contexto")
     const capo_casos = document.getElementById("col_res_casos")
     const capo_victimas = document.getElementById("col_res_victimas")
-    const control_criterio = criteria_items[0][1]
+    const control_criterio = "hola"
     capo_contexto.textContent = `${control_criterio.toUpperCase()}`
     capo_casos.textContent = casos
     capo_victimas.textContent = victimas

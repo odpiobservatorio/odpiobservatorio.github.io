@@ -254,7 +254,6 @@ const makerList = {
             })
         }
 
-
         //Ordenamos la lsita de AZ
         let newDataOrdenado;
         try {
@@ -282,54 +281,105 @@ const makerList = {
             } else {
                 realvalue = (item)
             }
+
             const elemento = document.createElement("div")
             elemento.className = "ms-3 me-3"
             elemento.style.fontWeight = "normal"
             elemento.innerHTML =
                 `
-    <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
-     ${item}
-    `
+            <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
+             ${item}
+        `
             //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
             contenedor.appendChild(elemento)
             const checkers = document.getElementById(`check${item}${criterio[1]}`)
             //Miramos si el valor viene de la lista o viene de el campo abirto
-
             //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
             checkers.onchange = () => {
                 //Validamos si la clase es mayor o menor
-
-
                 if (checkers.checked == true) {
-
                     const criterios = {
                         "clase": criterio[0],
-                        "field": criterio[1],
+                        "campo": criterio[1],
                         "operador": document.getElementById("lstOperadores").value,
-                        "value": checkers.value
+                        "valor": checkers.value
                     }
                     filterList.push(criterios)
                 } else {
-                    const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
+                    const eliminados = filterList.filter(elemento => elemento.valor != checkers.value);
                     filterList = eliminados
                 }
-
                 let tituloboton = ""
                 filterList.forEach(palabra => {
-                    tituloboton = tituloboton + "[" + palabra.value + "]"
-
+                    tituloboton = tituloboton + "[" + palabra.valor + "]"
                 })
                 const btnCriterios = document.getElementById("btnCriterios")
                 btnCriterios.textContent = tituloboton
             }
         })
 
+        //Control entrada para filtrar listas dentro de los criterios
+        document.getElementById("intValor_buscar").onchange = () => {
+            document.getElementById("contenedor_criterios").innerHTML = ""
+            newDataOrdenado.forEach(item => {
+                let realvalue;
+                if (typeof item === "number") {
+                    realvalue = parseInt(item)
+                } else {
+                    realvalue = (item)
+                }
+                const ValorOri = realvalue.toLowerCase()
+                const ValorComp = document.getElementById("intValor_buscar").value
+
+                if (ValorOri.includes(ValorComp.toLowerCase()) == true) {
+
+                    const elemento = document.createElement("div")
+                    elemento.className = "ms-3 me-3"
+                    elemento.style.fontWeight = "normal"
+                    elemento.innerHTML =
+                        `
+                <input class="fst-normal form-check-input" type="checkbox" value="${realvalue}" id="check${item}${criterio[1]}">
+                 ${item}
+            `
+                    //Coloca un elemento en la lista, estos elementos tienen un control chekc que lo detecta el programa
+                    contenedor.appendChild(elemento)
+                    const checkers = document.getElementById(`check${item}${criterio[1]}`)
+                    //Miramos si el valor viene de la lista o viene de el campo abirto
+                    //Se detecta un cambio en el control, agrega o elimina un elemento de la lista de filtros.
+                    checkers.onchange = () => {
+                        //Validamos si la clase es mayor o menor
+                        if (checkers.checked == true) {
+                            const criterios = {
+                                "clase": criterio[0],
+                                "campo": criterio[1],
+                                "operador": document.getElementById("lstOperadores").value,
+                                "valor": checkers.value
+                            }
+                            filterList.push(criterios)
+
+                        } else {
+                            const eliminados = filterList.filter(elemento => elemento.valor != checkers.value);
+                            filterList = eliminados
+
+                        }
+                        let tituloboton = ""
+                        filterList.forEach(palabra => {
+                            tituloboton = tituloboton + "[" + palabra.valor + "]"
+                        })
+                        const btnCriterios = document.getElementById("btnCriterios")
+                        btnCriterios.textContent = tituloboton
+                    }
+                }
+            })
+        }
+        //=================================================================
+
         document.getElementById("intOpentCriterio").oninput = () => {
             const criterios = {
                 "clase": criterio[0],
-                "field": criterio[1],
+                "campo": criterio[1],
                 "operador": document.getElementById("lstOperadores").value,
-                "value": document.getElementById("intOpentCriterio").value
+                "valor": document.getElementById("intOpentCriterio").value
             }
             filterList = []
             filterList.push(criterios)
@@ -340,13 +390,60 @@ const makerList = {
         const filtrador = document.getElementById("btnConsulta")
         //Debemos construir las cadenas de filtro según las listas en filterlist
         filtrador.onclick = () => {
-            add_criterio_extendido()
+            //add_criterio_extendido()
             filter_extend()
             LimpiarConsulta()
-            document.getElementById("intOpentCriterio").value = ""
+            //document.getElementById("intOpentCriterio").value = ""
         }
 
     }
+}
+function filter_extend() {
+    const casos = ActiveDBchart
+    let casos_filtered = []
+    let c_criterios = ""
+
+    for (id in filterList) {
+        const criterio = filterList[id]
+        //verifico que tipo de operador es
+        if (criterio.clase == "clsCasos") {
+            if (criterio.operador !== ".includes") {
+                c_criterios = `item["${criterio.campo}"]${criterio.operador}("${criterio.valor}")`
+            } else {
+                c_criterios = `item["${criterio.campo}"].includes("${criterio.valor}")`
+            }
+
+            _run_filter_casos()
+        } else {
+            if (criterio.operador !== ".includes") {
+                c_criterios = `item["${criterio.campo}"]${criterio.operador}("${criterio.valor}")`
+            } else {
+                c_criterios = `item["${criterio.campo}"].includes("${criterio.valor}")`
+            }
+            _run_filter_Subcasos(criterio.clase)
+        }
+    }
+
+    function _run_filter_casos() {
+        casos.forEach(item => {
+            if (eval(c_criterios)) {
+                casos_filtered.push(item)
+            }
+        })
+    }
+
+    function _run_filter_Subcasos(clase) {
+        casos.forEach(caso => {
+            caso[clase].forEach(item => {
+                if (eval(c_criterios)) {
+                    casos_filtered.push(caso)
+                }
+            })
+        })
+    }
+
+    mostrar_consolidados(casos_filtered)
+
 }
 
 function add_criterio_extendido() {
@@ -419,7 +516,8 @@ function add_criterio_extendido() {
 
 
 }
-function filter_extend() {
+
+function filter_extend2() {
     const Proyectos = GLOBAL.state.proyectos
 
     let datafilter = []

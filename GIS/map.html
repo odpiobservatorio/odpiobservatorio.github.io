@@ -353,7 +353,8 @@
                             <i class="bi bi-brush" data-bs-toggle="tooltip" data-bs-placement="top"
                                 data-bs-custom-class="tooltip" data-bs-title="Color marca"></i>
                         </button>
-                        <button class="btn dropdown-toggle bg-secondary text-white" type="button" data-bs-toggle="dropdown"
+                        <button class="btn dropdown-toggle bg-secondary text-white" type="button"
+                            data-bs-toggle="dropdown"
                             onclick="ListColors('colorline-mark-consulta','ulColorMarcaConsulta')">
                             <i class="bi bi-circle" data-bs-toggle="tooltip" data-bs-placement="top"
                                 id="btnColorlinea_consulta" data-bs-custom-class="tooltip" data-bs-title="Color linea"
@@ -443,7 +444,7 @@
         <!--Lista de operadores-->
         <small>Lista de operadores</small>
         <select id="lstOperadores" class="form-select mt-2 mb-2" onchange="">
-            <option value="===">Igual a</option>
+            <option value="==">Igual a</option>
             <option value="!==">Diferente a</option>
             <option value=".includes">Similar a</option>
             <option value=">">Mayor a</option>
@@ -458,8 +459,14 @@
                 aria-expanded="false" style="width: 100%;" id="btnCriterios">
                 Criterios
             </button>
-            <ul class="dropdown-menu menu-group-scroll border border-1 border-success shadow" style="width: 100%;"
-                id="contenedor_criterios">
+            <ul class="dropdown-menu menu-group-scroll border border-1 border-success shadow" style="width: 100%;">
+                <div class="p-3">
+                    <small class="fw-bold">Criterio libre</small>
+                    <input type="text" class="form-control form-select-sm" id="intValor_buscar">
+                </div>
+                <div id="contenedor_criterios">
+
+                </div>
 
             </ul>
         </div>
@@ -591,6 +598,9 @@
             </div>
             <div class="col text-white">
                 <button type="button" class="btn-close-white" onclick="consola_command()">Ejecutar</button>
+            </div>
+            <div class="col text-white">
+                <button type="button" class="btn-close-white" onclick="consola_clear()">Limpiar</button>
             </div>
         </div>
     </div>
@@ -876,6 +886,8 @@
     let ActiveTile;
 
     async function IniProgram() {
+        
+
         loadlayers()
         try {
             L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -921,7 +933,7 @@
         map.createPane('polygonsPane');
         map.getPane('polygonsPane').style.zIndex = 1500;
 
-        
+
 
     } catch (error) {
 

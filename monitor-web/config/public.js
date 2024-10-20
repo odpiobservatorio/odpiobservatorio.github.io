@@ -80,7 +80,6 @@ async function opendata() {
 
     }
 
-
     maker_years(data_public.consolidados[1].tiempo)
 
     document.getElementById("inMaxDep").onchange=()=>{

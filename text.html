@@ -1,8 +1,23 @@
-line.forEach(item => {
-    if (typeof registros[item.clase][0][item.field] === "number") {
-        cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}(${item.value}) ${item.link})`
+checkers.onchange = () => {
+    //Validamos si la clase es mayor o menor
+    if (checkers.checked == true) {
+        const criterios = {
+            "clase": criterio[0],
+            "field": criterio[1],
+            "operador": document.getElementById("lstOperadores").value,
+            "value": checkers.value
+        }
+        filterList.push(criterios)
 
     } else {
-        cadena = cadena + `registro["${item.clase}"].some((objTipo) => objTipo["${item.field}"]${item.operador}("${item.value}") ${item.link})`
+        const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
+        filterList = eliminados
+
     }
-})
+    let tituloboton = ""
+    filterList.forEach(palabra => {
+        tituloboton = tituloboton + "[" + palabra.value + "]"
+    })
+    const btnCriterios = document.getElementById("btnCriterios")
+    btnCriterios.textContent = tituloboton
+}
