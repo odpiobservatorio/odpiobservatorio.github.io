@@ -42,6 +42,7 @@
     <script src="/GIS/layers_config.js" async></script>
     <script src="/monitor-web/config/lists.js" async></script>
     <script src="/GIS/mod_graphics.js" async></script>
+    <script src="./config/console.js" async></script>
 
     <!--Veriones optimizdas de los procesos-->
     <script src="./GlobalMapGrphics.js" async></script>
@@ -592,530 +593,526 @@
     data-bs-backdrop="false" style="height: 250px;">
     <div class="row bg-dark align-items-center">
         <div class="col-auto">
-            <button type="button" class="btn m-1 text-white" data-bs-dismiss="offcanvas">X</button>      </div>
-        <div class="col-auto">
-            <button type="button" class="btn m-1 text-white" onclick="consola_clear()">Limpiar</button>
+            <div class="btn-group bg-dark" role="group" aria-label="Basic example">
+                <button type="button" class="btn text-white" data-bs-dismiss="offcanvas">X</button>
+                <select class="form-select form-select-sm bg-dark text-white" aria-label="Small select example"
+                    onchange="consola_newLine(this.value)">
+                    <option value=0>Limpiar filtro</option>
+                    <option value=1>Filto</option>
+                    <option value=2>Filtro extendido</option>
+                </select>
+                <button type="button" class="btn text-white" onclick="consola_clear()">Limpiar</button>
+                <button type="button" class="btn text-white" onclick="consola_newLine(0)">Agregar</button>
+            </div>
         </div>
-        <div class="col-auto">
-            <button type="button" class="btn m-1 text-white" onclick="consola_newLine('=>')">+</button>
+        <div class="bg-dark consola-scroll mt-2" id="console-lines">
+
+
         </div>
-        <div class="col-auto">
-            <select class="form-select form-select-sm" aria-label="Small select example"
-            onchange="consola_newLine(this.value)">
-            <option value="filter.clear">Filter clear</option>
-            <option value="filter=>[&#34;clsCasos&#34;,'item.macroregion==&#34;Norte&#34;']">Filter</option>
-            <option value="filter.plus=>[ [&#34;CLASE&#34;,&#34;item.CAMPO.includes('VALOR')&#34;] , [&#34;CLASE&#34;,&#34;item.CAMPO>'VALOR'&#34;] ]">Filter Plus</option>
-        </select>
+    </div>
+    <!-- Panel de marcadores new-->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasMarcador" aria-labelledby="offcanvasMarcadorLabel">
+        <div class="offcanvas-header bg-success text-white">
+            <h5 class="offcanvas-title" id="offcanvasMarcadorLabel">Panel marcadores libres</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
         </div>
 
+        <div class="offcanvas-body">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Configuración
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
 
-
-    </div>
-    <div class="bg-dark consola-scroll" id="console-lines">
-
-
-    </div>
-</div>
-<!-- Panel de marcadores new-->
-<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasMarcador"
-    aria-labelledby="offcanvasMarcadorLabel">
-    <div class="offcanvas-header bg-success text-white">
-        <h5 class="offcanvas-title" id="offcanvasMarcadorLabel">Panel marcadores libres</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-
-    <div class="offcanvas-body">
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Configuración
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-
-                        <ol class=" list-group list-group-numbered">
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Tipo de marcador</div>
-                                    <!--Selector de tipo marcador-->
-                                    <div class="input-group mb-3" style="width: 230px;">
-                                        <select class="form-select" aria-label="Default select example"
-                                            id="sel-tipo-marca" onchange="Change_icon(this)">
-                                            <option selected value="0">Círculo</option>
-                                            <option value="1">Cuadro</option>
-                                        </select>
+                            <ol class=" list-group list-group-numbered">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Tipo de marcador</div>
+                                        <!--Selector de tipo marcador-->
+                                        <div class="input-group mb-3" style="width: 230px;">
+                                            <select class="form-select" aria-label="Default select example"
+                                                id="sel-tipo-marca" onchange="Change_icon(this)">
+                                                <option selected value="0">Círculo</option>
+                                                <option value="1">Cuadro</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <span class="badge text-bg-primary rounded-pill">
-                                    <i class="bi bi-circle-fill text-secondary fs-3" id="ico-Tipo-Marca"></i>
-                                </span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Color del marcador</div>
-                                    <!--Selector de colores-->
-                                    <div class="dropdown mb-2 border border-1 w-100">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                            onclick="ListColors('color-mark-custom','ulColorMarcaPersonalizada')"
-                                            style="width: 230px;">
-                                            Color
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <div id="ulColorMarcaPersonalizada" class="container-fluid"></div>
-                                        </ul>
+                                    <span class="badge text-bg-primary rounded-pill">
+                                        <i class="bi bi-circle-fill text-secondary fs-3" id="ico-Tipo-Marca"></i>
+                                    </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Color del marcador</div>
+                                        <!--Selector de colores-->
+                                        <div class="dropdown mb-2 border border-1 w-100">
+                                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                                onclick="ListColors('color-mark-custom','ulColorMarcaPersonalizada')"
+                                                style="width: 230px;">
+                                                Color
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <div id="ulColorMarcaPersonalizada" class="container-fluid"></div>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <span class="badge rounded-pill p-2 text-black" style="background-color: black;"
-                                    id="span-color-marca">color</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Tamaño del marcador</div>
-                                    <!--Lista de tamaño del marcador-->
-                                    <div class="dropdown border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            aria-expanded="false" style="width: 230px;">
-                                            Tamaño
-                                        </button>
-                                        <ul class="dropdown-menu" style="width: 50px;">
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(5)">0.5x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(7)">0.7x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(8)">0.8x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(10)">1x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(15)">1.5x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(20)">2x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(25)">2.5x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(30)">3x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(35)">3.5x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(40)">4x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(45)">5x</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_size_custom(50)">6x</a></li>
-                                        </ul>
+                                    <span class="badge rounded-pill p-2 text-black" style="background-color: black;"
+                                        id="span-color-marca">color</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Tamaño del marcador</div>
+                                        <!--Lista de tamaño del marcador-->
+                                        <div class="dropdown border border-1">
+                                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false" style="width: 230px;">
+                                                Tamaño
+                                            </button>
+                                            <ul class="dropdown-menu" style="width: 50px;">
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(5)">0.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(7)">0.7x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(8)">0.8x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(10)">1x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(15)">1.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(20)">2x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(25)">2.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(30)">3x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(35)">3.5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(40)">4x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(45)">5x</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_size_custom(50)">6x</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <span class="badge rounded-pill p-2 text-dark fs-5" id="span-size-marca">0.5x</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Opacidad del marcador</div>
-                                    <!--Lista de tamaño del marcador-->
-                                    <div class="dropdown border border-1">
-                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            aria-expanded="false" style="width: 230px;">
-                                            Opacidad
-                                        </button>
-                                        <ul class="dropdown-menu" style="width: 50px;">
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(1)">0%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.9)">10%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.8)">20%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.7)">30%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.6)">40%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.5)">50%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.4)">60%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.3)">70%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.2)">80%</a></li>
-                                            <li><a class="dropdown-item" href="#"
-                                                    onclick="Change_opacity_custom(0.1)">90%</a></li>
-                                        </ul>
+                                    <span class="badge rounded-pill p-2 text-dark fs-5" id="span-size-marca">0.5x</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Opacidad del marcador</div>
+                                        <!--Lista de tamaño del marcador-->
+                                        <div class="dropdown border border-1">
+                                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false" style="width: 230px;">
+                                                Opacidad
+                                            </button>
+                                            <ul class="dropdown-menu" style="width: 50px;">
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(1)">0%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.9)">10%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.8)">20%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.7)">30%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.6)">40%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.5)">50%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.4)">60%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.3)">70%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.2)">80%</a></li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        onclick="Change_opacity_custom(0.1)">90%</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <span class="badge rounded-pill p-2 text-white" style="background-color: black;"
-                                    id="span-opacity-marca">0%</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-start">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold" data-bs-toggle="collapse" href="#collapseCoord" role="button"
-                                        aria-expanded="false" aria-controls="collapseCoord">
-                                        Coordenadas</div>
-                                    <!--Lista de tamaño del marcador-->
+                                    <span class="badge rounded-pill p-2 text-white" style="background-color: black;"
+                                        id="span-opacity-marca">0%</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold" data-bs-toggle="collapse" href="#collapseCoord"
+                                            role="button" aria-expanded="false" aria-controls="collapseCoord">
+                                            Coordenadas</div>
+                                        <!--Lista de tamaño del marcador-->
 
-                                    <div class="collapse" id="collapseCoord">
-                                        Insertar marca formato (5.30, -76.60)
-                                        <input id="int_coord-custom" type="text" class="form-control mt-1"
-                                            placeholder="coordenadas" aria-label="Coordenadas"
-                                            aria-describedby="basic-addon1" style="width: 230px;" value="4.797, -74.030"
-                                            oninput="{coordenada_activa=(this.value)}"">
+                                        <div class="collapse" id="collapseCoord">
+                                            Insertar marca formato (5.30, -76.60)
+                                            <input id="int_coord-custom" type="text" class="form-control mt-1"
+                                                placeholder="coordenadas" aria-label="Coordenadas"
+                                                aria-describedby="basic-addon1" style="width: 230px;"
+                                                value="4.797, -74.030" oninput="{coordenada_activa=(this.value)}"">
                                   </div>
                                 </div>
                             </li>
                             <li class=" list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <div class="fw-bold" data-bs-toggle="collapse" href="#collapseInfo"
-                                                role="button" aria-expanded="false" aria-controls="collapseInfo">
-                                                Informacion</div>
-                                            <!--Lista de tamaño del marcador-->
+                                            <div class="ms-2 me-auto">
+                                                <div class="fw-bold" data-bs-toggle="collapse" href="#collapseInfo"
+                                                    role="button" aria-expanded="false" aria-controls="collapseInfo">
+                                                    Informacion</div>
+                                                <!--Lista de tamaño del marcador-->
 
-                                            <div class="collapse" id="collapseInfo">
-                                                Insertar texto del marcador
-                                                <input id="int_coord-custom" type="text" class="form-control mt-1"
-                                                    placeholder="texto" aria-label="Coordenadas"
-                                                    aria-describedby="basic-addon1" style="width: 230px;"
-                                                    oninput="{formatActivo.texto=(this.value)}">
+                                                <div class="collapse" id="collapseInfo">
+                                                    Insertar texto del marcador
+                                                    <input id="int_coord-custom" type="text" class="form-control mt-1"
+                                                        placeholder="texto" aria-label="Coordenadas"
+                                                        aria-describedby="basic-addon1" style="width: 230px;"
+                                                        oninput="{formatActivo.texto=(this.value)}">
+                                                </div>
                                             </div>
-                                        </div>
-                            </li>
+                                </li>
 
-                        </ol>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Marcadores
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="ms-3">
+                            <button type="button" class="btn btn-secondary m-2" onclick="show_legens()">
+                                <i class="bi bi-tags me-2"></i>
+                                Mostrar
+                            </button>
+                            <button type="button" class="btn btn-secondary m-2" onclick="DeleteMarks()">
+                                <i class="bi bi-bookmark-x-fill"></i>
+                                Eliminar
+                            </button>
+
+                        </div>
+                        <div class="accordion-body">
+                            <ol class="list-group list-group-numbered" id="list_marcas-custom">
+
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Marcadores
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="ms-3">
-                        <button type="button" class="btn btn-secondary m-2" onclick="show_legens()">
-                            <i class="bi bi-tags me-2"></i>
-                            Mostrar
-                        </button>
-                        <button type="button" class="btn btn-secondary m-2" onclick="DeleteMarks()">
-                            <i class="bi bi-bookmark-x-fill"></i>
-                            Eliminar
-                        </button>
 
-                    </div>
-                    <div class="accordion-body">
-                        <ol class="list-group list-group-numbered" id="list_marcas-custom">
+            <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example"
+                style="background-color: azure; font-size: 10pt;">
+                <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()">
+                    <i class="bi bi-geo-fill"></i></button>
 
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="btn-group mt-5 w-100" role="group" aria-label="Basic example"
-            style="background-color: azure; font-size: 10pt;">
-            <button type="button" class="btn btn-success" onclick="Insertar_marcador_personalizado()">
-                <i class="bi bi-geo-fill"></i></button>
-
-            <button type="button" class="btn btn-success" onclick="copy_format_custom()">
-                <i class="bi bi-c-circle-fill"></i>
-            </button>
-            <button type="button" class="btn btn-success" onclick="paste_format_custom()">
-                <i class="bi bi-clipboard-check"></i>
-            </button>
-            <button type="button" class="btn btn-success" onclick="update_format_custom()">
-                <i class="bi bi-arrow-clockwise"></i>
-            </button>
-            <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(1)"><i
-                    class="bi bi-file-x"></i></button>
-            <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(0)"><i
-                    class="bi bi-trash3"></i></button>
-            <button type="button" class="btn btn-success" onclick="save_load_custom_marks(0)"><i
-                    class="bi bi-download"></i></button>
-            <button type="button" class="btn btn-success">
-                <label for="file-input-marks" href="">
-                    <i class="bi bi-upload"></i>
-                </label>
-            </button>
-        </div>
-        <input id="file-input-marks" style="visibility:hidden; width: 50px;" type="file" accept=".json">
-    </div>
-
-
-</div>
-<!-- Panel de infografias-->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasInfografia" aria-labelledby="offcanvasInfografia">
-    <div class="offcanvas-header bg-success text-white">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Infografias avanzado</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div>
-            <button type="button" class="btn btn-outline-success" style="width: 80%;">
-                <label for="file-load" class="">
-                    <i class="bi bi-cloud-arrow-up-fill me-2"></i>Subir archivos a la nube
-                </label>
-                <input id="file-load" style="visibility:hidden; width: 50px;" type="file" multiple
-                    accept=".json, .geojson, .txt">
-            </button>
-            <div>
-                <button type="button" class="btn btn-outline-success mt-2" style="width: 80%;"
-                    onclick="GLOBAL.firestore.ListFilesFirebase()">
-                    <i class="bi bi-cloud-arrow-down-fill me-2"></i>
-                    Ver archivos de la nube
+                <button type="button" class="btn btn-success" onclick="copy_format_custom()">
+                    <i class="bi bi-c-circle-fill"></i>
+                </button>
+                <button type="button" class="btn btn-success" onclick="paste_format_custom()">
+                    <i class="bi bi-clipboard-check"></i>
+                </button>
+                <button type="button" class="btn btn-success" onclick="update_format_custom()">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+                <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(1)"><i
+                        class="bi bi-file-x"></i></button>
+                <button type="button" class="btn btn-success" onclick="delete_all_custom_marks(0)"><i
+                        class="bi bi-trash3"></i></button>
+                <button type="button" class="btn btn-success" onclick="save_load_custom_marks(0)"><i
+                        class="bi bi-download"></i></button>
+                <button type="button" class="btn btn-success">
+                    <label for="file-input-marks" href="">
+                        <i class="bi bi-upload"></i>
+                    </label>
                 </button>
             </div>
-            <div class="mt-2" style="width: 80%;">
-                <ul class="list-group list-group-scroll" id="selPathFiles">
+            <input id="file-input-marks" style="visibility:hidden; width: 50px;" type="file" accept=".json">
+        </div>
 
-                </ul>
+
+    </div>
+    <!-- Panel de infografias-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasInfografia" aria-labelledby="offcanvasInfografia">
+        <div class="offcanvas-header bg-success text-white">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Infografias avanzado</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <button type="button" class="btn btn-outline-success" style="width: 80%;">
+                    <label for="file-load" class="">
+                        <i class="bi bi-cloud-arrow-up-fill me-2"></i>Subir archivos a la nube
+                    </label>
+                    <input id="file-load" style="visibility:hidden; width: 50px;" type="file" multiple
+                        accept=".json, .geojson, .txt">
+                </button>
+                <div>
+                    <button type="button" class="btn btn-outline-success mt-2" style="width: 80%;"
+                        onclick="GLOBAL.firestore.ListFilesFirebase()">
+                        <i class="bi bi-cloud-arrow-down-fill me-2"></i>
+                        Ver archivos de la nube
+                    </button>
+                </div>
+                <div class="mt-2" style="width: 80%;">
+                    <ul class="list-group list-group-scroll" id="selPathFiles">
+
+                    </ul>
+                </div>
+
             </div>
-
         </div>
     </div>
-</div>
 
-<!-- llama a los eventos .js para esta página -->
+    <!-- llama a los eventos .js para esta página -->
 
-<script>
-    const TileLayerA = {
-        openstreetmap: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        opentopomap: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
-        stadiamaps: "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
-    }
-    let map;
-
-
-    map = L.map("map", {
-        zoomDelta: 0.25,
-        zoomSnap: 0
-    }).setView([5.1, -75.55], 5);
+    <script>
+        const TileLayerA = {
+            openstreetmap: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            opentopomap: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+            stadiamaps: "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
+        }
+        let map;
 
 
-    let ActiveTile;
+        map = L.map("map", {
+            zoomDelta: 0.25,
+            zoomSnap: 0
+        }).setView([5.1, -75.55], 5);
 
-    async function IniProgram() {
+
+        let ActiveTile;
+
+        async function IniProgram() {
 
 
-        loadlayers()
+            loadlayers()
+            try {
+                L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                    // Y un mapa con un límite de zoom.
+                    maxZoom: 19,
+                    //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                }).addTo(map);
+                //Carga las listas para búsqueda
+                CargarlstMap()
+
+            } catch (error) {
+                console.log("Error en la función ini")
+            }
+
+        }
         try {
-            L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                // Y un mapa con un límite de zoom.
-                maxZoom: 19,
-                //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-            }).addTo(map);
-            //Carga las listas para búsqueda
-            CargarlstMap()
+            //Crea una capa en el mapa para colocar los marcadores tipo poligono, pero los deja siempre arriba.  
+            map.createPane('1');
+            //New panes to layer
+            map.getPane('1').style.zIndex = 400;
+            //Crea una capa en el mapa para colocar el mapa croquis.
+            map.createPane('2');
+            map.getPane('2').style.zIndex = 600;
+
+            map.createPane('3');
+            map.getPane('3').style.zIndex = 800;
+
+            map.createPane('4');
+            map.getPane('4').style.zIndex = 900;
+
+            map.createPane('5');
+            map.getPane('5').style.zIndex = 1100;
+
+            map.createPane('6');
+            map.getPane('6').style.zIndex = 1300;
+
+            map.createPane('7');
+            map.getPane('7').style.zIndex = 1500;
+
+            map.createPane('labels');
+            map.getPane('labels').style.zIndex = 2000;
+
+            map.createPane('polygonsPane');
+            map.getPane('polygonsPane').style.zIndex = 1500;
+
+
 
         } catch (error) {
-            console.log("Error en la función ini")
+
         }
-
-    }
-    try {
-        //Crea una capa en el mapa para colocar los marcadores tipo poligono, pero los deja siempre arriba.  
-        map.createPane('1');
-        //New panes to layer
-        map.getPane('1').style.zIndex = 400;
-        //Crea una capa en el mapa para colocar el mapa croquis.
-        map.createPane('2');
-        map.getPane('2').style.zIndex = 600;
-
-        map.createPane('3');
-        map.getPane('3').style.zIndex = 800;
-
-        map.createPane('4');
-        map.getPane('4').style.zIndex = 900;
-
-        map.createPane('5');
-        map.getPane('5').style.zIndex = 1100;
-
-        map.createPane('6');
-        map.getPane('6').style.zIndex = 1300;
-
-        map.createPane('7');
-        map.getPane('7').style.zIndex = 1500;
-
-        map.createPane('labels');
-        map.getPane('labels').style.zIndex = 2000;
-
-        map.createPane('polygonsPane');
-        map.getPane('polygonsPane').style.zIndex = 1500;
-
-
-
-    } catch (error) {
-
-    }
-</script>
-<!-- new panel canvas to list layers -->
-<div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offCapas" data-bs-scroll="true"
-    data-bs-backdrop="false">
-    <div class="offcanvas-header bg-primary">
-        <h5 class="offcanvas-title text-white" id="offcanvasCapasLabel">Panel capas</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="btn-group w-100" role="group" aria-label="Basic example" hidden="true">
-            <button type="button" class="btn btn-secondary">
-                <label for="file-input-layers">
-                    <i class="bi bi-folder2-open"></i>
-                </label>
-            </button>
-            <button type="button" class="btn btn-secondary" onclick="">
-                <i class="bi bi-download"></i>
-            </button>
+    </script>
+    <!-- new panel canvas to list layers -->
+    <div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offCapas" data-bs-scroll="true"
+        data-bs-backdrop="false">
+        <div class="offcanvas-header bg-primary">
+            <h5 class="offcanvas-title text-white" id="offcanvasCapasLabel">Panel capas</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
         </div>
-        <div id="panel_control_layers">
-
-        </div>
-
-    </div>
-</div>
-<!-- New Panel de resultados -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasResultadosNew">
-    <div class="offcanvas-header bg-success text-white">
-        <div class="row">
-            <h5 class="offcanvas-title" id="tlResultados">Resultados</h5>
-        </div>
-        <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
-    </div>
-    <div class="offcanvas-body">
-        <div>
-            <div class="list-group list-group-numbered" id="lstResGisNew">
-
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- new panel graficos -->
-<div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offGraficos" data-bs-scroll="true"
-    data-bs-backdrop="false">
-    <div class="offcanvas-header bg-secondary">
-        <h5 class="offcanvas-title text-white" id="offcanvasCapasLabel">Panel gráficos</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="accordion-item p-1">
-            <h2 class="accordion-header">
-                <button class="accordion-button mb-2" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseLineas" aria-expanded="true" aria-controls="collapseOne">
-                    Líneas / Rutas
+        <div class="offcanvas-body">
+            <div class="btn-group w-100" role="group" aria-label="Basic example" hidden="true">
+                <button type="button" class="btn btn-secondary">
+                    <label for="file-input-layers">
+                        <i class="bi bi-folder2-open"></i>
+                    </label>
                 </button>
-            </h2>
-            <div id="collapseLineas" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="row m-1">
-                    <div class="col"><small>Departamento</small>
-                        <select class="form-select form-select-sm ms-1" id="lisDep_graficos">
-                        </select>
-                    </div>
-                    <div class="col">
-                        <small>Municipio</small>
-                        <select class="form-select form-select-sm ms-1" id="lisMun_graficos">
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row m-1">
-                    <div class="col">
-                        <small>Otro lugar</small>
-                        <input type="text" class="form-control ms-1" placeholder="" id="intOtroLugar">
-                    </div>
-                    <div class="col">
-                        <small>Coordenadas</small>
-                        <input type="text" class="form-control ms-1" placeholder="0.0,0.0" id="intCoordGrafico">
-                    </div>
-                </div>
-
-                <small>Información</small>
-                <textarea class="form-control" aria-label="With textarea" id="intInfoLine" rows="2"></textarea>
-                <small>Lineas</small>
-                <div>
-                    <div class="btn-group mt-1" role="group" aria-label="Basic example" style="width: 100%;">
-                        <button id="btnColorLine_graficos" class="btn dropdown-toggle bg-secondary text-white"
-                            type=" button" data-bs-toggle="dropdown">
-                            <i id="iclg" class="bi bg-white p-1 fw-bold" data-bs-toggle="tooltip"
-                                data-bs-placement="top" id="btnColorlinea_consulta" data-bs-custom-class="tooltip"
-                                data-bs-title="Color linea" style="color: black;">——</i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <div id="ulColorLinea_graficos" class="container-fluid">
-
-                            </div>
-                        </ul>
-                        <select id="selOpacityLine_graficos" class="btn btn-secondary text-white text-start"
-                            style="width: 85px;" data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-custom-class="tooltip" data-bs-title="Opacidad linea">
-                            <option value="1">100%</option>
-                            <option value="0.9">90%</option>
-                            <option value="0.8">80%</option>
-                            <option value="0.7">70%</option>
-                            <option value="0.6">60%</option>
-                            <option value="0.5">50%</option>
-                            <option value="0.4">40%</option>
-                            <option value="0.3">30%</option>
-                            <option value="0.2">20%</option>
-                            <option value="0.1">10%</option>
-                        </select>
-                        <select id="selGrosorLine_graficos" class="btn btn-secondary text-white text-start"
-                            style="width: 70px;" data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-custom-class="tooltip" data-bs-title="Grosor linea">
-                            <option value="1">1pt</option>
-                            <option value="2">2pt</option>
-                            <option value="3">3pt</option>
-                            <option value="4">4pt</option>
-                            <option value="5">5pt</option>
-                            <option value="5">6pt</option>
-                            <option value="7">7pt</option>
-                            <option value="8">8pt</option>
-                            <option value="9">9pt</option>
-                            <option value="10">10pt</option>
-                            <option value="15">15pt</option>
-                        </select>
-                        <select id="selTipoLine_graficos" class="btn btn-secondary text-white text-start"
-                            style="width:90px;" data-bs-toggle="tooltip" data-bs-placement="top"
-                            data-bs-custom-class="tooltip" data-bs-title="Tipo de linea">
-
-                            <option value=0> —— </option>
-                            <option value=5,5> ------ </option>
-                            <option value=5,10> - - - - </option>
-                            <option value=10,5> – – – </option>
-                            <option value=1> ∙ ∙ ∙ ∙ ∙ </option>
-                        </select>
-                    </div>
-                    <div class="btn-group mt-1" role="group" aria-label="Basic example" style="width: 100%;">
-                        <button type="button" class="btn btn-secondary" id="line_ini_point">
-                            <i class="bi bi-align-start"></i>
-                        </button>
-                        <button type="button" class="btn btn-secondary" id="line_end_point">
-                            <i class="bi bi-align-end"></i>
-                        </button>
-
-                        <button type="button" class="btn btn-secondary" onclick="clear_line()">
-                            Limpiar
-                        </button>
-                        <button type="button" class="btn btn-secondary" id="btnSave_line">
-                            <i class="bi bi-download"></i>
-                        </button>
-                        <button for="file-input-marks" type="button" class="btn btn-secondary" id="btnLoad_line">
-                            <label for="file-input-lines" href="">
-                                <i class="bi bi-upload"></i>
-                            </label>
-                        </button>
-                    </div>
-                    <input id="file-input-lines" style="visibility:hidden; width: 50px;" type="file" accept=".json">
-                </div>
+                <button type="button" class="btn btn-secondary" onclick="">
+                    <i class="bi bi-download"></i>
+                </button>
             </div>
-            <ol class="list-group list-group-numbered" id="panel_lista_lines">
+            <div id="panel_control_layers">
 
-            </ol>
+            </div>
 
         </div>
     </div>
+    <!-- New Panel de resultados -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasResultadosNew">
+        <div class="offcanvas-header bg-success text-white">
+            <div class="row">
+                <h5 class="offcanvas-title" id="tlResultados">Resultados</h5>
+            </div>
+            <button type="button" class="text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
-</div>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <div class="list-group list-group-numbered" id="lstResGisNew">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- new panel graficos -->
+    <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offGraficos" data-bs-scroll="true"
+        data-bs-backdrop="false">
+        <div class="offcanvas-header bg-secondary">
+            <h5 class="offcanvas-title text-white" id="offcanvasCapasLabel">Panel gráficos</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion-item p-1">
+                <h2 class="accordion-header">
+                    <button class="accordion-button mb-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseLineas" aria-expanded="true" aria-controls="collapseOne">
+                        Líneas / Rutas
+                    </button>
+                </h2>
+                <div id="collapseLineas" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="row m-1">
+                        <div class="col"><small>Departamento</small>
+                            <select class="form-select form-select-sm ms-1" id="lisDep_graficos">
+                            </select>
+                        </div>
+                        <div class="col">
+                            <small>Municipio</small>
+                            <select class="form-select form-select-sm ms-1" id="lisMun_graficos">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row m-1">
+                        <div class="col">
+                            <small>Otro lugar</small>
+                            <input type="text" class="form-control ms-1" placeholder="" id="intOtroLugar">
+                        </div>
+                        <div class="col">
+                            <small>Coordenadas</small>
+                            <input type="text" class="form-control ms-1" placeholder="0.0,0.0" id="intCoordGrafico">
+                        </div>
+                    </div>
+
+                    <small>Información</small>
+                    <textarea class="form-control" aria-label="With textarea" id="intInfoLine" rows="2"></textarea>
+                    <small>Lineas</small>
+                    <div>
+                        <div class="btn-group mt-1" role="group" aria-label="Basic example" style="width: 100%;">
+                            <button id="btnColorLine_graficos" class="btn dropdown-toggle bg-secondary text-white"
+                                type=" button" data-bs-toggle="dropdown">
+                                <i id="iclg" class="bi bg-white p-1 fw-bold" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" id="btnColorlinea_consulta" data-bs-custom-class="tooltip"
+                                    data-bs-title="Color linea" style="color: black;">——</i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <div id="ulColorLinea_graficos" class="container-fluid">
+
+                                </div>
+                            </ul>
+                            <select id="selOpacityLine_graficos" class="btn btn-secondary text-white text-start"
+                                style="width: 85px;" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Opacidad linea">
+                                <option value="1">100%</option>
+                                <option value="0.9">90%</option>
+                                <option value="0.8">80%</option>
+                                <option value="0.7">70%</option>
+                                <option value="0.6">60%</option>
+                                <option value="0.5">50%</option>
+                                <option value="0.4">40%</option>
+                                <option value="0.3">30%</option>
+                                <option value="0.2">20%</option>
+                                <option value="0.1">10%</option>
+                            </select>
+                            <select id="selGrosorLine_graficos" class="btn btn-secondary text-white text-start"
+                                style="width: 70px;" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Grosor linea">
+                                <option value="1">1pt</option>
+                                <option value="2">2pt</option>
+                                <option value="3">3pt</option>
+                                <option value="4">4pt</option>
+                                <option value="5">5pt</option>
+                                <option value="5">6pt</option>
+                                <option value="7">7pt</option>
+                                <option value="8">8pt</option>
+                                <option value="9">9pt</option>
+                                <option value="10">10pt</option>
+                                <option value="15">15pt</option>
+                            </select>
+                            <select id="selTipoLine_graficos" class="btn btn-secondary text-white text-start"
+                                style="width:90px;" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-custom-class="tooltip" data-bs-title="Tipo de linea">
+
+                                <option value=0> —— </option>
+                                <option value=5,5> ------ </option>
+                                <option value=5,10> - - - - </option>
+                                <option value=10,5> – – – </option>
+                                <option value=1> ∙ ∙ ∙ ∙ ∙ </option>
+                            </select>
+                        </div>
+                        <div class="btn-group mt-1" role="group" aria-label="Basic example" style="width: 100%;">
+                            <button type="button" class="btn btn-secondary" id="line_ini_point">
+                                <i class="bi bi-align-start"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="line_end_point">
+                                <i class="bi bi-align-end"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-secondary" onclick="clear_line()">
+                                Limpiar
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="btnSave_line">
+                                <i class="bi bi-download"></i>
+                            </button>
+                            <button for="file-input-marks" type="button" class="btn btn-secondary" id="btnLoad_line">
+                                <label for="file-input-lines" href="">
+                                    <i class="bi bi-upload"></i>
+                                </label>
+                            </button>
+                        </div>
+                        <input id="file-input-lines" style="visibility:hidden; width: 50px;" type="file" accept=".json">
+                    </div>
+                </div>
+                <ol class="list-group list-group-numbered" id="panel_lista_lines">
+
+                </ol>
+
+            </div>
+        </div>
+
+    </div>
 </div>
 
 </html>
