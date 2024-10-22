@@ -105,16 +105,12 @@ function consola_command(control_line) {
 
     if (comando[0].trim() == "filter") {
         const line_comand = comando[1].split("#style")
-
         const formato_inp = eval(line_comand[1])
-
         try {
             color_marca_busqueda = formato_inp[0]
             size_marca_busqueda = formato_inp[1]
             opacidad_marca_busqueda = formato_inp[2]
-        } catch (error) {
-
-        }
+        } catch (error) {}
         const criterios_eval = eval(line_comand[0])
         filter_from_console(criterios_eval[0], criterios_eval[1])
 
@@ -125,16 +121,12 @@ function consola_command(control_line) {
         limpiar_todo_marcas()
     } else if (comando[0].trim() == "filter.plus") {
         const line_comand = comando[1].split("#style")
-
         const formato_inp = eval(line_comand[1])
-
         try {
             color_marca_busqueda = formato_inp[0]
             size_marca_busqueda = formato_inp[1]
             opacidad_marca_busqueda = formato_inp[2]
-        } catch (error) {
-
-        }
+        } catch (error) {}
         const criterios_eval = eval(line_comand[0])
         filter_from_console_plus(criterios_eval)
     }
@@ -171,7 +163,6 @@ function consola_command(control_line) {
         })
         lis_layers = []
     }
-
 }
 function filter_from_console(clase, filter_comand) {
     const casos = Active_data_monitor.clsCasos
@@ -243,5 +234,8 @@ function filter_from_console_plus(filter_comand) {
 
     mostrar_resultados(casos_filtered)
     crear_consolidado_resultado(casos_filtered, criteria_items)
+
+}
+function consola_run_all(){
 
 }
