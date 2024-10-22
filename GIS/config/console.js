@@ -16,12 +16,13 @@ function consola_clear() {
 }
 
 const comandosEx = [
+    [""],
     ["filter.clear"],
     [`filter => ["clsCasos","item.macroregion == 'Norte'"]#style["black",8,0.8]`],
     [`filter.plus=>[["clsPueblos","item.nombre.includes('Emb')"],["clsCasos","item.npersonas>1000"]]#style["pink",8,0.8]`],
     ["layer.show=>['CAPA']"],
     ["layer.hide=>['CAPA']"],
-    ["=>"],
+    ["layer.hide.all"],
 
 ]
 
@@ -141,7 +142,6 @@ function consola_command(control_line) {
         const line_comand = comando[1].split("#style")
         const nameLayer = eval(line_comand[0])
         nameLayer.forEach(capa => {
-
             const layer = jslayers.filter(l => l[1] == capa)
             const inputC = document.getElementById("checklayer_" + layer[0][1])
             inputC.checked = true
@@ -159,27 +159,17 @@ function consola_command(control_line) {
             map.removeLayer(layer_remove[0][1])
             lis_layers = layer_noremove
         })
-
-
     } else if (comando[0].trim() == "layer.hide.all") {
-
-        
-
         lis_layers.forEach(capa => {
-          
-            const simplename = capa[0].split("_")
-          
+            const simplename = capa[0].split("_")         
             const inputC = document.getElementById("checklayer_" + simplename[1])
             inputC.checked = false
             let layer_remove = lis_layers.filter(value => value[0] == "layer_" + simplename[1])
-            let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + simplename)
+            let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + simplename[1])
             map.removeLayer(layer_remove[0][1])
             lis_layers = layer_noremove
-        }
-        )
-        //lis_layers = []
-
-
+        })
+        lis_layers = []
     }
 
 }
