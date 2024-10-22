@@ -250,7 +250,7 @@
     background-color: #642018;
 }
 .consola-scroll {
-    height: 400px;
+    height: 200px;
     line-height: 1em;
     overflow-x: hidden;
     overflow-y: scroll;

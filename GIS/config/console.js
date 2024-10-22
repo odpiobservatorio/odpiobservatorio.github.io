@@ -55,6 +55,7 @@ function consola_newLine(texto) {
                 consola_command(inputLine)
             }
             inputLine.onchange = () => {
+                consola_command(inputLine)
                 comando.command = inputLine.value
             }
 
