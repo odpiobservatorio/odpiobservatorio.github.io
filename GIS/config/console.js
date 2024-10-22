@@ -115,6 +115,13 @@ function consola_command(control_line) {
         filter_from_console(criterios_eval[0], criterios_eval[1])
 
     } else if (comando[0].trim() == "filter.all") {
+        const line_comand = comando[1].split("#style")
+        const formato_inp = eval(line_comand[1])
+        try {
+            color_marca_busqueda = formato_inp[0]
+            size_marca_busqueda = formato_inp[1]
+            opacidad_marca_busqueda = formato_inp[2]
+        } catch (error) {}
         ver_todo()
     }
     else if (comando[0].trim() == "filter.clear") {
