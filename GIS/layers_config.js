@@ -964,6 +964,7 @@ const layers = {
 
                 //Agrega esta capa a la lista de capas para activar o desactivar
                 lis_layers.push([layer_name, layer])
+
             } else if (type == "list") {
                 const layer = (eval(layer_name));
                 let points = []
@@ -973,8 +974,6 @@ const layers = {
                 for (condicion in condiciones) {
                     nCondiciones++
                 }
-
-
                 layer.forEach(item => {
                     const lat = format_layer[layer_name].atributes.coordenadas.lat
                     const lng = format_layer[layer_name].atributes.coordenadas.lng
@@ -1049,6 +1048,7 @@ const layers = {
             }
 
         } else {
+
             if (type == "mark") {
                 //Crear dos filtros para mostrar o quitar la capa
                 //Solo para capas locales fijas, que siempre se presentarán en el programa
@@ -1063,7 +1063,7 @@ const layers = {
                 //Crear dos filtros para mostrar o quitar la capa
                 //Solo para capas locales fijas, que siempre se presentarán en el programa
                 let layer_remove = lis_layers.filter(value => value[0] == layer_name)
-                let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)
+                let layer_noremove = lis_layers.filter(value => value[0] !== layer_name)          
                 map.removeLayer(layer_remove[0][1])
                 lis_layers = layer_noremove
             } else if (type == "list") {
