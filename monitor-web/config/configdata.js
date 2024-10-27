@@ -238,11 +238,11 @@ async function CredentialIn(email, password) {
 async function CredentialIn2(email, password) {
     try {
         const crearcredencial = await signInWithEmailAndPassword(auth, email, password)
-        Registrado = 1
+        //Registrado = 1
         openIni()
     } catch (error) {
         //location.href = "../index.html"
-        Registrado = 0
+        //Registrado = 0
     }
 }
 //función para cerrar la sesión de la aplicación

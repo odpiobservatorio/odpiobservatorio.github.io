@@ -74,8 +74,6 @@ async function opendata() {
         const corteData = document.getElementById("corteData")
         corteData.textContent = "Informe a corte de " + data_public.corte
 
-
-
     } catch (error) {
 
     }
