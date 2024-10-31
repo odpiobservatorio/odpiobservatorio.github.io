@@ -66,10 +66,6 @@ function open_local_layer(control) {
             }
         }).addTo(map);
 
-        //const layer_exist = layers_local.filter(ele => ele[1] == layer_title[0])
-        //if (layer_exist.length !== 0) {
-        //  mensajes("El archivo ya ha sido cargado", "Orange")
-        //}
 
         const newFormat = {
             "style": {
@@ -95,11 +91,6 @@ function open_local_layer(control) {
             "properties": layer_propierties,
             "layer": Layer_Open,
             "style": {
-                line_color: "white",
-                back_color: randomColor(),
-                Opacity: 1,
-                line_weight: 3,
-                pane: "'3'",
                 "change_backColor": (color) => {
                     //Limpiamos la capa del mapa
                     map.removeLayer(layers_local["layer_" + idR].layer)
@@ -158,11 +149,7 @@ function open_local_layer(control) {
 
         }
 
-
-
         layers_local["layer_" + idR] = layer_template
-
-        layers_local["layer_" + idR].style.change_pane('1')
 
     };
     lector.readAsText(archivo);
