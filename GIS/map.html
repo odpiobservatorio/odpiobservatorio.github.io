@@ -40,6 +40,7 @@
 
     <!--Versiones nuevs d eadministración de capas-->
     <script src="/GIS/layers_config.js" async></script>
+    <script src="/GIS/config/local-layers.js" async></script>
     <script src="/monitor-web/config/lists.js" async></script>
     <script src="/GIS/mod_graphics.js" async></script>
     <script src="./config/console.js" async></script>
@@ -137,14 +138,22 @@
                     <li class="nav-item dropdown text-white">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Configuración
+                            Herramientas
                         </a>
                         <ul class="dropdown-menu">
                             <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasLocal">Capas locales
+                                </a>
+                            </li>
+                            <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasConsola">Consola</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasConsola">Consola
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -898,18 +907,18 @@
 
     let ActiveTile;
 
-        async function IniProgram() {
+    async function IniProgram() {
 
 
-            loadlayers()
-            try {
-                L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                    // Y un mapa con un límite de zoom.
-                    maxZoom: 19,
-                    //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                }).addTo(map);
-                //Carga las listas para búsqueda
-                CargarlstMap()
+        loadlayers()
+        try {
+            L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                // Y un mapa con un límite de zoom.
+                maxZoom: 19,
+                //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            }).addTo(map);
+            //Carga las listas para búsqueda
+            CargarlstMap()
 
         } catch (error) {
             console.log("Error en la función ini")
@@ -1121,5 +1130,28 @@
 
 </div>
 </div>
+<div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasLocal" data-bs-scroll="true"
+  data-bs-backdrop="false">
+  <div class="offcanvas-header bg-secondary">
+    <h5 class="offcanvas-title text-white">Panel capas locales</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="btn-group w-100" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary">
+        <label for="file-input-layers">
+          <i class="bi bi-folder2-open"></i>
+        </label>
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="">
+        <i class="bi bi-download"></i>
+      </button>
+    </div>
+    <div id="panel_control_layers_monitor">
 
+    </div>
+    <input id="file-input-layers" style="visibility:hidden; width: 50px;" type="file" accept=".geojson"
+      onchange="open_local_layer(event)">
+  </div>
+</div>
 </html>
