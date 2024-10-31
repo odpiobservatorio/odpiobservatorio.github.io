@@ -1130,28 +1130,31 @@
 
 </div>
 </div>
+<!--Local layers geojson-->
+<!--//////////////////////////////////////////////////////////////////////////////////////////-->
 <div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasLocal" data-bs-scroll="true"
-  data-bs-backdrop="false">
-  <div class="offcanvas-header bg-secondary">
-    <h5 class="offcanvas-title text-white">Panel capas locales</h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div class="btn-group w-100" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary">
-        <label for="file-input-layers">
-          <i class="bi bi-folder2-open"></i>
-        </label>
-      </button>
-      <button type="button" class="btn btn-secondary" onclick="">
-        <i class="bi bi-download"></i>
-      </button>
+    data-bs-backdrop="false">
+    <div class="offcanvas-header bg-secondary">
+        <h5 class="offcanvas-title text-white">Panel capas locales</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div id="panel_control_layers_monitor">
+    <div class="offcanvas-body">
+        <div class="btn-group w-100" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary">
+                <label for="file-input-layers">
+                    <i class="bi bi-folder2-open"></i>
+                </label>
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="">
+                <i class="bi bi-download"></i>
+            </button>
+        </div>
+        <div class="accordion accordion-flush" id="panel_localLayers">
 
+        </div>
+        <input id="file-input-layers" style="visibility:hidden; width: 50px;" type="file" accept=".geojson"
+            onchange="open_local_layer(event)">
     </div>
-    <input id="file-input-layers" style="visibility:hidden; width: 50px;" type="file" accept=".geojson"
-      onchange="open_local_layer(event)">
-  </div>
 </div>
+
 </html>

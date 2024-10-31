@@ -203,10 +203,11 @@
 .btn_label:hover {
     background-color: rgb(69, 68, 68);
     color: white;
-    border-color:white;
+    border-color: white;
     cursor: pointer;
-    
+
 }
+
 .tooltip-container {
     position: relative;
     /*relative: los elementos se posicionan de forma relativa a su posición normal.*/
@@ -236,19 +237,21 @@
     opacity: 1;
 }
 
-.btn-mini{
+.btn-mini {
     width: 30px;
     height: 30px;
     background-color: #C0392B;
     text-align: center;
-    vertical-align:bottom;
+    vertical-align: bottom;
     padding-top: 8px;
     margin-top: 5px;
     border-radius: 5px;
 }
-.btn-mini:hover{
+
+.btn-mini:hover {
     background-color: #642018;
 }
+
 .consola-scroll {
     height: 200px;
     line-height: 1em;
@@ -256,4 +259,47 @@
     overflow-y: scroll;
     width: 100%;
     border: 1px solid;
-  }
+}
+
+.boton-format {
+    color: #99a3a4;
+    cursor: pointer;
+}
+
+.boton-format:hover {
+    color: #424949;
+}
+
+.boton-change {
+    border: #99a3a4 solid 1px;
+    border-radius: 3px;
+    font-size: 20px;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.boton-change:hover {
+    background-color: #f2f4f4;
+}
+
+.line-layer {
+    border-radius: 3px;
+    border: #99a3a4 solid 1px;
+    padding: 3px;
+    margin: 3px;
+}
+
+.line-layer:hover {
+    background-color: #f2f4f4;
+}
+
+.line-number {
+    background-color: white;
+}
+
+.line-number:hover {
+    background-color: #f2f4f4;
+    font-weight: bold;
+}
