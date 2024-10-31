@@ -16,9 +16,13 @@ function consola_clear() {
 }
 
 const comandosEx = [
+    [""],
     ["filter.clear"],
     [`filter => ["clsCasos","item.macroregion == 'Norte'"]#style["black",8,0.8]`],
     [`filter.plus=>[["clsPueblos","item.nombre.includes('Emb')"],["clsCasos","item.npersonas>1000"]]#style["pink",8,0.8]`],
+    ["layer.show=>['CAPA']"],
+    ["layer.hide=>['CAPA']"],
+    ["layer.hide.all"],
 
 ]
 
@@ -55,7 +59,6 @@ function consola_newLine(texto) {
                 consola_command(inputLine)
             }
             inputLine.onchange = () => {
-                consola_command(inputLine)
                 comando.command = inputLine.value
             }
 
@@ -102,44 +105,71 @@ function consola_command(control_line) {
 
     if (comando[0].trim() == "filter") {
         const line_comand = comando[1].split("#style")
-
         const formato_inp = eval(line_comand[1])
-
         try {
             color_marca_busqueda = formato_inp[0]
             size_marca_busqueda = formato_inp[1]
-            opacidad_marca_busqueda= formato_inp[2]
-        } catch (error) {
-
-        }
+            opacidad_marca_busqueda = formato_inp[2]
+        } catch (error) {}
         const criterios_eval = eval(line_comand[0])
         filter_from_console(criterios_eval[0], criterios_eval[1])
 
     } else if (comando[0].trim() == "filter.all") {
+        const line_comand = comando[1].split("#style")
+        const formato_inp = eval(line_comand[1])
+        try {
+            color_marca_busqueda = formato_inp[0]
+            size_marca_busqueda = formato_inp[1]
+            opacidad_marca_busqueda = formato_inp[2]
+        } catch (error) {}
         ver_todo()
     }
     else if (comando[0].trim() == "filter.clear") {
         limpiar_todo_marcas()
     } else if (comando[0].trim() == "filter.plus") {
         const line_comand = comando[1].split("#style")
-
         const formato_inp = eval(line_comand[1])
-
         try {
             color_marca_busqueda = formato_inp[0]
             size_marca_busqueda = formato_inp[1]
-            opacidad_marca_busqueda= formato_inp[2]
-        } catch (error) {
-
-        }
-
-
+            opacidad_marca_busqueda = formato_inp[2]
+        } catch (error) {}
         const criterios_eval = eval(line_comand[0])
         filter_from_console_plus(criterios_eval)
     }
-    else {
+    else if (comando[0].trim() == "layer.show") {
+        const line_comand = comando[1].split("#style")
+        const nameLayer = eval(line_comand[0])
+        nameLayer.forEach(capa => {
+            const layer = jslayers.filter(l => l[1] == capa)
+            const inputC = document.getElementById("checklayer_" + layer[0][1])
+            inputC.checked = true
+            layers['put_layer'](inputC, 'layer_' + layer[0][1], layer[0][3])
+        })
     }
-
+    else if (comando[0].trim() == "layer.hide") {
+        const line_comand = comando[1].split("#style")
+        const nameLayer = eval(line_comand[0])
+        nameLayer.forEach(capa => {
+            const inputC = document.getElementById("checklayer_" + capa)
+            inputC.checked = false
+            let layer_remove = lis_layers.filter(value => value[0] == "layer_" + capa)
+            let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + capa)
+            map.removeLayer(layer_remove[0][1])
+            lis_layers = layer_noremove
+        })
+    } else if (comando[0].trim() == "layer.hide.all") {
+        lis_layers.forEach(capa => {
+            const simplename = capa[0].split("_")         
+            const inputC = document.getElementById("checklayer_" + simplename[1])
+            inputC.checked = false
+            let layer_remove = lis_layers.filter(value => value[0] == "layer_" + simplename[1])
+            let layer_noremove = lis_layers.filter(value => value[0] !== "layer_" + simplename[1])
+            map.removeLayer(layer_remove[0][1])
+            lis_layers = layer_noremove
+        })
+        lis_layers = []
+    }
 }
 function filter_from_console(clase, filter_comand) {
     const casos = Active_data_monitor.clsCasos
@@ -211,5 +241,8 @@ function filter_from_console_plus(filter_comand) {
 
     mostrar_resultados(casos_filtered)
     crear_consolidado_resultado(casos_filtered, criteria_items)
+
+}
+function consola_run_all(){
 
 }
