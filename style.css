@@ -325,3 +325,23 @@
     border-radius: 5px;
     border: 1px solid darkslategray;
 }
+
+.divscroll-y{
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y:auto;
+    text-align: justify;
+    max-height: fit-content;
+    margin-left: -5pt;
+    margin-top: -5pt;
+    border-radius: 5px;
+    border: 1px solid darkslategray;
+}
+
+.list-items-odpi{
+    background-color: white;
+}
+.list-items-odpi:hover{
+    background-color:#f2f4f4;
+    font-weight: bold;
+}

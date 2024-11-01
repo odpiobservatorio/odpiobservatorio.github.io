@@ -54,11 +54,11 @@ let layers_local = {}
 let mkCov = []
 let latlngConv = [5.1, -75.55]
 
-function open_local_layer(control,option) {
+function open_local_layer(control, option) {
     const archivo = control.target.files[0];
 
-    var path = (window.URL || window.webkitURL).createObjectURL(archivo);
-    console.log('path', path);
+    //var tmppath = URL.createObjectURL(archivo)
+
 
     if (!archivo) {
         return;
@@ -69,17 +69,17 @@ function open_local_layer(control,option) {
     lector.onload = function (e) {
         var file_geojson = e.target.result;
         var layer_local = JSON.parse(file_geojson)
-        if(option=="directo"){
-            load_direct_layer(layer_local,layer_title,)
-        }else{
-            load_edit_layer(layer_local,layer_title,archivo)
+        if (option == "directo") {
+            load_direct_layer(layer_local, layer_title,)
+        } else {
+            load_edit_layer(layer_local, layer_title, archivo.name)
         }
-        
+
     };
     lector.readAsText(archivo);
 }
 
-function load_direct_layer(layer_local,layer_title){
+function load_direct_layer(layer_local, layer_title) {
     var layer_propierties = []
 
     //Creamos un índice aleatorio
@@ -495,7 +495,7 @@ function maker_att_layer(layer, contenedor) {
 
                 if (att == atrib) {
                     layers[property].options["fillColor"] = colornew
-                    
+
                 }
             }
             let newAtributo = [
@@ -509,7 +509,7 @@ function maker_att_layer(layer, contenedor) {
         })
 
         layer.show(true)
-        make_leyendas(layer,sel_Campo.value)
+        make_leyendas(layer, sel_Campo.value)
     }
 
     const btnLeyendas = document.createElement("button")
@@ -521,7 +521,7 @@ function maker_att_layer(layer, contenedor) {
         make_leyendas(layer)
     }
 }
-function make_leyendas(layer,campo) {
+function make_leyendas(layer, campo) {
     const div = document.createElement("div")
     div.className = "bg-white shadow divscroll pb-2"
     div.style.width = 200 + "px"
@@ -644,8 +644,82 @@ function make_leyendas(layer,campo) {
 /////////////////////////////////////////////////////////////////////////////
 //Editor de json
 /////////////////////////////////////////////////////////////////////////////
-function load_edit_layer(layer_local,layer_title,ruta){
+function load_edit_layer(layer_local, layer_title, ruta) {
     const file_input_layers = document.getElementById("file_input_layers")
-    file_input_layers.value=ruta
+    const panel_fields_gjson = document.getElementById("panel_fields_gjson")
+    panel_fields_gjson.innerHTML = ""
+    file_input_layers.value = ruta
+    //console.log(layer_local)
+
+    let atributos = []
+
+    //Miramos uno a uno lo spolígonos
+    for (id in layer_local.features) {
+        //Dentro de cada polígono hay una propiedades
+        const propiedades = layer_local.features[id].properties
+        for (id in propiedades) {
+            if (atributos.indexOf(id) == -1) {
+                atributos[id] = {
+                    "old": id,
+                    "new": id
+                }
+            }
+        }
+        //layer_local.features[id].properties["MIO"]=layer_local.features[id].properties["NOMSZH"]
+        //delete layer_local.features[id].properties["NOMSZH"]
+    }
+    for (id in atributos) {
+        const row = document.createElement("div")
+        row.className = "row ms-2 list-items-odpi me-3"
+        panel_fields_gjson.appendChild(row)
+
+        const col_atributo = document.createElement("div")
+        col_atributo.className = "col m-1 p-1"
+        col_atributo.textContent = id
+        row.appendChild(col_atributo)
+
+        const col_editar = document.createElement("div")
+        col_editar.className = "col m-1 p-1"
+        row.appendChild(col_editar)
+
+        const input_editar = document.createElement("input")
+        input_editar.className = "form-control"
+        input_editar.value = col_atributo.textContent
+        col_editar.appendChild(input_editar)
+        input_editar.oninput = () => {
+            atributos[col_atributo.textContent].new = input_editar.value
+        }
+
+        const col_valores = document.createElement("div")
+        col_valores.className = "col m-1"
+        row.appendChild(col_valores)
+
+        const btn_valores = document.createElement("div")
+        btn_valores.className = "bi bi-card-list boton-change m-1"
+        col_valores.appendChild(btn_valores)
+
+        btn_valores.onclick = () => {
+            const int_valores = document.getElementById("int_valores_atributo")
+            //Buscar todos los valores dentro de ese atributo
+            let list_valores = []
+            for (id in layer_local.features) {
+                //Dentro de cada polígono hay una propiedades
+                const valor = layer_local.features[id].properties[col_atributo.textContent]
+
+                if (list_valores.includes(valor) !== true) {
+                    list_valores.push("\n" + valor)
+                }
+                //layer_local.features[id].properties["MIO"]=layer_local.features[id].properties["NOMSZH"]
+                //delete layer_local.features[id].properties["NOMSZH"]
+            }
+            int_valores.value=list_valores
+
+        }
+
+
+    }
+
+
+
 
 }

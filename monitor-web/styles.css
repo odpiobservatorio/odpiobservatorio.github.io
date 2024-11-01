@@ -102,5 +102,11 @@ td-wrap{
     color: white;
 }
 
-
+.list-items-odpi{
+    background-color: white;
+}
+list-items-odpi:hover{
+    background-color:#f2f4f4;
+    font-weight: bold;
+}
 
