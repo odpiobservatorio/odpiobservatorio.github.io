@@ -51,6 +51,8 @@ const Color_local_layer = [
     '#FFFF00', '#FFFFE0', '#FFFFF0',]
 
 let layers_local = {}
+let mkCov = []
+let latlngConv = [5.1, -75.55]
 
 function open_local_layer(control) {
     const archivo = control.target.files[0];
@@ -63,6 +65,7 @@ function open_local_layer(control) {
     lector.onload = function (e) {
         var file_geojson = e.target.result;
         var layer_local = JSON.parse(file_geojson)
+
         var layer_propierties = []
 
         //Creamos un índice aleatorio
@@ -91,6 +94,18 @@ function open_local_layer(control) {
             "id": idR,
             "title": layer_title[0],
             "properties": layer_propierties,
+            "change_propertie": (valor) => {
+                let newList = []
+                const me_layer = layers_local["layer_" + idR].layer._layers
+                for (const property in me_layer) {
+                    const att = me_layer[property].feature.properties[valor]
+                    if (newList.includes(att) !== true) {
+                        newList.push(att)
+                    }
+                }
+                return newList
+            },
+            "convenciones": [],
             "layer": Layer_Open,
             "style": {
                 "change_backColor": (color) => {
@@ -140,7 +155,7 @@ function open_local_layer(control) {
                     layers_local["layer_" + idR].layer.addTo(map)
                 }
             },
-            "hide": (value) => {
+            "show": (value) => {
                 if (value == true) {
                     layers_local["layer_" + idR].layer.addTo(map)
                 } else {
@@ -196,7 +211,7 @@ function make_line_layer(layer) {
     //administramos las acciones del control check
     check_layer.checked = true
     check_layer.oninput = () => {
-        layer.hide(check_layer.checked)
+        layer.show(check_layer.checked)
     }
 
     //olumna donde va el título
@@ -214,16 +229,16 @@ function make_line_layer(layer) {
     put_botones_formato(layer, divBotones)
 }
 
-function put_botones_formato(layer, conenedor) {
+function put_botones_formato(layer, contenedor) {
     //Creamos una línea para contener todos los botones
     const row = document.createElement("div")
     row.className = "row  align-items-center m-2"
-    conenedor.appendChild(row)
+    contenedor.appendChild(row)
 
     //
     const col1 = document.createElement("div")
     col1.className = "col-auto me-1"
-    col1.style.width = "35px"
+    col1.style.width = "50px"
     row.appendChild(col1)
 
     const i_backColor = document.createElement("div")
@@ -254,7 +269,7 @@ function put_botones_formato(layer, conenedor) {
 
     const col2 = document.createElement("div")
     col2.className = "col-auto me-1"
-    col2.style.width = "35px"
+    col2.style.width = "50px"
     row.appendChild(col2)
 
     const i_lineColor = document.createElement("div")
@@ -284,7 +299,7 @@ function put_botones_formato(layer, conenedor) {
 
     const col3 = document.createElement("div")
     col3.className = "col-auto me-1"
-    col3.style.width = "35px"
+    col3.style.width = "50px"
     row.appendChild(col3)
 
     const i_lineWidth = document.createElement("div")
@@ -304,12 +319,12 @@ function put_botones_formato(layer, conenedor) {
     list_line.forEach(ele => {
         const number = document.createElement("div")
         number.textContent = ele + "pt"
-        number.className="line-number"
+        number.className = "line-number"
         number.style.cursor = "pointer"
         menu3.appendChild(number)
         number.onclick = () => {
             layer.style.change_lineWeight(ele)
-            i_lineWidth.textContent=ele + "pt"
+            i_lineWidth.textContent = ele + "pt"
         }
     })
 
@@ -332,17 +347,286 @@ function put_botones_formato(layer, conenedor) {
     menu4.style.height = "200px"
     col4.appendChild(menu4)
 
-    const list_opacity = [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4,0.3,0.2,0.1]
+    const list_opacity = [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
     list_opacity.forEach(ele => {
         const number = document.createElement("div")
         number.textContent = (ele * 100) + "%"
-        number.className="line-number"
+        number.className = "line-number"
         number.style.cursor = "pointer"
         menu4.appendChild(number)
         number.onclick = () => {
             layer.style.change_opacity(ele)
-            i_Opacity.textContent=(ele * 100) + "%"
+            i_Opacity.textContent = (ele * 100) + "%"
         }
     })
 
+
+    const col5 = document.createElement("div")
+    col5.className = "col-auto me-1"
+    col5.style.width = "50px"
+    row.appendChild(col5)
+
+    const i_Pane = document.createElement("div")
+    i_Pane.className = "boton-change pt-1 bi-layer-backward me-auto"
+    i_Pane.style.fontSize = "16px"
+    i_Pane.textContent = "  1"
+    i_Pane.setAttribute("data-bs-toggle", "dropdown")
+    col5.appendChild(i_Pane)
+
+    const menu5 = document.createElement("ul")
+    menu5.className = "dropdown-menu p-1 list-group-scroll"
+    menu5.style.width = "60px"
+    menu5.style.height = "200px"
+    col5.appendChild(menu5)
+
+    const list_pane = ["1", "2", "3", "4", "5", "6", "7"]
+    list_pane.forEach(ele => {
+        const number = document.createElement("div")
+        number.textContent = ele
+        number.className = "line-number"
+        number.style.cursor = "pointer"
+        menu5.appendChild(number)
+        number.onclick = () => {
+            layer.style.change_pane(ele)
+            i_Pane.textContent = "  " + ele
+        }
+    })
+
+    const col6 = document.createElement("div")
+    col6.className = "col-auto me-1"
+    col6.style.width = "50px"
+    row.appendChild(col6)
+
+    const i_att = document.createElement("div")
+    i_att.className = "boton-change pt-1"
+    i_att.style.fontSize = "16px"
+    col6.appendChild(i_att)
+
+    const a_att = document.createElement("a")
+    a_att.className = "pt-1 bi-pencil text-dark"
+    //a_att.style.fontSize = "16px"
+    a_att.setAttribute("data-bs-toggle", "collapse")
+    a_att.href = "#atributos" + layer.id
+    i_att.appendChild(a_att)
+
+
+    const atributos_layer = document.createElement("div")
+    atributos_layer.className = "collapse ms-4 p-2"
+    atributos_layer.id = "atributos" + layer.id
+    contenedor.appendChild(atributos_layer)
+    maker_att_layer(layer, atributos_layer)
+}
+function maker_att_layer(layer, contenedor) {
+    const sm1 = document.createElement("small")
+    sm1.textContent = "Campos"
+    sm1.className = "mb-2"
+    contenedor.appendChild(sm1)
+
+    const sel_Campo = document.createElement("select")
+    sel_Campo.className = "form-select form-select-sm"
+    contenedor.appendChild(sel_Campo)
+
+
+    layer.properties.forEach(campo => {
+        const option = document.createElement("option")
+        option.value = campo
+        option.textContent = campo
+        sel_Campo.appendChild(option)
+    })
+
+    const sm2 = document.createElement("small")
+    sm2.textContent = "Valores"
+    sm2.className = "mb-2"
+    contenedor.appendChild(sm2)
+
+    const sel_Valor = document.createElement("select")
+    sel_Valor.className = "form-select form-select-sm"
+    contenedor.appendChild(sel_Valor)
+
+    sel_Campo.oninput = () => {
+        const items_valor = layer.change_propertie(sel_Campo.value)
+        sel_Valor.innerHTML = ""
+        items_valor.forEach(elemento => {
+            const option = document.createElement("option")
+            option.value = elemento
+            option.textContent = elemento
+            sel_Valor.appendChild(option)
+        })
+
+    }
+
+    const btnAutomatico = document.createElement("button")
+    btnAutomatico.className = "btn btn-outline-secondary mt-2"
+    btnAutomatico.textContent = "Estilo automático"
+    btnAutomatico.type = "button"
+    contenedor.appendChild(btnAutomatico)
+    btnAutomatico.onclick = () => {
+        const items_valor = layer.change_propertie(sel_Campo.value)
+        layer.show(false)
+        //Obtengo los valores que están adentro de cada campo similar
+        const layers = layer.layer._layers
+
+        //Lista uno a uno los valores filtrados
+        layer.convenciones = []
+        items_valor.forEach(atrib => {
+            //Crea un color random para cada capa de la lista
+            const colornew = randomColor()
+            //Enumera todas los poligonos que forman parte de la capa principal
+            for (const property in layers) {
+                //identifica el poligono y le agrega un tooltip de información
+                layers[property].on('click', function (e) {
+                    layers[property].bindPopup(`Capa ${layer.title}: ${att}`, { pane: "labels" })
+                    layers[property].openPopup()
+                })
+
+                //muestra el contenido del campo seleccionado
+                const att = layers[property].feature.properties[sel_Campo.value]
+
+                if (att == atrib) {
+                    layers[property].options["fillColor"] = colornew
+                    
+                }
+            }
+            let newAtributo = [
+                {
+                    "valor": atrib,
+                    "backcolor": colornew,
+                }
+            ]
+            layer.convenciones.push(newAtributo)
+
+        })
+
+        layer.show(true)
+        make_leyendas(layer,sel_Campo.value)
+    }
+
+    const btnLeyendas = document.createElement("button")
+    btnLeyendas.className = "btn btn-outline-secondary ms-1 mt-2"
+    btnLeyendas.textContent = "Convenciones"
+    btnLeyendas.type = "button"
+    contenedor.appendChild(btnLeyendas)
+    btnLeyendas.onclick = () => {
+        make_leyendas(layer)
+    }
+}
+function make_leyendas(layer,campo) {
+    const div = document.createElement("div")
+    div.className = "bg-white shadow divscroll pb-2"
+    div.style.width = 200 + "px"
+    div.style.height = 200 + "px"
+
+
+    const bardiv = document.createElement("div")
+    bardiv.className = "row text-white bg-secondary ps-1 mb-2"
+    div.appendChild(bardiv)
+
+    const colMore = document.createElement("div")
+    colMore.className = "col-auto text-end"
+    bardiv.appendChild(colMore)
+
+    const coltitle = document.createElement("div")
+    coltitle.className = "col"
+    coltitle.textContent = layer.title
+    bardiv.appendChild(coltitle)
+
+    const colMoreButton = document.createElement("div")
+    colMoreButton.className = "col"
+    bardiv.appendChild(colMoreButton)
+
+    const btn_expand_abajo = document.createElement("i")
+    btn_expand_abajo.className = "bi bi-arrow-bar-down"
+    colMore.appendChild(btn_expand_abajo)
+
+    btn_expand_abajo.onclick = () => {
+        const actualH = parseInt(div.style.height.replace("px", "")) + 10
+        div.style.height = actualH + "px"
+    }
+
+
+    const colclosed = document.createElement("div")
+    colclosed.className = "col-auto text-end"
+    bardiv.appendChild(colclosed)
+
+    const rowcampo = document.createElement("div")
+    rowcampo.className = "row ps-3"
+    bardiv.appendChild(rowcampo)
+
+    const colfield = document.createElement("div")
+    colfield.className = "col-auto text-end"
+    colfield.textContent = campo
+    rowcampo.appendChild(colfield)
+
+
+    //Boton para cerrar díalogo
+    const i = document.createElement("i")
+    i.className = "bi bi-x-square text-white me-1"
+    colclosed.appendChild(i)
+    const ley_activa = mkCov.filter(ele => ele[0] == layer.id)
+    i.onclick = () => {
+        const ley_activa2 = mkCov.filter(ele => ele[0] == layer.id)
+        map.removeLayer(ley_activa2[0][1])
+    }
+
+    const btn_expand = document.createElement("i")
+    btn_expand.className = "bi bi-arrow-bar-right"
+    colMore.appendChild(btn_expand)
+
+    btn_expand.onclick = () => {
+        const actualW = parseInt(div.style.width.replace("px", "")) + 10
+        div.style.width = actualW + "px"
+    }
+
+    for (const id in layer.convenciones) {
+        const item = (layer.convenciones[id][0])
+        const divF = document.createElement("div")
+        divF.className = "row ms-1 mb-1"
+
+        const col1 = document.createElement("div")
+        col1.className = "col-auto"
+
+        const i = document.createElement("i")
+        i.className = "bi bi-square-fill"
+        i.style.fontSize = "12px"
+        i.style.color = item.backcolor
+        col1.appendChild(i)
+        divF.appendChild(col1)
+
+        const col2 = document.createElement("div")
+        col2.className = "col"
+
+        const colText = document.createElement("div")
+        colText.className = "text-dark"
+        colText.style.fontSize = "12px"
+
+        colText.textContent = item.valor
+
+        col2.appendChild(colText)
+
+        divF.appendChild(col2)
+        div.appendChild(divF)
+    }
+
+    const newLey = L.marker(latlngConv,
+        {
+            draggable: true,
+            pane: "labels",
+            icon: L.divIcon({
+                html: div,
+                class: ""
+            })
+        })
+    newLey.on('dragend', function (e) {
+        latlngConv = [e.target._latlng.lat, e.target._latlng.lng]
+    });
+
+
+    if (ley_activa.length !== 1) {
+        newLey.addTo(map)
+        mkCov.push([layer.id, newLey])
+    } else {
+        map.removeLayer(ley_activa[0][1])
+        ley_activa[0][1] = newLey
+        ley_activa[0][1].addTo(map)
+    }
 }

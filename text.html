@@ -1,23 +1,7 @@
-checkers.onchange = () => {
-    //Validamos si la clase es mayor o menor
-    if (checkers.checked == true) {
-        const criterios = {
-            "clase": criterio[0],
-            "field": criterio[1],
-            "operador": document.getElementById("lstOperadores").value,
-            "value": checkers.value
-        }
-        filterList.push(criterios)
+podemso generar un cuadro para modificar las propiedades de un geojson
+crear una talba de cambios para un archivo geojson
 
-    } else {
-        const eliminados = filterList.filter(elemento => elemento.value != checkers.value);
-        filterList = eliminados
-
-    }
-    let tituloboton = ""
-    filterList.forEach(palabra => {
-        tituloboton = tituloboton + "[" + palabra.value + "]"
-    })
-    const btnCriterios = document.getElementById("btnCriterios")
-    btnCriterios.textContent = tituloboton
+for(id in layer_local.features ){
+    layer_local.features[id].properties["MIO"]=layer_local.features[id].properties["NOMSZH"]
+    delete layer_local.features[id].properties["NOMSZH"]
 }

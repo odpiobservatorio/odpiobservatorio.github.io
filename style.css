@@ -274,7 +274,7 @@
     border: #99a3a4 solid 1px;
     border-radius: 3px;
     font-size: 20px;
-    width: 34px;
+    width: 50px;
     height: 34px;
     text-align: center;
     cursor: pointer;
@@ -302,4 +302,16 @@
 .line-number:hover {
     background-color: #f2f4f4;
     font-weight: bold;
+}
+
+.divscroll{
+    height: 200px;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align: justify;
+    max-height: fit-content;
+    margin-left: -5pt;
+    margin-top: -5pt;
+    border-radius: 5px;
+    border: 1px solid darkslategray;
 }
