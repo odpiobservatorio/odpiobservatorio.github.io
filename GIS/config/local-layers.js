@@ -54,8 +54,12 @@ let layers_local = {}
 let mkCov = []
 let latlngConv = [5.1, -75.55]
 
-function open_local_layer(control) {
+function open_local_layer(control,option) {
     const archivo = control.target.files[0];
+
+    var path = (window.URL || window.webkitURL).createObjectURL(archivo);
+    console.log('path', path);
+
     if (!archivo) {
         return;
     }
@@ -65,110 +69,117 @@ function open_local_layer(control) {
     lector.onload = function (e) {
         var file_geojson = e.target.result;
         var layer_local = JSON.parse(file_geojson)
-
-        var layer_propierties = []
-
-        //Creamos un índice aleatorio
-        const idR = randomStr(10, '123456789abcdefghijklmnzx');
-        //Crea una capa con base al archivo cargado
-        const Layer_Open = L.geoJSON(layer_local, {
-            style: function (feature) {
-                //Mira los campos y verifica si alguno forma parte de la lista general
-                for (const property in feature.properties) {
-                    if (layer_propierties.includes(property) !== true) {
-                        layer_propierties.push(property)
-                    }
-                }
-                return {
-                    color: "white",
-                    fillColor: randomColor(),
-                    pane: "4",
-                    weight: 1,
-                    fillOpacity: 1,
-                }
-            }
-        }).addTo(map);
-
-        let layer_template =
-        {
-            "id": idR,
-            "title": layer_title[0],
-            "properties": layer_propierties,
-            "change_propertie": (valor) => {
-                let newList = []
-                const me_layer = layers_local["layer_" + idR].layer._layers
-                for (const property in me_layer) {
-                    const att = me_layer[property].feature.properties[valor]
-                    if (newList.includes(att) !== true) {
-                        newList.push(att)
-                    }
-                }
-                return newList
-            },
-            "convenciones": [],
-            "layer": Layer_Open,
-            "style": {
-                "change_backColor": (color) => {
-                    //Limpiamos la capa del mapa
-                    map.removeLayer(layers_local["layer_" + idR].layer)
-                    const active_Ls = layers_local["layer_" + idR].layer._layers
-                    for (const property in active_Ls) {
-                        active_Ls[property].options.fillColor = color
-                    }
-                    layers_local["layer_" + idR].layer.addTo(map)
-                },
-                "change_lineColor": (color) => {
-                    //Limpiamos la capa del mapa
-                    map.removeLayer(layers_local["layer_" + idR].layer)
-                    const active_Ls = layers_local["layer_" + idR].layer._layers
-                    for (const property in active_Ls) {
-                        active_Ls[property].options.color = color
-                    }
-                    layers_local["layer_" + idR].layer.addTo(map)
-                },
-                "change_lineWeight": (value) => {
-                    //Limpiamos la capa del mapa
-                    map.removeLayer(layers_local["layer_" + idR].layer)
-                    const active_Ls = layers_local["layer_" + idR].layer._layers
-                    for (const property in active_Ls) {
-                        active_Ls[property].options.weight = value
-                    }
-                    layers_local["layer_" + idR].layer.addTo(map)
-                },
-                "change_opacity": (value) => {
-                    //Limpiamos la capa del mapa
-                    map.removeLayer(layers_local["layer_" + idR].layer)
-                    const active_Ls = layers_local["layer_" + idR].layer._layers
-                    for (const property in active_Ls) {
-                        active_Ls[property].options.fillOpacity = value
-                    }
-                    layers_local["layer_" + idR].layer.addTo(map)
-                }
-                ,
-                "change_pane": (value) => {
-                    //Limpiamos la capa del mapa
-                    map.removeLayer(layers_local["layer_" + idR].layer)
-                    const active_Ls = layers_local["layer_" + idR].layer._layers
-                    for (const property in active_Ls) {
-                        active_Ls[property].options.pane = value
-                    }
-                    layers_local["layer_" + idR].layer.addTo(map)
-                }
-            },
-            "show": (value) => {
-                if (value == true) {
-                    layers_local["layer_" + idR].layer.addTo(map)
-                } else {
-                    map.removeLayer(layers_local["layer_" + idR].layer)
-                }
-            }
-
+        if(option=="directo"){
+            load_direct_layer(layer_local,layer_title,)
+        }else{
+            load_edit_layer(layer_local,layer_title,archivo)
         }
-        layers_local["layer_" + idR] = layer_template
-        make_line_layer(layers_local["layer_" + idR])
-
+        
     };
     lector.readAsText(archivo);
+}
+
+function load_direct_layer(layer_local,layer_title){
+    var layer_propierties = []
+
+    //Creamos un índice aleatorio
+    const idR = randomStr(10, '123456789abcdefghijklmnzx');
+    //Crea una capa con base al archivo cargado
+    const Layer_Open = L.geoJSON(layer_local, {
+        style: function (feature) {
+            //Mira los campos y verifica si alguno forma parte de la lista general
+            for (const property in feature.properties) {
+                if (layer_propierties.includes(property) !== true) {
+                    layer_propierties.push(property)
+                }
+            }
+            return {
+                color: "white",
+                fillColor: randomColor(),
+                pane: "4",
+                weight: 1,
+                fillOpacity: 1,
+            }
+        }
+    }).addTo(map);
+
+    let layer_template =
+    {
+        "id": idR,
+        "title": layer_title[0],
+        "properties": layer_propierties,
+        "change_propertie": (valor) => {
+            let newList = []
+            const me_layer = layers_local["layer_" + idR].layer._layers
+            for (const property in me_layer) {
+                const att = me_layer[property].feature.properties[valor]
+                if (newList.includes(att) !== true) {
+                    newList.push(att)
+                }
+            }
+            return newList
+        },
+        "convenciones": [],
+        "layer": Layer_Open,
+        "style": {
+            "change_backColor": (color) => {
+                //Limpiamos la capa del mapa
+                map.removeLayer(layers_local["layer_" + idR].layer)
+                const active_Ls = layers_local["layer_" + idR].layer._layers
+                for (const property in active_Ls) {
+                    active_Ls[property].options.fillColor = color
+                }
+                layers_local["layer_" + idR].layer.addTo(map)
+            },
+            "change_lineColor": (color) => {
+                //Limpiamos la capa del mapa
+                map.removeLayer(layers_local["layer_" + idR].layer)
+                const active_Ls = layers_local["layer_" + idR].layer._layers
+                for (const property in active_Ls) {
+                    active_Ls[property].options.color = color
+                }
+                layers_local["layer_" + idR].layer.addTo(map)
+            },
+            "change_lineWeight": (value) => {
+                //Limpiamos la capa del mapa
+                map.removeLayer(layers_local["layer_" + idR].layer)
+                const active_Ls = layers_local["layer_" + idR].layer._layers
+                for (const property in active_Ls) {
+                    active_Ls[property].options.weight = value
+                }
+                layers_local["layer_" + idR].layer.addTo(map)
+            },
+            "change_opacity": (value) => {
+                //Limpiamos la capa del mapa
+                map.removeLayer(layers_local["layer_" + idR].layer)
+                const active_Ls = layers_local["layer_" + idR].layer._layers
+                for (const property in active_Ls) {
+                    active_Ls[property].options.fillOpacity = value
+                }
+                layers_local["layer_" + idR].layer.addTo(map)
+            }
+            ,
+            "change_pane": (value) => {
+                //Limpiamos la capa del mapa
+                map.removeLayer(layers_local["layer_" + idR].layer)
+                const active_Ls = layers_local["layer_" + idR].layer._layers
+                for (const property in active_Ls) {
+                    active_Ls[property].options.pane = value
+                }
+                layers_local["layer_" + idR].layer.addTo(map)
+            }
+        },
+        "show": (value) => {
+            if (value == true) {
+                layers_local["layer_" + idR].layer.addTo(map)
+            } else {
+                map.removeLayer(layers_local["layer_" + idR].layer)
+            }
+        }
+
+    }
+    layers_local["layer_" + idR] = layer_template
+    make_line_layer(layers_local["layer_" + idR])
 }
 function make_line_layer(layer) {
     const container = document.getElementById("panel_localLayers")
@@ -629,4 +640,12 @@ function make_leyendas(layer,campo) {
         ley_activa[0][1] = newLey
         ley_activa[0][1].addTo(map)
     }
+}
+/////////////////////////////////////////////////////////////////////////////
+//Editor de json
+/////////////////////////////////////////////////////////////////////////////
+function load_edit_layer(layer_local,layer_title,ruta){
+    const file_input_layers = document.getElementById("file_input_layers")
+    file_input_layers.value=ruta
+
 }

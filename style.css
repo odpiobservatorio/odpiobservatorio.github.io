@@ -283,6 +283,16 @@
 .boton-change:hover {
     background-color: #f2f4f4;
 }
+.boton-change-2 {
+    border: #99a3a4 solid 1px;
+    border-radius: 3px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.boton-change-2:hover {
+    background-color: #f2f4f4;
+}
 
 .line-layer {
     border-radius: 3px;

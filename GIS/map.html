@@ -147,6 +147,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal_geojson">
+                                    Editor GeoJson
+                                </a>
+                            </li>
+                            <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
@@ -1156,5 +1161,36 @@
             onchange="open_local_layer(event)">
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_geojson" tabindex="-1" aria-hidden="true"
+data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-fullscreen-xxl-down">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary">
+          <h1 class="modal-title fs-5  text-white" id="exampleModalLabel">Editor archivos Geojson</h1>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <small>Abrir archivo</small>
+            <div class="input-group mb-3">
+                <span class="input-group-text boton-change-2">                
+                    <label for="file-open-geojson">
+                        <i class="bi bi-folder2-open"></i>
+                    </label>
+                </span>
+                <input id="file_input_layers"  type="text" class="form-control" placeholder="archivo">
+              </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+    <input id="file-open-geojson" style="visibility:hidden; width: 50px;" type="file" accept=".geojson"
+    onchange="open_local_layer(event,'edit')">
+  </div>
 
 </html>
