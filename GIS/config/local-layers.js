@@ -707,12 +707,15 @@ function load_edit_layer(layer_local, layer_title, ruta) {
                 const valor = layer_local.features[id].properties[col_atributo.textContent]
 
                 if (list_valores.includes(valor) !== true) {
-                    list_valores.push("\n" + valor)
+                    list_valores.push(valor)
                 }
                 //layer_local.features[id].properties["MIO"]=layer_local.features[id].properties["NOMSZH"]
                 //delete layer_local.features[id].properties["NOMSZH"]
             }
-            int_valores.value=list_valores
+            int_valores.value=""
+            list_valores.forEach(valor=>{
+                int_valores.value=int_valores.value + valor + "\n"
+            })
 
         }
 
