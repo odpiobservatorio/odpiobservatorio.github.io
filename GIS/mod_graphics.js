@@ -405,10 +405,6 @@ async function download(data, type) {
     const writableStream = await newHandle.createWritable();
     await writableStream.write(blob);
     await writableStream.close();
-
-
-
-
 }
 
 

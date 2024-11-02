@@ -1184,24 +1184,24 @@
                     <input id="file_input_layers" type="text" class="form-control" placeholder="archivo">
                 </div>
                 <small class="fw-bold mb-2 mt-2">Atributos en esta capa</small>
-                <div class="border border-1 border-secondary divscroll-y mt-2" >
+                <div class="border border-1 border-secondary divscroll-y mt-2 mb-2" >
                     <div class="row bg-secondary m-1 p-1">
                         <div class="col fw-bold text-white">Nombre atributo</div>
                         <div class="col fw-bold text-white">Editar atributo</div>
                         <div class="col fw-bold text-white">Ver valores</div>
+                        <div class="col fw-bold text-white">Eliminar atributo</div>
                     </div>
                     <div id="panel_fields_gjson">
 
                     </div>
                 </div>
                 <small class="fw-bold mb-2 mt-2">Contenido del atributo</small>
-                <textarea class="form-control" id="int_valores_atributo" rows="2"></textarea>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar changes</button>
+                <textarea class="form-control mb-2" id="int_valores_atributo" rows="2"></textarea>
+                <div>
+                    <button type="button" class="btn btn-secondary" id="btn_aplicar_gjson">Procesar</button>
+                    <button type="button" class="btn btn-secondary" id="btn_exportar_gjson">Exportar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>

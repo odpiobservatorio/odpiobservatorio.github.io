@@ -644,15 +644,25 @@ function make_leyendas(layer, campo) {
 /////////////////////////////////////////////////////////////////////////////
 //Editor de json
 /////////////////////////////////////////////////////////////////////////////
+let atributos = []
 function load_edit_layer(layer_local, layer_title, ruta) {
     const file_input_layers = document.getElementById("file_input_layers")
-    const panel_fields_gjson = document.getElementById("panel_fields_gjson")
-    panel_fields_gjson.innerHTML = ""
     file_input_layers.value = ruta
-    //console.log(layer_local)
 
-    let atributos = []
-
+    load_polygons(layer_local)
+    const btn_aplicar= document.getElementById("btn_aplicar_gjson")
+    btn_aplicar.onclick=()=>{
+        apply_changes(layer_local)
+    }
+    const btn_guardar= document.getElementById("btn_exportar_gjson")
+    btn_guardar.onclick=()=>{
+        export_changes(JSON.stringify(layer_local),'txt')
+    }
+}
+function load_polygons(layer_local,){
+    const panel_fields_gjson = document.getElementById("panel_fields_gjson")
+    panel_fields_gjson.innerHTML = ""    
+    atributos=[]   
     //Miramos uno a uno lo spolígonos
     for (id in layer_local.features) {
         //Dentro de cada polígono hay una propiedades
@@ -665,9 +675,8 @@ function load_edit_layer(layer_local, layer_title, ruta) {
                 }
             }
         }
-        //layer_local.features[id].properties["MIO"]=layer_local.features[id].properties["NOMSZH"]
-        //delete layer_local.features[id].properties["NOMSZH"]
     }
+
     for (id in atributos) {
         const row = document.createElement("div")
         row.className = "row ms-2 list-items-odpi me-3"
@@ -716,13 +725,60 @@ function load_edit_layer(layer_local, layer_title, ruta) {
             list_valores.forEach(valor=>{
                 int_valores.value=int_valores.value + valor + "\n"
             })
+        }
 
+        const col_borrar = document.createElement("div")
+        col_borrar.className = "col m-1"
+        row.appendChild(col_borrar)
+
+        const btn_borrar = document.createElement("div")
+        btn_borrar.className = "bi bi-trash3-fill text-danger boton-change m-1"
+        col_borrar.appendChild(btn_borrar)
+
+        btn_borrar.onclick = () => {
+            apply_remove(layer_local,col_atributo.textContent)
         }
 
 
     }
+}
+function apply_changes(layer_local){
+    for(att in atributos ){
+        //Comparar cambios
+        if(att!==atributos[att].new){
+            for (id in layer_local.features) {
+                //Dentro de cada polígono hay una propiedades
+                layer_local.features[id].properties[atributos[att].new]=layer_local.features[id].properties[att]
+                delete layer_local.features[id].properties[att]
+            }
+        }
+    }
+    load_polygons(layer_local)
 
+}
+function apply_remove(layer_local,atributo){
+    for (id in layer_local.features) {
+        //Dentro de cada polígono hay una propiedades
+        delete layer_local.features[id].properties[atributo]
+    }
+    load_polygons(layer_local)
 
+}
+async function export_changes(data,type){
+    const blob = new Blob([data], { type: type });
 
+    const newHandle = await window.showSaveFilePicker({
+        types: [{
+            description: 'Text Files',
+            accept: {
+                'text/plain': ['.geojson'],
+            },
+        }],
+        id: "save-json-file-picker",
+        excludeAcceptAllOption: true,
+    });
 
+    const writableStream = await newHandle.createWritable();
+    await writableStream.write(blob);
+    await writableStream.close();
 }
