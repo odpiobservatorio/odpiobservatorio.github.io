@@ -895,11 +895,11 @@ function ver_calor_mun(value, id) {
 
 
         g.forEach(lugar => {
-            txtconsola.textContent = txtconsola.textContent + "\n" + `${lugar[0]}:${lugar[1]}`
+            //txtconsola.textContent = txtconsola.textContent + "\n" + `${lugar[0]}:${lugar[1]}`
         })
 
 
-        txtconsola.textContent = txtconsola.textContent + "\n" + "Total Casos:" + nCasos
+        //txtconsola.textContent = txtconsola.textContent + "\n" + "Total Casos:" + nCasos
 
         //Ahora comparamos ese valor frente al valor tototal
         //Esto para crear los porcentajes
@@ -907,7 +907,7 @@ function ver_calor_mun(value, id) {
             const PorcentajV = (parseInt(consolidados[mun].valor) / parseInt(nCasos)).toFixed(2)
             const PorcentajT = parseInt(consolidados[mun].valor) / parseInt(nCasos) * 100
 
-            txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].valor} - %${(PorcentajV * 10).toFixed(1)}`
+            //txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].valor} - %${(PorcentajV * 10).toFixed(1)}`
 
             consolidados[mun].porcentajeV = PorcentajV
             consolidados[mun].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
@@ -1063,11 +1063,11 @@ function ver_calor_mun_victimas(value, id) {
 
 
         g.forEach(lugar => {
-            txtconsola.textContent = txtconsola.textContent + "\n" + `${lugar[0]}:${lugar[1]}`
+            //txtconsola.textContent = txtconsola.textContent + "\n" + `${lugar[0]}:${lugar[1]}`
         })
 
 
-        txtconsola.textContent = txtconsola.textContent + "\n" + "Total Casos:" + nCasos
+        //txtconsola.textContent = txtconsola.textContent + "\n" + "Total Casos:" + nCasos
 
         //Ahora comparamos ese valor frente al valor tototal
         //Esto para crear los porcentajes
@@ -1075,7 +1075,7 @@ function ver_calor_mun_victimas(value, id) {
             const PorcentajV = (parseInt(consolidados[mun].victimas) / parseInt(nCasos)).toFixed(2)
             const PorcentajT = parseInt(consolidados[mun].victimas) / parseInt(nCasos) * 100
 
-            txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].victimas} - %${(PorcentajV * 10).toFixed(1)}`
+            //txtconsola.textContent = txtconsola.textContent + "\n" + `${consolidados[mun].lugar}: ${consolidados[mun].victimas} - %${(PorcentajV * 10).toFixed(1)}`
 
             consolidados[mun].porcentajeV = PorcentajV
             consolidados[mun].porcentajeT = parseInt(PorcentajT).toFixed(2) + "%"
