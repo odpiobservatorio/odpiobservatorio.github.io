@@ -1532,13 +1532,17 @@ function pastetab() {
                 const contenedorLugares = document.getElementById("contenedor-lugares")
                 contenedorLugares.innerHTML = ""
                 let lugaresNew = parteTab[5].split("|")
+
                 lugaresNew.forEach(lugar => {
                     const nlugar = lugar
-                    const filterDep = lugares.filter(lugares => lugares.key == parteTab[4] + nlugar)
-                    //Si el lugar no existe
+                    const filterDep = lugares.filter(lugares => lugares.key == parteTab[4].toLowerCase() + nlugar.toLowerCase())
+
                     try {
-                        const latlgnParse = filterDep[0].latlng.split(",")
-                        caso.addLugar(new Lugar(0, filterDep[0].lugar, filterDep[0].latlng, latlgnParse[0], latlgnParse[1]))
+                                            //Si el lugar no existe
+                    const latlgnParse = filterDep[0].latlng.split(",")
+                    
+                    caso.addLugar(new Lugar(0, filterDep[0].lugar, filterDep[0].latlng, latlgnParse[0], latlgnParse[1]))
+
                     } catch (error) {
                         console.log("log en lugares:", parteTab[5], "Linea:", ActiveDB.clsCasos.length)
                         document.getElementById("intDetalleLugar").value = document.getElementById("intDetalleLugar").value + "//Residuo:" + parteTab[5] + "//"

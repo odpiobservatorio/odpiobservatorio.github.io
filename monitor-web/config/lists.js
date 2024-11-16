@@ -58778,7 +58778,7 @@ const lugares = [{
     "lng": "1.80712244418",
     "tipo": "MUNICIPIO",
     "latlng": "-78.7638397247,1.80712244418",
-    "key": "nariñosan andrés de tumaco"
+    "key": "nariñotumaco"
    },
    {
     "departamento": "Nariño",
@@ -59349,6 +59349,17 @@ const lugares = [{
     "tipo": "MUNICIPIO",
     "latlng": "-73.0487542769,7.74089485038",
     "key": "norte de santandercáchira"
+   }
+   ,
+   {
+    "departamento": "Norte de Santander",
+    "entidad": "CÚCUTA",
+    "lugar": "Cúcuta",
+    "lat": "-72.50442689236894",
+    "lng": "7.901270660450742",
+    "tipo": "MUNICIPIO",
+    "latlng": "-72.50442689236894,7.901270660450742",
+    "key": "norte de santandercúcuta"
    },
    {
     "departamento": "Norte de Santander",
