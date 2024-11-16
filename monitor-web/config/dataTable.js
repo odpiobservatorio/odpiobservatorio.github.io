@@ -8,6 +8,8 @@ const campos = [
     ["clsCasos", "macroregion", "MACROREGIÓN", "1"],
     ["clsCasos", "departamento", "DEPARTAMENTO", "1"],
     ["clsLugares", "municipio", "LUGARES", "1"],
+    ["clsLugares", "lat", "LAT", "1"],
+    ["clsLugares", "lng", "LNG", "1"],
     ["clsPueblos", "nombre", "PUEBLO/ÉTNIA", "1"],
     ["clsCasos", "macrotipo", "MACROTIPO", "1"],
     ["clsTipos", "nombre", "SUBTIPOS", "1"],
