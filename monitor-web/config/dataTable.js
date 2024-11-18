@@ -570,31 +570,28 @@ async function bulk_replace() {
         i = 0
         const data = ActiveDB.clsCasos
         data.forEach(caso => {
-            try {
-                const valOriginal = caso[clase[1]]
-                if (intOriginal == "*null*") {
-                    if (valOriginal >= 0) {
-                    } else {
+            const valOriginal = caso[clase[1]]
+            if (intOriginal == "*null*") {
+                if (valOriginal >= 0) {
+                } else {
+                    caso[clase[1]] = intNuevo
+                    GuardarDatos()
+                    i++
+                }
+            } else {
+                if (lstTipo_replace == "igual") {
+                    if (intOriginal == valOriginal) {
                         caso[clase[1]] = intNuevo
                         GuardarDatos()
                         i++
                     }
-                } else {
-                    if (lstTipo_replace == "igual") {
-                        if (intOriginal == valOriginal) {
-                            caso[clase[1]] = intNuevo
-                            GuardarDatos()
-                            i++
-                        }
-                    } else if (lstTipo_replace == "contiene") {
-                        if (valOriginal.includes(intOriginal)) {
-                            caso[clase[1]].replace(valOriginal, intNuevo)
-                            GuardarDatos()
-                            i++
-                        }
+                } else if (lstTipo_replace == "contiene") {
+                    if (valOriginal.includes(intOriginal)) {
+                        caso[clase[1]].replace(valOriginal, intNuevo)
+                        GuardarDatos()
+                        i++
                     }
                 }
-            } catch (error) {
             }
         })
     } else {
@@ -614,6 +611,7 @@ async function bulk_replace() {
                     if (lstTipo_replace == "igual") {
                         if (intOriginal == valOriginal) {
                             subclase[clase[1]] = intNuevo
+                            console.log(subclase[clase[1]])
                             GuardarDatos()
                             i++
                         }

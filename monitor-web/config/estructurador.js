@@ -398,9 +398,10 @@ class Caso {
             //Preparamso las variables
             const nlugar = lstLugares.value.toLowerCase()
             const filterDep = lugares.filter(lugares => lugares.key.toLowerCase() == intDepartamento.value.toLowerCase() + nlugar)
-            const latlgnParse = filterDep[0].latlng.split(",")
+            const latA = filterDep[0].lat
+            const lngA = filterDep[0].lng
             //Agrega un elemento tipo desde una nueva clase lugar
-            this.addLugar(new Lugar(0, filterDep[0].lugar, filterDep[0].latlng, latlgnParse[0], latlgnParse[1]))
+            this.addLugar(new Lugar(0, filterDep[0].lugar, filterDep[0].latlng, latA, lngA))
             GuardarDatos()
             let l = 0
             this.clsLugares.forEach(lugar => {
