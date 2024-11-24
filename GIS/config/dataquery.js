@@ -480,6 +480,7 @@ function mostrar_resultados(data) {
 
         //Por cada caso listo los lugares
         caso.clsLugares.forEach(lugar => {
+            console.log(caso.vigencia,lugar.lat,lugar.lng,lugar.municipio)
             try {
                 const marca = PutMarkCicle(
                     true, //Indica si el marcador es fijo
