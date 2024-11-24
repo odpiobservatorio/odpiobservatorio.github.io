@@ -58774,8 +58774,8 @@ const lugares = [{
     "departamento": "Nariño",
     "entidad": "SAN ANDRÉS DE TUMACO",
     "lugar": "Tumaco",
-    "lat": "-78.7638397247",
-    "lng": "1.80712244418",
+    "lng": "-78.7638397247",
+    "lat": "1.80712244418",
     "tipo": "MUNICIPIO",
     "latlng": "-78.7638397247,1.80712244418",
     "key": "nariñotumaco"
