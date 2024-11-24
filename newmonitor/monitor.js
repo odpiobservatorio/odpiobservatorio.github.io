@@ -53,7 +53,7 @@ function run_casos() {
 
 
     //Crear la barra de botones del módulo
-    const row_botones = newE("div", "row0", "row bg-secondary ms-2 align-items-center pb-2")
+    const row_botones = newE("div", "row0", "row bg-secondary ms-2 align-items-center pb-2 sticky-top")
     contenedor.appendChild(row_botones)
     const bar_botones = newE("div", "barra_botones", "btn-group", "300px")
     bar_botones.role = "group"
@@ -187,8 +187,8 @@ function run_casos() {
         fecha_evento.type = "date"
         fecha_evento.value = vigencia.clsCasos[index].fecha
         col1.appendChild(fecha_evento)
-        fecha_evento.onchange=()=>{
-            vigencia.clsCasos[index].fecha=fecha_evento.value
+        fecha_evento.onchange = () => {
+            vigencia.clsCasos[index].fecha = fecha_evento.value
             GuardarDatos(data_activo, vigencia)
         }
 
@@ -209,8 +209,8 @@ function run_casos() {
             selMacrotipo.appendChild(item)
         })
         selMacrotipo.value = vigencia.clsCasos[index].macrotipo
-        selMacrotipo.onchange=()=>{
-            vigencia.clsCasos[index].macrotipo=selMacrotipo.value
+        selMacrotipo.onchange = () => {
+            vigencia.clsCasos[index].macrotipo = selMacrotipo.value
             GuardarDatos(data_activo, vigencia)
         }
 
@@ -224,9 +224,81 @@ function run_casos() {
         in_detalle.value = vigencia.clsCasos[index].detalle
         in_detalle.rows = 4
         formulario.appendChild(in_detalle)
-        in_detalle.onchange=()=>{
-            vigencia.clsCasos[index].detalle=in_detalle.value
+        in_detalle.onchange = () => {
+            vigencia.clsCasos[index].detalle = in_detalle.value
             GuardarDatos(data_activo, vigencia)
+        }
+
+        //Creamos la lista de subtipos
+
+
+        const titulo4 = newE("label", "titulo_subtipos", "fw-bold mt-2 text-secondary fs-5")
+        titulo4.textContent = "Afectaciones adicionales"
+        formulario.appendChild(titulo4)
+
+        const hr1 = newE("hr", "hr1", "border border-2 border-secondary")
+        formulario.appendChild(hr1)
+
+        const titulo5 = newE("small", "", "fw-bold mb-2")
+        titulo5.textContent = "Otras afectaciones"
+        formulario.appendChild(titulo5)
+
+        const selTipo = newE("select", "seltipo", "form-control mb-3", "300px")
+        formulario.appendChild(selTipo)
+        //Cargamos la lista de los macrotipos
+        tipos.forEach(tipo => {
+            const item = newE("option", "tipo", "")
+            item.value = tipo
+            item.textContent = tipo
+            selTipo.appendChild(item)
+        })
+
+        //Aquí se listaran los tipos dentro del registro
+        const cont_tipos = newE("div", "cont_tipos", "mb-3 border border-1 d-flex")
+        cont_tipos.style.height = "100px"
+        formulario.appendChild(cont_tipos)
+
+
+
+        _carga_tipos()
+
+        function _carga_tipos() {
+            cont_tipos.innerHTML = ""
+            const sub_tipos = vigencia.clsCasos[index].clsTipos
+
+            for (id in sub_tipos) {
+                sub_tipos[id].id=id
+                const el_tipo = newE("div", sub_tipos[id].nombre, "btn-label-gray")
+                const i_boton = newE("i", "i_boton", "bi bi-trash3 ms-3")
+                
+                i_boton.style.cursor = "pointer"
+                el_tipo.textContent = sub_tipos[id].nombre
+                el_tipo.appendChild(i_boton)
+                cont_tipos.appendChild(el_tipo)
+                
+                let indicador= id
+                i_boton.onclick = () => {
+                    delete sub_tipos[indicador]
+                    _carga_tipos()
+                    GuardarDatos(data_activo, vigencia)
+                }
+            }
+
+
+        }
+
+        selTipo.onchange=()=>{
+            const sub_tipos = vigencia.clsCasos[index].clsTipos
+            sub_tipos.push(
+                {
+                    "id":0,
+                    "nombre":selTipo.value
+
+                }
+            )
+            console.log(sub_tipos)
+            _carga_tipos()
+
         }
 
 
@@ -247,6 +319,6 @@ function run_casos() {
 
 function GuardarDatos(data_activo, vigencia) {
     //Pasamos lo editado a la variable global
-    GLOBAL.state.vigencias[data_activo]=vigencia
+    GLOBAL.state.vigencias[data_activo] = vigencia
     const id = GLOBAL.firestore.updateVigencia(GLOBAL.state.vigencias[data_activo])
 }

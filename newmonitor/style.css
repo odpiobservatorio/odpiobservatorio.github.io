@@ -44,3 +44,18 @@
     }
   }
   
+  .btn-label-gray{
+    background-color: #f4ecf7;
+    color: #4a235a ;
+    padding: 5px;
+    padding-left: 10px;
+    margin: 5px;
+    border-radius: 3px;
+    border: gray solid 1px;
+    width: fit-content;
+    height: 40px;
+}
+.btn-label-gray:hover{
+    background-color: #4a235a ;
+    color: white;
+}
