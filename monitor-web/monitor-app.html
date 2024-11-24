@@ -95,8 +95,7 @@
             </div>
             <div class="row align-items-center">
                 <div class="col">
-                    <div id="ChartPueblos" class="border border-2 rounded-2 p-3 m-3"
-                        style="border-color: #ce2335;">
+                    <div id="ChartPueblos" class="border border-2 rounded-2 p-3 m-3" style="border-color: #ce2335;">
 
                     </div>
                 </div>
@@ -105,6 +104,21 @@
                     <div>
                         <small class="fw-bold">Valor mínimo</small>
                         <input type="text" class="form-control" id="inMaxPub" value="1000" style="width: 300px;">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row align-items-center">
+                <div class="col me-3">
+                    <div id="textTipos" style="text-align: justify; text-indent: 1cm;"></div>
+                    <div>
+                        <small class="fw-bold">Valor mínimo</small>
+                        <input type="text" class="form-control" id="inMaxTipo" value="1000" style="width: 300px;">
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="ChartTipos" class="border border-2 rounded-2 p-3 m-3" style="border-color: #ce2335;">
+
                     </div>
                 </div>
 
@@ -119,6 +133,23 @@
         <div class="col">
             <div id="ncasosHoy" class="fw-bold" style="font-size: 40pt;">#</div>
             <div>Casos presente año</div>
+        </div>
+    </div>
+    <div>
+        <a class="nav-link bg-danger text-white fs-5 p-2" data-bs-toggle="collapse" href="#collapseActual"
+            role="button">
+            + Ver más
+        </a>
+    </div>
+    <div class="collapse" id="collapseActual">
+        <div class="">
+            <div class="text-center" style="background-color: #424949;"><img src="/img/public/microactual.png"
+                    width="700px">
+                <div class="text-center mt-2 mb-5">
+                    <small class="text-white">Microinforme actual (2024)</small>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="p-2 text-white text-end" style="background-color:#e7263a;" id="corteData">

@@ -1714,6 +1714,7 @@ function make_public_data() {
     let ListaVigencia = {}
     let tempDepartamentos = []
     let tempPueblos = []
+    let tempTipos = []
 
 
 
@@ -1740,11 +1741,18 @@ function make_public_data() {
                 }
             })
 
+            caso.clsTipos.forEach(tipo => {
+                if (tempTipos.includes(tipo.nombre) !== true) {
+                    tempTipos.push(tipo.nombre)
+                }
+            })
+
         })
     })
 
     _tabla_departamentos()
     _tabla_pueblos()
+    _tabla_tipos()
 
     function _tabla_departamentos() {
         let TablaDepartamentos = {}
@@ -1784,6 +1792,27 @@ function make_public_data() {
 
         })
         data_public.consolidados[1]["pueblos"] = Tabla
+    }
+    function _tabla_tipos(){
+        let Tabla = {}
+        tempTipos.forEach(item => {
+            let casos = 0
+            let victimas = 0
+            proyectos.forEach(proyecto => {
+                proyecto.clsCasos.forEach(caso => {
+                    caso.clsTipos.forEach(eleSub=>{
+                        if (item == eleSub.nombre) {
+                            victimas = victimas + caso.npersonas
+                            casos++
+                            Tabla[item] = [item, casos, victimas]
+                        }
+                    })
+
+                })
+            })
+
+        })
+        data_public.consolidados[1]["tipos"] = Tabla
     }
 
 
