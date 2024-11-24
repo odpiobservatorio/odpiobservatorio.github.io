@@ -21,6 +21,7 @@
     <script defer src="./acces-data.js" type="module"></script>
     <script src="./global.js"></script>
     <script src="./monitor.js"></script>
+    <script src="./lists.js"></script>
 
 </head>
 
@@ -31,40 +32,33 @@
                 class="ms-1 d-none d-sm-inline text-white">Registrarse</span>
         </a>
         <div hidden="true" id="menu_general">
-            <a href="#" onclick="run_casos()">
-                <i class="fs-3 bi-journal-text"></i>
-                <span class="ms-1 d-none d-sm-inline">
-                    Casos
-                </span>
-            </a>
-            <a href="#">
-                <i class="fs-3 bi-table"></i>
-                <span class="ms-1 d-none d-sm-inline">
-                    Tablas
-                </span>
-            </a>
-            <a href="#">Concordancia</a>
+            <div class="collapse collapse show" id="menu">
+                <a href="#" onclick="run_casos()">
+                    <i class="fs-3 bi-journal-text"></i>
+                    <span class="ms-1 d-none d-sm-inline">
+                        Casos
+                    </span>
+                </a>
+                <a href="#">
+                    <i class="fs-3 bi-table"></i>
+                    <span class="ms-1 d-none d-sm-inline">
+                        Tablas
+                    </span>
+                </a>
+                <a href="#">
+                    <i class="fs-3 bi-body-text"></i>
+                    <span class="ms-1 d-none d-sm-inline">
+                        Concordancia
+                    </span>
+                </a>
+            </div>
+            <a class="nav-link active text-center mb-1 fs-5" aria-current="page" data-bs-toggle="collapse"
+            href="#menu"><i class="bi bi-list"></i></a>
         </div>
         <a href="#" onclick="SignOut()">Salir</a>
     </div>
 
     <div id="panel_escritorio" class="content p-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <small>Fecha evento</small>
-                    <input type="date" class="form-control mb-3" placeholder="Fecha">
-                </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Macrotipo" value="hola">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <textarea type="text" class="form-control mb-3">sdfas</textarea>
-                </div>
-            </div>
-        </div>
     </div>
 
 </body>

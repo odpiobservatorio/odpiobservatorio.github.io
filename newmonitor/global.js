@@ -33,10 +33,11 @@ let byE = (elemento) => {
     const el = document.getElementById(elemento)
     return el
 }
-let newE = (elemento,id,clase) => {
+let newE = (elemento,id,clase,ancho) => {
     const el = document.createElement(elemento)
     el.id=id
     el.className=clase
+    el.style.width=ancho
     return el
 }
 function mensajes(text, color) {
