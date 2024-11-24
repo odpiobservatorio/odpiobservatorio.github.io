@@ -29,8 +29,14 @@ function autenticar() {
     btn.onclick = () => IniCredential()
 }
 
-const byE = (elemento) => {
+let byE = (elemento) => {
     const el = document.getElementById(elemento)
+    return el
+}
+let newE = (elemento,id,clase) => {
+    const el = document.createElement(elemento)
+    el.id=id
+    el.className=clase
     return el
 }
 function mensajes(text, color) {

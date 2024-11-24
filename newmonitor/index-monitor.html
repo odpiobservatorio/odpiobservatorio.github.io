@@ -26,18 +26,47 @@
 
 <body>
     <div class="sidebar">
-        <a class="active" href="#home" onclick="autenticar()">Registrarse</a>
+        <a class="text-white bg-secondary" href="#" onclick="autenticar()">
+            <i class="fs-3 bi-person-fill-check text-white"></i> <span
+                class="ms-1 d-none d-sm-inline text-white">Registrarse</span>
+        </a>
         <div hidden="true" id="menu_general">
-            <a href="#news">Datos</a>
-            <a href="#contact">Tablas</a>
-            <a href="#about">Concordancia</a>
+            <a href="#" onclick="run_casos()">
+                <i class="fs-3 bi-journal-text"></i>
+                <span class="ms-1 d-none d-sm-inline">
+                    Casos
+                </span>
+            </a>
+            <a href="#">
+                <i class="fs-3 bi-table"></i>
+                <span class="ms-1 d-none d-sm-inline">
+                    Tablas
+                </span>
+            </a>
+            <a href="#">Concordancia</a>
         </div>
-        <a class="active" href="#home" onclick="SignOut()">Salir</a>
+        <a href="#" onclick="SignOut()">Salir</a>
     </div>
 
-    <div class="panel-escritorio">
-
+    <div id="panel_escritorio" class="content p-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <small>Fecha evento</small>
+                    <input type="date" class="form-control mb-3" placeholder="Fecha">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Macrotipo" value="hola">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <textarea type="text" class="form-control mb-3">sdfas</textarea>
+                </div>
+            </div>
+        </div>
     </div>
+
 </body>
 <!-- Contenedor de formulario registrarse -->
 <div class="modal" id="myModal">
