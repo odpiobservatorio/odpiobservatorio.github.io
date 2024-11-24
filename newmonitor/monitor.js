@@ -259,7 +259,6 @@ function run_casos() {
         formulario.appendChild(cont_tipos)
 
 
-
         _carga_tipos()
 
         function _carga_tipos() {
@@ -296,8 +295,8 @@ function run_casos() {
 
                 }
             )
-            console.log(sub_tipos)
             _carga_tipos()
+            GuardarDatos(data_activo, vigencia)
 
         }
 
