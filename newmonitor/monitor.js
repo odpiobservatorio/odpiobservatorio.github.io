@@ -178,8 +178,8 @@ function run_casos() {
         }
 
         const btn_Nuevo = byE("btn_Nuevo")
-        btn_Nuevo.onclick=()=>{
-            crear_registro(vigencia,vigencia.clsCasos[index].vigencia)
+        btn_Nuevo.onclick = () => {
+            crear_registro(vigencia, vigencia.clsCasos[index].vigencia)
             _mover_aRegistro("ultimo", vigencia, index)
         }
 
@@ -287,7 +287,7 @@ function run_casos() {
 
                 let criterio = sub_tipos[id].nombre
                 i_boton.onclick = () => {
-                    delete_item("clsTipos","nombre", criterio)
+                    delete_item("clsTipos", "nombre", criterio)
                     _carga_tipos()
                     GuardarDatos(data_activo, vigencia)
                 }
@@ -308,6 +308,8 @@ function run_casos() {
             GuardarDatos(data_activo, vigencia)
         }
 
+        //======================================================================================
+        //============CREACIÓN DE SECCIÓN INFORMACIÓN TERRITORIAL
         const titulo6 = newE("label", "titulo_lugares", "fw-bold mt-2 text-secondary fs-5")
         titulo6.textContent = "Información territorial"
         formulario.appendChild(titulo6)
@@ -318,7 +320,7 @@ function run_casos() {
         const row2 = newE("div", "row2", "row")
         formulario.appendChild(row2)
 
-        const col1_2 = newE("div", "col1_2", "col-md-4")
+        const col1_2 = newE("div", "col1_2", "col-md-3")
         row2.appendChild(col1_2)
 
         const titulo7 = newE("small", "titulo_dep", "fw-bold mb-2")
@@ -326,7 +328,7 @@ function run_casos() {
         col1_2.appendChild(titulo7)
 
 
-        const col2_2 = newE("div", "col2_2", "col-md-4")
+        const col2_2 = newE("div", "col2_2", "col-md-3")
         row2.appendChild(col2_2)
 
         const titulo8 = newE("small", "titulo_macro", "fw-bold mb-2")
@@ -339,7 +341,7 @@ function run_casos() {
         intMacro.value = vigencia.clsCasos[index].macroregion
         col2_2.appendChild(intMacro)
 
-        const col3_2 = newE("div", "col3_2", "col-md-4")
+        const col3_2 = newE("div", "col3_2", "col-md-3")
         row2.appendChild(col3_2)
 
         const titulo9 = newE("small", "titulo_mun", "fw-bold mb-2")
@@ -362,9 +364,7 @@ function run_casos() {
         ulMunicipios.appendChild(intMunicipios)
 
         const lstMunicipios = newE("div", "lstMunicipios", "menu-group-scroll")
-        ulMunicipios.appendChild(lstMunicipios)
-
-
+        ulMunicipios.appendChild(lstMunicipios)        
 
         const selDepartamento = newE("select", "seldep", "form-control mb-3")
         col1_2.appendChild(selDepartamento)
@@ -375,6 +375,64 @@ function run_casos() {
             item.textContent = dep.departamento
             selDepartamento.appendChild(item)
         })
+
+        //====Sección para crear nuevos lugares que no están en la lista
+        const col4_2 = newE("div", "col4_2", "col")
+        row2.appendChild(col4_2)
+
+        const titulo10 = newE("small", "titulo10", "fw-bold mb-2")
+        titulo10.textContent = "Nuevo lugar"
+        col4_2.appendChild(titulo10)
+
+        const divNewMunicipios = newE("div", "divNewMunicipios", "dropdown")
+        col4_2.appendChild(divNewMunicipios)
+
+        const btnNewMunicipios = newE("button", "btnNewMunicipios", "btn btn-secondary dropdown-toggle")
+        btnNewMunicipios.type = "button"
+        btnNewMunicipios.setAttribute("data-bs-toggle", "dropdown");
+        btnNewMunicipios.textContent = " + "
+        divNewMunicipios.appendChild(btnNewMunicipios)
+
+        const ulNewMunicipios = newE("ul", "ulNewMunicipios", "dropdown-menu p-2 mt-1")
+        divNewMunicipios.appendChild(ulNewMunicipios)
+
+        const small_nuevo_lugar = newE("small", "small_nuevo_lugar", "fw-bold mb-2")
+        small_nuevo_lugar.textContent="Nombre"
+        ulNewMunicipios.appendChild(small_nuevo_lugar)
+
+        const int_newlugar = newE("input", "int_newlugar", "form-control")
+        int_newlugar.type="text"
+        ulNewMunicipios.appendChild(int_newlugar)
+
+        const small_coordenada = newE("small", "small_coordenada", "fw-bold mb-2")
+        small_coordenada.textContent="Coordenadas"
+        ulNewMunicipios.appendChild(small_coordenada)
+
+        const int_coordenada = newE("input", "int_coordenada", "form-control")
+        int_coordenada.type="text"
+        int_coordenada.placeholder="'0.0,-0.0'"
+        ulNewMunicipios.appendChild(int_coordenada)
+
+        const btnNewLugar = newE("button", "btnNewLugar", "btn btn-secondary m-1")
+        btnNewLugar.type="button"
+        btnNewLugar.textContent="Agregar"
+        ulNewMunicipios.appendChild(btnNewLugar)
+
+        btnNewLugar.onclick=()=>{
+            const coorde= int_coordenada.value.split(",")
+            vigencia.clsCasos[index].clsLugares.push(
+                {
+                    "id": 0,
+                    "lat": coorde[0].trim(),
+                    "lng": coorde[1].trim(),
+                    "municipio": int_newlugar.value,
+                }
+            )
+            GuardarDatos(data_activo, vigencia)
+            _carga_lugares()
+            console.log(vigencia.clsCasos[index].clsLugares)
+        }
+
 
         //Aquí se crea anticipadamente el contenedor de lugares
         const cont_lugares = newE("div", "cont_lugares", "mb-3 border border-1 d-flex")
@@ -388,10 +446,10 @@ function run_casos() {
             vigencia.clsCasos[index].departamento = selDepartamento.value
             const filterMacro = departamentos.filter(ele => ele.departamento == selDepartamento.value)
             intMacro.value = filterMacro[0].macroregion
-            vigencia.clsCasos[index].macroregion=intMacro.value
+            vigencia.clsCasos[index].macroregion = intMacro.value
             GuardarDatos(data_activo, vigencia)
             _make_municipios(selDepartamento.value, "")
-            
+
         }
         //===================================================================
 
@@ -465,20 +523,60 @@ function run_casos() {
             }
         }
 
+        const titulo11 = newE("small", "titulo11", "fw-bold mb-2")
+        titulo11.textContent="Detalle del lugar"
+        formulario.appendChild(titulo11)
+
+        const in_detallelugar = newE("textarea", "in_detallelugar", "form-control")
+        in_detallelugar.rows="2"
+        formulario.appendChild(in_detallelugar)
+        in_detallelugar.value=vigencia.clsCasos[index].detalleLugar
+        in_detallelugar.onchange=()=>{
+            vigencia.clsCasos[index].detalleLugar=in_detallelugar.value
+        }
+
+        //========Seccion demografia
+        const titulo12 = newE("label", "titulo12", "fw-bold mt-2 text-secondary fs-5")
+        titulo12.textContent = "Información demográfica"
+        formulario.appendChild(titulo12)
+
+        const hr3 = newE("hr", "hr3", "border border-2 border-secondary")
+        formulario.appendChild(hr3)
+
+        const row3 = newE("div", "row3", "row")
+        formulario.appendChild(row3)
+        const col_pueblo = newE("div", "col_pueblo", "col-md-6")
+        row3.appendChild(col_pueblo)
+
+        const titulo13 = newE("small", "titulo13", "fw-bold mb-2")
+        titulo13.textContent="Pueblo / Étnia"
+        col_pueblo.appendChild(titulo13)
+
+        const col_newpueblo = newE("div", "col_newpueblo", "col-md-6")
+        row3.appendChild(col_newpueblo)
+
+        const titulo14 = newE("small", "titulo14", "fw-bold mb-2")
+        titulo14.textContent="Otro pueblo"
+        col_newpueblo.appendChild(titulo14)
+
+
+
         //console.log(vigencia.clsCasos[index])
 
+
+        //============================================================
         function delete_item(clase, campo, valor) {
             //console.log(nombre)
             const filter = vigencia.clsCasos[index][clase].filter(ele => ele[campo] !== valor)
-            vigencia.clsCasos[index][clase] = filter     
+            vigencia.clsCasos[index][clase] = filter
         }
 
-        function crear_registro(data,vig){
-            template_caso.vigencia=vig
+        function crear_registro(data, vig) {
+            template_caso.vigencia = vig
             data.clsCasos.push(template_caso)
             GuardarDatos(data_activo, vigencia)
         }
-
+        //============================================================
     }
 
     function _contador_registros(vigencia, index) {
