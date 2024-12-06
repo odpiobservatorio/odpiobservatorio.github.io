@@ -59,3 +59,22 @@
     background-color: #4a235a ;
     color: white;
 }
+
+.menu-group-scroll{
+  max-height: 100px;
+  margin-bottom: 10px;
+  overflow-y: auto; /* Show vertical scrollbar */ 
+  overflow-x:hidden
+}
+
+.item-menu{
+  color: black;
+  cursor: pointer;
+  padding: 5px;
+}
+.item-menu:hover{
+  background-color: gray;
+  color: white;
+}
+
+

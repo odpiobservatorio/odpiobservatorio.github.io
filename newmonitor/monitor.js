@@ -87,6 +87,13 @@ function run_casos() {
     const i_Ultimo = newE("i", "i_Ultimo", "bi bi-skip-end fs-5")
     btn_Ultimo.appendChild(i_Ultimo)
 
+    const btn_Nuevo = newE("div", "btn_Nuevo", "ms-2 btn btn-secondary")
+    btn_Nuevo.type = "button"
+    bar_botones.appendChild(btn_Nuevo)
+
+    const i_Nuevo = newE("i", "i_Nuevo", "bi bi-file-earmark-plus fs-5")
+    btn_Nuevo.appendChild(i_Nuevo)
+
 
 
 
@@ -170,6 +177,12 @@ function run_casos() {
             _mover_aRegistro("ultimo", vigencia, index)
         }
 
+        const btn_Nuevo = byE("btn_Nuevo")
+        btn_Nuevo.onclick=()=>{
+            crear_registro(vigencia,vigencia.clsCasos[index].vigencia)
+            _mover_aRegistro("ultimo", vigencia, index)
+        }
+
 
         //Creamos el entorno de entradas para el registro
         formulario.innerHTML = ""
@@ -230,8 +243,6 @@ function run_casos() {
         }
 
         //Creamos la lista de subtipos
-
-
         const titulo4 = newE("label", "titulo_subtipos", "fw-bold mt-2 text-secondary fs-5")
         titulo4.textContent = "Afectaciones adicionales"
         formulario.appendChild(titulo4)
@@ -255,9 +266,8 @@ function run_casos() {
 
         //Aquí se listaran los tipos dentro del registro
         const cont_tipos = newE("div", "cont_tipos", "mb-3 border border-1 d-flex")
-        cont_tipos.style.height = "100px"
+        //cont_tipos.style.height = "100px"
         formulario.appendChild(cont_tipos)
-
 
         _carga_tipos()
 
@@ -266,18 +276,18 @@ function run_casos() {
             const sub_tipos = vigencia.clsCasos[index].clsTipos
 
             for (id in sub_tipos) {
-                sub_tipos[id].id=id
+                sub_tipos[id].id = id
                 const el_tipo = newE("div", sub_tipos[id].nombre, "btn-label-gray")
                 const i_boton = newE("i", "i_boton", "bi bi-trash3 ms-3")
-                
+
                 i_boton.style.cursor = "pointer"
                 el_tipo.textContent = sub_tipos[id].nombre
                 el_tipo.appendChild(i_boton)
                 cont_tipos.appendChild(el_tipo)
-                
-                let indicador= id
+
+                let criterio = sub_tipos[id].nombre
                 i_boton.onclick = () => {
-                    delete sub_tipos[indicador]
+                    delete_item("clsTipos","nombre", criterio)
                     _carga_tipos()
                     GuardarDatos(data_activo, vigencia)
                 }
@@ -286,27 +296,190 @@ function run_casos() {
 
         }
 
-        selTipo.onchange=()=>{
+        selTipo.onchange = () => {
             const sub_tipos = vigencia.clsCasos[index].clsTipos
             sub_tipos.push(
                 {
-                    "id":0,
-                    "nombre":selTipo.value
-
+                    "id": 0,
+                    "nombre": selTipo.value
                 }
             )
             _carga_tipos()
             GuardarDatos(data_activo, vigencia)
-
         }
 
+        const titulo6 = newE("label", "titulo_lugares", "fw-bold mt-2 text-secondary fs-5")
+        titulo6.textContent = "Información territorial"
+        formulario.appendChild(titulo6)
+
+        const hr2 = newE("hr", "hr1", "border border-2 border-secondary")
+        formulario.appendChild(hr2)
+
+        const row2 = newE("div", "row2", "row")
+        formulario.appendChild(row2)
+
+        const col1_2 = newE("div", "col1_2", "col-md-4")
+        row2.appendChild(col1_2)
+
+        const titulo7 = newE("small", "titulo_dep", "fw-bold mb-2")
+        titulo7.textContent = "Departamento"
+        col1_2.appendChild(titulo7)
+
+
+        const col2_2 = newE("div", "col2_2", "col-md-4")
+        row2.appendChild(col2_2)
+
+        const titulo8 = newE("small", "titulo_macro", "fw-bold mb-2")
+        titulo8.textContent = "Macroregión"
+        col2_2.appendChild(titulo8)
+
+        const intMacro = newE("input", "intMacro", "form-control")
+        intMacro.type = "text"
+        intMacro.readOnly = true
+        intMacro.value = vigencia.clsCasos[index].macroregion
+        col2_2.appendChild(intMacro)
+
+        const col3_2 = newE("div", "col3_2", "col-md-4")
+        row2.appendChild(col3_2)
+
+        const titulo9 = newE("small", "titulo_mun", "fw-bold mb-2")
+        titulo9.textContent = "Municipio"
+        col3_2.appendChild(titulo9)
+
+        const divMunicipios = newE("div", "divMunicipios", "dropdown")
+        col3_2.appendChild(divMunicipios)
+
+        const btnMunicipios = newE("button", "btnMunicipios", "btn btn-secondary dropdown-toggle")
+        btnMunicipios.type = "button"
+        btnMunicipios.setAttribute("data-bs-toggle", "dropdown");
+        btnMunicipios.textContent = "municipios"
+        divMunicipios.appendChild(btnMunicipios)
+
+        const ulMunicipios = newE("ul", "ulMunicipios", "dropdown-menu p-2")
+        divMunicipios.appendChild(ulMunicipios)
+
+        const intMunicipios = newE("input", "intMunicipios", "form-control mb-2")
+        ulMunicipios.appendChild(intMunicipios)
+
+        const lstMunicipios = newE("div", "lstMunicipios", "menu-group-scroll")
+        ulMunicipios.appendChild(lstMunicipios)
+
+
+
+        const selDepartamento = newE("select", "seldep", "form-control mb-3")
+        col1_2.appendChild(selDepartamento)
+        //Cargamos la lista de los departamentos
+        departamentos.forEach(dep => {
+            const item = newE("option", "dep", "")
+            item.value = dep.departamento
+            item.textContent = dep.departamento
+            selDepartamento.appendChild(item)
+        })
+
+        //Aquí se crea anticipadamente el contenedor de lugares
+        const cont_lugares = newE("div", "cont_lugares", "mb-3 border border-1 d-flex")
+        //cont_tipos.style.height = "100px"
+        formulario.appendChild(cont_lugares)
+
+        //===================================================================
+        selDepartamento.value = vigencia.clsCasos[index].departamento
+        _make_municipios(selDepartamento.value, "")
+        selDepartamento.onchange = () => {
+            vigencia.clsCasos[index].departamento = selDepartamento.value
+            const filterMacro = departamentos.filter(ele => ele.departamento == selDepartamento.value)
+            intMacro.value = filterMacro[0].macroregion
+            vigencia.clsCasos[index].macroregion=intMacro.value
+            GuardarDatos(data_activo, vigencia)
+            _make_municipios(selDepartamento.value, "")
+            
+        }
+        //===================================================================
+
+        intMunicipios.oninput = () => {
+            _make_municipios(selDepartamento.value, intMunicipios.value)
+        }
+
+        function _make_municipios(dep, filtro) {
+            lstMunicipios.innerHTML = ""
+            const filterLugares = lugares.filter(ele => ele.departamento == dep)
+            filterLugares.forEach(mun => {
+                if (filtro !== "") {
+                    if (mun.lugar.includes(filtro) == true) {
+                        const item = newE("div", mun.lugar, "item-menu")
+                        item.textContent = mun.lugar
+                        lstMunicipios.appendChild(item)
+                        item.onclick = () => {
+                            vigencia.clsCasos[index].clsLugares.push(
+                                {
+                                    "id": 0,
+                                    "lat": mun.lat,
+                                    "lng": mun.lng,
+                                    "municipio": mun.lugar,
+                                }
+                            )
+                            GuardarDatos(data_activo, vigencia)
+                            _carga_lugares()
+                        }
+                    }
+                } else {
+                    const item = newE("div", mun.lugar, "item-menu")
+                    item.textContent = mun.lugar
+                    lstMunicipios.appendChild(item)
+                    item.onclick = () => {
+                        const newLugar = {
+                            "id": 0,
+                            "lat": mun.lat,
+                            "lng": mun.lng,
+                            "municipio": mun.lugar,
+                        }
+                        vigencia.clsCasos[index].clsLugares.push(newLugar)
+                        GuardarDatos(data_activo, vigencia)
+                        _carga_lugares()
+
+                    }
+                }
+            })
+        }
+
+        //Cargamos la lista de los lugares
+        _carga_lugares()
+        function _carga_lugares() {
+            cont_lugares.innerHTML = ""
+            const lista_lugares = vigencia.clsCasos[index].clsLugares
+            for (id in lista_lugares) {
+                lista_lugares[id].id = id
+                const el_tipo = newE("div", lista_lugares[id].lugar, "btn-label-gray")
+                const i_boton = newE("i", "i_boton", "bi bi-trash3 ms-3")
+
+                i_boton.style.cursor = "pointer"
+                el_tipo.textContent = lista_lugares[id].municipio
+                el_tipo.appendChild(i_boton)
+                cont_lugares.appendChild(el_tipo)
+
+                let nombre = lista_lugares[id].municipio
+                i_boton.onclick = () => {
+                    delete_item("clsLugares", "municipio", nombre)
+                    GuardarDatos(data_activo, vigencia)
+                    _carga_lugares()
+                }
+            }
+        }
 
         //console.log(vigencia.clsCasos[index])
 
+        function delete_item(clase, campo, valor) {
+            //console.log(nombre)
+            const filter = vigencia.clsCasos[index][clase].filter(ele => ele[campo] !== valor)
+            vigencia.clsCasos[index][clase] = filter     
+        }
 
+        function crear_registro(data,vig){
+            template_caso.vigencia=vig
+            data.clsCasos.push(template_caso)
+            GuardarDatos(data_activo, vigencia)
+        }
 
     }
-
 
     function _contador_registros(vigencia, index) {
         //Aquí contamos el número de registros de la vigencia y la posición en la que estamos
@@ -314,7 +487,10 @@ function run_casos() {
         //alert(vigencia.clsCasos.length)
     }
 
+
 }
+
+
 
 function GuardarDatos(data_activo, vigencia) {
     //Pasamos lo editado a la variable global

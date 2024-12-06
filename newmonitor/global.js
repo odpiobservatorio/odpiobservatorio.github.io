@@ -58,3 +58,30 @@ function mensajes(text, color) {
     }).showToast();
 
 }
+
+let template_caso=
+    {
+        "nmenores": 0,
+        "clsLugares": [],
+        "nhombres": 0,
+        "clsDesplazamiento": [],
+        "macrotipo": "Sin determinar",
+        "fechafuente": "",
+        "clsTipos": [],
+        "vigencia": 0,
+        "detalle": "",
+        "enlace": "",
+        "clsAccJuridica": [],
+        "clsActores": [],
+        "macroregion": "",
+        "nmujeres": 0,
+        "clsPueblos": [],
+        "departamento": "",
+        "fuente": "",
+        "fecha": "",
+        "id": 0,
+        "clsPersonas": [],
+        "macroactor": "",
+        "detalleLugar": "",
+        "npersonas": 0
+}
