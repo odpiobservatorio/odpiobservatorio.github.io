@@ -81140,7 +81140,7 @@ const DataPueblos = [
     'Makuna',
     'Misak',
     'Murui',
-    'Nasa ',
+    'Nasa',
     'Nukak',
     'Pijao',
     'Polindara',

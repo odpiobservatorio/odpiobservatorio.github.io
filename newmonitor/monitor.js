@@ -364,7 +364,7 @@ function run_casos() {
         ulMunicipios.appendChild(intMunicipios)
 
         const lstMunicipios = newE("div", "lstMunicipios", "menu-group-scroll")
-        ulMunicipios.appendChild(lstMunicipios)        
+        ulMunicipios.appendChild(lstMunicipios)
 
         const selDepartamento = newE("select", "seldep", "form-control mb-3")
         col1_2.appendChild(selDepartamento)
@@ -397,29 +397,29 @@ function run_casos() {
         divNewMunicipios.appendChild(ulNewMunicipios)
 
         const small_nuevo_lugar = newE("small", "small_nuevo_lugar", "fw-bold mb-2")
-        small_nuevo_lugar.textContent="Nombre"
+        small_nuevo_lugar.textContent = "Nombre"
         ulNewMunicipios.appendChild(small_nuevo_lugar)
 
         const int_newlugar = newE("input", "int_newlugar", "form-control")
-        int_newlugar.type="text"
+        int_newlugar.type = "text"
         ulNewMunicipios.appendChild(int_newlugar)
 
         const small_coordenada = newE("small", "small_coordenada", "fw-bold mb-2")
-        small_coordenada.textContent="Coordenadas"
+        small_coordenada.textContent = "Coordenadas"
         ulNewMunicipios.appendChild(small_coordenada)
 
         const int_coordenada = newE("input", "int_coordenada", "form-control")
-        int_coordenada.type="text"
-        int_coordenada.placeholder="'0.0,-0.0'"
+        int_coordenada.type = "text"
+        int_coordenada.placeholder = "'0.0,-0.0'"
         ulNewMunicipios.appendChild(int_coordenada)
 
         const btnNewLugar = newE("button", "btnNewLugar", "btn btn-secondary m-1")
-        btnNewLugar.type="button"
-        btnNewLugar.textContent="Agregar"
+        btnNewLugar.type = "button"
+        btnNewLugar.textContent = "Agregar"
         ulNewMunicipios.appendChild(btnNewLugar)
 
-        btnNewLugar.onclick=()=>{
-            const coorde= int_coordenada.value.split(",")
+        btnNewLugar.onclick = () => {
+            const coorde = int_coordenada.value.split(",")
             vigencia.clsCasos[index].clsLugares.push(
                 {
                     "id": 0,
@@ -430,7 +430,7 @@ function run_casos() {
             )
             GuardarDatos(data_activo, vigencia)
             _carga_lugares()
-            console.log(vigencia.clsCasos[index].clsLugares)
+
         }
 
 
@@ -524,15 +524,15 @@ function run_casos() {
         }
 
         const titulo11 = newE("small", "titulo11", "fw-bold mb-2")
-        titulo11.textContent="Detalle del lugar"
+        titulo11.textContent = "Detalle del lugar"
         formulario.appendChild(titulo11)
 
         const in_detallelugar = newE("textarea", "in_detallelugar", "form-control")
-        in_detallelugar.rows="2"
+        in_detallelugar.rows = "2"
         formulario.appendChild(in_detallelugar)
-        in_detallelugar.value=vigencia.clsCasos[index].detalleLugar
-        in_detallelugar.onchange=()=>{
-            vigencia.clsCasos[index].detalleLugar=in_detallelugar.value
+        in_detallelugar.value = vigencia.clsCasos[index].detalleLugar
+        in_detallelugar.onchange = () => {
+            vigencia.clsCasos[index].detalleLugar = in_detallelugar.value
         }
 
         //========Seccion demografia
@@ -549,14 +549,64 @@ function run_casos() {
         row3.appendChild(col_pueblo)
 
         const titulo13 = newE("small", "titulo13", "fw-bold mb-2")
-        titulo13.textContent="Pueblo / Étnia"
+        titulo13.textContent = "Pueblo / Étnia"
         col_pueblo.appendChild(titulo13)
+
+        const sel_pueblo = newE("select", "titulo13", "form-control")
+        col_pueblo.appendChild(sel_pueblo)
+        DataPueblos.forEach(pub => {
+            const item = newE("option", pub, "")
+            item.textContent = pub
+            item.value=pub
+            sel_pueblo.appendChild(item)
+        })
+        sel_pueblo.onchange=()=>{
+            vigencia.clsCasos[index].clsPueblos.push(
+                {
+                    "id": 0,
+                    "nombre": sel_pueblo.value,
+                }
+            )
+            GuardarDatos(data_activo, vigencia)
+            _carga_pueblos()
+        }
+
+        const cont_pueblos = newE("div", "cont_pueblos", "mb-3 border border-1 d-flex")
+        formulario.appendChild(cont_pueblos)
+
+        _carga_pueblos()
+        function _carga_pueblos() {
+            cont_pueblos.innerHTML = ""
+            const lista_pueblos = vigencia.clsCasos[index].clsPueblos
+            for (id in lista_pueblos) {
+                lista_pueblos[id].id = id
+                const el_tipo = newE("div", lista_pueblos[id].lugar, "btn-label-gray")
+                const i_boton = newE("i", "i_boton", "bi bi-trash3 ms-3")
+
+                i_boton.style.cursor = "pointer"
+                el_tipo.textContent = lista_pueblos[id].nombre
+                el_tipo.appendChild(i_boton)
+                cont_pueblos.appendChild(el_tipo)
+                sel_pueblo.value=lista_pueblos[id].nombre.trim()
+                let nombre = lista_pueblos[id].nombre
+                i_boton.onclick = () => {
+                    delete_item("clsPueblos", "nombre", nombre)
+                    GuardarDatos(data_activo, vigencia)
+                    _carga_pueblos()
+                }
+            }
+            if (lista_pueblos.length>6){
+                //cont_pueblos.style.height="100px"
+            }
+        }
+
+
 
         const col_newpueblo = newE("div", "col_newpueblo", "col-md-6")
         row3.appendChild(col_newpueblo)
 
         const titulo14 = newE("small", "titulo14", "fw-bold mb-2")
-        titulo14.textContent="Otro pueblo"
+        titulo14.textContent = "Otro pueblo"
         col_newpueblo.appendChild(titulo14)
 
 
