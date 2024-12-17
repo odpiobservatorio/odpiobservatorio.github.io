@@ -557,10 +557,10 @@ function run_casos() {
         DataPueblos.forEach(pub => {
             const item = newE("option", pub, "")
             item.textContent = pub
-            item.value=pub
+            item.value = pub
             sel_pueblo.appendChild(item)
         })
-        sel_pueblo.onchange=()=>{
+        sel_pueblo.onchange = () => {
             vigencia.clsCasos[index].clsPueblos.push(
                 {
                     "id": 0,
@@ -587,7 +587,7 @@ function run_casos() {
                 el_tipo.textContent = lista_pueblos[id].nombre
                 el_tipo.appendChild(i_boton)
                 cont_pueblos.appendChild(el_tipo)
-                sel_pueblo.value=lista_pueblos[id].nombre.trim()
+                sel_pueblo.value = lista_pueblos[id].nombre.trim()
                 let nombre = lista_pueblos[id].nombre
                 i_boton.onclick = () => {
                     delete_item("clsPueblos", "nombre", nombre)
@@ -595,7 +595,7 @@ function run_casos() {
                     _carga_pueblos()
                 }
             }
-            if (lista_pueblos.length>6){
+            if (lista_pueblos.length > 6) {
                 //cont_pueblos.style.height="100px"
             }
         }
@@ -609,7 +609,250 @@ function run_casos() {
         titulo14.textContent = "Otro pueblo"
         col_newpueblo.appendChild(titulo14)
 
+        const in_newPueblo = newE("input", "in_newPueblo", "form-control")
+        col_newpueblo.appendChild(in_newPueblo)
 
+        in_newPueblo.onchange = () => {
+            vigencia.clsCasos[index].clsPueblos.push(
+                {
+                    "id": 0,
+                    "nombre": in_newPueblo.value,
+                }
+            )
+            GuardarDatos(data_activo, vigencia)
+            _carga_pueblos()
+        }
+
+        ////////==================Numero de personas
+        const row4 = newE("div", "row4", "row")
+        formulario.appendChild(row4)
+        const col_nvictimas = newE("div", "col_nvictimas", "col-md-3")
+        row4.appendChild(col_nvictimas)
+
+        /////////////////////
+        const titulo15 = newE("small", "titulo15", "fw-bold mb-2")
+        titulo15.textContent = "Afectados"
+        col_nvictimas.appendChild(titulo15)
+
+        const in_nvictimas = newE("input", "in_nvictimas", "form-control")
+        in_nvictimas.type = "number"
+        col_nvictimas.appendChild(in_nvictimas)
+
+
+        in_nvictimas.value = vigencia.clsCasos[index].npersonas
+        in_nvictimas.onchange = () => {
+            vigencia.clsCasos[index].npersonas = in_nvictimas.value
+        }
+
+        /////////////////////
+
+
+        const col_nmujeres = newE("div", "col_nmujeres", "col-md-3")
+        row4.appendChild(col_nmujeres)
+
+        const titulo16 = newE("small", "titulo16", "fw-bold mb-2")
+        titulo16.textContent = "Número mujeres"
+        col_nmujeres.appendChild(titulo16)
+
+        const in_nmujeres = newE("input", "in_nmujeres", "form-control")
+        in_nmujeres.type = "number"
+        col_nmujeres.appendChild(in_nmujeres)
+
+        in_nmujeres.value = vigencia.clsCasos[index].nmujeres
+        in_nmujeres.onchange = () => {
+            vigencia.clsCasos[index].nmujeres = in_nmujeres.value
+        }
+
+        /////////////////////
+        const col_nhombres = newE("div", "col_nhombres", "col-md-3")
+        row4.appendChild(col_nhombres)
+
+        const titulo17 = newE("small", "titulo17", "fw-bold mb-2")
+        titulo17.textContent = "Número hombres"
+        col_nhombres.appendChild(titulo17)
+
+        const in_nhombres = newE("input", "in_nhombres", "form-control")
+        in_nhombres.type = "number"
+        col_nhombres.appendChild(in_nhombres)
+
+        in_nhombres.value = vigencia.clsCasos[index].nhombres
+        in_nhombres.onchange = () => {
+            vigencia.clsCasos[index].nhombres = in_nhombres.value
+        }
+
+        //////////////////////////////
+
+        const col_nmenores = newE("div", "col_nmenores", "col-md-3")
+        row4.appendChild(col_nmenores)
+
+        const titulo18 = newE("small", "titulo18", "fw-bold mb-2")
+        titulo18.textContent = "Número menores"
+        col_nmenores.appendChild(titulo18)
+
+        const in_nmenores = newE("input", "in_nmenores", "form-control")
+        in_nmenores.type = "number"
+        col_nmenores.appendChild(in_nmenores)
+
+        in_nmenores.value = vigencia.clsCasos[index].nmenores
+        in_nmenores.onchange = () => {
+            vigencia.clsCasos[index].nmenores = in_nmenores.value
+        }
+        //////////////////////////////
+
+        ////////==================Numero de personas
+        const row5 = newE("div", "row5", "row mt-2")
+        formulario.appendChild(row5)
+
+        const col_addpersonas = newE("div", "col_addpersonas", "col-md-2")
+        row5.appendChild(col_addpersonas)
+
+        const btn_addpersonas = newE("button", "btn_addpersonas", "btn btn-secondary mt-2")
+        btn_addpersonas.type = "button"
+        btn_addpersonas.textContent = "Agregar nombres"
+        col_addpersonas.appendChild(btn_addpersonas)
+
+        btn_addpersonas.onclick=()=>{
+            vigencia.clsCasos[index].clsPersonas.push(
+                {
+                    "edad": 0,
+                    "documento": "",
+                    "nombres": "Nuevo nombre",
+                    "genero": "Sin determinar",
+                    "cargo": "",
+                    "id": 0
+                }
+            )
+            _cargar_personas()
+            GuardarDatos(data_activo, vigencia)
+        }
+
+
+        const col_personas = newE("div", "col_personas", "col-md-10")
+        row5.appendChild(col_personas)
+
+        _cargar_personas()
+        function _cargar_personas() {
+            col_personas.innerHTML = ""
+            let i=0
+            vigencia.clsCasos[index].clsPersonas.forEach(persona => {
+                persona.id=i
+                const btn_persona = newE("div", "", "btn btn-light btn-sm m-1")
+                btn_persona.setAttribute("data-bs-toggle", "collapse");
+                btn_persona.setAttribute("data-bs-target", "#collapse"+i);
+                
+                btn_persona.textContent = persona.nombres
+                col_personas.appendChild(btn_persona)
+
+                const collapse_persona = newE("div", "", "collapse p-2")
+                collapse_persona.id="collapse" + i
+                //div_persona.style.display="block"
+                col_personas.appendChild(collapse_persona)
+                i++
+                
+                const div_persona = newE("div", "", "card card-body")
+                div_persona.style.background="#f2f4f4"
+                collapse_persona.appendChild(div_persona)
+
+                const smnombres = newE("small", "smnombres", "fw-bold")
+                smnombres.textContent="Nombres"
+                div_persona.appendChild(smnombres)
+
+                const int_nombres = newE("input", "int_nombres", "form-coltrol m-1")
+                //int_nombres.style.display="block"
+                //int_nombres.style.width="300px"
+                int_nombres.type="text"
+                div_persona.appendChild(int_nombres)
+                int_nombres.value=persona.nombres
+                int_nombres.onchange=()=>{
+                    persona.nombres=int_nombres.value
+                    btn_persona.textContent=int_nombres.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+
+                const smdocumento = newE("small", "smdocumento", "fw-bold")
+                smdocumento.textContent="Documento"
+                //smdocumento.style.display="block"
+                div_persona.appendChild(smdocumento)
+
+                const int_documento = newE("input", "int_documento", "form-coltrol m-1")
+                //int_documento.style.width="300px"
+                int_documento.type="text"
+                div_persona.appendChild(int_documento)
+                int_documento.value=persona.documento
+                int_documento.onchange=()=>{
+                    persona.documento=int_documento.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const smgenero = newE("small", "smgenero", "fw-bold")
+                smgenero.textContent="Género"
+                //smdocumento.style.display="block"
+                div_persona.appendChild(smgenero)
+
+                const int_genero = newE("select", "int_genero", "form-coltrol m-1")
+
+                const generos=["Hombre","Mujer","LGBTI","Otro","Sin determinar"]
+
+                int_genero.value=persona.genero
+                generos.forEach(ele=>{
+                    const option=newE("option", "ele", "")
+                    option.value=ele
+                    option.textContent=ele
+                    int_genero.appendChild(option)
+                })
+                //int_genero.style.display="block"
+                //int_genero.style.width="300px"
+                int_genero.type="text"
+                div_persona.appendChild(int_genero)
+                int_genero.value=persona.genero
+                int_genero.onchange=()=>{
+                    persona.genero=int_genero.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const smedad = newE("small", "smedad", "fw-bold")
+                smedad.textContent="Edad"
+                //smdocumento.style.display="block"
+                div_persona.appendChild(smedad)
+
+                const int_edad = newE("input", "int_edad", "form-coltrol m-1")
+                //int_documento.style.width="300px"
+                int_edad.type="number"
+                div_persona.appendChild(int_edad)
+                int_edad.value=persona.edad
+                int_documento.onchange=()=>{
+                    persona.edad=int_edad.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const smcargo= newE("small", "smcargo", "fw-bold")
+                smcargo.textContent="Cargo"
+                //smdocumento.style.display="block"
+                div_persona.appendChild(smcargo)
+
+                const int_cargo = newE("input", "int_cargo", "form-coltrol m-1")
+                //int_documento.style.width="300px"
+                int_cargo.type="text"
+                div_persona.appendChild(int_cargo)
+                int_cargo.value=persona.cargo
+                int_documento.onchange=()=>{
+                    persona.cargo=int_cargo.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const btn_deletepersonas = newE("button", "btn_deletepersonas", "btn btn-secondary mt-2")
+                btn_deletepersonas.type = "button"
+                btn_deletepersonas.textContent = "Suprimir elemento"
+                div_persona.appendChild(btn_deletepersonas)
+                btn_deletepersonas.onclick=()=>{
+                    delete_item("clsPersonas", "id", persona.id)
+                    _cargar_personas()
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+            })
+        }
 
         //console.log(vigencia.clsCasos[index])
 
