@@ -60,6 +60,21 @@
     color: white;
 }
 
+.btn-label-gray-long{
+  background-color: #f4ecf7;
+  color: #4a235a ;
+  padding: 5px;
+  padding-left: 10px;
+  margin: 5px;
+  border-radius: 3px;
+  border: gray solid 1px;
+  height: 40px;
+}
+.btn-label-gray-long:hover{
+  background-color: #4a235a ;
+  color: white;
+}
+
 .menu-group-scroll{
   max-height: 100px;
   margin-bottom: 10px;

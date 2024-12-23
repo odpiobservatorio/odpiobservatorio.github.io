@@ -985,7 +985,8 @@ function run_casos() {
                 deplazamientos[id].id = id
 
 
-                const btn_desplazamiento = newE("div", "", "btn btn-secondary btn-sm m-1")
+                const btn_desplazamiento = newE("div", "", "btn-label-gray-long m-1")
+                btn_desplazamiento.style.cursor="pointer"
                 btn_desplazamiento.setAttribute("data-bs-toggle", "collapse");
                 btn_desplazamiento.setAttribute("data-bs-target", "#collapse_des" + id);
 
@@ -1022,6 +1023,7 @@ function run_casos() {
                     GuardarDatos(data_activo, vigencia)
                 }
 
+
                 const sm_fsalida = newE("small", "sm_fsalida", "fw-bold")
                 sm_fsalida.textContent = "Fecha salída"
                 div_desplazamiento.appendChild(sm_fsalida)
@@ -1035,12 +1037,11 @@ function run_casos() {
                     _carga_desplazamientos()
                     GuardarDatos(data_activo, vigencia)
                 }
+
+
             }
 
         }
-
-
-
 
 
         const btn_adddesplazamiento = newE("button", "btn_adddesplazamiento", "btn btn-secondary mt-2")
@@ -1049,9 +1050,25 @@ function run_casos() {
         col_newdesplazamiento.appendChild(btn_adddesplazamiento)
 
         btn_adddesplazamiento.onclick = () => {
-            //vigencia.clsCasos[index].clsDesplazamiento.push()
-            //_cargar_personas()
-            //GuardarDatos(data_activo, vigencia)
+            vigencia.clsCasos[index].clsDesplazamiento.push(
+                {
+                    "id": 0,
+                    "tipo": "Sin determinar",
+                    "DepartamentoExp": "",
+                    "lugarOri": "Sin determinar",
+                    "coorExp": "",
+                    "fechaex": "",
+                    "entornoOri": "",
+
+                    "DepartamentoDes": "",
+                    "LugarDes": "",
+                    "coorDes": "",
+                    "fechaDes": "",
+                    "TipoDes": "",
+                }
+            )
+            _carga_desplazamientos()
+            GuardarDatos(data_activo, vigencia)
         }
 
 
