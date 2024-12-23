@@ -882,11 +882,177 @@ function run_casos() {
             sel_macroactor.appendChild(item)
         })
         sel_macroactor.value = vigencia.clsCasos[index].macroactor
-        sel_macroactor.onchange=()=>{
-            vigencia.clsCasos[index].macroactor=sel_macroactor.value
+        sel_macroactor.onchange = () => {
+            vigencia.clsCasos[index].macroactor = sel_macroactor.value
+            GuardarDatos(data_activo, vigencia)
+        }
+        //
+        const col_microactor = newE("div", "col_microactor", "col-md-4")
+        row6.appendChild(col_microactor)
+
+        const smmicroactor = newE("small", "smmicroactor", "fw-bold")
+        smmicroactor.textContent = "Microactor"
+        col_microactor.appendChild(smmicroactor)
+
+        const sel_microactor = newE("select", "sel_microactor", "form-control")
+        col_microactor.appendChild(sel_microactor)
+
+        DataActor.forEach(ele => {
+            const item = newE("option", "ele", "")
+            item.value = ele
+            item.textContent = ele
+            sel_microactor.appendChild(item)
+        })
+        sel_microactor.value = vigencia.clsCasos[index].clsActores[vigencia.clsCasos[index].clsActores.length - 1].nombre
+        sel_microactor.onchange = () => {
+            vigencia.clsCasos[index].clsActores.push({
+                "id": 0,
+                "nombre": sel_microactor.value
+            })
+            _carga_actores()
             GuardarDatos(data_activo, vigencia)
         }
 
+        const col_otroactor = newE("div", "col_otroactor", "col-md-4")
+        row6.appendChild(col_otroactor)
+
+        const smotroactor = newE("small", "smotroactor", "fw-bold")
+        smotroactor.textContent = "Otro actor"
+        col_otroactor.appendChild(smotroactor)
+
+        const int_otroactor = newE("input", "int_otroactor", "form-control")
+        int_otroactor.type = "text"
+        col_otroactor.appendChild(int_otroactor)
+        int_otroactor.onchange = () => {
+            vigencia.clsCasos[index].clsActores.push({
+                "id": 0,
+                "nombre": int_otroactor.value
+            })
+            _carga_actores()
+            GuardarDatos(data_activo, vigencia)
+        }
+
+
+        const cont_actores = newE("div", "cont_actores", "mb-3 border border-1 d-flex")
+        formulario.appendChild(cont_actores)
+        _carga_actores()
+
+        function _carga_actores() {
+            cont_actores.innerHTML = ""
+            const lista_actores = vigencia.clsCasos[index].clsActores
+            for (id in lista_actores) {
+                lista_actores[id].id = id
+                const el_tipo = newE("div", lista_actores[id].nombre, "btn-label-gray")
+                const i_boton = newE("i", "i_boton", "bi bi-trash3 ms-3")
+
+                i_boton.style.cursor = "pointer"
+                el_tipo.textContent = lista_actores[id].nombre
+                el_tipo.appendChild(i_boton)
+                cont_actores.appendChild(el_tipo)
+                sel_microactor.value = lista_actores[id].nombre.trim()
+                let nombre = lista_actores[id].nombre
+                i_boton.onclick = () => {
+                    delete_item("clsActores", "nombre", nombre)
+                    GuardarDatos(data_activo, vigencia)
+                    _carga_actores()
+                }
+            }
+        }
+        ////
+        // Desplazamientos
+        const row7 = newE("div", "row7", "row")
+        formulario.appendChild(row7)
+        const col_newdesplazamiento = newE("div", "col_newdesplazamiento", "col-md-2")
+        row7.appendChild(col_newdesplazamiento)
+
+        const smdesplazamiento = newE("small", "smdesplazamiento", "fw-bold me-3")
+        smdesplazamiento.textContent = "Desplazamientos"
+        col_newdesplazamiento.appendChild(smdesplazamiento)
+
+        const col_desplazamiento = newE("div", "col_desplazamiento", "col-md-10")
+        row7.appendChild(col_desplazamiento)
+
+        _carga_desplazamientos()
+
+        function _carga_desplazamientos() {
+            col_desplazamiento.innerHTML = ""
+            const deplazamientos = vigencia.clsCasos[index].clsDesplazamiento
+            console.log(deplazamientos)
+            for (id in deplazamientos) {
+                const row = newE("div", "rowdes" + id, "row")
+                col_desplazamiento.appendChild(row)
+
+                deplazamientos[id].id = id
+
+
+                const btn_desplazamiento = newE("div", "", "btn btn-secondary btn-sm m-1")
+                btn_desplazamiento.setAttribute("data-bs-toggle", "collapse");
+                btn_desplazamiento.setAttribute("data-bs-target", "#collapse_des" + id);
+
+                btn_desplazamiento.textContent = deplazamientos[id].tipo
+                row.appendChild(btn_desplazamiento)
+
+                const collapse_despl = newE("div", "", "collapse p-2")
+                collapse_despl.id = "collapse_des" + id
+                row.appendChild(collapse_despl)
+
+
+                const div_desplazamiento = newE("div", "", "card card-body")
+                div_desplazamiento.style.background = "#f2f4f4"
+                collapse_despl.appendChild(div_desplazamiento)
+
+                const sm_tipo = newE("small", "sm_tipo", "fw-bold")
+                sm_tipo.textContent = "Tipo de desplazamiento"
+                div_desplazamiento.appendChild(sm_tipo)
+
+                const tipos_despl = ['Colectivo', 'Individual', 'Unifamiliar', 'Multifamiliar', 'Otro', 'Sin determinar']
+                const sel_tipo = newE("select", "", "form-control")
+                div_desplazamiento.appendChild(sel_tipo)
+                tipos_despl.forEach(ele => {
+                    const item = newE("option", ele, "")
+                    item.value = ele
+                    item.textContent = ele
+                    sel_tipo.appendChild(item)
+                })
+
+                sel_tipo.value = deplazamientos[id].tipo
+                sel_tipo.onchange = () => {
+                    deplazamientos[id].tipo = sel_tipo.value
+                    btn_desplazamiento.textContent = sel_tipo.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const sm_fsalida = newE("small", "sm_fsalida", "fw-bold")
+                sm_fsalida.textContent = "Fecha salída"
+                div_desplazamiento.appendChild(sm_fsalida)
+
+                const btn_delete = newE("button", "", "btn btn-secondary mt-2")
+                btn_delete.type = "button"
+                btn_delete.textContent = "Suprimir elemento"
+                div_desplazamiento.appendChild(btn_delete)
+                btn_delete.onclick = () => {
+                    delete_item("clsDesplazamiento", "id", id)
+                    _carga_desplazamientos()
+                    GuardarDatos(data_activo, vigencia)
+                }
+            }
+
+        }
+
+
+
+
+
+        const btn_adddesplazamiento = newE("button", "btn_adddesplazamiento", "btn btn-secondary mt-2")
+        btn_adddesplazamiento.type = "button"
+        btn_adddesplazamiento.textContent = "Agregar +"
+        col_newdesplazamiento.appendChild(btn_adddesplazamiento)
+
+        btn_adddesplazamiento.onclick = () => {
+            //vigencia.clsCasos[index].clsDesplazamiento.push()
+            //_cargar_personas()
+            //GuardarDatos(data_activo, vigencia)
+        }
 
 
 
