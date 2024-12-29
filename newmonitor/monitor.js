@@ -111,8 +111,8 @@ function run_casos() {
 
     //Automatiza al iniciar el módulo, colocando en el primer registro de la vigencia y últiam vigencia
     selVigencias.value = last_vigencia //Este dato es numérico de la última vigencia
-    for (id in split_Data[last_vigencia].clsCasos){
-        split_Data[last_vigencia].clsCasos[id].id=parseInt(id)
+    for (id in split_Data[last_vigencia].clsCasos) {
+        split_Data[last_vigencia].clsCasos[id].id = parseInt(id)
     }
     if (split_Data[last_vigencia].clsCasos.length !== 0) {
         //Numeramos los registros de esta vigencia
@@ -136,8 +136,8 @@ function run_casos() {
 
     //Acciones cuando se cambie la vigencias del selector
     selVigencias.onchange = () => {
-        for (id in split_Data[selVigencias.value].clsCasos){
-            split_Data[selVigencias.value].clsCasos[id].id=parseInt(id)
+        for (id in split_Data[selVigencias.value].clsCasos) {
+            split_Data[selVigencias.value].clsCasos[id].id = parseInt(id)
         }
         //Llama a la función que crea todo el registro
         _make_registros(split_Data[selVigencias.value], 0, selVigencias.value)
@@ -1039,7 +1039,6 @@ function run_casos() {
                 collapse_despl.id = "collapse_des" + id
                 row.appendChild(collapse_despl)
 
-
                 const div_desplazamiento = newE("div", "", "card card-body")
                 div_desplazamiento.style.background = "#f2f4f4"
                 collapse_despl.appendChild(div_desplazamiento)
@@ -1066,10 +1065,108 @@ function run_casos() {
                 }
 
 
+
                 const sm_fsalida = newE("small", "sm_fsalida", "fw-bold")
                 sm_fsalida.textContent = "Fecha salída"
                 div_desplazamiento.appendChild(sm_fsalida)
 
+                const int_fecha_sal = newE("input", "", "form-control")
+                int_fecha_sal.type = "date"
+                div_desplazamiento.appendChild(int_fecha_sal)
+                int_fecha_sal.value = deplazamientos[id].fechaex
+                int_fecha_sal.onchange = () => {
+                    deplazamientos[id].fechaex = int_fecha_sal.value
+                }
+
+
+                //Aquí información del departamento de expulsión
+                const sm_depDes = newE("small", "sm_tipo", "fw-bold")
+                const sel_lugarOri = newE("select", "", "form-control")
+
+                sm_depDes.textContent = "Departamento origen"
+                div_desplazamiento.appendChild(sm_depDes)
+
+
+                const sel_depDes = newE("select", "", "form-control")
+                div_desplazamiento.appendChild(sel_depDes)
+
+                departamentos.forEach(ele => {
+                    const item = newE("option", ele.departamento, "")
+                    item.value = ele.departamento
+                    item.textContent = ele.departamento
+                    sel_depDes.appendChild(item)
+                })
+
+                try {
+                    //  Si no existe un departamento
+                    sel_depDes.value = deplazamientos[id].DepartamentoExp
+
+                } catch (error) {
+                    deplazamientos[id].DepartamentoExp = ""
+                }
+                _cargar_lugaresDes(deplazamientos[id].DepartamentoExp)
+
+                /////////////////////////////////////////////////////////////
+                //  Lugar de salida
+
+                const sm_lugarOri = newE("small", "sm_lugarOri", "fw-bold")
+                sm_lugarOri.textContent = "Lugar de origen"
+                div_desplazamiento.appendChild(sm_lugarOri)
+
+
+                div_desplazamiento.appendChild(sel_lugarOri)
+
+                sel_depDes.onchange = () => {
+                    deplazamientos[id].DepartamentoExp = sel_depDes.value
+                    GuardarDatos(data_activo, vigencia)
+                    _cargar_lugaresDes(sel_depDes.value)
+
+                }
+
+                function _cargar_lugaresDes(departamento) {
+                    sel_lugarOri.innerHTML = ""
+                    lugaresNew = lugares.filter(ele => ele.departamento == departamento)
+                    lugaresNew.forEach(ele => {
+                        const item = newE("option", ele.lugar, "")
+                        item.value = [ele.lugar, ele.latlng]
+                        item.textContent = ele.lugar
+                        sel_lugarOri.appendChild(item)
+                    })
+                }
+                sel_lugarOri.value = deplazamientos[id].lugarOri
+                sel_lugarOri.onchange = () => {
+                    const datos = sel_lugarOri.value.split(",")
+                    deplazamientos[id].lugarOri = sel_lugarOri.value
+                    deplazamientos[id].coorExp = [datos[1], datos[2]]
+                    GuardarDatos(data_activo, vigencia)
+                }
+                /////////////////////////////////////////////////////////////
+                //  Entorno de salida
+
+                const sm_EntornoOri = newE("small", "sm_EntornoOri", "fw-bold")
+                sm_EntornoOri.textContent = "Entorno de origen"
+                div_desplazamiento.appendChild(sm_EntornoOri)
+
+                const entornos = ["Rural", "Urbano","Mixto", "Otro"]
+                const sel_EntornoOri = newE("select", "", "form-control")
+                div_desplazamiento.appendChild(sel_EntornoOri)
+
+                entornos.forEach(ele=>{
+                    const item = newE("option", ele, "")
+                    item.value = ele
+                    item.textContent = ele
+                    sel_EntornoOri.appendChild(item)
+                })
+                sel_EntornoOri.value=deplazamientos[id].entornoOri
+                sel_EntornoOri.onchange=()=>{
+                    deplazamientos[id].entornoOri=sel_EntornoOri.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+
+
+
+                /////////////////////////////////////////////////////////////////
                 const btn_delete = newE("button", "", "btn btn-secondary mt-2")
                 btn_delete.type = "button"
                 btn_delete.textContent = "Suprimir elemento"
@@ -1079,7 +1176,6 @@ function run_casos() {
                     _carga_desplazamientos()
                     GuardarDatos(data_activo, vigencia)
                 }
-
 
             }
 
@@ -1130,11 +1226,11 @@ function run_casos() {
             _contador_registros(vigencia, 0)
         }
         //============================================================
+        //Se borra la totalidad del caso
         function eliminar_registro(data, idx) {
-            const filtered= data.clsCasos.filter(ele=>ele.id!==idx)
+            const filtered = data.clsCasos.filter(ele => ele.id !== idx)
             //GuardarDatos(data_activo, vigencia)
-            //_contador_registros(vigencia, 0)
-            data.clsCasos=filtered
+            data.clsCasos = filtered
             GuardarDatos(data_activo, vigencia)
             _contador_registros(vigencia, 0)
             _mover_aRegistro("primero", vigencia, 0)
