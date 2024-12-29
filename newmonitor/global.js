@@ -33,11 +33,11 @@ let byE = (elemento) => {
     const el = document.getElementById(elemento)
     return el
 }
-let newE = (elemento,id,clase,ancho) => {
+let newE = (elemento, id, clase, ancho) => {
     const el = document.createElement(elemento)
-    el.id=id
-    el.className=clase
-    el.style.width=ancho
+    el.id = id
+    el.className = clase
+    el.style.width = ancho
     return el
 }
 function mensajes(text, color) {
@@ -59,7 +59,33 @@ function mensajes(text, color) {
 
 }
 
-let template_caso=
+let template_caso =
+{
+    "nmenores": 0,
+    "clsLugares": [],
+    "nhombres": 0,
+    "clsDesplazamiento": [],
+    "macrotipo": "Sin determinar",
+    "fechafuente": "",
+    "clsTipos": [],
+    "vigencia": 0,
+    "detalle": "",
+    "enlace": "",
+    "clsAccJuridica": [],
+    "clsActores": [],
+    "macroregion": "",
+    "nmujeres": 0,
+    "clsPueblos": [],
+    "departamento": "",
+    "fuente": "",
+    "fecha": "",
+    "id": 0,
+    "clsPersonas": [],
+    "macroactor": "",
+    "detalleLugar": "",
+    "npersonas": 0
+}
+let template_new_vig =[
     {
         "nmenores": 0,
         "clsLugares": [],
@@ -67,21 +93,44 @@ let template_caso=
         "clsDesplazamiento": [],
         "macrotipo": "Sin determinar",
         "fechafuente": "",
-        "clsTipos": [],
-        "vigencia": 0,
+        "clsTipos": [
+            {
+                "nombre": "Sin tipo",
+                "id": 0
+            }
+        ],
+        "vigencia":0,
         "detalle": "",
         "enlace": "",
         "clsAccJuridica": [],
-        "clsActores": [],
+        "clsActores": [
+            {
+                "nombre": "Sin identificar",
+                "id": 0
+            }
+        ],
         "macroregion": "",
         "nmujeres": 0,
+        "parent": "",
         "clsPueblos": [],
         "departamento": "",
         "fuente": "",
-        "fecha": "",
+        "fecha": "2025-1-1",
         "id": 0,
         "clsPersonas": [],
-        "macroactor": "",
+        "macroactor": "Sin identificar",
         "detalleLugar": "",
         "npersonas": 0
+    }
+]
+
+const modal = {
+    modalDelete(comando) {
+        const modal = new bootstrap.Modal(document.getElementById('ModalDelete'));
+        const texto = document.getElementById("textoModalDel")
+        texto.textContent = "¿Está seguro de eliminar este elemento?"
+        modal.show();
+        const btn = document.getElementById('btnBorrarConfirm')
+        btn.onclick = comando
+    }
 }

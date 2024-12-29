@@ -1,10 +1,10 @@
 let join_Data = [];
 let split_Data;
 let ActiveData;
+
 function openIni() {
     byE("menu_general").hidden = false
     //alert("ingresamos")
-    //console.log(GLOBAL.state.vigencias)
 
     const temp_vigencias = GLOBAL.state.vigencias
 
@@ -35,7 +35,7 @@ function run_casos() {
     const selVigencias = newE("select", "selVigencias", "form-control mb-3")
     col_vigencias.appendChild(selVigencias)
     //Ahora agregamos las vigencias
-    let last_vigencia;
+    let last_vigencia; //Guarda el índice de la última vigencia en la lista
     let contador = 0
     split_Data.forEach(vigencia => {
         const item = newE("option", "option" + vigencia.id, "")
@@ -46,9 +46,9 @@ function run_casos() {
         contador++
     })
 
+    //Este es el cotador de registros visual
     const col_pos_registros = newE("div", "col_pos_registros", "col-md-6 text-white fs-5 pb-2")
     col_pos_registros.textContent = "Sin registros"
-
     row0.appendChild(col_pos_registros)
 
 
@@ -94,7 +94,12 @@ function run_casos() {
     const i_Nuevo = newE("i", "i_Nuevo", "bi bi-file-earmark-plus fs-5")
     btn_Nuevo.appendChild(i_Nuevo)
 
+    const btn_Eliminar = newE("div", "btn_Eliminar", "btn btn-secondary")
+    btn_Eliminar.type = "button"
+    bar_botones.appendChild(btn_Eliminar)
 
+    const i_Eliminar = newE("i", "i_Eliminar", "bi bi-trash3-fill fs-5")
+    btn_Eliminar.appendChild(i_Eliminar)
 
 
     //======================================================================================
@@ -104,14 +109,37 @@ function run_casos() {
     const formulario = newE("div", "formulario", "container")
     contenedor.appendChild(formulario)
 
-    //Automatiza al iniciar el módulo, colocnado en el primer registro de la vigencia y últiam vigencia
-    selVigencias.value = last_vigencia
-    _make_registros(split_Data[last_vigencia], 0, last_vigencia)
-    _contador_registros(split_Data[last_vigencia], 0)
+    //Automatiza al iniciar el módulo, colocando en el primer registro de la vigencia y últiam vigencia
+    selVigencias.value = last_vigencia //Este dato es numérico de la última vigencia
+    for (id in split_Data[last_vigencia].clsCasos){
+        split_Data[last_vigencia].clsCasos[id].id=parseInt(id)
+    }
+    if (split_Data[last_vigencia].clsCasos.length !== 0) {
+        //Numeramos los registros de esta vigencia
+        //Llama a la función que crea todo el registro
+        //--------------De la base de datos FB toma según el indx + numero último número
+        _make_registros(split_Data[last_vigencia], 0, last_vigencia)
+        _contador_registros(split_Data[last_vigencia], 0)
+    } else {
+        mensajes("No hay registros en esta vigencia", "orange")
+        let newVig = split_Data[last_vigencia].id
+        //formulario.innerHTML = ""
+        template_new_vig.vigencia = newVig
+        template_new_vig.fecha = "0000-1-1"
+        split_Data[last_vigencia].clsCasos = template_new_vig
+        split_Data[last_vigencia].id = newVig
+        _make_registros(split_Data[last_vigencia], 0, last_vigencia)
+        _contador_registros(split_Data[last_vigencia], 0)
+    }
+
 
 
     //Acciones cuando se cambie la vigencias del selector
     selVigencias.onchange = () => {
+        for (id in split_Data[selVigencias.value].clsCasos){
+            split_Data[selVigencias.value].clsCasos[id].id=parseInt(id)
+        }
+        //Llama a la función que crea todo el registro
         _make_registros(split_Data[selVigencias.value], 0, selVigencias.value)
         _contador_registros(split_Data[selVigencias.value], 0)
     }
@@ -155,7 +183,6 @@ function run_casos() {
 
 
     function _make_registros(vigencia, index, data_activo) {
-
         //Configuramos los botones para que apliquen movimiento
         const b_Inicio = byE("btn_Inicio")
         b_Inicio.onclick = () => {
@@ -181,6 +208,16 @@ function run_casos() {
         btn_Nuevo.onclick = () => {
             crear_registro(vigencia, vigencia.clsCasos[index].vigencia)
             _mover_aRegistro("ultimo", vigencia, index)
+
+        }
+
+        const btn_Eliminar = byE("btn_Eliminar")
+        btn_Eliminar.onclick = () => {
+            modal.modalDelete(
+                () => {
+                    eliminar_registro(vigencia, index)
+                }
+            )
         }
 
 
@@ -903,7 +940,13 @@ function run_casos() {
             item.textContent = ele
             sel_microactor.appendChild(item)
         })
-        sel_microactor.value = vigencia.clsCasos[index].clsActores[vigencia.clsCasos[index].clsActores.length - 1].nombre
+
+        try {
+            //Verifica si hay una lista de actores para colocr el último
+            sel_microactor.value = vigencia.clsCasos[index].clsActores[vigencia.clsCasos[index].clsActores.length - 1].nombre
+        } catch (error) {
+
+        }
         sel_microactor.onchange = () => {
             vigencia.clsCasos[index].clsActores.push({
                 "id": 0,
@@ -977,7 +1020,6 @@ function run_casos() {
         function _carga_desplazamientos() {
             col_desplazamiento.innerHTML = ""
             const deplazamientos = vigencia.clsCasos[index].clsDesplazamiento
-            console.log(deplazamientos)
             for (id in deplazamientos) {
                 const row = newE("div", "rowdes" + id, "row")
                 col_desplazamiento.appendChild(row)
@@ -986,7 +1028,7 @@ function run_casos() {
 
 
                 const btn_desplazamiento = newE("div", "", "btn-label-gray-long m-1")
-                btn_desplazamiento.style.cursor="pointer"
+                btn_desplazamiento.style.cursor = "pointer"
                 btn_desplazamiento.setAttribute("data-bs-toggle", "collapse");
                 btn_desplazamiento.setAttribute("data-bs-target", "#collapse_des" + id);
 
@@ -1071,21 +1113,32 @@ function run_casos() {
             GuardarDatos(data_activo, vigencia)
         }
 
-
-
         //============================================================
+        //Borra elementos que están dentro de una subclase del registro
         function delete_item(clase, campo, valor) {
-            //console.log(nombre)
+
             const filter = vigencia.clsCasos[index][clase].filter(ele => ele[campo] !== valor)
             vigencia.clsCasos[index][clase] = filter
         }
 
+        //===============================================================
+        //Función para crear un registro o caso nuevo
         function crear_registro(data, vig) {
             template_caso.vigencia = vig
             data.clsCasos.push(template_caso)
             GuardarDatos(data_activo, vigencia)
+            _contador_registros(vigencia, 0)
         }
         //============================================================
+        function eliminar_registro(data, idx) {
+            const filtered= data.clsCasos.filter(ele=>ele.id!==idx)
+            //GuardarDatos(data_activo, vigencia)
+            //_contador_registros(vigencia, 0)
+            data.clsCasos=filtered
+            GuardarDatos(data_activo, vigencia)
+            _contador_registros(vigencia, 0)
+            _mover_aRegistro("primero", vigencia, 0)
+        }
     }
 
     function _contador_registros(vigencia, index) {
