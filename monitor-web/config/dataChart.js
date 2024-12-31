@@ -404,6 +404,7 @@ function filter_extend() {
     let c_criterios = ""
 
     for (id in filterList) {
+        console.log(filterList)
         const criterio = filterList[id]
         //verifico que tipo de operador es
         if (criterio.clase == "clsCasos") {

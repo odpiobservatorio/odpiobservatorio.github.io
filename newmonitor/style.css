@@ -75,6 +75,17 @@
   color: white;
 }
 
+.btn-mini-gray{
+  color: #4a235a ;
+  cursor: pointer;
+  height: 40px;
+}
+.btn-mini-gray:hover{
+  background-color: #4a235a ;
+  color: white;
+}
+
+
 .menu-group-scroll{
   max-height: 100px;
   margin-bottom: 10px;

@@ -3,11 +3,12 @@ let split_Data;
 let ActiveData;
 
 function openIni() {
+    //Muestra los menus de cada módulo y oculta el de registro
     byE("menu_general").hidden = false
+    byE("btnRegistrarse").hidden = true
     //alert("ingresamos")
 
     const temp_vigencias = GLOBAL.state.vigencias
-
     temp_vigencias.forEach(vigencia => {
 
         vigencia.clsCasos.forEach(caso => {
@@ -148,6 +149,7 @@ function run_casos() {
 
     function _mover_aRegistro(criterio, vigencia, index) {
 
+        //Verifica los movimientos de cada registro y su posición
         if (criterio == "ultimo") {
             const ind = vigencia.clsCasos.length
             _make_registros(vigencia, ind - 1)
@@ -637,8 +639,6 @@ function run_casos() {
             }
         }
 
-
-
         const col_newpueblo = newE("div", "col_newpueblo", "col-md-6")
         row3.appendChild(col_newpueblo)
 
@@ -682,7 +682,6 @@ function run_casos() {
         }
 
         /////////////////////
-
 
         const col_nmujeres = newE("div", "col_nmujeres", "col-md-3")
         row4.appendChild(col_nmujeres)
@@ -1001,7 +1000,7 @@ function run_casos() {
                 }
             }
         }
-        ////
+        //////////////////////////////////////////////////////////////////////
         // Desplazamientos
         const row7 = newE("div", "row7", "row")
         formulario.appendChild(row7)
@@ -1076,6 +1075,7 @@ function run_casos() {
                 int_fecha_sal.value = deplazamientos[id].fechaex
                 int_fecha_sal.onchange = () => {
                     deplazamientos[id].fechaex = int_fecha_sal.value
+                    GuardarDatos(data_activo, vigencia)
                 }
 
 
@@ -1147,24 +1147,113 @@ function run_casos() {
                 sm_EntornoOri.textContent = "Entorno de origen"
                 div_desplazamiento.appendChild(sm_EntornoOri)
 
-                const entornos = ["Rural", "Urbano","Mixto", "Otro"]
+                const entornos = ["Rural", "Urbano", "Mixto", "Otro"]
                 const sel_EntornoOri = newE("select", "", "form-control")
                 div_desplazamiento.appendChild(sel_EntornoOri)
 
-                entornos.forEach(ele=>{
+                entornos.forEach(ele => {
                     const item = newE("option", ele, "")
                     item.value = ele
                     item.textContent = ele
                     sel_EntornoOri.appendChild(item)
                 })
-                sel_EntornoOri.value=deplazamientos[id].entornoOri
-                sel_EntornoOri.onchange=()=>{
-                    deplazamientos[id].entornoOri=sel_EntornoOri.value
+                sel_EntornoOri.value = deplazamientos[id].entornoOri
+                sel_EntornoOri.onchange = () => {
+                    deplazamientos[id].entornoOri = sel_EntornoOri.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                ///////////////////////////////////////////////////////7
+                //Entorno de llegada
+
+                const sm_fllegada = newE("small", "sm_fllegada", "fw-bold")
+                sm_fllegada.textContent = "Fecha llegada"
+                div_desplazamiento.appendChild(sm_fllegada)
+
+                const int_fecha_lleg = newE("input", "", "form-control")
+                int_fecha_lleg.type = "date"
+                div_desplazamiento.appendChild(int_fecha_lleg)
+                int_fecha_lleg.value = deplazamientos[id].fechaDes
+                int_fecha_lleg.onchange = () => {
+                    deplazamientos[id].fechaDes = int_fecha_lleg.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
 
+                const sm_DepDestino = newE("small", "sm_DepDestino", "fw-bold")
+                sm_DepDestino.textContent = "Departamento destino"
+                div_desplazamiento.appendChild(sm_DepDestino)
 
+                const sel_depDestino = newE("select", "", "form-control")
+                const sel_lugarDestino = newE("select", "", "form-control")
+                div_desplazamiento.appendChild(sel_depDestino)
+
+                departamentos.forEach(ele => {
+                    const item = newE("option", ele.departamento, "")
+                    item.value = ele.departamento
+                    item.textContent = ele.departamento
+                    sel_depDestino.appendChild(item)
+                })
+
+                try {
+                    sel_depDestino.value = deplazamientos[id].DepartamentoDes
+                } catch (error) {
+
+                }
+
+                sel_depDestino.onchange = () => {
+                    deplazamientos[id].DepartamentoDes = sel_depDestino.value
+                    GuardarDatos(data_activo, vigencia)
+                    _cargar_lugaresDestino(sel_depDestino.value)
+
+                }
+                _cargar_lugaresDestino(deplazamientos[id].DepartamentoDes)
+
+                function _cargar_lugaresDestino(departamento) {
+                    sel_lugarDestino.innerHTML = ""
+                    lugaresNew = lugares.filter(ele => ele.departamento == departamento)
+                    lugaresNew.forEach(ele => {
+                        const item = newE("option", ele.lugar, "")
+                        item.value = [ele.lugar, ele.latlng]
+                        item.textContent = ele.lugar
+                        sel_lugarDestino.appendChild(item)
+                    })
+                }
+
+                /////////////////////////////////////////////////////////////
+                //  Lugar de salida
+
+                const sm_lugarDestino = newE("small", "sm_lugarDestino", "fw-bold")
+                sm_lugarDestino.textContent = "Lugar de destino"
+                div_desplazamiento.appendChild(sm_lugarDestino)
+                div_desplazamiento.appendChild(sel_lugarDestino)
+
+                sel_lugarDestino.value = deplazamientos[id].LugarDes
+                sel_lugarDestino.onchange = () => {
+                    const datos = sel_lugarDestino.value.split(",")
+                    deplazamientos[id].LugarDes = sel_lugarDestino.value
+                    deplazamientos[id].coorDes = [datos[1], datos[2]]
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const sm_entornoDestino = newE("small", "sm_entornoDestino", "fw-bold")
+                sm_entornoDestino.textContent = "Entorno de destino"
+                div_desplazamiento.appendChild(sm_entornoDestino)
+
+                const sel_EntornoLleg = newE("select", "", "form-control")
+                div_desplazamiento.appendChild(sel_EntornoLleg)
+
+                entornos.forEach(ele => {
+                    const item = newE("option", ele, "")
+                    item.value = ele
+                    item.textContent = ele
+                    sel_EntornoLleg.appendChild(item)
+                })
+                sel_EntornoLleg.value = deplazamientos[id].TipoDes
+                sel_EntornoLleg.onchange = () => {
+                    deplazamientos[id].TipoDes = sel_EntornoLleg.value
+                    GuardarDatos(data_activo, vigencia)
+                }
 
                 /////////////////////////////////////////////////////////////////
                 const btn_delete = newE("button", "", "btn btn-secondary mt-2")
@@ -1180,7 +1269,6 @@ function run_casos() {
             }
 
         }
-
 
         const btn_adddesplazamiento = newE("button", "btn_adddesplazamiento", "btn btn-secondary mt-2")
         btn_adddesplazamiento.type = "button"
@@ -1208,6 +1296,205 @@ function run_casos() {
             _carga_desplazamientos()
             GuardarDatos(data_activo, vigencia)
         }
+
+        ////////////////////////////////////////////////7
+        // Medidas o acciones
+        const row8 = newE("div", "row8", "row")
+        formulario.appendChild(row8)
+        const col_newmedida = newE("div", "col_newmedida", "col-md-2")
+        row8.appendChild(col_newmedida)
+
+        const smmedidas = newE("small", "smmedidas", "fw-bold me-3")
+        smmedidas.textContent = "Medidas"
+        col_newmedida.appendChild(smmedidas)
+
+        const col_medidas = newE("div", "col_medidas", "col-md-10")
+        row8.appendChild(col_medidas)
+
+        _carga_medidas()
+
+        function _carga_medidas() {
+            col_medidas.innerHTML = ""
+            const medidas = vigencia.clsCasos[index].clsAccJuridica
+            for (id in medidas) {
+                const row = newE("div", "rowmed" + id, "row")
+                col_medidas.appendChild(row)
+
+                medidas[id].id = id
+
+                const btn_medidas = newE("div", "", "btn-label-gray-long m-1")
+                btn_medidas.style.cursor = "pointer"
+                btn_medidas.setAttribute("data-bs-toggle", "collapse");
+                btn_medidas.setAttribute("data-bs-target", "#collapse_med" + id);
+
+                btn_medidas.textContent = medidas[id].accion
+                row.appendChild(btn_medidas)
+
+                const collapse_med = newE("div", "", "collapse p-2")
+                collapse_med.id = "collapse_med" + id
+                row.appendChild(collapse_med)
+
+                const div_medidas = newE("div", "", "card card-body")
+                div_medidas.style.background = "#f2f4f4"
+                collapse_med.appendChild(div_medidas)
+
+                const sm_accion = newE("small", "sm_accion", "fw-bold")
+                sm_accion.textContent = "Tipo de acción"
+                div_medidas.appendChild(sm_accion)
+
+                const tipos_medidas = ['Acción Urgente', 'Denuncia pública', 'Comunicado', 'Demanda', 'Chat de emergencia', 'Otro', 'Sin determinar']
+                const sel_tipoMed = newE("select", "", "form-control")
+                div_medidas.appendChild(sel_tipoMed)
+                tipos_medidas.forEach(ele => {
+                    const item = newE("option", ele, "")
+                    item.value = ele
+                    item.textContent = ele
+                    sel_tipoMed.appendChild(item)
+                })
+
+                sel_tipoMed.value = medidas[id].accion
+                sel_tipoMed.onchange = () => {
+                    medidas[id].accion = sel_tipoMed.value
+                    btn_medidas.textContent = sel_tipoMed.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const sm_faccion = newE("small", "sm_faccion", "fw-bold")
+                sm_faccion.textContent = "Fecha de acción"
+                div_medidas.appendChild(sm_faccion)
+
+                const int_fecha_acc = newE("input", "", "form-control")
+                int_fecha_acc.type = "date"
+                div_medidas.appendChild(int_fecha_acc)
+                int_fecha_acc.value = medidas[id].fecha
+                int_fecha_acc.onchange = () => {
+                    medidas[id].fecha = int_fecha_acc.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                const sm_raccion = newE("small", "sm_raccion", "fw-bold")
+                sm_raccion.textContent = "Respuesta"
+                div_medidas.appendChild(sm_raccion)
+
+                const int_respuesata = newE("input", "", "form-control")
+                int_respuesata.type = "text"
+                div_medidas.appendChild(int_respuesata)
+                int_respuesata.value = medidas[id].respuesta
+                int_respuesata.onchange = () => {
+                    medidas[id].respuesta = int_respuesata.value
+                    GuardarDatos(data_activo, vigencia)
+                }
+
+                /////////////////////////////////////////////////////////////////
+                const btn_delete = newE("button", "", "btn btn-secondary mt-2")
+                btn_delete.type = "button"
+                btn_delete.textContent = "Suprimir elemento"
+                div_medidas.appendChild(btn_delete)
+                btn_delete.onclick = () => {
+                    delete_item("clsAccJuridica", "id", id)
+                    _carga_medidas()
+                    GuardarDatos(data_activo, vigencia)
+                }
+            }
+
+
+        }
+        const btn_addmedidas = newE("button", "btn_addmedidas", "btn btn-secondary mt-2")
+        btn_addmedidas.type = "button"
+        btn_addmedidas.textContent = "Agregar +"
+        col_newmedida.appendChild(btn_addmedidas)
+
+        btn_addmedidas.onclick = () => {
+            vigencia.clsCasos[index].clsAccJuridica.push(
+                {
+                    "fecha": "",
+                    "id": 0,
+                    "accion": "Sin determinar",
+                    "respuesta": ""
+                }
+            )
+            _carga_medidas()
+            GuardarDatos(data_activo, vigencia)
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //               Fuente de la información
+
+        const titulo20 = newE("label", "titulo20", "fw-bold mt-2 text-secondary fs-5")
+        titulo20.textContent = "Fuente de la información"
+        formulario.appendChild(titulo20)
+
+        const hr5 = newE("hr", "hr5", "border border-2 border-secondary")
+        formulario.appendChild(hr5)
+
+        const row9 = newE("div", "row9", "row")
+        formulario.appendChild(row9)
+
+        const col_fuente = newE("div", "col_fuente", "col-md-4")
+        row9.appendChild(col_fuente)
+
+        const sm_fuente = newE("small", "sm_fuente", "fw-bold mb-2")
+        sm_fuente.textContent = "Nombre fuente"
+        col_fuente.appendChild(sm_fuente)
+
+        const int_fuente = newE("input", "", "form-control")
+        int_fuente.type = "text"
+        col_fuente.appendChild(int_fuente)
+        int_fuente.value = vigencia.clsCasos[index].fuente
+        int_fuente.onchange = () => {
+            vigencia.clsCasos[index].fuente = int_fuente.value
+            GuardarDatos(data_activo, vigencia)
+        }
+
+        const col_ffuente = newE("div", "col_ffuente", "col-md-4")
+        row9.appendChild(col_ffuente)
+
+        const sm_ffuente = newE("small", "sm_ffuente", "fw-bold mb-2")
+        sm_ffuente.textContent = "Fecha fuente"
+        col_ffuente.appendChild(sm_ffuente)
+
+        const int_ffuente = newE("input", "", "form-control")
+        int_ffuente.type = "text"
+        col_ffuente.appendChild(int_ffuente)
+        int_ffuente.value = vigencia.clsCasos[index].fechafuente
+        int_ffuente.onchange = () => {
+            vigencia.clsCasos[index].fechafuente = int_ffuente.value
+            GuardarDatos(data_activo, vigencia)
+        }
+
+        const col_efuente = newE("div", "col_ffuente", "col-md-4")
+        row9.appendChild(col_efuente)
+
+        const sm_efuente = newE("small", "sm_efuente", "fw-bold mb-2")
+        sm_efuente.textContent = "Enlace o contacto fuente"
+        col_efuente.appendChild(sm_efuente)
+
+        const div_efuente = newE("div", "div_efuente", "input-group flex-nowrap")
+        col_efuente.appendChild(div_efuente)
+
+
+        const int_efuente = newE("input", "int_efuente", "form-control")
+        int_efuente.type = "text"
+        div_efuente.appendChild(int_efuente)
+        int_efuente.value = vigencia.clsCasos[index].enlace
+        int_efuente.onchange = () => {
+            vigencia.clsCasos[index].enlace = int_efuente.value
+            GuardarDatos(data_activo, vigencia)
+        }
+
+        const sp_efuente = newE("span", "sp_efuente", "input-group-text btn-mini-gray")
+        div_efuente.appendChild(sp_efuente)
+
+
+        const i_efuente = newE("i", "i_efuente", "bi bi-link-45deg")
+        sp_efuente.appendChild(i_efuente)
+
+
+        sp_efuente.onclick=()=>{
+            window.open(int_efuente.value, '_blank')
+        }
+
+
 
         //============================================================
         //Borra elementos que están dentro de una subclase del registro
