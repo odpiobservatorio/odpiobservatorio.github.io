@@ -40,7 +40,7 @@ const ColorListPublic = {
 }
 const formatNum = (numero) => {
     const valorUnformat = numero
-    const valFormated = valorUnformat.toLocaleString("us-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 })
+    const valFormated = numero//valorUnformat.toLocaleString("us-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 })
     return valFormated
 }
 const maxValue = (data, campo) => {

@@ -1726,7 +1726,7 @@ function make_public_data() {
         let nVictimaYear = 0
         proyecto.clsCasos.forEach(caso => {
             casos++
-            victimas = victimas + caso.npersonas
+            victimas = victimas + parseInt(caso.npersonas)
             if (temp.includes(caso.vigencia) !== true) {
                 temp.push(caso.vigencia)
                 ListaVigencia[caso.vigencia] = []
@@ -1817,20 +1817,20 @@ function make_public_data() {
 
 
     temp.forEach(vigencia => {
+
         let casos2vigencia = 1
         let victimas2vigencia = 1
         proyectos.forEach(proyecto => {
             proyecto.clsCasos.forEach(caso => {
                 if (vigencia == caso.vigencia) {
-                    victimas2vigencia = victimas2vigencia + caso.npersonas
-                    ListaVigencia[vigencia] = [vigencia, casos2vigencia, victimas2vigencia]
+                    victimas2vigencia = parseInt(victimas2vigencia) + parseInt(caso.npersonas)
+                    ListaVigencia[vigencia] = [0, 0, 0]
                     casos2vigencia++
+                    
                 }
             })
         })
     })
-
-
 
 
     const proyectosActual = GLOBAL.state.proyectos[nproyectos - 1]
@@ -1839,7 +1839,7 @@ function make_public_data() {
     let victimasHoy = 0
     proyectosActual.clsCasos.forEach(caso => {
         casosHoy++
-        victimasHoy = victimasHoy + caso.npersonas
+        victimasHoy = victimasHoy + parseInt(caso.npersonas)
     })
 
 
