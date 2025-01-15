@@ -129,7 +129,7 @@ function makerTable(data) {
     tableParent.className = "table table-hover table-bordered mt-4"
 
     //========================================================
-    const thead = document.createElement("thead")
+    
 
 
     //Crear los encabezados dinámicamente

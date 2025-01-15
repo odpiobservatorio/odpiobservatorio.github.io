@@ -103,4 +103,30 @@
   color: white;
 }
 
+.tabla-cell{
+  font-size: 9pt;
+}
+.tabla-cell-scope{
+  font-size: 9pt;
+  text-align: right;
+  cursor: pointer;
+}
+.tabla-cell-scope:hover{
+  background-color: gray;
+  color: white;
+}
+
+.td-fitwidth {
+  width: 1px;
+  white-space: nowrap;
+}
+
+.btn-cell {
+  background-color: #f4ecf7;
+  color: #4a235a ;
+  padding: 5px;
+  border-radius: 3px;
+  border: gray solid 1px;
+  cursor: pointer;
+}
 

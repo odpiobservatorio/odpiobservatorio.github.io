@@ -56,8 +56,25 @@ function mensajes(text, color) {
         },
         onClick: function () { } // Callback after click
     }).showToast();
-
 }
+function mensajes_tool(text, color) {
+    Toastify({
+        text: text,
+        duration: 2000,
+        destination: "",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: color,
+            color: "white",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
+}
+
 
 let template_caso =
 {

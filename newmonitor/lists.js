@@ -1,3 +1,104 @@
+let list_clases =[
+    {
+        'clase':['',''],     
+        'label':'Sin campo',
+    },
+    {
+        'clase':['clsCasos','macrotipo'],     
+        'label':'Macrotipo',
+    },
+    {
+        'clase':['clsCasos','detalle'],  
+        'label':'Detalle',
+    },
+    {
+        'clase':['clsTipos','nombre'],  
+        'label':'Tipo',
+    },
+    {
+        'clase':['clsCasos','departamento'],  
+        'label':'Departamento',
+    },
+    {
+        'clase':['clsCasos','macroregion'],  
+        'label':'Macroregion',
+    },
+    {
+        'clase':['clsLugares','municipio'],  
+        'label':'Lugar',
+    },
+    {
+        'clase':['clsPueblos','nombre'],  
+        'label':'Pueblo - Étnia',
+    },
+    {
+        'clase':['clsCasos','npersonas'],  
+        'label':'Víctimas',
+    },
+    {
+        'clase':['clsCasos','nmujeres'],  
+        'label':'Número mujeres',
+    },
+    {
+        'clase':['clsCasos','nhombres'],  
+        'label':'Número hombres',
+    },
+    {
+        'clase':['clsCasos','nmenores'],  
+        'label':'Número menores',
+    },
+    {
+        'clase':['clsPersonas','genero'],  
+        'label':'Género',
+    },
+    {
+        'clase':['clsPersonas','nombres'],  
+        'label':'Nombres',
+    },
+    {
+        'clase':['clsPersonas','cargo'],  
+        'label':'Cargo',
+    },
+    {
+        'clase':['clsPersonas','edad'],  
+        'label':'Edad',
+    },
+    {
+        'clase':['clsCasos','macroactor'],  
+        'label':'Macroactor',
+    },
+    {
+        'clase':['clsActores','nombre'],  
+        'label':'Actores',
+    },
+
+]
+
+let list_opearadores =[
+    {
+        'label':'Igual a',
+        'operador':['==(VALOR)','string']
+    },
+    {
+        'label':'Similar a',
+        'operador':['.includes(VALOR)','string']
+    },
+    {
+        'label':'Mayor a',
+        'operador':['>(VALOR)','integer']
+    },
+    {
+        'label':'Menor a',
+        'operador':['<(VALOR)','integer']
+    },
+    ,
+    {
+        'label':'Número igual a',
+        'operador':['==(VALOR)','integer']
+    },
+
+]
+
 const macrotipos = [
     'Sin macrotipo',
     'Abuso de Autoridad',
