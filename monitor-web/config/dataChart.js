@@ -569,7 +569,7 @@ function mostrar_consolidados(data) {
     tbody.innerHTML = ""
 
     document.getElementById("nCasos").textContent = data.length
-    const totalPersonas = data.reduce((prev, curr) => prev + curr.npersonas, 0);
+    const totalPersonas = data.reduce((prev, curr) => prev + parseInt(curr.npersonas), 0);
     document.getElementById("nVictimas").textContent = totalPersonas
 
     const lstCampos = document.getElementById("lstbuscarpor")
@@ -618,7 +618,7 @@ function mostrar_consolidados(data) {
             if (criterio[0] == "clsCasos") {
                 let filtered = data.filter(value => value[criterio[1]] == item)
 
-                const totalVictimas = filtered.reduce((prev, curr) => prev + curr.npersonas, 0);
+                const totalVictimas = filtered.reduce((prev, curr) => prev + parseInt(curr.npersonas), 0);
                 let resultado = [item, filtered.length, totalVictimas]
                 consolidados.push(resultado)
             } else {
@@ -629,7 +629,7 @@ function mostrar_consolidados(data) {
                         newDatafiltered.push(caso)
                     }
                 })
-                const totalVictimas = newDatafiltered.reduce((prev, curr) => prev + curr.npersonas, 0);
+                const totalVictimas = newDatafiltered.reduce((prev, curr) => prev + parseInt(curr.npersonas), 0);
                 let resultado = [item, newDatafiltered.length, totalVictimas]
                 consolidados.push(resultado)
             }
@@ -654,7 +654,7 @@ function crear_consolidados() {
         tr.appendChild(casos)
 
         const personas = document.createElement("td")
-        personas.textContent = item[2]
+        personas.textContent = parseInt(item[2])
         personas.className = "text-end"
         tr.appendChild(personas)
         tbody.appendChild(tr)
