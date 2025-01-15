@@ -59,9 +59,9 @@ const db = getFirestore(app);
 
 // Referencia a las colecciones de proyectos y objetivos
 const coleccionVigencias = collection(db, "observatorio");
-// Referencia a las colecciones de usuarios
+
 //const coleccionUsuarios = collection(db, "usuarios");
-//const coleccionPublicos = collection(db, "public");
+const coleccionPublicos = collection(db, "public");
 
 
 
@@ -78,7 +78,6 @@ async function getProyectos() {
     return vigencias;
 }
 
-/* PARA ANALIZAR
 async function getPublicos() {
     const publicos = [];
     const querySnapshot = await getDocs(coleccionPublicos)
@@ -91,7 +90,7 @@ async function getPublicos() {
    
     return publicos;
 }
-*/
+
 
 /*/Verifica la lista de usuarios que hay /para filtrar administardores
 async function getUsuarios() {
@@ -132,7 +131,7 @@ async function getVigencias(id) {
     }) : null;
 }
 
-/*Analizar
+
 async function getPublico(id) {
     const docRef = doc(db, "public", id);
     const docSnap = await getDoc(docRef);
@@ -142,7 +141,7 @@ async function getPublico(id) {
         id: docSnap.id,
     }) : null;
 }
-*/
+
 
 // Función para actualizar un proyecto
 async function updateVigencia(vigencia) {
@@ -150,12 +149,12 @@ async function updateVigencia(vigencia) {
     await setDoc(docRef, vigencia);
 }
 
-/*
+
 async function updatePublico(publico) {
     const docRef = doc(db, "public", publico.id);
     await setDoc(docRef, publico);
 }
-*/
+
 
 
 // Escuchar si hay en un cambio en la coleccion de vigencias y actualizar automaticamente la lista de proyectos
@@ -170,7 +169,7 @@ onSnapshot(coleccionVigencias, (querySnapshot) => {
     GLOBAL.state.vigencias = vigencias;
 });
 
-/*Analizar
+
 onSnapshot(coleccionPublicos, (querySnapshot) => {
     const publicos = [];
     querySnapshot.forEach((doc) => {
@@ -183,7 +182,7 @@ onSnapshot(coleccionPublicos, (querySnapshot) => {
     GLOBAL.state.publicos = publicos;
     opendata()
 });
-*/
+
 
 /*
 onSnapshot(coleccionUsuarios, (querySnapshot) => {
@@ -207,15 +206,15 @@ async function addData(objData) {
 // Exponer las funciones globalmente
 GLOBAL.firestore = {
     getVigencias, //Carga todos los proyectos
-    //getPublicos,
+    getPublicos,
     addVigencia,
     borrarVigencia,
     getVigencias,
-    //getPublico,
+    getPublico,
     updateVigencia,
-    //updatePublico,
+    updatePublico,
     CredentialIn, //para iniciar la aplicación, evoca la función en este módulo (CredentialIn(email,pass))
-    //CredentialIn2,
+    CredentialIn2,
     CredentialOut, //para cerrar la aplicación
     //getUsuarios, //función para verificar usuarios programadores
 }
@@ -223,9 +222,8 @@ GLOBAL.firestore = {
 //Función que escucha el cambio en inicio o cerrar sesión
 onAuthStateChanged(auth, async (user) => {
     try {
-        //mensajes("Usuario registrado como: " + user.email, "orange") //Muestra que usuarios está conectado
+        mensajes("Usuario registrado como: " + user.email, "orange") //Muestra que usuarios está conectado
         activeEmail = user.email
-
     } catch (error) {
         //mensajes("Fuera de conexión", "red")
         //location.href = "../index.html"
@@ -236,12 +234,21 @@ async function CredentialIn(email, password) {
     try {
         const crearcredencial = await signInWithEmailAndPassword(auth, email, password)
         mensajes("A ingresado exitosamente", "green")
-        //Registrado = 1
         openIni()
+        //Registrado = 1
     } catch (error) {
         //location.href = "../index.html"
         //Registrado = 0
         mensajes("No está registrado correctamente", "red")
+    }
+}
+async function CredentialIn2(email, password) {
+    try {
+        const crearcredencial = await signInWithEmailAndPassword(auth, email, password)
+        make_info_public()
+    } catch (error) {
+        //location.href = "../index.html"
+        //Registrado = 0
     }
 }
 
