@@ -43,6 +43,8 @@
       float: none;
     }
   }
+
+
   
   .btn-label-gray{
     background-color: #f4ecf7;
@@ -130,3 +132,6 @@
   cursor: pointer;
 }
 
+.currSign:before {
+  content: '$';
+}

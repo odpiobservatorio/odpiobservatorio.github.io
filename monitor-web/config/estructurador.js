@@ -1717,7 +1717,6 @@ function make_public_data() {
     let tempTipos = []
 
 
-
     const proyectos = GLOBAL.state.proyectos;
 
     proyectos.forEach(proyecto => {

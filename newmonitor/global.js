@@ -4,8 +4,8 @@ const GLOBAL = {
         vigencias: [],
         //usuario: null,
         //usuarios: [],
-        //publico:null,
-        //publicos:[]
+        publico:null,
+        publicos:[]
     },
     firestore: {},
 };
@@ -17,6 +17,14 @@ function IniCredential() {
     GLOBAL.firestore.CredentialIn(email, password)
 
 }
+function IniCredentialOpen() {
+    //Lee la información del form,ulario de ingreso en index.html
+    const email = "wilson.largo.s@gmail.com"
+    const password = "Pr1nc3sa"
+    //Evoca la función global de ingreso, en archivo (cinfirdata.js) 
+    GLOBAL.firestore.CredentialIn2(email, password)
+}
+
 function SignOut() {
     location.href = "/index.html"
     GLOBAL.firestore.CredentialOut()

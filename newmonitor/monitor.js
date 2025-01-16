@@ -19,6 +19,7 @@ function openIni() {
         })
     })
     split_Data = GLOBAL.state.vigencias
+    load_info_public()
 }
 function run_casos() {
     const contenedor = byE("panel_escritorio")
@@ -3079,4 +3080,5 @@ function GuardarDatos(data_activo, vigencia) {
     //Pasamos lo editado a la variable global
     GLOBAL.state.vigencias[data_activo] = vigencia
     const id = GLOBAL.firestore.updateVigencia(GLOBAL.state.vigencias[data_activo])
+    load_info_public()
 }
