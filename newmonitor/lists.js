@@ -48700,6 +48700,16 @@ const lugares = [{
 },
 {
     "departamento": "Magdalena",
+    "entidad": "ZONA BANANERA",
+    "lugar": "Zona Bananera",
+    "lng": "-74.15556344582994",
+    "lat": "10.762510882868577",
+    "tipo": "MUNICIPIO",
+    "latlng": "-74.15556344582994,10.762510882868577",
+    "key": "magdalenazona bananera"
+},
+{
+    "departamento": "Magdalena",
     "entidad": "ARIGUANÍ",
     "lugar": "Carmen De Ariguaní",
     "lng": "-73.997809981",
