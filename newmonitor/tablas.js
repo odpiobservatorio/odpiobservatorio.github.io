@@ -1,29 +1,29 @@
 const campos = [
-    ["clsCasos", "macroregion", "MACROREGIÓN", "1"],
-    ["clsCasos", "departamento", "DEPARTAMENTO", "1"],
-    ["clsLugares", "municipio", "LUGARES", "1"],
-    ["clsLugares", "lat", "LAT", "0"],
-    ["clsLugares", "lng", "LNG", "0"],
-    ["clsPueblos", "nombre", "PUEBLO/ÉTNIA", "1"],
-    ["clsCasos", "macrotipo", "MACROTIPO", "1"],
-    ["clsTipos", "nombre", "SUBTIPOS", "1"],
-    ["clsCasos", "fecha", "FECHA", "1"],
-    ["clsCasos", "vigencia", "AÑO", "1"],
-    ["clsCasos", "macroactor", "MACROACTOR", "1"],
-    ["clsActores", "nombre", "ACTORES", "1"],
-    ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO", "1"],
-    ["clsPersonas", "nombres", "NOMBRES", "1"],
-    ["clsPersonas", "genero", "GÉNERO", "1"],
-    ["clsPersonas", "edad", "EDAD", "1"],
-    ["clsCasos", "npersonas", "VICTIMAS", "1"],
-    ["clsCasos", "nmujeres", "MUJERES", "1"],
-    ["clsCasos", "nhombres", "HOMBRES", "1"],
-    ["clsCasos", "nmenores", "MENORES DE EDAD", "1"],
-    ["clsAccJuridica", "accion", "ACCIONES", "1"],
-    ["clsCasos", "fuente", "FUENTE", "1"],
-    ["clsCasos", "fechafuente", "FECHA FUENTE", "1"],
-    ["clsCasos", "enlace", "ENLACE", "0"],
-    ["clsCasos", "detalle", "DETALLE", "0"],
+    ["clsCasos", "macroregion", "MACROREGIÓN", true],
+    ["clsCasos", "departamento", "DEPARTAMENTO", true],
+    ["clsLugares", "municipio", "LUGARES", true],
+    ["clsLugares", "lat", "LAT", false],
+    ["clsLugares", "lng", "LNG", false],
+    ["clsPueblos", "nombre", "PUEBLO/ÉTNIA", true],
+    ["clsCasos", "macrotipo", "MACROTIPO", true],
+    ["clsTipos", "nombre", "SUBTIPOS", true],
+    ["clsCasos", "fecha", "FECHA", true],
+    ["clsCasos", "vigencia", "AÑO", true],
+    ["clsCasos", "macroactor", "MACROACTOR", true],
+    ["clsActores", "nombre", "ACTORES", true],
+    ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO", true],
+    ["clsPersonas", "nombres", "NOMBRES", true],
+    ["clsPersonas", "genero", "GÉNERO", true],
+    ["clsPersonas", "edad", "EDAD", true],
+    ["clsCasos", "npersonas", "VICTIMAS", true],
+    ["clsCasos", "nmujeres", "MUJERES", true],
+    ["clsCasos", "nhombres", "HOMBRES", true],
+    ["clsCasos", "nmenores", "MENORES DE EDAD", true],
+    ["clsAccJuridica", "accion", "ACCIONES", true],
+    ["clsCasos", "fuente", "FUENTE", true],
+    ["clsCasos", "fechafuente", "FECHA FUENTE", true],
+    ["clsCasos", "enlace", "ENLACE", false],
+    ["clsCasos", "detalle", "DETALLE", false],
 ]
 function run_tabla() {
     const contenedor = byE("panel_escritorio")
@@ -66,14 +66,94 @@ function run_tabla() {
         _make_tabla(split_Data[selVigencias.value])
 
     }
+    /////////////CONTENEDOR MENUS Y BOTONES///////////////
+    const row1 = newE("div", "row1", "row bg-secondary ms-2 align-items-center")
+    contenedor.appendChild(row1)
+    const col_Campos = newE("div", "col_Campos", "col-md-3")
+    row1.appendChild(col_Campos)
+
+    //Boton y control para visibilidad de columnas en la tabla
+    const divCampos = newE("div", "divCampos", "dropdown mb-2")
+    col_Campos.appendChild(divCampos)
+
+    const btnCampos = newE("button", "btnCampos", "btn btn-secondary dropdown-toggle")
+    btnCampos.type = "button"
+    btnCampos.setAttribute("data-bs-toggle", "dropdown");
+    btnCampos.textContent = "CAMPOS"
+    divCampos.appendChild(btnCampos)
+
+    const ulCampos = newE("ul", "ulCampos", "dropdown-menu p-2 shadow")
+    ulCampos.style.width = "200px"
+    divCampos.appendChild(ulCampos)
+
+    ulCampos.onclick = (e) => {
+        e.stopPropagation();
+    }
+
+    const crVer_todos = newE("div", "crVer_todos", "item-menu")
+    crVer_todos.textContent = "Ver todos"
+    crVer_todos.style.fontSize = "10pt"
+    ulCampos.appendChild(crVer_todos)
+
+
+    const crOcultar_todos = newE("div", "crOcultar_todos", "item-menu mb-2")
+    crOcultar_todos.textContent = "Ocultar todos"
+    crOcultar_todos.style.fontSize = "10pt"
+    ulCampos.appendChild(crOcultar_todos)
+
+
+    const ulLista_Campos = newE("ul", "ulLista_Campos", "list-group menu-group-scroll")
+    ulCampos.appendChild(ulLista_Campos)
+
+
+    for (i in campos) {
+        const li = newE("li", "li" + i, "list-group-item")
+        li.style.fontSize = "9pt"
+        //li.textContent=campos[i][2]
+        //ulLista_Campos.appendChild(li)
+
+        const check = newE("div", "fc" + i, "form-check")
+        check.style.fontSize = "9pt"
+        ulLista_Campos.appendChild(check)
+
+        const inCampo = newE("input", "inCampo" + i, "form-check-input")
+        inCampo.type = "checkbox"
+        inCampo.checked = campos[i][3]
+        check.appendChild(inCampo)
+
+        const ind_campo = i
+        inCampo.onchange = () => {
+            campos[ind_campo][3] = inCampo.checked
+            _make_tabla(split_Data[selVigencias.value])
+        }
+
+        const label_campo = newE("label", "label_campo" + i, "form-check-label")
+        label_campo.for = "inCampo" + i
+        label_campo.textContent = campos[i][2]
+        check.appendChild(label_campo)
+
+
+    }
+
+    crOcultar_todos.onclick = () => {
+        for (i in campos) {
+            campos[i][3] = false
+            byE("inCampo" + i).checked = false
+        }
+        _make_tabla(split_Data[selVigencias.value])
+    }
+
+    crVer_todos.onclick = () => {
+        for (i in campos) {
+            campos[i][3] = true
+            byE("inCampo" + i).checked = true
+        }
+        _make_tabla(split_Data[selVigencias.value])
+    }
     //======================================================================================
 
 
-    //Crear un contenedor para todos los controles de entrada por registro
-
-
     contenedor.appendChild(formulario)
-
     function _make_tabla(vigencia) {
         formulario.innerHTML = ""
         const data_tabla = newE("table", "data_tabla", "table table-hover mt-2")
@@ -84,23 +164,29 @@ function run_tabla() {
         data_tabla.appendChild(data_Encabezados)
 
         //Crear los encabezados dinámicamente
-        const fila_Encabezado = newE("tr", "fila_Encabezado", "mb-2")
+        const fila_Encabezado = newE("tr", "fila_Encabezado", "mb-2 bg-secondary")
         data_Encabezados.appendChild(fila_Encabezado)
 
-        const thscope_col = newE("th", "thscope_col", "tabla-cell")
+        const thscope_col = newE("th", "thscope_col", "td-fitwidth-scope bg-secondary")
         thscope_col.scope = "col"
         thscope_col.textContent = "#"
         fila_Encabezado.appendChild(thscope_col)
 
         campos.forEach(campo => {
-            if (campo[3] == "1") {
+            if (campo[3] == true) {
                 const th = newE("th", "th" + campo[2], "tabla-cell td-fitwidth")
-                th.textContent = campo[2]
+
+                const divHColumna = newE("div", "", "dropdown")
+                th.appendChild(divHColumna)
+
+                const btnHColumna= newE("button", "btnCampos", "btn btn-secondary dropdown-toggle fw-bold")
+                btnHColumna.type = "button"
+                btnHColumna.style.fontSize="9pt"
+                btnHColumna.setAttribute("data-bs-toggle", "dropdown");
+                btnHColumna.textContent = campo[2]
+                divHColumna.appendChild(btnHColumna)
                 fila_Encabezado.appendChild(th)
-
-                //const div = document.createElement("div")
             }
-
         }
         )
 
@@ -113,17 +199,17 @@ function run_tabla() {
             const tr = newE("tr", "tr" + caso.id, "") //Por cada caso crea una fila y la agrega a la tabla
             data_tbody.appendChild(tr)
 
-            const th = newE("th", "", "tabla-cell-scope") //Aquí está el numerador indice por caso
+            const th = newE("th", "", "td-fitwidth-scope") //Aquí está el numerador indice por caso
             th.scope = "row"
             th.textContent = caso.id + 1
-            th.onmouseover=()=>{
-                mensajes_tool("Abrir registro","black")
+            th.onmouseover = () => {
+                //mensajes_tool("Abrir registro", "black")
             }
             tr.appendChild(th)
 
             let nCol = 0 //Inicia el contador según la columna o campo 
             campos.forEach(data_columna => { //Busca en la tabla de los campos
-                if (data_columna[3] == "1") { //Si el campo está visible "1" crear la columna
+                if (data_columna[3] == true) { //Si el campo está visible true crear la columna
                     const td = newE("td", "", "tabla-cell td-fitwidth")
                     if (data_columna[0] == "clsCasos") { //Si la columna está en clsCasos idnicar el campo
                         td.textContent = caso[data_columna[1]]
@@ -155,7 +241,7 @@ function run_tabla() {
                     tr.appendChild(td)
                     nCol++
                 }
-                
+
             })
             nCaso++
         })

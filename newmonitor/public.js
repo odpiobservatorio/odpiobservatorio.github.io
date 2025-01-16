@@ -46,9 +46,13 @@ function load_info_public() {
 }
 function opendata() {
     console.clear()
-    const data_public = GLOBAL.state.publicos[1].consolidados
-    byE("nVictimas").textContent = formatNum((data_public.nVictimas))
-    byE("nCasos").textContent = formatNum(data_public.nCasos)
+    try {
+        const data_public = GLOBAL.state.publicos[1].consolidados
+        byE("nVictimas").textContent = formatNum((data_public.nVictimas))
+        byE("nCasos").textContent = formatNum(data_public.nCasos)
+    } catch (error) {
+        console.log("No en módulo público")
+    }
 }
 function save_public_data() {
     const id = GLOBAL.firestore.updatePublico(GLOBAL.state.publicos[1])

@@ -96,7 +96,6 @@
 }
 
 .item-menu{
-  color: black;
   cursor: pointer;
   padding: 5px;
 }
@@ -108,19 +107,34 @@
 .tabla-cell{
   font-size: 9pt;
 }
-.tabla-cell-scope{
-  font-size: 9pt;
-  text-align: right;
-  cursor: pointer;
+
+
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: auto;
+    height: 400px;
+    
 }
-.tabla-cell-scope:hover{
-  background-color: gray;
-  color: white;
-}
+
+
 
 .td-fitwidth {
   width: 1px;
   white-space: nowrap;
+}
+
+.td-fitwidth-scope {
+  font-size: 9pt;
+  white-space: nowrap;
+  width: 10px;
+}
+.td-fitwidth-scope:hover{
+  background-color: gray;
+  color: white;
+  cursor: pointer;
 }
 
 .btn-cell {
