@@ -127,7 +127,7 @@ function makerTable(data) {
     //Creamos uan tabla general
     const tableParent = document.createElement("table")
     tableParent.className = "table table-hover table-bordered mt-4"
-
+    const thead = document.createElement("thead")
     //========================================================
     
 
