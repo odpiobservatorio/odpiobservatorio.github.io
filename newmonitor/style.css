@@ -89,7 +89,7 @@
 
 
 .menu-group-scroll{
-  max-height: 100px;
+  max-height: 200px;
   margin-bottom: 10px;
   overflow-y: auto; /* Show vertical scrollbar */ 
   overflow-x:hidden
@@ -97,7 +97,7 @@
 
 .item-menu{
   cursor: pointer;
-  padding: 5px;
+  padding: 3px;
 }
 .item-menu:hover{
   background-color: gray;

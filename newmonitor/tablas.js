@@ -179,18 +179,17 @@ function run_tabla() {
                 const divHColumna = newE("div", "", "dropdown")
                 th.appendChild(divHColumna)
 
-                const btnHColumna= newE("button", "btnCampos", "btn btn-secondary dropdown-toggle fw-bold")
+                const btnHColumna = newE("button", "btnCampos", "btn btn-secondary dropdown-toggle fw-bold")
                 btnHColumna.type = "button"
-                btnHColumna.style.fontSize="9pt"
+                btnHColumna.style.fontSize = "9pt"
                 btnHColumna.setAttribute("data-bs-toggle", "dropdown");
                 btnHColumna.textContent = campo[2]
                 divHColumna.appendChild(btnHColumna)
                 fila_Encabezado.appendChild(th)
+                divHColumna.appendChild(_make_filter_head(campo[0], campo[1]))
             }
         }
         )
-
-
         //Crear cuerpo de la tabla
         const data_tbody = newE("tbody", "data_tbody", "mt-2")
         data_tabla.appendChild(data_tbody)
@@ -246,8 +245,65 @@ function run_tabla() {
             nCaso++
         })
 
+        function _make_filter_head(clase, campo) {
+            const ulFiler_Head = newE("ul", "", "dropdown-menu p-2 shadow")
+            ulFiler_Head.style.width = "200px"
+            ulFiler_Head.onclick = (e) => {
+                e.stopPropagation();
+            }
+
+            const crl_ClearFiltro = newE("div", "", "item-menu")
+            crl_ClearFiltro.textContent = "Ver todos"
+            crl_ClearFiltro.style.fontSize = "10pt"
+            ulFiler_Head.appendChild(crl_ClearFiltro)
+
+            const int_Filtro_listas = newE("input", "", "form-control")
+            int_Filtro_listas.type = "text"
+            int_Filtro_listas.style.fontSize = "10pt"
+            ulFiler_Head.appendChild(int_Filtro_listas)
+
+
+            const ulLista_datos = newE("ul", "", "list-group menu-group-scroll")
+            ulFiler_Head.appendChild(ulLista_datos)
+
+
+            if (clase == "clsCasos") {
+                let listas = []
+                vigencia.clsCasos.forEach(caso => {
+                    if (listas.includes(caso[campo]) != true) {
+                        listas.push(caso[campo])
+                    }
+                })
+                listas.forEach(ele => {
+                    const item = newE("div", "", "item-menu fw-normal")
+                    item.textContent = ele
+                    item.style.fontSize = "10pt"
+                    ulLista_datos.appendChild(item)
+                })
+
+            } else {
+                let listas = []
+                vigencia.clsCasos.forEach(caso => {
+                    caso[clase].forEach(sub => {
+                        if(listas.includes(sub[campo])!=true){
+                            listas.push(sub[campo])
+                        }
+                    })
+                })
+                listas.forEach(ele => {
+                    const item = newE("div", "", "item-menu fw-normal")
+                    item.textContent = ele
+                    item.style.fontSize = "10pt"
+                    ulLista_datos.appendChild(item)
+                })
+            }
+
+
+            //console.log(vigencia.clsCasos)
 
 
 
+            return ulFiler_Head
+        }
     }
 }
