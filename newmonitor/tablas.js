@@ -1,3 +1,4 @@
+let data_temp; //guarda los datos del último filtrado o data inicial 
 const campos = [
     ["clsCasos", "macroregion", "MACROREGIÓN", true, false],
     ["clsCasos", "departamento", "DEPARTAMENTO", true, false],
@@ -63,12 +64,14 @@ function run_tabla() {
     for (id in split_Data[last_vigencia].clsCasos) {
         split_Data[last_vigencia].clsCasos[id].id = parseInt(id)
     }
-    _make_tabla(split_Data[selVigencias.value])
+    data_temp=split_Data[selVigencias.value]
+    _make_tabla(data_temp)
     selVigencias.onchange = () => {
         for (id in split_Data[selVigencias.value].clsCasos) {
             split_Data[selVigencias.value].clsCasos[id].id = parseInt(id)
         }
-        _make_tabla(split_Data[selVigencias.value])
+        data_temp=split_Data[selVigencias.value]
+        _make_tabla(data_temp)
 
     }
     /////////////CONTENEDOR MENUS Y BOTONES///////////////
@@ -129,7 +132,7 @@ function run_tabla() {
         const ind_campo = i
         inCampo.onchange = () => {
             campos[ind_campo][3] = inCampo.checked
-            _make_tabla(split_Data[selVigencias.value])
+            _make_tabla(data_temp)
         }
 
         const label_campo = newE("label", "label_campo" + i, "form-check-label")
@@ -145,7 +148,7 @@ function run_tabla() {
             campos[i][3] = false
             byE("inCampo" + i).checked = false
         }
-        _make_tabla(split_Data[selVigencias.value])
+        _make_tabla(data_temp)
     }
 
     crVer_todos.onclick = () => {
@@ -153,7 +156,7 @@ function run_tabla() {
             campos[i][3] = true
             byE("inCampo" + i).checked = true
         }
-        _make_tabla(split_Data[selVigencias.value])
+        _make_tabla(data_temp)
     }
     //======================================================================================
 
@@ -291,7 +294,8 @@ function run_tabla() {
                 filtro_tabla.valores = []
                 filtro_tabla.campo = ""
                 filtro_tabla.clase = ""
-                _make_tabla(split_Data[selVigencias.value])
+                data_temp=split_Data[selVigencias.value]
+                _make_tabla(data_temp)
 
             }
             _make_listados(clase, campo, "", numeric)
@@ -425,7 +429,7 @@ function run_tabla() {
         }
     }
     function _filter_tabla() {
-        const data_ini = split_Data[selVigencias.value]
+        const data_ini = data_temp
         //Creamos las cadenas para el filtro
         let cadena = ""
         filtro_tabla.valores.forEach(item => {
@@ -437,7 +441,8 @@ function run_tabla() {
             let data_fin={
                 "clsCasos":filtered
             };
-            _make_tabla(data_fin)
+            data_temp=data_fin
+            _make_tabla(data_temp)
         } else {
             let data_fin={
                 "clsCasos":[]
@@ -449,7 +454,8 @@ function run_tabla() {
                 }
 
             })
-            _make_tabla(data_fin)
+            data_temp=data_fin
+            _make_tabla(data_temp)
         }
 
 
