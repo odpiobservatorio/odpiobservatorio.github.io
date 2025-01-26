@@ -21,7 +21,8 @@ function openIni() {
     split_Data = GLOBAL.state.vigencias
     load_info_public()
 }
-function run_casos() {
+function run_casos(ind_vigencia=-1, ind_registro=-1) {
+
     const contenedor = byE("panel_escritorio")
     contenedor.innerHTML = ""
 
@@ -48,6 +49,10 @@ function run_casos() {
         last_vigencia = contador
         contador++
     })
+
+    if (ind_vigencia!==-1){
+        last_vigencia=ind_vigencia
+    }
 
     //Este es el cotador de registros visual
     const col_pos_registros = newE("div", "col_pos_registros", "col-md-6 text-white fs-5 pb-2")
@@ -180,6 +185,8 @@ function run_casos() {
 
     //Automatiza al iniciar el módulo, colocando en el primer registro de la vigencia y últiam vigencia
     selVigencias.value = last_vigencia //Este dato es numérico de la última vigencia
+
+    
     for (id in split_Data[last_vigencia].clsCasos) {
         split_Data[last_vigencia].clsCasos[id].id = parseInt(id)
     }
@@ -187,8 +194,14 @@ function run_casos() {
         //Numeramos los registros de esta vigencia
         //Llama a la función que crea todo el registro
         //--------------De la base de datos FB toma según el indx + numero último número
-        _make_registros(split_Data[last_vigencia], 0, last_vigencia)
-        _contador_registros(split_Data[last_vigencia], 0)
+        if(ind_registro!==-1){
+            _make_registros(split_Data[last_vigencia], ind_registro, last_vigencia)
+            _contador_registros(split_Data[last_vigencia], ind_registro)
+        }else{
+            _make_registros(split_Data[last_vigencia], 0, last_vigencia)
+            _contador_registros(split_Data[last_vigencia], 0)
+        }
+
     } else {
         mensajes("No hay registros en esta vigencia", "orange")
         let newVig = split_Data[last_vigencia].id
@@ -1670,7 +1683,6 @@ function run_casos() {
     }
     function _make_registros_filter(vigencia, filtrados, numerador, data_activo) {
         const index = filtrados.clsCasos[numerador].id
-
         //Configuramos los botones para que apliquen movimiento
         const b_Inicio = byE("btn_Inicio")
         b_Inicio.onclick = () => {
@@ -3068,12 +3080,15 @@ function run_casos() {
 
     function _contador_registros(vigencia, index) {
         //Aquí contamos el número de registros de la vigencia y la posición en la que estamos
+        
         byE("col_pos_registros").textContent = `Registro ${index + 1} de ${vigencia.clsCasos.length}`
         //alert(vigencia.clsCasos.length)
     }
 
 
 }
+
+
 
 
 function GuardarDatos(data_activo, vigencia) {

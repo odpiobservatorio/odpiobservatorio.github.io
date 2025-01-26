@@ -1,3 +1,5 @@
+
+let ind_rnd = Math.random().toString(36).slice(2)
 const GLOBAL = {
     state: {
         vigencia: null,
@@ -43,7 +45,12 @@ let byE = (elemento) => {
 }
 let newE = (elemento, id, clase, ancho) => {
     const el = document.createElement(elemento)
-    el.id = id
+    if(id==""){
+        el.id = "control" + id  + ind_rnd
+    }else{
+        el.id = id
+    }
+
     el.className = clase
     el.style.width = ancho
     return el

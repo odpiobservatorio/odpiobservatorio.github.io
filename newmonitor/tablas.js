@@ -212,6 +212,10 @@ function run_tabla() {
             th.onmouseover = () => {
                 //mensajes_tool("Abrir registro", "black")
             }
+            th.onclick=()=>{
+                run_casos(selVigencias.value,caso.id)
+            }
+
             tr.appendChild(th)
 
             let nCol = 0 //Inicia el contador según la columna o campo 
