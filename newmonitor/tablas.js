@@ -285,6 +285,7 @@ function run_tabla() {
 
             const int_Filtro_listas = newE("input", campo + clase, "form-control")
             int_Filtro_listas.type = "text"
+            int_Filtro_listas.autocomplete="off"
             int_Filtro_listas.style.fontSize = "10pt"
             ulFiler_Head.appendChild(int_Filtro_listas)
 
