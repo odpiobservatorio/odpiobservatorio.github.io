@@ -223,7 +223,7 @@ GLOBAL.firestore = {
 onAuthStateChanged(auth, async (user) => {
     try {
         //mensajes("Usuario registrado como: " + user.email, "orange") //Muestra que usuarios está conectado
-        activeEmail = user.email
+        //activeEmail = user.email
     } catch (error) {
         //mensajes("Fuera de conexión", "red")
         //location.href = "../index.html"

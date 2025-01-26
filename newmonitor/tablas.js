@@ -1,30 +1,35 @@
 const campos = [
-    ["clsCasos", "macroregion", "MACROREGIÓN", true],
-    ["clsCasos", "departamento", "DEPARTAMENTO", true],
-    ["clsLugares", "municipio", "LUGARES", true],
-    ["clsLugares", "lat", "LAT", false],
-    ["clsLugares", "lng", "LNG", false],
-    ["clsPueblos", "nombre", "PUEBLO/ÉTNIA", true],
-    ["clsCasos", "macrotipo", "MACROTIPO", true],
-    ["clsTipos", "nombre", "SUBTIPOS", true],
-    ["clsCasos", "fecha", "FECHA", true],
-    ["clsCasos", "vigencia", "AÑO", true],
-    ["clsCasos", "macroactor", "MACROACTOR", true],
-    ["clsActores", "nombre", "ACTORES", true],
-    ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO", true],
-    ["clsPersonas", "nombres", "NOMBRES", true],
-    ["clsPersonas", "genero", "GÉNERO", true],
-    ["clsPersonas", "edad", "EDAD", true],
-    ["clsCasos", "npersonas", "VICTIMAS", true],
-    ["clsCasos", "nmujeres", "MUJERES", true],
-    ["clsCasos", "nhombres", "HOMBRES", true],
-    ["clsCasos", "nmenores", "MENORES DE EDAD", true],
-    ["clsAccJuridica", "accion", "ACCIONES", true],
-    ["clsCasos", "fuente", "FUENTE", true],
-    ["clsCasos", "fechafuente", "FECHA FUENTE", true],
-    ["clsCasos", "enlace", "ENLACE", false],
-    ["clsCasos", "detalle", "DETALLE", false],
+    ["clsCasos", "macroregion", "MACROREGIÓN", true, false],
+    ["clsCasos", "departamento", "DEPARTAMENTO", true, false],
+    ["clsLugares", "municipio", "LUGARES", true, false],
+    ["clsLugares", "lat", "LAT", false, true],
+    ["clsLugares", "lng", "LNG", false, true],
+    ["clsPueblos", "nombre", "PUEBLO/ÉTNIA", true, false],
+    ["clsCasos", "macrotipo", "MACROTIPO", true], false,
+    ["clsTipos", "nombre", "SUBTIPOS", true, false],
+    ["clsCasos", "fecha", "FECHA", true, false],
+    ["clsCasos", "vigencia", "AÑO", true, true],
+    ["clsCasos", "macroactor", "MACROACTOR", true, false],
+    ["clsActores", "nombre", "ACTORES", true, false],
+    ["clsDesplazamiento", "tipo", "TIPO DESPLAZAMIENTO", true, false],
+    ["clsPersonas", "nombres", "NOMBRES", true, false],
+    ["clsPersonas", "genero", "GÉNERO", true, false],
+    ["clsPersonas", "edad", "EDAD", true, true],
+    ["clsCasos", "npersonas", "VICTIMAS", true, true],
+    ["clsCasos", "nmujeres", "MUJERES", true, true],
+    ["clsCasos", "nhombres", "HOMBRES", true, true],
+    ["clsCasos", "nmenores", "MENORES DE EDAD", true, true],
+    ["clsAccJuridica", "accion", "ACCIONES", true, false],
+    ["clsCasos", "fuente", "FUENTE", true, false],
+    ["clsCasos", "fechafuente", "FECHA FUENTE", true, false],
+    ["clsCasos", "enlace", "ENLACE", false, false],
+    ["clsCasos", "detalle", "DETALLE", false, false],
 ]
+let filtro_tabla = {
+    "clase": "",
+    "campo": "",
+    "valores": []
+}
 function run_tabla() {
     const contenedor = byE("panel_escritorio")
     contenedor.innerHTML = ""
@@ -186,7 +191,7 @@ function run_tabla() {
                 btnHColumna.textContent = campo[2]
                 divHColumna.appendChild(btnHColumna)
                 fila_Encabezado.appendChild(th)
-                divHColumna.appendChild(_make_filter_head(campo[0], campo[1]))
+                divHColumna.appendChild(_make_filter_head(campo[0], campo[1], campo[4]))
             }
         }
         )
@@ -245,58 +250,171 @@ function run_tabla() {
             nCaso++
         })
 
-        function _make_filter_head(clase, campo) {
+
+        function _make_filter_head(clase, campo, numeric) {
             const ulFiler_Head = newE("ul", "", "dropdown-menu p-2 shadow")
             ulFiler_Head.style.width = "200px"
             ulFiler_Head.onclick = (e) => {
                 e.stopPropagation();
             }
 
+            //Colocamos una opciòn de ver todos los registros de la lista
             const crl_ClearFiltro = newE("div", "", "item-menu")
             crl_ClearFiltro.textContent = "Ver todos"
             crl_ClearFiltro.style.fontSize = "10pt"
             ulFiler_Head.appendChild(crl_ClearFiltro)
 
-            const int_Filtro_listas = newE("input", "", "form-control")
+            const crl_AplyFiltro = newE("div", "", "item-menu")
+            crl_AplyFiltro.textContent = "Filtrar"
+            crl_AplyFiltro.style.fontSize = "10pt"
+            ulFiler_Head.appendChild(crl_AplyFiltro)
+            crl_AplyFiltro.onclick = () => {
+                _filter_tabla()
+            }
+
+
+
+            //Filtra que elementos se ven en la lista
+
+            const int_Filtro_listas = newE("input", campo + clase, "form-control")
             int_Filtro_listas.type = "text"
             int_Filtro_listas.style.fontSize = "10pt"
             ulFiler_Head.appendChild(int_Filtro_listas)
 
 
-            const ulLista_datos = newE("ul", "", "list-group menu-group-scroll")
+            const ulLista_datos = newE("ul", "", "list-group menu-group-scroll mt-2")
             ulFiler_Head.appendChild(ulLista_datos)
 
+            //Limpiamso algún tipo de filtro actual
+            crl_ClearFiltro.onclick = () => {
+                //_make_listados(clase, campo, "",numeric)
+                filtro_tabla.valores = []
+                filtro_tabla.campo = ""
+                filtro_tabla.clase = ""
+                _make_tabla(split_Data[selVigencias.value])
 
-            if (clase == "clsCasos") {
-                let listas = []
-                vigencia.clsCasos.forEach(caso => {
-                    if (listas.includes(caso[campo]) != true) {
-                        listas.push(caso[campo])
-                    }
-                })
-                listas.forEach(ele => {
-                    const item = newE("div", "", "item-menu fw-normal")
-                    item.textContent = ele
-                    item.style.fontSize = "10pt"
-                    ulLista_datos.appendChild(item)
-                })
+            }
+            _make_listados(clase, campo, "", numeric)
 
-            } else {
-                let listas = []
-                vigencia.clsCasos.forEach(caso => {
-                    caso[clase].forEach(sub => {
-                        if(listas.includes(sub[campo])!=true){
-                            listas.push(sub[campo])
+            int_Filtro_listas.oninput = () => {
+                _make_listados(clase, campo, int_Filtro_listas.value, numeric)
+            }
+
+
+            function _make_listados(claseA, campoA, filtroA, numero) {
+                ulLista_datos.innerHTML = ""
+                //Determina si el elemento pertencese o no a una clase superior de lso datos
+                if (claseA == "clsCasos") {
+                    //Creamos un alisata de "ùnicos" que se mostrará en el menú
+                    let listasTemp = []
+                    let listas = []
+                    vigencia.clsCasos.forEach(caso => {
+                        if (listasTemp.includes(caso[campoA]) != true) {
+                            listasTemp.push(caso[campoA])
                         }
                     })
-                })
-                listas.forEach(ele => {
-                    const item = newE("div", "", "item-menu fw-normal")
-                    item.textContent = ele
-                    item.style.fontSize = "10pt"
-                    ulLista_datos.appendChild(item)
-                })
+                    let i = 0
+
+                    //Mira si el listado a mostrar está filtrado
+                    if (filtroA !== "") {
+                        if (numero == true) {
+                            const filtered = listasTemp.filter(ele => ele == (filtroA))
+                            listas = filtered
+                        } else {
+                            const filtered = listasTemp.filter(ele => ele.includes(filtroA))
+                            listas = filtered
+                        }
+
+                    } else {
+                        listas = listasTemp
+                    }
+
+                    //Tomamso al lista de únicos y los mostramso en formato de check
+                    listas.forEach(ele => {
+                        const checkE = newE("div", "fcE" + i, "form-check")
+                        checkE.style.fontSize = "9pt"
+                        ulLista_datos.appendChild(checkE)
+
+                        const inCampoE = newE("input", "inCampoE" + i, "form-check-input")
+                        inCampoE.type = "checkbox"
+                        inCampoE.checked = false
+                        inCampoE.value = ele
+                        checkE.appendChild(inCampoE)
+
+                        inCampoE.onchange = () => {
+                            if (inCampoE.checked == true) {
+                                filtro_tabla.valores.push(inCampoE.value)
+                                filtro_tabla.campo = campo
+                                filtro_tabla.clase = clase
+                            } else {
+                                const filtered = filtro_tabla.valores.filter(ele => ele !== inCampoE.value)
+                                filtro_tabla.valores = filtered
+                                filtro_tabla.campo = campo
+                                filtro_tabla.clase = clase
+                            }
+                        }
+                        const label_campoE = newE("label", "label_campoE" + i, "form-check-label fw-normal")
+                        label_campoE.for = "inCampoE" + i
+                        label_campoE.textContent = ele
+                        checkE.appendChild(label_campoE)
+                        i++
+                    })
+                } else {
+                    let listasTemp = []
+                    let listas = []
+                    vigencia.clsCasos.forEach(caso => {
+                        caso[claseA].forEach(sub => {
+                            if (listasTemp.includes(sub[campoA]) != true) {
+                                listasTemp.push(sub[campoA])
+                            }
+                        })
+                    })
+                    //Mira si el listado a mostrar está filtrado
+                    if (filtroA !== "") {
+                        if (numero == true) {
+                            const filtered = listasTemp.filter(ele => ele == (filtroA))
+                            listas = filtered
+                        } else {
+                            const filtered = listasTemp.filter(ele => ele.includes(filtroA))
+                            listas = filtered
+                        }
+
+                    } else {
+                        listas = listasTemp
+                    }
+                    let i = 0
+                    listas.forEach(ele => {
+                        const checkE = newE("div", "fcE" + i, "form-check")
+                        checkE.style.fontSize = "9pt"
+                        ulLista_datos.appendChild(checkE)
+
+                        const inCampoE = newE("input", "inCampoE" + i, "form-check-input")
+                        inCampoE.type = "checkbox"
+                        inCampoE.checked = false
+                        inCampoE.value = ele
+                        checkE.appendChild(inCampoE)
+
+                        inCampoE.onchange = () => {
+                            if (inCampoE.checked == true) {
+                                filtro_tabla.valores.push(inCampoE.value)
+                                filtro_tabla.campo = campo
+                                filtro_tabla.clase = clase
+                            } else {
+                                const filtered = filtro_tabla.valores.filter(ele => ele !== inCampoE.value)
+                                filtro_tabla.valores = filtered
+                                filtro_tabla.campo = campo
+                                filtro_tabla.clase = clase
+                            }
+                        }
+                        const label_campoE = newE("label", "label_campoE" + i, "form-check-label fw-normal")
+                        label_campoE.for = "inCampoE" + i
+                        label_campoE.textContent = ele
+                        checkE.appendChild(label_campoE)
+                        i++
+                    })
+                }
             }
+
 
 
             //console.log(vigencia.clsCasos)
@@ -305,5 +423,35 @@ function run_tabla() {
 
             return ulFiler_Head
         }
+    }
+    function _filter_tabla() {
+        const data_ini = split_Data[selVigencias.value]
+        //Creamos las cadenas para el filtro
+        let cadena = ""
+        filtro_tabla.valores.forEach(item => {
+            cadena = cadena + `ele['${filtro_tabla.campo}']=='${item}' || `
+        })
+        const Criterio_clear = cadena.slice(0, -4)
+        if (filtro_tabla.clase == "clsCasos") {
+            const filtered = data_ini.clsCasos.filter(ele => eval(Criterio_clear))
+            let data_fin={
+                "clsCasos":filtered
+            };
+            _make_tabla(data_fin)
+        } else {
+            let data_fin={
+                "clsCasos":[]
+            };
+            data_ini.clsCasos.forEach(caso=>{
+                const filtered = caso[filtro_tabla.clase].filter(ele => eval(Criterio_clear))
+                if (filtered.length>0){
+                    data_fin.clsCasos.push(caso)
+                }
+
+            })
+            _make_tabla(data_fin)
+        }
+
+
     }
 }
