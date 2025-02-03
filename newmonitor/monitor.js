@@ -352,7 +352,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     const newData = {
                         'clsCasos': Data_filter
                     }
-                    console.log(newData)
+
                     _make_registros_filter(vigencia, newData, 0, selVigencias.value)
                     _contador_registros(newData, 0)
                     data_filtrado = newData
@@ -370,7 +370,6 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                         const newData = {
                             'clsCasos': Data_filter
                         }
-                        console.log(newData)
                         _make_registros_filter(vigencia, newData, 0, selVigencias.value)
                         _contador_registros(newData, 0)
                         data_filtrado = newData
@@ -1184,6 +1183,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 col_desplazamiento.appendChild(row)
 
                 deplazamientos[id].id = id
+                const ind_Desplaz=id
 
 
                 const btn_desplazamiento = newE("div", "", "btn-label-gray-long m-1")
@@ -1216,9 +1216,10 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     sel_tipo.appendChild(item)
                 })
 
-                sel_tipo.value = deplazamientos[id].tipo
+                sel_tipo.value = deplazamientos[ind_Desplaz].tipo
+                
                 sel_tipo.onchange = () => {
-                    deplazamientos[id].tipo = sel_tipo.value
+                    deplazamientos[ind_Desplaz].tipo = sel_tipo.value
                     btn_desplazamiento.textContent = sel_tipo.value
                     GuardarDatos(data_activo, vigencia)
                 }
@@ -1230,12 +1231,11 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 const int_fecha_sal = newE("input", "", "form-control")
                 int_fecha_sal.type = "date"
                 div_desplazamiento.appendChild(int_fecha_sal)
-                int_fecha_sal.value = deplazamientos[id].fechaex
+                int_fecha_sal.value = deplazamientos[ind_Desplaz].fechaex
                 int_fecha_sal.onchange = () => {
-                    deplazamientos[id].fechaex = int_fecha_sal.value
+                    deplazamientos[ind_Desplaz].fechaex = int_fecha_sal.value
                     GuardarDatos(data_activo, vigencia)
                 }
-
 
                 //Aquí información del departamento de expulsión
                 const sm_depDes = newE("small", "sm_tipo", "fw-bold")
@@ -1257,12 +1257,12 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
 
                 try {
                     //  Si no existe un departamento
-                    sel_depDes.value = deplazamientos[id].DepartamentoExp
+                    sel_depDes.value = deplazamientos[ind_Desplaz].DepartamentoExp
 
                 } catch (error) {
-                    deplazamientos[id].DepartamentoExp = ""
+                    deplazamientos[ind_Desplaz].DepartamentoExp = ""
                 }
-                _cargar_lugaresDes(deplazamientos[id].DepartamentoExp)
+                _cargar_lugaresDes(deplazamientos[ind_Desplaz].DepartamentoExp)
 
                 /////////////////////////////////////////////////////////////
                 //  Lugar de salida
@@ -1275,7 +1275,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 div_desplazamiento.appendChild(sel_lugarOri)
 
                 sel_depDes.onchange = () => {
-                    deplazamientos[id].DepartamentoExp = sel_depDes.value
+                    deplazamientos[ind_Desplaz].DepartamentoExp = sel_depDes.value
                     GuardarDatos(data_activo, vigencia)
                     _cargar_lugaresDes(sel_depDes.value)
 
@@ -1294,8 +1294,8 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 sel_lugarOri.value = deplazamientos[id].lugarOri
                 sel_lugarOri.onchange = () => {
                     const datos = sel_lugarOri.value.split(",")
-                    deplazamientos[id].lugarOri = sel_lugarOri.value
-                    deplazamientos[id].coorExp = [datos[1], datos[2]]
+                    deplazamientos[ind_Desplaz].lugarOri = sel_lugarOri.value
+                    deplazamientos[ind_Desplaz].coorExp = [datos[1], datos[2]]
                     GuardarDatos(data_activo, vigencia)
                 }
                 /////////////////////////////////////////////////////////////
@@ -1315,9 +1315,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     item.textContent = ele
                     sel_EntornoOri.appendChild(item)
                 })
-                sel_EntornoOri.value = deplazamientos[id].entornoOri
+                sel_EntornoOri.value = deplazamientos[ind_Desplaz].entornoOri
                 sel_EntornoOri.onchange = () => {
-                    deplazamientos[id].entornoOri = sel_EntornoOri.value
+                    deplazamientos[ind_Desplaz].entornoOri = sel_EntornoOri.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -1331,9 +1331,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 const int_fecha_lleg = newE("input", "", "form-control")
                 int_fecha_lleg.type = "date"
                 div_desplazamiento.appendChild(int_fecha_lleg)
-                int_fecha_lleg.value = deplazamientos[id].fechaDes
+                int_fecha_lleg.value = deplazamientos[ind_Desplaz].fechaDes
                 int_fecha_lleg.onchange = () => {
-                    deplazamientos[id].fechaDes = int_fecha_lleg.value
+                    deplazamientos[ind_Desplaz].fechaDes = int_fecha_lleg.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -1354,18 +1354,18 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 })
 
                 try {
-                    sel_depDestino.value = deplazamientos[id].DepartamentoDes
+                    sel_depDestino.value = deplazamientos[ind_Desplaz].DepartamentoDes
                 } catch (error) {
 
                 }
 
                 sel_depDestino.onchange = () => {
-                    deplazamientos[id].DepartamentoDes = sel_depDestino.value
+                    deplazamientos[ind_Desplaz].DepartamentoDes = sel_depDestino.value
                     GuardarDatos(data_activo, vigencia)
                     _cargar_lugaresDestino(sel_depDestino.value)
 
                 }
-                _cargar_lugaresDestino(deplazamientos[id].DepartamentoDes)
+                _cargar_lugaresDestino(deplazamientos[ind_Desplaz].DepartamentoDes)
 
                 function _cargar_lugaresDestino(departamento) {
                     sel_lugarDestino.innerHTML = ""
@@ -1389,8 +1389,8 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 sel_lugarDestino.value = deplazamientos[id].LugarDes
                 sel_lugarDestino.onchange = () => {
                     const datos = sel_lugarDestino.value.split(",")
-                    deplazamientos[id].LugarDes = sel_lugarDestino.value
-                    deplazamientos[id].coorDes = [datos[1], datos[2]]
+                    deplazamientos[ind_Desplaz].LugarDes = sel_lugarDestino.value
+                    deplazamientos[ind_Desplaz].coorDes = [datos[1], datos[2]]
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -1407,9 +1407,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     item.textContent = ele
                     sel_EntornoLleg.appendChild(item)
                 })
-                sel_EntornoLleg.value = deplazamientos[id].TipoDes
+                sel_EntornoLleg.value = deplazamientos[ind_Desplaz].TipoDes
                 sel_EntornoLleg.onchange = () => {
-                    deplazamientos[id].TipoDes = sel_EntornoLleg.value
+                    deplazamientos[ind_Desplaz].TipoDes = sel_EntornoLleg.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -1419,9 +1419,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 btn_delete.textContent = "Suprimir elemento"
                 div_desplazamiento.appendChild(btn_delete)
                 btn_delete.onclick = () => {
-                    delete_item("clsDesplazamiento", "id", id)
-                    _carga_desplazamientos()
+                    delete_item("clsDesplazamiento", "id", ind_Desplaz)
                     GuardarDatos(data_activo, vigencia)
+                    _carga_desplazamientos()
                 }
 
             }
@@ -1510,9 +1510,10 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     sel_tipoMed.appendChild(item)
                 })
 
-                sel_tipoMed.value = medidas[id].accion
+                const ind_medidas=id
+                sel_tipoMed.value = medidas[ind_medidas].accion
                 sel_tipoMed.onchange = () => {
-                    medidas[id].accion = sel_tipoMed.value
+                    medidas[ind_medidas].accion = sel_tipoMed.value
                     btn_medidas.textContent = sel_tipoMed.value
                     GuardarDatos(data_activo, vigencia)
                 }
@@ -1524,9 +1525,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 const int_fecha_acc = newE("input", "", "form-control")
                 int_fecha_acc.type = "date"
                 div_medidas.appendChild(int_fecha_acc)
-                int_fecha_acc.value = medidas[id].fecha
+                int_fecha_acc.value = medidas[ind_medidas].fecha
                 int_fecha_acc.onchange = () => {
-                    medidas[id].fecha = int_fecha_acc.value
+                    medidas[ind_medidas].fecha = int_fecha_acc.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -1537,9 +1538,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 const int_respuesata = newE("input", "", "form-control")
                 int_respuesata.type = "text"
                 div_medidas.appendChild(int_respuesata)
-                int_respuesata.value = medidas[id].respuesta
+                int_respuesata.value = medidas[ind_medidas].respuesta
                 int_respuesata.onchange = () => {
-                    medidas[id].respuesta = int_respuesata.value
+                    medidas[ind_medidas].respuesta = int_respuesata.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -1549,7 +1550,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 btn_delete.textContent = "Suprimir elemento"
                 div_medidas.appendChild(btn_delete)
                 btn_delete.onclick = () => {
-                    delete_item("clsAccJuridica", "id", id)
+                    delete_item("clsAccJuridica", "id", ind_medidas)
                     _carga_medidas()
                     GuardarDatos(data_activo, vigencia)
                 }
@@ -2567,9 +2568,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
 
         const col_desplazamiento = newE("div", "col_desplazamiento", "col-md-10")
         row7.appendChild(col_desplazamiento)
-
         _carga_desplazamientos()
 
+        
         function _carga_desplazamientos() {
             col_desplazamiento.innerHTML = ""
             const deplazamientos = vigencia.clsCasos[index].clsDesplazamiento
@@ -2578,6 +2579,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 col_desplazamiento.appendChild(row)
 
                 deplazamientos[id].id = id
+                
 
 
                 const btn_desplazamiento = newE("div", "", "btn-label-gray-long m-1")
@@ -2617,8 +2619,6 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     GuardarDatos(data_activo, vigencia)
                 }
 
-
-
                 const sm_fsalida = newE("small", "sm_fsalida", "fw-bold")
                 sm_fsalida.textContent = "Fecha salída"
                 div_desplazamiento.appendChild(sm_fsalida)
@@ -2651,14 +2651,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     sel_depDes.appendChild(item)
                 })
 
-                try {
-                    //  Si no existe un departamento
-                    sel_depDes.value = deplazamientos[id].DepartamentoExp
+                sel_depDes.value = deplazamientos[ind_Desplaz].DepartamentoExp
 
-                } catch (error) {
-                    deplazamientos[id].DepartamentoExp = ""
-                }
-                _cargar_lugaresDes(deplazamientos[id].DepartamentoExp)
+                _cargar_lugaresDes(deplazamientos[ind_Desplaz].DepartamentoExp)
 
                 /////////////////////////////////////////////////////////////
                 //  Lugar de salida
@@ -2666,12 +2661,10 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 const sm_lugarOri = newE("small", "sm_lugarOri", "fw-bold")
                 sm_lugarOri.textContent = "Lugar de origen"
                 div_desplazamiento.appendChild(sm_lugarOri)
-
-
                 div_desplazamiento.appendChild(sel_lugarOri)
 
                 sel_depDes.onchange = () => {
-                    deplazamientos[id].DepartamentoExp = sel_depDes.value
+                    deplazamientos[ind_Desplaz].DepartamentoExp = sel_depDes.value
                     GuardarDatos(data_activo, vigencia)
                     _cargar_lugaresDes(sel_depDes.value)
 
@@ -2687,11 +2680,11 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                         sel_lugarOri.appendChild(item)
                     })
                 }
-                sel_lugarOri.value = deplazamientos[id].lugarOri
+                sel_lugarOri.value = deplazamientos[ind_Desplaz].lugarOri
                 sel_lugarOri.onchange = () => {
                     const datos = sel_lugarOri.value.split(",")
-                    deplazamientos[id].lugarOri = sel_lugarOri.value
-                    deplazamientos[id].coorExp = [datos[1], datos[2]]
+                    deplazamientos[ind_Desplaz].lugarOri = datos[0]
+                    deplazamientos[ind_Desplaz].coorExp = [datos[1], datos[2]]
                     GuardarDatos(data_activo, vigencia)
                 }
                 /////////////////////////////////////////////////////////////
@@ -2711,9 +2704,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     item.textContent = ele
                     sel_EntornoOri.appendChild(item)
                 })
-                sel_EntornoOri.value = deplazamientos[id].entornoOri
+                sel_EntornoOri.value = deplazamientos[ind_Desplaz].entornoOri
                 sel_EntornoOri.onchange = () => {
-                    deplazamientos[id].entornoOri = sel_EntornoOri.value
+                    deplazamientos[ind_Desplaz].entornoOri = sel_EntornoOri.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -2727,9 +2720,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 const int_fecha_lleg = newE("input", "", "form-control")
                 int_fecha_lleg.type = "date"
                 div_desplazamiento.appendChild(int_fecha_lleg)
-                int_fecha_lleg.value = deplazamientos[id].fechaDes
+                int_fecha_lleg.value = deplazamientos[ind_Desplaz].fechaDes
                 int_fecha_lleg.onchange = () => {
-                    deplazamientos[id].fechaDes = int_fecha_lleg.value
+                    deplazamientos[ind_Desplaz].fechaDes = int_fecha_lleg.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -2738,8 +2731,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 sm_DepDestino.textContent = "Departamento destino"
                 div_desplazamiento.appendChild(sm_DepDestino)
 
-                const sel_depDestino = newE("select", "", "form-control")
-                const sel_lugarDestino = newE("select", "", "form-control")
+                const sel_depDestino = newE("select", "sel_depDestino", "form-control")
                 div_desplazamiento.appendChild(sel_depDestino)
 
                 departamentos.forEach(ele => {
@@ -2750,18 +2742,18 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 })
 
                 try {
-                    sel_depDestino.value = deplazamientos[id].DepartamentoDes
+                    sel_depDestino.value = deplazamientos[ind_Desplaz].DepartamentoDes
                 } catch (error) {
 
                 }
 
                 sel_depDestino.onchange = () => {
-                    deplazamientos[id].DepartamentoDes = sel_depDestino.value
+                    deplazamientos[ind_Desplaz].DepartamentoDes = sel_depDestino.value
                     GuardarDatos(data_activo, vigencia)
                     _cargar_lugaresDestino(sel_depDestino.value)
 
                 }
-                _cargar_lugaresDestino(deplazamientos[id].DepartamentoDes)
+                _cargar_lugaresDestino(deplazamientos[ind_Desplaz].DepartamentoDes)
 
                 function _cargar_lugaresDestino(departamento) {
                     sel_lugarDestino.innerHTML = ""
@@ -2782,13 +2774,8 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 div_desplazamiento.appendChild(sm_lugarDestino)
                 div_desplazamiento.appendChild(sel_lugarDestino)
 
-                sel_lugarDestino.value = deplazamientos[id].LugarDes
-                sel_lugarDestino.onchange = () => {
-                    const datos = sel_lugarDestino.value.split(",")
-                    deplazamientos[id].LugarDes = sel_lugarDestino.value
-                    deplazamientos[id].coorDes = [datos[1], datos[2]]
-                    GuardarDatos(data_activo, vigencia)
-                }
+
+
 
                 const sm_entornoDestino = newE("small", "sm_entornoDestino", "fw-bold")
                 sm_entornoDestino.textContent = "Entorno de destino"
@@ -2803,9 +2790,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     item.textContent = ele
                     sel_EntornoLleg.appendChild(item)
                 })
-                sel_EntornoLleg.value = deplazamientos[id].TipoDes
+                sel_EntornoLleg.value = deplazamientos[ind_Desplaz].TipoDes
                 sel_EntornoLleg.onchange = () => {
-                    deplazamientos[id].TipoDes = sel_EntornoLleg.value
+                    deplazamientos[ind_Desplaz].TipoDes = sel_EntornoLleg.value
                     GuardarDatos(data_activo, vigencia)
                 }
 
@@ -2815,7 +2802,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 btn_delete.textContent = "Suprimir elemento"
                 div_desplazamiento.appendChild(btn_delete)
                 btn_delete.onclick = () => {
-                    delete_item("clsDesplazamiento", "id", id)
+                    delete_item("clsDesplazamiento", "id", ind_Desplaz)
                     _carga_desplazamientos()
                     GuardarDatos(data_activo, vigencia)
                 }
@@ -2847,8 +2834,9 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     "TipoDes": "",
                 }
             )
-            _carga_desplazamientos()
             GuardarDatos(data_activo, vigencia)
+            _carga_desplazamientos()
+            
         }
 
         ////////////////////////////////////////////////7
