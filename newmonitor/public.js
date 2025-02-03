@@ -45,13 +45,13 @@ function load_info_public() {
 
 }
 function opendata() {
-    //console.clear()
+    console.clear()
     try {
         const data_public = GLOBAL.state.publicos[1].consolidados
-        //byE("nVictimas").textContent = formatNum((data_public.nVictimas))
-        //byE("nCasos").textContent = formatNum(data_public.nCasos)
+        byE("nVictimas").textContent = formatNum((data_public.nVictimas))
+        byE("nCasos").textContent = formatNum(data_public.nCasos)
     } catch (error) {
-        console.log(error)
+        console.log("No en módulo público")
     }
 }
 function save_public_data() {
