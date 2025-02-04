@@ -107,7 +107,7 @@ function load_info_public() {
     con un total de <b>${template_public.A_Vigencia.mayorCasos[1]}</b> casos registrados.
     <p> En relación a el número de víctimas por año se encuentra que el año 
     <b>${template_public.A_Vigencia.mayorVictimas[0]}</b> es la vigencia con más registro de víctimas con
-    un total de <b>${template_public.A_Vigencia.mayorVictimas[1]}</b> personas`
+    un total de <b>${template_public.A_Vigencia.mayorVictimas[1]}</b> personas.`
 
     template_public.A_Vigencia.text = texto_vigencias
     template_public.A_Vigencia.acumulado = Data_vigencias
@@ -141,11 +141,11 @@ function opendata() {
             td_vig.textContent = acumulados[id].vigencia
             tr.appendChild(td_vig)
 
-            const td_casos = newE("td", "td_casos", "fw_normal")
-            td_casos.textContent = acumulados[id].casos
+            const td_casos = newE("td", "td_casos", "fw_normal text-end")
+            td_casos.textContent = parseInt(acumulados[id].casos) + 1
             tr.appendChild(td_casos)
 
-            const td_victimas = newE("td", "td_victimas", "fw_normal")
+            const td_victimas = newE("td", "td_victimas", "fw_normal text-end")
             td_victimas.textContent = acumulados[id].victimas
             tr.appendChild(td_victimas)
 
