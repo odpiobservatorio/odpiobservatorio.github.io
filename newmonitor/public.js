@@ -18,10 +18,10 @@ function load_info_public() {
         'nCasosHoy': 0,
         'nVictimasHoy': 0,
         'A_Vigencia': {
-            'mayorCasos': ["",0],
-            'mayorVictimas': ["",0],
-            'text':"",
-            'acumulado':[],
+            'mayorCasos': ["", 0],
+            'mayorVictimas': ["", 0],
+            'text': "",
+            'acumulado': [],
         }
 
     }
@@ -82,13 +82,13 @@ function load_info_public() {
             });
         }
         //Calcula los puntajes más altos en casos y victimas por año
-        if(template_public.A_Vigencia.mayorCasos[1]<Data_vigencias[vig].casos){
-            template_public.A_Vigencia.mayorCasos[0]=Data_vigencias[vig].vigencia
-            template_public.A_Vigencia.mayorCasos[1]=Data_vigencias[vig].casos
+        if (template_public.A_Vigencia.mayorCasos[1] < Data_vigencias[vig].casos) {
+            template_public.A_Vigencia.mayorCasos[0] = Data_vigencias[vig].vigencia
+            template_public.A_Vigencia.mayorCasos[1] = Data_vigencias[vig].casos
         }
-        if(template_public.A_Vigencia.mayorVictimas[1]<Data_vigencias[vig].victimas){
-            template_public.A_Vigencia.mayorVictimas[0]=Data_vigencias[vig].vigencia
-            template_public.A_Vigencia.mayorVictimas[1]=Data_vigencias[vig].victimas
+        if (template_public.A_Vigencia.mayorVictimas[1] < Data_vigencias[vig].victimas) {
+            template_public.A_Vigencia.mayorVictimas[0] = Data_vigencias[vig].vigencia
+            template_public.A_Vigencia.mayorVictimas[1] = Data_vigencias[vig].victimas
         }
     })
 
@@ -100,8 +100,8 @@ function load_info_public() {
 
 
 
-    let texto_vigencias=
-    `<p>Para el análisis realizado por el <i>CLÚSTER ODPI</i> en relación a la variable AÑO 
+    let texto_vigencias =
+        `<p>Para el análisis realizado por el <i>CLÚSTER ODPI</i> en relación a la variable AÑO 
     se evidencia que la vigencia con mayor número de casos de afectaciones a los derechos de 
     los pueblos indígenas es el año <b>${template_public.A_Vigencia.mayorCasos[0]}</b> 
     con un total de <b>${template_public.A_Vigencia.mayorCasos[1]}</b> casos registrados.
@@ -109,9 +109,9 @@ function load_info_public() {
     <b>${template_public.A_Vigencia.mayorVictimas[0]}</b> es la vigencia con más registro de víctimas con
     un total de <b>${template_public.A_Vigencia.mayorVictimas[1]}</b> personas`
 
-    template_public.A_Vigencia.text=texto_vigencias
+    template_public.A_Vigencia.text = texto_vigencias
     template_public.A_Vigencia.acumulado = Data_vigencias
-   
+
 
 
     template_public.corte = `${dia}/${mes}/${vig}`
@@ -130,10 +130,31 @@ function opendata() {
         byE("nCasosHoy").textContent = formatNum(data_public.nCasosHoy)
         byE("nVictimasHoy").textContent = formatNum((data_public.nVictimasHoy))
 
-        console.log(data_public)
+        //Constuimos la información sobre vigencias
         byE("text_vigencias").innerHTML = data_public.A_Vigencia.text
+        const tbody_vigencias = byE("tbody_vigencias")
+        const acumulados = data_public.A_Vigencia.acumulado
+        for (id in acumulados) {
+            const tr = newE("tr", "tr" + id, "")
 
-        
+            const td_vig = newE("td", "td_vig", "fw-bold")
+            td_vig.textContent = acumulados[id].vigencia
+            tr.appendChild(td_vig)
+
+            const td_casos = newE("td", "td_casos", "fw_normal")
+            td_casos.textContent = acumulados[id].casos
+            tr.appendChild(td_casos)
+
+            const td_victimas = newE("td", "td_victimas", "fw_normal")
+            td_victimas.textContent = acumulados[id].victimas
+            tr.appendChild(td_victimas)
+
+
+            tbody_vigencias.appendChild(tr)
+
+        }
+
+
 
 
         byE("lb_corte").textContent = "Fecha de actualización: " + data_public.corte
