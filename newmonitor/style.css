@@ -119,6 +119,14 @@ table {
     
 }
 
+.table-public {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  overflow-y: auto;
+  height: 200px;
+  
+}
 
 
 .td-fitwidth {

@@ -21,6 +21,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+    <link rel="stylesheet" href="./style.css">
+
     <script defer src="./acces-data.js" type="module"></script>
     <script src="./global.js"></script>
     <script src="./public.js"></script>
@@ -66,15 +68,14 @@
             </h2>
             <div id="collapseAcumulado" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-md-6" id="chart_vigencias">
-
-                        </div>
-                        <div class="col-md-6">
                             <div id="text_vigencias" style="text-align: justify;">
 
                             </div>
-                            <table class="table">
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-public table-striped table-hover" style="font-size: 10pt;">
                                 <thead class="text-white bg-secondary">
                                     <tr>
                                         <th scope="col">Año</th>
@@ -82,10 +83,33 @@
                                         <th scope="col" class="text-end">Víctimas</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbody_vigencias">
+                                <tbody id="tbody_vigencias" class="table-group-divider">
 
                                 </tbody>
                             </table>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <table class="table table-public table-striped table-hover" style="font-size: 10pt;">
+                                <thead class="text-white bg-secondary">
+                                    <tr>
+                                        <th scope="col">Departamento</th>
+                                        <th scope="col" class="text-end">Casos</th>
+                                        <th scope="col" class="text-end">Víctimas</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody_departamentos" class="table-group-divider">
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6" id="chart_departamentos">
+                            <div id="text_departamentos" style="text-align: justify;">
+
+                            </div>
                         </div>
 
                     </div>

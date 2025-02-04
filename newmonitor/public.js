@@ -22,6 +22,12 @@ function load_info_public() {
             'mayorVictimas': ["", 0],
             'text': "",
             'acumulado': [],
+        },
+        'A_Departamento': {
+            'mayorCasos': ["", 0],
+            'mayorVictimas': ["", 0],
+            'text': "",
+            'acumulado': [],
         }
 
     }
@@ -34,7 +40,7 @@ function load_info_public() {
     let List_Vigencias = []
     let Data_vigencias = {}
     let List_Departamentos = []
-    let Data_Departamentos = []
+    let Data_Departamentos = {}
 
     for (id in split_Data) {
         const vigencia = split_Data[id]
@@ -93,11 +99,35 @@ function load_info_public() {
     })
 
 
+    //Conteos por departamento
+    List_Departamentos.forEach(dep => {
+        let n = 0
+        for (id in split_Data) {
+            const vigencia = split_Data[id]
+            vigencia.clsCasos.forEach(caso => {
+                if (caso.departamento == dep) {
+                    Data_Departamentos[caso.departamento].casos = n
+                    Data_Departamentos[caso.departamento].victimas = Data_Departamentos[caso.departamento].victimas + parseInt(caso.npersonas)
+                    n++
+                }
+            });
+        }
+        //Calcula los puntajes más altos en casos y victimas por año
+        if (template_public.A_Departamento.mayorCasos[1] < Data_Departamentos[dep].casos) {
+            template_public.A_Departamento.mayorCasos[0] = Data_Departamentos[dep].departamento
+            template_public.A_Departamento.mayorCasos[1] = Data_Departamentos[dep].casos
+        }
+        if (template_public.A_Departamento.mayorVictimas[1] < Data_Departamentos[dep].victimas) {
+            template_public.A_Departamento.mayorVictimas[0] = Data_Departamentos[dep].departamento
+            template_public.A_Departamento.mayorVictimas[1] = Data_Departamentos[dep].victimas
+        }
+    })
+
+
     template_public.nCasos = nCasos
     template_public.nCasosHoy = nCasosHoy
     template_public.nVictimas = nVictimas
     template_public.nVictimasHoy = nVictimasHoy
-
 
 
     let texto_vigencias =
@@ -112,6 +142,18 @@ function load_info_public() {
     template_public.A_Vigencia.text = texto_vigencias
     template_public.A_Vigencia.acumulado = Data_vigencias
 
+
+    let texto_departamentos =
+        `<p>Con relación a la identificación de la variable LUGAR en el caso de los departamentos con mayor
+    número de afectaciones se puede decir que <b>${template_public.A_Departamento.mayorCasos[0]}</b> es el que presenta
+    mayor número de casos con una cifra de <b>${template_public.A_Departamento.mayorCasos[1]}</b>.
+    <p> En relación a el número de víctimas por departamento se encuentra 
+    <b>${template_public.A_Departamento.mayorVictimas[0]}</b> lugar con un registro de 
+    <b>${template_public.A_Departamento.mayorVictimas[1]}</b> personas.`
+
+    template_public.A_Departamento.text = texto_departamentos
+    
+    template_public.A_Departamento.acumulado = Data_Departamentos
 
 
     template_public.corte = `${dia}/${mes}/${vig}`
@@ -154,12 +196,35 @@ function opendata() {
 
         }
 
+        //Constuimos la información sobre departamentos
+        byE("text_departamentos").innerHTML = data_public.A_Departamento.text
+        const tbody_departamentos = byE("tbody_departamentos")
+        const acumulados_dep = data_public.A_Departamento.acumulado
+        for (id in acumulados_dep) {
+            const tr = newE("tr", "tr_dep" + id, "")
 
+            const td_vig = newE("td", "td_vig_dep" + id, "fw-bold")
+            td_vig.textContent = acumulados_dep[id].departamento
+            tr.appendChild(td_vig)
+
+            const td_casos = newE("td", "td_casos_dep" + id, "fw_normal text-end")
+            td_casos.textContent = parseInt(acumulados_dep[id].casos) + 1
+            tr.appendChild(td_casos)
+
+            const td_victimas = newE("td", "td_victimas" + id, "fw_normal text-end")
+            td_victimas.textContent = acumulados_dep[id].victimas
+            tr.appendChild(td_victimas)
+
+
+            tbody_departamentos.appendChild(tr)
+
+        }
 
 
         byE("lb_corte").textContent = "Fecha de actualización: " + data_public.corte
     } catch (error) {
         console.log("No en módulo público")
+        byE("panel_escritorio").textContent = "En conexión"
     }
 }
 function save_public_data() {
