@@ -427,7 +427,6 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         }
 
         //Creamos el detalle del evento
-
         const titulo3 = newE("small", "titulo_detalle", "fw-bold mb-2")
         titulo3.textContent = "Descripción del caso"
         formulario.appendChild(titulo3)
@@ -1666,15 +1665,16 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         //Función para crear un registro o caso nuevo
         function crear_registro(data, vig) {
             template_caso.vigencia = vig
+
             data.clsCasos.push(template_caso)
             GuardarDatos(data_activo, vigencia)
-            _contador_registros(vigencia, 0)
+            _contador_registros(vigencia,data.length -1)
         }
         //============================================================
         //Se borra la totalidad del caso
         function eliminar_registro(data, idx) {
             const filtered = data.clsCasos.filter(ele => ele.id !== idx)
-            //GuardarDatos(data_activo, vigencia)
+
             data.clsCasos = filtered
             GuardarDatos(data_activo, vigencia)
             _contador_registros(vigencia, 0)
@@ -3067,7 +3067,6 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
 
     function _contador_registros(vigencia, index) {
         //Aquí contamos el número de registros de la vigencia y la posición en la que estamos
-        
         byE("col_pos_registros").textContent = `Registro ${index + 1} de ${vigencia.clsCasos.length}`
         //alert(vigencia.clsCasos.length)
     }

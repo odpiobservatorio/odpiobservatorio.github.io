@@ -28,6 +28,12 @@ function load_info_public() {
             'mayorVictimas': ["", 0],
             'text': "",
             'acumulado': [],
+        },
+        'A_Lugares': {
+            'mayorCasos': ["", 0],
+            'mayorVictimas': ["", 0],
+            'text': "",
+            'acumulado': [],
         }
 
     }
@@ -41,6 +47,8 @@ function load_info_public() {
     let Data_vigencias = {}
     let List_Departamentos = []
     let Data_Departamentos = {}
+    let List_Lugares = []
+    let Data_Lugares = {}
 
     for (id in split_Data) {
         const vigencia = split_Data[id]
@@ -58,8 +66,8 @@ function load_info_public() {
                 List_Vigencias.push(caso.vigencia)
                 Data_vigencias[caso.vigencia] = {
                     'vigencia': caso.vigencia,
-                    'casos': 0,
-                    'victimas': 0
+                    'casos': 1,
+                    'victimas': 1
                 }
             }
             //Verifica si hay departamento en la lista de departamentos
@@ -67,12 +75,26 @@ function load_info_public() {
                 List_Departamentos.push(caso.departamento)
                 Data_Departamentos[caso.departamento] = {
                     'departamento': caso.departamento,
-                    'casos': 0,
-                    'victimas': 0
+                    'casos': 1,
+                    'victimas': 1
                 }
             }
+            //Realizamos verificación de lugares
+            caso.clsLugares.forEach(lug => {
+                {
+                    if (List_Lugares.includes(lug.municipio) != true) {
+                        List_Lugares.push(lug.municipio)
+                        Data_Lugares[lug.municipio] = {
+                            'municipio': lug.municipio,
+                            'casos': 1,
+                            'victimas': 1
+                        }
+                    }
+                }
+            })
         });
     }
+
 
     //Conteos por año
     List_Vigencias.forEach(vig => {
@@ -123,6 +145,34 @@ function load_info_public() {
         }
     })
 
+    //Conteos por municipios/lugares
+    List_Lugares.forEach(lug => {
+        let n = 1
+        for (id in split_Data) {
+            const vigencia = split_Data[id]
+            vigencia.clsCasos.forEach(caso => {
+                caso.clsLugares.forEach(mun => {
+                    if (mun.municipio == lug) {
+                        Data_Lugares[mun.municipio].casos = n
+                        Data_Lugares[mun.municipio].victimas = Data_Lugares[mun.municipio].victimas + parseInt(caso.npersonas)
+                        n++
+                    }
+                })
+
+            });
+            //Calcula los puntajes más altos en casos y victimas por año
+            if (template_public.A_Lugares.mayorCasos[1] < Data_Lugares[lug].casos) {
+                template_public.A_Lugares.mayorCasos[0] = Data_Lugares[lug].municipio
+                template_public.A_Lugares.mayorCasos[1] = Data_Lugares[lug].casos
+            }
+            if (template_public.A_Lugares.mayorVictimas[1] < Data_Lugares[lug].victimas) {
+                template_public.A_Lugares.mayorVictimas[0] = Data_Lugares[lug].municipio
+                template_public.A_Lugares.mayorVictimas[1] = Data_Lugares[lug].victimas
+            }
+        }
+
+
+    })
 
     template_public.nCasos = nCasos
     template_public.nCasosHoy = nCasosHoy
@@ -140,7 +190,7 @@ function load_info_public() {
     un total de <b>${template_public.A_Vigencia.mayorVictimas[1]}</b> personas.`
 
     template_public.A_Vigencia.text = texto_vigencias
-    template_public.A_Vigencia.acumulado = Data_vigencias
+    template_public.A_Vigencia.acumulado = sort_data("AZ", Data_vigencias, "victimas")
 
 
     let texto_departamentos =
@@ -152,8 +202,19 @@ function load_info_public() {
     <b>${template_public.A_Departamento.mayorVictimas[1]}</b> personas.`
 
     template_public.A_Departamento.text = texto_departamentos
-    
-    template_public.A_Departamento.acumulado = Data_Departamentos
+    template_public.A_Departamento.acumulado = sort_data("AZ", Data_Departamentos, "victimas")//
+
+
+    let texto_lugares =
+        `<p>El municipio con mayor afectación es <b>${template_public.A_Lugares.mayorCasos[0]}</b> con un registro de <b>${template_public.A_Lugares.mayorCasos[1]}</b> casos.
+    Con relación al número de víctimas por lugar se encuentra  
+    <b>${template_public.A_Lugares.mayorVictimas[0]}</b> con un total de  
+    <b>${template_public.A_Lugares.mayorVictimas[1]}</b> personas.`
+
+    template_public.A_Lugares.text = texto_lugares
+    template_public.A_Lugares.acumulado = sort_data("AZ", Data_Lugares, "victimas")//
+
+
 
 
     template_public.corte = `${dia}/${mes}/${vig}`
@@ -172,54 +233,21 @@ function opendata() {
         byE("nCasosHoy").textContent = formatNum(data_public.nCasosHoy)
         byE("nVictimasHoy").textContent = formatNum((data_public.nVictimasHoy))
 
-        //Constuimos la información sobre vigencias
+        //Construimos la información sobre vigencias
         byE("text_vigencias").innerHTML = data_public.A_Vigencia.text
-        const tbody_vigencias = byE("tbody_vigencias")
-        const acumulados = data_public.A_Vigencia.acumulado
-        for (id in acumulados) {
-            const tr = newE("tr", "tr" + id, "")
+        byE("col_tabla_vigencias").innerHTML=""
+        byE("col_tabla_vigencias").appendChild(make_tabla(data_public.A_Vigencia.acumulado, "Vigencia", "vigencia"))
 
-            const td_vig = newE("td", "td_vig", "fw-bold")
-            td_vig.textContent = acumulados[id].vigencia
-            tr.appendChild(td_vig)
-
-            const td_casos = newE("td", "td_casos", "fw_normal text-end")
-            td_casos.textContent = parseInt(acumulados[id].casos) + 1
-            tr.appendChild(td_casos)
-
-            const td_victimas = newE("td", "td_victimas", "fw_normal text-end")
-            td_victimas.textContent = acumulados[id].victimas
-            tr.appendChild(td_victimas)
-
-
-            tbody_vigencias.appendChild(tr)
-
-        }
 
         //Constuimos la información sobre departamentos
         byE("text_departamentos").innerHTML = data_public.A_Departamento.text
-        const tbody_departamentos = byE("tbody_departamentos")
-        const acumulados_dep = data_public.A_Departamento.acumulado
-        for (id in acumulados_dep) {
-            const tr = newE("tr", "tr_dep" + id, "")
+        byE("col_tabla_departamentos").innerHTML=""
+        byE("col_tabla_departamentos").appendChild(make_tabla(data_public.A_Departamento.acumulado, "Vigencia", "departamento"))
 
-            const td_vig = newE("td", "td_vig_dep" + id, "fw-bold")
-            td_vig.textContent = acumulados_dep[id].departamento
-            tr.appendChild(td_vig)
-
-            const td_casos = newE("td", "td_casos_dep" + id, "fw_normal text-end")
-            td_casos.textContent = parseInt(acumulados_dep[id].casos) + 1
-            tr.appendChild(td_casos)
-
-            const td_victimas = newE("td", "td_victimas" + id, "fw_normal text-end")
-            td_victimas.textContent = acumulados_dep[id].victimas
-            tr.appendChild(td_victimas)
-
-
-            tbody_departamentos.appendChild(tr)
-
-        }
-
+        //Constuimos la información sobre departamentos
+        byE("text_lugares").innerHTML = data_public.A_Lugares.text
+        byE("col_tabla_lugares").innerHTML=""
+        byE("col_tabla_lugares").appendChild(make_tabla(data_public.A_Lugares.acumulado, "Vigencia", "municipio"))
 
         byE("lb_corte").textContent = "Fecha de actualización: " + data_public.corte
     } catch (error) {
@@ -227,6 +255,123 @@ function opendata() {
         byE("panel_escritorio").textContent = "En conexión"
     }
 }
+function make_tabla(data, categoria, campo) {
+    const newTable = newE("table", "table" + categoria, "table table-public table-striped table-hover")
+    const newTHead = newE("thead", "newTHead" + categoria, "text-white bg-secondary")
+    newTable.appendChild(newTHead)
+
+    const newtrHead = newE("tr", "newtrHead" + categoria, "")
+    newTHead.appendChild(newtrHead)
+
+    const newth_categoria = newE("th", "newth_categoria" + categoria, "")
+    newth_categoria.textContent = categoria
+    newtrHead.appendChild(newth_categoria)
+
+    const newth_casos = newE("th", "newth_casos" + categoria, "")
+    newtrHead.appendChild(newth_casos)
+
+    const menu_casos = newE("div", "menu_casos" + categoria, "dropdown")
+    newth_casos.appendChild(menu_casos)
+    const btnmenu_casos = newE("button", "btnmenu_casos" + categoria, "btn btn-white dropdown-toggle")
+    btnmenu_casos.type = "button"
+    btnmenu_casos.setAttribute("data-bs-toggle", "dropdown")
+    btnmenu_casos.textContent = "Casos"
+    menu_casos.appendChild(btnmenu_casos)
+
+    const ul_casos = newE("ul", "ul_casos" + categoria, "dropdown-menu")
+    menu_casos.appendChild(ul_casos)
+
+    const op_AZ = newE("div", "op_AZ" + categoria, "item-menu ms-3")
+    op_AZ.textContent = "A-Z"
+    ul_casos.appendChild(op_AZ)
+    op_AZ.onclick = () => {
+        _make_files(sort_data("ZA", data, "casos"))
+    }
+
+    const op_ZA = newE("div", "op_ZA" + categoria, "item-menu ms-3")
+    op_ZA.textContent = "Z-A"
+    ul_casos.appendChild(op_ZA)
+    op_ZA.onclick = () => {
+        _make_files(sort_data("AZ", data, "casos"))
+    }
+
+
+    const newth_victimas = newE("th", "newth_victimas" + categoria, "")
+    newtrHead.appendChild(newth_victimas)
+
+    const menu_victimas = newE("div", "menu_victimas" + categoria, "dropdown")
+    newth_victimas.appendChild(menu_victimas)
+    const btnmenu_victimas = newE("button", "btnmenu_victimas" + categoria, "btn btn-white dropdown-toggle")
+    btnmenu_victimas.type = "button"
+    btnmenu_victimas.setAttribute("data-bs-toggle", "dropdown")
+    btnmenu_victimas.textContent = "Víctimas"
+    menu_victimas.appendChild(btnmenu_victimas)
+
+    const ul_victimas = newE("ul", "ul_victimas" + categoria, "dropdown-menu")
+    menu_victimas.appendChild(ul_victimas)
+
+    const op_AZ_victimas = newE("div", "op_AZ_victimas" + categoria, "item-menu ms-3")
+    op_AZ_victimas.textContent = "A-Z"
+    ul_victimas.appendChild(op_AZ_victimas)
+    op_AZ_victimas.onclick = () => {
+        _make_files(sort_data("ZA", data, "victimas"))
+    }
+
+    const op_ZA_victimas = newE("div", "op_ZA_victimas" + categoria, "item-menu ms-3")
+    op_ZA_victimas.textContent = "Z-A"
+    ul_victimas.appendChild(op_ZA_victimas)
+    op_ZA_victimas.onclick = () => {
+        _make_files(sort_data("AZ", data, "victimas"))
+    }
+
+    const newtBody = newE("tbody", "newtBody" + categoria, "table-group-divider")
+    newTable.appendChild(newtBody)
+
+    _make_files(data)
+
+    function _make_files(data) {
+        newtBody.innerHTML = ""
+        for (id in data) {
+            const tr = newE("tr", "tr_dep" + id, "")
+            const td_cat = newE("td", "td_categoria" + categoria + id, "fw-bold")
+            td_cat.textContent = data[id][campo]
+            tr.appendChild(td_cat)
+
+            const td_casos = newE("td", "td_casos_" + categoria + id, "fw_normal text-end")
+            td_casos.textContent = parseInt(data[id].casos) + 1
+            tr.appendChild(td_casos)
+
+            const td_victimas = newE("td", "td_victimas" + id, "fw_normal text-end")
+            td_victimas.textContent = data[id].victimas
+            tr.appendChild(td_victimas)
+
+            newtBody.appendChild(tr)
+
+        }
+    }
+
+
+
+
+    return newTable
+
+
+}
+
 function save_public_data() {
     const id = GLOBAL.firestore.updatePublico(GLOBAL.state.publicos[1])
+}
+
+function sort_data(orden, data, campo) {
+    const data_sort_ini = data
+    let sortedDataArray
+
+    const DataArray = Object.entries(data_sort_ini).map(([key, value]) => ({ ...value, key: key }))
+    if (orden == "AZ") {
+        sortedDataArray = DataArray.sort((a, b) => b[campo] - a[campo])
+    } else {
+        sortedDataArray = DataArray.sort((a, b) => a[campo] - b[campo])
+    }
+    return sortedDataArray
+
 }
