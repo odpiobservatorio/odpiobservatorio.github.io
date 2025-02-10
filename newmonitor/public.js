@@ -216,7 +216,6 @@ function load_info_public() {
 
 
 
-
     template_public.corte = `${dia}/${mes}/${vig}`
 
 
