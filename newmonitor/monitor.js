@@ -1654,7 +1654,6 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         }
 
 
-
         //============================================================
         //Borra elementos que están dentro de una subclase del registro
         function delete_item(clase, campo, valor) {
