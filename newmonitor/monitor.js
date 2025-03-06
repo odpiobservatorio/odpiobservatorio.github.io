@@ -3081,5 +3081,4 @@ function GuardarDatos(data_activo, vigencia) {
     //Pasamos lo editado a la variable global
     GLOBAL.state.vigencias[data_activo] = vigencia
     const id = GLOBAL.firestore.updateVigencia(GLOBAL.state.vigencias[data_activo])
-    load_info_public()
 }
