@@ -750,14 +750,14 @@ function ver_calor_dep_victimas(value, id) {
                     "valor": 1,
                     "porcentajeT": "0%",
                     "porcentajeV": 0,
-                    "victimas": casoItem[caso].npersonas,
+                    "victimas": parseInt(casoItem[caso].npersonas),
                 }
             } else {
                 const cont = consolidados[casoItem[caso].departamento.toLowerCase()].valor + 1
                 consolidados[casoItem[caso].departamento.toLowerCase()].valor = cont
-                consolidados[casoItem[caso].departamento.toLowerCase()].victimas = consolidados[casoItem[caso].departamento.toLowerCase()].victimas + casoItem[caso].npersonas
+                consolidados[casoItem[caso].departamento.toLowerCase()].victimas = parseInt(consolidados[casoItem[caso].departamento.toLowerCase()].victimas) + parseInt(casoItem[caso].npersonas)
             }
-            nCasos = nCasos + casoItem[caso].npersonas
+            nCasos = nCasos + parseInt(casoItem[caso].npersonas)
         }
 
         //Ahora comparamos ese valor frente al valor tototal
