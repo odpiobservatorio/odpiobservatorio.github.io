@@ -22,7 +22,6 @@ function openIni() {
     load_info_public()
 }
 function run_casos(ind_vigencia=-1, ind_registro=-1) {
-
     const contenedor = byE("panel_escritorio")
     contenedor.innerHTML = ""
 
@@ -54,7 +53,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         last_vigencia=ind_vigencia
     }
 
-    //Este es el cotador de registros visual
+    //Este es el contador de registros visual
     const col_pos_registros = newE("div", "col_pos_registros", "col-md-6 text-white fs-5 pb-2")
     col_pos_registros.textContent = "Sin registros"
     row0.appendChild(col_pos_registros)
@@ -1667,8 +1666,10 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
             template_caso.vigencia = vig
 
             data.clsCasos.push(template_caso)
-            GuardarDatos(data_activo, vigencia)
+
+            
             _contador_registros(vigencia,data.length -1)
+            GuardarDatos(data_activo, vigencia)
         }
         //============================================================
         //Se borra la totalidad del caso
