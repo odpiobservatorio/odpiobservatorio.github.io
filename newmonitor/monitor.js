@@ -25,17 +25,17 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
     const contenedor = byE("panel_escritorio")
     contenedor.innerHTML = ""
 
-    const row0 = newE("div", "row0", "row bg-secondary ms-2 align-items-center")
+    const row0 = newEk("div", "row bg-secondary ms-2 align-items-center")
     contenedor.appendChild(row0)
-    const col_vigencias = newE("div", "col1", "col-md-6")
+    const col_vigencias = newEk("div", "col-md-6")
     row0.appendChild(col_vigencias)
 
     //Creamos un selector de vigencias
-    const titulo = newE("small", "titulo_vigencias", "fw-bold mb-2 text-white")
+    const titulo = newEk("small", "fw-bold mb-2 text-white")
     titulo.textContent = "Vigencias"
     col_vigencias.appendChild(titulo)
 
-    const selVigencias = newE("select", "selVigencias", "form-control mb-3")
+    const selVigencias = newEk("select", "form-control mb-3")
     col_vigencias.appendChild(selVigencias)
     //Ahora agregamos las vigencias
     let last_vigencia; //Guarda el índice de la última vigencia en la lista
@@ -60,7 +60,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
 
 
     //Crear la barra de botones del módulo
-    const row_botones = newE("div", "row0", "row bg-secondary ms-2 align-items-center pb-2 sticky-top")
+    const row_botones = newEk("div", "row bg-secondary ms-2 align-items-center pb-2 sticky-top")
     contenedor.appendChild(row_botones)
     const bar_botones = newE("div", "barra_botones", "btn-group", "300px")
     bar_botones.role = "group"
@@ -118,15 +118,15 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
     btnFiltrar.textContent = "Filtrar"
     divbtnFiltrar.appendChild(btnFiltrar)
 
-    const ulFiltrar = newE("ul", "ulFiltrar", "dropdown-menu p-2")
+    const ulFiltrar = newEk("ul", "dropdown-menu p-2")
     ulFiltrar.style.width="300px"
     divbtnFiltrar.appendChild(ulFiltrar)
 
-    const sm_clase = newE("small", "sm_clase", "fw-bold")
+    const sm_clase = newEk("small", "fw-bold")
     sm_clase.textContent = "Campo"
     ulFiltrar.appendChild(sm_clase)
 
-    const sel_clase = newE("select", "sel_clase", "form-control")
+    const sel_clase = newEk("select", "form-control")
     ulFiltrar.appendChild(sel_clase)
     //Cargamos las listas de clases en este selector
     list_clases.forEach(ele => {
@@ -145,13 +145,13 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
     ulFiltrar.appendChild(sel_operador)
 
     list_opearadores.forEach(ele => {
-        const item = newE("option", ele.label, "")
+        const item = newEk("option", "")
         item.textContent = ele.label
         item.value = ele.operador
         sel_operador.appendChild(item)
     })
 
-    const sm_valor = newE("small", "sm_valor", "fw-bold")
+    const sm_valor = newEk("small",  "fw-bold")
     sm_valor.textContent = "Valor"
     ulFiltrar.appendChild(sm_valor)
 
@@ -950,7 +950,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 smnombres.textContent = "Nombres"
                 div_persona.appendChild(smnombres)
 
-                const int_nombres = newE("input", "int_nombres", "form-coltrol m-1")
+                const int_nombres = newEk("input", "form-coltrol m-1")
                 //int_nombres.style.display="block"
                 //int_nombres.style.width="300px"
                 int_nombres.type = "text"
@@ -968,7 +968,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 //smdocumento.style.display="block"
                 div_persona.appendChild(smdocumento)
 
-                const int_documento = newE("input", "int_documento", "form-coltrol m-1")
+                const int_documento = newEk("input", "form-coltrol m-1")
                 //int_documento.style.width="300px"
                 int_documento.type = "text"
                 div_persona.appendChild(int_documento)
@@ -983,7 +983,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 //smdocumento.style.display="block"
                 div_persona.appendChild(smgenero)
 
-                const int_genero = newE("select", "int_genero", "form-coltrol m-1")
+                const int_genero = newEk("select", "form-coltrol m-1")
 
                 const generos = ["Hombre", "Mujer", "LGBTI", "Otro", "Sin determinar"]
 
@@ -1009,7 +1009,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 //smdocumento.style.display="block"
                 div_persona.appendChild(smedad)
 
-                const int_edad = newE("input", "int_edad", "form-coltrol m-1")
+                const int_edad = newEk("input","form-coltrol m-1")
                 //int_documento.style.width="300px"
                 int_edad.type = "number"
                 div_persona.appendChild(int_edad)
@@ -1024,7 +1024,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 //smdocumento.style.display="block"
                 div_persona.appendChild(smcargo)
 
-                const int_cargo = newE("input", "int_cargo", "form-coltrol m-1")
+                const int_cargo = newEk("input",  "form-coltrol m-1")
                 //int_documento.style.width="300px"
                 int_cargo.type = "text"
                 div_persona.appendChild(int_cargo)

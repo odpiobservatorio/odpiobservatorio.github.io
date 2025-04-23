@@ -166,3 +166,19 @@ const modal = {
         btn.onclick = comando
     }
 }
+function randomKey(len, arr) {
+    let ans = '';
+    for (let i = len; i > 0; i--) {
+        ans +=
+            arr[(Math.floor(Math.random() * arr.length))];
+    }
+    return (ans);
+}
+let newEk = (elemento, clase, text, id = randomKey(10, '12345abcde'), ancho) => {
+    const el = document.createElement(elemento)
+    el.id = id
+    el.className = clase
+    el.style.width = ancho
+    el.textContent = text
+    return el
+}

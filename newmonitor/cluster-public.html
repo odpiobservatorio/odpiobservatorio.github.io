@@ -21,13 +21,27 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.path.drag@0.0.6/src/Path.Drag.min.js"></script>
+
+
+
     <link rel="stylesheet" href="./style.css">
 
     <script defer src="./acces-data.js" type="module"></script>
     <script src="./global.js"></script>
     <script src="./public.js"></script>
+    <script src="../GIS/newLayers/001tablero.js"></script>
+
+    <script src="../GIS/newLayers/002basemap.js"></script>
+    <script src="../GIS/newLayers/003departamentos.js"></script>
 
 </head>
+
 <header>
     <div class="row h2 p-2 fw-bold text-white bg-secondary">
         <div class="col-auto">
@@ -99,13 +113,11 @@
                         <div class="col-md-6" id="col_tabla_lugares">
                         </div>
 
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div class="row align-items-center bg-secondary">
         <div class="col-md-6 text-center">
@@ -115,6 +127,34 @@
         <div class="col-md-6 text-center">
             <div id="nCasosHoy" style="font-size: 50pt; font-weight: bold; color: white;">#</div>
             <div id="lb_victimas_hoy" class="mb-3 text-white">Casos 2025</div>
+        </div>
+    </div>
+    <div id="titulo-vigente" class="mt-2 h3 text-center text-secondary">Micro Informe año</div>
+    <hr>
+    <div id="map"></div>
+    <div class="accordion">
+        <div class="accordion-item">
+
+            <h2 class="accordion-header" onclick="changeLabel2()">
+                <button id="btnCollaseVig" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseVig" aria-expanded="false" aria-controls="collapseTwo">Ver más +
+                </button>
+            </h2>
+
+
+            <div id="collapseVig" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-auto"></div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col-auto"></div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
     <div class="row align-items-center" style="background-color: #bdc3c7;">
@@ -129,6 +169,14 @@
     }
     function changeLabel1() {
         const texto1 = document.getElementById("btnCollaseAcu")
+        if (texto1.textContent.trim() == "Ver más +") {
+            texto1.textContent = "Ver ménos -"
+        } else {
+            texto1.textContent = "Ver más +"
+        }
+    }
+    function changeLabel2() {
+        const texto1 = document.getElementById("btnCollaseVig")
         if (texto1.textContent.trim() == "Ver más +") {
             texto1.textContent = "Ver ménos -"
         } else {
