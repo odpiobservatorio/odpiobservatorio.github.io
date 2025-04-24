@@ -37,7 +37,11 @@ function load_info_public() {
         },
         "microInformeHoy": {
             "SIG": [],
-            "calor-dep": []
+            "calor-dep": [],
+            "macro-tipos": {
+                "data": [],
+                "lista": []
+            }
         }
     }
 
@@ -49,15 +53,22 @@ function load_info_public() {
     let List_Vigencias = []
     let Data_vigencias = {}
     let List_Departamentos = []
-    let Data_Departamentos = {}
+    let Data_Departamentos = []
+
     let List_Lugares = []
-    let Data_Lugares = {}
+    let Data_Lugares = []
 
     let Lugares_hoy_temp = []
     let Lugares_hoy = []
 
+
+
     let dep_hoy_temp = []
     let dep_hoy = []
+
+    let macro_tipos_tempH = []
+    let macro_tipos_list = []
+    let macro_tiposH = []
 
     for (id in split_Data) {
         const vigencia = split_Data[id]
@@ -69,6 +80,7 @@ function load_info_public() {
             if (caso.vigencia == vig) {
                 nCasosHoy++
                 nVictimasHoy = nVictimasHoy + parseInt(caso.npersonas)
+
 
                 //
                 if (dep_hoy_temp.includes(caso.departamento) == false) {
@@ -86,6 +98,20 @@ function load_info_public() {
                     filtered[0].victimas = parseInt(filtered[0].victimas) + parseInt(caso.npersonas)
                 }
 
+                if (macro_tipos_tempH.includes(caso.macrotipo) == false) {
+                    const tipo = {
+                        "macrotipo": caso.macrotipo,
+                        "casos": 1,
+                        "victimas": parseInt(caso.npersonas)
+                    }
+                    macro_tipos_list.push(tipo)
+                    macro_tipos_tempH.push(caso.macrotipo)
+                } else {
+                    const filtered = macro_tipos_list.filter(ele => ele.macrotipo == caso.macrotipo)
+                    filtered[0].casos = filtered[0].casos + 1
+                    filtered[0].victimas = filtered[0].victimas + parseInt(caso.npersonas)
+                }
+
                 caso.clsLugares.forEach(l => {
                     if (Lugares_hoy_temp.includes(l.municipio) == false) {
                         const lugar = {
@@ -99,13 +125,22 @@ function load_info_public() {
                         Lugares_hoy_temp.push(l.municipio)
                         Lugares_hoy.push(lugar)
                     } else {
-
                         const filtered = Lugares_hoy.filter(ele => ele.municipio == l.municipio)
                         filtered[0].casos = filtered[0].casos + 1
                         filtered[0].victimas = filtered[0].victimas + parseInt(caso.npersonas)
                     }
 
+                    //Macrotipos
+                    const lugar = {
+                        "departamento": caso.departamento,
+                        "municipio": l.municipio,
+                        "macrotipo": caso.macrotipo,
+                        "lat": l.lat,
+                        "lng": l.lng,
+                    }
+                    macro_tiposH.push(lugar)
                 })
+
             }
             //Verifica si hay una vigencia en la lista de vigencias
             if (List_Vigencias.includes(caso.vigencia) != true) {
@@ -140,6 +175,10 @@ function load_info_public() {
             })
         });
     }
+
+    //Actualizar macrotipos
+    template_public.microInformeHoy["macro-tipos"]["data"] = macro_tiposH
+    template_public.microInformeHoy["macro-tipos"]["lista"] = macro_tipos_list
 
     //Actualizar lugares
     template_public.microInformeHoy.SIG = Lugares_hoy
@@ -491,7 +530,6 @@ function make_microinforme_hoy(data) {
     let menor_porcentaje = 1
     //Colocamos departamentos y mapa calor
 
-    
     const depar = L.geoJSON(layer_departamentos, {
         style: function (feature) {
             const dep = feature.properties.DPTO_CNMBR.toLowerCase()
@@ -506,14 +544,13 @@ function make_microinforme_hoy(data) {
                 if (porcentaje < menor_porcentaje) {
                     menor_porcentaje = porcentaje
                 }
-
             }
             return {
                 fillColor: "#5dade2",
                 color: "#212f3d",
                 fillOpacity: porcentaje.toFixed(1),
-                opacity: 0.5,
-                weight: 0.6,
+                opacity: 1,
+                weight: 1,
                 pane: "2"
             };
         }
@@ -539,7 +576,7 @@ function make_microinforme_hoy(data) {
         if (filtered.length != 0) {
             const row_victimas = newEk("div", "row")
             div_info.appendChild(row_victimas)
-    
+
             const col_victimas = newEk("div", "col-6 fw-bold", "Victimas:")
             row_victimas.appendChild(col_victimas)
 
@@ -552,7 +589,7 @@ function make_microinforme_hoy(data) {
             const col_casosP = newEk("div", "col-6 fw-bold", "Porcentaje:")
             row_porcentaje.appendChild(col_casosP)
 
-            const prt=filtered[0].porcentaje * 100 
+            const prt = filtered[0].porcentaje * 100
 
             const col_casos_nombreP = newEk("div", "col", prt + "%")
             row_porcentaje.appendChild(col_casos_nombreP)
@@ -570,11 +607,8 @@ function make_microinforme_hoy(data) {
 
         }
 
-
-
         return div_info
     }, { pane: "labels" }).addTo(map);
-
 
     //Colocamos los puntos
     let marcas = []
@@ -679,7 +713,7 @@ function make_microinforme_hoy(data) {
                 div_panel.appendChild(row_dep)
 
                 const col_dep_icono = newEk("div", "col-auto bi bi-square panel-map-marca")
-                col_dep_icono.style.color = "#5dade2"
+                col_dep_icono.style.color = "#212f3d"
                 row_dep.appendChild(col_dep_icono)
 
                 const col_dep_label = newEk("div", "col", "Departamento")
@@ -720,6 +754,24 @@ function make_microinforme_hoy(data) {
                 const col_depVicM_label = newEk("div", "col", "Menor número de victimas")
                 row_depM_victimas.appendChild(col_depVicM_label)
 
+                const hr = newEk("hr", "")
+                div_panel.appendChild(hr)
+
+                const row_clear = newEk("div", "row mt-2 ms-1 align-items-center")
+                div_panel.appendChild(row_clear)
+
+                const col_clear_icono = newEk("div", "col-auto bi-trash3")
+                //col_clear_icono.style.color = "#d22c84"
+                row_clear.appendChild(col_clear_icono)
+
+                const col_clear_label = newEk("div", "col panel-map-marca", "Limpiar marcas")
+                row_clear.appendChild(col_clear_label)
+
+                col_clear_label.onclick = () => {
+                    _borrar_otras_marcas()
+                }
+
+
 
 
 
@@ -738,27 +790,76 @@ function make_microinforme_hoy(data) {
             return new L.Control.Watermark(opts);
         }
         L.control.watermark({ position: 'bottomleft' }).addTo(map);
+
+        function _borrar_otras_marcas() {
+            marcas_tipo.forEach(m => {
+                map.removeLayer(m)
+            })
+            marcas_tipo = []
+        }
     }
 
-    //_make_panel_B()
+    _make_panel_B()
+    let marcas_tipo = []
     function _make_panel_B() {
+        const ColorLayer_list = [
+            "#00FFFF", "#7FFFD4", "#D2691E",
+            "#0000FF", "#8A2BE2", "#A52A2A", "#DEB887", "#5F9EA0", "#7FFF00", "#D2691E",
+            "#FF7F50", "#6495ED", "#DC143C", "#00FFFF", "#00008B", "#008B8B",
+            "#B8860B", "#006400", "#A9A9A9", "#BDB76B", "#8B008B", "#556B2F", "#FF8C00",
+            "#9932CC", "#8B0000", "#E9967A", "#8FBC8F", "#483D8B", "#2F4F4F", "#00CED1",
+            "#FF1493", "#00BFFF", "#696969", "#1E90FF", "#B22222", "#FFFAF0", "#228B22",
+            "#FF00FF", "#FFD700", "#DAA520", "#ADFF2F", "#F0FFF0", "#FF69B4", "#CD5C5C",
+            "#4B0082", "#F0E68C", "#90EE90", "#FFB6C1", "#FFA500", "#FF4500", "#FF0000",
+            "#8B4513", "#FFFF00", "#FF6347", "#40E0D0", "#00FF7F"
+        ]
+
         L.Control.Watermark = L.Control.extend({
             onAdd: function (map) {
-                const div_panel = newEk("div", "shadow panel-map")
-
-
-                const sm1 = newEk("small", "fw-bold text-secondary ms-1", "Información")
-                //div_panel.appendChild(sm1)
+                const div_panel = newEk("div", "shadow panel-map-lg")
 
                 const row_marcas = newEk("div", "row mt-2 ms-1 align-items-center")
                 div_panel.appendChild(row_marcas)
 
-                const col_marcas_icono = newEk("div", "col-auto bi bi-circle-fill")
-                col_marcas_icono.style.color = "#d22c84"
+                const col_marcas_icono = newEk("div", "col-auto bi bi-circle-fill panel-map-marca")
+                col_marcas_icono.style.color = "whitesmoke"
                 row_marcas.appendChild(col_marcas_icono)
 
-                const col_marcas_label = newEk("div", "col", "Lugar de afectación")
+                const col_marcas_label = newEk("div", "col fw-bold", "Macrotipo")
                 row_marcas.appendChild(col_marcas_label)
+
+                const col_marcas_valor = newEk("div", "col-auto fw-bold", "Víc")
+                row_marcas.appendChild(col_marcas_valor)
+
+                const sort_lista = data["macro-tipos"].lista.sort(function (a, b) {
+                    return a["macrotipo"].localeCompare(b["macrotipo"]);
+                    //return b["ocurrencias"] - a["ocurrencias"];
+                });
+
+                let color = 0
+
+                sort_lista.forEach(m => {
+                    const row_marcas = newEk("div", "row mt-2 ms-1 align-items-center")
+                    div_panel.appendChild(row_marcas)
+
+                    const col_marcas_icono = newEk("div", "col-auto bi bi-circle-fill panel-map-marca")
+                    col_marcas_icono.style.color = ColorLayer_list[color]
+
+                    row_marcas.appendChild(col_marcas_icono)
+
+                    col_marcas_icono.onclick = () => {
+                        _make_macroTipo(m.macrotipo, col_marcas_icono.style.color)
+                        //console.log(col_marcas_icono.style.color)
+                    }
+
+                    const col_marcas_label = newEk("div", "col", m.macrotipo)
+                    row_marcas.appendChild(col_marcas_label)
+
+                    const col_marcas_valor = newEk("div", "col-auto", m.victimas)
+                    row_marcas.appendChild(col_marcas_valor)
+
+                    color++
+                })
 
                 var div = L.DomUtil.create('div');
                 div.appendChild(div_panel)
@@ -775,16 +876,79 @@ function make_microinforme_hoy(data) {
             return new L.Control.Watermark(opts);
         }
         L.control.watermark({ position: 'bottomright' }).addTo(map);
+
+        function _make_macroTipo(criterio, color_marca) {
+            //Verifico si ya hay este criterio en el mapa
+            let filtered_del = marcas_tipo.filter(ele => ele.tipo == criterio)
+            
+            if(filtered_del.length!=0){
+                //Si se encuentra en el mapa este tipo, entonces
+                //lo busco y lo elimino tanto del mapa como de la lista
+                for (i in marcas_tipo){
+                    let m=i
+                    if(marcas_tipo[i].tipo==criterio){                      
+                        map.removeLayer(marcas_tipo[i])
+                        delete marcas_tipo[m]
+                    }
+                }
+            }else{
+                _make_criterio()
+            }
+                    
+            function _make_criterio() {
+                let filtered_tipos = data["macro-tipos"]["data"].filter(ele => ele.macrotipo == criterio)
+                filtered_tipos.forEach(p => {
+                    let circle_tipo = new L.circleMarker([p.lat, p.lng],
+                        {
+                            color: "black",
+                            fillColor: `${color_marca}`,
+                            fillOpacity: 0.5,
+                            weight: 2,
+                            radius: 9,
+                            pane: "4",
+                            tipo: p.macrotipo
+                        }).bindPopup(function (layer) {
+                            const div_info = newEk("div", "")
+                            div_info.style.width = "250px"
+
+                            const row_dep = newEk("div", "row")
+                            div_info.appendChild(row_dep)
+
+                            const col_dep = newEk("div", "col-6 fw-bold", "Departamento:")
+                            row_dep.appendChild(col_dep)
+
+                            const col_dep_nombre = newEk("div", "col", p.departamento)
+                            row_dep.appendChild(col_dep_nombre)
+
+                            const row_lug = newEk("div", "row")
+                            div_info.appendChild(row_lug)
+
+                            const col_lug = newEk("div", "col-6 fw-bold", "Lugar:")
+                            row_lug.appendChild(col_lug)
+
+                            const col_lug_nombre = newEk("div", "col", p.municipio)
+                            row_lug.appendChild(col_lug_nombre)
+
+                            const row_tipo = newEk("div", "row")
+                            div_info.appendChild(row_tipo)
+
+                            const col_tipo = newEk("div", "col-6 fw-bold", "Macrotipo:")
+                            row_tipo.appendChild(col_tipo)
+
+                            const col_tipo_nombre = newEk("div", "col", p.macrotipo)
+                            row_tipo.appendChild(col_tipo_nombre)
+
+                            return div_info;
+                        }, { pane: "labels" })
+
+                    circle_tipo["tipo"] = criterio
+                    map.addLayer(circle_tipo)
+                    marcas_tipo.push(circle_tipo)
+                })
+            }
+        }
+
     }
-
-
-
-
-
-
-
-
-
 
 }
 

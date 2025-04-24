@@ -170,8 +170,23 @@ table {
   margin-bottom: 5px;
   font-size: 10pt;
   width: 250px;
-  height: 130px;
 
+
+}
+
+.panel-map-lg{
+  border-radius: 5px;
+  background-color: whitesmoke;
+  padding-right: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 9px;
+  margin-right: 4px;
+  font-size: 9pt;
+  width: 280px;
+  max-height: 500px;
+  margin-bottom: 10px;
+  overflow-y: auto; /* Show vertical scrollbar */ 
+  overflow-x:hidden
 }
 .panel-map-marca{
   cursor: pointer;
