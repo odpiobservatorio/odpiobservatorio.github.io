@@ -825,8 +825,23 @@ function make_microinforme_hoy(data) {
                 col_marcas_icono.style.color = "whitesmoke"
                 row_marcas.appendChild(col_marcas_icono)
 
-                const col_marcas_label = newEk("div", "col fw-bold", "Macrotipo")
+                const col_marcas_label = newEk("div", "col fw-bold")
                 row_marcas.appendChild(col_marcas_label)
+
+                const int_clase = newEk("select", "input-flat-control")
+                col_marcas_label.appendChild(int_clase)
+
+
+                const clases=["Macro tipo","Macro actor"]
+
+                clases.forEach(c=>{
+                    const option = newEk("option", "")
+                    option.value=c
+                    option.textContent=c
+                    int_clase.appendChild(option)
+
+                })
+                int_clase.value="Macro tipo"
 
                 const col_marcas_valor = newEk("div", "col-auto fw-bold", "Víc")
                 row_marcas.appendChild(col_marcas_valor)
@@ -836,30 +851,45 @@ function make_microinforme_hoy(data) {
                     //return b["ocurrencias"] - a["ocurrencias"];
                 });
 
-                let color = 0
+                const div_marcas = newEk("div", "")
+                div_panel.appendChild(div_marcas)
 
-                sort_lista.forEach(m => {
-                    const row_marcas = newEk("div", "row mt-2 ms-1 align-items-center")
-                    div_panel.appendChild(row_marcas)
-
-                    const col_marcas_icono = newEk("div", "col-auto bi bi-circle-fill panel-map-marca")
-                    col_marcas_icono.style.color = ColorLayer_list[color]
-
-                    row_marcas.appendChild(col_marcas_icono)
-
-                    col_marcas_icono.onclick = () => {
-                        _make_macroTipo(m.macrotipo, col_marcas_icono.style.color)
-                        //console.log(col_marcas_icono.style.color)
+                int_clase.onchange=()=>{
+                    div_marcas.innerHTML=""
+                    if(int_clase.value=="Macro tipo"){
+                        _list_tipo()
                     }
 
-                    const col_marcas_label = newEk("div", "col", m.macrotipo)
-                    row_marcas.appendChild(col_marcas_label)
+                }
 
-                    const col_marcas_valor = newEk("div", "col-auto", m.victimas)
-                    row_marcas.appendChild(col_marcas_valor)
+                let color = 0
 
-                    color++
-                })
+                _list_tipo()
+                function _list_tipo(){
+                    sort_lista.forEach(m => {
+                        const row_marcas = newEk("div", "row mt-2 ms-1 align-items-center")
+                        div_marcas.appendChild(row_marcas)
+    
+                        const col_marcas_icono = newEk("div", "col-auto bi bi-circle-fill panel-map-marca")
+                        col_marcas_icono.style.color = ColorLayer_list[color]
+    
+                        row_marcas.appendChild(col_marcas_icono)
+    
+                        col_marcas_icono.onclick = () => {
+                            _make_macroTipo(m.macrotipo, col_marcas_icono.style.color)
+                            //console.log(col_marcas_icono.style.color)
+                        }
+    
+                        const col_marcas_label = newEk("div", "col", m.macrotipo)
+                        row_marcas.appendChild(col_marcas_label)
+    
+                        const col_marcas_valor = newEk("div", "col-auto", m.victimas)
+                        row_marcas.appendChild(col_marcas_valor)
+    
+                        color++
+                    })
+                }
+
 
                 var div = L.DomUtil.create('div');
                 div.appendChild(div_panel)
@@ -902,7 +932,7 @@ function make_microinforme_hoy(data) {
                         {
                             color: "black",
                             fillColor: `${color_marca}`,
-                            fillOpacity: 0.5,
+                            fillOpacity: 0.8,
                             weight: 2,
                             radius: 9,
                             pane: "4",
