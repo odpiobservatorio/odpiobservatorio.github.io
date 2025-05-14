@@ -21,7 +21,7 @@ function openIni() {
     split_Data = GLOBAL.state.vigencias
     load_info_public()
 }
-function run_casos(ind_vigencia=-1, ind_registro=-1) {
+function run_casos(ind_vigencia = -1, ind_registro = -1) {
     const contenedor = byE("panel_escritorio")
     contenedor.innerHTML = ""
 
@@ -49,8 +49,8 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         contador++
     })
 
-    if (ind_vigencia!==-1){
-        last_vigencia=ind_vigencia
+    if (ind_vigencia !== -1) {
+        last_vigencia = ind_vigencia
     }
 
     //Este es el contador de registros visual
@@ -65,6 +65,39 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
     const bar_botones = newE("div", "barra_botones", "btn-group", "300px")
     bar_botones.role = "group"
     row_botones.appendChild(bar_botones)
+
+
+    const btn_Exportar = newE("div", "btn_Exportar", "btn btn-secondary")
+    btn_Exportar.type = "button"
+    bar_botones.appendChild(btn_Exportar)
+
+    const i_Exportar = newE("i", "i_Exportar", "bi bi-download fs-5")
+    btn_Exportar.appendChild(i_Exportar)
+
+    btn_Exportar.onclick = () => {
+        guardarODPI(split_Data,"data_odpi","json")
+        function guardarODPI(objeto, nombreBase = 'archivo', extension = 'txt') {
+            // Obtener fecha en formato YYYY-MM-DD
+            const fecha = new Date().toISOString().slice(0, 10);
+
+            // Construir nombre del archivo: nombreBase_YYYY-MM-DD.txt (o .json)
+            const nombreArchivo = `${nombreBase}_${fecha}.${extension}`;
+
+            // Convertir el objeto a JSON con formato legible
+            const contenido = JSON.stringify(objeto, null, 2);
+            const blob = new Blob([contenido], { type: 'text/plain;charset=utf-8' });
+
+            // Crear y activar enlace de descarga
+            const enlace = document.createElement('a');
+            enlace.href = URL.createObjectURL(blob);
+            enlace.download = nombreArchivo;
+            document.body.appendChild(enlace);
+            enlace.click();
+            document.body.removeChild(enlace);
+        }
+
+    }
+
 
     const btn_Inicio = newE("div", "btn_Inicio", "btn btn-secondary")
     btn_Inicio.type = "button"
@@ -119,7 +152,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
     divbtnFiltrar.appendChild(btnFiltrar)
 
     const ulFiltrar = newEk("ul", "dropdown-menu p-2")
-    ulFiltrar.style.width="300px"
+    ulFiltrar.style.width = "300px"
     divbtnFiltrar.appendChild(ulFiltrar)
 
     const sm_clase = newEk("small", "fw-bold")
@@ -151,7 +184,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         sel_operador.appendChild(item)
     })
 
-    const sm_valor = newEk("small",  "fw-bold")
+    const sm_valor = newEk("small", "fw-bold")
     sm_valor.textContent = "Valor"
     ulFiltrar.appendChild(sm_valor)
 
@@ -185,7 +218,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
     //Automatiza al iniciar el módulo, colocando en el primer registro de la vigencia y últiam vigencia
     selVigencias.value = last_vigencia //Este dato es numérico de la última vigencia
 
-    
+
     for (id in split_Data[last_vigencia].clsCasos) {
         split_Data[last_vigencia].clsCasos[id].id = parseInt(id)
     }
@@ -193,10 +226,10 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         //Numeramos los registros de esta vigencia
         //Llama a la función que crea todo el registro
         //--------------De la base de datos FB toma según el indx + numero último número
-        if(ind_registro!==-1){
+        if (ind_registro !== -1) {
             _make_registros(split_Data[last_vigencia], ind_registro, last_vigencia)
             _contador_registros(split_Data[last_vigencia], ind_registro)
-        }else{
+        } else {
             _make_registros(split_Data[last_vigencia], 0, last_vigencia)
             _contador_registros(split_Data[last_vigencia], 0)
         }
@@ -337,14 +370,14 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     filtrado = true
                 }
             } else {//En este caso NO es la clase Casos
-                let Data_filter=[];
+                let Data_filter = [];
                 const ver_operador = sel_operador.value.split(",")
                 if (ver_operador[1] == "string") {
                     vigencia.clsCasos.forEach(caso => {
-                    const criterioA = ver_operador[0].replace("VALOR", `'${int_valor.value}'`)
-                    const criterioB = `ele=>ele['${ver_clase[1]}']${criterioA}`
+                        const criterioA = ver_operador[0].replace("VALOR", `'${int_valor.value}'`)
+                        const criterioB = `ele=>ele['${ver_clase[1]}']${criterioA}`
                         const filtered = caso[ver_clase[0]].filter(eval(criterioB))
-                        if(filtered.length!=0){  
+                        if (filtered.length != 0) {
                             Data_filter.push(caso)
                         }
                     })
@@ -361,18 +394,18 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     vigencia.clsCasos.forEach(caso => {
                         const criterioA = ver_operador[0].replace("VALOR", `${parseInt(int_valor.value)}`)
                         const criterioB = `ele=>ele['${ver_clase[1]}']${criterioA}`
-                            const filtered = caso[ver_clase[0]].filter(eval(criterioB))
-                            if(filtered.length!=0){  
-                                Data_filter.push(caso)
-                            }
-                        })
-                        const newData = {
-                            'clsCasos': Data_filter
+                        const filtered = caso[ver_clase[0]].filter(eval(criterioB))
+                        if (filtered.length != 0) {
+                            Data_filter.push(caso)
                         }
-                        _make_registros_filter(vigencia, newData, 0, selVigencias.value)
-                        _contador_registros(newData, 0)
-                        data_filtrado = newData
-                        filtrado = true
+                    })
+                    const newData = {
+                        'clsCasos': Data_filter
+                    }
+                    _make_registros_filter(vigencia, newData, 0, selVigencias.value)
+                    _contador_registros(newData, 0)
+                    data_filtrado = newData
+                    filtrado = true
                 }
             }
 
@@ -1009,7 +1042,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 //smdocumento.style.display="block"
                 div_persona.appendChild(smedad)
 
-                const int_edad = newEk("input","form-coltrol m-1")
+                const int_edad = newEk("input", "form-coltrol m-1")
                 //int_documento.style.width="300px"
                 int_edad.type = "number"
                 div_persona.appendChild(int_edad)
@@ -1024,7 +1057,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 //smdocumento.style.display="block"
                 div_persona.appendChild(smcargo)
 
-                const int_cargo = newEk("input",  "form-coltrol m-1")
+                const int_cargo = newEk("input", "form-coltrol m-1")
                 //int_documento.style.width="300px"
                 int_cargo.type = "text"
                 div_persona.appendChild(int_cargo)
@@ -1181,7 +1214,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 col_desplazamiento.appendChild(row)
 
                 deplazamientos[id].id = id
-                const ind_Desplaz=id
+                const ind_Desplaz = id
 
 
                 const btn_desplazamiento = newE("div", "", "btn-label-gray-long m-1")
@@ -1215,7 +1248,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 })
 
                 sel_tipo.value = deplazamientos[ind_Desplaz].tipo
-                
+
                 sel_tipo.onchange = () => {
                     deplazamientos[ind_Desplaz].tipo = sel_tipo.value
                     btn_desplazamiento.textContent = sel_tipo.value
@@ -1508,7 +1541,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                     sel_tipoMed.appendChild(item)
                 })
 
-                const ind_medidas=id
+                const ind_medidas = id
                 sel_tipoMed.value = medidas[ind_medidas].accion
                 sel_tipoMed.onchange = () => {
                     medidas[ind_medidas].accion = sel_tipoMed.value
@@ -1667,8 +1700,8 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
 
             data.clsCasos.push(template_caso)
 
-            
-            _contador_registros(vigencia,data.length -1)
+
+            _contador_registros(vigencia, data.length - 1)
             GuardarDatos(data_activo, vigencia)
         }
         //============================================================
@@ -2570,7 +2603,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
         row7.appendChild(col_desplazamiento)
         _carga_desplazamientos()
 
-        
+
         function _carga_desplazamientos() {
             col_desplazamiento.innerHTML = ""
             const deplazamientos = vigencia.clsCasos[index].clsDesplazamiento
@@ -2579,7 +2612,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
                 col_desplazamiento.appendChild(row)
 
                 deplazamientos[id].id = id
-                
+
 
 
                 const btn_desplazamiento = newE("div", "", "btn-label-gray-long m-1")
@@ -2836,7 +2869,7 @@ function run_casos(ind_vigencia=-1, ind_registro=-1) {
             )
             GuardarDatos(data_activo, vigencia)
             _carga_desplazamientos()
-            
+
         }
 
         ////////////////////////////////////////////////7
